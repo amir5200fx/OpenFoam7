@@ -1,0 +1,2 @@
+#include <OFstreamCollator.hxx>
+

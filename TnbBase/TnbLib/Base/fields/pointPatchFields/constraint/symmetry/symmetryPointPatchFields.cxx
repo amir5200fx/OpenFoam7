@@ -1,0 +1,2 @@
+#include <symmetryPointPatchFields.hxx>
+

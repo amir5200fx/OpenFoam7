@@ -1,0 +1,1 @@
+#include <wedgePointPatch.hxx>

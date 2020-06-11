@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenFoam7", "OpenFoam7\OpenFoam7.vcxproj", "{C4FDFA07-2832-4DC1-9977-951D7FC1295A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbBase", "TnbBase\TnbBase.vcxproj", "{0EAECC55-7EC6-4414-897B-0156A774C01C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,12 @@ Global
 		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.Release|x64.Build.0 = Release|x64
 		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.Release|x86.ActiveCfg = Release|Win32
 		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.Release|x86.Build.0 = Release|Win32
+		{0EAECC55-7EC6-4414-897B-0156A774C01C}.Debug|x64.ActiveCfg = Debug|x64
+		{0EAECC55-7EC6-4414-897B-0156A774C01C}.Debug|x64.Build.0 = Debug|x64
+		{0EAECC55-7EC6-4414-897B-0156A774C01C}.Debug|x86.ActiveCfg = Debug|x64
+		{0EAECC55-7EC6-4414-897B-0156A774C01C}.Release|x64.ActiveCfg = Release|x64
+		{0EAECC55-7EC6-4414-897B-0156A774C01C}.Release|x64.Build.0 = Release|x64
+		{0EAECC55-7EC6-4414-897B-0156A774C01C}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

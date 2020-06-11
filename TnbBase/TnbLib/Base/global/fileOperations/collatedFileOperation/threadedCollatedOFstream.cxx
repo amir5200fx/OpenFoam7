@@ -1,0 +1,2 @@
+#include <threadedCollatedOFstream.hxx>
+
