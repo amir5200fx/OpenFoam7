@@ -138,7 +138,7 @@ namespace tnbLib
 
 	inline int64_t mag(const int64_t l)
 	{
-		return ::labs(l);
+		return (int64_t)::labs((long)l);
 	}
 
 

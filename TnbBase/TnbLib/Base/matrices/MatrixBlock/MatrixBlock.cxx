@@ -3,28 +3,7 @@
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 
 template<class MatrixType>
-tnbLib::ConstMatrixBlock<MatrixType>::operator Field<cmptType>() const
-{
-	if (nCols_ != 1)
-	{
-		FatalErrorInFunction
-			<< "Number of columns " << nCols_ << " != 1"
-			<< abort(FatalError);
-	}
-
-	Field<cmptType> f(mRows_);
-
-	forAll(f, i)
-	{
-		f[i] = operator()(i, 0);
-	}
-
-	return f;
-}
-
-
-template<class MatrixType>
-tnbLib::MatrixBlock<MatrixType>::operator Field<cmptType>() const
+tnbLib::MatrixBlock<MatrixType>::operator tnbLib::Field<typename tnbLib::MatrixBlock<MatrixType>::cmptType>() const
 {
 	if (nCols_ != 1)
 	{

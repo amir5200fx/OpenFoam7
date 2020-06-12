@@ -14,10 +14,10 @@ namespace tnbLib
 	const char* const pTraits<doubleScalar>::typeName = "scalar";
 	const doubleScalar pTraits<doubleScalar>::zero = 0.0;
 	const doubleScalar pTraits<doubleScalar>::one = 1.0;
-	const doubleScalar pTraits<doubleScalar>::min = -ScalarVGreat;
-	const doubleScalar pTraits<doubleScalar>::max = ScalarVGreat;
-	const doubleScalar pTraits<doubleScalar>::rootMin = -ScalarRootVGreat;
-	const doubleScalar pTraits<doubleScalar>::rootMax = ScalarRootVGreat;
+	const doubleScalar pTraits<doubleScalar>::min = -doubleScalarVGreat;
+	const doubleScalar pTraits<doubleScalar>::max = doubleScalarVGreat;
+	const doubleScalar pTraits<doubleScalar>::rootMin = -doubleScalarRootVGreat;
+	const doubleScalar pTraits<doubleScalar>::rootMax = doubleScalarRootVGreat;
 
 	const char* const pTraits<doubleScalar>::componentNames[] = { "" };
 

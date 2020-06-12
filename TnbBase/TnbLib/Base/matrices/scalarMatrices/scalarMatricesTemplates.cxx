@@ -106,7 +106,7 @@ void tnbLib::LUBacksubstitute
 		label ip = pivotIndices[i];
 		Type sum = sourceSol[ip];
 		sourceSol[ip] = sourceSol[i];
-		const scalar* __restrict__ luMatrixi = luMatrix[i];
+		const scalar* __restrict luMatrixi = luMatrix[i];
 
 		if (ii != 0)
 		{
@@ -126,7 +126,7 @@ void tnbLib::LUBacksubstitute
 	for (label i = m - 1; i >= 0; i--)
 	{
 		Type sum = sourceSol[i];
-		const scalar* __restrict__ luMatrixi = luMatrix[i];
+		const scalar* __restrict luMatrixi = luMatrix[i];
 
 		for (label j = i + 1; j < m; j++)
 		{
@@ -152,7 +152,7 @@ void tnbLib::LUBacksubstitute
 	for (label i = 0; i < m; i++)
 	{
 		Type sum = sourceSol[i];
-		const scalar* __restrict__ luMatrixi = luMatrix[i];
+		const scalar* __restrict luMatrixi = luMatrix[i];
 
 		if (ii != 0)
 		{
@@ -172,7 +172,7 @@ void tnbLib::LUBacksubstitute
 	for (label i = m - 1; i >= 0; i--)
 	{
 		Type sum = sourceSol[i];
-		const scalar* __restrict__ luMatrixi = luMatrix[i];
+		const scalar* __restrict luMatrixi = luMatrix[i];
 
 		for (label j = i + 1; j < m; j++)
 		{

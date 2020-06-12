@@ -4,7 +4,12 @@
 #include <argList.hxx>
 #include <IOdictionary.hxx>
 
+// added by amir
+#include <fileOperation.hxx>
+#include <PstreamReduceOps.hxx>
+
 #include <sstream>
+
 
 // * * * * * * * * * * * * * Static Member Data  * * * * * * * * * * * * * * //
 

@@ -50,6 +50,7 @@ SourceFiles
 
 #include <Function1.hxx>
 #include <Tuple2.hxx>
+#include <TableBase.hxx> // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

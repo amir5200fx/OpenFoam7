@@ -1,5 +1,7 @@
 #include <Scale.hxx>
 
+#include <Constant.hxx>
+
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 template<class Type>

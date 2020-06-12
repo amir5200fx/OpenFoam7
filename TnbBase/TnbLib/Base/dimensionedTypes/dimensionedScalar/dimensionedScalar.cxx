@@ -1,5 +1,8 @@
 #include <dimensionedScalar.hxx>
 
+#include <error.hxx>
+#include <OSstream.hxx>
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -246,28 +249,140 @@ dimensionedScalar func(const dimensionedScalar& ds)                            \
     );                                                                         \
 }
 
-	transFunc(exp)
-		transFunc(log)
-		transFunc(log10)
-		transFunc(sin)
-		transFunc(cos)
-		transFunc(tan)
-		transFunc(asin)
-		transFunc(acos)
-		transFunc(atan)
-		transFunc(sinh)
-		transFunc(cosh)
-		transFunc(tanh)
-		transFunc(asinh)
-		transFunc(acosh)
-		transFunc(atanh)
-		transFunc(erf)
-		transFunc(erfc)
-		transFunc(lgamma)
-		transFunc(j0)
-		transFunc(j1)
-		transFunc(y0)
-		transFunc(y1)
+	dimensionedScalar exp(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless())
+		{
+			FatalErrorInFunction << "ds not dimensionless" << abort(FatalError);
+		}
+		return dimensionedScalar("exp" "(" + ds.name() + ')', dimless, ::exp(ds.value()));
+	}
+		
+	dimensionedScalar log(const dimensionedScalar& ds)
+		{
+			if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+			return dimensionedScalar("log" "(" + ds.name() + ')', dimless, ::log(ds.value()));
+		}
+		
+	dimensionedScalar log10(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("log10" "(" + ds.name() + ')', dimless, ::log10(ds.value()));
+	}
+		
+	dimensionedScalar sin(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("sin" "(" + ds.name() + ')', dimless, ::sin(ds.value()));
+	}
+		
+	dimensionedScalar cos(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("cos" "(" + ds.name() + ')', dimless, ::cos(ds.value()));
+	}
+		
+	dimensionedScalar tan(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("tan" "(" + ds.name() + ')', dimless, ::tan(ds.value()));
+	}
+		
+	dimensionedScalar asin(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("asin" "(" + ds.name() + ')', dimless, ::asin(ds.value()));
+	}
+		
+	dimensionedScalar acos(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("acos" "(" + ds.name() + ')', dimless, ::acos(ds.value()));
+	}
+		
+	dimensionedScalar atan(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("atan" "(" + ds.name() + ')', dimless, ::atan(ds.value()));
+	}
+		
+	dimensionedScalar sinh(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("sinh" "(" + ds.name() + ')', dimless, ::sinh(ds.value()));
+	}
+		
+	dimensionedScalar cosh(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("cosh" "(" + ds.name() + ')', dimless, ::cosh(ds.value()));
+	}
+		
+	dimensionedScalar tanh(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("tanh" "(" + ds.name() + ')', dimless, ::tanh(ds.value()));
+	}
+		
+	dimensionedScalar asinh(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("asinh" "(" + ds.name() + ')', dimless, ::asinh(ds.value()));
+	}
+		
+	dimensionedScalar acosh(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("acosh" "(" + ds.name() + ')', dimless, ::acosh(ds.value()));
+	}
+		
+	dimensionedScalar atanh(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("atanh" "(" + ds.name() + ')', dimless, ::atanh(ds.value()));
+	}
+		
+	dimensionedScalar erf(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("erf" "(" + ds.name() + ')', dimless, ::erf(ds.value()));
+	}
+		
+	dimensionedScalar erfc(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("erfc" "(" + ds.name() + ')', dimless, ::erfc(ds.value()));
+	}
+		
+	dimensionedScalar lgamma(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("lgamma" "(" + ds.name() + ')', dimless, ::lgamma(ds.value()));
+	}
+		
+	dimensionedScalar j0(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("j0" "(" + ds.name() + ')', dimless, ::_j0(ds.value()));
+	}
+		
+	dimensionedScalar j1(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("j1" "(" + ds.name() + ')', dimless, ::_j1(ds.value()));
+	}
+		
+	dimensionedScalar y0(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("y0" "(" + ds.name() + ')', dimless, ::_y0(ds.value()));
+	}
+		
+	dimensionedScalar y1(const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("y1" "(" + ds.name() + ')', dimless, ::_y1(ds.value()));
+	}
 
 #undef transFunc
 
@@ -290,8 +405,18 @@ dimensionedScalar func(const int n, const dimensionedScalar& ds)               \
     );                                                                         \
 }
 
-		transFunc(jn)
-		transFunc(yn)
+		
+	dimensionedScalar jn(const int n, const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("jn" "(" + name(n) + ',' + ds.name() + ')', dimless, ::_jn(n, ds.value()));
+	}
+
+	dimensionedScalar yn(const int n, const dimensionedScalar& ds)
+	{
+		if (!ds.dimensions().dimensionless()) { FatalErrorInFunction << "ds not dimensionless" << abort(FatalError); }
+		return dimensionedScalar("yn" "(" + name(n) + ',' + ds.name() + ')', dimless, ::_yn(n, ds.value()));
+	}
 
 #undef transFunc
 

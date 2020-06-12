@@ -61,6 +61,7 @@ SourceFiles
 #include <SubList.hxx>
 
 #include <PtrList.hxx> // added by amir!
+#include <typeInfo.hxx>  // added by amir!
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -118,7 +119,7 @@ namespace tnbLib
 			//- (approximate) size of master + any optional slave data
 			off_t size() const
 			{
-				off_t sz = data_.size();
+				off_t sz = (off_t)data_.size();
 				forAll(slaveData_, i)
 				{
 					if (slaveData_.set(i))

@@ -44,6 +44,7 @@ SourceFiles
 #include <OSspecific.hxx>
 #include <NamedEnum.hxx>
 #include <labelList.hxx> // added by amir
+#include <ISstream.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

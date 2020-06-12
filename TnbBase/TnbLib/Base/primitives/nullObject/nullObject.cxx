@@ -1,48 +1,9 @@
 #include <nullObject.hxx>
 
-template<class T>
-inline const T& tnbLib::NullObjectRef()
-{
-	return *reinterpret_cast<const T*>(nullObjectPtr);
-}
+// * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
-template<class T>
-inline T&& tnbLib::NullObjectMove()
-{
-	return move(const_cast<T&>(*reinterpret_cast<const T*>(nullObjectPtr)));
-}
-
-template<class T>
-inline const T* tnbLib::NullObjectPtr()
-{
-	return reinterpret_cast<const T*>(nullObjectPtr);
-}
-
-
-template<class T>
-inline bool tnbLib::isNull(const T& t)
-{
-	return &t == NullObjectPtr<T>();
-}
-
-template<class T>
-inline bool tnbLib::notNull(const T& t)
-{
-	return &t != NullObjectPtr<T>();
-}
-
-
-template<class T>
-inline bool tnbLib::isNull(const T* t)
-{
-	return t == NullObjectPtr<T>();
-}
-
-template<class T>
-inline bool tnbLib::notNull(const T* t)
-{
-	return t != NullObjectPtr<T>();
-}
+const tnbLib::NullObject tnbLib::NullObject::nullObject;
+const tnbLib::NullObject* tnbLib::nullObjectPtr = &tnbLib::NullObject::nullObject;
 
 
 // ************************************************************************* //

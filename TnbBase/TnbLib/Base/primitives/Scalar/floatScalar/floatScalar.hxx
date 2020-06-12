@@ -95,11 +95,25 @@ inline double pow(const type1 s, const type2 e)   \
     return ::powf(s, e);                          \
 }
 
-	MAXMINPOW(floatScalar, floatScalar, floatScalar)
-		MAXMINPOW(floatScalar, floatScalar, int)
-		MAXMINPOW(floatScalar, int, floatScalar)
-		MAXMINPOW(floatScalar, floatScalar, long)
-		MAXMINPOW(floatScalar, long, floatScalar)
+	inline floatScalar max(const floatScalar s1, const floatScalar s2) { return (s1 > s2) ? s1 : s2; }
+	inline floatScalar min(const floatScalar s1, const floatScalar s2) { return (s1 < s2) ? s1 : s2; }
+	inline double pow(const floatScalar s, const floatScalar e) { return (double)::powf(s, e); }
+		
+	inline floatScalar max(const floatScalar s1, const int s2) { return (s1 > (floatScalar)s2) ? s1 : (floatScalar)s2; }
+	inline floatScalar min(const floatScalar s1, const int s2) { return (s1 < (floatScalar)s2) ? s1 : (floatScalar)s2; }
+	inline double pow(const floatScalar s, const int e) { return (double)::powf(s, (floatScalar)e); }
+		
+	inline floatScalar max(const int s1, const floatScalar s2) { return ((floatScalar)s1 > s2) ? (floatScalar)s1 : s2; }
+	inline floatScalar min(const int s1, const floatScalar s2) { return ((floatScalar)s1 < s2) ? (floatScalar)s1 : s2; }
+	inline double pow(const int s, const floatScalar e) { return (double)::powf((floatScalar)s, e); }
+		
+	inline floatScalar max(const floatScalar s1, const long s2) { return (s1 > (floatScalar)s2) ? s1 : (floatScalar)s2; }
+	inline floatScalar min(const floatScalar s1, const long s2) { return (s1 < (floatScalar)s2) ? s1 : (floatScalar)s2; }
+	inline double pow(const floatScalar s, const long e) { return (double)::powf(s, (floatScalar)e); }
+		
+	inline floatScalar max(const long s1, const floatScalar s2) { return ((floatScalar)s1 > s2) ? (floatScalar)s1 : s2; }
+	inline floatScalar min(const long s1, const floatScalar s2) { return ((floatScalar)s1 < s2) ? (floatScalar)s1 : s2; }
+	inline double pow(const long s, const floatScalar e) { return (double)::powf((floatScalar)s, e); }
 
 #undef MAXMINPOW
 
@@ -194,37 +208,61 @@ namespace tnbLib
 
 
 	// Standard C++ transcendental functions
-	transFunc(sqrt)
+	inline floatScalar sqrt(const floatScalar s) { return ::sqrtf(s); }
 
-		transFunc(cbrt)
-		transFunc(exp)
-		transFunc(log)
-		transFunc(log10)
-		transFunc(sin)
-		transFunc(cos)
-		transFunc(tan)
-		transFunc(asin)
-		transFunc(acos)
-		transFunc(atan)
-		transFunc(sinh)
-		transFunc(cosh)
-		transFunc(tanh)
-		transFunc(asinh)
-		transFunc(acosh)
-		transFunc(atanh)
+		
+	inline floatScalar cbrt(const floatScalar s) { return ::cbrtf(s); }
+		
+	inline floatScalar exp(const floatScalar s) { return ::expf(s); }
+		
+	inline floatScalar log(const floatScalar s) { return ::logf(s); }
+		
+	inline floatScalar log10(const floatScalar s) { return ::log10f(s); }
+		
+	inline floatScalar sin(const floatScalar s) { return ::sinf(s); }
+		
+	inline floatScalar cos(const floatScalar s) { return ::cosf(s); }
+		
+	inline floatScalar tan(const floatScalar s) { return ::tanf(s); }
+		
+	inline floatScalar asin(const floatScalar s) { return ::asinf(s); }
+		
+	inline floatScalar acos(const floatScalar s) { return ::acosf(s); }
+		
+	inline floatScalar atan(const floatScalar s) { return ::atanf(s); }
+		
+	inline floatScalar sinh(const floatScalar s) { return ::sinhf(s); }
+		
+	inline floatScalar cosh(const floatScalar s) { return ::coshf(s); }
+		
+	inline floatScalar tanh(const floatScalar s) { return ::tanhf(s); }
+		
+	inline floatScalar asinh(const floatScalar s) { return ::asinhf(s); }
+		
+	inline floatScalar acosh(const floatScalar s) { return ::acoshf(s); }
+		
+	inline floatScalar atanh(const floatScalar s) { return ::atanhf(s); }
 
 		// Standard ANSI-C (but not in <cmath>) transcendental functions
 
-		transFunc(erf)
-		transFunc(erfc)
-		transFunc(lgamma)
-		transFunc(tgamma)
+		
+	inline floatScalar erf(const floatScalar s) { return ::erff(s); }
+		
+	inline floatScalar erfc(const floatScalar s) { return ::erfcf(s); }
+		
+	inline floatScalar lgamma(const floatScalar s) { return ::lgammaf(s); }
+		
+	inline floatScalar tgamma(const floatScalar s) { return ::tgammaf(s); }
 
-		transFunc(j0)
-		transFunc(j1)
+		
+	inline floatScalar j0(const floatScalar s) { return ::j0f(s); }
+		
+	inline floatScalar j1(const floatScalar s) { return ::j1f(s); }
 
-		transFunc(y0)
-		transFunc(y1)
+		
+	inline floatScalar y0(const floatScalar s) { return ::y0f(s); }
+		
+	inline floatScalar y1(const floatScalar s) { return ::y1f(s); }
 
 
 		inline floatScalar& setComponent(floatScalar& s, const direction)
@@ -277,7 +315,7 @@ namespace tnbLib
 	//- Return the positive part of s
 	inline floatScalar posPart(const floatScalar s)
 	{
-		return (s > 0) ? s : 0;
+		return (s > (floatScalar)0) ? s : (floatScalar)0;
 	}
 
 
@@ -286,25 +324,25 @@ namespace tnbLib
 	//  negative number and does not change the sign
 	inline floatScalar negPart(const floatScalar s)
 	{
-		return (s < 0) ? s : 0;
+		return (s < (floatScalar)0) ? s : (floatScalar)0;
 	}
 
 
 	inline bool equal(const floatScalar& s1, const floatScalar& s2)
 	{
-		return mag(s1 - s2) <= ScalarVSmall;
+		return mag(s1 - s2) <= floatScalarVSmall;
 	}
 
 
 	inline bool notEqual(const floatScalar s1, const floatScalar s2)
 	{
-		return mag(s1 - s2) > ScalarVSmall;
+		return mag(s1 - s2) > floatScalarVSmall;
 	}
 
 
 	inline floatScalar limit(const floatScalar s1, const floatScalar s2)
 	{
-		return (mag(s1) < mag(s2)) ? s1 : 0.0;
+		return (mag(s1) < mag(s2)) ? s1 : (floatScalar)0.0;
 	}
 
 
@@ -358,7 +396,7 @@ namespace tnbLib
 
 	inline floatScalar inv(const floatScalar s)
 	{
-		return 1.0 / s;
+		return (floatScalar)1.0 / s;
 	}
 
 
@@ -376,7 +414,7 @@ namespace tnbLib
 
 	inline floatScalar cmptPow(const floatScalar s1, const floatScalar s2)
 	{
-		return pow(s1, s2);
+		return (floatScalar)pow(s1, s2);
 	}
 
 
@@ -427,7 +465,7 @@ namespace tnbLib
 		}
 		else
 		{
-			return magb < ScalarVSmall ? 0 : magb * sqrt(1 + sqr(maga / magb));
+			return magb < floatScalarVSmall ? 0 : magb * sqrt(1 + sqr(maga / magb));
 		}
 	}
 
@@ -448,7 +486,7 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * IOstream Functions  * * * * * * * * * * * * //
 
-	floatScalar readScalar(Istream&);
+	floatScalar readFloatScalar(Istream&);
 
 	void writeEntry(Ostream& os, const floatScalar value);
 

@@ -86,7 +86,7 @@ namespace tnbLib
 		label mRows_, nCols_;
 
 		//- Row pointers
-		Type* __restrict__ v_;
+		Type* __restrict v_;
 
 		//- Allocate the storage for the element vector
 		void allocate();

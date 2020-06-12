@@ -1,5 +1,9 @@
 #include <token.hxx>
 
+#include <wordList.hxx> // added by amir
+#include <IOstreams.hxx> // added by amir
+#include <Istream.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
 namespace tnbLib

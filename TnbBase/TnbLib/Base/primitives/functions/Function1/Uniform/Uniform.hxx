@@ -44,7 +44,8 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
-#include <Function1.hxx>
+//#include <Function1.hxx> disabled by amir
+#include <Constant.hxx> // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

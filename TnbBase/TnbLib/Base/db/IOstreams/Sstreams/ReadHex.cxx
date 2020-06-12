@@ -30,6 +30,8 @@ Description
 
 #include <cctype>
 
+#include <error.hxx>
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 template<class T>

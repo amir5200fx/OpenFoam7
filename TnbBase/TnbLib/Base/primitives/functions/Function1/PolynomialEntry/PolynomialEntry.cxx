@@ -1,5 +1,7 @@
 #include <PolynomialEntry.hxx>
 
+#include <Time.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 template<class Type>

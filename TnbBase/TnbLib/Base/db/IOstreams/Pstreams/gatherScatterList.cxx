@@ -37,6 +37,8 @@ Description
 #include <OPstream.hxx>
 #include <contiguous.hxx>
 
+#include <IOstreams.hxx> // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

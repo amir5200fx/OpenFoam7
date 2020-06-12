@@ -1,5 +1,7 @@
 #include <TableFile.hxx>
 
+#include <ISstream.hxx> // added by amir
+
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 template<class Type>
@@ -16,7 +18,7 @@ tnbLib::Function1Types::TableFile<Type>::TableFile
 
 	fileName expandedFile(fName_);
 	// IFstream is(expandedFile.expand());
-	autoPtr<ISstream> isPtr(fileHandler().NewIFstream(expandedFile.expand()));
+	autoPtr<ISstream> isPtr(this->fileHandler().NewIFstream(expandedFile.expand()));
 	ISstream& is = isPtr();
 
 	if (!is.good())
