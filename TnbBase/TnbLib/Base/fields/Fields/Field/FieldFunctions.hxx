@@ -1,6 +1,6 @@
 #pragma once
-#define TEMPLATE template<class Type>
-#include <FieldFunctionsM.hxx>
+//#define TEMPLATE template<class Type>
+//#include <FieldFunctionsM.hxx>
 #include <UPstream.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -682,7 +682,7 @@ operator Op(const VectorSpace<Form,Cmpt,nCmpt>&vs,const tmp<Field<Type>>&tf1);
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <undefFieldFunctionsM.hxx>
+//#include <undefFieldFunctionsM.hxx>
 #include <scalarField.hxx>
 
 // ************************************************************************* //

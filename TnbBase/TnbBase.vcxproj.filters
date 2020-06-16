@@ -2013,29 +2013,11 @@
     <ClInclude Include="TnbLib\Base\containers\Lists\UList\UListI.hxx">
       <Filter>TnbLib\Base\containers\Lists\UList</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\Barycentric\Barycentric.hxx">
-      <Filter>TnbLib\Base\primitives\Barycentric</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\Barycentric\BarycentricI.hxx">
-      <Filter>TnbLib\Base\primitives\Barycentric</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\Barycentric\BarycentricTensor.hxx">
-      <Filter>TnbLib\Base\primitives\Barycentric</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\Barycentric\BarycentricTensorI.hxx">
-      <Filter>TnbLib\Base\primitives\Barycentric</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\Base\primitives\Barycentric\barycentric\barycentric.hxx">
       <Filter>TnbLib\Base\primitives\Barycentric\barycentric</Filter>
     </ClInclude>
     <ClInclude Include="TnbLib\Base\primitives\Barycentric\barycentricTensor\barycentricTensor.hxx">
       <Filter>TnbLib\Base\primitives\Barycentric\barycentricTensor</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\Barycentric2D\Barycentric2D.hxx">
-      <Filter>TnbLib\Base\primitives\Barycentric2D</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\Barycentric2D\Barycentric2DI.hxx">
-      <Filter>TnbLib\Base\primitives\Barycentric2D</Filter>
     </ClInclude>
     <ClInclude Include="TnbLib\Base\primitives\Barycentric2D\barycentric2D\barycentric2D.hxx">
       <Filter>TnbLib\Base\primitives\Barycentric2D\barycentric2D</Filter>
@@ -2286,12 +2268,6 @@
     <ClInclude Include="TnbLib\Base\primitives\septernion\septernionI.hxx">
       <Filter>TnbLib\Base\primitives\septernion</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\CompactSpatialTensor\CompactSpatialTensor.hxx">
-      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\CompactSpatialTensor</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\CompactSpatialTensor\CompactSpatialTensorI.hxx">
-      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\CompactSpatialTensor</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\CompactSpatialTensor\compactSpatialTensor\compactSpatialTensor.hxx">
       <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\CompactSpatialTensor\compactSpatialTensor</Filter>
     </ClInclude>
@@ -2301,23 +2277,8 @@
     <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\CompactSpatialTensorT\CompactSpatialTensorTI.hxx">
       <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\CompactSpatialTensorT</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\SpatialTensor\SpatialTensor.hxx">
-      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\SpatialTensor</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\SpatialTensor\SpatialTensorI.hxx">
-      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\SpatialTensor</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\SpatialTensor\spatialTensor\spatialTensor.hxx">
       <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\SpatialTensor\spatialTensor</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\spatialTransform\spatialTransform.hxx">
-      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\spatialTransform</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\SpatialVector\SpatialVector.hxx">
-      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\SpatialVector</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\SpatialVector\SpatialVectorI.hxx">
-      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\SpatialVector</Filter>
     </ClInclude>
     <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\SpatialVector\spatialVector\spatialVector.hxx">
       <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\SpatialVector\spatialVector</Filter>
@@ -4209,6 +4170,51 @@
     <ClInclude Include="TnbLib\Base\primitives\DiagTensor\DiagTensorTemplateI.hxx">
       <Filter>TnbLib\Base\primitives\DiagTensor</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\SpatialVector\SpatialVectorTemplate.hxx">
+      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\SpatialVector</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\SpatialVector\SpatialVectorTemplateI.hxx">
+      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\SpatialVector</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\SpatialTensor\SpatialTensorTemplate.hxx">
+      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\SpatialTensor</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\SpatialTensor\SpatialTensorTemplateI.hxx">
+      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\SpatialTensor</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\CompactSpatialTensor\CompactSpatialTensorTemplate.hxx">
+      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\CompactSpatialTensor</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\CompactSpatialTensor\CompactSpatialTensorTemplateI.hxx">
+      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\CompactSpatialTensor</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\spatialTransform\spatialTransform.hxx">
+      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\spatialTransform</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\spatialVectorAlgebra\spatialTransform\spatialTransformI.hxx">
+      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\spatialTransform</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\Barycentric2D\Barycentric2DTemplate.hxx">
+      <Filter>TnbLib\Base\primitives\Barycentric2D</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\Barycentric2D\Barycentric2DTemplateI.hxx">
+      <Filter>TnbLib\Base\primitives\Barycentric2D</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\Barycentric\BarycentricTemplate.hxx">
+      <Filter>TnbLib\Base\primitives\Barycentric</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\Barycentric\BarycentricTemplateI.hxx">
+      <Filter>TnbLib\Base\primitives\Barycentric</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\Barycentric\BarycentricTensorTemplate.hxx">
+      <Filter>TnbLib\Base\primitives\Barycentric</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\Barycentric\BarycentricTensorTemplateI.hxx">
+      <Filter>TnbLib\Base\primitives\Barycentric</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\meshes\meshShapes\face\faceList.hxx">
+      <Filter>TnbLib\Base\meshes\meshShapes\face</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\Base\primitives\zero\zero.cxx">
@@ -4702,9 +4708,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\Base\primitives\spatialVectorAlgebra\SpatialTensor\spatialTensor\spatialTensor.cxx">
       <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\SpatialTensor\spatialTensor</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\Base\primitives\spatialVectorAlgebra\spatialTransform\spatialTransform.cxx">
-      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\spatialTransform</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\Base\primitives\spatialVectorAlgebra\SpatialVector\spatialVector\spatialVector.cxx">
       <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\SpatialVector\spatialVector</Filter>
@@ -6292,6 +6295,12 @@
     </ClCompile>
     <ClCompile Include="TnbLib\Base\matrices\RectangularMatrix\RectangularMatrix.cxx">
       <Filter>TnbLib\Base\matrices\RectangularMatrix</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\primitives\spatialVectorAlgebra\spatialTransform\spatialTransform.cxx">
+      <Filter>TnbLib\Base\primitives\spatialVectorAlgebra\spatialTransform</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\meshes\primitiveShapes\triangle\triangle.cxx">
+      <Filter>TnbLib\Base\meshes\primitiveShapes\triangle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

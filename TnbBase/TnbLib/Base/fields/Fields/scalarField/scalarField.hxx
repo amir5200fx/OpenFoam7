@@ -39,8 +39,8 @@ SourceFiles
 #include <Field.hxx>
 #include <scalar.hxx>
 
-#define TEMPLATE
-#include <FieldFunctionsM.hxx>
+//#define TEMPLATE
+//#include <FieldFunctionsM.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -332,7 +332,7 @@ tmp<scalarField> func(const int n, const tmp<scalarField>&);
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <undefFieldFunctionsM.hxx>
+//#include <undefFieldFunctionsM.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

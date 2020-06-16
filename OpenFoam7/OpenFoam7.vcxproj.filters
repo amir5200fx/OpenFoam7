@@ -5,4 +5,9 @@
       <UniqueIdentifier>{9700c0ed-f62b-445c-b564-2a709ac03aa4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cxx">
+      <Filter>main</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
