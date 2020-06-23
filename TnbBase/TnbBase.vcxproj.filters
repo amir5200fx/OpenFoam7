@@ -1564,6 +1564,33 @@
     <Filter Include="TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField">
       <UniqueIdentifier>{daa2334c-2d8c-4d1f-bf8c-1a848a352bb5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface">
+      <UniqueIdentifier>{b62670ff-e919-49ef-a634-7756dc85f31c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields">
+      <UniqueIdentifier>{9b55f187-73e8-4658-837d-892e17d6fa5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduSchedule">
+      <UniqueIdentifier>{c520ae3c-50ab-4a28-ae5d-4e1d5b056d3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\cyclicLduInterfaceField">
+      <UniqueIdentifier>{af754ee2-fa06-4ac7-8db6-f6bec41d64f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\lduInterfaceField">
+      <UniqueIdentifier>{4bffdb9d-637d-4bca-b0e6-a6948ce165aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\processorLduInterfaceField">
+      <UniqueIdentifier>{955637c6-413d-4513-834e-9e3fea59b828}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\algorithms\dynamicIndexedOctree">
+      <UniqueIdentifier>{7eb80cbb-4532-413c-917d-4e2a7ee8caab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\algorithms\indexedOctree">
+      <UniqueIdentifier>{5fe8c15d-1e7f-448a-9d04-2b8590a43ac5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\algorithms\subCycle">
+      <UniqueIdentifier>{e52518ce-d938-4f6a-93f4-94df4f6c350d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\Base\primitives\zero\zero.hxx">
@@ -3498,9 +3525,6 @@
     <ClInclude Include="TnbLib\Base\meshes\Residuals\Residuals.hxx">
       <Filter>TnbLib\Base\meshes\Residuals</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\Base\meshes\ProcessorTopology\ProcessorTopology.hxx">
-      <Filter>TnbLib\Base\meshes\ProcessorTopology</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\Base\meshes\ProcessorTopology\commSchedule.hxx">
       <Filter>TnbLib\Base\meshes\ProcessorTopology</Filter>
     </ClInclude>
@@ -4080,12 +4104,6 @@
     <ClInclude Include="TnbLib\Base\matrices\LduMatrix\LduMatrix\solverPerformance.hxx">
       <Filter>TnbLib\Base\matrices\LduMatrix\LduMatrix</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField\LduInterfaceField.hxx">
-      <Filter>TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField\LduInterfaceFieldPtrsList.hxx">
-      <Filter>TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\Base\primitives\strings\string\tnbString.hxx">
       <Filter>TnbLib\Base\primitives\strings\string</Filter>
     </ClInclude>
@@ -4214,6 +4232,69 @@
     </ClInclude>
     <ClInclude Include="TnbLib\Base\meshes\meshShapes\face\faceList.hxx">
       <Filter>TnbLib\Base\meshes\meshShapes\face</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduAddressing.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface\cyclicLduInterface.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface\lduInterface.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface\lduInterfacePtrsList.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface\processorLduInterface.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\cyclicLduInterfaceField\cyclicLduInterfaceField.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\cyclicLduInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\lduInterfaceField\lduInterfaceField.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\lduInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\lduInterfaceField\lduInterfaceFieldPtrsList.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\lduInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField\LduInterfaceFieldTemplate.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField\LduInterfaceFieldPtrsListTemplate.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduSchedule\lduSchedule.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduSchedule</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\processorLduInterfaceField\processorLduInterfaceField.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\processorLduInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\meshes\ProcessorTopology\ProcessorTopologyTemplate.hxx">
+      <Filter>TnbLib\Base\meshes\ProcessorTopology</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\algorithms\indexedOctree\indexedOctree.hxx">
+      <Filter>TnbLib\Base\algorithms\indexedOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\algorithms\indexedOctree\labelBits.hxx">
+      <Filter>TnbLib\Base\algorithms\indexedOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\algorithms\indexedOctree\treeDataCell.hxx">
+      <Filter>TnbLib\Base\algorithms\indexedOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\algorithms\indexedOctree\volumeType.hxx">
+      <Filter>TnbLib\Base\algorithms\indexedOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicIndexedOctree.hxx">
+      <Filter>TnbLib\Base\algorithms\dynamicIndexedOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicTreeDataPoint.hxx">
+      <Filter>TnbLib\Base\algorithms\dynamicIndexedOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\algorithms\subCycle\subCycle.hxx">
+      <Filter>TnbLib\Base\algorithms\subCycle</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\OSspecific\MSWindows\memInfo\memInfo.hxx">
+      <Filter>TnbLib\Base\OSspecific\MSWindows\memInfo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -5675,12 +5756,6 @@
     <ClCompile Include="TnbLib\Base\meshes\treeBoundBox\treeBoundBoxTemplates.cxx">
       <Filter>TnbLib\Base\meshes\treeBoundBox</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\Base\meshes\Residuals\Residuals.cxx">
-      <Filter>TnbLib\Base\meshes\Residuals</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\Base\meshes\ProcessorTopology\ProcessorTopology.cxx">
-      <Filter>TnbLib\Base\meshes\ProcessorTopology</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\Base\meshes\ProcessorTopology\commSchedule.cxx">
       <Filter>TnbLib\Base\meshes\ProcessorTopology</Filter>
     </ClCompile>
@@ -6257,9 +6332,6 @@
     <ClCompile Include="TnbLib\Base\matrices\LduMatrix\LduMatrix\solverPerformance.cxx">
       <Filter>TnbLib\Base\matrices\LduMatrix\LduMatrix</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField\LduInterfaceField.cxx">
-      <Filter>TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField\LduInterfaceFields.cxx">
       <Filter>TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField</Filter>
     </ClCompile>
@@ -6301,6 +6373,69 @@
     </ClCompile>
     <ClCompile Include="TnbLib\Base\meshes\primitiveShapes\triangle\triangle.cxx">
       <Filter>TnbLib\Base\meshes\primitiveShapes\triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduAddressing.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface\cyclicLduInterface.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface\lduInterface.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface\processorLduInterface.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface\processorLduInterfaceTemplates.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\cyclicLduInterfaceField\cyclicLduInterfaceField.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\cyclicLduInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\lduInterfaceField\lduInterfaceField.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\lduInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField\LduInterfaceFieldTemplate.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\LduMatrix\LduInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\processorLduInterfaceField\processorLduInterfaceField.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\lduAddressing\lduInterfaceFields\processorLduInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\meshes\ProcessorTopology\ProcessorTopologyTemplate.cxx">
+      <Filter>TnbLib\Base\meshes\ProcessorTopology</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\algorithms\indexedOctree\indexedOctree.cxx">
+      <Filter>TnbLib\Base\algorithms\indexedOctree</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\algorithms\indexedOctree\indexedOctreeName.cxx">
+      <Filter>TnbLib\Base\algorithms\indexedOctree</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\algorithms\indexedOctree\treeDataCell.cxx">
+      <Filter>TnbLib\Base\algorithms\indexedOctree</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\algorithms\indexedOctree\volumeType.cxx">
+      <Filter>TnbLib\Base\algorithms\indexedOctree</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicIndexedOctree.cxx">
+      <Filter>TnbLib\Base\algorithms\dynamicIndexedOctree</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicIndexedOctreeName.cxx">
+      <Filter>TnbLib\Base\algorithms\dynamicIndexedOctree</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicTreeDataPoint.cxx">
+      <Filter>TnbLib\Base\algorithms\dynamicIndexedOctree</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\meshes\Residuals\ResidualsTemplates.cxx">
+      <Filter>TnbLib\Base\meshes\Residuals</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\meshes\Residuals\residuals.cxx">
+      <Filter>TnbLib\Base\meshes\Residuals</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\OSspecific\MSWindows\memInfo\memInfo.cxx">
+      <Filter>TnbLib\Base\OSspecific\MSWindows\memInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\OSspecific\MSWindows\memInfo\memInfoIO.cxx">
+      <Filter>TnbLib\Base\OSspecific\MSWindows\memInfo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
