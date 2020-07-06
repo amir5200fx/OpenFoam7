@@ -1591,6 +1591,141 @@
     <Filter Include="TnbLib\Base\algorithms\subCycle">
       <UniqueIdentifier>{e52518ce-d938-4f6a-93f4-94df4f6c350d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\DiagonalSolver">
+      <UniqueIdentifier>{7095009b-f2f5-4380-aeb8-2e541a46474b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG">
+      <UniqueIdentifier>{f2ae9934-cc2d-4e7a-8847-5107e5e5d6e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\SmoothSolver">
+      <UniqueIdentifier>{1752737b-3d58-4adb-9c4a-c3d10a50e69c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\PCICG">
+      <UniqueIdentifier>{acfad81a-b247-44f4-8f7d-544230508186}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\PCG">
+      <UniqueIdentifier>{556736e6-bb65-4736-b33e-9ff6fc083d72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\PBiCICG">
+      <UniqueIdentifier>{19559fb2-ba08-4a26-840f-bfb24846cf75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\PBiCGStab">
+      <UniqueIdentifier>{b5b1d112-bb1f-4cd4-82d3-5e1faad8be75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\PBiCG">
+      <UniqueIdentifier>{4e4ccc9c-2e90-4a43-9cfc-ce2557b46be7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\PBiCCCG">
+      <UniqueIdentifier>{36dfb087-f2bb-4e3f-80f9-14a4f5f70097}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations">
+      <UniqueIdentifier>{d0803425-c2bc-4476-9091-427f7a3e596e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations">
+      <UniqueIdentifier>{e41dc819-150d-4118-8749-de5a577b6fae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields">
+      <UniqueIdentifier>{afb52b04-ab4a-4d55-ae50-65b1fae96e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces">
+      <UniqueIdentifier>{7c429dbf-af04-4f8f-a0b3-170f4b28e176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\algebraicPairGAMGAgglomeration">
+      <UniqueIdentifier>{e883cca0-f670-43f0-a5ea-621b1d59727f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\dummyAgglomeration">
+      <UniqueIdentifier>{297ffa3d-c794-47e1-a7c3-7780200c457a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\GAMGAgglomeration">
+      <UniqueIdentifier>{2a6ea305-b150-45d7-9e2f-905827d723a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\pairGAMGAgglomeration">
+      <UniqueIdentifier>{bcef5884-ae52-4e16-9c7e-7918ebc435fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\eagerGAMGProcAgglomeration">
+      <UniqueIdentifier>{71a62918-4fc8-4a88-ad4e-fb31c2ccaf31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\GAMGProcAgglomeration">
+      <UniqueIdentifier>{d25b38ce-daa4-4e6e-b5ec-cdf7d9b7cd11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\manualGAMGProcAgglomeration">
+      <UniqueIdentifier>{aa7db54e-e1c4-4ea3-b907-d6988ec749ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\masterCoarsestGAMGProcAgglomeration">
+      <UniqueIdentifier>{7e2836e2-4fcc-420a-8d28-836d03b7f397}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\procFacesGAMGProcAgglomeration">
+      <UniqueIdentifier>{d6f8447f-5915-47d2-b15d-1240d803dd06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\noneGAMGProcAgglomeration">
+      <UniqueIdentifier>{341e524b-7f67-470d-9c65-4764cc4e9bde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\cyclicGAMGInterfaceField">
+      <UniqueIdentifier>{bdc9b625-6ddd-4565-b354-0556cc18f4b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\GAMGInterfaceField">
+      <UniqueIdentifier>{90ab1ecb-0d55-4cbe-a78d-73080be92226}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\processorGAMGInterfaceField">
+      <UniqueIdentifier>{fd5c8514-8a22-4934-bf06-2986daa6b754}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\processorCyclicGAMGInterfaceField">
+      <UniqueIdentifier>{ef3411a6-6156-46b8-a98d-129174800b1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\cyclicGAMGInterface">
+      <UniqueIdentifier>{913fa3d7-1060-4472-8ff6-40e7284257f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\GAMGInterface">
+      <UniqueIdentifier>{4b41d0fa-3db8-420e-850c-5f849c672f5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\processorGAMGInterface">
+      <UniqueIdentifier>{0d55767a-9a71-4d3b-aeea-2d45d5d36780}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\processorCyclicGAMGInterface">
+      <UniqueIdentifier>{cadd3abf-5990-49c5-afc5-4dc8417cc18d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Smoothers\DIC">
+      <UniqueIdentifier>{1fbe1b58-812a-40d7-82d1-2a65d10fe7b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Smoothers\DICGaussSeidel">
+      <UniqueIdentifier>{1c00e802-6a6b-465c-8929-d44526dbd2df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Smoothers\DILU">
+      <UniqueIdentifier>{de9ce58f-55bb-4edf-8803-10947a1ac433}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Smoothers\DILUGaussSeidel">
+      <UniqueIdentifier>{fe01f98d-98eb-4143-a133-393b3ea31d08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Smoothers\FDIC">
+      <UniqueIdentifier>{2a9b723c-a486-41ea-8846-81aa4d89d4a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Smoothers\GaussSeidel">
+      <UniqueIdentifier>{d8e91b93-8c74-44bc-9b7c-b1c8ab81f6db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Smoothers\symGaussSeidel">
+      <UniqueIdentifier>{49a8a81b-8ef0-4854-a898-61deb3097cb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Smoothers\nonBlockingGaussSeidel">
+      <UniqueIdentifier>{34a80d6d-09f3-4a6e-ad00-4bdd08567d96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DiagonalPreconditioner">
+      <UniqueIdentifier>{7745d54e-6c43-4000-b4a7-28a3d1150369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DICPreconditioner">
+      <UniqueIdentifier>{f72daeb8-e3d8-4bbb-9d14-1f3775cd44bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DILUPreconditioner">
+      <UniqueIdentifier>{b8702312-62ea-4830-ba7b-905ab265dcaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\FDICPreconditioner">
+      <UniqueIdentifier>{8f999a38-0e43-43c9-988d-f8a4c9704ae6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\GAMGPreconditioner">
+      <UniqueIdentifier>{70d53c15-8c37-46e2-b09a-4835e531c4bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\NoPreconditioner">
+      <UniqueIdentifier>{0ed1ee8e-4520-41d1-97dd-d45301b7a0af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\Base\primitives\zero\zero.hxx">
@@ -1727,9 +1862,6 @@
     </ClInclude>
     <ClInclude Include="TnbLib\Base\primitives\Scalar\floatScalar\floatScalar.hxx">
       <Filter>TnbLib\Base\primitives\Scalar\floatScalar</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\Scalar\Scalar.hxx">
-      <Filter>TnbLib\Base\primitives\Scalar</Filter>
     </ClInclude>
     <ClInclude Include="TnbLib\Base\primitives\Scalar\doubleScalar\doubleScalar.hxx">
       <Filter>TnbLib\Base\primitives\Scalar\doubleScalar</Filter>
@@ -4296,6 +4428,147 @@
     <ClInclude Include="TnbLib\Base\OSspecific\MSWindows\memInfo\memInfo.hxx">
       <Filter>TnbLib\Base\OSspecific\MSWindows\memInfo</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\SmoothSolver\SmoothSolverTemplate.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\SmoothSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\SmoothSolver\smoothSolver.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\SmoothSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\PCG\PCG.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\PCG</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\PCICG\PCICG.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\PCICG</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\PBiCICG\PBiCICG.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\PBiCICG</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\PBiCGStab\PBiCGStab.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\PBiCGStab</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\PBiCG\PBiCG.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\PBiCG</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\PBiCCCG\PBiCCCG.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\PBiCCCG</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\DiagonalSolver\DiagonalSolverTemplate.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\DiagonalSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\DiagonalSolver\diagonalSolver.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\DiagonalSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\algebraicPairGAMGAgglomeration\algebraicPairGAMGAgglomeration.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\algebraicPairGAMGAgglomeration</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\dummyAgglomeration\dummyAgglomeration.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\dummyAgglomeration</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\GAMGAgglomeration\GAMGAgglomeration.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\GAMGAgglomeration</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\pairGAMGAgglomeration\pairGAMGAgglomeration.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\pairGAMGAgglomeration</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\eagerGAMGProcAgglomeration\eagerGAMGProcAgglomeration.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\eagerGAMGProcAgglomeration</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\GAMGProcAgglomeration\GAMGProcAgglomeration.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\GAMGProcAgglomeration</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\manualGAMGProcAgglomeration\manualGAMGProcAgglomeration.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\manualGAMGProcAgglomeration</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\masterCoarsestGAMGProcAgglomeration\masterCoarsestGAMGProcAgglomeration.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\masterCoarsestGAMGProcAgglomeration</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\noneGAMGProcAgglomeration\noneGAMGProcAgglomeration.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\noneGAMGProcAgglomeration</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\procFacesGAMGProcAgglomeration\procFacesGAMGProcAgglomeration.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\procFacesGAMGProcAgglomeration</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\cyclicGAMGInterfaceField\cyclicGAMGInterfaceField.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\cyclicGAMGInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\GAMGInterfaceField\GAMGInterfaceField.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\GAMGInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\processorCyclicGAMGInterfaceField\processorCyclicGAMGInterfaceField.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\processorCyclicGAMGInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\processorGAMGInterfaceField\processorGAMGInterfaceField.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\processorGAMGInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\cyclicGAMGInterface\cyclicGAMGInterface.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\cyclicGAMGInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\GAMGInterface\GAMGInterface.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\GAMGInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\processorCyclicGAMGInterface\processorCyclicGAMGInterface.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\processorCyclicGAMGInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\processorGAMGInterface\processorGAMGInterface.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\processorGAMGInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Smoothers\DIC\DICSmoother.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\DIC</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DiagonalPreconditioner\DiagonalPreconditionerTemplate.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\DiagonalPreconditioner</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DiagonalPreconditioner\diagonalPreconditioner.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\DiagonalPreconditioner</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\NoPreconditioner\NoPreconditionerTemplate.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\NoPreconditioner</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\NoPreconditioner\noPreconditioner.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\NoPreconditioner</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DICPreconditioner\DICPreconditioner.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\DICPreconditioner</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DILUPreconditioner\TDILUPreconditioner.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\DILUPreconditioner</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DILUPreconditioner\DILUPreconditioner.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\DILUPreconditioner</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\FDICPreconditioner\FDICPreconditioner.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\FDICPreconditioner</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\GAMGPreconditioner\GAMGPreconditioner.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\GAMGPreconditioner</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Smoothers\DICGaussSeidel\DICGaussSeidelSmoother.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\DICGaussSeidel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Smoothers\GaussSeidel\GaussSeidelSmoother.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\GaussSeidel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Smoothers\GaussSeidel\TGaussSeidelSmoother.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\GaussSeidel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Smoothers\DILU\DILUSmoother.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\DILU</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Smoothers\DILUGaussSeidel\DILUGaussSeidelSmoother.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\DILUGaussSeidel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Smoothers\FDIC\FDICSmoother.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\FDIC</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Smoothers\nonBlockingGaussSeidel\nonBlockingGaussSeidelSmoother.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\nonBlockingGaussSeidel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Smoothers\symGaussSeidel\symGaussSeidelSmoother.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\symGaussSeidel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGSolver.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\Base\primitives\zero\zero.cxx">
@@ -4384,9 +4657,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\Base\primitives\Scalar\floatScalar\floatScalar.cxx">
       <Filter>TnbLib\Base\primitives\Scalar\floatScalar</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\Base\primitives\Scalar\Scalar.cxx">
-      <Filter>TnbLib\Base\primitives\Scalar</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\Base\primitives\Scalar\doubleScalar\doubleScalar.cxx">
       <Filter>TnbLib\Base\primitives\Scalar\doubleScalar</Filter>
@@ -6436,6 +6706,186 @@
     </ClCompile>
     <ClCompile Include="TnbLib\Base\OSspecific\MSWindows\memInfo\memInfoIO.cxx">
       <Filter>TnbLib\Base\OSspecific\MSWindows\memInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\SmoothSolver\SmoothSolverTemplate.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\SmoothSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\SmoothSolver\smoothSolver.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\SmoothSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\PCG\PCG.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\PCG</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\PCICG\PCICG.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\PCICG</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\PBiCICG\PBiCICG.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\PBiCICG</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\PBiCGStab\PBiCGStab.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\PBiCGStab</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\PBiCG\PBiCG.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\PBiCG</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\PBiCCCG\PBiCCCG.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\PBiCCCG</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\DiagonalSolver\DiagonalSolverTemplate.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\DiagonalSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\DiagonalSolver\diagonalSolver.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\DiagonalSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\algebraicPairGAMGAgglomeration\algebraicPairGAMGAgglomeration.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\algebraicPairGAMGAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\dummyAgglomeration\dummyAgglomeration.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\dummyAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\GAMGAgglomeration\GAMGAgglomeration.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\GAMGAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\GAMGAgglomeration\GAMGAgglomerationTemplates.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\GAMGAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\GAMGAgglomeration\GAMGAgglomerateLduAddressing.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\GAMGAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\pairGAMGAgglomeration\pairGAMGAgglomeration.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\pairGAMGAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\pairGAMGAgglomeration\pairGAMGAgglomerate.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGAgglomerations\pairGAMGAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\eagerGAMGProcAgglomeration\eagerGAMGProcAgglomeration.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\eagerGAMGProcAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\GAMGProcAgglomeration\GAMGProcAgglomeration.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\GAMGProcAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\manualGAMGProcAgglomeration\manualGAMGProcAgglomeration.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\manualGAMGProcAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\masterCoarsestGAMGProcAgglomeration\masterCoarsestGAMGProcAgglomeration.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\masterCoarsestGAMGProcAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\noneGAMGProcAgglomeration\noneGAMGProcAgglomeration.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\noneGAMGProcAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\procFacesGAMGProcAgglomeration\procFacesGAMGProcAgglomeration.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGProcAgglomerations\procFacesGAMGProcAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\cyclicGAMGInterfaceField\cyclicGAMGInterfaceField.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\cyclicGAMGInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\GAMGInterfaceField\GAMGInterfaceField.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\GAMGInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\GAMGInterfaceField\GAMGInterfaceFieldNew.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\GAMGInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\processorCyclicGAMGInterfaceField\processorCyclicGAMGInterfaceField.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\processorCyclicGAMGInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\processorGAMGInterfaceField\processorGAMGInterfaceField.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaceFields\processorGAMGInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\cyclicGAMGInterface\cyclicGAMGInterface.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\cyclicGAMGInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\GAMGInterface\GAMGInterface.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\GAMGInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\GAMGInterface\GAMGInterfaceNew.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\GAMGInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\GAMGInterface\GAMGInterfaceTemplates.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\GAMGInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\processorCyclicGAMGInterface\processorCyclicGAMGInterface.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\processorCyclicGAMGInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\processorGAMGInterface\processorGAMGInterface.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\interfaces\processorGAMGInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Smoothers\DIC\DICSmoother.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\DIC</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DiagonalPreconditioner\DiagonalPreconditionerTemplate.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\DiagonalPreconditioner</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DiagonalPreconditioner\diagonalPreconditioner.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\DiagonalPreconditioner</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\NoPreconditioner\NoPreconditionerTemplate.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\NoPreconditioner</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\NoPreconditioner\noPreconditioner.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\NoPreconditioner</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DICPreconditioner\DICPreconditioner.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\DICPreconditioner</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DILUPreconditioner\TDILUPreconditioner.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\DILUPreconditioner</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\DILUPreconditioner\DILUPreconditioner.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\DILUPreconditioner</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\FDICPreconditioner\FDICPreconditioner.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\FDICPreconditioner</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\GAMGPreconditioner\GAMGPreconditioner.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\GAMGPreconditioner</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Smoothers\DICGaussSeidel\DICGaussSeidelSmoother.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\DICGaussSeidel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Smoothers\GaussSeidel\GaussSeidelSmoother.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\GaussSeidel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Smoothers\GaussSeidel\TGaussSeidelSmoother.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\GaussSeidel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Smoothers\DILU\DILUSmoother.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\DILU</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Smoothers\DILUGaussSeidel\DILUGaussSeidelSmoother.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\DILUGaussSeidel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Smoothers\FDIC\FDICSmoother.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\FDIC</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Smoothers\nonBlockingGaussSeidel\nonBlockingGaussSeidelSmoother.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\nonBlockingGaussSeidel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Smoothers\symGaussSeidel\symGaussSeidelSmoother.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers\symGaussSeidel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGSolver.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGSolverAgglomerateMatrix.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGSolverInterpolate.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGSolverScale.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGSolverSolve.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Solvers\lduSolvers.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Solvers</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Smoothers\lduSmoothers.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Smoothers</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\lduPreconditioners.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
