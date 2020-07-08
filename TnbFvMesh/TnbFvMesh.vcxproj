@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{C5B9D5F2-4A73-47CD-85E1-65BC340BC2C2}</ProjectGuid>
+    <RootNamespace>TnbFvMesh</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockDescriptor;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\arcEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\blockEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\BSplineEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\lineDivide;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\lineEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\polyLineEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\projectCurveEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\projectEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\splineEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockFaces\blockFace;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockFaces\projectFace;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockMesh;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockMeshTools;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blocks\block;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blocks\namedBlock;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockVertices\blockVertex;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockVertices\namedVertex;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockVertices\pointVertex;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockVertices\projectVertex;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\gradingDescriptor;$(ProjectDir)TnbLib\FvMesh\meshTools\algorithms\MeshWave;$(ProjectDir)TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave;$(ProjectDir)TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\AMIMethod;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\directAMI;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\faceAreaWeightAMI;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\mapNearestAMI;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\partialFaceAreaWeightAMI;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\sweptFaceAreaWeightAMI;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\faceAreaIntersect;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicACMIGAMGInterfaceField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicAMIGAMGInterfaceField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicRepeatAMIGAMGInterfaceField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicACMIGAMGInterface;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicAMIGAMGInterface;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicRepeatAMIGAMGInterface;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMILduInterfaceField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatch;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatchField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPolyPatch;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMILduInterfaceField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatch;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatchField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPolyPatch;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMILduInterfaceField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatch;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatchField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPolyPatch;$(ProjectDir)TnbLib\FvMesh\meshTools\cellClassification;$(ProjectDir)TnbLib\FvMesh\meshTools\cellDist;$(ProjectDir)TnbLib\FvMesh\meshTools\cellFeatures;$(ProjectDir)TnbLib\FvMesh\meshTools\cellQuality;$(ProjectDir)TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation;$(ProjectDir)TnbLib\FvMesh\meshTools\coordinateSystems;$(ProjectDir)TnbLib\FvMesh\meshTools\edgeFaceCirculator;$(ProjectDir)TnbLib\FvMesh\meshTools\edgeMesh;$(ProjectDir)TnbLib\FvMesh\meshTools\indexedOctree;$(ProjectDir)TnbLib\FvMesh\meshTools\mappedPatches;$(ProjectDir)TnbLib\FvMesh\meshTools\meshSearch;$(ProjectDir)TnbLib\FvMesh\meshTools\meshStructure;$(ProjectDir)TnbLib\FvMesh\meshTools\meshTools;$(ProjectDir)TnbLib\FvMesh\meshTools\momentOfInertia;$(ProjectDir)TnbLib\FvMesh\meshTools\polyMeshZipUpCells;$(ProjectDir)TnbLib\FvMesh\meshTools\primitiveMeshGeometry;$(ProjectDir)TnbLib\FvMesh\meshTools\regionCoupled;$(ProjectDir)TnbLib\FvMesh\meshTools\regionSplit;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\closedTriSurfaceMesh;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableBox;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableCylinder;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableDisk;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableExtrudedCircle;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchablePlane;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchablePlate;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSphere;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurface;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceCollection;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaces;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfacesQueries;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceWithGaps;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\triSurfaceMesh;$(ProjectDir)TnbLib\FvMesh\meshTools\sets;$(ProjectDir)TnbLib\FvMesh\meshTools\surfaceSets;$(ProjectDir)TnbLib\FvMesh\meshTools\tetOverlapVolume;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\booleanOps\booleanSurface;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\booleanOps\intersectedSurface;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\booleanOps\surfaceIntersection;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\orientedSurface;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\surfaceFeatures;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\surfaceLocation;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\triangleFuncs;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\triSurfaceSearch;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\triSurfaceTools\geompack;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\triSurfaceTools;$(ProjectDir)TnbLib\FvMesh\meshTools\twoDPointCorrector;$(ProjectDir)TnbLib\FvMesh\triSurface\faceTriangulation;$(ProjectDir)TnbLib\FvMesh\triSurface\meshTriangulation;$(ProjectDir)TnbLib\FvMesh\triSurface\tools\hashSignedLabel;$(ProjectDir)TnbLib\FvMesh\triSurface\tools\labelledTri;$(ProjectDir)TnbLib\FvMesh\triSurface\tools\labelPair;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\geometricSurfacePatch;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\AC3D;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\GTS;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\NAS;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\OBJ;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\OFF;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\SMESH;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\STL;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\TRI;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\VTK;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\surfacePatch;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurfaceFields;$(ProjectDir)TnbLib\FvMesh\surfMesh\MeshedSurface;$(ProjectDir)TnbLib\FvMesh\surfMesh\MeshedSurfaceAllocator;$(ProjectDir)TnbLib\FvMesh\surfMesh\MeshedSurfaceProxy;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\gts;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\nas;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\obj;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\off;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\ofs;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\smesh;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\starcd;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\stl;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\tri;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\vtk;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\wrl;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\x3d;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceRegistry;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfFields\surfFields;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfFields\surfPointFields;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfMesh;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfZone\surfZone;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfZone\surfZoneIdentifier;$(ProjectDir)TnbLib\FvMesh\surfMesh\UnsortedMeshedSurface;$(SolutionDir)TnbBase\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockDescriptor;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\arcEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\blockEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\BSplineEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\lineDivide;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\lineEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\polyLineEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\projectCurveEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\projectEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockEdges\splineEdge;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockFaces\blockFace;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockFaces\projectFace;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockMesh;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockMeshTools;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blocks\block;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blocks\namedBlock;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockVertices\blockVertex;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockVertices\namedVertex;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockVertices\pointVertex;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\blockVertices\projectVertex;$(ProjectDir)TnbLib\FvMesh\mesh\blockMesh\gradingDescriptor;$(ProjectDir)TnbLib\FvMesh\meshTools\algorithms\MeshWave;$(ProjectDir)TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave;$(ProjectDir)TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\AMIMethod;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\directAMI;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\faceAreaWeightAMI;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\mapNearestAMI;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\partialFaceAreaWeightAMI;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\sweptFaceAreaWeightAMI;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\faceAreaIntersect;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicACMIGAMGInterfaceField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicAMIGAMGInterfaceField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicRepeatAMIGAMGInterfaceField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicACMIGAMGInterface;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicAMIGAMGInterface;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicRepeatAMIGAMGInterface;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMILduInterfaceField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatch;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatchField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPolyPatch;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMILduInterfaceField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatch;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatchField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPolyPatch;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMILduInterfaceField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatch;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatchField;$(ProjectDir)TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPolyPatch;$(ProjectDir)TnbLib\FvMesh\meshTools\cellClassification;$(ProjectDir)TnbLib\FvMesh\meshTools\cellDist;$(ProjectDir)TnbLib\FvMesh\meshTools\cellFeatures;$(ProjectDir)TnbLib\FvMesh\meshTools\cellQuality;$(ProjectDir)TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation;$(ProjectDir)TnbLib\FvMesh\meshTools\coordinateSystems;$(ProjectDir)TnbLib\FvMesh\meshTools\edgeFaceCirculator;$(ProjectDir)TnbLib\FvMesh\meshTools\edgeMesh;$(ProjectDir)TnbLib\FvMesh\meshTools\indexedOctree;$(ProjectDir)TnbLib\FvMesh\meshTools\mappedPatches;$(ProjectDir)TnbLib\FvMesh\meshTools\meshSearch;$(ProjectDir)TnbLib\FvMesh\meshTools\meshStructure;$(ProjectDir)TnbLib\FvMesh\meshTools\meshTools;$(ProjectDir)TnbLib\FvMesh\meshTools\momentOfInertia;$(ProjectDir)TnbLib\FvMesh\meshTools\polyMeshZipUpCells;$(ProjectDir)TnbLib\FvMesh\meshTools\primitiveMeshGeometry;$(ProjectDir)TnbLib\FvMesh\meshTools\regionCoupled;$(ProjectDir)TnbLib\FvMesh\meshTools\regionSplit;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\closedTriSurfaceMesh;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableBox;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableCylinder;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableDisk;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableExtrudedCircle;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchablePlane;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchablePlate;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSphere;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurface;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceCollection;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaces;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfacesQueries;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceWithGaps;$(ProjectDir)TnbLib\FvMesh\meshTools\searchableSurfaces\triSurfaceMesh;$(ProjectDir)TnbLib\FvMesh\meshTools\sets;$(ProjectDir)TnbLib\FvMesh\meshTools\surfaceSets;$(ProjectDir)TnbLib\FvMesh\meshTools\tetOverlapVolume;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\booleanOps\booleanSurface;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\booleanOps\intersectedSurface;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\booleanOps\surfaceIntersection;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\orientedSurface;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\surfaceFeatures;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\surfaceLocation;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\triangleFuncs;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\triSurfaceSearch;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\triSurfaceTools\geompack;$(ProjectDir)TnbLib\FvMesh\meshTools\triSurface\triSurfaceTools;$(ProjectDir)TnbLib\FvMesh\meshTools\twoDPointCorrector;$(ProjectDir)TnbLib\FvMesh\triSurface\faceTriangulation;$(ProjectDir)TnbLib\FvMesh\triSurface\meshTriangulation;$(ProjectDir)TnbLib\FvMesh\triSurface\tools\hashSignedLabel;$(ProjectDir)TnbLib\FvMesh\triSurface\tools\labelledTri;$(ProjectDir)TnbLib\FvMesh\triSurface\tools\labelPair;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\geometricSurfacePatch;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\AC3D;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\GTS;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\NAS;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\OBJ;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\OFF;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\SMESH;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\STL;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\TRI;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\interfaces\VTK;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface\surfacePatch;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurface;$(ProjectDir)TnbLib\FvMesh\triSurface\triSurfaceFields;$(ProjectDir)TnbLib\FvMesh\surfMesh\MeshedSurface;$(ProjectDir)TnbLib\FvMesh\surfMesh\MeshedSurfaceAllocator;$(ProjectDir)TnbLib\FvMesh\surfMesh\MeshedSurfaceProxy;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\gts;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\nas;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\obj;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\off;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\ofs;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\smesh;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\starcd;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\stl;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\tri;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\vtk;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\wrl;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats\x3d;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceFormats;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfaceRegistry;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfFields\surfFields;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfFields\surfPointFields;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfMesh;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfZone\surfZone;$(ProjectDir)TnbLib\FvMesh\surfMesh\surfZone\surfZoneIdentifier;$(ProjectDir)TnbLib\FvMesh\surfMesh\UnsortedMeshedSurface;$(SolutionDir)TnbBase\include</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\MeshWave\FaceCellWave.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\MeshWave\MeshWave.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIInterpolation.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIInterpolationI.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\AMIMethod\AMIMethod.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\AMIMethod\AMIMethodI.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\faceAreaIntersect\faceAreaIntersect.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\faceAreaIntersect\faceAreaIntersectI.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\coordinateSystems\cartesianCS.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation\axesRotation.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation\coordinateRotation.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation\cylindrical.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation\EulerCoordinateRotation.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation\STARCDCoordinateRotation.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateSystem.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateSystems.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\coordinateSystems\cylindricalCS.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\indexedOctree\treeDataEdge.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\indexedOctree\treeDataFace.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\indexedOctree\treeDataPoint.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\indexedOctree\treeDataPrimitivePatch.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\indexedOctree\treeDataTriSurface.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableBox\searchableBox.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableCylinder\searchableCylinder.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableDisk\searchableDisk.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchablePlane\searchablePlane.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchablePlate\searchablePlate.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSphere\searchableSphere.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurface\searchableSurface.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\booleanOps\surfaceIntersection\edgeIntersections.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\booleanOps\surfaceIntersection\surfaceIntersection.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\surfaceLocation\surfaceLocation.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\triangleFuncs\triangleFuncs.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\triSurfaceTools\geompack\geompack.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\triSurfaceTools\pointToPointPlanarInterpolation.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\triSurfaceTools\triSurfaceTools.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptorI.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\MeshedSurfaceAllocator\MeshedSurfaceIOAllocator.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\MeshedSurfaceProxy\MeshedSurfaceProxy.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\MeshedSurface\MeshedSurface.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\MeshedSurface\MeshedSurfaces.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\MeshedSurface\MeshedSurfacesFwd.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\surfaceFormatsCore.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceRegistry\surfaceRegistry.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfFields\surfFields\surfFields.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfFields\surfFields\surfFieldsFwd.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfFields\surfFields\surfGeoMesh.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfFields\surfPointFields\surfPointFields.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfFields\surfPointFields\surfPointFieldsFwd.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfFields\surfPointFields\surfPointGeoMesh.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfMesh\surfMesh.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfZone\surfZoneIdentifier\surfZoneIdentifier.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfZone\surfZoneIdentifier\surfZoneIdentifierList.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfZone\surfZone\surfZone.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfZone\surfZone\surfZoneIOList.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfZone\surfZone\surfZoneList.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\UnsortedMeshedSurface\UnsortedMeshedSurface.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\UnsortedMeshedSurface\UnsortedMeshedSurfaces.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\UnsortedMeshedSurface\UnsortedMeshedSurfacesFwd.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\faceTriangulation\faceTriangulation.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\meshTriangulation\meshTriangulation.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\tools\hashSignedLabel\hashSignedLabel.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\tools\labelledTri\labelledTri.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\tools\labelledTri\labelledTriI.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\tools\labelledTri\sortLabelledTri.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\tools\labelPair\labelPairLookup.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\triSurfaceFields\triSurfaceFields.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\triSurfaceFields\triSurfaceFieldsFwd.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\triSurfaceFields\triSurfaceGeoMesh.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\triSurfaceFields\triSurfacePointGeoMesh.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\triSurface\geometricSurfacePatch\geometricSurfacePatch.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\triSurface\geometricSurfacePatch\geometricSurfacePatchList.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\triSurface\surfacePatch\surfacePatch.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\triSurface\surfacePatch\surfacePatchIOList.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\triSurface\surfacePatch\surfacePatchList.hxx" />
+    <ClInclude Include="TnbLib\FvMesh\triSurface\triSurface\triSurface.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\MeshWave\FaceCellWave.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\MeshWave\FaceCellWaveName.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\MeshWave\MeshWave.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\MeshWave\MeshWaveName.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIInterpolation.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIInterpolationParallelOps.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIInterpolationTemplates.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\AMIMethod\AMIMethod.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\AMIMethod\AMIMethodNew.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\faceAreaIntersect\faceAreaIntersect.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\coordinateSystems\cartesianCS.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation\axesRotation.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation\coordinateRotation.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation\coordinateRotationNew.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation\cylindrical.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation\EulerCoordinateRotation.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateRotation\STARCDCoordinateRotation.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateSystem.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateSystemNew.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateSystems.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\coordinateSystems\cylindricalCS.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\indexedOctree\treeDataEdge.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\indexedOctree\treeDataFace.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\indexedOctree\treeDataPoint.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\indexedOctree\treeDataPrimitivePatch.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\indexedOctree\treeDataPrimitivePatchName.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\indexedOctree\treeDataTriSurface.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableBox\searchableBox.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableCylinder\searchableCylinder.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableDisk\searchableDisk.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchablePlane\searchablePlane.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchablePlate\searchablePlate.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSphere\searchableSphere.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurface\searchableSurface.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\booleanOps\surfaceIntersection\edgeIntersections.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\booleanOps\surfaceIntersection\surfaceIntersection.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\booleanOps\surfaceIntersection\surfaceIntersectionFuncs.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\booleanOps\surfaceIntersection\surfaceIntersectionTemplates.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\surfaceLocation\surfaceLocation.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\triangleFuncs\triangleFuncs.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\triSurfaceTools\geompack\geompack.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\triSurfaceTools\pointToPointPlanarInterpolation.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\triSurfaceTools\pointToPointPlanarInterpolationTemplates.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\triSurfaceTools\triSurfaceTools.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptorEdges.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptorTest.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\MeshedSurfaceAllocator\MeshedSurfaceIOAllocator.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\MeshedSurfaceProxy\MeshedSurfaceProxy.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\MeshedSurfaceProxy\MeshedSurfaceProxyCore.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\MeshedSurface\MeshedSurface.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\MeshedSurface\MeshedSurfaceCore.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\MeshedSurface\MeshedSurfaceIO.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\MeshedSurface\MeshedSurfaceNew.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\MeshedSurface\MeshedSurfaces.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\MeshedSurface\MeshedSurfaceZones.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\surfaceFormatsCore.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceRegistry\surfaceRegistry.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfFields\surfFields\surfFields.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfFields\surfPointFields\surfPointFields.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfMesh\surfMesh.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfMesh\surfMeshClear.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfMesh\surfMeshIO.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfZone\surfZoneIdentifier\surfZoneIdentifier.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfZone\surfZone\surfZone.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfZone\surfZone\surfZoneIOList.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\UnsortedMeshedSurface\UnsortedMeshedSurface.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\UnsortedMeshedSurface\UnsortedMeshedSurfaceNew.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\UnsortedMeshedSurface\UnsortedMeshedSurfaces.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\faceTriangulation\faceTriangulation.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\meshTriangulation\meshTriangulation.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\tools\labelledTri\labelledTri.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\tools\labelledTri\sortLabelledTri.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurfaceFields\triSurfaceFields.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\geometricSurfacePatch\geometricSurfacePatch.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\AC3D\readAC.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\AC3D\writeAC.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\GTS\readGTS.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\GTS\writeGTS.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\NAS\readNAS.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\OBJ_File\readOBJ.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\OBJ_File\writeOBJ.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\OFF\readOFF.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\OFF\writeOFF.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\SMESH\writeSMESH.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\STL\readSTL.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\STL\readSTLBINARY.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\STL\writeSTL.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\TRI\readTRI.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\TRI\writeTRI.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\VTK\readVTK.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\VTK\writeVTK.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\stitchTriangles.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\surfacePatch\surfacePatch.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\surfacePatch\surfacePatchIOList.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\triSurface.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\triSurfaceAddressing.cxx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
