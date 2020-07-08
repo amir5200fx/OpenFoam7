@@ -9,6 +9,10 @@
 #include <transformList.hxx>
 #include <SubField.hxx>
 
+#include <UOPstream.hxx> // added by amir
+#include <IPstream.hxx>  // aaded by amir
+#include <OPstream.hxx>  // aaded by amir
+
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 
 template<class T, class CombineOp>

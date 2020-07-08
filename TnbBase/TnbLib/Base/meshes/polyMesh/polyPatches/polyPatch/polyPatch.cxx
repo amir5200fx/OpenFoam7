@@ -9,6 +9,8 @@
 #include <dictionary.hxx>
 #include <pointPatchField.hxx>
 
+#include <demandDrivenData.hxx>  // added by amir
+
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 

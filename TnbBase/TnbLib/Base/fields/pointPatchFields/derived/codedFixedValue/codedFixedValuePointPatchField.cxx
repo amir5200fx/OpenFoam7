@@ -7,6 +7,9 @@
 #include <dynamicCodeContext.hxx>
 #include <stringOps.hxx>
 
+#include <IStringStream.hxx>  // added by amir
+#include <OStringStream.hxx>  // added by amir
+
 // * * * * * * * * * * * * Private Static Data Members * * * * * * * * * * * //
 
 template<class Type>

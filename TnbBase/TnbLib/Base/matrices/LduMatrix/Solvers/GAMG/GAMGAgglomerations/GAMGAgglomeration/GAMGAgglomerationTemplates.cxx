@@ -3,6 +3,9 @@
 #include <mapDistribute.hxx>
 #include <globalIndex.hxx>
 
+#include <IPstream.hxx>  // added by amir
+#include <OPstream.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 template<class Type>

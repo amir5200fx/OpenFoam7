@@ -10,6 +10,8 @@
 #include <IPstream.hxx>
 #include <OPstream.hxx>
 
+#include <flipOp.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
 namespace tnbLib

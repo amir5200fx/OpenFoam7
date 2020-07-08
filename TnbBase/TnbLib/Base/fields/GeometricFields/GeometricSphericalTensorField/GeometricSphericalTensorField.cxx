@@ -2,6 +2,7 @@
 
 //#define TEMPLATE template<template<class> class PatchField, class GeoMesh>
 //#include <GeometricFieldFunctionsM.cxx>
+#include <GeometricFieldReuseFunctions.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

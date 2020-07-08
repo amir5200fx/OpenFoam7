@@ -1,5 +1,9 @@
 #include <PatchTools.hxx>
 
+#include <EdgeMap.hxx>  // added by amir
+#include <PackedBoolList.hxx> // added by amir
+#include <Map.hxx> // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 template<class FaceList1, class PointField1, class FaceList2, class PointField2>

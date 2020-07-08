@@ -1,6 +1,7 @@
 #include <valuePointPatchField.hxx>
 
 #include <pointPatchFieldMapper.hxx>
+#include <dictionary.hxx>  // added by amir
 
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 

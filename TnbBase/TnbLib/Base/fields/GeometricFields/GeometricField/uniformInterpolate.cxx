@@ -1,5 +1,7 @@
 #include <uniformInterpolate.hxx>
 
+#include <objectRegistry.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 
 template<class GeoField>

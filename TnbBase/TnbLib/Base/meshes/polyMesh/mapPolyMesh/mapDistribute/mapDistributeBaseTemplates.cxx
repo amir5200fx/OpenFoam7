@@ -5,6 +5,9 @@
 #include <PstreamCombineReduceOps.hxx>
 #include <flipOp.hxx>
 
+#include <OPstream.hxx>  // added by amir
+#include <IPstream.hxx> // added by amir
+
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 
 template<class T, class CombineOp, class negateOp>

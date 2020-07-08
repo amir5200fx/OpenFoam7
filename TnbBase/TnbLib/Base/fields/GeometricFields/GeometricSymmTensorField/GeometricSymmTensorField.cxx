@@ -1,6 +1,7 @@
 #include <GeometricSymmTensorField.hxx>
 
 #include <symmTensorFieldField.hxx>
+#include <GeometricFieldReuseFunctions.hxx>
 
 //#define TEMPLATE template<template<class> class PatchField, class GeoMesh>
 //#include <GeometricFieldFunctionsM.cxx>

@@ -5,6 +5,11 @@
 #include <procLduInterface.hxx>
 #include <cyclicLduInterface.hxx>
 
+// added by amir
+#include <IOstreams.hxx>
+#include <IPstream.hxx>
+#include <OPstream.hxx>
+
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
 namespace tnbLib

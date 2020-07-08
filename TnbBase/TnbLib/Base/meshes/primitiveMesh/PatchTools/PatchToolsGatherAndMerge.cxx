@@ -4,6 +4,9 @@
 #include <globalMeshData.hxx>
 #include <mergePoints.hxx>
 
+#include <IPstream.hxx>  // added by amir
+#include <OPstream.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 
 template<class FaceList, class PointField>
