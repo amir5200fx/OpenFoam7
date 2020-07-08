@@ -1,0 +1,220 @@
+#pragma once
+#ifndef _zone_Header
+#define _zone_Header
+
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
+	 \\/     M anipulation  |
+-------------------------------------------------------------------------------
+License
+	This file is part of OpenFOAM.
+
+	OpenFOAM is free software: you can redistribute it and/or modify it
+	under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
+	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+	FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+	for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
+
+Class
+	tnbLib::zone
+
+Description
+	Base class for zones
+
+SourceFiles
+	zone.C
+
+\*---------------------------------------------------------------------------*/
+
+#include <labelList.hxx>
+#include <typeInfo.hxx>
+#include <dictionary.hxx>
+#include <Map.hxx>
+#include <pointFieldFwd.hxx>
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+namespace tnbLib
+{
+
+	// Forward declaration of friend functions and operators
+
+	class zone;
+	Ostream& operator<<(Ostream&, const zone&);
+
+	/*---------------------------------------------------------------------------*\
+							   Class zone Declaration
+	\*---------------------------------------------------------------------------*/
+
+	class zone
+		:
+		public labelList
+	{
+
+	protected:
+
+		// Protected data
+
+			//- Name of zone
+		word name_;
+
+		//- Index of zone
+		label index_;
+
+
+		// Demand-driven private data
+
+			//- Map of labels in zone for fast location lookup
+		mutable Map<label>* lookupMapPtr_;
+
+
+		// Protected Member Functions
+
+			//- Construct the look-up map
+		void calcLookupMap() const;
+
+
+	public:
+
+		//- Runtime type information
+		TypeName("zone");
+
+
+		// Constructors
+
+			//- Construct from components
+		zone
+		(
+			const word& name,
+			const labelUList& addr,
+			const label index
+		);
+
+		//- Construct from components, moving contents
+		zone
+		(
+			const word& name,
+			labelList&& addr,
+			const label index
+		);
+
+		//- Construct from dictionary
+		zone
+		(
+			const word& name,
+			const dictionary&,
+			const word& labelsName,
+			const label index
+		);
+
+		//- Construct given the original zone and resetting the
+		//  cell list and zone mesh information
+		zone
+		(
+			const zone&,
+			const labelUList& addr,
+			const label index
+		);
+
+		//- Construct given the original zone, resetting the
+		//  cell list and zone mesh information
+		zone
+		(
+			const zone&,
+			labelList&& addr,
+			const label index
+		);
+
+		//- Disallow default bitwise copy construction
+		zone(const zone&) = delete;
+
+
+		//- Destructor
+		virtual ~zone();
+
+
+		// Member Functions
+
+			//- Return name
+		const word& name() const
+		{
+			return name_;
+		}
+
+		//- Map storing the local index for every global index.  Used to find
+		//  the index of the item in the zone from the known global index. If
+		//  the item is not in the zone, returns -1
+		label localID(const label globalID) const;
+
+		//- Return the index of this zone in zone list
+		label index() const
+		{
+			return index_;
+		}
+
+		//- Return a reference to the look-up map
+		const Map<label>& lookupMap() const;
+
+		//- Clear addressing
+		virtual void clearAddressing();
+
+		//- Check zone definition. Return true if in error.
+		virtual bool checkDefinition(const bool report = false) const = 0;
+
+		//- Check zone definition with max size given. Return true if in error.
+		virtual bool checkDefinition
+		(
+			const label maxSize,
+			const bool report = false
+		) const;
+
+		//- Correct patch after moving points
+		virtual void movePoints(const pointField&)
+		{}
+
+		//- Write
+		virtual void write(Ostream&) const;
+
+		//- Write dictionary
+		virtual void writeDict(Ostream&) const = 0;
+
+
+		// Member Operators
+
+			//- Assignment operator
+		void operator=(const zone&);
+
+		//- Move assignment operator
+		void operator=(zone&&);
+
+		//- Assignment operator to addressing
+		void operator=(const labelUList&);
+
+		//- Move assignment of addressing
+		void operator=(labelList&&);
+
+
+		// I-O
+
+			//- Ostream Operator
+		friend Ostream& operator<<(Ostream&, const zone&);
+	};
+
+
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+} // End namespace tnbLib
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif // !_zone_Header
