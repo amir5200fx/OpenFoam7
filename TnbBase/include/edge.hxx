@@ -38,7 +38,7 @@ SourceFiles
 \*---------------------------------------------------------------------------*/
 
 #include <FixedList.hxx>
-#include <pointField.hxx>
+#include <pointFieldFwd.hxx>
 #include <linePointRef.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

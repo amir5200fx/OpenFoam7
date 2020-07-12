@@ -20,14 +20,14 @@ internalField() const
 }
 
 
-template<class Type, template<class> class PatchField, class GeoMesh>
-inline
-const typename
-tnbLib::GeometricField<Type, PatchField, GeoMesh>::Internal::FieldType&
-tnbLib::GeometricField<Type, PatchField, GeoMesh>::primitiveField() const
-{
-	return *this;
-}
+//template<class Type, template<class> class PatchField, class GeoMesh>
+//inline
+//const typename
+//tnbLib::GeometricField<Type, PatchField, GeoMesh>::Internal::FieldType&
+//tnbLib::GeometricField<Type, PatchField, GeoMesh>::primitiveField() const
+//{
+//	return *this;
+//}
 
 
 template<class Type, template<class> class PatchField, class GeoMesh>

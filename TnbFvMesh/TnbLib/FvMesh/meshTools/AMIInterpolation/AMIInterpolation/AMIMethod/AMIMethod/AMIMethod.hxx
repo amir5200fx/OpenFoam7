@@ -45,10 +45,14 @@ SourceFiles
 #include <primitivePatch.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#include <PtrList.hxx> //added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
+
+	class AMIInterpolation;  //added by amir
 
 	/*---------------------------------------------------------------------------*\
 							  Class AMIMethod Declaration

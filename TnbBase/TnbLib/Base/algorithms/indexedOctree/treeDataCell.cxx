@@ -30,7 +30,7 @@ tnbLib::treeBoundBox tnbLib::treeDataCell::calcCellBb(const label celli) const
 	forAll(cFaces, cFacei)
 	{
 		const face& f = faces[cFaces[cFacei]];
-
+		
 		forAll(f, fp)
 		{
 			const point& p = points[f[fp]];

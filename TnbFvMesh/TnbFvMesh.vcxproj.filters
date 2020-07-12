@@ -535,6 +535,48 @@
     <Filter Include="TnbLib\FvMesh\surfMesh\surfFields\surfFields">
       <UniqueIdentifier>{b2b504bd-9c22-40af-a289-57da4b46a035}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPointPatch">
+      <UniqueIdentifier>{91420fa7-9f35-48c2-99cd-2652cdba12cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch">
+      <UniqueIdentifier>{7090e7ce-9a71-4f26-ac07-a8846d365675}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMILduInterfaceField">
+      <UniqueIdentifier>{bb3c4d9c-6830-422a-84d8-53e588ef434f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatch">
+      <UniqueIdentifier>{b17a554b-154d-4c60-a788-ad1ccafefffd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatchField">
+      <UniqueIdentifier>{ab0fea73-1f7c-40bb-8271-68cf95805474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPolyPatch">
+      <UniqueIdentifier>{cb19c466-f5be-40d9-8e04-c9041552d902}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMILduInterfaceField">
+      <UniqueIdentifier>{bb5f19ed-a679-402b-af2d-7aa80825065b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatch">
+      <UniqueIdentifier>{0445f4dc-0f53-4c27-a229-eef8ca33a1a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatchField">
+      <UniqueIdentifier>{1b12aaed-f441-4ff5-b35e-929296b66ab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPolyPatch">
+      <UniqueIdentifier>{538f4231-8858-472a-8dbf-cfe74802cf84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMILduInterfaceField">
+      <UniqueIdentifier>{7ad4b635-8340-4614-bc23-13dbc2b518f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatch">
+      <UniqueIdentifier>{9505c0f8-029f-43b8-bda1-30a9f188708e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatchField">
+      <UniqueIdentifier>{17939b79-37a1-4116-b314-c2946bb16c01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPolyPatch">
+      <UniqueIdentifier>{fe8364c2-e0c5-4e88-b03d-aece698b2c64}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.hxx">
@@ -767,6 +809,210 @@
     </ClInclude>
     <ClInclude Include="TnbLib\FvMesh\surfMesh\surfFields\surfPointFields\surfPointGeoMesh.hxx">
       <Filter>TnbLib\FvMesh\surfMesh\surfFields\surfPointFields</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\gradingDescriptor\gradingDescriptor.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\gradingDescriptor</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\gradingDescriptor\gradingDescriptors.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\gradingDescriptor</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\meshTools\meshTools.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshTools</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\directAMI\directAMI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\directAMI</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\faceAreaWeightAMI\faceAreaWeightAMI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\faceAreaWeightAMI</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\mapNearestAMI\mapNearestAMI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\mapNearestAMI</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\partialFaceAreaWeightAMI\partialFaceAreaWeightAMI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\partialFaceAreaWeightAMI</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\sweptFaceAreaWeightAMI\sweptFaceAreaWeightAMI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\sweptFaceAreaWeightAMI</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\blockEdge\blockEdge.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\blockEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\blockEdge\blockEdgeI.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\blockEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\blockEdge\blockEdgeList.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\blockEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\triSurfaceMesh\triSurfaceMesh.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\triSurfaceMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\triSurfaceSearch\triSurfaceRegionSearch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\triSurfaceSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\triSurfaceSearch\triSurfaceSearch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\triSurfaceSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch\mappedPatchBase.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch\mappedPatchBaseI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\meshSearch\meshSearchMeshObject.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\meshSearch\meshSearchFACE_CENTRE_TRISMeshObject.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\meshSearch\meshSearch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch\mappedPolyPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch\mappedVariableThicknessWallPolyPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch\mappedWallPolyPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPointPatch\mappedPointPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPointPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPointPatch\mappedWallPointPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPointPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\meshStructure\meshStructure.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\meshStructure\meshStructureI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\meshStructure\topoDistanceData.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\meshStructure\topoDistanceDataI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\meshStructure\pointTopoDistanceData.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\meshStructure\pointTopoDistanceDataI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave\PointEdgeWave.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave\pointEdgePoint.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave\pointEdgePointI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\patchEdgeFaceInfo.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\patchEdgeFaceInfoI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\patchEdgeFaceRegion.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\patchEdgeFaceRegionI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\patchEdgeFaceRegions.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\patchEdgeFaceRegionsI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\PatchEdgeFaceWave.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\patchPatchDist.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMILduInterfaceField\cyclicACMILduInterface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMILduInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMILduInterfaceField\cyclicAMILduInterface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMILduInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMILduInterfaceField\cyclicAMILduInterfaceField.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMILduInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatch\cyclicAMIPointPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPolyPatch\cyclicAMIPolyPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPolyPatch\cyclicAMIPolyPatchI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatchField\cyclicAMIPointPatchField.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatchField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatchField\cyclicAMIPointPatchFields.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatchField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMILduInterfaceField\cyclicRepeatAMILduInterface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMILduInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMILduInterfaceField\cyclicRepeatAMILduInterfaceField.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMILduInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPolyPatch\cyclicRepeatAMIPolyPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPolyPatch\cyclicRepeatAMIPolyPatchI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatch\cyclicRepeatAMIPointPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatchField\cyclicRepeatAMIPointPatchField.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatchField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatchField\cyclicRepeatAMIPointPatchFields.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatchField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMILduInterfaceField\cyclicACMILduInterfaceField.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMILduInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPolyPatch\cyclicACMIPolyPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPolyPatch\cyclicACMIPolyPatchI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatch\cyclicACMIPointPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatchField\cyclicACMIPointPatchField.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatchField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatchField\cyclicACMIPointPatchFields.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatchField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicAMIGAMGInterface\cyclicAMIGAMGInterface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicAMIGAMGInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicACMIGAMGInterface\cyclicACMIGAMGInterface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicACMIGAMGInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicRepeatAMIGAMGInterface\cyclicRepeatAMIGAMGInterface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicRepeatAMIGAMGInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicAMIGAMGInterfaceField\cyclicAMIGAMGInterfaceField.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicAMIGAMGInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicACMIGAMGInterfaceField\cyclicACMIGAMGInterfaceField.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicACMIGAMGInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicRepeatAMIGAMGInterfaceField\cyclicRepeatAMIGAMGInterfaceField.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicRepeatAMIGAMGInterfaceField</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1060,6 +1306,183 @@
     </ClCompile>
     <ClCompile Include="TnbLib\FvMesh\surfMesh\surfFields\surfPointFields\surfPointFields.cxx">
       <Filter>TnbLib\FvMesh\surfMesh\surfFields\surfPointFields</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\gradingDescriptor\gradingDescriptor.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\gradingDescriptor</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\gradingDescriptor\gradingDescriptors.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\gradingDescriptor</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\meshTools\meshTools.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshTools</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\meshTools\meshToolsTemplates.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshTools</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\directAMI\directAMI.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\directAMI</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\faceAreaWeightAMI\faceAreaWeightAMI.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\faceAreaWeightAMI</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\mapNearestAMI\mapNearestAMI.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\mapNearestAMI</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\partialFaceAreaWeightAMI\partialFaceAreaWeightAMI.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\partialFaceAreaWeightAMI</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\sweptFaceAreaWeightAMI\sweptFaceAreaWeightAMI.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIMethod\sweptFaceAreaWeightAMI</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\blockEdge\blockEdge.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\blockEdge</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\triSurfaceMesh\triSurfaceMesh.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\triSurfaceMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\triSurfaceMesh\extractCloseness.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\triSurfaceMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\triSurfaceSearch\triSurfaceRegionSearch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\triSurfaceSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\triSurfaceSearch\triSurfaceSearch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\triSurfaceSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch\mappedPatchBase.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\meshSearch\meshSearchMeshObject.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\meshSearch\meshSearchFACE_CENTRE_TRISMeshObject.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\meshSearch\meshSearch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch\mappedPatchBaseTemplates.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch\mappedPolyPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch\mappedVariableThicknessWallPolyPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch\mappedWallPolyPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPointPatch\mappedPointPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPointPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPointPatch\mappedWallPointPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPointPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\meshStructure\meshStructure.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\meshStructure\topoDistanceData.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\meshStructure\pointTopoDistanceData.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\meshStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave\PointEdgeWave.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave\PointEdgeWaveName.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave\pointEdgePoint.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PointEdgeWave</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\patchEdgeFaceInfo.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\patchEdgeFaceRegion.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\patchEdgeFaceRegions.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\PatchEdgeFaceWave.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\PatchEdgeFaceWaveName.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave\patchPatchDist.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\PatchEdgeFaceWave</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMILduInterfaceField\cyclicACMILduInterface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMILduInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMILduInterfaceField\cyclicAMILduInterface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMILduInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMILduInterfaceField\cyclicAMILduInterfaceField.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMILduInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatch\cyclicAMIPointPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPolyPatch\cyclicAMIPolyPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPolyPatch\cyclicAMIPolyPatchTemplates.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatchField\cyclicAMIPointPatchField.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatchField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatchField\cyclicAMIPointPatchFields.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicAMI\cyclicAMIPointPatchField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMILduInterfaceField\cyclicRepeatAMILduInterface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMILduInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMILduInterfaceField\cyclicRepeatAMILduInterfaceField.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMILduInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPolyPatch\cyclicRepeatAMIPolyPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatch\cyclicRepeatAMIPointPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatchField\cyclicRepeatAMIPointPatchFields.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPointPatchField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMILduInterfaceField\cyclicACMILduInterfaceField.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMILduInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPolyPatch\cyclicACMIPolyPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatch\cyclicACMIPointPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatchField\cyclicACMIPointPatchFields.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicACMI\cyclicACMIPointPatchField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicAMIGAMGInterface\cyclicAMIGAMGInterface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicAMIGAMGInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicACMIGAMGInterface\cyclicACMIGAMGInterface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicACMIGAMGInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicRepeatAMIGAMGInterface\cyclicRepeatAMIGAMGInterface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaces\cyclicRepeatAMIGAMGInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicAMIGAMGInterfaceField\cyclicAMIGAMGInterfaceField.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicAMIGAMGInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicACMIGAMGInterfaceField\cyclicACMIGAMGInterfaceField.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicACMIGAMGInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicRepeatAMIGAMGInterfaceField\cyclicRepeatAMIGAMGInterfaceField.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicRepeatAMIGAMGInterfaceField</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

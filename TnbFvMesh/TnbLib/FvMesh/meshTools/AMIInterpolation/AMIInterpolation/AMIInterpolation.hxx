@@ -61,6 +61,7 @@ SourceFiles
 #include <ops.hxx>
 
 #include <UPtrList.hxx>  // added by amir
+#include <mapDistribute.hxx> // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -525,7 +525,10 @@ namespace tnbLib
 		typename Internal::FieldType& primitiveFieldRef();
 
 		//- Return a const-reference to the  internal field
-		inline const typename Internal::FieldType& primitiveField() const;
+		inline const typename Internal::FieldType& primitiveField() const
+		{
+			return *this;
+		}
 
 		//- Return a reference to the boundary field
 		//  Note: this increments the event counter and checks the

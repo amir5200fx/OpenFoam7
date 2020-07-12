@@ -1,5 +1,6 @@
 #pragma once
 #include <IOstreams.hxx>
+#include <pointField.hxx>
 #include <Swap.hxx>
 
 // * * * * * * * * * * * * * Static Member Functions * * * * * * * * * * * * //
