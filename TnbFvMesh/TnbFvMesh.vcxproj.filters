@@ -577,6 +577,45 @@
     <Filter Include="TnbLib\FvMesh\meshTools\AMIInterpolation\patches\cyclicRepeatAMI\cyclicRepeatAMIPolyPatch">
       <UniqueIdentifier>{fe8364c2-e0c5-4e88-b03d-aece698b2c64}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats">
+      <UniqueIdentifier>{6a3abdc8-977d-4ad2-a7eb-8b1b34c53e71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats\coordSet">
+      <UniqueIdentifier>{b8140270-2d35-4086-a8f4-0a69f34934c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats\nas">
+      <UniqueIdentifier>{1a5d6c9e-ba0b-4834-88b1-3ae698a3b5d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats\vtk">
+      <UniqueIdentifier>{bc603ff2-fc63-4f63-8a5b-88aec0c59e43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats\starcd">
+      <UniqueIdentifier>{9201dd75-4ce9-49cf-89cd-e0792e2690f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats\sampledSetWriters">
+      <UniqueIdentifier>{2ef1f5f7-43cf-4f16-99e1-14f16de51b56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\csv">
+      <UniqueIdentifier>{f4c3b4e9-1069-47f0-9288-8ed64f38f098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\ensight">
+      <UniqueIdentifier>{cb21355d-5dde-4595-93f1-cdd78cf7bad5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\gnuplot">
+      <UniqueIdentifier>{d98fe246-9c67-4087-aa47-791a173c9811}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\xmgrace">
+      <UniqueIdentifier>{008bd3ca-64c2-4b11-ac19-f3089dd03be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\vtk">
+      <UniqueIdentifier>{cde19d92-84e1-4e3e-b708-ddc5353fc307}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\raw">
+      <UniqueIdentifier>{ebfa5df8-6244-4508-b340-aa71d371a8e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\jplot">
+      <UniqueIdentifier>{2ffc5759-fe4e-404f-bf82-27ba95303051}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.hxx">
@@ -1013,6 +1052,141 @@
     </ClInclude>
     <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicRepeatAMIGAMGInterfaceField\cyclicRepeatAMIGAMGInterfaceField.hxx">
       <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicRepeatAMIGAMGInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\cellClassification\cellInfo.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellClassification</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\cellClassification\cellInfoI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellClassification</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\cellClassification\cellClassification.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellClassification</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\cellDist\patchWave\patchDataWave.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist\patchWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\cellDist\patchWave\patchWave.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist\patchWave</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\cellDist\cellDistFuncs.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\cellDist\wallPoint\wallPoint.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist\wallPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\cellDist\wallPoint\wallPointI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist\wallPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\cellDist\wallPoint\wallPointData.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist\wallPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\cellDist\wallPoint\wallPointDataI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist\wallPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\cellFeatures\cellFeatures.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellFeatures</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\cellQuality\cellQuality.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellQuality</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeFaceCirculator\edgeFaceCirculator.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeFaceCirculator</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeFaceCirculator\edgeFaceCirculatorI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeFaceCirculator</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMesh.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\edgeMeshFormatsCore.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\edgeMesh\edgeMeshFormat.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\edgeMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeMesh\featureEdgeMesh\featureEdgeMesh.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\featureEdgeMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\extendedFeatureEdgeMesh\extendedFeatureEdgeMeshFormat.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\extendedFeatureEdgeMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\nas\NASedgeFormat.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\nas</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\coordSet\coordSet.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\coordSet</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\nas\NASCore.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\nas</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\starcd\STARCDCore.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\starcd</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\vtk\vtkUnstructuredReader.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\vtk</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\writer.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\writers.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\csv\csvSetWriter.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\csv</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\ensight\ensightSetWriter.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\ensight</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\gnuplot\gnuplotSetWriter.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\gnuplot</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\jplot\jplotSetWriter.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\jplot</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\raw\rawSetWriter.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\raw</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\vtk\vtkSetWriter.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\vtk</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\xmgrace\xmgraceSetWriter.hxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\xmgrace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\_obj\OBJedgeFormat.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\obj</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\starcd\STARCDedgeFormat.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\starcd</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\vtk\VTKedgeFormat.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\vtk</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh\extendedEdgeMesh.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh\extendedEdgeMeshI.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\surfaceFeatures\surfaceFeatures.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\surfaceFeatures</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\orientedSurface\orientedSurface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\orientedSurface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\booleanOps\intersectedSurface\edgeSurface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\booleanOps\intersectedSurface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\booleanOps\booleanSurface\booleanSurface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\booleanOps\booleanSurface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\triSurface\booleanOps\intersectedSurface\intersectedSurface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\booleanOps\intersectedSurface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\polyMeshZipUpCells\polyMeshZipUpCells.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\polyMeshZipUpCells</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1483,6 +1657,177 @@
     </ClCompile>
     <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicRepeatAMIGAMGInterfaceField\cyclicRepeatAMIGAMGInterfaceField.cxx">
       <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\GAMG\interfaceFields\cyclicRepeatAMIGAMGInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\cellClassification\cellInfo.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellClassification</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\cellClassification\cellClassification.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellClassification</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\cellDist\patchWave\patchDataWave.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist\patchWave</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\cellDist\patchWave\patchWave.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist\patchWave</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\cellDist\cellDistFuncs.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\cellDist\cellDistFuncsTemplates.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\cellDist\wallPoint\wallPoint.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist\wallPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\cellDist\wallPoint\wallPointData.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellDist\wallPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\cellFeatures\cellFeatures.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellFeatures</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\cellQuality\cellQuality.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\cellQuality</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeFaceCirculator\edgeFaceCirculator.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeFaceCirculator</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMesh.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshIO.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshNew.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\edgeMeshFormatsCore.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\edgeMesh\edgeMeshFormat.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\edgeMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\edgeMesh\edgeMeshFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\edgeMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\featureEdgeMesh\featureEdgeMesh.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\featureEdgeMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\extendedFeatureEdgeMesh\extendedFeatureEdgeMeshFormat.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\extendedFeatureEdgeMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\extendedFeatureEdgeMesh\extendedFeatureEdgeMeshFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\extendedFeatureEdgeMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\nas\NASedgeFormat.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\nas</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\coordSet\coordSet.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\coordSet</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\nas\NASCore.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\nas</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\starcd\STARCDCore.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\starcd</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\vtk\vtkUnstructuredReader.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\vtk</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\vtk\vtkUnstructuredReaderTemplates.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\vtk</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\writer.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\writers.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\csv\csvSetWriter.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\csv</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\csv\csvSetWriterRunTime.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\csv</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\ensight\ensightSetWriter.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\ensight</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\ensight\ensightSetWriterRunTime.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\ensight</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\gnuplot\gnuplotSetWriter.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\gnuplot</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\gnuplot\gnuplotSetWriterRunTime.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\gnuplot</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\jplot\jplotSetWriter.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\jplot</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\jplot\jplotSetWriterRunTime.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\jplot</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\raw\rawSetWriter.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\raw</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\raw\rawSetWriterRunTime.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\raw</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\vtk\vtkSetWriter.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\vtk</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\vtk\vtkSetWriterRunTime.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\vtk</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\xmgrace\xmgraceSetWriter.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\sampledSetWriters\xmgrace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\nas\NASedgeFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\nas</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\_obj\OBJedgeFormat.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\obj</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\_obj\OBJedgeFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\obj</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\starcd\STARCDedgeFormat.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\starcd</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\starcd\STARCDedgeFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\starcd</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\vtk\VTKedgeFormat.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\vtk</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\vtk\VTKedgeFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\edgeMeshFormats\vtk</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh\extendedEdgeMesh.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh\extendedEdgeMeshNew.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh\extendedEdgeMeshTemplates.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\surfaceFeatures\surfaceFeatures.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\surfaceFeatures</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\orientedSurface\orientedSurface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\orientedSurface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\booleanOps\intersectedSurface\edgeSurface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\booleanOps\intersectedSurface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\booleanOps\booleanSurface\booleanSurface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\booleanOps\booleanSurface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\triSurface\booleanOps\intersectedSurface\intersectedSurface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\triSurface\booleanOps\intersectedSurface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\polyMeshZipUpCells\polyMeshZipUpCells.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\polyMeshZipUpCells</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
