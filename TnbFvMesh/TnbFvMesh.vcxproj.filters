@@ -616,6 +616,165 @@
     <Filter Include="TnbLib\FvMesh\fileFormats\sampledSetWriters\jplot">
       <UniqueIdentifier>{2ffc5759-fe4e-404f-bf82-27ba95303051}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources">
+      <UniqueIdentifier>{f2aad6da-327e-464d-ba7d-d0a73f1a4848}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\zoneToCell">
+      <UniqueIdentifier>{b9e2f4d8-a9ac-4c77-9f98-2c457372c960}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\pointToCell">
+      <UniqueIdentifier>{f2e29cc7-dbb6-40aa-9468-29ae7b4861d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\regionToCell">
+      <UniqueIdentifier>{55dcbbe2-1559-4205-af94-40f7311122d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\rotatedBoxToCell">
+      <UniqueIdentifier>{4c8a1ede-cdf0-47bd-bbc1-274759c30668}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\shapeToCell">
+      <UniqueIdentifier>{1d84e936-3ea2-46aa-bef6-6fb1cd365a86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\sphereToCell">
+      <UniqueIdentifier>{10296866-f7c6-424b-8a20-2a3700c8a9e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\surfaceToCell">
+      <UniqueIdentifier>{521b8fe4-d5bc-415c-8066-0f5889c9a5d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\targetVolumeToCell">
+      <UniqueIdentifier>{af03b991-3b00-45fb-8f39-1123551837a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\boxToCell">
+      <UniqueIdentifier>{d593d2c5-6a4a-410f-a2f2-dd89cfe6ebf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\cellToCell">
+      <UniqueIdentifier>{53b2aa5d-4502-4e32-8877-381dd0c752d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\cylinderAnnulusToCell">
+      <UniqueIdentifier>{1ea7857f-07ad-4288-8907-81040adaf544}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\cylinderToCell">
+      <UniqueIdentifier>{1ead90c6-20c6-4330-869b-de549954c1eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\faceToCell">
+      <UniqueIdentifier>{a74c3720-3cf0-4f39-a099-089121543412}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\faceZoneToCell">
+      <UniqueIdentifier>{d0983d0d-fb0f-4538-9d54-13b45a55fbd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\fieldToCell">
+      <UniqueIdentifier>{b5581e65-dede-442e-8531-4924cdbfc0de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\labelToCell">
+      <UniqueIdentifier>{2cef46c7-0872-4736-9454-2ba7573a97e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\nbrToCell">
+      <UniqueIdentifier>{90e3c50b-4706-4641-919b-9f35d5a88281}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellSources\nearestToCell">
+      <UniqueIdentifier>{b0a91fc4-cc23-484f-a95f-7050e605a7d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellZoneSources">
+      <UniqueIdentifier>{5d34ee4e-a8e5-4d1a-9966-a83e6b609f0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources">
+      <UniqueIdentifier>{9d8744c8-f6bf-4dd0-b001-82ccedc4fc3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources">
+      <UniqueIdentifier>{95003f12-2e5c-4aa4-8d3c-ab995f170c54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\topoSetSource">
+      <UniqueIdentifier>{aa273534-bb35-49ec-bee8-6b44630d94dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\topoSets">
+      <UniqueIdentifier>{2d4ac3c5-f2c8-462c-9fe7-dd6bf12ad352}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\pointZoneSources">
+      <UniqueIdentifier>{e51f712c-4a0a-43cd-9f85-f0ab550e4889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\pointSources">
+      <UniqueIdentifier>{6fab8574-4e3a-4dc5-b359-76163de9febd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\cellZoneSources\setToCellZone">
+      <UniqueIdentifier>{0cd9e31d-6d5c-4f7b-afb5-e52f7ee825c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources\boundaryToFace">
+      <UniqueIdentifier>{0d24a37e-0daa-4f93-9d51-964f5870fcfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources\boxToFace">
+      <UniqueIdentifier>{f224f559-27b3-4d34-b8fe-5371012f5662}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources\cellToFace">
+      <UniqueIdentifier>{a0262792-e73c-4c4d-8613-f89e8a88b399}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources\cylinderAnnulusToFace">
+      <UniqueIdentifier>{666b09be-f528-4e48-96e3-b8c3fb6776b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources\cylinderToFace">
+      <UniqueIdentifier>{3361e031-a2ca-4b6b-87bc-4e13a93375cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources\faceToFace">
+      <UniqueIdentifier>{0af0b37b-23d0-4999-88d3-9e84867a104d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources\labelToFace">
+      <UniqueIdentifier>{bc8a1d58-897b-4231-963a-fed7669eec11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources\zoneToFace">
+      <UniqueIdentifier>{949b1152-f8ec-46cc-a1c1-accd1e156d0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources\regionToFace">
+      <UniqueIdentifier>{a393fb09-bbed-49f2-93af-a62b204ce88e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources\pointToFace">
+      <UniqueIdentifier>{1702402e-846c-4f01-a331-b0c0d4f154b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources\patchToFace">
+      <UniqueIdentifier>{52cdf68e-7437-4189-b361-19e7d08a8c37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceSources\normalToFace">
+      <UniqueIdentifier>{b5d99289-c708-416f-817d-ed5618f4da00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\faceZoneToFaceZone">
+      <UniqueIdentifier>{1344eb3c-e79b-4dbc-8485-7ddcf7278fb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\setToFaceZone">
+      <UniqueIdentifier>{32435e97-09fc-4d94-8131-363fd0cfa536}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\setsToFaceZone">
+      <UniqueIdentifier>{9f617082-0581-483b-8182-5797c867ed9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\setAndNormalToFaceZone">
+      <UniqueIdentifier>{386b2e8b-73cf-4f9a-b6b8-e70021ba98dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\searchableSurfaceToFaceZone">
+      <UniqueIdentifier>{ea56b354-9266-4e23-8c62-59987f2b619f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\pointSources\boxToPoint">
+      <UniqueIdentifier>{334575fc-89a8-4f51-8bd7-9dafcc2aa11f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\pointSources\cellToPoint">
+      <UniqueIdentifier>{76690bf9-ceb2-470a-933b-bd951f256248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\pointSources\faceToPoint">
+      <UniqueIdentifier>{cb588cd5-fde6-4c72-8522-b9bfda85dc9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\pointSources\labelToPoint">
+      <UniqueIdentifier>{de3fae8f-9b3d-41f2-8d8a-45304e08a77b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\pointSources\nearestToPoint">
+      <UniqueIdentifier>{baf15cb3-25ec-4526-afdf-250ee61f787c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\pointSources\zoneToPoint">
+      <UniqueIdentifier>{ecbce9ea-912f-4737-a577-650eb3f33b31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\pointSources\surfaceToPoint">
+      <UniqueIdentifier>{6f57a251-84e0-4ede-bf9a-779c5af9a676}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\pointSources\pointToPoint">
+      <UniqueIdentifier>{a9ed1af4-9b30-4b3d-89a8-f59d34658d40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\sets\pointZoneSources\setToPointZone">
+      <UniqueIdentifier>{e6adc9c1-dcf8-4f61-affa-4177e0653492}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.hxx">
@@ -1187,6 +1346,186 @@
     </ClInclude>
     <ClInclude Include="TnbLib\FvMesh\meshTools\polyMeshZipUpCells\polyMeshZipUpCells.hxx">
       <Filter>TnbLib\FvMesh\meshTools\polyMeshZipUpCells</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\topoSetSource\topoSetSource.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSetSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\topoSets\cellSet.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\topoSets\cellZoneSet.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\topoSets\faceSet.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\topoSets\faceZoneSet.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\topoSets\pointSet.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\topoSets\pointZoneSet.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\topoSets\topoSet.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\pointZoneSources\setToPointZone\setToPointZone.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointZoneSources\setToPointZone</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\pointSources\pointToPoint\pointToPoint.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\pointToPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\pointSources\boxToPoint\boxToPoint.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\boxToPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\pointSources\cellToPoint\cellToPoint.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\cellToPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\pointSources\faceToPoint\faceToPoint.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\faceToPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\pointSources\labelToPoint\labelToPoint.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\labelToPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\pointSources\nearestToPoint\nearestToPoint.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\nearestToPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\pointSources\surfaceToPoint\surfaceToPoint.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\surfaceToPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\pointSources\zoneToPoint\zoneToPoint.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\zoneToPoint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\faceZoneToFaceZone\faceZoneToFaceZone.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceZoneSources\faceZoneToFaceZone</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\searchableSurfaceToFaceZone\searchableSurfaceToFaceZone.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceZoneSources\searchableSurfaceToFaceZone</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\setAndNormalToFaceZone\setAndNormalToFaceZone.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceZoneSources\setAndNormalToFaceZone</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\setsToFaceZone\setsToFaceZone.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceZoneSources\setsToFaceZone</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\setToFaceZone\setToFaceZone.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceZoneSources\setToFaceZone</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceSources\boundaryToFace\boundaryToFace.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\boundaryToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceSources\boxToFace\boxToFace.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\boxToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceSources\cellToFace\cellToFace.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\cellToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceSources\cylinderAnnulusToFace\cylinderAnnulusToFace.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\cylinderAnnulusToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceSources\cylinderToFace\cylinderToFace.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\cylinderToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceSources\faceToFace\faceToFace.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\faceToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceSources\labelToFace\labelToFace.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\labelToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceSources\normalToFace\normalToFace.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\normalToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceSources\patchToFace\patchToFace.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\patchToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceSources\pointToFace\pointToFace.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\pointToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceSources\regionToFace\regionToFace.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\regionToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\faceSources\zoneToFace\zoneToFace.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\zoneToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellZoneSources\setToCellZone\setToCellZone.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellZoneSources\setToCellZone</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\boxToCell\boxToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\boxToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\cellToCell\cellToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\cellToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\cylinderAnnulusToCell\cylinderAnnulusToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\cylinderAnnulusToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\cylinderToCell\cylinderToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\cylinderToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\faceToCell\faceToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\faceToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\faceZoneToCell\faceZoneToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\faceZoneToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\fieldToCell\fieldDictionary.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\fieldToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\fieldToCell\fieldToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\fieldToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\labelToCell\labelToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\labelToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\nbrToCell\nbrToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\nbrToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\nearestToCell\nearestToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\nearestToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\pointToCell\pointToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\pointToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\regionToCell\regionToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\regionToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\rotatedBoxToCell\rotatedBoxToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\rotatedBoxToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\shapeToCell\shapeToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\shapeToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\sphereToCell\sphereToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\sphereToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\surfaceToCell\surfaceToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\surfaceToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\targetVolumeToCell\targetVolumeToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\targetVolumeToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\sets\cellSources\zoneToCell\zoneToCell.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\zoneToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\regionSplit\localPointRegion.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionSplit</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\primitiveMeshGeometry\primitiveMeshGeometry.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\primitiveMeshGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\twoDPointCorrector\twoDPointCorrector.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\twoDPointCorrector</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\tetOverlapVolume\tetOverlapVolume.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\tetOverlapVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\surfaceSets\surfaceSets.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\surfaceSets</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\closedTriSurfaceMesh\closedTriSurfaceMesh.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\closedTriSurfaceMesh</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1829,5 +2168,184 @@
     <ClCompile Include="TnbLib\FvMesh\meshTools\polyMeshZipUpCells\polyMeshZipUpCells.cxx">
       <Filter>TnbLib\FvMesh\meshTools\polyMeshZipUpCells</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\topoSetSource\topoSetSource.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSetSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\topoSets\cellSet.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\topoSets\cellZoneSet.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\topoSets\faceSet.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\topoSets\faceZoneSet.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\topoSets\pointSet.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\topoSets\pointZoneSet.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\topoSets\topoSet.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSets</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\pointZoneSources\setToPointZone\setToPointZone.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointZoneSources\setToPointZone</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\pointSources\pointToPoint\pointToPoint.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\pointToPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\pointSources\boxToPoint\boxToPoint.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\boxToPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\pointSources\cellToPoint\cellToPoint.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\cellToPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\pointSources\faceToPoint\faceToPoint.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\faceToPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\pointSources\labelToPoint\labelToPoint.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\labelToPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\pointSources\nearestToPoint\nearestToPoint.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\nearestToPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\pointSources\surfaceToPoint\surfaceToPoint.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\surfaceToPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\pointSources\zoneToPoint\zoneToPoint.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\zoneToPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\faceZoneToFaceZone\faceZoneToFaceZone.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceZoneSources\faceZoneToFaceZone</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\searchableSurfaceToFaceZone\searchableSurfaceToFaceZone.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceZoneSources\searchableSurfaceToFaceZone</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\setAndNormalToFaceZone\setAndNormalToFaceZone.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceZoneSources\setAndNormalToFaceZone</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\setsToFaceZone\setsToFaceZone.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceZoneSources\setsToFaceZone</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceZoneSources\setToFaceZone\setToFaceZone.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceZoneSources\setToFaceZone</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\boundaryToFace\boundaryToFace.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\boundaryToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\boxToFace\boxToFace.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\boxToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\cellToFace\cellToFace.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\cellToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\cylinderAnnulusToFace\cylinderAnnulusToFace.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\cylinderAnnulusToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\cylinderToFace\cylinderToFace.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\cylinderToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\faceToFace\faceToFace.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\faceToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\labelToFace\labelToFace.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\labelToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\patchToFace\patchToFace.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\patchToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\pointToFace\pointToFace.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\pointToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\regionToFace\regionToFace.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\regionToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\zoneToFace\zoneToFace.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\zoneToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellZoneSources\setToCellZone\setToCellZone.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellZoneSources\setToCellZone</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\boxToCell\boxToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\boxToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\cellToCell\cellToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\cellToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\cylinderAnnulusToCell\cylinderAnnulusToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\cylinderAnnulusToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\cylinderToCell\cylinderToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\cylinderToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\faceToCell\faceToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\faceToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\faceZoneToCell\faceZoneToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\faceZoneToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\fieldToCell\fieldToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\fieldToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\labelToCell\labelToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\labelToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\nbrToCell\nbrToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\nbrToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\nearestToCell\nearestToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\nearestToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\pointToCell\pointToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\pointToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\regionToCell\regionToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\regionToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\rotatedBoxToCell\rotatedBoxToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\rotatedBoxToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\shapeToCell\shapeToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\shapeToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\sphereToCell\sphereToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\sphereToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\surfaceToCell\surfaceToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\surfaceToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\targetVolumeToCell\targetVolumeToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\targetVolumeToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\zoneToCell\zoneToCell.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\zoneToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionSplit\localPointRegion.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionSplit</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\primitiveMeshGeometry\primitiveMeshGeometry.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\primitiveMeshGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\twoDPointCorrector\twoDPointCorrector.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\twoDPointCorrector</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\tetOverlapVolume\tetOverlapVolume.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\tetOverlapVolume</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\surfaceSets\surfaceSets.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\surfaceSets</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\closedTriSurfaceMesh\closedTriSurfaceMesh.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\closedTriSurfaceMesh</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TnbLib\FvMesh\meshTools\sets\faceSources\normalToFace\normalToFace.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\normalToFace</Filter>
+    </None>
   </ItemGroup>
 </Project>
