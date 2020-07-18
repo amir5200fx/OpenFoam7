@@ -1,5 +1,7 @@
 #include <patchDataWave.hxx>
 
+#include <polyMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 
 // Set initial set of changed faces (= all wall faces)

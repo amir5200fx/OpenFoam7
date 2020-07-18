@@ -6,6 +6,7 @@
 #include <unitConversion.hxx>
 
 #include <Pair.hxx> // added by amir
+#include <IOobject.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 

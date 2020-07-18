@@ -1527,6 +1527,21 @@
     <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\closedTriSurfaceMesh\closedTriSurfaceMesh.hxx">
       <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\closedTriSurfaceMesh</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableExtrudedCircle\searchableExtrudedCircle.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\searchableExtrudedCircle</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceCollection\searchableSurfaceCollection.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceCollection</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaces\searchableSurfaces.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfacesQueries\searchableSurfacesQueries.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfacesQueries</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceWithGaps\searchableSurfaceWithGaps.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceWithGaps</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.cxx">
@@ -2341,6 +2356,21 @@
     </ClCompile>
     <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\closedTriSurfaceMesh\closedTriSurfaceMesh.cxx">
       <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\closedTriSurfaceMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableExtrudedCircle\searchableExtrudedCircle.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\searchableExtrudedCircle</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceCollection\searchableSurfaceCollection.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceCollection</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaces\searchableSurfaces.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfacesQueries\searchableSurfacesQueries.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfacesQueries</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceWithGaps\searchableSurfaceWithGaps.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceWithGaps</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

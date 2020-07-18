@@ -8,6 +8,7 @@
 #include <stringOps.hxx>
 
 #include <scalarIOField.hxx>  // added by amir
+#include <IStringStream.hxx>  // added by amir
 
 /* * * * * * * * * * * * * * * Static Member Data  * * * * * * * * * * * * * */
 

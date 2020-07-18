@@ -3,6 +3,7 @@
 #include <coordSet.hxx>
 #include <fileName.hxx>
 #include <OFstream.hxx>
+#include <token.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
