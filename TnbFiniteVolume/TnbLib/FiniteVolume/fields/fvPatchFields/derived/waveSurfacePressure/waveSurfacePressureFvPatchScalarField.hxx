@@ -1,0 +1,6 @@
+#pragma once
+#ifndef _waveSurfacePressureFvPatchScalarField_Header
+#define _waveSurfacePressureFvPatchScalarField_Header
+
+
+#endif // !_waveSurfacePressureFvPatchScalarField_Header

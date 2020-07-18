@@ -1,0 +1,6 @@
+#pragma once
+#ifndef _fixedNormalInletOutletVelocityFvPatchVectorField_Header
+#define _fixedNormalInletOutletVelocityFvPatchVectorField_Header
+
+
+#endif // !_fixedNormalInletOutletVelocityFvPatchVectorField_Header

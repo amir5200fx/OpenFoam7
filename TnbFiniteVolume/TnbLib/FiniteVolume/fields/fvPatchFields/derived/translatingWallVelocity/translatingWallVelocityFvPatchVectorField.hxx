@@ -1,0 +1,7 @@
+#pragma once
+#ifndef _translatingWallVelocityFvPatchVectorField_Header
+#define _translatingWallVelocityFvPatchVectorField_Header
+
+
+
+#endif // !_translatingWallVelocityFvPatchVectorField_Header

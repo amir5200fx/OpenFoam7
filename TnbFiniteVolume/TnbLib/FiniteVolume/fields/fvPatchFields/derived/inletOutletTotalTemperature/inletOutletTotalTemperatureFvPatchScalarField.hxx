@@ -1,0 +1,6 @@
+#pragma once
+#ifndef _inletOutletTotalTemperatureFvPatchScalarField_Header
+#define _inletOutletTotalTemperatureFvPatchScalarField_Header
+
+
+#endif // !_inletOutletTotalTemperatureFvPatchScalarField_Header

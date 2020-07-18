@@ -1,0 +1,6 @@
+#pragma once
+#ifndef _interfaceCompressionFvPatchScalarField_Header
+#define _interfaceCompressionFvPatchScalarField_Header
+
+
+#endif // !_interfaceCompressionFvPatchScalarField_Header

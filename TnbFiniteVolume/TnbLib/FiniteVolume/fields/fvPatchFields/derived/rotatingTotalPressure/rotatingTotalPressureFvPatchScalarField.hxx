@@ -1,0 +1,6 @@
+#pragma once
+#ifndef _rotatingTotalPressureFvPatchScalarField_Header
+#define _rotatingTotalPressureFvPatchScalarField_Header
+
+
+#endif // !_rotatingTotalPressureFvPatchScalarField_Header

@@ -1,0 +1,2 @@
+#include <interfaceCompressionFvPatchScalarField.hxx>
+

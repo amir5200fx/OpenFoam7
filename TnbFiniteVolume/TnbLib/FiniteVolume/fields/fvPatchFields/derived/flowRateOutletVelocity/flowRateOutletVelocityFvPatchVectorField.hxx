@@ -1,0 +1,6 @@
+#pragma once
+#ifndef _flowRateOutletVelocityFvPatchVectorField_Header
+#define _flowRateOutletVelocityFvPatchVectorField_Header
+
+
+#endif // !_flowRateOutletVelocityFvPatchVectorField_Header

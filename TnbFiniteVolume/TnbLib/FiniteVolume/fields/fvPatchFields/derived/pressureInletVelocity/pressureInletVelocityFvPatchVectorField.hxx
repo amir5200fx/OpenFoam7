@@ -1,0 +1,6 @@
+#pragma once
+#ifndef _pressureInletVelocityFvPatchVectorField_Header
+#define _pressureInletVelocityFvPatchVectorField_Header
+
+
+#endif // !_pressureInletVelocityFvPatchVectorField_Header

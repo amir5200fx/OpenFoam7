@@ -1,0 +1,7 @@
+#pragma once
+#ifndef _surfaceNormalUniformFixedValueFvPatchVectorField_Header
+#define _surfaceNormalUniformFixedValueFvPatchVectorField_Header
+
+
+
+#endif // !_surfaceNormalUniformFixedValueFvPatchVectorField_Header

@@ -1,0 +1,7 @@
+#pragma once
+#ifndef _turbulentIntensityKineticEnergyInletFvPatchScalarField_Header
+#define _turbulentIntensityKineticEnergyInletFvPatchScalarField_Header
+
+
+
+#endif // !_turbulentIntensityKineticEnergyInletFvPatchScalarField_Header

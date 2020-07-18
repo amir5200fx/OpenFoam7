@@ -1,0 +1,7 @@
+#pragma once
+#ifndef _variableHeightFlowRateInletVelocityFvPatchVectorField_Header
+#define _variableHeightFlowRateInletVelocityFvPatchVectorField_Header
+
+
+
+#endif // !_variableHeightFlowRateInletVelocityFvPatchVectorField_Header
