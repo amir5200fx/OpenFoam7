@@ -2717,9 +2717,6 @@
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\constraint\cyclicAMI\cyclicAMIFvPatchFields.cxx">
       <Filter>TnbLib\FiniteVolume\fields\fvPatchFields\constraint\cyclicAMI</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\constraint\cyclicRepeatAMI\cyclicRepeatAMIFvPatchField.cxx">
-      <Filter>TnbLib\FiniteVolume\fields\fvPatchFields\constraint\cyclicRepeatAMI</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\constraint\cyclicRepeatAMI\cyclicRepeatAMIFvPatchFields.cxx">
       <Filter>TnbLib\FiniteVolume\fields\fvPatchFields\constraint\cyclicRepeatAMI</Filter>
     </ClCompile>
@@ -3694,9 +3691,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\FiniteVolume\fvMesh\fvBoundaryMesh\fvBoundaryMesh.cxx">
       <Filter>TnbLib\FiniteVolume\fvMesh\fvBoundaryMesh</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\FiniteVolume\fvMesh\fvMeshMapper\fvMeshMapper.cxx">
-      <Filter>TnbLib\FiniteVolume\fvMesh\fvMeshMapper</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\FiniteVolume\fvMesh\fvMeshMapper\fvPatchMapper.cxx">
       <Filter>TnbLib\FiniteVolume\fvMesh\fvMeshMapper</Filter>

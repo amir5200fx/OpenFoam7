@@ -775,6 +775,33 @@
     <Filter Include="TnbLib\FvMesh\meshTools\sets\pointZoneSources\setToPointZone">
       <UniqueIdentifier>{e6adc9c1-dcf8-4f61-affa-4177e0653492}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG">
+      <UniqueIdentifier>{614132cc-de36-42e6-8d1a-2f734f6d10c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\regionCoupled\patches">
+      <UniqueIdentifier>{67e7a6eb-abca-4735-9b88-f6191b1934e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaceFields">
+      <UniqueIdentifier>{3437ae3b-4271-4a35-b2d4-e91fb9e38a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces">
+      <UniqueIdentifier>{a64510bd-2e5b-4176-b21f-45701a3c8f82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaceFields\regionCoupledGAMGInterfaceField">
+      <UniqueIdentifier>{fdfe54c0-4c25-4c17-8733-eb80e9d8eb0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface">
+      <UniqueIdentifier>{591b5a6a-e65a-48a9-bdb9-62268090abf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch">
+      <UniqueIdentifier>{1d35a881-001d-46e7-a8e6-5b9e7f432953}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPointPatch">
+      <UniqueIdentifier>{45419417-bd6e-4dc2-b0d2-4c68058c3421}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledLduInterface">
+      <UniqueIdentifier>{b0d699a2-77d7-4eae-b1d7-f1866c947557}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.hxx">
@@ -1541,6 +1568,39 @@
     </ClInclude>
     <ClInclude Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceWithGaps\searchableSurfaceWithGaps.hxx">
       <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceWithGaps</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaceFields\regionCoupledGAMGInterfaceField\regionCoupledGAMGInterfaceField.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaceFields\regionCoupledGAMGInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaceFields\regionCoupledGAMGInterfaceField\regionCoupledWallGAMGInterfaceField.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaceFields\regionCoupledGAMGInterfaceField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface\regionCoupledBaseGAMGInterface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface\regionCoupledGAMGInterface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface\regionCoupledWallGAMGInterface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledLduInterface\regionCoupledLduInterface.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledLduInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPointPatch\regionCoupledPointPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPointPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPointPatch\regionCoupledWallPointPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPointPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch\regionCoupledBase.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch\regionCoupledPolyPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch\regionCoupledWallPolyPatch.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2371,6 +2431,42 @@
     </ClCompile>
     <ClCompile Include="TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceWithGaps\searchableSurfaceWithGaps.cxx">
       <Filter>TnbLib\FvMesh\meshTools\searchableSurfaces\searchableSurfaceWithGaps</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaceFields\regionCoupledGAMGInterfaceField\regionCoupledGAMGInterfaceField.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaceFields\regionCoupledGAMGInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaceFields\regionCoupledGAMGInterfaceField\regionCoupledWallGAMGInterfaceField.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaceFields\regionCoupledGAMGInterfaceField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface\regionCoupledBaseGAMGInterface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface\regionCoupledGAMGInterface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface\regionCoupledWallGAMGInterface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\GAMG\interfaces\regionCoupledGAMGInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledLduInterface\regionCoupledLduInterface.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledLduInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPointPatch\regionCoupledPointPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPointPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPointPatch\regionCoupledWallPointPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPointPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch\regionCoupledBase.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch\regionCoupledBaseTemplates.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch\regionCoupledPolyPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch\regionCoupledWallPolyPatch.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

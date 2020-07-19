@@ -27,6 +27,7 @@ License
 
 \*---------------------------------------------------------------------------*/
 
+#include <fvsPatchField.hxx>  // added by amir
 #include <fieldTypes.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -38,7 +39,8 @@ namespace tnbLib
 
 	template<class Type> class processorCyclicFvsPatchField;
 
-	makeFvsPatchTypeFieldTypedefs(processor);
+	//makeFvsPatchTypeFieldTypedefs(processor);  editted by amir
+	makeFvsPatchTypeFieldTypedefs(processorCyclic);
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
