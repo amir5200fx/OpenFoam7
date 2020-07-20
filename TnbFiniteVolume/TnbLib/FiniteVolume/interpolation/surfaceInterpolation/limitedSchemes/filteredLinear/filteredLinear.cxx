@@ -2,3 +2,15 @@
 
 #include <LimitedScheme.hxx>
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+namespace tnbLib
+{
+	makeLimitedSurfaceInterpolationScheme
+	(
+		filteredLinear,
+		filteredLinearLimiter
+	)
+}
+
+// ************************************************************************* //

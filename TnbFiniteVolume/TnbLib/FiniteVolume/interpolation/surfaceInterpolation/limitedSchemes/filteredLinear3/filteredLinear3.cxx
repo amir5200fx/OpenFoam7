@@ -1,2 +1,23 @@
 #include <filteredLinear3.hxx>
 
+#include <LimitedScheme.hxx>
+#include <filteredLinear3V.hxx>
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+namespace tnbLib
+{
+	makeLimitedSurfaceInterpolationScheme
+	(
+		filteredLinear3,
+		filteredLinear3Limiter
+	)
+
+		makeLimitedVSurfaceInterpolationScheme
+		(
+			filteredLinear3V,
+			filteredLinear3VLimiter
+		)
+}
+
+// ************************************************************************* //

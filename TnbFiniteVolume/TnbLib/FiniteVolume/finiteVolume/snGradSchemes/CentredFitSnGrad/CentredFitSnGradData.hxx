@@ -26,7 +26,7 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	Foam::CentredFitSnGradData
+	tnbLib::CentredFitSnGradData
 
 Description
 	Data for centred fit snGrad schemes
@@ -38,6 +38,89 @@ SourceFiles
 
 #include <FitData.hxx>
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+namespace tnbLib
+{
+
+	class extendedCentredCellToFaceStencil;
+
+	/*---------------------------------------------------------------------------*\
+						Class CentredFitSnGradData Declaration
+	\*---------------------------------------------------------------------------*/
+
+	template<class Polynomial>
+	class CentredFitSnGradData
+		:
+		public FitData
+		<
+		CentredFitSnGradData<Polynomial>,
+		extendedCentredCellToFaceStencil,
+		Polynomial
+		>
+	{
+		// Private Data
+
+			//- For each cell in the mesh store the values which multiply the
+			//  values of the stencil to obtain the gradient for each direction
+		List<scalarList> coeffs_;
+
+
+	public:
+
+		TypeName("CentredFitSnGradData");
+
+
+		// Constructors
+
+			//- Construct from components
+		CentredFitSnGradData
+		(
+			const fvMesh& mesh,
+			const extendedCentredCellToFaceStencil& stencil,
+			const scalar linearLimitFactor,
+			const scalar centralWeight
+		);
+
+
+		//- Destructor
+		virtual ~CentredFitSnGradData()
+		{}
+
+
+		// Member Functions
+
+			//- Return reference to fit coefficients
+		const List<scalarList>& coeffs() const
+		{
+			return coeffs_;
+		}
+
+		//- Calculate the fit for the specified face and set the coefficients
+		void calcFit
+		(
+			scalarList& coeffsi, // coefficients to be set
+			const List<point>&,  // Stencil points
+			const scalar wLin,   // Weight for linear approximation (weights
+								 // nearest neighbours)
+			const scalar deltaCoeff, // uncorrected delta coefficient
+			const label faci     // Current face index
+		);
+
+		void calcFit();
+	};
+
+
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+} // End namespace tnbLib
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#ifdef NoRepository
+#include <CentredFitSnGradData.cxx>
+#endif
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #endif // !_CentredFitSnGradData_Header

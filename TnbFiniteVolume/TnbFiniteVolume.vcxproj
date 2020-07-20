@@ -432,6 +432,7 @@
     <ClInclude Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcCellReduce.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcCurl.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcD2dt2.hxx" />
+    <ClInclude Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcDdt.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcDDtTemplate.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcDiv.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcFlux.hxx" />
@@ -909,6 +910,7 @@
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcCellReduce.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcCurl.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcD2dt2.cxx" />
+    <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcDdt.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcDDtTemplate.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcDiv.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcFlux.cxx" />

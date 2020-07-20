@@ -2619,6 +2619,9 @@
     <ClInclude Include="TnbLib\FiniteVolume\functionObjects\volRegion\volRegionI.hxx">
       <Filter>TnbLib\FiniteVolume\functionObjects\volRegion</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcDdt.hxx">
+      <Filter>TnbLib\FiniteVolume\finiteVolume\fvc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\basic\basicSymmetry\basicSymmetryFvPatchField.cxx">
@@ -4105,6 +4108,9 @@
     </ClCompile>
     <ClCompile Include="TnbLib\FiniteVolume\functionObjects\volRegion\volRegion.cxx">
       <Filter>TnbLib\FiniteVolume\functionObjects\volRegion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcDdt.cxx">
+      <Filter>TnbLib\FiniteVolume\finiteVolume\fvc</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

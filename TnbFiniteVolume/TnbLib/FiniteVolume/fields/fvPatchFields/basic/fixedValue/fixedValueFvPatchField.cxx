@@ -1,5 +1,7 @@
 #include <fixedValueFvPatchField.hxx>
 
+#include <fvPatchFieldMapper.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 
 template<class Type>
