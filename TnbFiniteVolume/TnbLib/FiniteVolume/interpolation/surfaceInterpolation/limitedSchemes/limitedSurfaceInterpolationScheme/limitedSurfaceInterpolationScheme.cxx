@@ -4,6 +4,8 @@
 #include <surfaceFields.hxx>
 #include <coupledFvPatchField.hxx>
 
+#include <surfaceFields.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * Selectors * * * * * * * * * * * * * * * //
 
 template<class Type>

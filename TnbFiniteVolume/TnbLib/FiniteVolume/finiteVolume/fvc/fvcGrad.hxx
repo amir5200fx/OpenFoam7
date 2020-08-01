@@ -39,6 +39,8 @@ SourceFiles
 #include <volFieldsFwd.hxx>
 #include <surfaceFieldsFwd.hxx>
 
+#include <tmp.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

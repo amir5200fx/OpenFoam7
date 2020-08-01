@@ -26,7 +26,7 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 InClass
-	Foam::fvMatrix
+	tnbLib::fvMatrix
 
 Description
 	A special matrix type and solver, designed for finite volume

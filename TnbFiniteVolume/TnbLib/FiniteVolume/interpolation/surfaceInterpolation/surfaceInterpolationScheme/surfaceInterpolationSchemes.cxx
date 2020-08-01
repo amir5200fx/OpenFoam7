@@ -1,6 +1,8 @@
 #include <surfaceInterpolationScheme.hxx>
 
 #include <GeometricField.hxx>  // added by amir
+#include <fvBoundaryMesh.hxx>  // added by amir
+#include <surfaceMesh.hxx>     // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

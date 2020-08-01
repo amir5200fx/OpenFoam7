@@ -3,6 +3,10 @@
 #include <fvMesh.hxx>
 #include <ddtScheme.hxx>
 
+#include <GeometricFields.hxx>  // added by amir
+#include <volMesh.hxx>  // added by amir
+#include <fvBoundaryMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -14,7 +18,7 @@ namespace tnbLib
 	{
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
+		
 		template<class Type>
 		tmp<GeometricField<Type, fvPatchField, volMesh>>
 			ddt

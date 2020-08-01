@@ -1,6 +1,7 @@
 #include <filteredLinear.hxx>
 
 #include <LimitedScheme.hxx>
+#include <surfaceFields.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

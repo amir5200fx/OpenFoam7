@@ -1,6 +1,7 @@
 #include <leastSquaresVectors.hxx>
 
 #include <volFields.hxx>
+#include <surfaceFields.hxx>
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
@@ -86,8 +87,11 @@ void tnbLib::leastSquaresVectors::calcLeastSquaresVectors()
 	}
 
 
+	/*surfaceVectorField::Boundary& blsP =
+		pVectors_.boundaryField();*/
+
 	surfaceVectorField::Boundary& blsP =
-		pVectors_.boundaryField();
+		pVectors_.boundaryFieldRef();
 
 	forAll(blsP, patchi)
 	{

@@ -3,6 +3,8 @@
 #include <fvcDiv.hxx>
 #include <fvMatrices.hxx>
 
+#include <Time.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

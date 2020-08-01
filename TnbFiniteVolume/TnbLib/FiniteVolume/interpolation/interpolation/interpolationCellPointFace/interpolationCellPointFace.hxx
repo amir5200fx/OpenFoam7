@@ -35,6 +35,8 @@ Description
 
 #include <interpolation.hxx>
 
+#include <fvsPatchField.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

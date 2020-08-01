@@ -1,7 +1,8 @@
 #include <snGradScheme.hxx>
 
 #include <HashTable.hxx>
-
+#include <surfaceFields.hxx>  // added by amir
+ 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

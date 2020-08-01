@@ -3,6 +3,8 @@
 #include <LimitedScheme.hxx>
 #include <filteredLinear3V.hxx>
 
+#include <surfaceFields.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

@@ -4,6 +4,8 @@
 #include <fvMesh.hxx>
 #include <linear.hxx>
 
+#include <surfaceMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

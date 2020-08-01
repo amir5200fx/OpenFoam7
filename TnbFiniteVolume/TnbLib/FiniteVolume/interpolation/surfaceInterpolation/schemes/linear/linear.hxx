@@ -39,6 +39,9 @@ SourceFiles
 #include <surfaceInterpolationScheme.hxx>
 #include <volFields.hxx>
 
+#include <surfaceMesh.hxx>  // added by amir
+#include <fvBoundaryMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

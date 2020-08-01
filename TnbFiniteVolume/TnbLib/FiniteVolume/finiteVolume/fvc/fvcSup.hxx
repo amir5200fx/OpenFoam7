@@ -38,6 +38,7 @@ SourceFiles
 \*---------------------------------------------------------------------------*/
 
 #include <volFieldsFwd.hxx>
+#include <dimensionedScalarFwd.hxx>  // added by amir
 
 #include <tmp.hxx>  // added by amir
 

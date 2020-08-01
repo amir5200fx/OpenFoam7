@@ -4,6 +4,8 @@
 #include <Limited01.hxx>
 #include <limitedCubicV.hxx>
 
+#include <surfaceFields.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

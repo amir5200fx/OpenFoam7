@@ -3,6 +3,9 @@
 #include <fvMesh.hxx>
 #include <d2dt2Scheme.hxx>
 
+#include <volMesh.hxx>  // added by amir
+#include <GeometricFields.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

@@ -43,6 +43,8 @@ SourceFiles
 #include <volFields.hxx>
 #include <surfaceFields.hxx>
 
+#include <Time.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

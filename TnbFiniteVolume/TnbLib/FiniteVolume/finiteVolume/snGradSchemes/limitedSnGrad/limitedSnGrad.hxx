@@ -51,6 +51,8 @@ SourceFiles
 
 #include <correctedSnGrad.hxx>
 
+#include <Istream.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

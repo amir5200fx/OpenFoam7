@@ -4,6 +4,8 @@
 #include <fvMesh.hxx>
 #include <gaussGrad.hxx>
 
+#include <surfaceMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

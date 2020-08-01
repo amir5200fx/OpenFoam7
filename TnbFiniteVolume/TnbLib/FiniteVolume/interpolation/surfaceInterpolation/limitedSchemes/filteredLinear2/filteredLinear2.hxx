@@ -46,6 +46,8 @@ SourceFiles
 
 #include <vector.hxx>
 
+#include <surfaceFields.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

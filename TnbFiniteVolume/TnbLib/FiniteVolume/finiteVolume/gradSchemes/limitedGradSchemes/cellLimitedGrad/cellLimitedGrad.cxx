@@ -1,6 +1,8 @@
 #include <cellLimitedGrad.hxx>
 
 #include <gaussGrad.hxx>
+#include <surfaceMesh.hxx>  // added by amir
+#include <fvBoundaryMesh.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

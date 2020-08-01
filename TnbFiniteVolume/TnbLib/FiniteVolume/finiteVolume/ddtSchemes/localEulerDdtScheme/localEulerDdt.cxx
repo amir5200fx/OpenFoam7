@@ -1,6 +1,9 @@
 #include <localEulerDdtScheme.hxx>
 
 #include <fvMesh.hxx>
+#include <volFields.hxx>  // added by amir
+
+#include <Time.hxx>  
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 

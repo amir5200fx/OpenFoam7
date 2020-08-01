@@ -2,6 +2,9 @@
 
 #include <extrapolatedCalculatedFvPatchField.hxx>
 
+#include <surfaceMesh.hxx>  // added by amir
+#include <fvBoundaryMesh.hxx> // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 template<class Type>

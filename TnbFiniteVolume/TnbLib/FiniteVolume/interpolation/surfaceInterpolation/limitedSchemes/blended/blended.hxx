@@ -39,6 +39,8 @@ SourceFiles
 #include <limitedSurfaceInterpolationScheme.hxx>
 #include <blendedSchemeBase.hxx>
 
+#include <GeometricFieldFunctions.hxx>
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

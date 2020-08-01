@@ -36,6 +36,8 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <tmp.hxx>  // added by amir
+
 #include <volFieldsFwd.hxx>
 #include <surfaceFieldsFwd.hxx>
 #include <dimensionedTypes.hxx>
@@ -46,6 +48,8 @@ SourceFiles
 
 namespace tnbLib
 {
+
+	class fvMesh;  // added by amir
 
 	/*---------------------------------------------------------------------------*\
 						 Namespace fvc functions Declaration

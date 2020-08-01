@@ -1,5 +1,7 @@
 #include <limitedSurfaceInterpolationScheme.hxx>
 
+#include <surfaceFields.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

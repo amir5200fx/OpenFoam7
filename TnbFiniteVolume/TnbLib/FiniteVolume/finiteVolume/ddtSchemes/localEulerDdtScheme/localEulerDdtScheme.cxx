@@ -3,6 +3,8 @@
 #include <surfaceInterpolate.hxx>
 #include <fvMatrices.hxx>
 
+#include <Time.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

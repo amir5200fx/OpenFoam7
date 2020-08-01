@@ -38,6 +38,8 @@ SourceFiles
 
 #include <surfaceInterpolationScheme.hxx>
 
+#include <fvMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

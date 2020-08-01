@@ -1,5 +1,7 @@
 #include <patchDistMethod.hxx>
 
+#include <fvMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * Static Functions  * * * * * * * * * * * * * //
 
 template<class Type>

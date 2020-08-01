@@ -5,6 +5,8 @@
 #include <fvMatrices.hxx>
 #include <Constant.hxx>
 
+#include <Time.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

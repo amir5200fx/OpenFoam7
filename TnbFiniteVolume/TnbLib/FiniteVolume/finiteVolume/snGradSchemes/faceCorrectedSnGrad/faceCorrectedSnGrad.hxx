@@ -38,6 +38,8 @@ SourceFiles
 
 #include <snGradScheme.hxx>
 
+#include <surfaceMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

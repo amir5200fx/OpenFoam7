@@ -2,6 +2,7 @@
 
 #include <fvcDiv.hxx>
 #include <fvMesh.hxx>
+#include <surfaceFields.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

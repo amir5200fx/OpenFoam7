@@ -2,6 +2,8 @@
 
 #include <fvMesh.hxx>
 
+#include <GeometricFields.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 makeSnGradScheme(faceCorrectedSnGrad)

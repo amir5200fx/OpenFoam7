@@ -2,6 +2,8 @@
 
 #include <surfaceInterpolate.hxx>
 #include <volFields.hxx>  // added by amir
+#include <fvMesh.hxx>  // added by amir
+#include <surfaceMesh.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
