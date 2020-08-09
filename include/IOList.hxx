@@ -76,10 +76,10 @@ namespace tnbLib
 		IOList(const IOobject&, List<T>&&);
 
 		//- Copy constructor
-		IOList(const IOList<T>&);
+		//IOList(const IOList<T>&);
 
 		//- Move constructor
-		IOList(IOList<T>&&);
+		//IOList(IOList<T>&&);
 
 
 		//- Destructor
