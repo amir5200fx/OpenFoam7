@@ -103,20 +103,20 @@ tnbLib::IOList<T>::IOList(const IOobject& io, List<T>&& list)
 }
 
 
-template<class T>
-tnbLib::IOList<T>::IOList(const IOList<T>& f)
-	:
-	regIOobject(f),
-	List<T>(f)
-{}
+//template<class T>
+//tnbLib::IOList<T>::IOList(const IOList<T>& f)
+//	:
+//	regIOobject(f),
+//	List<T>(f)
+//{}
 
 
-template<class T>
-tnbLib::IOList<T>::IOList(IOList<T>&& f)
-	:
-	regIOobject(move(f)),
-	List<T>(move(f))
-{}
+//template<class T>
+//tnbLib::IOList<T>::IOList(IOList<T>&& f)
+//	:
+//	regIOobject(move(f)),
+//	List<T>(move(f))
+//{}
 
 
 // * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * * //

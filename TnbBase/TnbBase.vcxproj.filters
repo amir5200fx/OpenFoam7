@@ -2994,9 +2994,6 @@
     <ClInclude Include="TnbLib\Base\fields\DimensionedFields\DimensionedField\DimensionedFields.hxx">
       <Filter>TnbLib\Base\fields\DimensionedFields\DimensionedField</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\Base\fields\DimensionedFields\DimensionedField\MapDimensionedFields.hxx">
-      <Filter>TnbLib\Base\fields\DimensionedFields\DimensionedField</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\Base\fields\DimensionedFields\DimensionedScalarField\DimensionedScalarField.hxx">
       <Filter>TnbLib\Base\fields\DimensionedFields\DimensionedScalarField</Filter>
     </ClInclude>

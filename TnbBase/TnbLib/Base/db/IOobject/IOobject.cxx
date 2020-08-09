@@ -282,42 +282,42 @@ tnbLib::IOobject::IOobject
 }
 
 
-tnbLib::IOobject::IOobject
-(
-	const IOobject& io,
-	const objectRegistry& registry
-)
-	:
-	name_(io.name_),
-	headerClassName_(io.headerClassName_),
-	note_(io.note_),
-	instance_(io.instance_),
-	local_(io.local_),
-	db_(registry),
-	rOpt_(io.rOpt_),
-	wOpt_(io.wOpt_),
-	registerObject_(io.registerObject_),
-	objState_(io.objState_)
-{}
+//tnbLib::IOobject::IOobject
+//(
+//	const IOobject& io,
+//	const objectRegistry& registry
+//)
+//	:
+//	name_(io.name_),
+//	headerClassName_(io.headerClassName_),
+//	note_(io.note_),
+//	instance_(io.instance_),
+//	local_(io.local_),
+//	db_(registry),
+//	rOpt_(io.rOpt_),
+//	wOpt_(io.wOpt_),
+//	registerObject_(io.registerObject_),
+//	objState_(io.objState_)
+//{}
 
 
-tnbLib::IOobject::IOobject
-(
-	const IOobject& io,
-	const word& name
-)
-	:
-	name_(name),
-	headerClassName_(io.headerClassName_),
-	note_(io.note_),
-	instance_(io.instance_),
-	local_(io.local_),
-	db_(io.db_),
-	rOpt_(io.rOpt_),
-	wOpt_(io.wOpt_),
-	registerObject_(io.registerObject_),
-	objState_(io.objState_)
-{}
+//tnbLib::IOobject::IOobject
+//(
+//	const IOobject& io,
+//	const word& name
+//)
+//	:
+//	name_(name),
+//	headerClassName_(io.headerClassName_),
+//	note_(io.note_),
+//	instance_(io.instance_),
+//	local_(io.local_),
+//	db_(io.db_),
+//	rOpt_(io.rOpt_),
+//	wOpt_(io.wOpt_),
+//	registerObject_(io.registerObject_),
+//	objState_(io.objState_)
+//{}
 
 
 // * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * * //

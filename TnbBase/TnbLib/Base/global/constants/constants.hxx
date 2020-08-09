@@ -26,7 +26,7 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Namespace
-	Foam::constant
+	tnbLib::constant
 
 Description
 	Collection of constants
