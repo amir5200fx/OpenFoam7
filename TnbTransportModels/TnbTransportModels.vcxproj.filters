@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{7757f2db-68ac-4dd9-b5e3-547a96e5e506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels">
+      <UniqueIdentifier>{30d51894-ff8d-4686-b004-a1963b5be08f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\compressible">
+      <UniqueIdentifier>{3aeeb6c2-656b-40a7-8cdf-5bfd97bc16de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\immiscibleIncompressibleTwoPhaseMixture">
+      <UniqueIdentifier>{665400ab-9ff6-4c70-936c-7616b8b4a4ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible">
+      <UniqueIdentifier>{f3cd071a-ace9-4bf5-9d05-f5ff8bb8e50f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\interfaceProperties">
+      <UniqueIdentifier>{9359d6b7-978f-436e-b5cd-c8bb360b3a26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\twoPhaseProperties">
+      <UniqueIdentifier>{e94e0ad4-bafd-429c-b98d-90c37b584f0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\twoPhaseMixture">
+      <UniqueIdentifier>{e99e8f6a-f430-410d-aef5-195fde86c36d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\compressible\compressibleTransportModel">
+      <UniqueIdentifier>{affda04c-0841-4493-9566-3d0acc9a067e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible\incompressibleTwoPhaseMixture">
+      <UniqueIdentifier>{51d79fff-a07e-4ff3-adff-a53c6fe490ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible\viscosityModels">
+      <UniqueIdentifier>{6cd9fbda-2e57-41b3-9f42-4599e8a84c51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible\transportModel">
+      <UniqueIdentifier>{a50e6229-0e57-4b48-bbb4-c2ce03d8ee4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible\singlePhaseTransportModel">
+      <UniqueIdentifier>{7cf582fd-e344-418a-b4eb-a8dbce8380a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible\viscosityModels\BirdCarreau">
+      <UniqueIdentifier>{a746174e-be22-4cee-8188-1a6a2cb5e17b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible\viscosityModels\Casson">
+      <UniqueIdentifier>{162f45cb-6e11-4237-b1d2-a34ce88210aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible\viscosityModels\CrossPowerLaw">
+      <UniqueIdentifier>{36564a2a-c2ab-4490-b426-2df9f81e2ac2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible\viscosityModels\HerschelBulkley">
+      <UniqueIdentifier>{a69eeb33-e6fe-49f7-a90a-453c543b2ae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible\viscosityModels\viscosityModel">
+      <UniqueIdentifier>{8fae4d7c-2d8f-49fb-b956-4a59327b968a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible\viscosityModels\strainRateFunction">
+      <UniqueIdentifier>{81c93e26-0e80-4c5b-99d8-e36df0dea853}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible\viscosityModels\powerLaw">
+      <UniqueIdentifier>{353f957c-0f13-4a2a-afb9-baba5a2fb549}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\incompressible\viscosityModels\Newtonian">
+      <UniqueIdentifier>{dae57b51-036f-4c62-8e7d-1eeed206ec30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\interfaceProperties\interfaceCompression">
+      <UniqueIdentifier>{3e87041d-9c73-4a7b-996f-1cec46d25b4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels">
+      <UniqueIdentifier>{29f56ae0-f6df-4005-8b65-dd5b2fb24f9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\twoPhaseMixture\twoPhaseMixture">
+      <UniqueIdentifier>{b62fa001-7f96-42f8-a782-572e96b6be25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle">
+      <UniqueIdentifier>{2d1145eb-bf19-4ee9-b1b4-cc60de3b9c3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\twoPhaseProperties\alphaFixedPressure">
+      <UniqueIdentifier>{6a931057-a6ee-4dc1-a794-baa2bea6b213}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\alphaContactAngle">
+      <UniqueIdentifier>{10e8a24b-03d0-45d6-8097-fdd4a90f4790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\constantAlphaContactAngle">
+      <UniqueIdentifier>{b1383724-9b37-46f2-aec2-3eaa1c32e49b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\dynamicAlphaContactAngle">
+      <UniqueIdentifier>{d7d221e8-0ee3-462b-98f6-3d346fe48292}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\timeVaryingAlphaContactAngle">
+      <UniqueIdentifier>{e820d3dd-c6f4-4f8b-ad11-afec09ffe6ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\temperatureDependentAlphaContactAngle">
+      <UniqueIdentifier>{ed856e16-7e49-41fc-a713-6b43a5b4efc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\constant">
+      <UniqueIdentifier>{f38d05be-05e6-4a8c-9ab0-3f9ca8afab77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\temperatureDependent">
+      <UniqueIdentifier>{ed2ac960-c716-428c-8628-bd8679217b13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\surfaceTensionModel">
+      <UniqueIdentifier>{db534d79-001d-45a3-b299-bd6fceba6c44}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\transportModels\interfaceProperties\interfaceProperties.hxx">
+      <Filter>TnbLib\transportModels\interfaceProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\surfaceTensionModel\surfaceTensionModel.hxx">
+      <Filter>TnbLib\transportModels\interfaceProperties\surfaceTensionModels\surfaceTensionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\constant\constantSurfaceTension.hxx">
+      <Filter>TnbLib\transportModels\interfaceProperties\surfaceTensionModels\constant</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\temperatureDependent\temperatureDependentSurfaceTension.hxx">
+      <Filter>TnbLib\transportModels\interfaceProperties\surfaceTensionModels\temperatureDependent</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\alphaContactAngle\alphaContactAngleFvPatchScalarField.hxx">
+      <Filter>TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\alphaContactAngle</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\constantAlphaContactAngle\constantAlphaContactAngleFvPatchScalarField.hxx">
+      <Filter>TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\constantAlphaContactAngle</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\dynamicAlphaContactAngle\dynamicAlphaContactAngleFvPatchScalarField.hxx">
+      <Filter>TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\dynamicAlphaContactAngle</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\temperatureDependentAlphaContactAngle\temperatureDependentAlphaContactAngleFvPatchScalarField.hxx">
+      <Filter>TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\temperatureDependentAlphaContactAngle</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\timeVaryingAlphaContactAngle\timeVaryingAlphaContactAngleFvPatchScalarField.hxx">
+      <Filter>TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\timeVaryingAlphaContactAngle</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\twoPhaseProperties\alphaFixedPressure\alphaFixedPressureFvPatchScalarField.hxx">
+      <Filter>TnbLib\transportModels\twoPhaseProperties\alphaFixedPressure</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\twoPhaseMixture\twoPhaseMixture\twoPhaseMixture.hxx">
+      <Filter>TnbLib\transportModels\twoPhaseMixture\twoPhaseMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\interfaceProperties\interfaceCompression\interfaceCompression.hxx">
+      <Filter>TnbLib\transportModels\interfaceProperties\interfaceCompression</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\compressible\compressibleTransportModel\compressibleTransportModel.hxx">
+      <Filter>TnbLib\transportModels\compressible\compressibleTransportModel</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\surfaceTensionModel\surfaceTensionModel.cxx">
+      <Filter>TnbLib\transportModels\interfaceProperties\surfaceTensionModels\surfaceTensionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\interfaceProperties\interfaceProperties.cxx">
+      <Filter>TnbLib\transportModels\interfaceProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\surfaceTensionModel\newSurfaceTensionModel.cxx">
+      <Filter>TnbLib\transportModels\interfaceProperties\surfaceTensionModels\surfaceTensionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\constant\constantSurfaceTension.cxx">
+      <Filter>TnbLib\transportModels\interfaceProperties\surfaceTensionModels\constant</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\temperatureDependent\temperatureDependentSurfaceTension.cxx">
+      <Filter>TnbLib\transportModels\interfaceProperties\surfaceTensionModels\temperatureDependent</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\alphaContactAngle\alphaContactAngleFvPatchScalarField.cxx">
+      <Filter>TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\alphaContactAngle</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\constantAlphaContactAngle\constantAlphaContactAngleFvPatchScalarField.cxx">
+      <Filter>TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\constantAlphaContactAngle</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\dynamicAlphaContactAngle\dynamicAlphaContactAngleFvPatchScalarField.cxx">
+      <Filter>TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\dynamicAlphaContactAngle</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\temperatureDependentAlphaContactAngle\temperatureDependentAlphaContactAngleFvPatchScalarField.cxx">
+      <Filter>TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\temperatureDependentAlphaContactAngle</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\timeVaryingAlphaContactAngle\timeVaryingAlphaContactAngleFvPatchScalarField.cxx">
+      <Filter>TnbLib\transportModels\twoPhaseProperties\alphaContactAngle\timeVaryingAlphaContactAngle</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\twoPhaseProperties\alphaFixedPressure\alphaFixedPressureFvPatchScalarField.cxx">
+      <Filter>TnbLib\transportModels\twoPhaseProperties\alphaFixedPressure</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\twoPhaseMixture\twoPhaseMixture\twoPhaseMixture.cxx">
+      <Filter>TnbLib\transportModels\twoPhaseMixture\twoPhaseMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\interfaceProperties\interfaceCompression\interfaceCompression.cxx">
+      <Filter>TnbLib\transportModels\interfaceProperties\interfaceCompression</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\compressible\compressibleTransportModel\compressibleTransportModel.cxx">
+      <Filter>TnbLib\transportModels\compressible\compressibleTransportModel</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
