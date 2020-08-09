@@ -1021,6 +1021,69 @@
     <Filter Include="TnbLib\FiniteVolume\functionObjects\volRegion">
       <UniqueIdentifier>{0bc21daf-52fd-4760-be4a-7e5fb2ee0181}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\Base">
+      <UniqueIdentifier>{f856b4f4-8fbd-4092-a596-dd7be2fc33c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\fields">
+      <UniqueIdentifier>{a74d6191-bc09-4e85-8eae-cf9fd1461996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\fields\DimensionedFields">
+      <UniqueIdentifier>{f7023fdd-772b-4392-bcc8-47ec7c488f94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\fields\DimensionedFields\DimensionedField">
+      <UniqueIdentifier>{144e5385-9274-4f71-97e5-db247a396468}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\compressible">
+      <UniqueIdentifier>{2673bdd9-bf6c-4791-936a-bbb8670366d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general">
+      <UniqueIdentifier>{ac02b682-f74a-431e-b888-5d484a303baf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\incompressible">
+      <UniqueIdentifier>{983798f2-3c11-439a-955b-c3a1532bacdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\adjustPhi">
+      <UniqueIdentifier>{a917f608-18d6-4203-8b1b-b5d5c2e75882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\bound">
+      <UniqueIdentifier>{07a75cfd-bdab-41b8-bf90-a0480fe7a521}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\constrainHbyA">
+      <UniqueIdentifier>{c55f90af-1083-4403-a9e6-dbcb8edef60a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\constrainPressure">
+      <UniqueIdentifier>{b8b16b41-b049-4f3a-84c2-63576f34e32d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\CorrectPhi">
+      <UniqueIdentifier>{79bbef54-d33d-41c1-95d7-668c2c0d95f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\findRefCell">
+      <UniqueIdentifier>{e87a3c78-1bba-4151-b3b7-5e5164c7e133}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\fvOptions">
+      <UniqueIdentifier>{6018f715-f43a-4a9f-8497-cd796f3c0d2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\include">
+      <UniqueIdentifier>{0cbe4f0a-c59a-486f-b2e4-6b576d907da7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\levelSet">
+      <UniqueIdentifier>{3a750aaa-34e8-48b1-b371-44b1b5c4df06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\MRF">
+      <UniqueIdentifier>{96f29d84-007e-410b-b5a5-16b8f3048259}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\SRF">
+      <UniqueIdentifier>{b368275d-889f-468e-bbb8-625c28a4c6ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\solutionControl">
+      <UniqueIdentifier>{048f5563-94dc-4776-ba7e-cad687744f51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\pressureControl">
+      <UniqueIdentifier>{8cc4d63f-645a-4bd3-95df-043af49fe1cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FiniteVolume\cfdTools\general\porosityModel">
+      <UniqueIdentifier>{6ec32980-de33-4346-bf56-c44be281ce40}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\basic\basicSymmetry\basicSymmetryFvPatchField.hxx">
@@ -2622,6 +2685,27 @@
     <ClInclude Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcDdt.hxx">
       <Filter>TnbLib\FiniteVolume\finiteVolume\fvc</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\Base\fields\DimensionedFields\DimensionedField\MapDimensionedFields.hxx">
+      <Filter>TnbLib\Base\fields\DimensionedFields\DimensionedField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\cfdTools\general\fvOptions\fvOption.hxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\fvOptions</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\cfdTools\general\fvOptions\fvOptionI.hxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\fvOptions</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\cfdTools\general\fvOptions\fvOptionList.hxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\fvOptions</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\cfdTools\general\fvOptions\fvOptions.hxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\fvOptions</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\cfdTools\general\fvOptions\makeFvOption.hxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\fvOptions</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\cfdTools\general\bound\bound.hxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\bound</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\basic\basicSymmetry\basicSymmetryFvPatchField.cxx">
@@ -4111,6 +4195,24 @@
     </ClCompile>
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\fvc\fvcDdt.cxx">
       <Filter>TnbLib\FiniteVolume\finiteVolume\fvc</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FiniteVolume\cfdTools\general\fvOptions\fvOption.cxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\fvOptions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FiniteVolume\cfdTools\general\fvOptions\fvOptionIO.cxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\fvOptions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FiniteVolume\cfdTools\general\fvOptions\fvOptionList.cxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\fvOptions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FiniteVolume\cfdTools\general\fvOptions\fvOptionListTemplates.cxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\fvOptions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FiniteVolume\cfdTools\general\fvOptions\fvOptions.cxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\fvOptions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FiniteVolume\cfdTools\general\bound\bound.cxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\bound</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
