@@ -1,5 +1,8 @@
 #include <jumpCyclicFvPatchField.hxx>
 
+#include <transformField.hxx>  // added by amir
+#include <volMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 template<class Type>

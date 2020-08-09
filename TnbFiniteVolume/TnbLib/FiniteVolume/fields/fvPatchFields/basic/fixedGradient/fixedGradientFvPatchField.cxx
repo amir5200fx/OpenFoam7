@@ -1,6 +1,7 @@
 #include <fixedGradientFvPatchField.hxx>
 
 #include <dictionary.hxx>
+#include <fvPatchFieldMapper.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 

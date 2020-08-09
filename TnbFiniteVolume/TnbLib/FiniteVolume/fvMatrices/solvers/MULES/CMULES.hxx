@@ -52,4 +52,132 @@ SourceFiles
 #include <localEulerDdtScheme.hxx>
 #include <gaussConvectionScheme.hxx>
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+namespace tnbLib
+{
+	namespace MULES
+	{
+
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+		template<class RdeltaTType, class RhoType, class SpType, class SuType>
+		void correct
+		(
+			const RdeltaTType& rDeltaT,
+			const RhoType& rho,
+			volScalarField& psi,
+			const surfaceScalarField& phiCorr,
+			const SpType& Sp,
+			const SuType& Su
+		);
+
+		template<class RhoType>
+		void correct
+		(
+			const RhoType& rho,
+			volScalarField& psi,
+			const surfaceScalarField& phiCorr
+		);
+
+		template<class RhoType, class SpType, class SuType>
+		void correct
+		(
+			const RhoType& rho,
+			volScalarField& psi,
+			const surfaceScalarField& phiCorr,
+			const SpType& Sp,
+			const SuType& Su
+		);
+
+		template<class RhoType, class PsiMaxType, class PsiMinType>
+		void correct
+		(
+			const RhoType& rho,
+			volScalarField& psi,
+			const surfaceScalarField& phi,
+			surfaceScalarField& phiCorr,
+			const PsiMaxType& psiMax,
+			const PsiMinType& psiMin
+		);
+
+		template
+			<
+			class RhoType,
+			class SpType,
+			class SuType,
+			class PsiMaxType,
+			class PsiMinType
+			>
+			void correct
+			(
+				const RhoType& rho,
+				volScalarField& psi,
+				const surfaceScalarField& phi,
+				surfaceScalarField& phiCorr,
+				const SpType& Sp,
+				const SuType& Su,
+				const PsiMaxType& psiMax,
+				const PsiMinType& psiMin
+			);
+
+		template
+			<
+			class RdeltaTType,
+			class RhoType,
+			class SpType,
+			class SuType,
+			class PsiMaxType,
+			class PsiMinType
+			>
+			void limiterCorr
+			(
+				scalarField& allLambda,
+				const RdeltaTType& rDeltaT,
+				const RhoType& rho,
+				const volScalarField& psi,
+				const surfaceScalarField& phi,
+				const surfaceScalarField& phiCorr,
+				const SpType& Sp,
+				const SuType& Su,
+				const PsiMaxType& psiMax,
+				const PsiMinType& psiMin
+			);
+
+		template
+			<
+			class RdeltaTType,
+			class RhoType,
+			class SpType,
+			class SuType,
+			class PsiMaxType,
+			class PsiMinType
+			>
+			void limitCorr
+			(
+				const RdeltaTType& rDeltaT,
+				const RhoType& rho,
+				const volScalarField& psi,
+				const surfaceScalarField& phi,
+				surfaceScalarField& phiCorr,
+				const SpType& Sp,
+				const SuType& Su,
+				const PsiMaxType& psiMax,
+				const PsiMinType& psiMin
+			);
+
+
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+	} // End namespace MULES
+} // End namespace tnbLib
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#ifdef NoRepository
+#include <CMULESTemplates.cxx>
+#endif
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
 #endif // !_CMULES_Header

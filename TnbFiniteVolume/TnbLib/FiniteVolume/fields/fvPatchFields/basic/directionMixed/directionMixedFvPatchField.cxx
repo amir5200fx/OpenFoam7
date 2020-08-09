@@ -1,6 +1,8 @@
 #include <directionMixedFvPatchField.hxx>
 
 #include <symmTransformField.hxx>
+#include <fvPatchFieldMapper.hxx> // added by amir
+#include <dictionary.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 

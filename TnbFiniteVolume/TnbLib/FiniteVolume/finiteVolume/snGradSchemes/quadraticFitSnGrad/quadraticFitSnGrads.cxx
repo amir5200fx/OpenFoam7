@@ -4,21 +4,21 @@
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-//namespace tnbLib
-//{
-//	defineTemplateTypeNameAndDebug
-//	(
-//		CentredFitSnGradData<quadraticFitPolynomial>,
-//		0
-//	);
-//}
-//
-//makeCentredFitSnGradScheme
-//(
-//	quadraticFit,
-//	quadraticFitPolynomial,
-//	centredCFCCellToFaceStencilObject
-//);
+namespace tnbLib
+{
+	defineTemplateTypeNameAndDebug
+	(
+		CentredFitSnGradData<quadraticFitPolynomial>,
+		0
+	);
+}
+
+makeCentredFitSnGradScheme
+(
+	quadraticFit,
+	quadraticFitPolynomial,
+	centredCFCCellToFaceStencilObject
+);
 
 
 // ************************************************************************* //

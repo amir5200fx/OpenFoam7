@@ -23,7 +23,7 @@ namespace tnbLib
 				const word& name
 			)
 		{
-			return fv::laplacianScheme<Type, scalar>::New
+			return fv::template laplacianScheme<Type, scalar>::New  //- 'template' added by amir
 			(
 				vf.mesh(),
 				vf.mesh().laplacianScheme(name)
@@ -174,7 +174,7 @@ namespace tnbLib
 				const word& name
 			)
 		{
-			return fv::laplacianScheme<Type, GType>::New
+			return fv::template laplacianScheme<Type, GType>::New  // 'template' added by amir
 			(
 				vf.mesh(),
 				vf.mesh().laplacianScheme(name)
@@ -316,7 +316,7 @@ namespace tnbLib
 				const word& name
 			)
 		{
-			return fv::laplacianScheme<Type, GType>::New
+			return fv::template laplacianScheme<Type, GType>::New  // 'template' added by amir
 			(
 				vf.mesh(),
 				vf.mesh().laplacianScheme(name)

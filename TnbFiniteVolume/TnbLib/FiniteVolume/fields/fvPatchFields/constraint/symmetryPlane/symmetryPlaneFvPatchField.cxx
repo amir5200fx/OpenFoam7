@@ -1,5 +1,7 @@
 #include <symmetryPlaneFvPatchField.hxx>
 
+#include <transformField.hxx> // added by amir
+
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 template<class Type>

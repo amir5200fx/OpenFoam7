@@ -42,6 +42,8 @@ SourceFiles
 #include <typeInfo.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#include <surfaceFields.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

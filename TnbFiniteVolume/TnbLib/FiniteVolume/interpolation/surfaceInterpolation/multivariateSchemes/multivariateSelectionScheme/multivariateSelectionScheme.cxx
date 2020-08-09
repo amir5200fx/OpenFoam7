@@ -5,6 +5,8 @@
 #include <surfaceFields.hxx>
 #include <upwind.hxx>
 
+#include <Time.hxx>  //- added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 template<class Type>

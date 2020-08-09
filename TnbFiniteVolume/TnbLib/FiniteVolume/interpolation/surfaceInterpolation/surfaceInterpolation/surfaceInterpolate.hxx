@@ -41,6 +41,7 @@ SourceFiles
 #include <surfaceFieldsFwd.hxx>
 #include <surfaceInterpolationScheme.hxx>
 #include <one.hxx>
+#include <word.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -54,11 +55,16 @@ namespace tnbLib
 	template<template<class> class Field, class Type>
 	class FieldField;  // added by amir
 
+	template<class Type>
+	class surfaceInterpolationScheme;  // added by amir
+
+	class fvMesh;  // added by amir
+
 	namespace fvc
 	{
 		//- Return weighting factors for scheme given from Istream
 		template<class Type>
-		static tmp<surfaceInterpolationScheme<Type>> scheme
+		/*static*/ tmp<surfaceInterpolationScheme<Type>> scheme
 		(
 			const surfaceScalarField& faceFlux,
 			Istream& schemeData
@@ -66,7 +72,7 @@ namespace tnbLib
 
 		//- Return weighting factors for scheme given by name in dictionary
 		template<class Type>
-		static tmp<surfaceInterpolationScheme<Type>> scheme
+		/*static*/ tmp<surfaceInterpolationScheme<Type>> scheme
 		(
 			const surfaceScalarField& faceFlux,
 			const word& name
@@ -75,7 +81,7 @@ namespace tnbLib
 
 		//- Return weighting factors for scheme given from Istream
 		template<class Type>
-		static tmp<surfaceInterpolationScheme<Type>> scheme
+		/*static*/ tmp<surfaceInterpolationScheme<Type>> scheme
 		(
 			const fvMesh& mesh,
 			Istream& schemeData
@@ -83,7 +89,7 @@ namespace tnbLib
 
 		//- Return weighting factors for scheme given by name in dictionary
 		template<class Type>
-		static tmp<surfaceInterpolationScheme<Type>> scheme
+		/*static*/ tmp<surfaceInterpolationScheme<Type>> scheme
 		(
 			const fvMesh& mesh,
 			const word& name
@@ -92,7 +98,7 @@ namespace tnbLib
 
 		//- Interpolate field onto faces using scheme given by Istream
 		template<class Type>
-		static tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
+		/*static*/ tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
 		(
 			const GeometricField<Type, fvPatchField, volMesh>& tvf,
 			const surfaceScalarField& faceFlux,
@@ -101,7 +107,7 @@ namespace tnbLib
 
 		//- Interpolate field onto faces using scheme given by name in fvSchemes
 		template<class Type>
-		static tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
+		/*static*/ tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
 		(
 			const GeometricField<Type, fvPatchField, volMesh>& tvf,
 			const surfaceScalarField& faceFlux,
@@ -110,7 +116,7 @@ namespace tnbLib
 
 		//- Interpolate field onto faces using scheme given by name in fvSchemes
 		template<class Type>
-		static tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
+		/*static*/ tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
 		(
 			const tmp<GeometricField<Type, fvPatchField, volMesh>>& tvf,
 			const surfaceScalarField& faceFlux,
@@ -119,7 +125,7 @@ namespace tnbLib
 
 		//- Interpolate field onto faces using scheme given by name in fvSchemes
 		template<class Type>
-		static tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
+		/*static*/ tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
 		(
 			const GeometricField<Type, fvPatchField, volMesh>& tvf,
 			const tmp<surfaceScalarField>& faceFlux,
@@ -128,7 +134,7 @@ namespace tnbLib
 
 		//- Interpolate field onto faces using scheme given by name in fvSchemes
 		template<class Type>
-		static tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
+		/*static*/ tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
 		(
 			const tmp<GeometricField<Type, fvPatchField, volMesh>>& tvf,
 			const tmp<surfaceScalarField>& faceFlux,
@@ -138,7 +144,7 @@ namespace tnbLib
 
 		//- Interpolate field onto faces using scheme given by Istream
 		template<class Type>
-		static tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
+		/*static*/ tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
 		(
 			const GeometricField<Type, fvPatchField, volMesh>& tvf,
 			Istream& schemeData
@@ -146,7 +152,7 @@ namespace tnbLib
 
 		//- Interpolate field onto faces using scheme given by name in fvSchemes
 		template<class Type>
-		static tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
+		/*static*/ tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
 		(
 			const GeometricField<Type, fvPatchField, volMesh>& tvf,
 			const word& name
@@ -154,7 +160,7 @@ namespace tnbLib
 
 		//- Interpolate field onto faces using scheme given by name in fvSchemes
 		template<class Type>
-		static tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
+		/*static*/ tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
 		(
 			const tmp<GeometricField<Type, fvPatchField, volMesh>>& tvf,
 			const word& name
@@ -163,14 +169,14 @@ namespace tnbLib
 
 		//- Interpolate field onto faces using 'interpolate(\<name\>)'
 		template<class Type>
-		static tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
+		/*static*/ tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
 		(
 			const GeometricField<Type, fvPatchField, volMesh>& tvf
 		);
 
 		//- Interpolate tmp field onto faces using 'interpolate(\<name\>)'
 		template<class Type>
-		static tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
+		/*static*/ tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> interpolate
 		(
 			const tmp<GeometricField<Type, fvPatchField, volMesh>>& tvf
 		);
@@ -178,14 +184,14 @@ namespace tnbLib
 
 		//- Interpolate boundary field onto faces (simply a type conversion)
 		template<class Type>
-		static tmp<FieldField<fvsPatchField, Type>> interpolate
+		/*static*/ tmp<FieldField<fvsPatchField, Type>> interpolate
 		(
 			const FieldField<fvPatchField, Type>& fvpff
 		);
 
 		//- Interpolate boundary field onto faces (simply a type conversion)
 		template<class Type>
-		static tmp<FieldField<fvsPatchField, Type>> interpolate
+		/*static*/ tmp<FieldField<fvsPatchField, Type>> interpolate
 		(
 			const tmp<FieldField<fvPatchField, Type>>& tfvpff
 		);
@@ -200,7 +206,7 @@ namespace tnbLib
 		//- Interpolate field onto faces
 		//  and 'dot' with given surfaceVectorField Sf
 		template<class Type>
-		static
+		/*static*/
 			tmp
 			<
 			GeometricField
@@ -218,7 +224,7 @@ namespace tnbLib
 		//- Interpolate tmp field onto faces
 		//  and 'dot' with given surfaceVectorField Sf
 		template<class Type>
-		static
+		/*static*/
 			tmp
 			<
 			GeometricField

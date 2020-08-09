@@ -5,6 +5,7 @@
 #include <fvMesh.hxx>
 #include <volMesh.hxx>
 #include <extrapolatedCalculatedFvPatchField.hxx>
+#include <LeastSquaresVectorsTemplate.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

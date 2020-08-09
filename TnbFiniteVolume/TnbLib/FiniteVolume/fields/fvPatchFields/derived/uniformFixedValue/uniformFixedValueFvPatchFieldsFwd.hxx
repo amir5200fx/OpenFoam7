@@ -27,6 +27,7 @@ License
 
 \*---------------------------------------------------------------------------*/
 
+#include <fvPatchField.hxx>  // added by amir
 #include <fieldTypes.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -38,7 +39,7 @@ namespace tnbLib
 
 	template<class Type> class uniformFixedValueFvPatchField;
 
-	makePatchTypeFieldTypedefs(uniform);
+	makePatchTypeFieldTypedefs(uniformFixedValue);  // fixed by amir
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

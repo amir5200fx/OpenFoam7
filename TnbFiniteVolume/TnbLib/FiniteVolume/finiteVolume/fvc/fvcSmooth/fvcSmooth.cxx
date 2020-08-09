@@ -5,6 +5,8 @@
 #include <smoothData.hxx>
 #include <sweepData.hxx>
 
+#include <globalMeshData.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 void tnbLib::fvc::smooth

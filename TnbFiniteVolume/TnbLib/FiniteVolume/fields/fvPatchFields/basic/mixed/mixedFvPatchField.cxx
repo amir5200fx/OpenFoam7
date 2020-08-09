@@ -1,5 +1,8 @@
 #include <mixedFvPatchField.hxx>
 
+#include <fvPatchFieldMapper.hxx>  // added by amir
+#include <dictionary.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 
 template<class Type>

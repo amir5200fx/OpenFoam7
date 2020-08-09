@@ -40,6 +40,7 @@ SourceFiles
 #include <fvMesh.hxx>
 
 #include <labelList.hxx> // added by amir
+#include <globalMeshData.hxx>  // added by amir
 #include <SubList.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

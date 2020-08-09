@@ -2,7 +2,7 @@
 
 #include <fvMesh.hxx>
 
-#include <surfaceFields.hxx>  // added by amir
+#include <volMesh.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

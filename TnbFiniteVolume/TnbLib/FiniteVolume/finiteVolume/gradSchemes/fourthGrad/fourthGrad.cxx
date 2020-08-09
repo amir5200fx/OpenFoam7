@@ -8,6 +8,8 @@
 #include <GeometricField.hxx>
 #include <zeroGradientFvPatchField.hxx>
 
+#include <leastSquaresVectors.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 template<class Type>

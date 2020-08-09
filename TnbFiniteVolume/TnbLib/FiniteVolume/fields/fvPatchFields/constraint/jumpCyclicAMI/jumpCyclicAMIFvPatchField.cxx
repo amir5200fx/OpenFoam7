@@ -2,6 +2,8 @@
 
 #include <transformField.hxx>
 
+#include <volMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 template<class Type>

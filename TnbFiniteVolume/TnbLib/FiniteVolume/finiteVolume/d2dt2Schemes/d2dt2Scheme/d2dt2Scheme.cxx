@@ -2,6 +2,8 @@
 
 #include <HashTable.hxx>
 
+#include <Istream.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

@@ -1,6 +1,7 @@
 #include <cyclicACMIFvPatchField.hxx>
 
 #include <transformField.hxx>
+#include <GeometricField.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 

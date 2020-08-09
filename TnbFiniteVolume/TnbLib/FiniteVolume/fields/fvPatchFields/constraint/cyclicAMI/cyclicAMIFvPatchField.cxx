@@ -1,5 +1,7 @@
 #include <cyclicAMIFvPatchField.hxx>
 
+#include <GeometricField.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 template<class Type>
