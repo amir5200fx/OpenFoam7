@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{5c5c1dee-e3e4-42e9-8740-49e2c019a290}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels">
+      <UniqueIdentifier>{3fe16dbc-9953-4d66-a332-4c0a6f67c07b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel">
+      <UniqueIdentifier>{cfd8a171-1cd8-495e-8cfc-a395005e0dcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic">
+      <UniqueIdentifier>{eb1b501b-4e59-40fc-b3f6-2b8a208c754d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel">
+      <UniqueIdentifier>{4d562e25-6467-430d-bfca-8b6a6bb75e88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\laminarFlameSpeed">
+      <UniqueIdentifier>{956cb7c6-10a3-4b27-8d7a-54226484a228}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties">
+      <UniqueIdentifier>{038f7192-c31b-41ba-a1a5-07f89c11d218}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie">
+      <UniqueIdentifier>{613e80ee-256a-44af-a695-0a9d097e6990}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidThermo">
+      <UniqueIdentifier>{b36925a1-d2f8-4be1-99aa-031a87978438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidSpecie">
+      <UniqueIdentifier>{d5e7dbb7-69b3-4179-9149-a3b543277b14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidChemistryModel">
+      <UniqueIdentifier>{c1eeca40-7aaa-4638-8e7d-0ae3281ca29b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\SLGThermo">
+      <UniqueIdentifier>{66a42a8c-c0c0-4c10-a60b-df8a2a618e67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo">
+      <UniqueIdentifier>{1530eccc-6f43-4dd3-908b-881fcbfb9d33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\barotropicCompressibilityModel">
+      <UniqueIdentifier>{ccd6ae8b-aeb2-4447-83d1-616c7fd0fae2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\Chung">
+      <UniqueIdentifier>{3e9ed9c4-2bb9-4b8e-a59b-3baf82c0303e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\linear">
+      <UniqueIdentifier>{7fecf3f7-7e7c-4697-a7ec-5a1092f47f59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\Wallis">
+      <UniqueIdentifier>{bf17b315-5c7b-4ab4-8eab-87118e267dbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\basicThermo">
+      <UniqueIdentifier>{5f53815e-2b5f-49fe-8968-7d926f97bae3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields">
+      <UniqueIdentifier>{e9152245-a921-4190-b88c-1d862fc6618d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\fluidThermo">
+      <UniqueIdentifier>{efb9f68e-32f1-4589-8359-ba01bac3ae9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\heThermo">
+      <UniqueIdentifier>{ddf133b0-6a53-45c7-93de-dedcaf3bfb27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\mixtures">
+      <UniqueIdentifier>{2ebcf363-2f30-4b6f-ac81-b5e0ceeb1842}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\rhoThermo">
+      <UniqueIdentifier>{82f57eaa-57dd-410f-bf7f-7360191c1091}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\psiThermo">
+      <UniqueIdentifier>{6e30c968-7d4e-4dc9-bbf6-a6b3c53d3b7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump">
+      <UniqueIdentifier>{27e5ba9f-775a-488d-8064-0d5eda289629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\fixedEnergy">
+      <UniqueIdentifier>{1f7dcbc8-a803-4c59-a68d-f6c3a9e404ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\gradientEnergy">
+      <UniqueIdentifier>{d2fea840-bf5d-4b0f-99f4-9831a66eeb4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\mixedEnergy">
+      <UniqueIdentifier>{d1916718-45f7-44df-99aa-ddee979d1c6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJump">
+      <UniqueIdentifier>{40943853-05ec-49c4-8731-88d0c096c731}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJumpAMI">
+      <UniqueIdentifier>{e05934f4-bd49-4c16-8067-5aaf5b7b3e80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\mixtures\basicMixture">
+      <UniqueIdentifier>{f1d27e64-5aab-48cf-99c2-69b6761cc0b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\basic\mixtures\pureMixture">
+      <UniqueIdentifier>{9554fc86-2aec-4ba0-8e60-5ad250557132}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel">
+      <UniqueIdentifier>{9f02a8bf-df18-4487-90fd-2105cac9db97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver">
+      <UniqueIdentifier>{b325ec7b-b234-4d87-9ddc-5bf5edb1dc48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\functionObjects">
+      <UniqueIdentifier>{505b8772-3667-4c6a-9d13-a32902420c8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\functionObjects\specieReactionRates">
+      <UniqueIdentifier>{78ea68b2-0698-490c-a092-05e2daa80cfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\chemistrySolver">
+      <UniqueIdentifier>{90b2b338-f7bd-4ddb-98bd-c73ce5eacc1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\EulerImplicit">
+      <UniqueIdentifier>{527f98c7-26cc-4a4d-8aa1-0c9d892a4491}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\noChemistrySolver">
+      <UniqueIdentifier>{133a3f44-971f-4933-9662-9222e1ef6c6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\ode">
+      <UniqueIdentifier>{572fed4b-ff91-4734-903f-d591efaea739}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel">
+      <UniqueIdentifier>{277013e2-534e-4f0b-a071-50aa6b135322}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel">
+      <UniqueIdentifier>{e0eff94b-ac3a-4e60-b76d-ab7b60c1aa13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\StandardChemistryModel">
+      <UniqueIdentifier>{21868cf7-cfe2-4c62-a1b3-195b2c840f42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\laminarFlameSpeed\constant">
+      <UniqueIdentifier>{747cce5b-e1ef-403d-80b4-7c6a5b78d4dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\laminarFlameSpeed\Gulders">
+      <UniqueIdentifier>{b16e03b9-5149-4409-9cc3-698ce5dcd650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\laminarFlameSpeed\GuldersEGR">
+      <UniqueIdentifier>{4241672a-0e5e-415d-af14-36ad4b8577cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\laminarFlameSpeed\laminarFlameSpeed">
+      <UniqueIdentifier>{067546e0-c362-4a99-b461-fc7a61718618}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\laminarFlameSpeed\RaviPetersen">
+      <UniqueIdentifier>{6229503a-bfb0-454e-8593-c004790bc729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders">
+      <UniqueIdentifier>{5677f39d-16f0-41f9-a830-3fce9f1c8cc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields">
+      <UniqueIdentifier>{467b57de-fa3a-4dea-948a-5ab5a5ecf351}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\functionObjects">
+      <UniqueIdentifier>{ae58fd51-113b-4f76-a712-52ce6816819a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures">
+      <UniqueIdentifier>{9a595525-4fb4-4b81-97a8-bfb8dc027b35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\rhoReactionThermo">
+      <UniqueIdentifier>{7260d6ba-97bb-4662-9581-b4ce802556e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\psiuReactionThermo">
+      <UniqueIdentifier>{1a44c254-7fa0-4039-9c33-a77365636682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\psiReactionThermo">
+      <UniqueIdentifier>{3ecf8c5b-0dfe-483c-b660-d5da6308b056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemistryReader">
+      <UniqueIdentifier>{475e8374-a162-4420-b2bc-fd5fe5518c13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader">
+      <UniqueIdentifier>{fffb936e-4588-4cf8-80c1-daa084039f04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\foamChemistryReader">
+      <UniqueIdentifier>{6b6c44aa-88e8-458c-b878-a749c1bdd802}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\fixedUnburntEnthalpy">
+      <UniqueIdentifier>{1178ea6d-7792-450e-b22d-e3078161bc5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\gradientUnburntEnthalpy">
+      <UniqueIdentifier>{3952bd1d-e39d-4403-b7f9-523e05c2eb3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\mixedUnburntEnthalpy">
+      <UniqueIdentifier>{34357cb6-9ebd-4e98-8af7-a15658419977}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\functionObjects\moleFractions">
+      <UniqueIdentifier>{4efb0f96-5d37-46a7-824e-a99219cb6cd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\basicCombustionMixture">
+      <UniqueIdentifier>{0c64a966-c24e-4741-a061-e97c205ba045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\basicMultiComponentMixture">
+      <UniqueIdentifier>{d8ead530-3c96-40b5-ad83-48df3ee3f06d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\basicSpecieMixture">
+      <UniqueIdentifier>{d1e0deb5-b05b-43f0-a688-f504d801f145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\egrMixture">
+      <UniqueIdentifier>{8335551f-3cd1-4b6b-8f72-5cb42dd38ee7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\homogeneousMixture">
+      <UniqueIdentifier>{640e62cf-17e3-4c87-90fe-71df08e3ac3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\inhomogeneousMixture">
+      <UniqueIdentifier>{5b624a8c-6eac-445a-904b-a9c8496fa8e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\multiComponentMixture">
+      <UniqueIdentifier>{b65b1f86-7333-41a7-a59b-094ae18a3903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\veryInhomogeneousMixture">
+      <UniqueIdentifier>{210bbd6e-1c43-4080-b96b-8422cc664816}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\SpecieMixture">
+      <UniqueIdentifier>{9d2709a4-071f-4835-9f08-8b0b197ca173}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\singleStepReactingMixture">
+      <UniqueIdentifier>{d7196d11-3e2f-482b-8978-9aa4d0d39779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\singleComponentMixture">
+      <UniqueIdentifier>{449cd2a3-7ef9-411a-9904-6add42a24b52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\reactingMixture">
+      <UniqueIdentifier>{76a2afa0-1e13-4b19-9172-f01c8056a7da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\SLGThermo\SLGThermo">
+      <UniqueIdentifier>{79e7200a-43f5-485b-a32f-1facf5b95e51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel">
+      <UniqueIdentifier>{085448d1-34f8-430d-a97c-f3904ff6dcad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidChemistryModel\solidChemistrySolver">
+      <UniqueIdentifier>{160b30ed-3b0a-49c1-89f6-8fa1d9576708}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidChemistryModel\solidChemistryModel">
+      <UniqueIdentifier>{583ff0a0-40c1-4bf5-ac11-d07e622e614a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidChemistryModel\pyrolysisChemistryModel">
+      <UniqueIdentifier>{23b2cadd-5d6d-485e-b5da-7afe5a6649d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidSpecie\include">
+      <UniqueIdentifier>{76068190-03af-4a29-ba1f-f28ff46f82d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidSpecie\transport">
+      <UniqueIdentifier>{b58cee26-59d1-4cdb-a796-4f8f0effc1e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidSpecie\reaction">
+      <UniqueIdentifier>{53274268-483f-4608-9649-f886b128cdd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidThermo\solidThermo">
+      <UniqueIdentifier>{857c68e4-84a7-4810-960a-4233ca84e25c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidThermo\solidReactionThermo">
+      <UniqueIdentifier>{bf0cb490-1c28-43ee-9ae0-9db0d0519ac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\atomicWeights">
+      <UniqueIdentifier>{e5de8aa3-3607-4759-babd-4280c0a17edb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\equationOfState">
+      <UniqueIdentifier>{cc6c1c10-7b2c-416a-9375-ce6f95d23d35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\include">
+      <UniqueIdentifier>{8dd5c7cb-0f23-4e48-a9ba-c46e5be49169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\transport">
+      <UniqueIdentifier>{e1ea6515-9055-4afa-8122-def432534c7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo">
+      <UniqueIdentifier>{c65a4d0a-a9a9-41df-9e0f-c1ebc0e1a481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\speciesTable">
+      <UniqueIdentifier>{d64aa1c5-a5d5-4a1b-acc5-b2a23231014a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\specieElement">
+      <UniqueIdentifier>{9888fca5-b732-40f7-9eb2-b8f341394ff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\specie">
+      <UniqueIdentifier>{00c4ca54-7291-404f-8386-c0bfa37fb3e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction">
+      <UniqueIdentifier>{37569d6d-bfd7-42a9-8af8-fdb88df2d613}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties">
+      <UniqueIdentifier>{6e89daff-7b26-4d08-a9b9-d1d5ae2570fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalPropertiesSelector">
+      <UniqueIdentifier>{245ef499-b3b8-4cb9-8855-050df0dff6ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalProperties">
+      <UniqueIdentifier>{6dfbf0d4-15bf-45f7-b98c-6f625ac1efcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions">
+      <UniqueIdentifier>{2f7bfe73-e931-49f0-8f8c-b7b28b826bf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties">
+      <UniqueIdentifier>{07b22e9e-b915-496e-833c-67b8e6afcc28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\ash">
+      <UniqueIdentifier>{33f06142-6f4b-4ee7-a0f0-bcf4124fc153}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\C">
+      <UniqueIdentifier>{18e32798-e5ed-43b7-aa42-703b8e1f0e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\CaCO3">
+      <UniqueIdentifier>{a0affa2f-7dc0-4a1d-a57b-f24817f85456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidProperties">
+      <UniqueIdentifier>{53679276-11c2-424e-8c49-b57ce33725ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidMixtureProperties">
+      <UniqueIdentifier>{e2809a49-e204-436a-8ea9-39dcf8110bb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\APIfunctions">
+      <UniqueIdentifier>{e95e6e2f-8cc7-4b1d-884e-ad018ab9d40b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\thermophysicalFunction">
+      <UniqueIdentifier>{a898cd92-baab-448e-bd43-28c0064a3788}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions">
+      <UniqueIdentifier>{0f382701-ae75-4df6-9840-6d63193d8a1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc14">
+      <UniqueIdentifier>{63de97a4-c31a-45c5-bf8f-d355bec861ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc7">
+      <UniqueIdentifier>{943768a6-7a7d-4db3-a8c0-6c26563db578}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc6">
+      <UniqueIdentifier>{e924b65a-f807-4130-b64b-a1c819e4cc5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc5">
+      <UniqueIdentifier>{1e6ae820-d394-4eb3-b835-b892565791ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc4">
+      <UniqueIdentifier>{5a3a125b-ff7f-400a-910c-faf1f9a3f95a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc3">
+      <UniqueIdentifier>{341bb9e7-477d-4b9e-bb0a-c1cdcdc53557}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc2">
+      <UniqueIdentifier>{b3874469-2c2a-48f9-9adb-4a06f546ceaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc1">
+      <UniqueIdentifier>{5cdce29f-b002-43ae-bb30-4ca2cca355a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc0">
+      <UniqueIdentifier>{8298f0f4-f815-418c-a784-e6035520abb1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\basicThermo\basicThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\basicThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJump\energyJumpFvPatchScalarField.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJump</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJumpAMI\energyJumpAMIFvPatchScalarField.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJumpAMI</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\fixedEnergy\fixedEnergyFvPatchScalarField.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\derivedFvPatchFields\fixedEnergy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\gradientEnergy\gradientEnergyFvPatchScalarField.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\derivedFvPatchFields\gradientEnergy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\mixedEnergy\mixedEnergyFvPatchScalarField.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\derivedFvPatchFields\mixedEnergy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\fluidThermo\fluidThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\fluidThermo</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\basicThermo\basicThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\basicThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\basicThermo\basicThermoTemplates.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\basicThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJump\energyJumpFvPatchScalarField.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJump</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJumpAMI\energyJumpAMIFvPatchScalarField.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJumpAMI</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\fixedEnergy\fixedEnergyFvPatchScalarField.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\derivedFvPatchFields\fixedEnergy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\gradientEnergy\gradientEnergyFvPatchScalarField.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\derivedFvPatchFields\gradientEnergy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\mixedEnergy\mixedEnergyFvPatchScalarField.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\derivedFvPatchFields\mixedEnergy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\fluidThermo\fluidThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\fluidThermo</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{5396B04C-6E67-4EE2-82F8-E56D26195CF9}</ProjectGuid>
+    <RootNamespace>TnbThermoPhysicalModels</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\thermophysicalModels\barotropicCompressibilityModel;$(ProjectDir)TnbLib\thermophysicalModels\basic\basicThermo;$(ProjectDir)TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJump;$(ProjectDir)TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJumpAMI;$(ProjectDir)TnbLib\thermophysicalModels\basic\derivedFvPatchFields\fixedEnergy;$(ProjectDir)TnbLib\thermophysicalModels\basic\derivedFvPatchFields\gradientEnergy;$(ProjectDir)TnbLib\thermophysicalModels\basic\derivedFvPatchFields\mixedEnergy;$(ProjectDir)TnbLib\thermophysicalModels\basic\fluidThermo;$(ProjectDir)TnbLib\thermophysicalModels\basic\heThermo;$(ProjectDir)TnbLib\thermophysicalModels\basic\mixtures\basicMixture;$(ProjectDir)TnbLib\thermophysicalModels\basic\mixtures\pureMixture;$(ProjectDir)TnbLib\thermophysicalModels\basic\psiThermo;$(ProjectDir)TnbLib\thermophysicalModels\basic\rhoThermo;$(ProjectDir)TnbLib\thermophysicalModels\chemistryModel;$(ProjectDir)TnbLib\thermophysicalModels\laminarFlameSpeed;$(ProjectDir)TnbLib\thermophysicalModels\reactionThermo;$(ProjectDir)TnbLib\thermophysicalModels\SLGThermo;$(ProjectDir)TnbLib\thermophysicalModels\solidChemistryModel;$(ProjectDir)TnbLib\thermophysicalModels\solidSpecie;$(ProjectDir)TnbLib\thermophysicalModels\solidThermo;$(ProjectDir)TnbLib\thermophysicalModels\specie;$(ProjectDir)TnbLib\thermophysicalModels\thermophysicalProperties;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\thermophysicalModels\barotropicCompressibilityModel;$(ProjectDir)TnbLib\thermophysicalModels\basic\basicThermo;$(ProjectDir)TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJump;$(ProjectDir)TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJumpAMI;$(ProjectDir)TnbLib\thermophysicalModels\basic\derivedFvPatchFields\fixedEnergy;$(ProjectDir)TnbLib\thermophysicalModels\basic\derivedFvPatchFields\gradientEnergy;$(ProjectDir)TnbLib\thermophysicalModels\basic\derivedFvPatchFields\mixedEnergy;$(ProjectDir)TnbLib\thermophysicalModels\basic\fluidThermo;$(ProjectDir)TnbLib\thermophysicalModels\basic\heThermo;$(ProjectDir)TnbLib\thermophysicalModels\basic\mixtures\basicMixture;$(ProjectDir)TnbLib\thermophysicalModels\basic\mixtures\pureMixture;$(ProjectDir)TnbLib\thermophysicalModels\basic\psiThermo;$(ProjectDir)TnbLib\thermophysicalModels\basic\rhoThermo;$(ProjectDir)TnbLib\thermophysicalModels\chemistryModel;$(ProjectDir)TnbLib\thermophysicalModels\laminarFlameSpeed;$(ProjectDir)TnbLib\thermophysicalModels\reactionThermo;$(ProjectDir)TnbLib\thermophysicalModels\SLGThermo;$(ProjectDir)TnbLib\thermophysicalModels\solidChemistryModel;$(ProjectDir)TnbLib\thermophysicalModels\solidSpecie;$(ProjectDir)TnbLib\thermophysicalModels\solidThermo;$(ProjectDir)TnbLib\thermophysicalModels\specie;$(ProjectDir)TnbLib\thermophysicalModels\thermophysicalProperties;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\basicThermo\basicThermo.hxx" />
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJumpAMI\energyJumpAMIFvPatchScalarField.hxx" />
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJump\energyJumpFvPatchScalarField.hxx" />
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\fixedEnergy\fixedEnergyFvPatchScalarField.hxx" />
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\gradientEnergy\gradientEnergyFvPatchScalarField.hxx" />
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\mixedEnergy\mixedEnergyFvPatchScalarField.hxx" />
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\fluidThermo\fluidThermo.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\basicThermo\basicThermo.cxx" />
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\basicThermo\basicThermoTemplates.cxx" />
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJumpAMI\energyJumpAMIFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\energyJump\energyJump\energyJumpFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\fixedEnergy\fixedEnergyFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\gradientEnergy\gradientEnergyFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\derivedFvPatchFields\mixedEnergy\mixedEnergyFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\fluidThermo\fluidThermo.cxx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
