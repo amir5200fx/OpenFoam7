@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{c09362aa-034e-48c1-bcc6-88847dbafd35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE">
+      <UniqueIdentifier>{590da446-a58c-410a-875e-e49d9bb1c489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESystem">
+      <UniqueIdentifier>{6c83b5e0-a7e1-4e36-9fa2-0e0060e689a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers">
+      <UniqueIdentifier>{fad8f436-7134-49bd-818b-5c31e3960caa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\adaptiveSolver">
+      <UniqueIdentifier>{e2040ef4-aa5d-482b-a88e-67578f77779f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\Euler">
+      <UniqueIdentifier>{48df522b-4234-47e6-b83b-38ce40ae39a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\EulerSI">
+      <UniqueIdentifier>{ffa204c4-6a15-4a50-8b31-84281d0990ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\Trapezoid">
+      <UniqueIdentifier>{a13c1abe-474b-4917-989f-906592b7450a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\SIBS">
+      <UniqueIdentifier>{89098feb-12cd-46bb-874e-eac490770565}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\seulex">
+      <UniqueIdentifier>{0a04adc1-8ba0-4f8b-b912-82913a4904d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\Rosenbrock34">
+      <UniqueIdentifier>{2a1493e0-2673-4195-9e7f-2579006a3552}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\Rosenbrock23">
+      <UniqueIdentifier>{f21d8e1b-c65b-4398-936e-9f0fe464dc38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\Rosenbrock12">
+      <UniqueIdentifier>{64b043af-6f72-407f-a408-98b7126ebe23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\rodas34">
+      <UniqueIdentifier>{4b6c2460-3cac-4c7c-9c84-0240af94e21d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\rodas23">
+      <UniqueIdentifier>{79e67eda-5f8e-4b48-9c57-7d04d13c9d21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\RKF45">
+      <UniqueIdentifier>{2c9e1880-11c9-43f5-9925-cd2f59e08d95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\RKDP45">
+      <UniqueIdentifier>{0ac4c192-a836-4d18-98ab-971bc1262e4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\RKCK45">
+      <UniqueIdentifier>{ecfb1ae4-f35a-4877-8b48-e140224ce6f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\ODE\ODESolvers\ODESolver">
+      <UniqueIdentifier>{6140f080-33c5-48b5-8522-2c414f231897}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\ODE\ODESystem\ODESystem.hxx">
+      <Filter>TnbLib\ODE\ODESystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\ODESolver\ODESolver.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\ODESolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\ODESolver\ODESolverI.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\ODESolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\adaptiveSolver\adaptiveSolver.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\adaptiveSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\Euler\Euler.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\Euler</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\EulerSI\EulerSI.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\EulerSI</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\RKCK45\RKCK45.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\RKCK45</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\RKDP45\RKDP45.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\RKDP45</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\RKF45\RKF45.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\RKF45</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\rodas23\rodas23.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\rodas23</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\rodas34\rodas34.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\rodas34</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\Rosenbrock12\Rosenbrock12.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\Rosenbrock12</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\Rosenbrock23\Rosenbrock23.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\Rosenbrock23</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\Rosenbrock34\Rosenbrock34.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\Rosenbrock34</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\seulex\seulex.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\seulex</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\SIBS\SIBS.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\SIBS</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\Trapezoid\Trapezoid.hxx">
+      <Filter>TnbLib\ODE\ODESolvers\Trapezoid</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\ODE\ODESystem\ODESystem.cxx">
+      <Filter>TnbLib\ODE\ODESystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\ODESolver\ODESolver.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\ODESolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\ODESolver\ODESolverNew.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\ODESolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\adaptiveSolver\adaptiveSolver.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\adaptiveSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\Euler\Euler.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\Euler</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\EulerSI\EulerSI.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\EulerSI</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\RKCK45\RKCK45.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\RKCK45</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\RKDP45\RKDP45.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\RKDP45</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\RKF45\RKF45.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\RKF45</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\rodas23\rodas23.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\rodas23</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\rodas34\rodas34.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\rodas34</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\Rosenbrock12\Rosenbrock12.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\Rosenbrock12</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\Rosenbrock23\Rosenbrock23.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\Rosenbrock23</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\Rosenbrock34\Rosenbrock34.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\Rosenbrock34</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\seulex\seulex.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\seulex</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\SIBS\SIBS.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\SIBS</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\SIBS\SIMPR.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\SIBS</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\SIBS\polyExtrapolate.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\SIBS</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\Trapezoid\Trapezoid.cxx">
+      <Filter>TnbLib\ODE\ODESolvers\Trapezoid</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

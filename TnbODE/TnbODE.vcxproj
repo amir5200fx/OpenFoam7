@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{03BDA03B-A996-4D13-A558-D150777031E9}</ProjectGuid>
+    <RootNamespace>TnbODE</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\ODE\ODESolvers\adaptiveSolver;$(ProjectDir)TnbLib\ODE\ODESolvers\Euler;$(ProjectDir)TnbLib\ODE\ODESolvers\EulerSI;$(ProjectDir)TnbLib\ODE\ODESolvers\ODESolver;$(ProjectDir)TnbLib\ODE\ODESolvers\RKCK45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKDP45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKF45;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas23;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas34;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock12;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock23;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock34;$(ProjectDir)TnbLib\ODE\ODESolvers\seulex;$(ProjectDir)TnbLib\ODE\ODESolvers\SIBS;$(ProjectDir)TnbLib\ODE\ODESolvers\Trapezoid;$(ProjectDir)TnbLib\ODE\ODESystem;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
+if not exist "$(ProjectDir)include" mkdir "$(ProjectDir)include"
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\ODE\ODESolvers\adaptiveSolver;$(ProjectDir)TnbLib\ODE\ODESolvers\Euler;$(ProjectDir)TnbLib\ODE\ODESolvers\EulerSI;$(ProjectDir)TnbLib\ODE\ODESolvers\ODESolver;$(ProjectDir)TnbLib\ODE\ODESolvers\RKCK45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKDP45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKF45;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas23;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas34;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock12;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock23;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock34;$(ProjectDir)TnbLib\ODE\ODESolvers\seulex;$(ProjectDir)TnbLib\ODE\ODESolvers\SIBS;$(ProjectDir)TnbLib\ODE\ODESolvers\Trapezoid;$(ProjectDir)TnbLib\ODE\ODESystem;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\ODE\ODESolvers\adaptiveSolver\adaptiveSolver.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\EulerSI\EulerSI.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\Euler\Euler.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\ODESolver\ODESolver.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\ODESolver\ODESolverI.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\RKCK45\RKCK45.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\RKDP45\RKDP45.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\RKF45\RKF45.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\rodas23\rodas23.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\rodas34\rodas34.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\Rosenbrock12\Rosenbrock12.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\Rosenbrock23\Rosenbrock23.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\Rosenbrock34\Rosenbrock34.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\seulex\seulex.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\SIBS\SIBS.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESolvers\Trapezoid\Trapezoid.hxx" />
+    <ClInclude Include="TnbLib\ODE\ODESystem\ODESystem.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\ODE\ODESolvers\adaptiveSolver\adaptiveSolver.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\EulerSI\EulerSI.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\Euler\Euler.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\ODESolver\ODESolver.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\ODESolver\ODESolverNew.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\RKCK45\RKCK45.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\RKDP45\RKDP45.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\RKF45\RKF45.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\rodas23\rodas23.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\rodas34\rodas34.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\Rosenbrock12\Rosenbrock12.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\Rosenbrock23\Rosenbrock23.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\Rosenbrock34\Rosenbrock34.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\seulex\seulex.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\SIBS\polyExtrapolate.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\SIBS\SIBS.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\SIBS\SIMPR.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESolvers\Trapezoid\Trapezoid.cxx" />
+    <ClCompile Include="TnbLib\ODE\ODESystem\ODESystem.cxx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
