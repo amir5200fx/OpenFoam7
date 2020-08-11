@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _wordIOList_Header
-#define _wordIOList_Header
+#ifndef _ODESystem_Header
+#define _ODESystem_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2012-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -25,29 +25,72 @@ License
 	You should have received a copy of the GNU General Public License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
-Typedef
-	tnbLib::wordIOList
+Class
+	tnbLib::ODESystem
 
 Description
-	IO of a list of words
+	Abstract base class for the systems of ordinary differential equations.
 
 \*---------------------------------------------------------------------------*/
 
-#include <wordList.hxx>
-#include <IOList.hxx>
+#include <scalarField.hxx>
+#include <scalarMatrices.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	typedef IOList<word> wordIOList;
-	typedef IOList<wordList> wordListIOList;
 
-	// Print word list list as a table
-	void printTable(const List<wordList>&, List<string::size_type>&, Ostream&);
-	void printTable(const List<wordList>&, Ostream&);
-}
+	/*---------------------------------------------------------------------------*\
+						   Class ODESystem Declaration
+	\*---------------------------------------------------------------------------*/
+
+	class ODESystem
+	{
+
+	public:
+
+		// Constructors
+
+			//- Construct null
+		ODESystem()
+		{}
+
+
+		//- Destructor
+		virtual ~ODESystem()
+		{}
+
+
+		// Member Functions
+
+			//- Return the number of equations in the system
+		virtual label nEqns() const = 0;
+
+		//- Calculate the derivatives in dydx
+		virtual void derivatives
+		(
+			const scalar x,
+			const scalarField& y,
+			scalarField& dydx
+		) const = 0;
+
+		//- Calculate the Jacobian of the system
+		//  Need by the stiff-system solvers
+		virtual void jacobian
+		(
+			const scalar x,
+			const scalarField& y,
+			scalarField& dfdx,
+			scalarSquareMatrix& dfdy
+		) const = 0;
+	};
+
+
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+} // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_wordIOList_Header
+#endif // !_ODESystem_Header

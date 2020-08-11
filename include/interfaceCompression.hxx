@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _wordIOList_Header
-#define _wordIOList_Header
+#ifndef _interfaceCompression_Header
+#define _interfaceCompression_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2012-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -25,29 +25,63 @@ License
 	You should have received a copy of the GNU General Public License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
-Typedef
-	tnbLib::wordIOList
+Class
+	tnbLib::interfaceCompressionLimiter
 
 Description
-	IO of a list of words
+	Interface compression scheme currently based on the generic limited
+	scheme although it does not use the NVD/TVD functions.
+
+SourceFiles
+	interfaceCompression.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <wordList.hxx>
-#include <IOList.hxx>
+#include <vector.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	typedef IOList<word> wordIOList;
-	typedef IOList<wordList> wordListIOList;
 
-	// Print word list list as a table
-	void printTable(const List<wordList>&, List<string::size_type>&, Ostream&);
-	void printTable(const List<wordList>&, Ostream&);
-}
+	/*---------------------------------------------------------------------------*\
+							   Class interfaceCompressionWeight Declaration
+	\*---------------------------------------------------------------------------*/
+
+	class interfaceCompressionLimiter
+	{
+
+	public:
+
+		interfaceCompressionLimiter(Istream&)
+		{}
+
+		scalar limiter
+		(
+			const scalar cdWeight,
+			const scalar faceFlux,
+			const scalar phiP,
+			const scalar phiN,
+			const vector&,
+			const scalar
+		) const
+		{
+			// Quadratic compression scheme
+			// return min(max(4*min(phiP*(1 - phiP), phiN*(1 - phiN)), 0), 1);
+
+			// Quartic compression scheme
+			return
+				min(max(
+					1 - max(sqr(1 - 4 * phiP*(1 - phiP)), sqr(1 - 4 * phiN*(1 - phiN))),
+					0), 1);
+		}
+	};
+
+
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+} // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_wordIOList_Header
+#endif // !_interfaceCompression_Header
