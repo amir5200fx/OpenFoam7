@@ -27,15 +27,15 @@ License
 
 #undef yyFlexLexer
 
-#include "chemkinReader.H"
+#include <chemkinReader.hxx>
 
-#include "error.H"
-#include "IStringStream.H"
+#include <error.hxx>
+#include <IStringStream.hxx>
 // For EOF only
 #include <cstdio>
 
 // flex input buffer size
-int Foam::chemkinReader::yyBufSize = YY_BUF_SIZE;
+int tnbLib::chemkinReader::yyBufSize = YY_BUF_SIZE;
 
 // Dummy yyFlexLexer::yylex() to keep the linker happy. It is not called
 //! \cond dummy
@@ -43,7 +43,7 @@ int yyFlexLexer::yylex()
 {
     FatalErrorInFunction
         << "should not have called this function"
-        << abort(Foam::FatalError);
+        << abort(tnbLib::FatalError);
 
     return 0;
 }
@@ -65,25 +65,25 @@ int yyFlexLexer::yywrap()
 //! \endcond
 
 
-Foam::string foamSpecieString(const char* YYText)
+tnbLib::string foamSpecieString(const char* YYText)
 {
-    Foam::string specieString(YYText);
+    tnbLib::string specieString(YYText);
     return specieString;
 }
 
 
-Foam::word foamName(const char* YYText)
+tnbLib::word foamName(const char* YYText)
 {
-    Foam::string fn(YYText);
-    Foam::string::stripInvalid<Foam::word>(fn);
+    tnbLib::string fn(YYText);
+    tnbLib::string::stripInvalid<tnbLib::word>(fn);
     return fn;
 }
 
 
-Foam::word foamName(const Foam::string& s)
+tnbLib::word foamName(const tnbLib::string& s)
 {
-    Foam::string fn(s);
-    Foam::string::stripInvalid<Foam::word>(fn);
+    tnbLib::string fn(s);
+    tnbLib::string::stripInvalid<tnbLib::word>(fn);
     return fn;
 }
 
@@ -92,7 +92,7 @@ Foam::word foamName(const Foam::string& s)
    ------ cppLexer::yylex()
  \* ------------------------------------------------------------------------- */
 
-#define YY_DECL int Foam::chemkinReader::lex()
+#define YY_DECL int tnbLib::chemkinReader::lex()
 
 %}
 

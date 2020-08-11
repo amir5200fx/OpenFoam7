@@ -346,6 +346,351 @@
     <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc0">
       <UniqueIdentifier>{8298f0f4-f815-418c-a784-e6035520abb1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\specieCoeffs">
+      <UniqueIdentifier>{8e76eb68-3d46-4a2c-a347-99c35d37e09b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\Reactions">
+      <UniqueIdentifier>{7f735c7c-e634-4477-bae5-cb345b08019e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate">
+      <UniqueIdentifier>{682611e5-e94a-4740-aa73-624b08de2212}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\IrreversibleReaction">
+      <UniqueIdentifier>{05e1364d-bc7c-41a3-b5aa-40ceec8fac1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\ReversibleReaction">
+      <UniqueIdentifier>{4be49121-07a8-4ced-b8cf-5c2c61e95791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\ReactionProxy">
+      <UniqueIdentifier>{0450182f-a038-45b1-a4be-0b144bbae265}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\ReactionList">
+      <UniqueIdentifier>{b4be2626-0921-4614-98a5-8820f63eee7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\Reaction">
+      <UniqueIdentifier>{ef260ee4-b590-48ca-92b0-96e99634ecf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\NonEquilibriumReversibleReaction">
+      <UniqueIdentifier>{5d555d59-5a47-4d2f-8180-2a387d39bc82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\transport\const">
+      <UniqueIdentifier>{3e5e4962-77f7-49ba-a054-4a513cf9d6fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\transport\logPolynomial">
+      <UniqueIdentifier>{a7003f9c-636b-40d2-92cf-8fc0e3afa401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\transport\WLF">
+      <UniqueIdentifier>{56c0588e-5ddf-4fb8-9a5d-4fc8431b1038}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\transport\sutherland">
+      <UniqueIdentifier>{2919bdb2-5ae9-441a-a1b4-8f183a2192a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\transport\polynomial">
+      <UniqueIdentifier>{25d79242-ac2d-4b13-9158-665317dab312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\APIfunctions\APIdiffCoefFunc">
+      <UniqueIdentifier>{bf97343e-b2bd-4894-b241-058e5d9250df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\aC10H7CH3">
+      <UniqueIdentifier>{7aeef707-49da-4af1-adce-d59a28aee1c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\Ar">
+      <UniqueIdentifier>{c1414c44-b318-4407-b7da-191ca2e2496c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\bC10H7CH3">
+      <UniqueIdentifier>{6336a1fd-d75c-4a5f-bbcc-28acfc7e4ffc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H5OH">
+      <UniqueIdentifier>{d0ad756c-f898-413a-8628-5170d51295d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6">
+      <UniqueIdentifier>{51d1ab9c-42c3-4c43-b407-c228a81dcaf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6O">
+      <UniqueIdentifier>{8dc08435-8e93-4c45-80e0-475c51a9e250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H6O">
+      <UniqueIdentifier>{e4b6782f-b6aa-44b3-b9e0-6f5ab6577f50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H8">
+      <UniqueIdentifier>{d0145d40-4f9c-4a83-9060-b961d5733d53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C4H10O">
+      <UniqueIdentifier>{7ac9fe1c-4190-4b99-b806-ef13ebfba7ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H6">
+      <UniqueIdentifier>{8d07a395-8f88-4747-8686-771c58da9bf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H14">
+      <UniqueIdentifier>{42833028-574d-4b15-99b3-329a44756b14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H8">
+      <UniqueIdentifier>{e2beb642-7045-4e74-b663-0bf108f8ad7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H16">
+      <UniqueIdentifier>{13c614e9-b491-49e0-a7d4-9b15f167f245}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H10">
+      <UniqueIdentifier>{19a370ed-af05-49c5-80ed-dfd61d54b472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H18">
+      <UniqueIdentifier>{60c67948-4790-4494-9978-593c7b0666cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C9H20">
+      <UniqueIdentifier>{5a37a594-3290-43d4-a99c-377e5209c5e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C10H22">
+      <UniqueIdentifier>{63a8259f-dbf3-4470-8ceb-1210bca6af38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C12H26">
+      <UniqueIdentifier>{08b9a869-1eca-48af-b372-ce8215402fab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C13H28">
+      <UniqueIdentifier>{1837ddf5-8dee-43df-8936-f176dadad3ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C14H30">
+      <UniqueIdentifier>{776140dd-079f-4132-a024-ac6c2927bc35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C16H34">
+      <UniqueIdentifier>{94c8625b-9cce-477c-bd90-4f25b5f2a7fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH3OH">
+      <UniqueIdentifier>{1f84ae0e-9305-48d0-b600-86ca8a8b6673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH4N2O">
+      <UniqueIdentifier>{47e7a0fd-8e43-4f0a-9d4b-023422f8b55c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\H2O">
+      <UniqueIdentifier>{8ec81a33-3dca-4402-a75c-a6a8da0c673f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\iC3H8O">
+      <UniqueIdentifier>{ed48807c-086d-4aae-8062-276ee21860e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IC8H18">
+      <UniqueIdentifier>{06a7b13e-2d8a-4cc3-b2a6-c0f9c7a55fe7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IDEA">
+      <UniqueIdentifier>{725fc64a-9e19-4834-9a80-a874129fb8da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\liquidMixtureProperties">
+      <UniqueIdentifier>{69f3a39c-e485-4a3c-b240-a9d1392fe61b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\liquidProperties">
+      <UniqueIdentifier>{4de48114-f118-47f8-9023-6a63a727ac3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\MB">
+      <UniqueIdentifier>{0bd62adb-a17d-4887-8e7a-e4da20428dd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\N2">
+      <UniqueIdentifier>{60811ae6-09eb-48d9-b41a-6109d96ac231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\nC3H8O">
+      <UniqueIdentifier>{5f78715d-55ae-4d8b-8055-b4a123a18612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo\absoluteEnthalpy">
+      <UniqueIdentifier>{a259a5c0-c46a-4dee-a03d-3a4d4bda51ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo\absoluteInternalEnergy">
+      <UniqueIdentifier>{dea51f2d-9b6d-4dfe-b706-48194bd0044a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo\eConst">
+      <UniqueIdentifier>{bd9e963f-25cc-4642-9321-93a3e8f1cab1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo\eRefConst">
+      <UniqueIdentifier>{7388e7ce-fdd8-4e36-acb6-d171657983f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo\hConst">
+      <UniqueIdentifier>{a56eedf3-365b-4318-8ac0-8ff69e72688a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo\hPolynomial">
+      <UniqueIdentifier>{5154e4d9-fb1c-4606-b6d8-146825a8eb6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo\hPower">
+      <UniqueIdentifier>{6850b9d5-170a-4bb5-9e62-66e89f1e01df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo\hRefConst">
+      <UniqueIdentifier>{0773488a-4091-4a9c-b5c9-a4c7c2a81f55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo\thermo">
+      <UniqueIdentifier>{bb1fb85d-b48c-4620-a66b-13ec1e8ebf47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo\sensibleInternalEnergy">
+      <UniqueIdentifier>{c938f338-2a3f-42f9-ac9a-722110b3ea0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo\sensibleEnthalpy">
+      <UniqueIdentifier>{e536b096-206f-4ace-8877-4e8e3319a3a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\thermo\janaf">
+      <UniqueIdentifier>{82676361-b2bb-4b14-9365-85aa383786e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\equationOfState\adiabaticPerfectFluid">
+      <UniqueIdentifier>{42ed23a7-0179-496e-9b56-0ee4491d26a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\equationOfState\Boussinesq">
+      <UniqueIdentifier>{b99522cf-59f0-42c5-b279-c38be6b0405b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\equationOfState\icoPolynomial">
+      <UniqueIdentifier>{82b544f6-1c61-4b7f-909d-f9aa643f73e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\equationOfState\incompressiblePerfectGas">
+      <UniqueIdentifier>{d4abbc2d-a719-4dad-b316-7df23fd57114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\equationOfState\linear">
+      <UniqueIdentifier>{d648c24c-d489-4f39-82c9-48beaf2ae35a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\equationOfState\rhoConst">
+      <UniqueIdentifier>{15195e2b-97e4-4ad7-9c64-ff73661de878}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\equationOfState\perfectGas">
+      <UniqueIdentifier>{7ee3e3bd-a979-4114-9909-87d29f126612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\equationOfState\perfectFluid">
+      <UniqueIdentifier>{2ad3798e-c5fa-4167-9081-6209ef1c8fd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\equationOfState\PengRobinsonGas">
+      <UniqueIdentifier>{9784ea97-5193-4c1d-afb5-d75f1673ad26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\ArrheniusReactionRate">
+      <UniqueIdentifier>{d921a6d1-3d64-48c8-931a-e798c5584dbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\ChemicallyActivatedReactionRate">
+      <UniqueIdentifier>{d1eed283-c7ba-4a87-ac9c-65409c585bd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions">
+      <UniqueIdentifier>{90cd9ae7-a66a-467c-bcb3-3610c61a58c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\FallOffReactionRate">
+      <UniqueIdentifier>{63bf9a27-0f47-42fb-a719-8ce6916f3020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\infiniteReactionRate">
+      <UniqueIdentifier>{afd93da1-06e6-48f2-aa29-db73f2effc71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\JanevReactionRate">
+      <UniqueIdentifier>{f9d8fc72-b742-4a56-ae29-f825adc99fc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\LandauTellerReactionRate">
+      <UniqueIdentifier>{2de53752-6c47-407b-8db6-a2ae6894ef16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\LangmuirHinshelwood">
+      <UniqueIdentifier>{13ce79b3-da95-420e-aab9-bcfb2e556c0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\MichaelisMenten">
+      <UniqueIdentifier>{07a8a0fd-70ab-41dd-b228-bd43213e8bf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyEfficiencies">
+      <UniqueIdentifier>{ba4f10ae-73d6-413d-9fc1-f3f8aa7aec47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyArrheniusReactionRate">
+      <UniqueIdentifier>{49544f96-d0a4-4bae-a527-ea7d2006b369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\powerSeries">
+      <UniqueIdentifier>{9fec87ad-f10f-41b3-8f2c-36c0b47e416e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\TroeFallOffFunction">
+      <UniqueIdentifier>{63972db6-8b25-44e5-972b-19c0f083442f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\SRIFallOffFunction">
+      <UniqueIdentifier>{8279dc2e-68d5-4bcd-aea8-d6c0fc79945b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\LindemannFallOffFunction">
+      <UniqueIdentifier>{3d60d62a-a11c-448d-8283-fc10f8dd0984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidSpecie\transport\const">
+      <UniqueIdentifier>{d1723e6f-a2f4-4d14-b1c8-7c0236f56cd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidSpecie\transport\exponential">
+      <UniqueIdentifier>{913c1125-4444-4316-9abf-6e650b4169f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidSpecie\transport\polynomial">
+      <UniqueIdentifier>{09c6ad4b-2dcf-4196-9917-2a5217729331}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidSpecie\reaction\SolidReaction">
+      <UniqueIdentifier>{0bbcf814-11fa-4be8-8812-95653a2639d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidSpecie\reaction\reactions">
+      <UniqueIdentifier>{9babb58a-981e-4203-b531-067ed53d2928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidSpecie\reaction\reactionRate">
+      <UniqueIdentifier>{e2334dee-3537-42eb-927c-3c8735b87bf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\solidSpecie\reaction\reactionRate\solidArrheniusReactionRate">
+      <UniqueIdentifier>{d2437563-84cd-44a5-8c64-7fbe77af2487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files">
+      <UniqueIdentifier>{fadd2e80-670d-48da-a518-efb4314ae35e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files\thermophysicalModels">
+      <UniqueIdentifier>{e85f6d28-dd55-4577-b647-75846540a2ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files\thermophysicalModels\reactionThermo">
+      <UniqueIdentifier>{b5f447f9-396b-4f85-b1ed-2c1328df307f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files\thermophysicalModels\reactionThermo\chemistryReaders">
+      <UniqueIdentifier>{d67addbb-ed2d-4159-b0f5-b1011c717f64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader">
+      <UniqueIdentifier>{aa15664d-0182-4852-9944-0f43d0a3a5fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{538074b9-650f-4481-82fb-b65dec7fb0e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\thermophysicalModels">
+      <UniqueIdentifier>{3d2135f3-b4fa-48a2-b645-1a6f113f619a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\thermophysicalModels\reactionThermo">
+      <UniqueIdentifier>{6ea13819-beb4-4cd6-8d5c-ee351681c912}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\thermophysicalModels\reactionThermo\chemistryReaders">
+      <UniqueIdentifier>{8635b988-abc4-4eb3-8f34-02433983c38e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader">
+      <UniqueIdentifier>{818a2a1f-6b88-40f1-910b-e30ebea5250f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation">
+      <UniqueIdentifier>{a890f2cf-35b3-401e-9f0c-8224b0cf214c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction">
+      <UniqueIdentifier>{daf53f43-5ad3-437c-a10a-69ad8f4bc78d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\chemistryReductionMethod">
+      <UniqueIdentifier>{ca17121b-9086-46fa-b38d-d388672f5997}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DAC">
+      <UniqueIdentifier>{016ab1f5-9faf-42a3-9b01-140585059cca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRG">
+      <UniqueIdentifier>{0ee4d282-57c3-42fb-8a39-ea0bb4636cb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRGEP">
+      <UniqueIdentifier>{3b3f5453-d813-480d-af01-b83f08f1b2a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\EFA">
+      <UniqueIdentifier>{1733f067-3bb4-43d2-9f4e-a4a8cfecdb1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\PFA">
+      <UniqueIdentifier>{ea0d6932-993e-43c0-804f-50a8ab4356c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\noChemistryReduction">
+      <UniqueIdentifier>{fd8c2237-4bd4-4170-b124-4676f5b911e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\chemistryTabulationMethod">
+      <UniqueIdentifier>{1c79b230-0508-4a89-a8b3-4be758ec0e7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT">
+      <UniqueIdentifier>{2fad369c-e73d-418d-ba25-f8e13fa4c8a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\noChemistryTabulation">
+      <UniqueIdentifier>{52a86b9a-0543-4b48-82f2-97c40472b32e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\binaryNode">
+      <UniqueIdentifier>{14c55df1-a673-4bd3-953f-ba8719186dbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\binaryTree">
+      <UniqueIdentifier>{b8236d58-48a1-4df1-a2ca-25d8b8b2d1e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\chemPointISAT">
+      <UniqueIdentifier>{dabe4087-0d10-4d27-8c79-8cb4a0a60757}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\thermophysicalModels\basic\basicThermo\basicThermo.hxx">
@@ -368,6 +713,855 @@
     </ClInclude>
     <ClInclude Include="TnbLib\thermophysicalModels\basic\fluidThermo\fluidThermo.hxx">
       <Filter>TnbLib\thermophysicalModels\basic\fluidThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\barotropicCompressibilityModel\barotropicCompressibilityModel.hxx">
+      <Filter>TnbLib\thermophysicalModels\barotropicCompressibilityModel\barotropicCompressibilityModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\Chung\Chung.hxx">
+      <Filter>TnbLib\thermophysicalModels\barotropicCompressibilityModel\Chung</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\linear\linearBarotropicCompressibilityModel.hxx">
+      <Filter>TnbLib\thermophysicalModels\barotropicCompressibilityModel\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\Wallis\Wallis.hxx">
+      <Filter>TnbLib\thermophysicalModels\barotropicCompressibilityModel\Wallis</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\basicThermo\makeThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\fluidThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\heThermo\heThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\heThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\mixtures\basicMixture\basicMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\mixtures\basicMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\mixtures\pureMixture\pureMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\mixtures\pureMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\psiThermo\psiThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\psiThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\psiThermo\hePsiThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\psiThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\rhoThermo\rhoThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\rhoThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\rhoThermo\liquidThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\rhoThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\basic\rhoThermo\heRhoThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\basic\rhoThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel\BasicChemistryModelTemplate.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel\BasicChemistryModelTemplateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel\basicChemistryModel.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel\basicChemistryModelI.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\StandardChemistryModel\StandardChemistryModel.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\StandardChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\StandardChemistryModel\StandardChemistryModelI.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\StandardChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\speciesTable\speciesTable.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\speciesTable</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\specieElement\specieElement.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\specieElement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\specieElement\specieElementI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\specieElement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\const\constTransport.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\const</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\const\constTransportI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\const</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\thermophysicalFunction\thermophysicalFunction.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\thermophysicalFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\APIfunctions\APIdiffCoefFunc\APIdiffCoefFunc.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\APIfunctions\APIdiffCoefFunc</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc0\NSRDSfunc0.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc0</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc1\NSRDSfunc1.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc1</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc2\NSRDSfunc2.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc2</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc3\NSRDSfunc3.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc3</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc4\NSRDSfunc4.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc4</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc5\NSRDSfunc5.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc5</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc6\NSRDSfunc6.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc6</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc7\NSRDSfunc7.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc7</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc14\NSRDSfunc14.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc14</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalProperties\thermophysicalProperties.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalProperties\thermophysicalPropertiesI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalPropertiesSelector\thermophysicalPropertiesSelector.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalPropertiesSelector</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalPropertiesSelector\thermophysicalPropertiesSelectorI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalPropertiesSelector</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidProperties\solidProperties.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidProperties\solidPropertiesI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\specie\specie.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\specie</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\specie\specieI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\specie</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\aC10H7CH3\aC10H7CH3.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\aC10H7CH3</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\aC10H7CH3\aC10H7CH3I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\aC10H7CH3</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\liquidProperties\liquidProperties.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\liquidProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\liquidProperties\liquidPropertiesI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\liquidProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\liquidMixtureProperties\liquidMixtureProperties.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\liquidMixtureProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\Ar\Ar.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\Ar</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\Ar\ArI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\Ar</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\bC10H7CH3\bC10H7CH3.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\bC10H7CH3</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\bC10H7CH3\bC10H7CH3I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\bC10H7CH3</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H5OH\C2H5OH.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H5OH</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H5OH\C2H5OHI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H5OH</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6\C2H6.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6\C2H6I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6O\C2H6O.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6O\C2H6OI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H6O\C3H6O.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H6O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H6O\C3H6OI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H6O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H8\C3H8.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H8</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H8\C3H8I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H8</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C4H10O\C4H10O.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C4H10O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C4H10O\C4H10OI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C4H10O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H6\C6H6.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H6</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H6\C6H6I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H6</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H14\C6H14.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H14</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H14\C6H14I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H14</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H8\C7H8.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H8</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H8\C7H8I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H8</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H16\C7H16.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H16</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H16\C7H16I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H16</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H10\C8H10.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H10</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H10\C8H10I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H10</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H18\C8H18.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H18</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H18\C8H18I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H18</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C9H20\C9H20.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C9H20</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C9H20\C9H20I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C9H20</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C10H22\C10H22.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C10H22</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C10H22\C10H22I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C10H22</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C12H26\C12H26.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C12H26</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C12H26\C12H26I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C12H26</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C13H28\C13H28.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C13H28</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C13H28\C13H28I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C13H28</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C14H30\C14H30.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C14H30</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C14H30\C14H30I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C14H30</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C16H34\C16H34.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C16H34</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C16H34\C16H34I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C16H34</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH3OH\CH3OH.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH3OH</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH3OH\CH3OHI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH3OH</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH4N2O\CH4N2O.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH4N2O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH4N2O\CH4N2OI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH4N2O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\H2O\H2O.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\H2O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\H2O\H2OI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\H2O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\iC3H8O\iC3H8O.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\iC3H8O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\iC3H8O\iC3H8OI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\iC3H8O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IC8H18\IC8H18.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IC8H18</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IC8H18\IC8H18I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IC8H18</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IDEA\IDEA.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IDEA</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IDEA\IDEAI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IDEA</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\MB\MB.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\MB</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\MB\MBI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\MB</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\N2\N2.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\N2</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\N2\N2I.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\N2</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\nC3H8O\nC3H8O.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\nC3H8O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\nC3H8O\nC3H8OI.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\nC3H8O</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\ash\ash.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\ash</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\C\C.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\C</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\CaCO3\CaCO3.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\CaCO3</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidMixtureProperties\solidMixtureProperties.hxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidMixtureProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\logPolynomial\logPolynomialTransport.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\logPolynomial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\logPolynomial\logPolynomialTransportI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\logPolynomial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\polynomial\polynomialTransport.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\polynomial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\polynomial\polynomialTransportI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\polynomial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\sutherland\sutherlandTransport.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\sutherland</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\sutherland\sutherlandTransportI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\sutherland</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\WLF\WLFTransport.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\WLF</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\WLF\WLFTransportI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\WLF</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\absoluteEnthalpy\absoluteEnthalpy.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\absoluteEnthalpy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\absoluteInternalEnergy\absoluteInternalEnergy.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\absoluteInternalEnergy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\eConst\eConstThermoI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\eConst</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\eConst\eConstThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\eConst</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\eRefConst\eRefConstThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\eRefConst</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\eRefConst\eRefConstThermoI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\eRefConst</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\hConst\hConstThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\hConst</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\hConst\hConstThermoI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\hConst</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\hPolynomial\hPolynomialThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\hPolynomial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\hPolynomial\hPolynomialThermoI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\hPolynomial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\hPower\hPowerThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\hPower</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\hPower\hPowerThermoI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\hPower</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\hRefConst\hRefConstThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\hRefConst</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\hRefConst\hRefConstThermoI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\hRefConst</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\janaf\janafThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\janaf</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\janaf\janafThermoI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\janaf</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\sensibleEnthalpy\sensibleEnthalpy.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\sensibleEnthalpy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\sensibleInternalEnergy\sensibleInternalEnergy.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\sensibleInternalEnergy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\thermo\thermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\thermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\thermo\thermoI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\thermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\thermo\HtoEthermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\thermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\thermo\EtoHthermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\thermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\atomicWeights\atomicWeights.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\atomicWeights</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\adiabaticPerfectFluid\adiabaticPerfectFluid.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\adiabaticPerfectFluid</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\adiabaticPerfectFluid\adiabaticPerfectFluidI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\adiabaticPerfectFluid</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\Boussinesq\Boussinesq.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\Boussinesq</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\Boussinesq\BoussinesqI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\Boussinesq</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\icoPolynomial\icoPolynomial.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\icoPolynomial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\icoPolynomial\icoPolynomialI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\icoPolynomial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\incompressiblePerfectGas\incompressiblePerfectGas.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\incompressiblePerfectGas</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\incompressiblePerfectGas\incompressiblePerfectGasI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\incompressiblePerfectGas</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\linear\linearEquationOfState.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\linear\linearEquationOfStateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\PengRobinsonGas\PengRobinsonGas.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\PengRobinsonGas</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\PengRobinsonGas\PengRobinsonGasI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\PengRobinsonGas</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\perfectFluid\perfectFluid.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\perfectFluid</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\perfectFluid\perfectFluidI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\perfectFluid</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\perfectGas\perfectGas.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\perfectGas</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\perfectGas\perfectGasI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\perfectGas</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\rhoConst\rhoConst.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\rhoConst</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\equationOfState\rhoConst\rhoConstI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\rhoConst</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\ArrheniusReactionRate\ArrheniusReactionRate.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\ArrheniusReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\ArrheniusReactionRate\ArrheniusReactionRateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\ArrheniusReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\ChemicallyActivatedReactionRate\ChemicallyActivatedReactionRate.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\ChemicallyActivatedReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\ChemicallyActivatedReactionRate\ChemicallyActivatedReactionRateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\ChemicallyActivatedReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyEfficiencies\thirdBodyEfficiencies.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyEfficiencies</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyEfficiencies\thirdBodyEfficienciesI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyEfficiencies</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyArrheniusReactionRate\thirdBodyArrheniusReactionRate.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyArrheniusReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyArrheniusReactionRate\thirdBodyArrheniusReactionRateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyArrheniusReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\powerSeries\powerSeriesReactionRate.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\powerSeries</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\powerSeries\powerSeriesReactionRateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\powerSeries</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\MichaelisMenten\MichaelisMentenReactionRate.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\MichaelisMenten</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\MichaelisMenten\MichaelisMentenReactionRateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\MichaelisMenten</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\Reaction\Reaction.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\Reaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\Reaction\ReactionI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\Reaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\specieCoeffs\specieCoeffs.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\specieCoeffs</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\ReactionList\ReactionList.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\ReactionList</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\ReactionProxy\ReactionProxy.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\ReactionProxy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\ReversibleReaction\ReversibleReaction.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\ReversibleReaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\NonEquilibriumReversibleReaction\NonEquilibriumReversibleReaction.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\NonEquilibriumReversibleReaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\IrreversibleReaction\IrreversibleReaction.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\IrreversibleReaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\makeReaction.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\FallOffReactionRate\FallOffReactionRate.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\FallOffReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\FallOffReactionRate\FallOffReactionRateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\FallOffReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\infiniteReactionRate\infiniteReactionRate.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\infiniteReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\infiniteReactionRate\infiniteReactionRateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\infiniteReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\JanevReactionRate\JanevReactionRate.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\JanevReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\JanevReactionRate\JanevReactionRateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\JanevReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\LandauTellerReactionRate\LandauTellerReactionRate.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\LandauTellerReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\LandauTellerReactionRate\LandauTellerReactionRateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\LandauTellerReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\LangmuirHinshelwood\LangmuirHinshelwoodReactionRate.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\LangmuirHinshelwood</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\LangmuirHinshelwood\LangmuirHinshelwoodReactionRateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\LangmuirHinshelwood</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\LindemannFallOffFunction\LindemannFallOffFunction.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\LindemannFallOffFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\LindemannFallOffFunction\LindemannFallOffFunctionI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\LindemannFallOffFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\SRIFallOffFunction\SRIFallOffFunction.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\SRIFallOffFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\SRIFallOffFunction\SRIFallOffFunctionI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\SRIFallOffFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\TroeFallOffFunction\TroeFallOffFunction.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\TroeFallOffFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\TroeFallOffFunction\TroeFallOffFunctionI.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\TroeFallOffFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\include\reactionTypes.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\include</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\include\thermoPhysicsTypes.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\include</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidThermo\solidThermo\solidThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidThermo\solidThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidThermo\solidThermo\heSolidThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidThermo\solidThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidThermo\solidThermo\makeSolidThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidThermo\solidThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\transport\polynomial\polynomialSolidTransport.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\transport\polynomial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\transport\polynomial\polynomialSolidTransportI.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\transport\polynomial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\transport\exponential\exponentialSolidTransport.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\transport\exponential</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\transport\exponential\exponentialSolidTransportI.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\transport\exponential</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\transport\const\constAnIsoSolidTransport.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\transport\const</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\transport\const\constAnIsoSolidTransportI.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\transport\const</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\transport\const\constIsoSolidTransport.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\transport\const</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\transport\const\constIsoSolidTransportI.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\transport\const</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\reaction\reactionRate\solidArrheniusReactionRate\solidArrheniusReactionRate.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\reaction\reactionRate\solidArrheniusReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\reaction\reactionRate\solidArrheniusReactionRate\solidArrheniusReactionRateI.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\reaction\reactionRate\solidArrheniusReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\reaction\SolidReaction\SolidReaction.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\reaction\SolidReaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\reaction\SolidReaction\SolidReactionI.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\reaction\SolidReaction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\reaction\reactions\makeSolidReaction.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\reaction\reactions</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidSpecie\include\solidThermoPhysicsTypes.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\include</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidThermo\solidReactionThermo\solidReactionThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidThermo\solidReactionThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\basicMultiComponentMixture\basicMultiComponentMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\basicMultiComponentMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\basicMultiComponentMixture\basicMultiComponentMixtureI.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\basicMultiComponentMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\basicCombustionMixture\basicCombustionMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\basicCombustionMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\basicCombustionMixture\basicCombustionMixtureI.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\basicCombustionMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\SpecieMixture\SpecieMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\SpecieMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\basicSpecieMixture\basicSpecieMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\basicSpecieMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\egrMixture\egrMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\egrMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\homogeneousMixture\homogeneousMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\homogeneousMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\inhomogeneousMixture\inhomogeneousMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\inhomogeneousMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\multiComponentMixture\multiComponentMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\multiComponentMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\reactingMixture\reactingMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\reactingMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemistryReader\chemistryReader.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemistryReader</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader\chemkinReader.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\foamChemistryReader\foamChemistryReader.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\foamChemistryReader</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\fixedUnburntEnthalpy\fixedUnburntEnthalpyFvPatchScalarField.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\fixedUnburntEnthalpy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\gradientUnburntEnthalpy\gradientUnburntEnthalpyFvPatchScalarField.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\gradientUnburntEnthalpy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\mixedUnburntEnthalpy\mixedUnburntEnthalpyFvPatchScalarField.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\mixedUnburntEnthalpy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\functionObjects\moleFractions\moleFractionsFunctionObjects.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\functionObjects\moleFractions</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\functionObjects\moleFractions\moleFractions.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\functionObjects\moleFractions</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\psiReactionThermo\psiReactionThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\psiReactionThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\psiuReactionThermo\psiuReactionThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\psiuReactionThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\psiuReactionThermo\heheuPsiThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\psiuReactionThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\rhoReactionThermo\rhoReactionThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\rhoReactionThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\makeReactionThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\singleComponentMixture\singleComponentMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\singleComponentMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\singleStepReactingMixture\singleStepReactingMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\singleStepReactingMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\singleStepReactingMixture\singleStepReactingMixtureI.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\singleStepReactingMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\veryInhomogeneousMixture\veryInhomogeneousMixture.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\veryInhomogeneousMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\SLGThermo\SLGThermo\SLGThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\SLGThermo\SLGThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel\basicSolidChemistryModel.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel\basicSolidChemistryModelI.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidThermo\solidReactionThermo\makeReactingSolidThermo.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidThermo\solidReactionThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidChemistryModel\pyrolysisChemistryModel\pyrolysisChemistryModel.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\pyrolysisChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidChemistryModel\pyrolysisChemistryModel\pyrolysisChemistryModelI.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\pyrolysisChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidChemistryModel\solidChemistryModel\solidChemistryModel.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\solidChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidChemistryModel\solidChemistryModel\solidChemistryModelI.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\solidChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidChemistryModel\solidChemistrySolver\makeSolidChemistrySolverType.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\solidChemistrySolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\noChemistrySolver\noChemistrySolver.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\noChemistrySolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\chemistrySolver\chemistrySolver.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\chemistrySolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\chemistrySolver\makeChemistrySolverTypes.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\chemistrySolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\chemistryReductionMethod\chemistryReductionMethod.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\chemistryReductionMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\chemistryReductionMethod\chemistryReductionMethodI.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\chemistryReductionMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DAC\DAC.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DAC</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\TDACChemistryModel.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\TDACChemistryModelI.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\chemistryTabulationMethod\chemistryTabulationMethod.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\chemistryTabulationMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\binaryNode\binaryNode.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\binaryNode</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\chemPointISAT\chemPointISAT.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\chemPointISAT</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\binaryTree\binaryTree.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\binaryTree</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\ISAT.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\noChemistryTabulation\noChemistryTabulation.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\noChemistryTabulation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRG\DRG.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRG</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRGEP\DRGEP.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRGEP</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRGEP\SortableListDRGEP.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRGEP</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\EFA\SortableListEFA.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\EFA</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\EFA\EFA.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\EFA</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\noChemistryReduction\noChemistryReduction.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\noChemistryReduction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\PFA\PFA.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\PFA</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\makeChemistryModel.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\EulerImplicit\EulerImplicit.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\EulerImplicit</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\ode\ode.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\ode</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\functionObjects\specieReactionRates\specieReactionRates.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\functionObjects\specieReactionRates</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\laminarFlameSpeed\laminarFlameSpeed\laminarFlameSpeed.hxx">
+      <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\laminarFlameSpeed</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\laminarFlameSpeed\constant\constLaminarFlameSpeed.hxx">
+      <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\constant</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\laminarFlameSpeed\Gulders\Gulders.hxx">
+      <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\Gulders</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\laminarFlameSpeed\GuldersEGR\GuldersEGR.hxx">
+      <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\GuldersEGR</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\laminarFlameSpeed\RaviPetersen\RaviPetersen.hxx">
+      <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\RaviPetersen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -395,5 +1589,592 @@
     <ClCompile Include="TnbLib\thermophysicalModels\basic\fluidThermo\fluidThermo.cxx">
       <Filter>TnbLib\thermophysicalModels\basic\fluidThermo</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\barotropicCompressibilityModel\barotropicCompressibilityModel.cxx">
+      <Filter>TnbLib\thermophysicalModels\barotropicCompressibilityModel\barotropicCompressibilityModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\barotropicCompressibilityModel\barotropicCompressibilityModelNew.cxx">
+      <Filter>TnbLib\thermophysicalModels\barotropicCompressibilityModel\barotropicCompressibilityModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\Chung\Chung.cxx">
+      <Filter>TnbLib\thermophysicalModels\barotropicCompressibilityModel\Chung</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\linear\linearBarotropicCompressibilityModel.cxx">
+      <Filter>TnbLib\thermophysicalModels\barotropicCompressibilityModel\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\barotropicCompressibilityModel\Wallis\Wallis.cxx">
+      <Filter>TnbLib\thermophysicalModels\barotropicCompressibilityModel\Wallis</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\heThermo\heThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\heThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\mixtures\pureMixture\pureMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\mixtures\pureMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\psiThermo\psiThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\psiThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\psiThermo\hePsiThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\psiThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\psiThermo\psiThermos.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\psiThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\rhoThermo\rhoThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\rhoThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\rhoThermo\rhoThermos.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\rhoThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\rhoThermo\liquidThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\rhoThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\basic\rhoThermo\heRhoThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\basic\rhoThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel\BasicChemistryModelTemplate.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel\basicChemistryModel.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel\basicChemistryModelTemplates.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel\BasicChemistryModels.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\StandardChemistryModel\StandardChemistryModel.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\StandardChemistryModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\transport\const\constTransport.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\const</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\thermophysicalFunction\thermophysicalFunction.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\thermophysicalFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\APIfunctions\APIdiffCoefFunc\APIdiffCoefFunc.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\APIfunctions\APIdiffCoefFunc</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc0\NSRDSfunc0.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc0</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc1\NSRDSfunc1.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc1</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc2\NSRDSfunc2.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc2</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc3\NSRDSfunc3.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc3</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc4\NSRDSfunc4.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc4</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc5\NSRDSfunc5.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc5</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc6\NSRDSfunc6.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc6</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc7\NSRDSfunc7.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc7</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc14\NSRDSfunc14.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalFunctions\NSRDSfunctions\NSRDSfunc14</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalProperties\thermophysicalProperties.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalPropertiesSelector\thermophysicalPropertiesSelector.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalPropertiesSelector</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidProperties\solidProperties.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidProperties\solidPropertiesNew.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\specie\specie.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\specie</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\aC10H7CH3\aC10H7CH3.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\aC10H7CH3</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\liquidProperties\liquidProperties.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\liquidProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\liquidMixtureProperties\liquidMixtureProperties.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\liquidMixtureProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\Ar\Ar.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\Ar</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\bC10H7CH3\bC10H7CH3.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\bC10H7CH3</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H5OH\C2H5OH.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H5OH</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6\C2H6.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6O\C2H6O.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C2H6O</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H6O\C3H6O.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H6O</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H8\C3H8.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C3H8</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C4H10O\C4H10O.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C4H10O</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H6\C6H6.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H6</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H14\C6H14.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C6H14</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H8\C7H8.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H8</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H16\C7H16.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C7H16</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H10\C8H10.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H10</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H18\C8H18.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C8H18</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C9H20\C9H20.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C9H20</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C10H22\C10H22.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C10H22</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C12H26\C12H26.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C12H26</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C13H28\C13H28.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C13H28</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C14H30\C14H30.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C14H30</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C16H34\C16H34.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\C16H34</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH3OH\CH3OH.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH3OH</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH4N2O\CH4N2O.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\CH4N2O</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\H2O\H2O.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\H2O</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\iC3H8O\iC3H8O.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\iC3H8O</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IC8H18\IC8H18.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IC8H18</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IDEA\IDEA.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\IDEA</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\MB\MB.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\MB</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\N2\N2.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\N2</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\nC3H8O\nC3H8O.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\nC3H8O</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\ash\ash.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\ash</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\C\C.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\C</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\CaCO3\CaCO3.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\CaCO3</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidMixtureProperties\solidMixtureProperties.cxx">
+      <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\solidProperties\solidMixtureProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\transport\logPolynomial\logPolynomialTransport.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\logPolynomial</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\transport\polynomial\polynomialTransport.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\polynomial</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\transport\sutherland\sutherlandTransport.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\sutherland</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\transport\WLF\WLFTransport.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\transport\WLF</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\thermo\eConst\eConstThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\eConst</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\thermo\eRefConst\eRefConstThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\eRefConst</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\thermo\hConst\hConstThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\hConst</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\thermo\hPolynomial\hPolynomialThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\hPolynomial</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\thermo\hPower\hPowerThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\hPower</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\thermo\hRefConst\hRefConstThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\hRefConst</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\thermo\janaf\janafThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\janaf</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\thermo\thermo\thermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\thermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\atomicWeights\atomicWeights.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\atomicWeights</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\equationOfState\adiabaticPerfectFluid\adiabaticPerfectFluid.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\adiabaticPerfectFluid</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\equationOfState\Boussinesq\Boussinesq.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\Boussinesq</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\equationOfState\icoPolynomial\icoPolynomial.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\icoPolynomial</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\equationOfState\incompressiblePerfectGas\incompressiblePerfectGas.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\incompressiblePerfectGas</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\equationOfState\linear\linearEquationOfState.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\equationOfState\PengRobinsonGas\PengRobinsonGas.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\PengRobinsonGas</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\equationOfState\perfectFluid\perfectFluid.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\perfectFluid</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\equationOfState\perfectGas\perfectGas.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\perfectGas</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\equationOfState\rhoConst\rhoConst.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\equationOfState\rhoConst</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\ArrheniusReactionRate\ArrheniusReactionRate.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\ArrheniusReactionRate</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\ChemicallyActivatedReactionRate\ChemicallyActivatedReactionRate.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\ChemicallyActivatedReactionRate</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyEfficiencies\thirdBodyEfficiencies.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyEfficiencies</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyArrheniusReactionRate\thirdBodyArrheniusReactionRate.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\thirdBodyArrheniusReactionRate</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\powerSeries\powerSeriesReactionRate.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\powerSeries</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\MichaelisMenten\MichaelisMentenReactionRate.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\MichaelisMenten</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\Reaction\Reaction.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\Reaction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\specieCoeffs\specieCoeffs.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\specieCoeffs</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\ReactionList\ReactionList.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\ReactionList</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\ReactionProxy\ReactionProxy.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\ReactionProxy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\ReversibleReaction\ReversibleReaction.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\ReversibleReaction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\NonEquilibriumReversibleReaction\NonEquilibriumReversibleReaction.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\NonEquilibriumReversibleReaction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\IrreversibleReaction\IrreversibleReaction.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions\IrreversibleReaction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\makeReactions.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\makeLangmuirHinshelwoodReactions.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\makeMichaelisMentenReactions.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\FallOffReactionRate\FallOffReactionRate.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\FallOffReactionRate</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\infiniteReactionRate\infiniteReactionRate.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\infiniteReactionRate</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\JanevReactionRate\JanevReactionRate.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\JanevReactionRate</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\LandauTellerReactionRate\LandauTellerReactionRate.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\LandauTellerReactionRate</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\LangmuirHinshelwood\LangmuirHinshelwoodReactionRate.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\LangmuirHinshelwood</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\LindemannFallOffFunction\LindemannFallOffFunction.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\LindemannFallOffFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\SRIFallOffFunction\SRIFallOffFunction.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\SRIFallOffFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\TroeFallOffFunction\TroeFallOffFunction.cxx">
+      <Filter>TnbLib\thermophysicalModels\specie\reaction\reactionRate\fallOffFunctions\TroeFallOffFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidThermo\solidThermo\solidThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidThermo\solidThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidThermo\solidThermo\solidThermos.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidThermo\solidThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidThermo\solidThermo\heSolidThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidThermo\solidThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidSpecie\transport\polynomial\polynomialSolidTransport.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\transport\polynomial</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidSpecie\transport\exponential\exponentialSolidTransport.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\transport\exponential</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidSpecie\transport\const\constAnIsoSolidTransport.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\transport\const</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidSpecie\transport\const\constIsoSolidTransport.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\transport\const</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidSpecie\reaction\SolidReaction\SolidReaction.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\reaction\SolidReaction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidSpecie\reaction\reactions\makeSolidReactions.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidSpecie\reaction\reactions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidThermo\solidReactionThermo\solidReactionThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidThermo\solidReactionThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\basicMultiComponentMixture\basicMultiComponentMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\basicMultiComponentMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\basicCombustionMixture\basicCombustionMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\basicCombustionMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\SpecieMixture\SpecieMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\SpecieMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\basicSpecieMixture\basicSpecieMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\basicSpecieMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\egrMixture\egrMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\egrMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\homogeneousMixture\homogeneousMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\homogeneousMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\inhomogeneousMixture\inhomogeneousMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\inhomogeneousMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\multiComponentMixture\multiComponentMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\multiComponentMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\reactingMixture\reactingMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\reactingMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemistryReader\chemistryReader.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemistryReader</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemistryReader\makeChemistryReaders.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemistryReader</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader\chemkinReader.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader\chemkinLexer.cxx">
+      <Filter>Generated Files\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\foamChemistryReader\foamChemistryReader.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\foamChemistryReader</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\fixedUnburntEnthalpy\fixedUnburntEnthalpyFvPatchScalarField.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\fixedUnburntEnthalpy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\gradientUnburntEnthalpy\gradientUnburntEnthalpyFvPatchScalarField.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\gradientUnburntEnthalpy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\mixedUnburntEnthalpy\mixedUnburntEnthalpyFvPatchScalarField.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\derivedFvPatchFields\mixedUnburntEnthalpy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\functionObjects\moleFractions\moleFractionsFunctionObjects.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\functionObjects\moleFractions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\functionObjects\moleFractions\moleFractions.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\functionObjects\moleFractions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\psiReactionThermo\psiReactionThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\psiReactionThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\psiReactionThermo\psiReactionThermos.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\psiReactionThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\psiuReactionThermo\psiuReactionThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\psiuReactionThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\psiuReactionThermo\psiuReactionThermos.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\psiuReactionThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\psiuReactionThermo\heheuPsiThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\psiuReactionThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\rhoReactionThermo\rhoReactionThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\rhoReactionThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\rhoReactionThermo\rhoReactionThermos.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\rhoReactionThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\singleComponentMixture\singleComponentMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\singleComponentMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\singleStepReactingMixture\singleStepReactingMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\singleStepReactingMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\mixtures\veryInhomogeneousMixture\veryInhomogeneousMixture.cxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\mixtures\veryInhomogeneousMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\SLGThermo\SLGThermo\SLGThermo.cxx">
+      <Filter>TnbLib\thermophysicalModels\SLGThermo\SLGThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel\basicSolidChemistryModel.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidThermo\solidReactionThermo\solidReactionThermos.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidThermo\solidReactionThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel\basicSolidChemistryModelNew.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel\basicSolidChemistryModels.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidChemistryModel\pyrolysisChemistryModel\pyrolysisChemistryModel.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\pyrolysisChemistryModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidChemistryModel\solidChemistryModel\solidChemistryModel.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\solidChemistryModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\chemistrySolver\chemistrySolver.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\chemistrySolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\chemistryReductionMethod\chemistryReductionMethod.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\chemistryReductionMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\chemistryReductionMethod\chemistryReductionMethodNew.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\chemistryReductionMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DAC\DAC.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DAC</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\TDACChemistryModel.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\chemistryTabulationMethod\chemistryTabulationMethod.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\chemistryTabulationMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\chemistryTabulationMethod\chemistryTabulationMethodNew.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\chemistryTabulationMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\binaryNode\binaryNode.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\binaryNode</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\chemPointISAT\chemPointISAT.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\chemPointISAT</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\binaryTree\binaryTree.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\binaryTree</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\ISAT.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\noChemistryTabulation\noChemistryTabulation.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\noChemistryTabulation</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRG\DRG.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRG</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRGEP\DRGEP.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRGEP</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRGEP\SortableListDRGEP.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\DRGEP</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\EFA\SortableListEFA.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\EFA</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\EFA\EFA.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\EFA</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\noChemistryReduction\noChemistryReduction.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\noChemistryReduction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\PFA\PFA.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\PFA</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\chemistrySolver\makeChemistrySolvers.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\chemistrySolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\EulerImplicit\EulerImplicit.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\EulerImplicit</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\noChemistrySolver\noChemistrySolver.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\noChemistrySolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\ode\ode.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\ode</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\functionObjects\specieReactionRates\specieReactionRates.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\functionObjects\specieReactionRates</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\laminarFlameSpeed\laminarFlameSpeed\laminarFlameSpeed.cxx">
+      <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\laminarFlameSpeed</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\laminarFlameSpeed\laminarFlameSpeed\laminarFlameSpeedNew.cxx">
+      <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\laminarFlameSpeed</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\laminarFlameSpeed\constant\constLaminarFlameSpeed.cxx">
+      <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\constant</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\laminarFlameSpeed\Gulders\Gulders.cxx">
+      <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\Gulders</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\laminarFlameSpeed\GuldersEGR\GuldersEGR.cxx">
+      <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\GuldersEGR</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\laminarFlameSpeed\RaviPetersen\RaviPetersen.cxx">
+      <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\RaviPetersen</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader\chemkinLexer.L">
+      <Filter>BisonFlex Files\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>

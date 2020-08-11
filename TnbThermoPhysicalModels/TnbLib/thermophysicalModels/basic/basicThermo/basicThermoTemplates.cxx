@@ -1,5 +1,8 @@
 #include <basicThermo.hxx>
 
+#include <Time.hxx>  // added by amir
+#include <wordIOList.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * Selectors * * * * * * * * * * * * * * * * //
 
 template<class Thermo, class Table>
