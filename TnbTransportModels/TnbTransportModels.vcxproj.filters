@@ -144,6 +144,42 @@
     <ClInclude Include="TnbLib\transportModels\compressible\compressibleTransportModel\compressibleTransportModel.hxx">
       <Filter>TnbLib\transportModels\compressible\compressibleTransportModel</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\immiscibleIncompressibleTwoPhaseMixture\immiscibleIncompressibleTwoPhaseMixture.hxx">
+      <Filter>TnbLib\transportModels\immiscibleIncompressibleTwoPhaseMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\incompressible\transportModel\transportModel.hxx">
+      <Filter>TnbLib\transportModels\incompressible\transportModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\incompressible\singlePhaseTransportModel\singlePhaseTransportModel.hxx">
+      <Filter>TnbLib\transportModels\incompressible\singlePhaseTransportModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\viscosityModel\viscosityModel.hxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\viscosityModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\powerLaw\viscosityModelPowerLaw.hxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\powerLaw</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\Newtonian\viscosityModelNewtonian.hxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\Newtonian</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\HerschelBulkley\viscosityModelHerschelBulkley.hxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\HerschelBulkley</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\CrossPowerLaw\viscosityModelCrossPowerLaw.hxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\CrossPowerLaw</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\Casson\viscosityModelCasson.hxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\Casson</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\BirdCarreau\viscosityModelBirdCarreau.hxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\BirdCarreau</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\strainRateFunction\viscosityModelStrainRateFunction.hxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\strainRateFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\incompressible\incompressibleTwoPhaseMixture\incompressibleTwoPhaseMixture.hxx">
+      <Filter>TnbLib\transportModels\incompressible\incompressibleTwoPhaseMixture</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\surfaceTensionModel\surfaceTensionModel.cxx">
@@ -187,6 +223,45 @@
     </ClCompile>
     <ClCompile Include="TnbLib\transportModels\compressible\compressibleTransportModel\compressibleTransportModel.cxx">
       <Filter>TnbLib\transportModels\compressible\compressibleTransportModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\immiscibleIncompressibleTwoPhaseMixture\immiscibleIncompressibleTwoPhaseMixture.cxx">
+      <Filter>TnbLib\transportModels\immiscibleIncompressibleTwoPhaseMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\incompressible\transportModel\transportModel.cxx">
+      <Filter>TnbLib\transportModels\incompressible\transportModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\incompressible\singlePhaseTransportModel\singlePhaseTransportModel.cxx">
+      <Filter>TnbLib\transportModels\incompressible\singlePhaseTransportModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\viscosityModel\viscosityModel.cxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\viscosityModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\viscosityModel\viscosityModelNew.cxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\viscosityModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\powerLaw\viscosityModelPowerLaw.cxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\powerLaw</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\Newtonian\viscosityModelNewtonian.cxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\Newtonian</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\HerschelBulkley\viscosityModelHerschelBulkley.cxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\HerschelBulkley</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\CrossPowerLaw\viscosityModelCrossPowerLaw.cxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\CrossPowerLaw</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\Casson\viscosityModelCasson.cxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\Casson</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\BirdCarreau\viscosityModelBirdCarreau.cxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\BirdCarreau</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\strainRateFunction\viscosityModelStrainRateFunction.cxx">
+      <Filter>TnbLib\transportModels\incompressible\viscosityModels\strainRateFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\transportModels\incompressible\incompressibleTwoPhaseMixture\incompressibleTwoPhaseMixture.cxx">
+      <Filter>TnbLib\transportModels\incompressible\incompressibleTwoPhaseMixture</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

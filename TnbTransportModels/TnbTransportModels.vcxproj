@@ -82,6 +82,12 @@
     <Link>
       <SubSystem>Console</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
+if not exist "$(ProjectDir)include" mkdir "$(ProjectDir)include"
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -128,6 +134,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\transportModels\compressible\compressibleTransportModel\compressibleTransportModel.hxx" />
+    <ClInclude Include="TnbLib\transportModels\immiscibleIncompressibleTwoPhaseMixture\immiscibleIncompressibleTwoPhaseMixture.hxx" />
+    <ClInclude Include="TnbLib\transportModels\incompressible\incompressibleTwoPhaseMixture\incompressibleTwoPhaseMixture.hxx" />
+    <ClInclude Include="TnbLib\transportModels\incompressible\singlePhaseTransportModel\singlePhaseTransportModel.hxx" />
+    <ClInclude Include="TnbLib\transportModels\incompressible\transportModel\transportModel.hxx" />
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\BirdCarreau\viscosityModelBirdCarreau.hxx" />
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\Casson\viscosityModelCasson.hxx" />
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\CrossPowerLaw\viscosityModelCrossPowerLaw.hxx" />
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\HerschelBulkley\viscosityModelHerschelBulkley.hxx" />
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\Newtonian\viscosityModelNewtonian.hxx" />
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\powerLaw\viscosityModelPowerLaw.hxx" />
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\strainRateFunction\viscosityModelStrainRateFunction.hxx" />
+    <ClInclude Include="TnbLib\transportModels\incompressible\viscosityModels\viscosityModel\viscosityModel.hxx" />
     <ClInclude Include="TnbLib\transportModels\interfaceProperties\interfaceCompression\interfaceCompression.hxx" />
     <ClInclude Include="TnbLib\transportModels\interfaceProperties\interfaceProperties.hxx" />
     <ClInclude Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\constant\constantSurfaceTension.hxx" />
@@ -143,6 +161,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\transportModels\compressible\compressibleTransportModel\compressibleTransportModel.cxx" />
+    <ClCompile Include="TnbLib\transportModels\immiscibleIncompressibleTwoPhaseMixture\immiscibleIncompressibleTwoPhaseMixture.cxx" />
+    <ClCompile Include="TnbLib\transportModels\incompressible\incompressibleTwoPhaseMixture\incompressibleTwoPhaseMixture.cxx" />
+    <ClCompile Include="TnbLib\transportModels\incompressible\singlePhaseTransportModel\singlePhaseTransportModel.cxx" />
+    <ClCompile Include="TnbLib\transportModels\incompressible\transportModel\transportModel.cxx" />
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\BirdCarreau\viscosityModelBirdCarreau.cxx" />
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\Casson\viscosityModelCasson.cxx" />
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\CrossPowerLaw\viscosityModelCrossPowerLaw.cxx" />
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\HerschelBulkley\viscosityModelHerschelBulkley.cxx" />
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\Newtonian\viscosityModelNewtonian.cxx" />
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\powerLaw\viscosityModelPowerLaw.cxx" />
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\strainRateFunction\viscosityModelStrainRateFunction.cxx" />
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\viscosityModel\viscosityModel.cxx" />
+    <ClCompile Include="TnbLib\transportModels\incompressible\viscosityModels\viscosityModel\viscosityModelNew.cxx" />
     <ClCompile Include="TnbLib\transportModels\interfaceProperties\interfaceCompression\interfaceCompression.cxx" />
     <ClCompile Include="TnbLib\transportModels\interfaceProperties\interfaceProperties.cxx" />
     <ClCompile Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\constant\constantSurfaceTension.cxx" />
