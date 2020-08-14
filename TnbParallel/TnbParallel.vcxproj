@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{122FDDF5-B397-43F8-BCC5-5C3CDB60CB41}</ProjectGuid>
+    <RootNamespace>TnbParallel</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\parallel\decompose\decompose;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionMethod;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\geomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\manualDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\noDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\structuredDecomp;$(ProjectDir)TnbLib\parallel\decompose\metisDecomp;$(ProjectDir)TnbLib\parallel\decompose\ptscotchDecomp;$(ProjectDir)TnbLib\parallel\decompose\scotchDecomp;$(ProjectDir)TnbLib\parallel\distributed\distributedTriSurfaceMesh;$(ProjectDir)TnbLib\parallel\reconstruct\reconstruct;$(SolutionDir)TnbContrib\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
+if not exist "$(ProjectDir)include" mkdir "$(ProjectDir)include"
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\parallel\decompose\decompose;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionMethod;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\geomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\manualDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\noDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\structuredDecomp;$(ProjectDir)TnbLib\parallel\decompose\metisDecomp;$(ProjectDir)TnbLib\parallel\decompose\ptscotchDecomp;$(ProjectDir)TnbLib\parallel\decompose\scotchDecomp;$(ProjectDir)TnbLib\parallel\distributed\distributedTriSurfaceMesh;$(ProjectDir)TnbLib\parallel\reconstruct\reconstruct;$(SolutionDir)TnbContrib\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\parallel\decompose\decompose\decompositionModel.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompose\fvFieldDecomposer.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint\decompositionConstraint.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles\preserveBafflesConstraint.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones\preserveFaceZonesConstraint.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches\preservePatchesConstraint.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory\refinementHistoryConstraint.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets\singleProcessorFaceSetsConstraint.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionMethod\decompositionMethod.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\geomDecomp\geomDecomp.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp\hierarchGeomDecomp.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\manualDecomp\manualDecomp.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp\multiLevelDecomp.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\noDecomp\noDecomp.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp\simpleGeomDecomp.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\structuredDecomp\structuredDecomp.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\metisDecomp\metisDecomp.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\ptscotchDecomp\ptscotchDecomp.hxx" />
+    <ClInclude Include="TnbLib\parallel\decompose\scotchDecomp\scotchDecomp.hxx" />
+    <ClInclude Include="TnbLib\parallel\distributed\distributedTriSurfaceMesh\distributedTriSurfaceMesh.hxx" />
+    <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\fvFieldReconstructor.hxx" />
+    <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\pointFieldReconstructor.hxx" />
+    <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\processorMeshes.hxx" />
+    <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\reconstructLagrangian.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\parallel\decompose\decompose\decompositionModel.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompose\fvFieldDecomposer.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompose\fvFieldDecomposerDecomposeFields.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint\decompositionConstraint.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles\preserveBafflesConstraint.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones\preserveFaceZonesConstraint.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches\preservePatchesConstraint.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory\refinementHistoryConstraint.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets\singleProcessorFaceSetsConstraint.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionMethod\decompositionMethod.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\geomDecomp\geomDecomp.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp\hierarchGeomDecomp.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\manualDecomp\manualDecomp.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp\multiLevelDecomp.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\noDecomp\noDecomp.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp\simpleGeomDecomp.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\structuredDecomp\structuredDecomp.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\metisDecomp\metisDecomp.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\ptscotchDecomp\ptscotchDecomp.cxx" />
+    <ClCompile Include="TnbLib\parallel\decompose\scotchDecomp\scotchDecomp.cxx" />
+    <ClCompile Include="TnbLib\parallel\distributed\distributedTriSurfaceMesh\distributedTriSurfaceMesh.cxx" />
+    <ClCompile Include="TnbLib\parallel\distributed\distributedTriSurfaceMesh\distributedTriSurfaceMeshTemplates.cxx" />
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\fvFieldReconstructor.cxx" />
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\fvFieldReconstructorReconstructFields.cxx" />
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\pointFieldReconstructor.cxx" />
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\pointFieldReconstructorReconstructFields.cxx" />
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\processorMeshes.cxx" />
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\reconstructLagrangianFields.cxx" />
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\reconstructLagrangianPositions.cxx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

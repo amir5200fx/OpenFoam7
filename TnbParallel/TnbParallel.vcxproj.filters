@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{a77fdef8-e98c-40d6-b967-736479a49e3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel">
+      <UniqueIdentifier>{31243555-5173-4dfc-87b9-8d353db7eeee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose">
+      <UniqueIdentifier>{f560efe4-1f86-4ce6-acff-453ace9bf35a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\distributed">
+      <UniqueIdentifier>{f969aa58-ece8-4462-9696-ee444e69c736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\reconstruct">
+      <UniqueIdentifier>{c4c38ff9-06d1-4948-b6db-f1a52681c578}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompose">
+      <UniqueIdentifier>{61a7d462-7519-46f5-bfcb-9f7dd067bd5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods">
+      <UniqueIdentifier>{1c6ba16b-cec4-4d65-b729-0192a3ff8683}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\metisDecomp">
+      <UniqueIdentifier>{2d579b65-c213-4de5-9396-d7cba0222ef7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\scotchDecomp">
+      <UniqueIdentifier>{6ab3ae3e-dd98-4739-88a7-a2e6295e5f7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\ptscotchDecomp">
+      <UniqueIdentifier>{815bebf2-2386-4805-a78c-c5f88772fe72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints">
+      <UniqueIdentifier>{7efa728c-3091-4bbc-8c98-ab048377bc75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\decompositionMethod">
+      <UniqueIdentifier>{89d023f9-259a-46c7-8f54-77f4ab1424e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\geomDecomp">
+      <UniqueIdentifier>{0c670765-4c5e-4827-a7d6-1dfc9ddb37ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp">
+      <UniqueIdentifier>{1beaec39-d3a1-48f1-b34b-d57003b2dbda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\manualDecomp">
+      <UniqueIdentifier>{ac03a34e-5470-4ddd-a3af-ef2b90281d00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp">
+      <UniqueIdentifier>{dab23e7d-c2a3-4cfb-8745-48bc64b8ca91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\structuredDecomp">
+      <UniqueIdentifier>{1afb9c29-da6f-4109-89fe-117e942e1f07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp">
+      <UniqueIdentifier>{30165dac-ecc9-432c-8e69-471530ded17c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\noDecomp">
+      <UniqueIdentifier>{2530cc2e-7183-4c3c-9f01-ae84863f0c36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint">
+      <UniqueIdentifier>{a8feabfa-19eb-4bf1-b4bb-3727e618edbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets">
+      <UniqueIdentifier>{d90b1160-88ca-4a90-bb26-bfa0a391ea31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory">
+      <UniqueIdentifier>{83bd75c9-b42f-4ee7-9ec7-e31abbe68167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches">
+      <UniqueIdentifier>{b40576fc-f7e3-46a3-8af4-94a99aba0a4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones">
+      <UniqueIdentifier>{75ff713b-7e18-4388-afaf-b98c3bf6c013}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles">
+      <UniqueIdentifier>{9ece5c70-301c-49a2-adc7-83abcb9141b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\distributed\distributedTriSurfaceMesh">
+      <UniqueIdentifier>{205b15f2-1a7b-4071-88e4-020660858733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\parallel\reconstruct\reconstruct">
+      <UniqueIdentifier>{6a6f9236-1693-4852-98fb-df751d32371c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionMethod\decompositionMethod.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint\decompositionConstraint.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles\preserveBafflesConstraint.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones\preserveFaceZonesConstraint.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches\preservePatchesConstraint.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory\refinementHistoryConstraint.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets\singleProcessorFaceSetsConstraint.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\geomDecomp\geomDecomp.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\geomDecomp</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp\hierarchGeomDecomp.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\manualDecomp\manualDecomp.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\manualDecomp</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp\multiLevelDecomp.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\noDecomp\noDecomp.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\noDecomp</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp\simpleGeomDecomp.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\structuredDecomp\structuredDecomp.hxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\structuredDecomp</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\metisDecomp\metisDecomp.hxx">
+      <Filter>TnbLib\parallel\decompose\metisDecomp</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\ptscotchDecomp\ptscotchDecomp.hxx">
+      <Filter>TnbLib\parallel\decompose\ptscotchDecomp</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\scotchDecomp\scotchDecomp.hxx">
+      <Filter>TnbLib\parallel\decompose\scotchDecomp</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompose\decompositionModel.hxx">
+      <Filter>TnbLib\parallel\decompose\decompose</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompose\fvFieldDecomposer.hxx">
+      <Filter>TnbLib\parallel\decompose\decompose</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\distributed\distributedTriSurfaceMesh\distributedTriSurfaceMesh.hxx">
+      <Filter>TnbLib\parallel\distributed\distributedTriSurfaceMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\fvFieldReconstructor.hxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\pointFieldReconstructor.hxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\processorMeshes.hxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\reconstructLagrangian.hxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionMethod\decompositionMethod.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint\decompositionConstraint.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles\preserveBafflesConstraint.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones\preserveFaceZonesConstraint.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches\preservePatchesConstraint.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory\refinementHistoryConstraint.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets\singleProcessorFaceSetsConstraint.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\geomDecomp\geomDecomp.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\geomDecomp</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp\hierarchGeomDecomp.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\manualDecomp\manualDecomp.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\manualDecomp</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp\multiLevelDecomp.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\noDecomp\noDecomp.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\noDecomp</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp\simpleGeomDecomp.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\structuredDecomp\structuredDecomp.cxx">
+      <Filter>TnbLib\parallel\decompose\decompositionMethods\structuredDecomp</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\metisDecomp\metisDecomp.cxx">
+      <Filter>TnbLib\parallel\decompose\metisDecomp</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\ptscotchDecomp\ptscotchDecomp.cxx">
+      <Filter>TnbLib\parallel\decompose\ptscotchDecomp</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\scotchDecomp\scotchDecomp.cxx">
+      <Filter>TnbLib\parallel\decompose\scotchDecomp</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompose\decompositionModel.cxx">
+      <Filter>TnbLib\parallel\decompose\decompose</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompose\fvFieldDecomposer.cxx">
+      <Filter>TnbLib\parallel\decompose\decompose</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\decompose\decompose\fvFieldDecomposerDecomposeFields.cxx">
+      <Filter>TnbLib\parallel\decompose\decompose</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\distributed\distributedTriSurfaceMesh\distributedTriSurfaceMesh.cxx">
+      <Filter>TnbLib\parallel\distributed\distributedTriSurfaceMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\distributed\distributedTriSurfaceMesh\distributedTriSurfaceMeshTemplates.cxx">
+      <Filter>TnbLib\parallel\distributed\distributedTriSurfaceMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\fvFieldReconstructor.cxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\fvFieldReconstructorReconstructFields.cxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\pointFieldReconstructor.cxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\processorMeshes.cxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\reconstructLagrangianFields.cxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\reconstructLagrangianPositions.cxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\pointFieldReconstructorReconstructFields.cxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
