@@ -1,5 +1,9 @@
 #include <RASModel.hxx>
 
+#include <surfaceMesh.hxx>  // added by amir
+#include <fvBoundaryMesh.hxx>  // added by amir
+#include <Time.hxx>  // added by amir
+
 // * * * * * * * * * * * * * Protected Member Functions  * * * * * * * * * * //
 
 template<class BasicTurbulenceModel>

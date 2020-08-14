@@ -1,0 +1,107 @@
+#include <PhaseCompressibleTurbulenceModel.hxx>
+
+#include <surfaceMesh.hxx>  // added by amir
+#include <fvBoundaryMesh.hxx>  // added by amir
+
+// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+template<class TransportModel>
+tnbLib::PhaseCompressibleTurbulenceModel<TransportModel>::
+PhaseCompressibleTurbulenceModel
+(
+	const word& type,
+	const volScalarField& alpha,
+	const volScalarField& rho,
+	const volVectorField& U,
+	const surfaceScalarField& alphaRhoPhi,
+	const surfaceScalarField& phi,
+	const transportModel& transport,
+	const word& propertiesName
+)
+	:
+	TurbulenceModel
+	<
+	volScalarField,
+	volScalarField,
+	compressibleTurbulenceModel,
+	transportModel
+	>
+	(
+		alpha,
+		rho,
+		U,
+		alphaRhoPhi,
+		phi,
+		transport,
+		propertiesName
+		)
+{}
+
+
+// * * * * * * * * * * * * * * * * * Selectors * * * * * * * * * * * * * * * //
+
+template<class TransportModel>
+tnbLib::autoPtr<tnbLib::PhaseCompressibleTurbulenceModel<TransportModel>>
+tnbLib::PhaseCompressibleTurbulenceModel<TransportModel>::New
+(
+	const volScalarField& alpha,
+	const volScalarField& rho,
+	const volVectorField& U,
+	const surfaceScalarField& alphaRhoPhi,
+	const surfaceScalarField& phi,
+	const transportModel& transport,
+	const word& propertiesName
+)
+{
+	return autoPtr<PhaseCompressibleTurbulenceModel>
+		(
+			static_cast<PhaseCompressibleTurbulenceModel*>(
+				TurbulenceModel
+				<
+				volScalarField,
+				volScalarField,
+				compressibleTurbulenceModel,
+				transportModel
+				>::New
+				(
+					alpha,
+					rho,
+					U,
+					alphaRhoPhi,
+					phi,
+					transport,
+					propertiesName
+				).ptr())
+			);
+}
+
+
+// * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
+
+template<class TransportModel>
+tnbLib::tmp<tnbLib::volScalarField>
+tnbLib::PhaseCompressibleTurbulenceModel<TransportModel>::pPrime() const
+{
+	return volScalarField::New
+	(
+		IOobject::groupName("pPrime", this->alphaRhoPhi_.group()),
+		this->mesh_,
+		dimensionedScalar(dimPressure, 0)
+	);
+}
+
+
+template<class TransportModel>
+tnbLib::tmp<tnbLib::surfaceScalarField>
+tnbLib::PhaseCompressibleTurbulenceModel<TransportModel>::pPrimef() const
+{
+	return surfaceScalarField::New
+	(
+		IOobject::groupName("pPrimef", this->alphaRhoPhi_.group()),
+		this->mesh_,
+		dimensionedScalar(dimPressure, 0)
+	);
+}
+
+
+// ************************************************************************* //

@@ -1,5 +1,11 @@
 #include <kOmegaSSTLM.hxx>
 
+#include <fvOptions.hxx>  // added by amir
+#include <bound.hxx>  // added by amir
+
+#include <surfaceMesh.hxx>  // added by amir
+#include <fvBoundaryMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

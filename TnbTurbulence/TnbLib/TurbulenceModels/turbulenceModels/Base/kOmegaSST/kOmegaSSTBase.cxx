@@ -4,6 +4,9 @@
 #include <bound.hxx>
 #include <wallDist.hxx>
 
+#include <fvBoundaryMesh.hxx>  // added by amir
+#include <surfaceFields.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

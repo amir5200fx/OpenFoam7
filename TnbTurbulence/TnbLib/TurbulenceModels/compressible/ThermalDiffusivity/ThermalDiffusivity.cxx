@@ -1,5 +1,7 @@
 #include <ThermalDiffusivity.hxx>
 
+#include <dimensionSet.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 template<class BasicTurbulenceModel>

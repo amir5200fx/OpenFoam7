@@ -3,6 +3,8 @@
 #include <fvOptions.hxx>
 #include <wallDist.hxx>
 
+#include <wallFvPatch.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

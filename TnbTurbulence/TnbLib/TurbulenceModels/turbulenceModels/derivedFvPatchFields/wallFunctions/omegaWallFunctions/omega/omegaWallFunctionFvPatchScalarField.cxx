@@ -5,6 +5,8 @@
 #include <fvMatrix.hxx>
 #include <addToRunTimeSelectionTable.hxx>
 
+#include <Time.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

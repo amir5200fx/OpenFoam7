@@ -1,5 +1,8 @@
 #include <EddyDiffusivity.hxx>
 
+#include <surfaceFields.hxx>  // added by amir
+#include <fvBoundaryMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * Protected Member Functions  * * * * * * * * * * * //
 
 template<class BasicTurbulenceModel>
