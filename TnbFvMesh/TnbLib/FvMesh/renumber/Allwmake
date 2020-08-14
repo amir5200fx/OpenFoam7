@@ -1,0 +1,20 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Parse arguments for library compilation
+. $WM_PROJECT_DIR/wmake/scripts/AllwmakeParseArguments
+
+# Deprecate SloanRenumber due to dependency on BOOST causing build and
+# installation problems on a range of legacy systems.
+# wmake $targetType SloanRenumber
+
+if [ -n "$ZOLTAN_ARCH_PATH" ]
+then
+    wmake $targetType zoltanRenumber
+else
+    echo "    skipping zoltanRenumber"
+fi
+
+wmake $targetType renumberMethods
+
+#------------------------------------------------------------------------------
