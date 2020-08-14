@@ -1,5 +1,7 @@
 #include <chemistryReader.hxx>
 
+#include <dictionary.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 template<class ThermoType>

@@ -2,6 +2,7 @@
 
 #include <IFstream.hxx>
 #include <SLPtrList.hxx>
+#include <dictionary.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 

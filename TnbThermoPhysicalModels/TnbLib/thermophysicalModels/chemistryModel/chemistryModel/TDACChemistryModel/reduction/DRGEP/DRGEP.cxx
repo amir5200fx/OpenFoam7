@@ -1,6 +1,9 @@
 #include <DRGEP.hxx>
 
 #include <SortableListDRGEP.hxx>
+#include <specieElement.hxx>  // added by amir
+#include <Reaction.hxx>  // added by amir
+#include <FIFOStack.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 

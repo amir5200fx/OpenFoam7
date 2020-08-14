@@ -1,6 +1,9 @@
 #include <SolidReaction.hxx>
 
 #include <DynamicList.hxx>
+#include <OStringStream.hxx>  // added by amir
+#include <IStringStream.hxx>  // added by amir
+#include <dictionary.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 

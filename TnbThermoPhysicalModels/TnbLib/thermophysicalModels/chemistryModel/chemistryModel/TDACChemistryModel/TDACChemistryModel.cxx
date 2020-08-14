@@ -3,6 +3,8 @@
 #include <UniformField.hxx>
 #include <localEulerDdtScheme.hxx>
 #include <clockTime.hxx>
+#include <basicSpecieMixture.hxx>  // added by amir
+#include <reactingMixture.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 

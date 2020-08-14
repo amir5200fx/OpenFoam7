@@ -1563,6 +1563,9 @@
     <ClInclude Include="TnbLib\thermophysicalModels\laminarFlameSpeed\RaviPetersen\RaviPetersen.hxx">
       <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\RaviPetersen</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\solidChemistryModel\makeSolidChemistryModel.hxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\thermophysicalModels\basic\basicThermo\basicThermo.cxx">
@@ -2009,9 +2012,6 @@
     <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader\chemkinReader.cxx">
       <Filter>TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader\chemkinLexer.cxx">
-      <Filter>Generated Files\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\foamChemistryReader\foamChemistryReader.cxx">
       <Filter>TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\foamChemistryReader</Filter>
     </ClCompile>
@@ -2170,6 +2170,9 @@
     </ClCompile>
     <ClCompile Include="TnbLib\thermophysicalModels\laminarFlameSpeed\RaviPetersen\RaviPetersen.cxx">
       <Filter>TnbLib\thermophysicalModels\laminarFlameSpeed\RaviPetersen</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader\chemkinLexer.cxx">
+      <Filter>Generated Files\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

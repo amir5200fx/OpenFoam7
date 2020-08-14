@@ -1,6 +1,7 @@
 #include <binaryTree.hxx>
 
 #include <SortableList.hxx>
+#include <dictionary.hxx>  // added by amir
 
 // * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * * //
 

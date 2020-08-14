@@ -1,6 +1,7 @@
 #include <chemPointISAT.hxx>
 
 #include <SVD.hxx>
+#include <dictionary.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 

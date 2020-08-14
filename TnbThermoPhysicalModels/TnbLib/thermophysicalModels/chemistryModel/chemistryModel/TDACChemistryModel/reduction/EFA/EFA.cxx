@@ -1,6 +1,8 @@
 #include <EFA.hxx>
 
 #include <SortableListEFA.hxx>
+#include <specieElement.hxx>  // added by amir
+#include <Reaction.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 

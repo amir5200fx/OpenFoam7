@@ -1,5 +1,7 @@
 #include <NonEquilibriumReversibleReaction.hxx>
 
+#include <dictionary.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 template

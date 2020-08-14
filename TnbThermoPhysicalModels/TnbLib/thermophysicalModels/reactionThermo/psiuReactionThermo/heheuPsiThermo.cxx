@@ -2,6 +2,9 @@
 
 #include <fvMesh.hxx>
 #include <fixedValueFvPatchFields.hxx>
+#include <volFields.hxx>  // added by amir
+#include <Time.hxx>  // added by amir
+#include <psiuReactionThermo.hxx>  // added by amir
 
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 

@@ -2,6 +2,7 @@
 
 #include <IOstreams.hxx>
 #include <dictionary.hxx>  // added by amir
+#include <thermodynamicConstants.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
@@ -18,7 +19,7 @@ tnbLib::PengRobinsonGas<Specie>::PengRobinsonGas
 	Pc_(readScalar(dict.subDict("equationOfState").lookup("Pc"))),
 	omega_(readScalar(dict.subDict("equationOfState").lookup("omega")))
 {
-	Zc_ = Pc_ * Vc_ / (RR*Tc_);
+	Zc_ = Pc_ * Vc_ / (constant::thermodynamic::RR*Tc_);
 }
 
 

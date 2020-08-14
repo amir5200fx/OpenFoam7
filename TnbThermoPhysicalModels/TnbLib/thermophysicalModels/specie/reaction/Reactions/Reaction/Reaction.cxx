@@ -1,5 +1,8 @@
 #include <Reaction.hxx>
 
+#include <dictionary.hxx>  // added by amir
+#include <IStringStream.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * Static Data * * * * * * * * * * * * * * * //
 
 template<class ReactionThermo>

@@ -22,7 +22,7 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 InClass
-	Foam::basicSolidChemistryModel
+	tnbLib::basicSolidChemistryModel
 
 Description
 	Creates solid chemistry model instances templated on the type of
@@ -38,67 +38,71 @@ Description
 #include <solidThermoPhysicsTypes.hxx>
 #include <thermoPhysicsTypes.hxx>
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-// hConstSolidThermoPhysics
-
-makeSolidChemistryModel
-(
-	solidChemistryModel,
-	pyrolysisChemistryModel,
-	basicSolidChemistryModel,
-	hConstSolidThermoPhysics
-);
-
-makeSolidGasChemistryModel
-(
-	solidChemistryModel,
-	pyrolysisChemistryModel,
-	basicSolidChemistryModel,
-	hConstSolidThermoPhysics,
-	gasHThermoPhysics
-);
-
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-// hPowerSolidThermoPhysics
+namespace tnbLib
+{
+	// hConstSolidThermoPhysics
 
-makeSolidChemistryModel
-(
-	solidChemistryModel,
-	pyrolysisChemistryModel,
-	basicSolidChemistryModel,
-	hPowerSolidThermoPhysics
-);
+	makeSolidChemistryModel
+	(
+		solidChemistryModel,
+		pyrolysisChemistryModel,
+		basicSolidChemistryModel,
+		hConstSolidThermoPhysics
+	);
 
-makeSolidGasChemistryModel
-(
-	solidChemistryModel,
-	pyrolysisChemistryModel,
-	basicSolidChemistryModel,
-	hPowerSolidThermoPhysics,
-	gasHThermoPhysics
-);
+	makeSolidGasChemistryModel
+	(
+		solidChemistryModel,
+		pyrolysisChemistryModel,
+		basicSolidChemistryModel,
+		hConstSolidThermoPhysics,
+		gasHThermoPhysics
+	);
 
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-// hExpKappaConstSolidThermoPhysics
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+	// hPowerSolidThermoPhysics
 
-makeSolidChemistryModel
-(
-	solidChemistryModel,
-	pyrolysisChemistryModel,
-	basicSolidChemistryModel,
-	hExpKappaConstSolidThermoPhysics
-);
+	makeSolidChemistryModel
+	(
+		solidChemistryModel,
+		pyrolysisChemistryModel,
+		basicSolidChemistryModel,
+		hPowerSolidThermoPhysics
+	);
 
-makeSolidGasChemistryModel
-(
-	solidChemistryModel,
-	pyrolysisChemistryModel,
-	basicSolidChemistryModel,
-	hExpKappaConstSolidThermoPhysics,
-	gasHThermoPhysics
-);
+	makeSolidGasChemistryModel
+	(
+		solidChemistryModel,
+		pyrolysisChemistryModel,
+		basicSolidChemistryModel,
+		hPowerSolidThermoPhysics,
+		gasHThermoPhysics
+	);
+
+
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+	// hExpKappaConstSolidThermoPhysics
+
+	makeSolidChemistryModel
+	(
+		solidChemistryModel,
+		pyrolysisChemistryModel,
+		basicSolidChemistryModel,
+		hExpKappaConstSolidThermoPhysics
+	);
+
+	makeSolidGasChemistryModel
+	(
+		solidChemistryModel,
+		pyrolysisChemistryModel,
+		basicSolidChemistryModel,
+		hExpKappaConstSolidThermoPhysics,
+		gasHThermoPhysics
+	);
+}
 
 
 // ************************************************************************* //

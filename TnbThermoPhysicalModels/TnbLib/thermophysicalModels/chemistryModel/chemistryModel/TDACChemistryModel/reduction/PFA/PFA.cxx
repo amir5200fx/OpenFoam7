@@ -1,5 +1,8 @@
 #include <PFA.hxx>
 
+#include <Reaction.hxx>  // added by amir
+#include <FIFOStack.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 template<class CompType, class ThermoType>

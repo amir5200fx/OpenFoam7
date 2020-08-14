@@ -2,6 +2,7 @@
 
 #include <IFstream.hxx>
 #include <addToRunTimeSelectionTable.hxx>
+#include <dictionary.hxx>  // added by amir
 
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 

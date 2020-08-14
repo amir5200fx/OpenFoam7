@@ -1,6 +1,7 @@
 #include <RaviPetersen.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>
+#include <Time.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 

@@ -2,6 +2,7 @@
 
 #include <IOstreams.hxx>
 #include <dictionary.hxx>
+#include <thermodynamicConstants.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
@@ -28,10 +29,10 @@ tnbLib::hPolynomialThermo<EquationOfState, PolySize>::hPolynomialThermo
 	sCoeffs_ = CpCoeffs_.integralMinus1();
 
 	// Offset h poly so that it is relative to the enthalpy at Tstd
-	hCoeffs_[0] += Hf_ - hCoeffs_.value(Tstd);
+	hCoeffs_[0] += Hf_ - hCoeffs_.value(constant::thermodynamic::Tstd);
 
 	// Offset s poly so that it is relative to the entropy at Tstd
-	sCoeffs_[0] += Sf_ - sCoeffs_.value(Tstd);
+	sCoeffs_[0] += Sf_ - sCoeffs_.value(constant::thermodynamic::Tstd);
 }
 
 
