@@ -1,0 +1,861 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{347f785d-9f64-44a0-a780-9dea15984170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh">
+      <UniqueIdentifier>{924d3fb1-4e13-4874-b905-7634454a4a6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\attachDetach">
+      <UniqueIdentifier>{3df545dd-309a-45ce-afbb-510f80881493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\boundaryMesh">
+      <UniqueIdentifier>{6597824d-bf48-4364-beac-0709db1ae6dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\boundaryPatch">
+      <UniqueIdentifier>{44d09bf3-93f4-4857-bf42-fe690cdeff43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\createShellMesh">
+      <UniqueIdentifier>{ee0bdacc-c029-4e69-981c-e899a3628cfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\extrudePatchMesh">
+      <UniqueIdentifier>{ff4dbb84-ceda-412f-85b4-ba22c58a1e10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\fvMeshAdder">
+      <UniqueIdentifier>{cc2d0463-beb2-4bd9-acc5-1140b1c7ff2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\fvMeshDistribute">
+      <UniqueIdentifier>{3817edf3-0563-405a-b289-3366b18e1377}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\fvMeshSubset">
+      <UniqueIdentifier>{f2b443dd-bb9c-4b49-bad9-5a45b83d8d68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\fvMeshTools">
+      <UniqueIdentifier>{3a5f5168-9976-4227-8b7c-3f035c8d2ce2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\layerAdditionRemoval">
+      <UniqueIdentifier>{07528f35-4714-4c9c-b9df-ea90ea8aaa03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut">
+      <UniqueIdentifier>{774dce8e-63a4-4c45-a5dc-f8dc180e247a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSmoother">
+      <UniqueIdentifier>{fc83e47b-1dfb-4d9c-be07-a0c8adf88869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers">
+      <UniqueIdentifier>{d98033af-700c-429a-b9c5-1dc23bc4f10f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\slidingInterface">
+      <UniqueIdentifier>{ae525b0b-e28c-4ee5-a49f-a10a457626bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\setUpdater">
+      <UniqueIdentifier>{cc3a557b-6d92-4ec7-a9c5-4c342429fe26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyTopoChange">
+      <UniqueIdentifier>{a10e24d3-9b0c-447e-ae9b-a5cf44a9b1cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyMeshFilter">
+      <UniqueIdentifier>{915ebe39-412b-40b8-ac30-a00c0d3c6b64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyMeshAdder">
+      <UniqueIdentifier>{629bc794-c222-43dc-a2fb-d3e6ded6339a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\pointPatchDist">
+      <UniqueIdentifier>{2ea63ca3-d7a6-4a36-96b7-50212979ef67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\pointInterpolator">
+      <UniqueIdentifier>{b20ba981-3ed9-441c-8d53-afab36f90ec4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\perfectInterface">
+      <UniqueIdentifier>{005f29dd-5720-4bf3-b114-b770836689ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\cellCuts">
+      <UniqueIdentifier>{2c2203d5-0917-4a85-a887-97613f05fe44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\cellLooper">
+      <UniqueIdentifier>{27857f4a-d523-4893-aec9-7466af2bbaa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\directions">
+      <UniqueIdentifier>{69d03190-4fc8-4330-9fbd-27bf15dae409}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\edgeVertex">
+      <UniqueIdentifier>{221409ab-557e-4f1e-8c72-8018eb784e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\meshModifiers">
+      <UniqueIdentifier>{36ec039b-a8cc-4102-897f-bd23c1031512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\wallLayerCells">
+      <UniqueIdentifier>{21e424d0-2023-4f7e-acab-e8b5f167f0d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\splitCell">
+      <UniqueIdentifier>{2073dd64-0cb1-4a3d-9e54-edbf575c83f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\refineCell">
+      <UniqueIdentifier>{25094c9e-fdfe-49d2-9a9a-b6f04e5439a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\meshModifiers\boundaryCutter">
+      <UniqueIdentifier>{66a4a8a3-e641-48d0-b571-556e78a7622a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutAndRemove">
+      <UniqueIdentifier>{bc973458-e78a-4254-8054-7e3e3bf9f9bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutter">
+      <UniqueIdentifier>{19fdfb1c-967b-48d5-831f-3db85069c9a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\meshModifiers\multiDirRefinement">
+      <UniqueIdentifier>{ba61f80b-a146-44ac-ad16-bf90efb09123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\meshModifiers\undoableMeshCutter">
+      <UniqueIdentifier>{931d06a3-3464-4f13-a46c-fa48b78974c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\meshModifiers\refinementIterator">
+      <UniqueIdentifier>{9ee0a810-fc98-4cd9-8ef5-f6cb78b3e41c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo">
+      <UniqueIdentifier>{ff021615-1e4f-4b7c-8c33-504907d131c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyTopoChange\attachPolyTopoChanger">
+      <UniqueIdentifier>{87d3d5ca-24a3-4b78-a8b5-94818197d484}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyTopoChange\repatchPolyTopoChanger">
+      <UniqueIdentifier>{2d7ebb8e-4f69-426d-9b76-dd27252d926c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChanger">
+      <UniqueIdentifier>{562b7d6c-bd60-4cc5-a171-785002b0c0c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange">
+      <UniqueIdentifier>{5cd5f340-4ec0-4399-8bcd-bcc77e4b9f6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyTopoChange\polyMeshModifier">
+      <UniqueIdentifier>{4cdc3cac-554d-4e03-b902-97e04f3ccc16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addObject">
+      <UniqueIdentifier>{68e40768-df5c-4386-8d4c-0c81ccdbcc6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8">
+      <UniqueIdentifier>{8fe2a6fe-a942-4e22-91fd-15d2c99962be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\modifyObject">
+      <UniqueIdentifier>{f48cb119-3f72-47b5-ae73-5c5fd25fe306}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\topoAction">
+      <UniqueIdentifier>{e09d38d2-bcf2-408c-9dda-83b25b9b9f68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeObject">
+      <UniqueIdentifier>{47519ec6-e6d9-447a-9939-e9bf84e6a4e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\pointEdgeCollapse">
+      <UniqueIdentifier>{221d77fd-c668-4482-8aee-0129a88c140a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\componentDisplacement">
+      <UniqueIdentifier>{d8d5d15d-929c-4590-8e17-c5f0803f098e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\componentVelocity">
+      <UniqueIdentifier>{c5d87180-e6b2-48e4-a52f-3a3c1bd86a04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement">
+      <UniqueIdentifier>{7b0fba64-758d-436c-8224-876b1437d9ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\motionSolver">
+      <UniqueIdentifier>{2ad654c3-b523-40f7-9b24-753bc1d1512a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\motionSolverList">
+      <UniqueIdentifier>{84bad0ee-3a3c-4572-bd54-5814ff0947fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\velocity">
+      <UniqueIdentifier>{e2c01d7e-63d9-43e6-bdd1-8adc8f6b7f44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\displacement">
+      <UniqueIdentifier>{8552b7db-e69b-4478-b6fd-fa3713e30076}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\interpolation">
+      <UniqueIdentifier>{e4159067-2525-4890-9a9d-bd11251a0d5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver">
+      <UniqueIdentifier>{4ab7567d-ec1f-4453-b3f3-c0c83e51e6f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\linearSolver">
+      <UniqueIdentifier>{b42b7900-8548-49e3-8c3a-58240ea4629b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody">
+      <UniqueIdentifier>{844ca337-c41b-45c6-bf4e-ab97b0c88afd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\points0">
+      <UniqueIdentifier>{ea3e9c23-a198-440c-a745-ed6acfa8e709}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\interpolatingSolidBodyMotionSolver">
+      <UniqueIdentifier>{a0093f40-9924-437b-837b-ac852d73c6c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\multiSolidBodyMotionSolver">
+      <UniqueIdentifier>{f8e17899-0482-4ddc-b9f0-05865494fcc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionSolver">
+      <UniqueIdentifier>{de123a94-c432-4859-b321-cf528c0253ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions">
+      <UniqueIdentifier>{a67bf80b-27bb-4943-bd53-4a470540e964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\pointPatchFields">
+      <UniqueIdentifier>{acd6fd8d-6059-4c38-83ef-d77aff7e10ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\axisRotationMotion">
+      <UniqueIdentifier>{753a4012-57f3-48a8-a05d-91a8d77886b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\linearMotion">
+      <UniqueIdentifier>{a3e26d31-b7f4-49af-8178-5da3a528685b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\multiMotion">
+      <UniqueIdentifier>{dc1f9b94-1236-4706-a460-86cf599a091b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\tabulated6DoFMotion">
+      <UniqueIdentifier>{5f1f3974-0a28-4951-8c53-9dcbc751b829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\solidBodyMotionFunction">
+      <UniqueIdentifier>{3c3be5c3-d5dd-4fa8-b0a6-c1d55b2b5cda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\SDA">
+      <UniqueIdentifier>{bc4a27e6-4352-49c5-807f-3b2450fc0a4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\rotatingMotion">
+      <UniqueIdentifier>{19257961-022d-4efe-a38f-2e4b765003d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingRotatingMotion">
+      <UniqueIdentifier>{460f9932-fffd-4fa3-8438-7a59d1b265e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingLinearMotion">
+      <UniqueIdentifier>{1e40e581-8d87-4cb1-ad73-0b8d4d9d798a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSmoother\badQualityToCell">
+      <UniqueIdentifier>{7998d446-8222-452d-baf7-6cfba052d789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSmoother\badQualityToFace">
+      <UniqueIdentifier>{c02d6ccb-00c4-44eb-9426-dbd31ea1acd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\motionSmoother\polyMeshGeometry">
+      <UniqueIdentifier>{0b5772fd-12be-4c08-9baf-8f57436090dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch">
+      <UniqueIdentifier>{da278dd4-388f-4087-a4ba-b5b772dda8cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicFvMesh">
+      <UniqueIdentifier>{2e40ac94-7d4b-4982-bed8-b08035e27255}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicFvMesh\dynamicFvMesh">
+      <UniqueIdentifier>{faee6f6e-d933-4bf7-95d4-44ee7381020a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicFvMesh\dynamicInkJetFvMesh">
+      <UniqueIdentifier>{fcd97564-f566-457b-abf5-0cc913789f5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicFvMesh\dynamicInterpolatedFvMesh">
+      <UniqueIdentifier>{d0786da6-f301-4f1c-82aa-6d28aedf790a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicFvMesh\dynamicMotionSolverFvMesh">
+      <UniqueIdentifier>{8d6490b4-48b5-496c-af94-5fffd16848e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicFvMesh\dynamicRefineFvMesh">
+      <UniqueIdentifier>{61ac0247-3677-4656-8c7d-86601f39ce8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\dynamicFvMesh\staticFvMesh">
+      <UniqueIdentifier>{876f27bb-a12a-4a27-806a-a3d1965d4f27}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\directions\directionInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfoI.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\directions\directionInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\attachDetach\attachDetach.hxx">
+      <Filter>TnbLib\dynamicMesh\attachDetach</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyMeshModifier\polyMeshModifier.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyMeshModifier</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChanger\polyTopoChanger.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addObject\polyAddCell.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addObject\polyAddFace.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addObject\polyAddPoint.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\topoAction\topoAction.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\topoAction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeObject\polyRemoveCell.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeObject\polyRemoveFace.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeObject\polyRemovePoint.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\pointEdgeCollapse\pointEdgeCollapse.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\pointEdgeCollapse</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\pointEdgeCollapse\pointEdgeCollapseI.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\pointEdgeCollapse</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\modifyObject\polyModifyCell.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\modifyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\modifyObject\polyModifyFace.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\modifyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\modifyObject\polyModifyPoint.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\modifyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8\hexRef8.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8\hexRef8Data.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8\refinementHistory.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\tetDecomposer.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\combineFaces.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\duplicatePoints.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\edgeCollapser.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\faceCollapser.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChange.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChangeI.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\refinementData.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\refinementDataI.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\refinementDistanceData.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\refinementDistanceDataI.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeCells.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeFaces.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removePoints.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\repatchPolyTopoChanger\repatchPolyTopoChanger.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\repatchPolyTopoChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\attachPolyTopoChanger\attachPolyTopoChanger.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\attachPolyTopoChanger</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\setUpdater\setUpdater.hxx">
+      <Filter>TnbLib\dynamicMesh\setUpdater</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilter.hxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshFilter</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilterSettings.hxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshFilter</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilterSettingsI.hxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshFilter</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyMeshAdder\faceCoupleInfo.hxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshAdder</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyMeshAdder\polyMeshAdder.hxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshAdder</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\pointPatchDist\externalPointEdgePoint.hxx">
+      <Filter>TnbLib\dynamicMesh\pointPatchDist</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\pointPatchDist\externalPointEdgePointI.hxx">
+      <Filter>TnbLib\dynamicMesh\pointPatchDist</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\pointPatchDist\pointPatchDist.hxx">
+      <Filter>TnbLib\dynamicMesh\pointPatchDist</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\pointInterpolator\dynamicMeshPointInterpolator.hxx">
+      <Filter>TnbLib\dynamicMesh\pointInterpolator</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\perfectInterface\perfectInterface.hxx">
+      <Filter>TnbLib\dynamicMesh\perfectInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\motionSolver\motionSolver.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\motionSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\motionSolverList\motionSolverList.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\motionSolverList</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\componentVelocity\componentVelocityMotionSolver.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\componentVelocity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\componentDisplacement\componentDisplacementMotionSolver.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\componentDisplacement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\velocity\velocityMotionSolver.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\velocity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\displacement\displacementMotionSolver.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\displacement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\points0\points0MotionSolver.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\points0</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\linearSolver\displacementLinearMotionMotionSolver.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\linearSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver\pointEdgeStructuredWalk.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver\pointEdgeStructuredWalkI.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver\displacementLayeredMotionMotionSolver.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\interpolation\displacementInterpolationMotionSolver.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\interpolation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\interpolatingSolidBodyMotionSolver\interpolatingSolidBodyMotionSolver.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\interpolatingSolidBodyMotionSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\multiSolidBodyMotionSolver\multiSolidBodyMotionSolver.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\multiSolidBodyMotionSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionSolver\solidBodyMotionSolver.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\solidBodyMotionFunction\solidBodyMotionFunction.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\solidBodyMotionFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\SDA\SDA.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\SDA</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\rotatingMotion\rotatingMotion.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\rotatingMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingRotatingMotion\oscillatingRotatingMotion.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingRotatingMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingLinearMotion\oscillatingLinearMotion.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingLinearMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\multiMotion\multiMotion.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\multiMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\linearMotion\linearMotion.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\linearMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\axisRotationMotion\axisRotationMotion.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\axisRotationMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\tabulated6DoFMotion\tabulated6DoFMotion.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\tabulated6DoFMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\boundaryMesh\bMesh.hxx">
+      <Filter>TnbLib\dynamicMesh\boundaryMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\boundaryMesh\boundaryMesh.hxx">
+      <Filter>TnbLib\dynamicMesh\boundaryMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\boundaryPatch\boundaryPatch.hxx">
+      <Filter>TnbLib\dynamicMesh\boundaryPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\createShellMesh\createShellMesh.hxx">
+      <Filter>TnbLib\dynamicMesh\createShellMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\extrudePatchMesh\extrudePatchMesh.hxx">
+      <Filter>TnbLib\dynamicMesh\extrudePatchMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshAdder\directPointPatchFieldMapper.hxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshAdder</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshAdder\fvMeshAdder.hxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshAdder</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshDistribute\fvMeshDistribute.hxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshDistribute</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshSubset\fvMeshSubset.hxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshSubset</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshTools\fvMeshTools.hxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshTools</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\layerAdditionRemoval\layerAdditionRemoval.hxx">
+      <Filter>TnbLib\dynamicMesh\layerAdditionRemoval</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\badQualityToCell\badQualityToCell.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother\badQualityToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\badQualityToFace\badQualityToFace.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother\badQualityToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\polyMeshGeometry\polyMeshGeometry.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother\polyMeshGeometry</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherData.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherAlgo.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\motionSmoother.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch\enrichedPatch.hxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface\enrichedPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\slidingInterface\slidingInterface.hxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicFvMesh\dynamicFvMesh\dynamicFvMesh.hxx">
+      <Filter>TnbLib\dynamicFvMesh\dynamicFvMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicFvMesh\staticFvMesh\staticFvMesh.hxx">
+      <Filter>TnbLib\dynamicFvMesh\staticFvMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicFvMesh\dynamicInkJetFvMesh\dynamicInkJetFvMesh.hxx">
+      <Filter>TnbLib\dynamicFvMesh\dynamicInkJetFvMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicFvMesh\dynamicInterpolatedFvMesh\dynamicInterpolatedFvMesh.hxx">
+      <Filter>TnbLib\dynamicFvMesh\dynamicInterpolatedFvMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicFvMesh\dynamicMotionSolverFvMesh\dynamicMotionSolverFvMesh.hxx">
+      <Filter>TnbLib\dynamicFvMesh\dynamicMotionSolverFvMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicFvMesh\dynamicRefineFvMesh\dynamicRefineFvMesh.hxx">
+      <Filter>TnbLib\dynamicFvMesh\dynamicRefineFvMesh</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\directions\directionInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\attachDetach\attachDetach.cxx">
+      <Filter>TnbLib\dynamicMesh\attachDetach</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\attachDetach\attachDetachPointMatchMap.cxx">
+      <Filter>TnbLib\dynamicMesh\attachDetach</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\attachDetach\attachInterface.cxx">
+      <Filter>TnbLib\dynamicMesh\attachDetach</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\attachDetach\detachInterface.cxx">
+      <Filter>TnbLib\dynamicMesh\attachDetach</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyMeshModifier\polyMeshModifier.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyMeshModifier</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyMeshModifier\polyMeshModifierNew.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyMeshModifier</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChanger\polyTopoChanger.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\topoAction\topoActions.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\topoAction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\pointEdgeCollapse\pointEdgeCollapse.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\pointEdgeCollapse</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8\hexRef8.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8\hexRef8Data.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8\refinementHistory.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\tetDecomposer.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\combineFaces.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\duplicatePoints.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\edgeCollapser.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\faceCollapser.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChange.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChangeTemplates.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\refinementData.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\refinementDistanceData.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeCells.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeFaces.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removePoints.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\repatchPolyTopoChanger\repatchPolyTopoChanger.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\repatchPolyTopoChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\attachPolyTopoChanger\attachPolyTopoChanger.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\attachPolyTopoChanger</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\setUpdater\setUpdater.cxx">
+      <Filter>TnbLib\dynamicMesh\setUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\setUpdater\setUpdaterTemplates.cxx">
+      <Filter>TnbLib\dynamicMesh\setUpdater</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilter.cxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshFilter</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilterSettings.cxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshFilter</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilterTemplates.cxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshFilter</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyMeshAdder\faceCoupleInfo.cxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshAdder</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyMeshAdder\faceCoupleInfoTemplates.cxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshAdder</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyMeshAdder\polyMeshAdder.cxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshAdder</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\pointPatchDist\externalPointEdgePoint.cxx">
+      <Filter>TnbLib\dynamicMesh\pointPatchDist</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\pointPatchDist\pointPatchDist.cxx">
+      <Filter>TnbLib\dynamicMesh\pointPatchDist</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\pointInterpolator\dynamicMeshPointInterpolator.cxx">
+      <Filter>TnbLib\dynamicMesh\pointInterpolator</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\perfectInterface\perfectInterface.cxx">
+      <Filter>TnbLib\dynamicMesh\perfectInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\motionSolver\motionSolver.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\motionSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\motionSolverList\motionSolverList.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\motionSolverList</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\componentVelocity\componentVelocityMotionSolver.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\componentVelocity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\componentDisplacement\componentDisplacementMotionSolver.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\componentDisplacement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\velocity\velocityMotionSolver.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\velocity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\displacement\displacementMotionSolver.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\displacement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\points0\points0MotionSolver.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\points0</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\linearSolver\displacementLinearMotionMotionSolver.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\linearSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver\pointEdgeStructuredWalk.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver\displacementLayeredMotionMotionSolver.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\interpolation\displacementInterpolationMotionSolver.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\interpolation</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\interpolatingSolidBodyMotionSolver\interpolatingSolidBodyMotionSolver.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\interpolatingSolidBodyMotionSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\multiSolidBodyMotionSolver\multiSolidBodyMotionSolver.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\multiSolidBodyMotionSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionSolver\solidBodyMotionSolver.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\solidBodyMotionFunction\solidBodyMotionFunction.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\solidBodyMotionFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\solidBodyMotionFunction\solidBodyMotionFunctionNew.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\solidBodyMotionFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\SDA\SDA.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\SDA</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\rotatingMotion\rotatingMotion.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\rotatingMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingRotatingMotion\oscillatingRotatingMotion.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingRotatingMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingLinearMotion\oscillatingLinearMotion.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingLinearMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\multiMotion\multiMotion.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\multiMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\linearMotion\linearMotion.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\linearMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\axisRotationMotion\axisRotationMotion.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\axisRotationMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\tabulated6DoFMotion\tabulated6DoFMotion.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\tabulated6DoFMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\boundaryPatch\boundaryPatch.cxx">
+      <Filter>TnbLib\dynamicMesh\boundaryPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\createShellMesh\createShellMesh.cxx">
+      <Filter>TnbLib\dynamicMesh\createShellMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\extrudePatchMesh\extrudePatchMesh.cxx">
+      <Filter>TnbLib\dynamicMesh\extrudePatchMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\fvMeshAdder\fvMeshAdder.cxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshAdder</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\fvMeshAdder\fvMeshAdderTemplates.cxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshAdder</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\fvMeshDistribute\fvMeshDistribute.cxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshDistribute</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\fvMeshSubset\fvMeshSubset.cxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshSubset</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\fvMeshSubset\fvMeshSubsetInterpolate.cxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshSubset</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\fvMeshTools\fvMeshTools.cxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshTools</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\fvMeshTools\fvMeshToolsTemplates.cxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshTools</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\fvMeshDistribute\fvMeshDistributeTemplates.cxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshDistribute</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\layerAdditionRemoval.cxx">
+      <Filter>TnbLib\dynamicMesh\layerAdditionRemoval</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\badQualityToCell\badQualityToCell.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother\badQualityToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\polyMeshGeometry\polyMeshGeometry.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother\polyMeshGeometry</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherData.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherAlgo.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherAlgoCheck.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherAlgoTemplates.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmoother.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\badQualityToFace\badQualityToFace.cxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother\badQualityToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch\enrichedPatch.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface\enrichedPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch\enrichedPatchCutFaces.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface\enrichedPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch\enrichedPatchFaces.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface\enrichedPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch\enrichedPatchMasterPoints.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface\enrichedPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch\enrichedPatchPointMap.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface\enrichedPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch\enrichedPatchPointPoints.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface\enrichedPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\slidingInterface.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\coupleSlidingInterface.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\decoupleSlidingInterface.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\slidingInterfaceAttachedAddressing.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\slidingInterfaceClearCouple.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\slidingInterfaceProjectPoints.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicFvMesh\dynamicFvMesh\dynamicFvMesh.cxx">
+      <Filter>TnbLib\dynamicFvMesh\dynamicFvMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicFvMesh\dynamicFvMesh\dynamicFvMeshNew.cxx">
+      <Filter>TnbLib\dynamicFvMesh\dynamicFvMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicFvMesh\staticFvMesh\staticFvMesh.cxx">
+      <Filter>TnbLib\dynamicFvMesh\staticFvMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicFvMesh\dynamicInkJetFvMesh\dynamicInkJetFvMesh.cxx">
+      <Filter>TnbLib\dynamicFvMesh\dynamicInkJetFvMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicFvMesh\dynamicInterpolatedFvMesh\dynamicInterpolatedFvMesh.cxx">
+      <Filter>TnbLib\dynamicFvMesh\dynamicInterpolatedFvMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicFvMesh\dynamicMotionSolverFvMesh\dynamicMotionSolverFvMesh.cxx">
+      <Filter>TnbLib\dynamicFvMesh\dynamicMotionSolverFvMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicFvMesh\dynamicRefineFvMesh\dynamicRefineFvMesh.cxx">
+      <Filter>TnbLib\dynamicFvMesh\dynamicRefineFvMesh</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
