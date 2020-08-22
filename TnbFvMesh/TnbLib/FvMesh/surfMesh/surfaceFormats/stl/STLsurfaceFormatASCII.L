@@ -31,9 +31,9 @@ License
    ------ local definitions
  \* ------------------------------------------------------------------------ */
 
-#include "STLsurfaceFormatCore.H"
+#include <STLsurfaceFormatCore.hxx>
 
-using namespace Foam;
+using namespace tnbLib;
 
 // Dummy yyFlexLexer::yylex() to keep the linker happy. It is not called
 //! \cond dummy
@@ -240,7 +240,7 @@ endsolid              {space}("endsolid"|"ENDSOLID")({some_space}{word})*
     }
 
 <readSolidName>{string} {
-        word name(Foam::string::validate<word>(YYText()));
+        word name(tnbLib::string::validate<word>(YYText()));
 
         HashTable<label>::const_iterator fnd = lookup_.find(name);
         if (fnd != lookup_.end())
@@ -390,7 +390,7 @@ endsolid              {space}("endsolid"|"ENDSOLID")({some_space}{word})*
 //
 // member function
 //
-bool Foam::fileFormats::STLsurfaceFormatCore::readASCII
+bool tnbLib::fileFormats::STLsurfaceFormatCore::readASCII
 (
     istream& is,
     const off_t dataFileSize

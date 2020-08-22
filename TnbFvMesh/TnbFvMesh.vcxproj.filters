@@ -832,6 +832,72 @@
     <Filter Include="TnbLib\FvMesh\renumber\renumberMethods\randomRenumber">
       <UniqueIdentifier>{d3cce2a2-b85f-4240-8dad-c837945a9b6a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d">
+      <UniqueIdentifier>{f4d9050f-0054-4c11-a4fd-41ad7b4d678a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\gts">
+      <UniqueIdentifier>{2a3427ef-8526-4f74-9358-3f47dc9ae0c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\nas">
+      <UniqueIdentifier>{a4762a53-5d83-4fd8-8484-ae588dac6b44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\x3d">
+      <UniqueIdentifier>{4591fc38-1e0b-48a2-8b87-9461dae70aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\wrl">
+      <UniqueIdentifier>{527a802b-d1bd-4688-a190-86118daaa381}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\vtk">
+      <UniqueIdentifier>{0345c0e7-7110-4233-bcbd-e47f8e570afa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\tri">
+      <UniqueIdentifier>{d3c6e5d0-1603-4506-8b9b-ca2aba4cdf67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl">
+      <UniqueIdentifier>{d07a152a-fe78-4573-a1dd-2de92d4d2f66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\starcd">
+      <UniqueIdentifier>{459a67db-7cdb-4946-83d9-23c7e6b563ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\smesh">
+      <UniqueIdentifier>{78064a37-c597-4bb5-a26f-578739ebce74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ofs">
+      <UniqueIdentifier>{979fd4ac-2258-469e-b99f-552d9ce2c229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\off">
+      <UniqueIdentifier>{30e1188b-5010-40d4-b844-4a0e2dbe7f72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\obj">
+      <UniqueIdentifier>{7c3b5ce5-3c49-4a25-beff-0ea63e098e32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files">
+      <UniqueIdentifier>{9d63492e-6b9b-4f56-9b04-ee4c308db343}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{0990456f-b524-48f4-9175-a437a0e2868a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files\FvMesh">
+      <UniqueIdentifier>{d3bf74f1-51af-4aab-a0ec-a87241d95a86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files\FvMesh\surfMesh">
+      <UniqueIdentifier>{175d2b11-6f93-49df-93fe-8d0c9104118d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files\FvMesh\surfMesh\surfaceFormats">
+      <UniqueIdentifier>{f1ef83ee-d703-4ecc-ab57-1a4217f36a70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files\FvMesh\surfMesh\surfaceFormats\stl">
+      <UniqueIdentifier>{568ba3c9-13d7-4baf-b558-39f116c000f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\surfMesh">
+      <UniqueIdentifier>{0997ce87-61a1-4e0b-83ad-60c38e96f868}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\surfMesh\surfaceFormats">
+      <UniqueIdentifier>{a69ac6ad-59c8-446e-a4a1-ad8754b493bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\surfMesh\surfaceFormats\stl">
+      <UniqueIdentifier>{150f761f-38af-4ad1-9825-11389343d728}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.hxx">
@@ -1646,6 +1712,189 @@
     </ClInclude>
     <ClInclude Include="TnbLib\FvMesh\meshTools\momentOfInertia\momentOfInertia.hxx">
       <Filter>TnbLib\FvMesh\meshTools\momentOfInertia</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\extrudeModel\extrudeModel.hxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\extrudeModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockMesh\blockMesh.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blocks\block\block.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blocks\block</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blocks\block\blockI.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blocks\block</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockVertices\blockVertex\blockVertex.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockVertices\blockVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockVertices\pointVertex\pointVertex.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockVertices\pointVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockVertices\projectVertex\projectVertex.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockVertices\projectVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockVertices\namedVertex\namedVertex.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockVertices\namedVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockMeshTools\blockMeshTools.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockMeshTools</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blocks\namedBlock\namedBlock.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blocks\namedBlock</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\arcEdge\arcEdge.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\arcEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\BSplineEdge\BSpline.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\BSplineEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\polyLineEdge\polyLine.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\polyLineEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\polyLineEdge\polyLineEdge.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\polyLineEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\lineEdge\lineEdge.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\lineEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\lineDivide\lineDivide.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\lineDivide</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\BSplineEdge\BSplineEdge.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\BSplineEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\projectCurveEdge\projectCurveEdge.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\projectCurveEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d\AC3DsurfaceFormatCore.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d\AC3DsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\gts\GTSsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\gts</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\nas\NASsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\nas</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\objFormat\OBJstream.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\obj</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\objFormat\OBJsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\obj</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\off\OFFsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\off</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ofs\OFSsurfaceFormatCore.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\ofs</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ofs\OFSsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\ofs</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\smesh\SMESHsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\smesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\starcd\STARCDsurfaceFormatCore.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\starcd</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\starcd\STARCDsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\starcd</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLpoint.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\stl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLtriangle.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\stl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLtriangleI.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\stl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLsurfaceFormatCore.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\stl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\stl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\tri\TRIsurfaceFormatCore.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\tri</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\tri\TRIsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\tri</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\vtk\VTKsurfaceFormatCore.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\vtk</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\vtk\VTKsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\vtk</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\wrl\WRLsurfaceFormatCore.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\wrl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\wrl\WRLsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\wrl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\x3d\X3DsurfaceFormatCore.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\x3d</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\x3d\X3DsurfaceFormat.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\x3d</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\projectEdge\projectEdge.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\projectEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\splineEdge\CatmullRomSpline.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\splineEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\splineEdge\splineEdge.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\splineEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockFaces\blockFace\blockFace.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockFaces\blockFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockFaces\blockFace\blockFaceI.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockFaces\blockFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockFaces\blockFace\blockFaceList.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockFaces\blockFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockFaces\projectFace\projectFace.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockFaces\projectFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blocks\block\blockList.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blocks\block</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockVertices\blockVertex\blockVertexList.hxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockVertices\blockVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\sector\sector.hxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\sector</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\cyclicSector\cyclicSector.hxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\cyclicSector</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\linearDirection\linearDirection.hxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\linearDirection</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\linearNormal\linearNormal.hxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\linearNormal</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\linearRadial\linearRadial.hxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\linearRadial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\planeExtrusion\planeExtrusion.hxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\planeExtrusion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\radial\radial.hxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\radial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\sigmaRadial\sigmaRadial.hxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\sigmaRadial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\wedge\wedge.hxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\wedge</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -2522,10 +2771,246 @@
     <ClCompile Include="TnbLib\FvMesh\meshTools\momentOfInertia\momentOfInertia.cxx">
       <Filter>TnbLib\FvMesh\meshTools\momentOfInertia</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\extrudeModel\extrudeModel.cxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\extrudeModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockMesh\blockMesh.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockMesh\blockMeshCheck.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockMesh\blockMeshCreate.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockMesh\blockMeshMerge.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockMesh\blockMeshMergeFast.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockMesh\blockMeshTopology.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blocks\block\block.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blocks\block</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockVertices\blockVertex\blockVertex.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockVertices\blockVertex</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockVertices\pointVertex\pointVertex.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockVertices\pointVertex</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockVertices\projectVertex\projectVertex.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockVertices\projectVertex</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockVertices\namedVertex\namedVertex.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockVertices\namedVertex</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockMeshTools\blockMeshTools.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockMeshTools</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockMeshTools\blockMeshToolsTemplates.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockMeshTools</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blocks\namedBlock\namedBlock.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blocks\namedBlock</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\arcEdge\arcEdge.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\arcEdge</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\BSplineEdge\BSpline.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\BSplineEdge</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\polyLineEdge\polyLine.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\polyLineEdge</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\polyLineEdge\polyLineEdge.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\polyLineEdge</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\lineEdge\lineEdge.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\lineEdge</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\lineDivide\lineDivide.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\lineDivide</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\BSplineEdge\BSplineEdge.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\BSplineEdge</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\projectCurveEdge\projectCurveEdge.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\projectCurveEdge</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d\AC3DsurfaceFormatCore.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d\AC3DsurfaceFormatCoreTemplates.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d\AC3DsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d\AC3DsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\gts\GTSsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\gts</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\gts\GTSsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\gts</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\nas\NASsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\nas</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\nas\NASsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\nas</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\objFormat\OBJstream.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\obj</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\objFormat\OBJsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\obj</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\objFormat\OBJsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\obj</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\off\OFFsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\off</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\off\OFFsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\off</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ofs\OFSsurfaceFormatCore.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\ofs</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ofs\OFSsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\ofs</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ofs\OFSsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\ofs</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\smesh\SMESHsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\smesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\smesh\SMESHsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\smesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\starcd\STARCDsurfaceFormatCore.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\starcd</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\starcd\STARCDsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\starcd</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\starcd\STARCDsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\starcd</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLtriangle.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\stl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLsurfaceFormatCore.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\stl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\stl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\stl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLsurfaceFormatASCII.cxx">
+      <Filter>Generated Files\surfMesh\surfaceFormats\stl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\tri\TRIsurfaceFormatCore.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\tri</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\tri\TRIsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\tri</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\tri\TRIsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\tri</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\vtk\VTKsurfaceFormatCore.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\vtk</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\vtk\VTKsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\vtk</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\vtk\VTKsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\vtk</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\wrl\WRLsurfaceFormatCore.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\wrl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\wrl\WRLsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\wrl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\wrl\WRLsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\wrl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\x3d\X3DsurfaceFormatCore.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\x3d</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\x3d\X3DsurfaceFormat.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\x3d</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\x3d\X3DsurfaceFormatRunTime.cxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\x3d</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\projectEdge\projectEdge.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\projectEdge</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\splineEdge\CatmullRomSpline.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\splineEdge</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockEdges\splineEdge\splineEdge.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockEdges\splineEdge</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockFaces\blockFace\blockFace.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockFaces\blockFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockFaces\projectFace\projectFace.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blockFaces\projectFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blocks\block\blockCreate.cxx">
+      <Filter>TnbLib\FvMesh\mesh\blockMesh\blocks\block</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\extrudeModel\extrudeModelNew.cxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\extrudeModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\sector\sector.cxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\sector</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\cyclicSector\cyclicSector.cxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\cyclicSector</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\linearDirection\linearDirection.cxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\linearDirection</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\linearNormal\linearNormal.cxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\linearNormal</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\linearRadial\linearRadial.cxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\linearRadial</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\planeExtrusion\planeExtrusion.cxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\planeExtrusion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\radial\radial.cxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\radial</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\sigmaRadial\sigmaRadial.cxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\sigmaRadial</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\wedge\wedge.cxx">
+      <Filter>TnbLib\FvMesh\mesh\extrudeModel\wedge</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="TnbLib\FvMesh\meshTools\sets\faceSources\normalToFace\normalToFace.cxx">
       <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\normalToFace</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLsurfaceFormatASCII.L">
+      <Filter>BisonFlex Files\FvMesh\surfMesh\surfaceFormats\stl</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>
