@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{f6750f65-b27c-4481-a23f-fbfb895cf4ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions">
+      <UniqueIdentifier>{38c7f7db-8620-4c28-a0e2-02f51cb4a481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\cellSetOption">
+      <UniqueIdentifier>{31269cfe-7c79-4c9f-b8d3-206209dab606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\constraints">
+      <UniqueIdentifier>{6e1c8e42-d8ae-4532-bec8-7b1ebe05a0a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\corrections">
+      <UniqueIdentifier>{4db38bbc-a783-4cc9-aec5-dc9abc7bee59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\interRegionOption">
+      <UniqueIdentifier>{b3e459c8-8443-4944-8759-61bf76e744ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources">
+      <UniqueIdentifier>{4c8082c5-56ae-413a-adcf-0259bdc4765c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\constraints\fixedTemperatureConstraint">
+      <UniqueIdentifier>{95bb6384-0bfb-43f9-bd1a-0a12de07837f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\constraints\fixedValueConstraint">
+      <UniqueIdentifier>{d584fa65-16a6-443b-9394-48f6dc76dc66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\corrections\limitTemperature">
+      <UniqueIdentifier>{32eae72f-f1ef-4ef4-abeb-29a9d906623d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\corrections\limitVelocity">
+      <UniqueIdentifier>{86da4f27-48a3-4db8-83f7-742ef205527d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived">
+      <UniqueIdentifier>{12a32ccf-d273-49ad-a547-b2934c3dda1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\general">
+      <UniqueIdentifier>{74d5110e-e0bb-422b-b33a-cd845ffe7bd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\interRegion">
+      <UniqueIdentifier>{895f0f9e-791c-4295-a7fa-190448361cba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource">
+      <UniqueIdentifier>{76494d69-d0ca-4914-b458-fd013fe1b3a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer">
+      <UniqueIdentifier>{16966d18-4cee-455e-93d6-776b529392f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer">
+      <UniqueIdentifier>{a3bfa2fd-7c18-43c5-b7ec-104dce64840b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel">
+      <UniqueIdentifier>{0769e485-4214-49e1-ba20-b0e914b3b080}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer">
+      <UniqueIdentifier>{68a6f37a-2ef0-4919-88e7-9ffb4b5d960d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer">
+      <UniqueIdentifier>{d77836d1-58fa-4d50-8002-f2a10acf1b72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\accelerationSource">
+      <UniqueIdentifier>{d665e70a-a52b-4987-aad3-4a7a486b619f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\actuationDiskSource">
+      <UniqueIdentifier>{26da019d-3c0f-4d13-9c1a-44a064506962}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\buoyancyEnergy">
+      <UniqueIdentifier>{5c63384e-2241-4ae1-943b-275bb1b6853a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\buoyancyForce">
+      <UniqueIdentifier>{3fe7f103-45e6-4cfb-aebf-5d430b5bf021}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\damping">
+      <UniqueIdentifier>{83b1ebde-c0c6-4569-bfa2-89281716cef8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource">
+      <UniqueIdentifier>{a985d193-24e2-431c-ad4b-0e260e509d09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\explicitPorositySource">
+      <UniqueIdentifier>{c38c9b33-cec4-46df-8392-ca3b22bed3bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\meanVelocityForce">
+      <UniqueIdentifier>{fa08032b-b996-45ae-af58-ffb99abdb483}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\volumeFractionSource">
+      <UniqueIdentifier>{37341bdd-94a5-484c-b13b-5bff60d287fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource">
+      <UniqueIdentifier>{cce4ed1e-54b8-4b6d-893f-333744426222}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\solidificationMeltingSource">
+      <UniqueIdentifier>{b0228cc1-4ebb-4509-ae2d-5a7761f562a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource">
+      <UniqueIdentifier>{0f08781f-096f-4a65-8f64-fe2382959946}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\rotorDiskSource">
+      <UniqueIdentifier>{04957c79-d0f8-4f5c-b351-b309b256b729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\radialActuationDiskSource">
+      <UniqueIdentifier>{6f765c09-fdd7-4865-9554-b7a5acc721d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\phaseLimitStabilization">
+      <UniqueIdentifier>{1205f1d8-2c8a-4e5f-a560-5ea6b2b621e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\general\codedSource">
+      <UniqueIdentifier>{a1a2881d-14a7-48a3-a16d-98b427548fc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\general\semiImplicitSource">
+      <UniqueIdentifier>{1bf86b23-5a42-417c-bc60-327ccaacad6f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\fvOptions\cellSetOption\cellSetOption.hxx">
+      <Filter>TnbLib\fvOptions\cellSetOption</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\cellSetOption\cellSetOptionI.hxx">
+      <Filter>TnbLib\fvOptions\cellSetOption</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\constraints\fixedTemperatureConstraint\fixedTemperatureConstraint.hxx">
+      <Filter>TnbLib\fvOptions\constraints\fixedTemperatureConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\constraints\fixedValueConstraint\FixedValueConstraint.hxx">
+      <Filter>TnbLib\fvOptions\constraints\fixedValueConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\corrections\limitTemperature\limitTemperature.hxx">
+      <Filter>TnbLib\fvOptions\corrections\limitTemperature</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\corrections\limitVelocity\limitVelocity.hxx">
+      <Filter>TnbLib\fvOptions\corrections\limitVelocity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\interRegionOption\interRegionOption.hxx">
+      <Filter>TnbLib\fvOptions\interRegionOption</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\interRegionOption\interRegionOptionI.hxx">
+      <Filter>TnbLib\fvOptions\interRegionOption</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\fvOptions\cellSetOption\cellSetOption.cxx">
+      <Filter>TnbLib\fvOptions\cellSetOption</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\cellSetOption\cellSetOptionIO.cxx">
+      <Filter>TnbLib\fvOptions\cellSetOption</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\constraints\fixedTemperatureConstraint\fixedTemperatureConstraint.cxx">
+      <Filter>TnbLib\fvOptions\constraints\fixedTemperatureConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\constraints\fixedValueConstraint\FixedValueConstraint.cxx">
+      <Filter>TnbLib\fvOptions\constraints\fixedValueConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\constraints\fixedValueConstraint\fixedValueConstraints.cxx">
+      <Filter>TnbLib\fvOptions\constraints\fixedValueConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\corrections\limitTemperature\limitTemperature.cxx">
+      <Filter>TnbLib\fvOptions\corrections\limitTemperature</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\corrections\limitVelocity\limitVelocity.cxx">
+      <Filter>TnbLib\fvOptions\corrections\limitVelocity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\interRegionOption\interRegionOption.cxx">
+      <Filter>TnbLib\fvOptions\interRegionOption</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
