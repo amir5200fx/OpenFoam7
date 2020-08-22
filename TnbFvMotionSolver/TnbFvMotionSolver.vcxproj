@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{07062007-6775-47E4-B2DB-1C87D877196C}</ProjectGuid>
+    <RootNamespace>TnbFvMotionSolver</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement\componentLaplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity\componentLaplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion;$(ProjectDir)TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\directional;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\file;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseFaceDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inversePointDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseVolume;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\manipulators\exponential;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\manipulators\quadratic;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\motionDiffusivity;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\motionDirectional;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\uniform;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingVelocity;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
+if not exist "$(ProjectDir)include" mkdir "$(ProjectDir)include"
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement\componentLaplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity\componentLaplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion;$(ProjectDir)TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\directional;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\file;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseFaceDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inversePointDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseVolume;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\manipulators\exponential;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\manipulators\quadratic;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\motionDiffusivity;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\motionDirectional;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\uniform;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingVelocity;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement\componentLaplacian\displacementComponentLaplacianFvMotionSolver.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity\componentLaplacian\velocityComponentLaplacianFvMotionSolver.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian\displacementLaplacianFvMotionSolver.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress\displacementSBRStressFvMotionSolver.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolver.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian\velocityLaplacianFvMotionSolver.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchField.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchFields.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchFieldsFwd.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementFvPatchField.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementFvPatchFields.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementFvPatchFieldsFwd.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\directional\directionalDiffusivity.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\file\fileDiffusivity.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseDistance\inverseDistanceDiffusivity.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseFaceDistance\inverseFaceDistanceDiffusivity.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\inversePointDistance\inversePointDistanceDiffusivity.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseVolume\inverseVolumeDiffusivity.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\manipulators\exponential\exponentialDiffusivity.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\manipulators\quadratic\quadraticDiffusivity.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\motionDiffusivity\motionDiffusivity.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\motionDirectional\motionDirectionalDiffusivity.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\uniform\uniformDiffusivity.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingDisplacement\angularOscillatingDisplacementPointPatchVectorField.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingVelocity\angularOscillatingVelocityPointPatchVectorField.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingDisplacement\oscillatingDisplacementPointPatchVectorField.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity\oscillatingVelocityPointPatchVectorField.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement\surfaceDisplacementPointPatchVectorField.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementPointPatchVectorField.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchField.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchFields.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement\uniformInterpolatedDisplacementPointPatchVectorField.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement\waveDisplacementPointPatchVectorField.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement\componentLaplacian\displacementComponentLaplacianFvMotionSolver.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity\componentLaplacian\velocityComponentLaplacianFvMotionSolver.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian\displacementLaplacianFvMotionSolver.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress\displacementSBRStressFvMotionSolver.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolver.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolverTemplates.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian\velocityLaplacianFvMotionSolver.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchField.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchFields.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementFvPatchFields.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\directional\directionalDiffusivity.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\file\fileDiffusivity.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseDistance\inverseDistanceDiffusivity.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseFaceDistance\inverseFaceDistanceDiffusivity.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\inversePointDistance\inversePointDistanceDiffusivity.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseVolume\inverseVolumeDiffusivity.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\manipulators\exponential\exponentialDiffusivity.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\manipulators\quadratic\quadraticDiffusivity.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\motionDiffusivity\motionDiffusivity.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\motionDirectional\motionDirectionalDiffusivity.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\uniform\uniformDiffusivity.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingDisplacement\angularOscillatingDisplacementPointPatchVectorField.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingVelocity\angularOscillatingVelocityPointPatchVectorField.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingDisplacement\oscillatingDisplacementPointPatchVectorField.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity\oscillatingVelocityPointPatchVectorField.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement\surfaceDisplacementPointPatchVectorField.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementPointPatchVectorField.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchField.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchFields.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement\uniformInterpolatedDisplacementPointPatchVectorField.cxx" />
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement\waveDisplacementPointPatchVectorField.cxx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

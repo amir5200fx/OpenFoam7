@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{98dd4070-5712-42f3-912c-05319629a9c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver">
+      <UniqueIdentifier>{6bec451d-7f27-4a01-9b07-798c00a24e45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvMotionSolvers">
+      <UniqueIdentifier>{32ce05b6-0bc7-4d44-af8b-f2ba95e1b37d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvPatchFields">
+      <UniqueIdentifier>{fe887451-8a4f-4b3d-ae1a-7efa3e9f2956}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity">
+      <UniqueIdentifier>{2a9be984-66ff-4035-a960-8b1aec0ca122}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\pointPatchFields">
+      <UniqueIdentifier>{07c533cc-9f9a-4816-8e90-91beabccc916}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\pointPatchFields\derived">
+      <UniqueIdentifier>{6fb3caa5-17bb-40c0-a30a-2c2391073eb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingDisplacement">
+      <UniqueIdentifier>{3c7462eb-c472-4f47-8e79-83f94a19e490}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingVelocity">
+      <UniqueIdentifier>{472369f7-3535-42ba-a6ea-e2c1f3f8fbfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement">
+      <UniqueIdentifier>{0819a526-5cbd-4546-806e-7cfdea1c5471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement">
+      <UniqueIdentifier>{46bf3acd-f552-4d94-818f-1039f0b26335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue">
+      <UniqueIdentifier>{b96b7ef6-2ec9-475e-afc4-ca9ae4319751}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement">
+      <UniqueIdentifier>{0ebf75ec-ef1c-4d81-81a4-93d872369e8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement">
+      <UniqueIdentifier>{0d3c0972-d34b-4e91-8ec2-071296e20380}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity">
+      <UniqueIdentifier>{4d6a3cd0-2d2c-4ed8-a2f2-a99aef195f83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingDisplacement">
+      <UniqueIdentifier>{0be37651-ebd5-42ea-9e5f-684837fa499d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity\directional">
+      <UniqueIdentifier>{9e97709b-276b-4028-b849-3f8b94699828}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity\file">
+      <UniqueIdentifier>{8172f24c-5662-4826-9a8b-83146a18ffcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseDistance">
+      <UniqueIdentifier>{f3a61d8a-1f26-4e29-a230-d620a8ea54d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseFaceDistance">
+      <UniqueIdentifier>{b3f95382-608e-4036-9c79-8f3e4e15544b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity\inversePointDistance">
+      <UniqueIdentifier>{0bfe82e5-1dcc-4750-af1a-4a5506cbd060}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseVolume">
+      <UniqueIdentifier>{440807aa-59e1-4e5c-b2c8-c8ffb06851ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity\manipulators">
+      <UniqueIdentifier>{6815ff21-b1f3-4b41-973f-38fe3022b4d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity\motionDiffusivity">
+      <UniqueIdentifier>{90113551-7816-48e5-9a3d-5039cb410b7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity\motionDirectional">
+      <UniqueIdentifier>{220dc81c-7d59-4d05-80a0-b70d527d3910}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity\uniform">
+      <UniqueIdentifier>{c06ee47d-c6d8-45a3-9084-aca30dbdb2cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvPatchFields\derived">
+      <UniqueIdentifier>{f1f0d4db-754b-49e2-94ad-d0161884a9d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion">
+      <UniqueIdentifier>{b0bf3d36-6235-4b2f-949c-a7096fa25740}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement">
+      <UniqueIdentifier>{faa00b63-4117-4ca5-8c5e-1eb6cb25491d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement">
+      <UniqueIdentifier>{5bd84c12-1bbe-4565-8924-f1384bdc8cdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity">
+      <UniqueIdentifier>{c9779f0f-f0dd-462d-8047-6da3e6185401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement">
+      <UniqueIdentifier>{4884d8ee-e104-4f03-831b-de68167c0a72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver">
+      <UniqueIdentifier>{9fb77cb9-1f7d-448f-8c2a-758c3cee4c73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvMotionSolvers\velocity">
+      <UniqueIdentifier>{df97ebfa-8689-4c42-b358-9feb8c198e1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian">
+      <UniqueIdentifier>{4cc2e191-4324-44fe-a6de-76a4bdd75acd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement\componentLaplacian">
+      <UniqueIdentifier>{4657eb74-2010-4808-a5f3-02c4dde3c9ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity\manipulators\exponential">
+      <UniqueIdentifier>{fe416b87-35f6-4238-a3e4-68f2894923e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\motionDiffusivity\manipulators\quadratic">
+      <UniqueIdentifier>{80831d6a-4de3-49e8-b0d3-c645e15afbe1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity\componentLaplacian">
+      <UniqueIdentifier>{b3c545c4-737f-4859-b38d-04202e7ea402}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian">
+      <UniqueIdentifier>{a8a56f57-ddfb-4ca7-b607-d9f16d0d2d01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress">
+      <UniqueIdentifier>{b944baa1-1951-4423-be01-1ef909dac017}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolver.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchFieldsFwd.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchField.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchFields.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementFvPatchFieldsFwd.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementFvPatchField.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementFvPatchFields.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement\componentLaplacian\displacementComponentLaplacianFvMotionSolver.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement\componentLaplacian</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\motionDiffusivity\motionDiffusivity.hxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\motionDiffusivity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\directional\directionalDiffusivity.hxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\directional</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\file\fileDiffusivity.hxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\file</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseDistance\inverseDistanceDiffusivity.hxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\inverseDistance</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseFaceDistance\inverseFaceDistanceDiffusivity.hxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\inverseFaceDistance</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\inversePointDistance\inversePointDistanceDiffusivity.hxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\inversePointDistance</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseVolume\inverseVolumeDiffusivity.hxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\inverseVolume</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\manipulators\exponential\exponentialDiffusivity.hxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\manipulators\exponential</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\manipulators\quadratic\quadraticDiffusivity.hxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\manipulators\quadratic</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\motionDirectional\motionDirectionalDiffusivity.hxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\motionDirectional</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\motionDiffusivity\uniform\uniformDiffusivity.hxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\uniform</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingDisplacement\angularOscillatingDisplacementPointPatchVectorField.hxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingDisplacement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingVelocity\angularOscillatingVelocityPointPatchVectorField.hxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingVelocity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingDisplacement\oscillatingDisplacementPointPatchVectorField.hxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingDisplacement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity\oscillatingVelocityPointPatchVectorField.hxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement\surfaceDisplacementPointPatchVectorField.hxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementPointPatchVectorField.hxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchField.hxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchFields.hxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement\uniformInterpolatedDisplacementPointPatchVectorField.hxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement\waveDisplacementPointPatchVectorField.hxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity\componentLaplacian\velocityComponentLaplacianFvMotionSolver.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity\componentLaplacian</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian\displacementLaplacianFvMotionSolver.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress\displacementSBRStressFvMotionSolver.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian\velocityLaplacianFvMotionSolver.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolver.cxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolverTemplates.cxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchField.cxx">
+      <Filter>TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchFields.cxx">
+      <Filter>TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementFvPatchFields.cxx">
+      <Filter>TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement\componentLaplacian\displacementComponentLaplacianFvMotionSolver.cxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement\componentLaplacian</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\motionDiffusivity\motionDiffusivity.cxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\motionDiffusivity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\directional\directionalDiffusivity.cxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\directional</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\file\fileDiffusivity.cxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\file</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseDistance\inverseDistanceDiffusivity.cxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\inverseDistance</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseFaceDistance\inverseFaceDistanceDiffusivity.cxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\inverseFaceDistance</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\inversePointDistance\inversePointDistanceDiffusivity.cxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\inversePointDistance</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\inverseVolume\inverseVolumeDiffusivity.cxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\inverseVolume</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\manipulators\exponential\exponentialDiffusivity.cxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\manipulators\exponential</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\manipulators\quadratic\quadraticDiffusivity.cxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\manipulators\quadratic</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\motionDirectional\motionDirectionalDiffusivity.cxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\motionDirectional</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\uniform\uniformDiffusivity.cxx">
+      <Filter>TnbLib\fvMotionSolver\motionDiffusivity\uniform</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingDisplacement\angularOscillatingDisplacementPointPatchVectorField.cxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingDisplacement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingVelocity\angularOscillatingVelocityPointPatchVectorField.cxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingVelocity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingDisplacement\oscillatingDisplacementPointPatchVectorField.cxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingDisplacement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity\oscillatingVelocityPointPatchVectorField.cxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement\surfaceDisplacementPointPatchVectorField.cxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementPointPatchVectorField.cxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchField.cxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchFields.cxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement\uniformInterpolatedDisplacementPointPatchVectorField.cxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement\waveDisplacementPointPatchVectorField.cxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity\componentLaplacian\velocityComponentLaplacianFvMotionSolver.cxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity\componentLaplacian</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian\displacementLaplacianFvMotionSolver.cxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress\displacementSBRStressFvMotionSolver.cxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian\velocityLaplacianFvMotionSolver.cxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
