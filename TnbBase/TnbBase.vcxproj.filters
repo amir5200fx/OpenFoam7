@@ -2289,9 +2289,6 @@
     <ClInclude Include="TnbLib\Base\primitives\functions\Function1\TableFile\TableFile.hxx">
       <Filter>TnbLib\Base\primitives\functions\Function1\TableFile</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\Base\primitives\functions\Function1\Uniform\Uniform.hxx">
-      <Filter>TnbLib\Base\primitives\functions\Function1\Uniform</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\Base\primitives\functions\Function1\Zero\ZeroConstant.hxx">
       <Filter>TnbLib\Base\primitives\functions\Function1\Zero</Filter>
     </ClInclude>
@@ -4566,6 +4563,12 @@
     <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Solvers\GAMG\GAMGSolver.hxx">
       <Filter>TnbLib\Base\matrices\LduMatrix\Solvers\GAMG</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\Base\OSspecific\MSWindows\deelx.hxx">
+      <Filter>TnbLib\Base\OSspecific\MSWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\functions\Function1\Uniform\UniformTemplate.hxx">
+      <Filter>TnbLib\Base\primitives\functions\Function1\Uniform</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\Base\primitives\zero\zero.cxx">
@@ -4975,9 +4978,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\Base\primitives\functions\Function1\TableFile\TableFile.cxx">
       <Filter>TnbLib\Base\primitives\functions\Function1\TableFile</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\Base\primitives\functions\Function1\Uniform\Uniform.cxx">
-      <Filter>TnbLib\Base\primitives\functions\Function1\Uniform</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\Base\primitives\functions\Function1\Zero\ZeroConstant.cxx">
       <Filter>TnbLib\Base\primitives\functions\Function1\Zero</Filter>
@@ -6883,6 +6883,9 @@
     </ClCompile>
     <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\lduPreconditioners.cxx">
       <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\Base\primitives\functions\Function1\Uniform\UniformTemplate.cxx">
+      <Filter>TnbLib\Base\primitives\functions\Function1\Uniform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

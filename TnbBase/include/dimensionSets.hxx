@@ -39,7 +39,6 @@ SourceFiles
 #include <scalarMatrices.hxx>
 #include <dimensionedScalarFwd.hxx>
 #include <PtrList.hxx>
-#include <dimensionSet.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

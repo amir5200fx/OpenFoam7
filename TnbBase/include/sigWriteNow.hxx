@@ -40,6 +40,8 @@ SourceFiles
 
 #include <signal.h>
 
+typedef	void(*__p_sig_fn_t)(int);
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -62,7 +64,8 @@ namespace tnbLib
 		static Time* runTimePtr_;
 
 		//- Saved old signal trapping setting
-		static struct sigaction oldAction_;
+		//static struct sigaction oldAction_;
+		static __p_sig_fn_t oldAction_;
 
 
 		// Private Member Functions

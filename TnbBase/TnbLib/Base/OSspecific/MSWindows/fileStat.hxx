@@ -92,13 +92,16 @@ namespace tnbLib
 		//- Construct from components.
 		//  followLink : in case of link get status of pointed-to file
 		//  maxTime    : time out
-		fileStat
+		/*fileStat
 		(
 			const fileName& fName,
 			const bool checkVariants = true,
 			const bool followLink = true,
 			const unsigned int maxTime = 0
-		);
+		);*/
+
+		//- Construct from components
+		fileStat(const fileName& fName, const unsigned int maxTime = 0);
 
 		//- Construct from Istream
 		fileStat(Istream&);

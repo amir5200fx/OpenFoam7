@@ -86,10 +86,17 @@ namespace tnbLib
 		// Member functions
 
 		void set(const bool verbose);
+
+		//- Flag to indicate mallocNan is enabled
+		static bool mallocNanActive_;
+
+		//- Fill block of data with NaN
+		static void fillNan(UList<scalar>&);
 	};
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 }
+
 
 #endif // !_sigFpe_Header

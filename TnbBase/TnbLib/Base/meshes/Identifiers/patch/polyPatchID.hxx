@@ -30,6 +30,14 @@ License
 #include <DynamicID.hxx>
 #include <polyBoundaryMesh.hxx>
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+namespace tnbLib
+{
+	//- tnbLib::polyPatchID
+	typedef DynamicID<polyBoundaryMesh> polyPatchID;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #endif // !_polyPatchID_Header

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _Uniform_Header
-#define _Uniform_Header
+#ifndef _UniformTemplate_Header
+#define _UniformTemplate_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -91,9 +91,9 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <Uniform.cxx>
+#include <UniformTemplate.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_Uniform_Header
+#endif // !_UniformTemplate_Header
