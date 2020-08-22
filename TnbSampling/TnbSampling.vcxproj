@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{B0600BFC-62B5-4F92-9E5A-5B25FD93436A}</ProjectGuid>
+    <RootNamespace>TnbSampling</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\sampling\cuttingPlane;$(ProjectDir)TnbLib\sampling\graphField;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\direct;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\mapNearest;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod;$(ProjectDir)TnbLib\sampling\meshToMesh;$(ProjectDir)TnbLib\sampling\meshToMesh0;$(ProjectDir)TnbLib\sampling\probes;$(ProjectDir)TnbLib\sampling\sampledSet\arcUniform;$(ProjectDir)TnbLib\sampling\sampledSet\boundaryPoints;$(ProjectDir)TnbLib\sampling\sampledSet\boundaryRandom;$(ProjectDir)TnbLib\sampling\sampledSet\boxUniform;$(ProjectDir)TnbLib\sampling\sampledSet\circleRandom;$(ProjectDir)TnbLib\sampling\sampledSet\lineCell;$(ProjectDir)TnbLib\sampling\sampledSet\lineCellFace;$(ProjectDir)TnbLib\sampling\sampledSet\lineFace;$(ProjectDir)TnbLib\sampling\sampledSet\lineUniform;$(ProjectDir)TnbLib\sampling\sampledSet\points;$(ProjectDir)TnbLib\sampling\sampledSet\sampledSet;$(ProjectDir)TnbLib\sampling\sampledSet\sampledSets;$(ProjectDir)TnbLib\sampling\sampledSet\sphereRandom;$(ProjectDir)TnbLib\sampling\sampledSet\triSurfaceMeshSampledSet;$(ProjectDir)TnbLib\sampling\sampledSurface\distanceSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\isoSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledCuttingPlane;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPatch;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPatchInternalField;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPlane;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledSurfaces;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh;$(ProjectDir)TnbLib\sampling\sampledSurface\thresholdCellFaces;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\ensight;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\foam;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\nastran;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\none;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\proxy;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\raw;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\starcd;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\vtk;$(ProjectDir)TnbLib\sampling\sampledSurface\writers;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\sampling\cuttingPlane;$(ProjectDir)TnbLib\sampling\graphField;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\direct;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\mapNearest;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod;$(ProjectDir)TnbLib\sampling\meshToMesh;$(ProjectDir)TnbLib\sampling\meshToMesh0;$(ProjectDir)TnbLib\sampling\probes;$(ProjectDir)TnbLib\sampling\sampledSet\arcUniform;$(ProjectDir)TnbLib\sampling\sampledSet\boundaryPoints;$(ProjectDir)TnbLib\sampling\sampledSet\boundaryRandom;$(ProjectDir)TnbLib\sampling\sampledSet\boxUniform;$(ProjectDir)TnbLib\sampling\sampledSet\circleRandom;$(ProjectDir)TnbLib\sampling\sampledSet\lineCell;$(ProjectDir)TnbLib\sampling\sampledSet\lineCellFace;$(ProjectDir)TnbLib\sampling\sampledSet\lineFace;$(ProjectDir)TnbLib\sampling\sampledSet\lineUniform;$(ProjectDir)TnbLib\sampling\sampledSet\points;$(ProjectDir)TnbLib\sampling\sampledSet\sampledSet;$(ProjectDir)TnbLib\sampling\sampledSet\sampledSets;$(ProjectDir)TnbLib\sampling\sampledSet\sphereRandom;$(ProjectDir)TnbLib\sampling\sampledSet\triSurfaceMeshSampledSet;$(ProjectDir)TnbLib\sampling\sampledSurface\distanceSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\isoSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledCuttingPlane;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPatch;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPatchInternalField;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPlane;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledSurfaces;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh;$(ProjectDir)TnbLib\sampling\sampledSurface\thresholdCellFaces;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\ensight;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\foam;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\nastran;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\none;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\proxy;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\raw;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\starcd;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\vtk;$(ProjectDir)TnbLib\sampling\sampledSurface\writers;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\sampling\cuttingPlane\cuttingPlane.hxx" />
+    <ClInclude Include="TnbLib\sampling\graphField\makeGraph.hxx" />
+    <ClInclude Include="TnbLib\sampling\graphField\writeCellGraph.hxx" />
+    <ClInclude Include="TnbLib\sampling\graphField\writePatchGraph.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh0\meshToMesh0.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight\cellVolumeWeightMethod.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\direct\directMethod.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\mapNearest\mapNearestMethod.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod\meshToMeshMethod.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod\meshToMeshMethodI.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapper.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh\meshToMesh.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh\meshToMeshI.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh\weightedFvPatchFieldMapper.hxx" />
+    <ClInclude Include="TnbLib\sampling\probes\IOprobes.hxx" />
+    <ClInclude Include="TnbLib\sampling\probes\patchProbes.hxx" />
+    <ClInclude Include="TnbLib\sampling\probes\probes.hxx" />
+    <ClInclude Include="TnbLib\sampling\probes\probesIsNotEqOp.h" />
+    <ClInclude Include="TnbLib\sampling\sampledSet\arcUniform\arcUniform.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSet\lineCell\lineCell.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSet\lineFace\lineFace.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSet\sampledSet\sampledSet.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\sampling\cuttingPlane\cuttingPlane.cxx" />
+    <ClCompile Include="TnbLib\sampling\cuttingPlane\cuttingPlaneTemplates.cxx" />
+    <ClCompile Include="TnbLib\sampling\graphField\makeGraph.cxx" />
+    <ClCompile Include="TnbLib\sampling\graphField\writeCellGraph.cxx" />
+    <ClCompile Include="TnbLib\sampling\graphField\writePatchGraph.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh0\calculateMeshToMesh0Addressing.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh0\calculateMeshToMesh0Weights.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh0\meshToMesh0.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh0\meshToMesh0Templates.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight\cellVolumeWeightMethod.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\direct\directMethod.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\mapNearest\mapNearestMethod.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod\meshToMeshMethod.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod\meshToMeshMethodNew.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapper.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapperTemplates.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh\meshToMesh.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh\meshToMeshParallelOps.cxx" />
+    <ClCompile Include="TnbLib\sampling\meshToMesh\meshToMeshTemplates.cxx" />
+    <ClCompile Include="TnbLib\sampling\probes\patchProbes.cxx" />
+    <ClCompile Include="TnbLib\sampling\probes\patchProbesTemplates.cxx" />
+    <ClCompile Include="TnbLib\sampling\probes\probes.cxx" />
+    <ClCompile Include="TnbLib\sampling\probes\probesGrouping.cxx" />
+    <ClCompile Include="TnbLib\sampling\probes\probesTemplates.cxx" />
+    <ClCompile Include="TnbLib\sampling\sampledSet\arcUniform\arcUniform.cxx" />
+    <ClCompile Include="TnbLib\sampling\sampledSet\lineCell\lineCell.cxx" />
+    <ClCompile Include="TnbLib\sampling\sampledSet\lineFace\lineFace.cxx" />
+    <ClCompile Include="TnbLib\sampling\sampledSet\sampledSet\sampledSet.cxx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

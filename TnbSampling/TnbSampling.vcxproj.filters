@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{e8f3f451-a8d2-4436-a8ee-290102c61e17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling">
+      <UniqueIdentifier>{bd961a7a-5781-4e53-aa12-b49aafac43a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\cuttingPlane">
+      <UniqueIdentifier>{c6f71911-e3bd-4a5c-a7e5-d79dc4911fb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\graphField">
+      <UniqueIdentifier>{9ca19055-f5ac-416c-896f-5f2b75805536}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\meshToMesh">
+      <UniqueIdentifier>{917e6ded-ff32-4269-9761-93d17d1d07fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\meshToMesh0">
+      <UniqueIdentifier>{29a0001f-381d-4c40-9153-889c79f9a1bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSurface">
+      <UniqueIdentifier>{53e05980-5982-4b75-aef8-f80ba787fde1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet">
+      <UniqueIdentifier>{91f882c7-c586-40ee-987c-4b3fd7bd64e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\probes">
+      <UniqueIdentifier>{2d04e2ba-f075-4abb-8915-36a65baf1a02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\meshToMesh\calcMethod">
+      <UniqueIdentifier>{3ea462cc-1e67-479b-8ed9-8074725c7053}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight">
+      <UniqueIdentifier>{09aa2303-9011-44be-8360-ccf578e7ce8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\meshToMesh\calcMethod\direct">
+      <UniqueIdentifier>{0df6aef4-2afb-4ade-b275-b79b8ecc6cc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\meshToMesh\calcMethod\mapNearest">
+      <UniqueIdentifier>{b96a64cd-9dab-4ce4-b271-b2a1e22d1294}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod">
+      <UniqueIdentifier>{c05f602c-0116-417f-9603-e2a0b0a302f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\arcUniform">
+      <UniqueIdentifier>{4763f3fa-4db0-45be-a5d0-283af6bdd24e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\boundaryPoints">
+      <UniqueIdentifier>{65b6641e-9a33-4401-b667-390d17a7230f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\boundaryRandom">
+      <UniqueIdentifier>{07150746-c823-4de2-8932-27cd09a79d34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\boxUniform">
+      <UniqueIdentifier>{78662670-a52f-44fa-8959-429582be12ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\circleRandom">
+      <UniqueIdentifier>{9d3316a8-ba81-4613-952f-da3f4d6dadc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\lineCell">
+      <UniqueIdentifier>{a151b9cd-00de-4fea-89b3-38f7d8ce17fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\lineCellFace">
+      <UniqueIdentifier>{89244b27-8cbc-4424-aa0f-8ed00c4d4046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\lineFace">
+      <UniqueIdentifier>{0d58564f-76bd-460a-94db-d16b8016d9bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\lineUniform">
+      <UniqueIdentifier>{3ca8d7bf-2c6a-4137-8ded-3a3ab90fe10f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\triSurfaceMeshSampledSet">
+      <UniqueIdentifier>{27100806-01f3-40fd-af47-4fe093ad1f65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\sphereRandom">
+      <UniqueIdentifier>{f0133500-34b9-41b8-8248-beddc664dd12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\sampledSets">
+      <UniqueIdentifier>{2d62daf9-99b5-4c99-a989-eb0d9902e9ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\sampledSet">
+      <UniqueIdentifier>{82cb7832-df51-4827-a524-c9336e0c829c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSet\points">
+      <UniqueIdentifier>{27ab4e3d-62ef-44f2-9625-8370345519af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSurface\distanceSurface">
+      <UniqueIdentifier>{e196db90-dae4-40be-b783-23b329da13f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSurface\isoSurface">
+      <UniqueIdentifier>{7ca4a284-47a7-4d7b-b2db-04d164ed4974}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSurface\writers">
+      <UniqueIdentifier>{85583ade-6473-45ec-88d9-a94be8c3a6d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSurface\thresholdCellFaces">
+      <UniqueIdentifier>{f9b49ddf-ab26-418a-9d78-79f6472a36a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh">
+      <UniqueIdentifier>{a943e0be-ac01-4f9b-9c45-674d74a48878}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSurface\sampledSurfaces">
+      <UniqueIdentifier>{00ceb89c-4b69-45ae-9018-afd133264bbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSurface\sampledSurface">
+      <UniqueIdentifier>{d85ecb87-ca4d-46bc-b0b9-6ffc264e072e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSurface\sampledPlane">
+      <UniqueIdentifier>{dea1cf5c-9072-4685-aa36-e7b62cd7d710}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSurface\sampledPatchInternalField">
+      <UniqueIdentifier>{bd844d04-89a1-46ee-8516-c5f35472b908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSurface\sampledPatch">
+      <UniqueIdentifier>{d8bd4734-a339-4a57-98ed-8c9ac6ce0682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sampling\sampledSurface\sampledCuttingPlane">
+      <UniqueIdentifier>{d51fe566-f30b-4a44-ad1e-86151f44ea95}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\sampling\cuttingPlane\cuttingPlane.hxx">
+      <Filter>TnbLib\sampling\cuttingPlane</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\graphField\writePatchGraph.hxx">
+      <Filter>TnbLib\sampling\graphField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\graphField\writeCellGraph.hxx">
+      <Filter>TnbLib\sampling\graphField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\graphField\makeGraph.hxx">
+      <Filter>TnbLib\sampling\graphField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\meshToMesh\meshToMesh.hxx">
+      <Filter>TnbLib\sampling\meshToMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\meshToMesh\meshToMeshI.hxx">
+      <Filter>TnbLib\sampling\meshToMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod\meshToMeshMethod.hxx">
+      <Filter>TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod\meshToMeshMethodI.hxx">
+      <Filter>TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\mapNearest\mapNearestMethod.hxx">
+      <Filter>TnbLib\sampling\meshToMesh\calcMethod\mapNearest</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\direct\directMethod.hxx">
+      <Filter>TnbLib\sampling\meshToMesh\calcMethod\direct</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight\cellVolumeWeightMethod.hxx">
+      <Filter>TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapper.hxx">
+      <Filter>TnbLib\sampling\meshToMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\meshToMesh\weightedFvPatchFieldMapper.hxx">
+      <Filter>TnbLib\sampling\meshToMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\meshToMesh0\meshToMesh0.hxx">
+      <Filter>TnbLib\sampling\meshToMesh0</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\probes\patchProbes.hxx">
+      <Filter>TnbLib\sampling\probes</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\probes\probes.hxx">
+      <Filter>TnbLib\sampling\probes</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\probes\IOprobes.hxx">
+      <Filter>TnbLib\sampling\probes</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\probes\probesIsNotEqOp.h">
+      <Filter>TnbLib\sampling\probes</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\sampledSet\arcUniform\arcUniform.hxx">
+      <Filter>TnbLib\sampling\sampledSet\arcUniform</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\sampledSet\sampledSet\sampledSet.hxx">
+      <Filter>TnbLib\sampling\sampledSet\sampledSet</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\sampledSet\lineCell\lineCell.hxx">
+      <Filter>TnbLib\sampling\sampledSet\lineCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\sampledSet\lineFace\lineFace.hxx">
+      <Filter>TnbLib\sampling\sampledSet\lineFace</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\sampling\cuttingPlane\cuttingPlane.cxx">
+      <Filter>TnbLib\sampling\cuttingPlane</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\cuttingPlane\cuttingPlaneTemplates.cxx">
+      <Filter>TnbLib\sampling\cuttingPlane</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\graphField\writePatchGraph.cxx">
+      <Filter>TnbLib\sampling\graphField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\graphField\writeCellGraph.cxx">
+      <Filter>TnbLib\sampling\graphField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\graphField\makeGraph.cxx">
+      <Filter>TnbLib\sampling\graphField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh\meshToMesh.cxx">
+      <Filter>TnbLib\sampling\meshToMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod\meshToMeshMethod.cxx">
+      <Filter>TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod\meshToMeshMethodNew.cxx">
+      <Filter>TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\mapNearest\mapNearestMethod.cxx">
+      <Filter>TnbLib\sampling\meshToMesh\calcMethod\mapNearest</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\direct\directMethod.cxx">
+      <Filter>TnbLib\sampling\meshToMesh\calcMethod\direct</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight\cellVolumeWeightMethod.cxx">
+      <Filter>TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh\meshToMeshParallelOps.cxx">
+      <Filter>TnbLib\sampling\meshToMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh\meshToMeshTemplates.cxx">
+      <Filter>TnbLib\sampling\meshToMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapper.cxx">
+      <Filter>TnbLib\sampling\meshToMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapperTemplates.cxx">
+      <Filter>TnbLib\sampling\meshToMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh0\meshToMesh0.cxx">
+      <Filter>TnbLib\sampling\meshToMesh0</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh0\meshToMesh0Templates.cxx">
+      <Filter>TnbLib\sampling\meshToMesh0</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh0\calculateMeshToMesh0Addressing.cxx">
+      <Filter>TnbLib\sampling\meshToMesh0</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\meshToMesh0\calculateMeshToMesh0Weights.cxx">
+      <Filter>TnbLib\sampling\meshToMesh0</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\probes\patchProbes.cxx">
+      <Filter>TnbLib\sampling\probes</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\probes\probes.cxx">
+      <Filter>TnbLib\sampling\probes</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\probes\patchProbesTemplates.cxx">
+      <Filter>TnbLib\sampling\probes</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\probes\probesGrouping.cxx">
+      <Filter>TnbLib\sampling\probes</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\probes\probesTemplates.cxx">
+      <Filter>TnbLib\sampling\probes</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\sampledSet\arcUniform\arcUniform.cxx">
+      <Filter>TnbLib\sampling\sampledSet\arcUniform</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\sampledSet\sampledSet\sampledSet.cxx">
+      <Filter>TnbLib\sampling\sampledSet\sampledSet</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\sampledSet\lineCell\lineCell.cxx">
+      <Filter>TnbLib\sampling\sampledSet\lineCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sampling\sampledSet\lineFace\lineFace.cxx">
+      <Filter>TnbLib\sampling\sampledSet\lineFace</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
