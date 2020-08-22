@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{27928553-74AF-4229-B18C-4F7670767702}</ProjectGuid>
+    <RootNamespace>TnbLagrangian</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\lagrangian\basic\Cloud;$(ProjectDir)TnbLib\lagrangian\basic\indexedParticle;$(ProjectDir)TnbLib\lagrangian\basic\InteractionLists\referredWallFace;$(ProjectDir)TnbLib\lagrangian\basic\InteractionLists;$(ProjectDir)TnbLib\lagrangian\basic\IOPosition;$(ProjectDir)TnbLib\lagrangian\basic\particle;$(ProjectDir)TnbLib\lagrangian\basic\passiveParticle;$(ProjectDir)TnbLib\lagrangian\coalCombustion\coalCloud;$(ProjectDir)TnbLib\lagrangian\coalCombustion\coalCloudList;$(ProjectDir)TnbLib\lagrangian\coalCombustion\coalParcel;$(ProjectDir)TnbLib\lagrangian\coalCombustion\include;$(ProjectDir)TnbLib\lagrangian\coalCombustion\submodels\surfaceReactionModel\COxidationDiffusionLimitedRate;$(ProjectDir)TnbLib\lagrangian\coalCombustion\submodels\surfaceReactionModel\COxidationHurtMitchell;$(ProjectDir)TnbLib\lagrangian\coalCombustion\submodels\surfaceReactionModel\COxidationIntrinsicRate;$(ProjectDir)TnbLib\lagrangian\coalCombustion\submodels\surfaceReactionModel\COxidationKineticDiffusionLimitedRate;$(ProjectDir)TnbLib\lagrangian\coalCombustion\submodels\surfaceReactionModel\COxidationMurphyShaddix;$(ProjectDir)TnbLib\lagrangian\distributionModels\distributionModel;$(ProjectDir)TnbLib\lagrangian\distributionModels\exponential;$(ProjectDir)TnbLib\lagrangian\distributionModels\fixedValue;$(ProjectDir)TnbLib\lagrangian\distributionModels\general;$(ProjectDir)TnbLib\lagrangian\distributionModels\massRosinRammler;$(ProjectDir)TnbLib\lagrangian\distributionModels\multiNormal;$(ProjectDir)TnbLib\lagrangian\distributionModels\normal;$(ProjectDir)TnbLib\lagrangian\distributionModels\RosinRammler;$(ProjectDir)TnbLib\lagrangian\distributionModels\uniform;$(ProjectDir)TnbLib\lagrangian\DSMC\clouds\baseClasses\DSMCBaseCloud;$(ProjectDir)TnbLib\lagrangian\DSMC\clouds\derived\dsmcCloud;$(ProjectDir)TnbLib\lagrangian\DSMC\clouds\Templates\DSMCCloud;$(ProjectDir)TnbLib\lagrangian\DSMC\parcels\derived\dsmcParcel;$(ProjectDir)TnbLib\lagrangian\DSMC\parcels\Templates\DSMCParcel;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\BinaryCollisionModel\BinaryCollisionModel;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\BinaryCollisionModel\LarsenBorgnakkeVariableHardSphere;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\BinaryCollisionModel\NoBinaryCollision;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\BinaryCollisionModel\VariableHardSphere;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\InflowBoundaryModel\FreeStream;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\InflowBoundaryModel\InflowBoundaryModel;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\InflowBoundaryModel\NoInflow;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\WallInteractionModel\MaxwellianThermal;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\WallInteractionModel\MixedDiffuseSpecular;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\WallInteractionModel\SpecularReflection;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\WallInteractionModel\WallInteractionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\baseClasses\kinematicCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\baseClasses\reactingCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\baseClasses\reactingMultiphaseCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\baseClasses\thermoCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\derived\basicKinematicCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\derived\basicKinematicCollidingCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\derived\basicKinematicMPPICCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\derived\basicReactingCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\derived\basicReactingMultiphaseCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\derived\basicThermoCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\Templates\CollidingCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\Templates\MPPICCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\Templates\ReactingCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\Templates\ReactingMultiphaseCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\Templates\ThermoCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\integrationScheme\analytical;$(ProjectDir)TnbLib\lagrangian\intermediate\integrationScheme\Euler;$(ProjectDir)TnbLib\lagrangian\intermediate\integrationScheme\integrationScheme;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicCollidingParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicMPPICParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\derived\basicReactingMultiphaseParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\derived\basicReactingParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\derived\basicThermoParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\include;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\PairCollisionRecord;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\WallCollisionRecord;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\KinematicParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\MPPICParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\ReactingMultiphaseParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\ReactingParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\ThermoParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\phaseProperties\phaseProperties;$(ProjectDir)TnbLib\lagrangian\intermediate\phaseProperties\phasePropertiesList;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\addOns\radiation\absorptionEmission\cloudAbsorptionEmission;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\addOns\radiation\scatter\cloudScatter;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObject;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObjectList;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\FacePostProcessing;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleCollector;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleErosion;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTracks;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTrap;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchCollisionDensity;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchPostProcessing;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\RelativeVelocity;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\VoidFraction;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ForceTypes\ParticleForceList;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\CollisionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\NoCollision;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\PairModel\PairModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\PairModel\PairSpringSliderDashpot;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallLocalSpringSliderDashpot;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallSpringSliderDashpot;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallSiteData;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\DispersionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\NoDispersion;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\CellZoneInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\ConeInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\FieldActivatedInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InflationInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\KinematicLookupTableInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\ManualInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\NoInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\PatchFlowRateInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\PatchInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\DenseDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\DistortedSphereDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\ErgunWenYuDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\NonSphereDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\PlessisMasliyahDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\SchillerNaumannDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\SphereDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\WenYuDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\forceSuSp;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Gravity;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\LiftForce;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\SaffmanMeiLift;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\TomiyamaLift;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\NonInertialFrame;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Paramagnetic;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\ParticleForce;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\PressureGradient;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Scaled;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\SRF;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\VirtualMass;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\LocalInteraction;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\NoInteraction;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\PatchInteractionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\Rebound;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\StandardWallInteraction;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\StochasticCollision\NoStochasticCollision;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\StochasticCollision\StochasticCollisionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\SurfaceFilmModel\NoSurfaceFilm;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\SurfaceFilmModel\SurfaceFilmModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\AveragingMethod;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Basic;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Dual;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Moment;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\absolute;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\CorrectionLimitingMethod;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\noCorrectionLimiting;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\relative;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\DampingModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\NoDamping;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\Relaxation;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\IsotropyModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\NoIsotropy;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\Stochastic;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Explicit;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Implicit;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\NoPacking;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\PackingModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\exponential;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\HarrisCrighton;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\Lun;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\ParticleStressModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\equilibrium;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\isotropic;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\nonEquilibrium;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\TimeScaleModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\CompositionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\NoComposition;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SingleMixtureFraction;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SinglePhaseMixture;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\PhaseChangeModel\LiquidEvaporation;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\PhaseChangeModel\LiquidEvaporationBoil;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\PhaseChangeModel\NoPhaseChange;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\PhaseChangeModel\PhaseChangeModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\DevolatilisationModel\ConstantRateDevolatilisation;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\DevolatilisationModel\DevolatilisationModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\DevolatilisationModel\NoDevolatilisation;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\DevolatilisationModel\SingleKineticRateDevolatilisation;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\InjectionModel\ReactingMultiphaseLookupTableInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\StochasticCollision\SuppressionCollision;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\SurfaceReactionModel\NoSurfaceReaction;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\SurfaceReactionModel\SurfaceReactionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\HeatTransferModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\NoHeatTransfer;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\RanzMarshall;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Thermodynamic\SurfaceFilmModel\ThermoSurfaceFilm;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecularMeasurements\bufferedAccumulator;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecularMeasurements\correlationFunction;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecularMeasurements\distribution;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecule\mdTools;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecule\molecule;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecule\moleculeCloud;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecule\reducedUnits;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\electrostaticPotential;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\basic;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\doubleSigmoid;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\noScaling;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\shifted;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\shiftedForce;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\sigmoid;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\basic;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\azizChen;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\coulomb;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\dampedCoulomb;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\exponentialRepulsion;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\lennardJones;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\maitlandSmith;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\noInteraction;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\pairPotentialList;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\potential;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\basic;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\derived\harmonicSpring;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\derived\pitchForkRing;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\derived\restrainedHarmonicSpring;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\tetherPotentialList;$(ProjectDir)TnbLib\lagrangian\solidParticle;$(ProjectDir)TnbLib\lagrangian\spray\clouds\baseClasses\sprayCloud;$(ProjectDir)TnbLib\lagrangian\spray\clouds\derived\basicSprayCloud;$(ProjectDir)TnbLib\lagrangian\spray\clouds\Templates\SprayCloud;$(ProjectDir)TnbLib\lagrangian\spray\parcels\derived\basicSprayParcel;$(ProjectDir)TnbLib\lagrangian\spray\parcels\include;$(ProjectDir)TnbLib\lagrangian\spray\parcels\Templates\SprayParcel;$(ProjectDir)TnbLib\lagrangian\spray\submodels\AtomizationModel\AtomizationModel;$(ProjectDir)TnbLib\lagrangian\spray\submodels\AtomizationModel\BlobsSheetAtomization;$(ProjectDir)TnbLib\lagrangian\spray\submodels\AtomizationModel\LISAAtomization;$(ProjectDir)TnbLib\lagrangian\spray\submodels\AtomizationModel\NoAtomization;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\BreakupModel;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\ETAB;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\NoBreakup;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\PilchErdman;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\ReitzDiwakar;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\ReitzKHRT;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\SHF;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\TAB;$(ProjectDir)TnbLib\lagrangian\spray\submodels\StochasticCollision\ORourkeCollision;$(ProjectDir)TnbLib\lagrangian\spray\submodels\StochasticCollision\TrajectoryCollision;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\derived\basicKinematicCollidingParcel;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\derived\basicKinematicMPPICParcel;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\derived\basicKinematicParcel;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\derived\basicReactingMultiphaseParcel;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\derived\basicReactingParcel;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\derived\basicThermoParcel;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\include;$(ProjectDir)TnbLib\lagrangian\turbulence\submodels\Kinematic\DispersionModel\DispersionRASModel;$(ProjectDir)TnbLib\lagrangian\turbulence\submodels\Kinematic\DispersionModel\GradientDispersionRAS;$(ProjectDir)TnbLib\lagrangian\turbulence\submodels\Kinematic\DispersionModel\StochasticDispersionRAS;$(ProjectDir)TnbLib\lagrangian\turbulence\submodels\Thermodynamic\ParticleForces\BrownianMotion;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\lagrangian\basic\Cloud;$(ProjectDir)TnbLib\lagrangian\basic\indexedParticle;$(ProjectDir)TnbLib\lagrangian\basic\InteractionLists\referredWallFace;$(ProjectDir)TnbLib\lagrangian\basic\InteractionLists;$(ProjectDir)TnbLib\lagrangian\basic\IOPosition;$(ProjectDir)TnbLib\lagrangian\basic\particle;$(ProjectDir)TnbLib\lagrangian\basic\passiveParticle;$(ProjectDir)TnbLib\lagrangian\coalCombustion\coalCloud;$(ProjectDir)TnbLib\lagrangian\coalCombustion\coalCloudList;$(ProjectDir)TnbLib\lagrangian\coalCombustion\coalParcel;$(ProjectDir)TnbLib\lagrangian\coalCombustion\include;$(ProjectDir)TnbLib\lagrangian\coalCombustion\submodels\surfaceReactionModel\COxidationDiffusionLimitedRate;$(ProjectDir)TnbLib\lagrangian\coalCombustion\submodels\surfaceReactionModel\COxidationHurtMitchell;$(ProjectDir)TnbLib\lagrangian\coalCombustion\submodels\surfaceReactionModel\COxidationIntrinsicRate;$(ProjectDir)TnbLib\lagrangian\coalCombustion\submodels\surfaceReactionModel\COxidationKineticDiffusionLimitedRate;$(ProjectDir)TnbLib\lagrangian\coalCombustion\submodels\surfaceReactionModel\COxidationMurphyShaddix;$(ProjectDir)TnbLib\lagrangian\distributionModels\distributionModel;$(ProjectDir)TnbLib\lagrangian\distributionModels\exponential;$(ProjectDir)TnbLib\lagrangian\distributionModels\fixedValue;$(ProjectDir)TnbLib\lagrangian\distributionModels\general;$(ProjectDir)TnbLib\lagrangian\distributionModels\massRosinRammler;$(ProjectDir)TnbLib\lagrangian\distributionModels\multiNormal;$(ProjectDir)TnbLib\lagrangian\distributionModels\normal;$(ProjectDir)TnbLib\lagrangian\distributionModels\RosinRammler;$(ProjectDir)TnbLib\lagrangian\distributionModels\uniform;$(ProjectDir)TnbLib\lagrangian\DSMC\clouds\baseClasses\DSMCBaseCloud;$(ProjectDir)TnbLib\lagrangian\DSMC\clouds\derived\dsmcCloud;$(ProjectDir)TnbLib\lagrangian\DSMC\clouds\Templates\DSMCCloud;$(ProjectDir)TnbLib\lagrangian\DSMC\parcels\derived\dsmcParcel;$(ProjectDir)TnbLib\lagrangian\DSMC\parcels\Templates\DSMCParcel;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\BinaryCollisionModel\BinaryCollisionModel;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\BinaryCollisionModel\LarsenBorgnakkeVariableHardSphere;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\BinaryCollisionModel\NoBinaryCollision;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\BinaryCollisionModel\VariableHardSphere;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\InflowBoundaryModel\FreeStream;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\InflowBoundaryModel\InflowBoundaryModel;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\InflowBoundaryModel\NoInflow;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\WallInteractionModel\MaxwellianThermal;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\WallInteractionModel\MixedDiffuseSpecular;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\WallInteractionModel\SpecularReflection;$(ProjectDir)TnbLib\lagrangian\DSMC\submodels\WallInteractionModel\WallInteractionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\baseClasses\kinematicCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\baseClasses\reactingCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\baseClasses\reactingMultiphaseCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\baseClasses\thermoCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\derived\basicKinematicCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\derived\basicKinematicCollidingCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\derived\basicKinematicMPPICCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\derived\basicReactingCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\derived\basicReactingMultiphaseCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\derived\basicThermoCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\Templates\CollidingCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\Templates\MPPICCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\Templates\ReactingCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\Templates\ReactingMultiphaseCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\clouds\Templates\ThermoCloud;$(ProjectDir)TnbLib\lagrangian\intermediate\integrationScheme\analytical;$(ProjectDir)TnbLib\lagrangian\intermediate\integrationScheme\Euler;$(ProjectDir)TnbLib\lagrangian\intermediate\integrationScheme\integrationScheme;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicCollidingParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicMPPICParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\derived\basicReactingMultiphaseParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\derived\basicReactingParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\derived\basicThermoParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\include;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\PairCollisionRecord;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\WallCollisionRecord;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\KinematicParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\MPPICParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\ReactingMultiphaseParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\ReactingParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\parcels\Templates\ThermoParcel;$(ProjectDir)TnbLib\lagrangian\intermediate\phaseProperties\phaseProperties;$(ProjectDir)TnbLib\lagrangian\intermediate\phaseProperties\phasePropertiesList;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\addOns\radiation\absorptionEmission\cloudAbsorptionEmission;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\addOns\radiation\scatter\cloudScatter;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObject;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObjectList;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\FacePostProcessing;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleCollector;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleErosion;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTracks;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTrap;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchCollisionDensity;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchPostProcessing;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\RelativeVelocity;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\VoidFraction;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ForceTypes\ParticleForceList;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\CollisionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\NoCollision;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\PairModel\PairModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\PairModel\PairSpringSliderDashpot;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallLocalSpringSliderDashpot;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallSpringSliderDashpot;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallSiteData;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\DispersionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\NoDispersion;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\CellZoneInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\ConeInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\FieldActivatedInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InflationInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\KinematicLookupTableInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\ManualInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\NoInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\PatchFlowRateInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\PatchInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\DenseDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\DistortedSphereDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\ErgunWenYuDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\NonSphereDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\PlessisMasliyahDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\SchillerNaumannDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\SphereDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\WenYuDrag;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\forceSuSp;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Gravity;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\LiftForce;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\SaffmanMeiLift;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\TomiyamaLift;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\NonInertialFrame;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Paramagnetic;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\ParticleForce;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\PressureGradient;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Scaled;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\SRF;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\VirtualMass;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\LocalInteraction;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\NoInteraction;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\PatchInteractionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\Rebound;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\StandardWallInteraction;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\StochasticCollision\NoStochasticCollision;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\StochasticCollision\StochasticCollisionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\SurfaceFilmModel\NoSurfaceFilm;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Kinematic\SurfaceFilmModel\SurfaceFilmModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\AveragingMethod;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Basic;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Dual;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Moment;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\absolute;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\CorrectionLimitingMethod;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\noCorrectionLimiting;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\relative;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\DampingModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\NoDamping;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\Relaxation;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\IsotropyModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\NoIsotropy;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\Stochastic;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Explicit;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Implicit;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\NoPacking;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\PackingModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\exponential;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\HarrisCrighton;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\Lun;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\ParticleStressModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\equilibrium;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\isotropic;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\nonEquilibrium;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\TimeScaleModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\CompositionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\NoComposition;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SingleMixtureFraction;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SinglePhaseMixture;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\PhaseChangeModel\LiquidEvaporation;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\PhaseChangeModel\LiquidEvaporationBoil;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\PhaseChangeModel\NoPhaseChange;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Reacting\PhaseChangeModel\PhaseChangeModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\DevolatilisationModel\ConstantRateDevolatilisation;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\DevolatilisationModel\DevolatilisationModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\DevolatilisationModel\NoDevolatilisation;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\DevolatilisationModel\SingleKineticRateDevolatilisation;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\InjectionModel\ReactingMultiphaseLookupTableInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\StochasticCollision\SuppressionCollision;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\SurfaceReactionModel\NoSurfaceReaction;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\ReactingMultiphase\SurfaceReactionModel\SurfaceReactionModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\HeatTransferModel;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\NoHeatTransfer;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\RanzMarshall;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels\Thermodynamic\SurfaceFilmModel\ThermoSurfaceFilm;$(ProjectDir)TnbLib\lagrangian\intermediate\submodels;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecularMeasurements\bufferedAccumulator;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecularMeasurements\correlationFunction;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecularMeasurements\distribution;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecule\mdTools;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecule\molecule;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecule\moleculeCloud;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\molecule\reducedUnits;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\electrostaticPotential;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\basic;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\doubleSigmoid;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\noScaling;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\shifted;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\shiftedForce;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\sigmoid;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\basic;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\azizChen;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\coulomb;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\dampedCoulomb;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\exponentialRepulsion;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\lennardJones;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\maitlandSmith;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\noInteraction;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\pairPotential\pairPotentialList;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\potential;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\basic;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\derived\harmonicSpring;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\derived\pitchForkRing;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\derived\restrainedHarmonicSpring;$(ProjectDir)TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\tetherPotentialList;$(ProjectDir)TnbLib\lagrangian\solidParticle;$(ProjectDir)TnbLib\lagrangian\spray\clouds\baseClasses\sprayCloud;$(ProjectDir)TnbLib\lagrangian\spray\clouds\derived\basicSprayCloud;$(ProjectDir)TnbLib\lagrangian\spray\clouds\Templates\SprayCloud;$(ProjectDir)TnbLib\lagrangian\spray\parcels\derived\basicSprayParcel;$(ProjectDir)TnbLib\lagrangian\spray\parcels\include;$(ProjectDir)TnbLib\lagrangian\spray\parcels\Templates\SprayParcel;$(ProjectDir)TnbLib\lagrangian\spray\submodels\AtomizationModel\AtomizationModel;$(ProjectDir)TnbLib\lagrangian\spray\submodels\AtomizationModel\BlobsSheetAtomization;$(ProjectDir)TnbLib\lagrangian\spray\submodels\AtomizationModel\LISAAtomization;$(ProjectDir)TnbLib\lagrangian\spray\submodels\AtomizationModel\NoAtomization;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\BreakupModel;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\ETAB;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\NoBreakup;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\PilchErdman;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\ReitzDiwakar;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\ReitzKHRT;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\SHF;$(ProjectDir)TnbLib\lagrangian\spray\submodels\BreakupModel\TAB;$(ProjectDir)TnbLib\lagrangian\spray\submodels\StochasticCollision\ORourkeCollision;$(ProjectDir)TnbLib\lagrangian\spray\submodels\StochasticCollision\TrajectoryCollision;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\derived\basicKinematicCollidingParcel;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\derived\basicKinematicMPPICParcel;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\derived\basicKinematicParcel;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\derived\basicReactingMultiphaseParcel;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\derived\basicReactingParcel;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\derived\basicThermoParcel;$(ProjectDir)TnbLib\lagrangian\turbulence\parcels\include;$(ProjectDir)TnbLib\lagrangian\turbulence\submodels\Kinematic\DispersionModel\DispersionRASModel;$(ProjectDir)TnbLib\lagrangian\turbulence\submodels\Kinematic\DispersionModel\GradientDispersionRAS;$(ProjectDir)TnbLib\lagrangian\turbulence\submodels\Kinematic\DispersionModel\StochasticDispersionRAS;$(ProjectDir)TnbLib\lagrangian\turbulence\submodels\Thermodynamic\ParticleForces\BrownianMotion;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\lagrangian\basic\Cloud\CloudTemplate.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\basic\indexedParticle\indexedParticle.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\basic\indexedParticle\indexedParticleCloud.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\basic\InteractionLists\InteractionLists.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\basic\InteractionLists\InteractionListsI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\basic\InteractionLists\referredWallFace\referredWallFace.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\basic\InteractionLists\referredWallFace\referredWallFaceI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\basic\IOPosition\IOPosition.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\basic\particle\particle.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\basic\particle\particleI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\basic\particle\particleMacros.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\basic\passiveParticle\passiveParticle.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\basic\passiveParticle\passiveParticleCloud.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\distributionModels\distributionModel\distributionModel.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\distributionModels\exponential\exponential.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\distributionModels\fixedValue\fixedValue.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\distributionModels\general\general.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\distributionModels\massRosinRammler\massRosinRammler.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\distributionModels\multiNormal\multiNormal.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\distributionModels\normal\normal.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\distributionModels\RosinRammler\RosinRammler.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\distributionModels\uniform\uniform.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\clouds\baseClasses\kinematicCloud\kinematicCloud.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\clouds\baseClasses\reactingCloud\reactingCloud.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\clouds\baseClasses\reactingMultiphaseCloud\reactingMultiphaseCloud.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\clouds\baseClasses\thermoCloud\thermoCloud.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\clouds\derived\basicKinematicCloud\basicKinematicCloud.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicCollidingParcel\basicKinematicCollidingParcel.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollidingParcel.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollidingParcelI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\CollisionRecordList.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\CollisionRecordListI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\PairCollisionRecord\PairCollisionRecord.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\PairCollisionRecord\PairCollisionRecordI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\WallCollisionRecord\WallCollisionRecord.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\WallCollisionRecord\WallCollisionRecordI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\KinematicParcel\KinematicParcel.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\KinematicParcel\KinematicParcelI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\KinematicParcel\KinematicParcelTrackingDataI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\addOns\radiation\absorptionEmission\cloudAbsorptionEmission\cloudAbsorptionEmission.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\addOns\radiation\scatter\cloudScatter\cloudScatter.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudSubModelBase.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\CollisionModel\CollisionModel.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\NoCollision\NoCollision.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\PairModel\PairModel\PairModel.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\PairModel\PairSpringSliderDashpot\PairSpringSliderDashpot.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallLocalSpringSliderDashpot\WallLocalSpringSliderDashpot.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallModel\WallModel.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallSpringSliderDashpot\WallSpringSliderDashpot.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallSiteData\WallSiteData.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallSiteData\WallSiteDataI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\DispersionModel\DispersionModel.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\NoDispersion\NoDispersion.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\CellZoneInjection\CellZoneInjection.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\ConeInjection\ConeInjection.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\FieldActivatedInjection\FieldActivatedInjection.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InflationInjection\InflationInjection.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModel.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelList.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\KinematicLookupTableInjection\KinematicLookupTableInjection.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\KinematicLookupTableInjection\kinematicParcelInjectionData.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\KinematicLookupTableInjection\kinematicParcelInjectionDataI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\KinematicLookupTableInjection\kinematicParcelInjectionDataIOList.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\ManualInjection\ManualInjection.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\NoInjection\NoInjection.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\PatchFlowRateInjection\PatchFlowRateInjection.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\PatchInjection\PatchInjection.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\PatchInjection\patchInjectionBase.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\DenseDrag\DenseDragForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\DistortedSphereDrag\DistortedSphereDragForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\ErgunWenYuDrag\ErgunWenYuDragForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\NonSphereDrag\NonSphereDragForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\PlessisMasliyahDrag\PlessisMasliyahDragForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\SchillerNaumannDrag\SchillerNaumannDragForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\SphereDrag\SphereDragForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\WenYuDrag\WenYuDragForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\forceSuSp\forceSuSp.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\forceSuSp\forceSuSpI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Gravity\GravityForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Gravity\GravityForceI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\LiftForce\LiftForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\LiftForce\LiftForceI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\SaffmanMeiLift\SaffmanMeiLiftForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\TomiyamaLift\TomiyamaLiftForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\NonInertialFrame\NonInertialFrameForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\NonInertialFrame\NonInertialFrameForceI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Paramagnetic\ParamagneticForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Paramagnetic\ParamagneticForceI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\ParticleForce\ParticleForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\ParticleForce\ParticleForceI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\PressureGradient\PressureGradientForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\PressureGradient\PressureGradientForceI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Scaled\ScaledForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\SRF\SRFForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\VirtualMass\VirtualMassForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\LocalInteraction\LocalInteraction.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\LocalInteraction\patchInteractionData.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\LocalInteraction\patchInteractionDataList.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\NoInteraction\NoInteractionTemplate.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\PatchInteractionModel\PatchInteractionModel.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\Rebound\Rebound.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\StandardWallInteraction\StandardWallInteraction.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\StochasticCollision\NoStochasticCollision\NoStochasticCollision.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\StochasticCollision\StochasticCollisionModel\StochasticCollisionModel.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\SurfaceFilmModel\NoSurfaceFilm\NoSurfaceFilm.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\SurfaceFilmModel\SurfaceFilmModel\SurfaceFilmModel.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\SurfaceFilmModel\SurfaceFilmModel\SurfaceFilmModelI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\SurfaceFilmModel\ThermoSurfaceFilm\ThermoSurfaceFilm.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecularMeasurements\bufferedAccumulator\bufferedAccumulator.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecularMeasurements\bufferedAccumulator\bufferedAccumulatorI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecularMeasurements\correlationFunction\correlationFunction.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecularMeasurements\correlationFunction\correlationFunctionI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecularMeasurements\distribution\distribution.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecularMeasurements\distribution\distributionI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\md.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecule\moleculeCloud\moleculeCloud.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecule\moleculeCloud\moleculeCloudI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecule\molecule\molecule.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecule\molecule\moleculeI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecule\reducedUnits\reducedUnits.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\molecule\reducedUnits\reducedUnitsI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\electrostaticPotential\electrostaticPotential.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\basic\energyScalingFunction.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\doubleSigmoid\doubleSigmoid.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\noScaling\noScaling.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\shiftedForce\shiftedForce.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\shifted\shifted.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\sigmoid\sigmoid.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\basic\pairPotential.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\basic\pairPotentialI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\azizChen\azizChen.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\coulomb\coulomb.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\dampedCoulomb\dampedCoulomb.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\exponentialRepulsion\exponentialRepulsion.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\lennardJones\lennardJones.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\maitlandSmith\maitlandSmith.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\noInteraction\noInteraction.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\pairPotentialList\pairPotentialList.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\pairPotentialList\pairPotentialListI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\potential\potential.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\potential\potentialI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\basic\tetherPotential.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\derived\harmonicSpring\harmonicSpring.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\derived\pitchForkRing\pitchForkRing.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\derived\restrainedHarmonicSpring\restrainedHarmonicSpring.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\tetherPotentialList\tetherPotentialList.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\tetherPotentialList\tetherPotentialListI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\solidParticle\solidParticle.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\solidParticle\solidParticleCloud.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\solidParticle\solidParticleCloudI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\solidParticle\solidParticleI.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\spray\clouds\baseClasses\sprayCloud\sprayCloud.hxx" />
+    <ClInclude Include="TnbLib\lagrangian\spray\clouds\derived\basicSprayCloud\basicSprayCloud.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\lagrangian\basic\Cloud\CloudTemplate.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\basic\Cloud\CloudTemplateIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\basic\indexedParticle\indexedParticleCloud.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\basic\InteractionLists\InteractionLists.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\basic\InteractionLists\referredWallFace\referredWallFace.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\basic\IOPosition\IOPosition.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\basic\particle\particle.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\basic\particle\particleIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\basic\particle\particleTemplates.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\basic\passiveParticle\passiveParticleCloud.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\distributionModels\distributionModel\distributionModel.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\distributionModels\distributionModel\distributionModelNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\distributionModels\exponential\exponential.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\distributionModels\fixedValue\fixedValue.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\distributionModels\general\general.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\distributionModels\massRosinRammler\massRosinRammler.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\distributionModels\multiNormal\multiNormal.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\distributionModels\normal\normal.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\distributionModels\RosinRammler\RosinRammler.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\distributionModels\uniform\uniform.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\clouds\baseClasses\kinematicCloud\kinematicCloud.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\clouds\baseClasses\reactingCloud\reactingCloud.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\clouds\baseClasses\reactingMultiphaseCloud\reactingMultiphaseCloud.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\clouds\baseClasses\thermoCloud\thermoCloud.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollidingParcel.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollidingParcelIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\CollisionRecordList.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\PairCollisionRecord\PairCollisionRecord.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\PairCollisionRecord\PairCollisionRecordIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\WallCollisionRecord\WallCollisionRecord.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\CollidingParcel\CollisionRecordList\WallCollisionRecord\WallCollisionRecordIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\KinematicParcel\KinematicParcel.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\KinematicParcel\KinematicParcelIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\addOns\radiation\absorptionEmission\cloudAbsorptionEmission\cloudAbsorptionEmission.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\addOns\radiation\scatter\cloudScatter\cloudScatter.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudSubModelBase.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\CollisionModel\CollisionModel.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\CollisionModel\CollisionModelNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\NoCollision\NoCollision.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\PairModel\PairModel\PairModel.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\PairModel\PairModel\PairModelNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\PairModel\PairSpringSliderDashpot\PairSpringSliderDashpot.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallLocalSpringSliderDashpot\WallLocalSpringSliderDashpot.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallModel\WallModel.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallModel\WallModelNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallModel\WallSpringSliderDashpot\WallSpringSliderDashpot.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\CollisionModel\PairCollision\WallSiteData\WallSiteData.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\DispersionModel\DispersionModel.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\DispersionModel\DispersionModelNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\NoDispersion\NoDispersion.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\CellZoneInjection\CellZoneInjection.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\ConeInjection\ConeInjection.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\FieldActivatedInjection\FieldActivatedInjection.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InflationInjection\InflationInjection.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModel.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelList.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\KinematicLookupTableInjection\KinematicLookupTableInjection.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\KinematicLookupTableInjection\kinematicParcelInjectionData.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\KinematicLookupTableInjection\kinematicParcelInjectionDataIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\KinematicLookupTableInjection\kinematicParcelInjectionDataIOList.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\ManualInjection\ManualInjection.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\NoInjection\NoInjection.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\PatchFlowRateInjection\PatchFlowRateInjection.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\PatchInjection\PatchInjection.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\PatchInjection\patchInjectionBase.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\DenseDrag\DenseDragForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\DistortedSphereDrag\DistortedSphereDragForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\ErgunWenYuDrag\ErgunWenYuDragForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\NonSphereDrag\NonSphereDragForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\PlessisMasliyahDrag\PlessisMasliyahDragForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\SchillerNaumannDrag\SchillerNaumannDragForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\SphereDrag\SphereDragForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Drag\WenYuDrag\WenYuDragForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\forceSuSp\forceSuSp.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Gravity\GravityForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\LiftForce\LiftForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\SaffmanMeiLift\SaffmanMeiLiftForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\TomiyamaLift\TomiyamaLiftForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\NonInertialFrame\NonInertialFrameForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Paramagnetic\ParamagneticForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\ParticleForce\ParticleForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\ParticleForce\ParticleForceNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\PressureGradient\PressureGradientForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Scaled\ScaledForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\SRF\SRFForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\VirtualMass\VirtualMassForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\LocalInteraction\LocalInteraction.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\LocalInteraction\patchInteractionData.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\LocalInteraction\patchInteractionDataList.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\NoInteraction\NoInteractionTemplate.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\PatchInteractionModel\PatchInteractionModel.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\PatchInteractionModel\PatchInteractionModelNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\Rebound\Rebound.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\PatchInteractionModel\StandardWallInteraction\StandardWallInteraction.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\StochasticCollision\NoStochasticCollision\NoStochasticCollision.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\StochasticCollision\StochasticCollisionModel\StochasticCollisionModel.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\StochasticCollision\StochasticCollisionModel\StochasticCollisionModelNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\SurfaceFilmModel\NoSurfaceFilm\NoSurfaceFilm.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\SurfaceFilmModel\SurfaceFilmModel\SurfaceFilmModel.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\SurfaceFilmModel\SurfaceFilmModel\SurfaceFilmModelNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\SurfaceFilmModel\ThermoSurfaceFilm\ThermoSurfaceFilm.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\molecularMeasurements\bufferedAccumulator\bufferedAccumulator.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\molecularMeasurements\bufferedAccumulator\bufferedAccumulatorIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\molecularMeasurements\correlationFunction\correlationFunction.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\molecularMeasurements\correlationFunction\correlationFunctionIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\molecularMeasurements\distribution\distribution.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\molecule\moleculeCloud\moleculeCloud.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\molecule\molecule\molecule.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\molecule\molecule\moleculeIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\molecule\reducedUnits\reducedUnits.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\molecule\reducedUnits\reducedUnitsIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\electrostaticPotential\electrostaticPotential.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\basic\energyScalingFunction.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\basic\energyScalingFunctionNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\doubleSigmoid\doubleSigmoid.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\noScaling\noScaling.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\shiftedForce\shiftedForce.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\shifted\shifted.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\energyScalingFunction\derived\sigmoid\sigmoid.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\basic\pairPotential.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\basic\pairPotentialIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\basic\pairPotentialNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\azizChen\azizChen.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\coulomb\coulomb.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\dampedCoulomb\dampedCoulomb.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\exponentialRepulsion\exponentialRepulsion.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\lennardJones\lennardJones.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\maitlandSmith\maitlandSmith.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\derived\noInteraction\noInteraction.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\pairPotential\pairPotentialList\pairPotentialList.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\potential\potential.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\basic\tetherPotential.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\basic\tetherPotentialNew.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\derived\harmonicSpring\harmonicSpring.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\derived\pitchForkRing\pitchForkRing.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\derived\restrainedHarmonicSpring\restrainedHarmonicSpring.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\molecularDynamics\potential\tetherPotential\tetherPotentialList\tetherPotentialList.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\solidParticle\solidParticle.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\solidParticle\solidParticleCloud.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\solidParticle\solidParticleIO.cxx" />
+    <ClCompile Include="TnbLib\lagrangian\spray\clouds\baseClasses\sprayCloud\sprayCloud.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\averageMDFields.lxx" />
+    <None Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\calculateAutoCorrelationFunctions.lxx" />
+    <None Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\calculateMDFields.lxx" />
+    <None Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\calculateTransportProperties.lxx" />
+    <None Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\createAutoCorrelationFunctions.lxx" />
+    <None Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\createMDFields.lxx" />
+    <None Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\createRefUnits.lxx" />
+    <None Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\meanMomentumEnergyAndNMols.lxx" />
+    <None Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\resetMDFields.lxx" />
+    <None Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\temperatureAndPressure.lxx" />
+    <None Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\temperatureAndPressureVariables.lxx" />
+    <None Include="TnbLib\lagrangian\molecularDynamics\molecule\mdTools\temperatureEquilibration.lxx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
