@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _Uniform_Header
-#define _Uniform_Header
+#ifndef _OBJsurfaceFormat_Header
+#define _OBJsurfaceFormat_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2017-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,74 +26,99 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::Function1Types::Uniform
+	tnbLib::fileFormats::OBJsurfaceFormat
 
 Description
-	Templated function that returns a constant value.
+	Provide a means of reading/writing Alias/Wavefront OBJ format.
 
-	Provides backward-compatibility for cases where a field is spatially
-	"uniform" and may be treated as a constant value.
-
-	Usage - for entry \<entryName\> returning the value <value>:
-	\verbatim
-		<entryName>    uniform  <value>
-	\endverbatim
+	Does not handle negative face indices.
 
 SourceFiles
-	Uniform.C
+	OBJsurfaceFormat.C
 
 \*---------------------------------------------------------------------------*/
 
-//#include <Function1.hxx> disabled by amir
-#include <Constant.hxx> // added by amir
+#include <MeshedSurface.hxx>
+#include <MeshedSurfaceProxy.hxx>
+#include <UnsortedMeshedSurface.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace Function1Types
+	namespace fileFormats
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class Uniform Declaration
+							  Class OBJsurfaceFormat Declaration
 		\*---------------------------------------------------------------------------*/
 
-		template<class Type>
-		class Uniform
+		template<class Face>
+		class OBJsurfaceFormat
 			:
-			public Constant<Type>
+			public MeshedSurface<Face>
 		{
-
 		public:
-
-			// Runtime type information
-			TypeName("uniform");
-
 
 			// Constructors
 
-				//- Construct from entry name and dictionary
-			Uniform(const word& entryName, const dictionary& dict);
+				//- Construct from file name
+			OBJsurfaceFormat(const fileName&);
+
+			//- Disallow default bitwise copy construction
+			OBJsurfaceFormat(const OBJsurfaceFormat<Face>&) = delete;
+
+
+			// Selectors
+
+				//- Read file and return surface
+			static autoPtr<MeshedSurface<Face>> New(const fileName& name)
+			{
+				return autoPtr<MeshedSurface<Face>>
+					(
+						new OBJsurfaceFormat<Face>(name)
+						);
+			}
+
+
+			//- Destructor
+			virtual ~OBJsurfaceFormat()
+			{}
+
+
+			// Member Functions
+
+				//- Write surface mesh components by proxy
+			static void write(const fileName&, const MeshedSurfaceProxy<Face>&);
+
+			//- Read from file
+			virtual bool read(const fileName&);
+
+			//- Write object file
+			virtual void write(const fileName& name) const
+			{
+				write(name, MeshedSurfaceProxy<Face>(*this));
+			}
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const Uniform<Type>&) = delete;
+			void operator=(const OBJsurfaceFormat<Face>&) = delete;
 		};
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	} // End namespace Function1Types
+	} // End namespace fileFormats
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <Uniform.cxx>
+#include <OBJsurfaceFormat.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_Uniform_Header
+#endif // !_OBJsurfaceFormat_Header

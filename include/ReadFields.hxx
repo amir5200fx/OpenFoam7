@@ -65,7 +65,7 @@ namespace tnbLib
 	//- Read all GeometricFields of the specified type.
 	//  The fieldsCache is an objectRegistry of all stored fields
 	template<class GeoField>
-	static void ReadFields
+	/*static */void ReadFields
 	(
 		const word& fieldName,
 		const typename GeoField::Mesh& mesh,
@@ -76,7 +76,7 @@ namespace tnbLib
 	//- Read all GeometricFields of the specified type.
 	//  The fieldsCache is an objectRegistry of all stored fields
 	template<class GeoField>
-	static void ReadFields
+	/*static */void ReadFields
 	(
 		const word& fieldName,
 		const typename GeoField::Mesh& mesh,
