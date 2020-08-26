@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{0eecacba-9927-4186-a6da-d1346d867542}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels">
+      <UniqueIdentifier>{73cbcc8f-76ad-4434-8364-6a7be126c32e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\absorptionEmissionModels">
+      <UniqueIdentifier>{8f835d04-3f2b-436a-aa52-54de999084cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\derivedFvPatchFields">
+      <UniqueIdentifier>{62d42ef7-5816-4aec-ba68-c0e1f0ff366b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\fvOptions">
+      <UniqueIdentifier>{635b4680-a014-41b5-bce9-83144ee91d60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\include">
+      <UniqueIdentifier>{1af49561-4c68-4f72-9261-61b21e404d17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\sootModels">
+      <UniqueIdentifier>{85a462e5-651a-4864-979f-e90836203d24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\scatterModels">
+      <UniqueIdentifier>{fdf95989-3197-4a52-b716-ae34c1e19e18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\radiationModels">
+      <UniqueIdentifier>{5b871818-fbe8-420e-949b-767243bf9aba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\radiationModels\fvDOM">
+      <UniqueIdentifier>{3bd3fb4a-5ff3-4954-854b-3e62cade778d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\radiationModels\viewFactor">
+      <UniqueIdentifier>{ffdad762-e6ad-432d-a4d1-7652e31235f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\radiationModels\radiationModel">
+      <UniqueIdentifier>{049e4409-c00e-420f-97ee-2dd308046e1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\radiationModels\P1">
+      <UniqueIdentifier>{74ce79aa-f39b-474f-b143-885414ddb040}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\radiationModels\opaqueSolid">
+      <UniqueIdentifier>{594f10c9-c16b-4804-a6d0-394b4e6efbf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\radiationModels\noRadiation">
+      <UniqueIdentifier>{8665a05d-d702-43ea-82a8-7adcab0bc5f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel">
+      <UniqueIdentifier>{4efc16a2-7926-4f5b-85de-012c264c979e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\absorptionEmissionModels\binary">
+      <UniqueIdentifier>{b9f6990c-b1fc-41b8-8e5a-c47c481ab6cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission">
+      <UniqueIdentifier>{d96c629d-f4df-4109-9270-fd3b81684629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\absorptionEmissionModels\greyMean">
+      <UniqueIdentifier>{cdd6e8c9-7643-474a-98e6-b8d2d163ff10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid">
+      <UniqueIdentifier>{b6c36319-fd2d-42b0-93de-a15d418bc732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\absorptionEmissionModels\wideBand">
+      <UniqueIdentifier>{9c84e9f3-ef01-4cdb-9172-1eebfe22cb08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission">
+      <UniqueIdentifier>{8e7f854a-6e42-4b51-a9fc-d3a960984bb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs">
+      <UniqueIdentifier>{62153597-4644-4e39-8540-12f69c1bd2c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission">
+      <UniqueIdentifier>{d249fa37-900a-4ab0-b613-eb1e25335072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay">
+      <UniqueIdentifier>{233914a2-cc3c-48cf-8d2c-ab7e6e07b967}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\scatterModels\constantScatter">
+      <UniqueIdentifier>{90a76962-d0ef-4a71-84be-c4b27d7067a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\scatterModels\scatterModel">
+      <UniqueIdentifier>{4f14fde7-260d-401d-9362-78259f1c805c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\scatterModels\noScatter">
+      <UniqueIdentifier>{e87edec4-105e-4c5d-8c28-e47465034ef9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\sootModels\mixtureFraction">
+      <UniqueIdentifier>{6b8f262e-a87e-4216-937c-39c19fb13464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\sootModels\sootModel">
+      <UniqueIdentifier>{5cebc388-cb65-4fb9-ba3a-727c2b3ac42e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\sootModels\noSoot">
+      <UniqueIdentifier>{f52852f6-cf25-4416-ae80-c089ee390ebb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation">
+      <UniqueIdentifier>{7d8b7e9f-f5dc-4458-8e15-d2fe3b1bd1d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor">
+      <UniqueIdentifier>{47e932f4-9000-46ec-a24f-eea93b1f56c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation">
+      <UniqueIdentifier>{639e5411-e7f5-4f88-8c64-6a891d852e04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature">
+      <UniqueIdentifier>{8d72a08a-601b-456f-a2c5-313686234af0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation">
+      <UniqueIdentifier>{590d2efc-0ecc-45ac-90e0-6161996249e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase">
+      <UniqueIdentifier>{51dcb947-e988-4d03-aed0-f6ee63b6a9b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\radiationModels\fvOptions\radiation">
+      <UniqueIdentifier>{e5ffdd42-7fd7-4b4c-b205-6c715e42fb4f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\radiationModel\radiationModel.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\radiationModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel\absorptionEmissionModel.hxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\binary\binary.hxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\binary</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission\constantAbsorptionEmission.hxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\greyMean\greyMean.hxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\greyMean</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs\absorptionCoeffs.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs\absorptionCoeffsI.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission\blackBodyEmission.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay\radiativeIntensityRay.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay\radiativeIntensityRayI.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\fvDOM.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\fvDOM</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\fvDOMI.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\fvDOM</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\scatterModels\scatterModel\scatterModel.hxx">
+      <Filter>TnbLib\radiationModels\scatterModels\scatterModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\scatterModels\noScatter\noScatter.hxx">
+      <Filter>TnbLib\radiationModels\scatterModels\noScatter</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\scatterModels\constantScatter\constantScatter.hxx">
+      <Filter>TnbLib\radiationModels\scatterModels\constantScatter</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\sootModels\sootModel\sootModel.hxx">
+      <Filter>TnbLib\radiationModels\sootModels\sootModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\sootModels\sootModel\makeSootTypes.hxx">
+      <Filter>TnbLib\radiationModels\sootModels\sootModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\sootModels\noSoot\noSoot.hxx">
+      <Filter>TnbLib\radiationModels\sootModels\noSoot</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\sootModels\mixtureFraction\mixtureFraction.hxx">
+      <Filter>TnbLib\radiationModels\sootModels\mixtureFraction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\noRadiation\noRadiation.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\noRadiation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\opaqueSolid\opaqueSolid.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\opaqueSolid</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\P1\P1.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\P1</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\viewFactor\viewFactor.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\viewFactor</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\viewFactor\viewFactorI.hxx">
+      <Filter>TnbLib\radiationModels\radiationModels\viewFactor</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation\greyDiffusiveRadiationMixedFvPatchScalarField.hxx">
+      <Filter>TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase\radiationCoupledBase.hxx">
+      <Filter>TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor\greyDiffusiveViewFactorFixedValueFvPatchScalarField.hxx">
+      <Filter>TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation\MarshakRadiationFvPatchScalarField.hxx">
+      <Filter>TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature\MarshakRadiationFixedTemperatureFvPatchScalarField.hxx">
+      <Filter>TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation\wideBandDiffusiveRadiationMixedFvPatchScalarField.hxx">
+      <Filter>TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\wideBand\wideBand.hxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\wideBand</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission\noAbsorptionEmission.hxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid\greyMeanSolid.hxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\fvOptions\radiation\radiation.hxx">
+      <Filter>TnbLib\radiationModels\fvOptions\radiation</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\radiationModel\radiationModel.cxx">
+      <Filter>TnbLib\radiationModels\radiationModels\radiationModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\radiationModel\radiationModelNew.cxx">
+      <Filter>TnbLib\radiationModels\radiationModels\radiationModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel\absorptionEmissionModel.cxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel\absorptionEmissionModelNew.cxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\binary\binary.cxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\binary</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission\constantAbsorptionEmission.cxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\greyMean\greyMean.cxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\greyMean</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs\absorptionCoeffs.cxx">
+      <Filter>TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission\blackBodyEmission.cxx">
+      <Filter>TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay\radiativeIntensityRay.cxx">
+      <Filter>TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\fvDOM\fvDOM.cxx">
+      <Filter>TnbLib\radiationModels\radiationModels\fvDOM</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\scatterModels\scatterModel\scatterModel.cxx">
+      <Filter>TnbLib\radiationModels\scatterModels\scatterModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\scatterModels\scatterModel\scatterModelNew.cxx">
+      <Filter>TnbLib\radiationModels\scatterModels\scatterModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\scatterModels\noScatter\noScatter.cxx">
+      <Filter>TnbLib\radiationModels\scatterModels\noScatter</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\scatterModels\constantScatter\constantScatter.cxx">
+      <Filter>TnbLib\radiationModels\scatterModels\constantScatter</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\sootModels\sootModel\sootModel.cxx">
+      <Filter>TnbLib\radiationModels\sootModels\sootModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\sootModels\sootModel\sootModelNew.cxx">
+      <Filter>TnbLib\radiationModels\sootModels\sootModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\sootModels\noSoot\noSoot.cxx">
+      <Filter>TnbLib\radiationModels\sootModels\noSoot</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\sootModels\mixtureFraction\mixtureFraction.cxx">
+      <Filter>TnbLib\radiationModels\sootModels\mixtureFraction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\sootModels\mixtureFraction\mixtureFractions.cxx">
+      <Filter>TnbLib\radiationModels\sootModels\mixtureFraction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\noRadiation\noRadiation.cxx">
+      <Filter>TnbLib\radiationModels\radiationModels\noRadiation</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\opaqueSolid\opaqueSolid.cxx">
+      <Filter>TnbLib\radiationModels\radiationModels\opaqueSolid</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\P1\P1.cxx">
+      <Filter>TnbLib\radiationModels\radiationModels\P1</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\viewFactor\viewFactor.cxx">
+      <Filter>TnbLib\radiationModels\radiationModels\viewFactor</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation\greyDiffusiveRadiationMixedFvPatchScalarField.cxx">
+      <Filter>TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase\radiationCoupledBase.cxx">
+      <Filter>TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor\greyDiffusiveViewFactorFixedValueFvPatchScalarField.cxx">
+      <Filter>TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation\MarshakRadiationFvPatchScalarField.cxx">
+      <Filter>TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature\MarshakRadiationFixedTemperatureFvPatchScalarField.cxx">
+      <Filter>TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation\wideBandDiffusiveRadiationMixedFvPatchScalarField.cxx">
+      <Filter>TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\wideBand\wideBand.cxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\wideBand</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission\noAbsorptionEmission.cxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid\greyMeanSolid.cxx">
+      <Filter>TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\radiationModels\fvOptions\radiation\radiation.cxx">
+      <Filter>TnbLib\radiationModels\fvOptions\radiation</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TnbLib\radiationModels\include\createIncompressibleRadiationModel.lxx">
+      <Filter>TnbLib\radiationModels\include</Filter>
+    </None>
+    <None Include="TnbLib\radiationModels\include\createRadiationModel.lxx">
+      <Filter>TnbLib\radiationModels\include</Filter>
+    </None>
+  </ItemGroup>
+</Project>

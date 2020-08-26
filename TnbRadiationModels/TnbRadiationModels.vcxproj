@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{7E9D43D8-5865-43DE-BF56-4057A40BEE84}</ProjectGuid>
+    <RootNamespace>TnbRadiationModels</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\binary;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMean;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\wideBand;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\fvOptions\radiation;$(ProjectDir)TnbLib\radiationModels\include;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM;$(ProjectDir)TnbLib\radiationModels\radiationModels\noRadiation;$(ProjectDir)TnbLib\radiationModels\radiationModels\opaqueSolid;$(ProjectDir)TnbLib\radiationModels\radiationModels\P1;$(ProjectDir)TnbLib\radiationModels\radiationModels\radiationModel;$(ProjectDir)TnbLib\radiationModels\radiationModels\viewFactor;$(ProjectDir)TnbLib\radiationModels\scatterModels\constantScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\noScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\scatterModel;$(ProjectDir)TnbLib\radiationModels\sootModels\mixtureFraction;$(ProjectDir)TnbLib\radiationModels\sootModels\noSoot;$(ProjectDir)TnbLib\radiationModels\sootModels\sootModel;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
+if not exist "$(ProjectDir)include" mkdir "$(ProjectDir)include"
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)include" /y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\binary;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMean;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\wideBand;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\fvOptions\radiation;$(ProjectDir)TnbLib\radiationModels\include;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM;$(ProjectDir)TnbLib\radiationModels\radiationModels\noRadiation;$(ProjectDir)TnbLib\radiationModels\radiationModels\opaqueSolid;$(ProjectDir)TnbLib\radiationModels\radiationModels\P1;$(ProjectDir)TnbLib\radiationModels\radiationModels\radiationModel;$(ProjectDir)TnbLib\radiationModels\radiationModels\viewFactor;$(ProjectDir)TnbLib\radiationModels\scatterModels\constantScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\noScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\scatterModel;$(ProjectDir)TnbLib\radiationModels\sootModels\mixtureFraction;$(ProjectDir)TnbLib\radiationModels\sootModels\noSoot;$(ProjectDir)TnbLib\radiationModels\sootModels\sootModel;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel\absorptionEmissionModel.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\binary\binary.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission\constantAbsorptionEmission.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid\greyMeanSolid.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\greyMean\greyMean.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission\noAbsorptionEmission.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\absorptionEmissionModels\wideBand\wideBand.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation\greyDiffusiveRadiationMixedFvPatchScalarField.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor\greyDiffusiveViewFactorFixedValueFvPatchScalarField.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature\MarshakRadiationFixedTemperatureFvPatchScalarField.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation\MarshakRadiationFvPatchScalarField.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase\radiationCoupledBase.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation\wideBandDiffusiveRadiationMixedFvPatchScalarField.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\fvOptions\radiation\radiation.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs\absorptionCoeffs.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs\absorptionCoeffsI.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission\blackBodyEmission.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\fvDOM.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\fvDOMI.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay\radiativeIntensityRay.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay\radiativeIntensityRayI.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\noRadiation\noRadiation.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\opaqueSolid\opaqueSolid.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\P1\P1.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\radiationModel\radiationModel.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\viewFactor\viewFactor.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\radiationModels\viewFactor\viewFactorI.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\scatterModels\constantScatter\constantScatter.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\scatterModels\noScatter\noScatter.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\scatterModels\scatterModel\scatterModel.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\sootModels\mixtureFraction\mixtureFraction.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\sootModels\noSoot\noSoot.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\sootModels\sootModel\makeSootTypes.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\sootModels\sootModel\sootModel.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel\absorptionEmissionModel.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel\absorptionEmissionModelNew.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\binary\binary.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission\constantAbsorptionEmission.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid\greyMeanSolid.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\greyMean\greyMean.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission\noAbsorptionEmission.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\absorptionEmissionModels\wideBand\wideBand.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation\greyDiffusiveRadiationMixedFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor\greyDiffusiveViewFactorFixedValueFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature\MarshakRadiationFixedTemperatureFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation\MarshakRadiationFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase\radiationCoupledBase.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation\wideBandDiffusiveRadiationMixedFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\fvOptions\radiation\radiation.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs\absorptionCoeffs.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission\blackBodyEmission.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\fvDOM\fvDOM.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay\radiativeIntensityRay.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\noRadiation\noRadiation.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\opaqueSolid\opaqueSolid.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\P1\P1.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\radiationModel\radiationModel.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\radiationModel\radiationModelNew.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\radiationModels\viewFactor\viewFactor.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\scatterModels\constantScatter\constantScatter.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\scatterModels\noScatter\noScatter.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\scatterModels\scatterModel\scatterModel.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\scatterModels\scatterModel\scatterModelNew.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\sootModels\mixtureFraction\mixtureFraction.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\sootModels\mixtureFraction\mixtureFractions.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\sootModels\noSoot\noSoot.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\sootModels\sootModel\sootModel.cxx" />
+    <ClCompile Include="TnbLib\radiationModels\sootModels\sootModel\sootModelNew.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TnbLib\radiationModels\include\createIncompressibleRadiationModel.lxx" />
+    <None Include="TnbLib\radiationModels\include\createRadiationModel.lxx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
