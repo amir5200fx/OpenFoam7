@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{f62f1b14-bc41-4490-a3f6-23351c2b56f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels">
+      <UniqueIdentifier>{de481869-846b-4369-b49a-b2a5aea2b32b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\CombustionModel">
+      <UniqueIdentifier>{84463d52-92f4-4f5e-8378-a743f3753500}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\diffusion">
+      <UniqueIdentifier>{9f972b0b-7bb1-4a60-8da7-eea1f17a832f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\EDC">
+      <UniqueIdentifier>{793252b7-dc7f-4d65-b942-cceffaed5ceb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\FSD">
+      <UniqueIdentifier>{7aebaacb-4a3e-48db-b23b-a503cfe2326e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\functionObjects">
+      <UniqueIdentifier>{49232ffa-d80c-4e52-bebf-fea1580e1212}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\infinitelyFastChemistry">
+      <UniqueIdentifier>{afe5f96b-da9b-4971-8311-28b2c23979d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\laminar">
+      <UniqueIdentifier>{0032e7f5-525b-4da5-b3ec-2016a6a893e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\zoneCombustion">
+      <UniqueIdentifier>{331fc77b-2842-4c54-a573-776a15efd9b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\singleStepCombustion">
+      <UniqueIdentifier>{69c7a57c-84dd-4b91-9b83-5a900ccd7a12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\radiationModels">
+      <UniqueIdentifier>{7ecb7699-6afc-45b6-8d8d-f79da61a5ac9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\PaSR">
+      <UniqueIdentifier>{0e408665-0fce-4ab7-b4b3-0bd9fdcf248d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\noCombustion">
+      <UniqueIdentifier>{b8b4e0bd-ee7a-4f95-b012-7f17fce41519}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
