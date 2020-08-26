@@ -47,7 +47,7 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
-#include <InjectionModel.hxx>
+#include <InjectionModelTemplate.hxx>
 #include <patchInjectionBase.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

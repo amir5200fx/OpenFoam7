@@ -562,6 +562,213 @@
     <Filter Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\Lift\SaffmanMeiLift">
       <UniqueIdentifier>{bd6bd498-577e-4113-9e26-700e3967f8c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\phaseProperties\phasePropertiesList">
+      <UniqueIdentifier>{f45d4826-bd62-4027-ab25-80cbd608f04c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\phaseProperties\phaseProperties">
+      <UniqueIdentifier>{723a28cc-2eaf-4f17-9d8c-42ff850f0ff1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObject">
+      <UniqueIdentifier>{5fe02674-ebe6-4cb9-879e-0478dfd40520}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObjectList">
+      <UniqueIdentifier>{e986fdba-618c-4e36-bd49-bdf817a63030}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\FacePostProcessing">
+      <UniqueIdentifier>{689f4020-ba7f-4ef0-9078-31ecf0259d41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\VoidFraction">
+      <UniqueIdentifier>{a67baafa-6c81-48b9-84a6-31e4208f434b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\RelativeVelocity">
+      <UniqueIdentifier>{817cd8e6-b93c-4992-a3d9-ba4c8418f14c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchPostProcessing">
+      <UniqueIdentifier>{cbdad4ac-7194-4aa6-b832-c6d21c3e4c46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchCollisionDensity">
+      <UniqueIdentifier>{3fef1425-0273-41ff-a704-d94c0ed79f88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTrap">
+      <UniqueIdentifier>{44ccf0e8-8976-48a0-b429-7dab9d488bdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTracks">
+      <UniqueIdentifier>{33034318-c601-413d-a8dd-30d7e9350f3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleErosion">
+      <UniqueIdentifier>{b7b9f53b-f3a2-430d-9b91-98d9893d774a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleCollector">
+      <UniqueIdentifier>{93bb2990-c711-4ba1-926c-db00004ee345}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel">
+      <UniqueIdentifier>{2b164928-36c0-48f5-bad4-be2c0c230bb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel">
+      <UniqueIdentifier>{d82f9c07-7a04-4260-a352-e3d71a92b23d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\Reacting\PhaseChangeModel">
+      <UniqueIdentifier>{7296e6fa-e597-4ae9-912e-7a62c8d59865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\CompositionModel">
+      <UniqueIdentifier>{303f9ca0-3ac6-4505-ad1e-5e86db5acd4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SinglePhaseMixture">
+      <UniqueIdentifier>{0aed4462-dd5e-4c24-afe0-284949c0b6d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SingleMixtureFraction">
+      <UniqueIdentifier>{9ed63164-7122-481c-b13c-b71d4728ffbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\NoComposition">
+      <UniqueIdentifier>{4137750a-885a-44a2-b3d2-3713fb133588}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection">
+      <UniqueIdentifier>{b7069703-30c9-482f-8ec1-d4a0bccf83c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection">
+      <UniqueIdentifier>{5dbc7f6c-ebfc-4ad4-b2c1-c81b32f8ef0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\ForceTypes\ParticleForceList">
+      <UniqueIdentifier>{67c1a9c9-e6cb-4c23-8648-89992233d7a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods">
+      <UniqueIdentifier>{34cea893-be02-4301-b5e5-1efb7f6bc20e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods">
+      <UniqueIdentifier>{57ed7ab3-8fd0-487a-a315-ad59ccc412ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels">
+      <UniqueIdentifier>{8c7573fe-4845-44c2-b954-0a02cf683c66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels">
+      <UniqueIdentifier>{99ee1ac1-0b99-472a-919f-6def3c1fde23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels">
+      <UniqueIdentifier>{ac0e83d6-1161-4a2c-96df-709014709bb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels">
+      <UniqueIdentifier>{26844a7f-fd4b-4457-b300-f5c3101c3524}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels">
+      <UniqueIdentifier>{4c90ccec-d891-476b-87c1-61dd59039b4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\AveragingMethod">
+      <UniqueIdentifier>{5f56c17f-f4bc-4086-97af-93ab78e68e6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Basic">
+      <UniqueIdentifier>{183fb941-927b-4774-944d-e1d2dd8ee262}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Dual">
+      <UniqueIdentifier>{6cabda1b-23ee-4dc1-be35-9bc97be3bc53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Moment">
+      <UniqueIdentifier>{61fe081c-4088-4eca-8846-e4d6a3fe82ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\absolute">
+      <UniqueIdentifier>{cb64eba5-b534-48d5-b8a1-f40e8686c9f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\CorrectionLimitingMethod">
+      <UniqueIdentifier>{de1a2335-eb72-44df-af72-1065a4e2cb9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\relative">
+      <UniqueIdentifier>{e1f32dfd-981f-474e-be21-928fdc5deb9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\noCorrectionLimiting">
+      <UniqueIdentifier>{bbe6462b-6814-4f37-993a-70425b52fcca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\DampingModel">
+      <UniqueIdentifier>{e4bd45e2-4544-4cf0-a403-c07379a99e53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\Relaxation">
+      <UniqueIdentifier>{ba943647-a3c4-424b-a6e3-7b504f3e7c45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\NoDamping">
+      <UniqueIdentifier>{d0c13dbb-642a-46bd-8e85-3c0c0ed3f845}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\IsotropyModel">
+      <UniqueIdentifier>{ebbfb27d-22cd-4a71-987c-c4abbe0c0a3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\Stochastic">
+      <UniqueIdentifier>{5c65b7af-e9c8-48dd-858d-985913bfa902}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\NoIsotropy">
+      <UniqueIdentifier>{67496b7c-d79a-47eb-8c88-cee1d995b45e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\equilibrium">
+      <UniqueIdentifier>{d30fb947-415f-4e10-9e09-764a4a70cc53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\isotropic">
+      <UniqueIdentifier>{0ace4a47-2e41-45cc-88a5-066614bccf76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\TimeScaleModel">
+      <UniqueIdentifier>{c910bec7-b1bb-4f76-939b-8bd49e3178c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\nonEquilibrium">
+      <UniqueIdentifier>{ebb296c1-23cc-4524-9e9f-85a3a20fa9a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\exponential">
+      <UniqueIdentifier>{d0ee2f38-5170-442c-adca-18cde42d5a3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\HarrisCrighton">
+      <UniqueIdentifier>{6c8b0d6d-b7e9-4f8d-9923-6ce69a97fffe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\Lun">
+      <UniqueIdentifier>{e821c597-b901-4607-a848-df37c6187140}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\ParticleStressModel">
+      <UniqueIdentifier>{a5bb422a-7e62-4bbb-b83e-7a3bf4c1348a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Explicit">
+      <UniqueIdentifier>{1f9deb3b-8657-4c08-b40e-dd371802cc9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Implicit">
+      <UniqueIdentifier>{204a402e-4828-4134-8c92-80032e688fa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\PackingModel">
+      <UniqueIdentifier>{a14d2cb4-82c6-43ee-b80c-3301018c86a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\NoPacking">
+      <UniqueIdentifier>{f2a75759-8cbc-44cf-b7b0-0b87d2626429}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\clouds\Templates\CollidingCloud">
+      <UniqueIdentifier>{dcdbb644-d614-4404-9afd-343a5d27f0c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud">
+      <UniqueIdentifier>{ed02b3a6-9198-48f0-b4dd-6de23c4012df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\clouds\Templates\MPPICCloud">
+      <UniqueIdentifier>{3e5e522e-4aba-47a3-a9ec-b774e318e7cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\clouds\Templates\ThermoCloud">
+      <UniqueIdentifier>{09a6ee9e-58f3-4bd2-bf1a-121987fd27b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\clouds\Templates\ReactingMultiphaseCloud">
+      <UniqueIdentifier>{63da7d41-783c-464d-8423-194d540662c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\clouds\Templates\ReactingCloud">
+      <UniqueIdentifier>{88c1da8e-8a6d-4f50-a7f9-afb763069187}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud\cloudSolution">
+      <UniqueIdentifier>{7e668c84-c8d5-483e-a796-7f6202fae37a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\integrationScheme\analytical">
+      <UniqueIdentifier>{2d75d7aa-d2d1-4fc8-b485-f516b8088f31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\integrationScheme\Euler">
+      <UniqueIdentifier>{14f2abbc-f841-4d59-be2e-8f4b40c75dac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\integrationScheme\integrationScheme">
+      <UniqueIdentifier>{634cdf2f-e3d0-438a-9701-f9eb8484e5a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\HeatTransferModel">
+      <UniqueIdentifier>{77620e31-e249-410e-be23-86a9c54eb794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\RanzMarshall">
+      <UniqueIdentifier>{bbbdb902-6e3a-45ac-b55f-cae03574608d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\NoHeatTransfer">
+      <UniqueIdentifier>{59a1a45d-5108-4c41-8462-3278e8dff595}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\lagrangian\basic\Cloud\CloudTemplate.hxx">
@@ -867,15 +1074,6 @@
     <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\NoDispersion\NoDispersion.hxx">
       <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\NoDispersion</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModel.hxx">
-      <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelI.hxx">
-      <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelList.hxx">
-      <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InflationInjection\InflationInjection.hxx">
       <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InflationInjection</Filter>
     </ClInclude>
@@ -1025,6 +1223,264 @@
     </ClInclude>
     <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\VirtualMass\VirtualMassForce.hxx">
       <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\VirtualMass</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicMPPICParcel\basicKinematicMPPICParcel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicMPPICParcel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\MPPICParcel\MPPICParcel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\MPPICParcel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\MPPICParcel\MPPICParcelI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\MPPICParcel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\MPPICParcel\MPPICParcelTrackingDataI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\MPPICParcel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\ReactingMultiphaseParcel\ReactingMultiphaseParcel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ReactingMultiphaseParcel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\ReactingMultiphaseParcel\ReactingMultiphaseParcelI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ReactingMultiphaseParcel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\ReactingParcel\ReactingParcel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ReactingParcel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\ReactingParcel\ReactingParcelI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ReactingParcel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\ReactingParcel\ReactingParcelTrackingDataI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ReactingParcel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\ThermoParcel\ThermoParcel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ThermoParcel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\ThermoParcel\ThermoParcelI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ThermoParcel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\parcels\Templates\ThermoParcel\ThermoParcelTrackingDataI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ThermoParcel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\phaseProperties\phaseProperties\phaseProperties.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\phaseProperties\phaseProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\phaseProperties\phasePropertiesList\phasePropertiesList.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\phaseProperties\phasePropertiesList</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObject\CloudFunctionObject.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObjectList\CloudFunctionObjectList.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObjectList</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObjectList\CloudFunctionObjectListI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObjectList</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\FacePostProcessing\FacePostProcessing.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\FacePostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\FacePostProcessing\FacePostProcessingI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\FacePostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleCollector\ParticleCollector.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleCollector</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleCollector\ParticleCollectorI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleCollector</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleErosion\ParticleErosion.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleErosion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTracks\ParticleTracks.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTracks\ParticleTracksI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTracks</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTrap\ParticleTrap.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTrap</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchCollisionDensity\PatchCollisionDensity.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchCollisionDensity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchPostProcessing\PatchPostProcessing.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchPostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchPostProcessing\PatchPostProcessingI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchPostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\RelativeVelocity\RelativeVelocity.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\RelativeVelocity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\VoidFraction\VoidFraction.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\VoidFraction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\CompositionModel\CompositionModel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\CompositionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\NoComposition\NoComposition.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\NoComposition</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SingleMixtureFraction\SingleMixtureFraction.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SingleMixtureFraction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SinglePhaseMixture\SinglePhaseMixture.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SinglePhaseMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection\reactingParcelInjectionData.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection\reactingParcelInjectionDataI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection\reactingParcelInjectionDataIOList.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection\ReactingLookupTableInjection.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection\thermoParcelInjectionData.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection\thermoParcelInjectionDataI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection\thermoParcelInjectionDataIOList.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection\ThermoLookupTableInjection.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\ForceTypes\ParticleForceList\ParticleForceList.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\ForceTypes\ParticleForceList</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\ForceTypes\ParticleForceList\ParticleForceListI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\ForceTypes\ParticleForceList</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\AveragingMethod\AveragingMethod.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\AveragingMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\AveragingMethod\AveragingMethodI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\AveragingMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Basic\Basic.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Basic</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Dual\Dual.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Dual</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Moment\Moment.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Moment</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\CorrectionLimitingMethod\CorrectionLimitingMethod.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\CorrectionLimitingMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\absolute\absolute.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\absolute</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\noCorrectionLimiting\noCorrectionLimiting.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\noCorrectionLimiting</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\relative\relative.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\relative</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\DampingModel\DampingModel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\DampingModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\NoDamping\NoDamping.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\NoDamping</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\Relaxation\Relaxation.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\Relaxation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\IsotropyModel\IsotropyModel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\IsotropyModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\NoIsotropy\NoIsotropy.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\NoIsotropy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\Stochastic\Stochastic.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\Stochastic</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\TimeScaleModel\TimeScaleModel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\TimeScaleModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\equilibrium\equilibrium.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\equilibrium</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\isotropic\isotropic.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\isotropic</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\nonEquilibrium\nonEquilibrium.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\nonEquilibrium</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\ParticleStressModel\ParticleStressModel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\ParticleStressModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\Lun\Lun.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\Lun</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\HarrisCrighton\HarrisCrighton.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\HarrisCrighton</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\exponential\exponentialParticleStressModel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\exponential</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\PackingModel\PackingModel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\PackingModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Explicit\Explicit.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Explicit</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Implicit\Implicit.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Implicit</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\NoPacking\NoPacking.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\NoPacking</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\clouds\Templates\ThermoCloud\ThermoCloudTemplate.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\clouds\Templates\ThermoCloud</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\clouds\Templates\ThermoCloud\ThermoCloudTemplateI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\clouds\Templates\ThermoCloud</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud\KinematicCloudTemplate.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud\KinematicCloudTemplateI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud\cloudSolution\cloudSolution.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud\cloudSolution</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud\cloudSolution\cloudSolutionI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud\cloudSolution</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\integrationScheme\integrationScheme\integrationScheme.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\integrationScheme\integrationScheme</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\integrationScheme\analytical\analytical.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\integrationScheme\analytical</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\integrationScheme\Euler\Euler.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\integrationScheme\Euler</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\HeatTransferModel\HeatTransferModel.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\HeatTransferModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\NoHeatTransfer\NoHeatTransfer.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\NoHeatTransfer</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\RanzMarshall\RanzMarshall.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\RanzMarshall</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelTemplate.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelTemplateI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelTemplateList.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1310,13 +1766,7 @@
     <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\NoDispersion\NoDispersion.cxx">
       <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\DispersionModel\NoDispersion</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModel.cxx">
-      <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelNew.cxx">
-      <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelList.cxx">
       <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InflationInjection\InflationInjection.cxx">
@@ -1453,6 +1903,246 @@
     </ClCompile>
     <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\VirtualMass\VirtualMassForce.cxx">
       <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\ParticleForces\VirtualMass</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicCollidingParcel\defineBasicKinematicCollidingParcel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicCollidingParcel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicCollidingParcel\makeBasicKinematicCollidingParcelSubmodels.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\derived\basicKinematicCollidingParcel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\MPPICParcel\MPPICParcel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\MPPICParcel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\MPPICParcel\MPPICParcelIO.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\MPPICParcel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\ReactingMultiphaseParcel\ReactingMultiphaseParcel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ReactingMultiphaseParcel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\ReactingMultiphaseParcel\ReactingMultiphaseParcelIO.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ReactingMultiphaseParcel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\ReactingParcel\ReactingParcel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ReactingParcel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\ReactingParcel\ReactingParcelIO.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ReactingParcel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\ThermoParcel\ThermoParcel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ThermoParcel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\parcels\Templates\ThermoParcel\ThermoParcelIO.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\parcels\Templates\ThermoParcel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\phaseProperties\phaseProperties\phaseProperties.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\phaseProperties\phaseProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\phaseProperties\phaseProperties\phasePropertiesIO.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\phaseProperties\phaseProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\phaseProperties\phasePropertiesList\phasePropertiesList.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\phaseProperties\phasePropertiesList</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObject\CloudFunctionObject.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObject</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObject\CloudFunctionObjectNew.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObject</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObjectList\CloudFunctionObjectList.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\CloudFunctionObjectList</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\FacePostProcessing\FacePostProcessing.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\FacePostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleCollector\ParticleCollector.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleCollector</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleErosion\ParticleErosion.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleErosion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTracks\ParticleTracks.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTracks</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTrap\ParticleTrap.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\ParticleTrap</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchCollisionDensity\PatchCollisionDensity.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchCollisionDensity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchPostProcessing\PatchPostProcessing.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\PatchPostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\RelativeVelocity\RelativeVelocity.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\RelativeVelocity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\VoidFraction\VoidFraction.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\CloudFunctionObjects\VoidFraction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\CompositionModel\CompositionModel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\CompositionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\CompositionModel\CompositionModelNew.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\CompositionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\NoComposition\NoComposition.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\NoComposition</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SingleMixtureFraction\SingleMixtureFraction.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SingleMixtureFraction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SinglePhaseMixture\SinglePhaseMixture.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\CompositionModel\SinglePhaseMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection\reactingParcelInjectionData.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection\reactingParcelInjectionDataIO.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection\reactingParcelInjectionDataIOList.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection\ReactingLookupTableInjection.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Reacting\InjectionModel\ReactingLookupTableInjection</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection\thermoParcelInjectionData.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection\thermoParcelInjectionDataIO.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection\thermoParcelInjectionDataIOList.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection\ThermoLookupTableInjection.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\InjectionModel\ThermoLookupTableInjection</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\ForceTypes\ParticleForceList\ParticleForceList.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\ForceTypes\ParticleForceList</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\AveragingMethod\AveragingMethod.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\AveragingMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Basic\Basic.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Basic</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Dual\Dual.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Dual</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Moment\Moment.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\Moment</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods\makeAveragingMethods.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\AveragingMethods</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\CorrectionLimitingMethod\CorrectionLimitingMethod.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\CorrectionLimitingMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\absolute\absolute.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\absolute</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\noCorrectionLimiting\noCorrectionLimiting.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\noCorrectionLimiting</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\relative\relative.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\CorrectionLimitingMethods\relative</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\DampingModel\DampingModel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\DampingModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\NoDamping\NoDamping.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\NoDamping</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\Relaxation\Relaxation.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\DampingModels\Relaxation</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\IsotropyModel\IsotropyModel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\IsotropyModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\NoIsotropy\NoIsotropy.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\NoIsotropy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\Stochastic\Stochastic.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\IsotropyModels\Stochastic</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\TimeScaleModel\TimeScaleModel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\TimeScaleModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\equilibrium\equilibrium.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\equilibrium</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\isotropic\isotropic.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\isotropic</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\nonEquilibrium\nonEquilibrium.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\TimeScaleModels\nonEquilibrium</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\ParticleStressModel\ParticleStressModel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\ParticleStressModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\Lun\Lun.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\Lun</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\HarrisCrighton\HarrisCrighton.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\HarrisCrighton</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\exponential\exponentialParticleStressModel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\ParticleStressModels\exponential</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\PackingModel\PackingModel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\PackingModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Explicit\Explicit.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Explicit</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Implicit\Implicit.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\Implicit</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\NoPacking\NoPacking.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\MPPIC\PackingModels\NoPacking</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\clouds\Templates\ThermoCloud\ThermoCloudTemplate.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\clouds\Templates\ThermoCloud</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud\KinematicCloudTemplate.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud\cloudSolution\cloudSolution.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\clouds\Templates\KinematicCloud\cloudSolution</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\integrationScheme\integrationScheme\integrationScheme.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\integrationScheme\integrationScheme</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\integrationScheme\integrationScheme\integrationSchemeNew.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\integrationScheme\integrationScheme</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\integrationScheme\integrationScheme\integrationSchemeTemplates.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\integrationScheme\integrationScheme</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\integrationScheme\analytical\analytical.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\integrationScheme\analytical</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\integrationScheme\Euler\Euler.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\integrationScheme\Euler</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\HeatTransferModel\HeatTransferModelNew.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\HeatTransferModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\HeatTransferModel\HeatTransferModel.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\HeatTransferModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\NoHeatTransfer\NoHeatTransfer.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\NoHeatTransfer</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\RanzMarshall\RanzMarshall.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Thermodynamic\HeatTransferModel\RanzMarshall</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelTemplate.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelTemplateList.cxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

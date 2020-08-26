@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _InjectionModelList_Header
-#define _InjectionModelList_Header
+#ifndef _NoComposition_Header
+#define _NoComposition_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2012-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,18 +26,18 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::InjectionModelList
+	tnbLib::NoComposition
 
 Description
-	List of injection models
+	Dummy class for 'none' option - will raise an error if any functions are
+	called that require return values.
 
 SourceFiles
-	InjectionModelListList.C
+	NoComposition.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <PtrList.hxx>
-#include <InjectionModel.hxx>
+#include <CompositionModel.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -45,89 +45,63 @@ namespace tnbLib
 {
 
 	/*---------------------------------------------------------------------------*\
-						 Class InjectionModelList Declaration
+						  Class NoComposition Declaration
 	\*---------------------------------------------------------------------------*/
 
 	template<class CloudType>
-	class InjectionModelList
+	class NoComposition
 		:
-		public PtrList<InjectionModel<CloudType>>
+		public CompositionModel<CloudType>
 	{
 	public:
 
+		//- Runtime type information
+		TypeName("none");
+
+
 		// Constructors
 
-			//- Construct null from owner
-		InjectionModelList(CloudType& owner);
-
-		//- Construct from dictionary and cloud owner
-		InjectionModelList(const dictionary& dict, CloudType& owner);
+			//- Construct from dictionary
+		NoComposition(const dictionary& dict, CloudType& owner);
 
 		//- Construct copy
-		InjectionModelList(const InjectionModelList<CloudType>& im);
+		NoComposition(const NoComposition<CloudType>& cm);
 
 		//- Construct and return a clone
-		virtual autoPtr<InjectionModelList<CloudType>> clone() const
+		virtual autoPtr<CompositionModel<CloudType>> clone() const
 		{
-			return autoPtr<InjectionModelList<CloudType>>
+			return autoPtr<CompositionModel<CloudType>>
 				(
-					new InjectionModelList<CloudType>(*this)
+					new NoComposition<CloudType>(*this)
 					);
 		}
 
 
 		//- Destructor
-		virtual ~InjectionModelList();
-
+		virtual ~NoComposition();
 
 
 		// Member Functions
 
 			// Access
 
-				//- Return the minimum start-of-injection time
-		scalar timeStart() const;
+				// Mixture properties
 
-		//- Return the maximum end-of-injection time
-		scalar timeEnd() const;
+					//- Return the list of mixture mass fractions
+					//  If only 1 phase, return component fractions of that phase
+		virtual const scalarField& YMixture0() const;
 
-		//- Volume of parcels to introduce relative to SOI
-		scalar volumeToInject(const scalar time0, const scalar time1);
+		// Indices of gas, liquid and solid phases in phase properties
+		// list
 
-		//- Return the average parcel mass
-		scalar averageParcelMass();
+			//- Gas id
+		virtual label idGas() const;
 
+		//- Liquid id
+		virtual label idLiquid() const;
 
-		// Edit
-
-			//- Set injector locations when mesh is updated
-		void updateMesh();
-
-
-		// Per-injection event functions
-
-			//- Main injection loop
-		template<class TrackCloudType>
-		void inject
-		(
-			TrackCloudType& cloud,
-			typename CloudType::parcelType::trackingData& td
-		);
-
-		//- Main injection loop - steady-state
-		template<class TrackCloudType>
-		void injectSteadyState
-		(
-			TrackCloudType& cloud,
-			typename CloudType::parcelType::trackingData& td,
-			const scalar trackTime
-		);
-
-
-		// I-O
-
-			//- Write injection info to stream
-		virtual void info(Ostream& os);
+		//- Solid id
+		virtual label idSolid() const;
 	};
 
 
@@ -138,9 +112,9 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <InjectionModelList.cxx>
+#include <NoComposition.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_InjectionModelList_Header
+#endif // !_NoComposition_Header

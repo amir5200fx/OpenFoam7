@@ -48,7 +48,7 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
-#include <InjectionModel.hxx>
+#include <InjectionModelTemplate.hxx>
 #include <patchInjectionBase.hxx>
 #include <TimeFunction1.hxx>
 

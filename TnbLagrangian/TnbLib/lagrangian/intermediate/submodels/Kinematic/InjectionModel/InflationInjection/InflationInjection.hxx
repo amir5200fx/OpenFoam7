@@ -39,7 +39,7 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
-#include <InjectionModel.hxx>
+#include <InjectionModelTemplate.hxx>
 #include <distributionModel.hxx>
 #include <Switch.hxx>
 

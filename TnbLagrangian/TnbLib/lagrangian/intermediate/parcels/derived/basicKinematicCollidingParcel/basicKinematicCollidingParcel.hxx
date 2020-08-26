@@ -26,7 +26,7 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	Foam::basicKinematicCollidingParcel
+	tnbLib::basicKinematicCollidingParcel
 
 Description
 	Definition of basic kinematic colliding parcel
@@ -38,6 +38,23 @@ SourceFiles
 
 #include <contiguous.hxx>
 #include <particle.hxx>
+#include <KinematicParcel.hxx>
+#include <CollidingParcel.hxx>
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+namespace tnbLib
+{
+	typedef CollidingParcel<KinematicParcel<particle>>
+		basicKinematicCollidingParcel;
+
+	template<>
+	inline bool contiguous<basicKinematicCollidingParcel>()
+	{
+		return true;
+	}
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #endif // !_basicKinematicCollidingParcel_Header

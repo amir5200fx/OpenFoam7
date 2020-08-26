@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _InjectionModel_Header
-#define _InjectionModel_Header
+#ifndef _InjectionModelTemplate_Header
+#define _InjectionModelTemplate_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -386,14 +386,14 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <InjectionModelI.hxx>
+#include <InjectionModelTemplateI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <InjectionModel.cxx>
+#include <InjectionModelTemplate.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_InjectionModel_Header
+#endif // !_InjectionModelTemplate_Header
