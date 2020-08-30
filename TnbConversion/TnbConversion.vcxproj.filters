@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{97bc0439-de67-4244-bce4-5f1b2d160cd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\conversion">
+      <UniqueIdentifier>{71c0a896-de8a-4c9e-bead-2c0847b73aaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\conversion\ensight">
+      <UniqueIdentifier>{741509b1-68ae-4689-80ee-559c1216cd78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\conversion\ensight\file">
+      <UniqueIdentifier>{27b0537d-9849-438e-88ca-dc6480ed73ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\conversion\ensight\part">
+      <UniqueIdentifier>{e7fed457-aaff-455a-a90b-9f90a37da0bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\conversion\meshReader">
+      <UniqueIdentifier>{d72b3839-eed2-44c7-b8c3-4a2c5349072a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\conversion\meshTables">
+      <UniqueIdentifier>{344f261a-9e26-473d-9395-d6eb53604354}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\conversion\meshWriter">
+      <UniqueIdentifier>{bd14b21f-98dd-40c3-967e-ed9017a0849a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\conversion\polyDualMesh">
+      <UniqueIdentifier>{3915930b-40cd-4215-b5fb-c05915d744ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\conversion\meshReader\starcd">
+      <UniqueIdentifier>{d1208220-7b4c-4ee5-90e1-75890b9ed98a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\conversion\meshWriter\starcd">
+      <UniqueIdentifier>{010897e0-e349-4858-8a08-90ab1cc663b8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\conversion\ensight\file\ensightFile.cxx">
+      <Filter>TnbLib\conversion\ensight\file</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\ensight\file\ensightGeoFile.cxx">
+      <Filter>TnbLib\conversion\ensight\file</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPart.cxx">
+      <Filter>TnbLib\conversion\ensight\part</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartCells.cxx">
+      <Filter>TnbLib\conversion\ensight\part</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartFaces.cxx">
+      <Filter>TnbLib\conversion\ensight\part</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartIO.cxx">
+      <Filter>TnbLib\conversion\ensight\part</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightParts.cxx">
+      <Filter>TnbLib\conversion\ensight\part</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartsTemplates.cxx">
+      <Filter>TnbLib\conversion\ensight\part</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartTemplates.cxx">
+      <Filter>TnbLib\conversion\ensight\part</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\meshReader\starcd\STARCDMeshReader.cxx">
+      <Filter>TnbLib\conversion\meshReader\starcd</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\meshTables\cellTable.cxx">
+      <Filter>TnbLib\conversion\meshTables</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\meshTables\boundaryRegion.cxx">
+      <Filter>TnbLib\conversion\meshTables</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\meshReader\meshReader.cxx">
+      <Filter>TnbLib\conversion\meshReader</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\meshReader\meshReaderAux.cxx">
+      <Filter>TnbLib\conversion\meshReader</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\meshReader\createPolyCells.cxx">
+      <Filter>TnbLib\conversion\meshReader</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\meshReader\createPolyBoundary.cxx">
+      <Filter>TnbLib\conversion\meshReader</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\meshReader\calcPointCells.cxx">
+      <Filter>TnbLib\conversion\meshReader</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\meshWriter\meshWriter.cxx">
+      <Filter>TnbLib\conversion\meshWriter</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\meshWriter\starcd\STARCDMeshWriter.cxx">
+      <Filter>TnbLib\conversion\meshWriter\starcd</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\conversion\polyDualMesh\polyDualMesh.cxx">
+      <Filter>TnbLib\conversion\polyDualMesh</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\conversion\ensight\file\ensightFile.hxx">
+      <Filter>TnbLib\conversion\ensight\file</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\ensight\file\ensightGeoFile.hxx">
+      <Filter>TnbLib\conversion\ensight\file</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\ensight\part\ensightPart.hxx">
+      <Filter>TnbLib\conversion\ensight\part</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\ensight\part\ensightPartCells.hxx">
+      <Filter>TnbLib\conversion\ensight\part</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\ensight\part\ensightPartFaces.hxx">
+      <Filter>TnbLib\conversion\ensight\part</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\ensight\part\ensightParts.hxx">
+      <Filter>TnbLib\conversion\ensight\part</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\meshReader\starcd\STARCDMeshReader.hxx">
+      <Filter>TnbLib\conversion\meshReader\starcd</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\meshReader\meshReader.hxx">
+      <Filter>TnbLib\conversion\meshReader</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\meshTables\cellTable.hxx">
+      <Filter>TnbLib\conversion\meshTables</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\meshTables\boundaryRegion.hxx">
+      <Filter>TnbLib\conversion\meshTables</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\meshWriter\meshWriter.hxx">
+      <Filter>TnbLib\conversion\meshWriter</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\meshWriter\starcd\STARCDMeshWriter.hxx">
+      <Filter>TnbLib\conversion\meshWriter\starcd</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\polyDualMesh\polyDualMesh.hxx">
+      <Filter>TnbLib\conversion\polyDualMesh</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

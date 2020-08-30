@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\conversion\ensight\file\ensightFile.cxx" />
+    <ClCompile Include="TnbLib\conversion\ensight\file\ensightGeoFile.cxx" />
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPart.cxx" />
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartCells.cxx" />
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartFaces.cxx" />
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartIO.cxx" />
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightParts.cxx" />
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartsTemplates.cxx" />
+    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartTemplates.cxx" />
+    <ClCompile Include="TnbLib\conversion\meshReader\calcPointCells.cxx" />
+    <ClCompile Include="TnbLib\conversion\meshReader\createPolyBoundary.cxx" />
+    <ClCompile Include="TnbLib\conversion\meshReader\createPolyCells.cxx" />
+    <ClCompile Include="TnbLib\conversion\meshReader\meshReader.cxx" />
+    <ClCompile Include="TnbLib\conversion\meshReader\meshReaderAux.cxx" />
+    <ClCompile Include="TnbLib\conversion\meshReader\starcd\STARCDMeshReader.cxx" />
+    <ClCompile Include="TnbLib\conversion\meshTables\boundaryRegion.cxx" />
+    <ClCompile Include="TnbLib\conversion\meshTables\cellTable.cxx" />
+    <ClCompile Include="TnbLib\conversion\meshWriter\meshWriter.cxx" />
+    <ClCompile Include="TnbLib\conversion\meshWriter\starcd\STARCDMeshWriter.cxx" />
+    <ClCompile Include="TnbLib\conversion\polyDualMesh\polyDualMesh.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\conversion\ensight\file\ensightFile.hxx" />
+    <ClInclude Include="TnbLib\conversion\ensight\file\ensightGeoFile.hxx" />
+    <ClInclude Include="TnbLib\conversion\ensight\part\ensightPart.hxx" />
+    <ClInclude Include="TnbLib\conversion\ensight\part\ensightPartCells.hxx" />
+    <ClInclude Include="TnbLib\conversion\ensight\part\ensightPartFaces.hxx" />
+    <ClInclude Include="TnbLib\conversion\ensight\part\ensightParts.hxx" />
+    <ClInclude Include="TnbLib\conversion\meshReader\meshReader.hxx" />
+    <ClInclude Include="TnbLib\conversion\meshReader\starcd\STARCDMeshReader.hxx" />
+    <ClInclude Include="TnbLib\conversion\meshTables\boundaryRegion.hxx" />
+    <ClInclude Include="TnbLib\conversion\meshTables\cellTable.hxx" />
+    <ClInclude Include="TnbLib\conversion\meshWriter\meshWriter.hxx" />
+    <ClInclude Include="TnbLib\conversion\meshWriter\starcd\STARCDMeshWriter.hxx" />
+    <ClInclude Include="TnbLib\conversion\polyDualMesh\polyDualMesh.hxx" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{67F2BDF8-7CB4-475C-BC9C-5C7A97635CEE}</ProjectGuid>
+    <RootNamespace>TnbConversion</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\conversion\ensight\file;$(ProjectDir)TnbLib\conversion\ensight\part;$(ProjectDir)TnbLib\conversion\meshReader\starcd;$(ProjectDir)TnbLib\conversion\meshReader;$(ProjectDir)TnbLib\conversion\meshTables;$(ProjectDir)TnbLib\conversion\meshWriter\starcd;$(ProjectDir)TnbLib\conversion\meshWriter;$(ProjectDir)TnbLib\conversion\polyDualMesh;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
+if not exist "$(ProjectDir)include" mkdir "$(ProjectDir)include"
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\conversion\ensight\file;$(ProjectDir)TnbLib\conversion\ensight\part;$(ProjectDir)TnbLib\conversion\meshReader\starcd;$(ProjectDir)TnbLib\conversion\meshReader;$(ProjectDir)TnbLib\conversion\meshTables;$(ProjectDir)TnbLib\conversion\meshWriter\starcd;$(ProjectDir)TnbLib\conversion\meshWriter;$(ProjectDir)TnbLib\conversion\polyDualMesh;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
