@@ -4,11 +4,11 @@
 #include <interpolation.hxx>
 #include <subCycleTime.hxx>
 
-#include <InjectionModelList.hxx>
+#include <InjectionModelTemplateList.hxx>
 #include <DispersionModel.hxx>
 #include <PatchInteractionModel.hxx>
 #include <StochasticCollisionModel.hxx>
-#include <SurfaceFilmModel.hxx>
+#include <SurfaceFilmModelTemplate.hxx>
 
 // * * * * * * * * * * * * * Protected Member Functions  * * * * * * * * * * //
 
