@@ -6,7 +6,7 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2013-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,95 +26,70 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::Euler
+	tnbLib::integrationSchemes::Euler
 
 Description
-	Euler ODE solver of order (0)1.
+	Euler-implicit integration scheme.
 
-	The method calculates the new state from:
 	\f[
-		y_{n+1} = y_n + \delta_x f
+		\Delta \phi = (A - B \phi^n) \frac{\Delta t}{1 + B \Delta t}
 	\f]
-	The error is estimated directly from the change in the solution,
-	i.e. the difference between the 0th and 1st order solutions:
-	\f[
-		err_{n+1} = y_{n+1} - y_n
-	\f]
-
-SourceFiles
-	Euler.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <ODESolver.hxx>
-#include <adaptiveSolver.hxx>
+#include <integrationScheme.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-
-	/*---------------------------------------------------------------------------*\
-							   Class Euler Declaration
-	\*---------------------------------------------------------------------------*/
-
-	class Euler
-		:
-		public ODESolver,
-		public adaptiveSolver
+	namespace integrationSchemes
 	{
-		// Private Data
 
-		mutable scalarField err_;
+		/*---------------------------------------------------------------------------*\
+								   Class Euler Declaration
+		\*---------------------------------------------------------------------------*/
 
+		class Euler
+			:
+			public integrationScheme
+		{
+		public:
 
-	public:
-
-		//- Runtime type information
-		TypeName("Euler");
-
-
-		// Constructors
-
-			//- Construct from ODESystem
-		Euler(const ODESystem& ode, const dictionary& dict);
+			//- Runtime type information
+			TypeName("Euler");
 
 
-		//- Destructor
-		virtual ~Euler()
-		{}
+			// Constructors
+
+				//- Construct
+			Euler();
+
+			//- Construct and return clone
+			virtual autoPtr<integrationScheme> clone() const
+			{
+				return autoPtr<integrationScheme>(new Euler(*this));
+			}
 
 
-		// Member Functions
-
-			//- Inherit solve from ODESolver
-		using ODESolver::solve;
-
-		//- Resize the ODE solver
-		virtual bool resize();
-
-		//- Solve a single step dx and return the error
-		virtual scalar solve
-		(
-			const scalar x0,
-			const scalarField& y0,
-			const scalarField& dydx0,
-			const scalar dx,
-			scalarField& y
-		) const;
-
-		//- Solve the ODE system and the update the state
-		virtual void solve
-		(
-			scalar& x,
-			scalarField& y,
-			scalar& dxTry
-		) const;
-	};
+			//- Destructor
+			virtual ~Euler();
 
 
-	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+			// Member Functions
 
+				//- Return the integration effective time step
+			virtual scalar dtEff(const scalar dt, const scalar Beta) const;
+
+			//- Return the integral of the effective time step (using an Euler
+			//  integration method)
+			virtual scalar sumDtEff(const scalar dt, const scalar Beta) const;
+		};
+
+
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+	} // End namespace integrationSchemes
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
