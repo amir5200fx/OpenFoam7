@@ -112,9 +112,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ProcessorTopologyTemplate.cxx>
-#endif
+#include <ProcessorTopologyTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <ProcessorTopologyTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -115,9 +115,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ResidualsTemplates.cxx>
-#endif
+#include <ResidualsI.hxx>
+
+//#ifdef NoRepository
+//#include <ResidualsTemplates.cxx>
+//#endif
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

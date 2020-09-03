@@ -258,10 +258,11 @@ namespace tnbLib
 } // End namespace tnbLib
 
 #include <boundBoxI.hxx>
+#include <boundBoxTemplatesI.hxx>
 
-#ifdef NoRepository
-#include <boundBoxTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <boundBoxTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

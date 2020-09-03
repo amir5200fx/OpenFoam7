@@ -387,10 +387,11 @@ namespace tnbLib
 
 
 #include <treeBoundBoxI.hxx>
+#include <treeBoundBoxTemplatesI.hxx>
 
-#ifdef NoRepository
-#include <treeBoundBoxTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <treeBoundBoxTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

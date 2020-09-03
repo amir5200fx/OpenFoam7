@@ -322,9 +322,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <MeshObject.cxx>
-#endif
+#include <MeshObjectTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <MeshObjectTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

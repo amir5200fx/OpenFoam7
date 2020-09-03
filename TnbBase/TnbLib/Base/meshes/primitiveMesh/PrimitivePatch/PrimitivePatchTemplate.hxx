@@ -533,9 +533,21 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PrimitivePatch.cxx>
-#endif
+#include <PrimitivePatchTemplateI.hxx>
+#include <PrimitivePatchAddressingI.hxx>
+#include <PrimitivePatchEdgeLoopsI.hxx>
+#include <PrimitivePatchClearI.hxx>
+#include <PrimitivePatchBdryPointsI.hxx>
+#include <PrimitivePatchLocalPointOrderI.hxx>
+#include <PrimitivePatchMeshDataI.hxx>
+#include <PrimitivePatchMeshEdgesI.hxx>
+#include <PrimitivePatchPointAddressingI.hxx>
+#include <PrimitivePatchProjectPointsI.hxx>
+#include <PrimitivePatchCheckI.hxx>
+
+//#ifdef NoRepository
+//#include <PrimitivePatchTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

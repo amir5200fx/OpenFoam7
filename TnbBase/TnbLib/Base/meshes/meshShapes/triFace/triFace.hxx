@@ -295,10 +295,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <triFaceI.hxx>
+#include <triFaceTemplatesI.hxx>
 
-#ifdef NoRepository
-#include <triFaceTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <triFaceTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

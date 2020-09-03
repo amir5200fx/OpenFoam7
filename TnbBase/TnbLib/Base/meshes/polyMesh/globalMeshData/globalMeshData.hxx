@@ -626,9 +626,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <globalMeshDataTemplates.cxx>
-#endif
+#include <globalMeshDataTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <globalMeshDataTemplates.cxx>
+//#endif
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

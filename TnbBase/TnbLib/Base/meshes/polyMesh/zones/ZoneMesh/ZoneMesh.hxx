@@ -204,9 +204,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ZoneMesh.cxx>
-#endif
+#include <ZoneMeshI.hxx>
+
+//#ifdef NoRepository
+//#include <ZoneMesh.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

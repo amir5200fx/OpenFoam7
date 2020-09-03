@@ -257,9 +257,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <globalIndexTemplates.cxx>
-#endif
+#include <globalIndexTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <globalIndexTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
