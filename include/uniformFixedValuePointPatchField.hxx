@@ -173,9 +173,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <uniformFixedValuePointPatchField.cxx>
-#endif
+#include <uniformFixedValuePointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <uniformFixedValuePointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

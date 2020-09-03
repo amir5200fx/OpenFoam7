@@ -1,0 +1,7 @@
+tnbLib::label startTime = 0;
+
+// Unless -constant is present, skip startTime if it is "constant"
+#include <checkConstantOption.lxx>
+
+// Check -time and -latestTime options
+#include <checkTimeOption.lxx>

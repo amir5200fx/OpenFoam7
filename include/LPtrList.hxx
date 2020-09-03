@@ -276,9 +276,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <LPtrList.cxx>
-#endif
+#include <LPtrList_Imp.hxx>
+#include <LPtrListIO_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <LPtrList.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

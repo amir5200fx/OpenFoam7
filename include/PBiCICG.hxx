@@ -99,9 +99,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PBiCICG.cxx>
-#endif
+#include <PBiCICGI.hxx>
+
+//#ifdef NoRepository
+//#include <PBiCICG.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

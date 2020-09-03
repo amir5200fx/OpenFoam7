@@ -95,9 +95,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <DiagonalSolverTemplate.cxx>
-#endif
+#include <DiagonalSolverTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <DiagonalSolverTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

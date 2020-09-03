@@ -224,9 +224,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <valuePointPatchField.cxx>
-#endif
+#include <valuePointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <valuePointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

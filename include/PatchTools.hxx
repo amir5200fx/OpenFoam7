@@ -265,9 +265,19 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PatchTools.cxx>
-#endif
+#include <PatchToolsCheckI.hxx>
+#include <PatchToolsEdgeOwnerI.hxx>
+#include <PatchToolsGatherAndMergeI.hxx>
+#include <PatchToolsSearchI.hxx>
+#include <PatchToolsSortEdgesI.hxx>
+#include <PatchToolsSortPointsI.hxx>
+#include <PatchToolsNormalsI.hxx>
+#include <PatchToolsMatchI.hxx>
+
+
+//#ifdef NoRepository
+//#include <PatchTools.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

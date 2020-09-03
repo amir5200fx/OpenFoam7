@@ -720,10 +720,12 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <GeometricFieldI.hxx>
+#include <GeometricField_Imp.hxx>
+#include <GeometricBoundaryField_Imp.hxx>
 
-#ifdef NoRepository
-#include <GeometricField.cxx>
-#endif
+//#ifdef NoRepository
+//#include <GeometricField.cxx>
+//#endif
 
 #include <GeometricFieldFunctions.hxx>
 

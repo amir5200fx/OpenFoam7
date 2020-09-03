@@ -147,9 +147,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <writeFileTemplates.cxx>
-#endif
+#include <writeFileI.hxx>
+
+//#ifdef NoRepository
+//#include <writeFileTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

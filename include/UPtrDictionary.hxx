@@ -76,9 +76,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <UPtrDictionary.cxx>
-#endif
+#include <UPtrDictionaryI.hxx>
+
+//#ifdef NoRepository
+//#include <UPtrDictionary.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

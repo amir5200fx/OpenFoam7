@@ -157,9 +157,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fixedNormalSlipPointPatchField.cxx>
-#endif
+#include <fixedNormalSlipPointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <fixedNormalSlipPointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

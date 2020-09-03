@@ -254,9 +254,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <codedFixedValuePointPatchField.cxx>
-#endif
+#include <codedFixedValuePointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <codedFixedValuePointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

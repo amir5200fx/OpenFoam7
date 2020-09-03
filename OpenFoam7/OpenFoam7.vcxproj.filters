@@ -4,10 +4,49 @@
     <Filter Include="main">
       <UniqueIdentifier>{9700c0ed-f62b-445c-b564-2a709ac03aa4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="applications">
+      <UniqueIdentifier>{aa57a627-4806-485f-8dd5-0c19b7b9e412}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test">
+      <UniqueIdentifier>{9a34d45b-2171-49e7-acf3-e62bdf7f5142}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\alloc">
+      <UniqueIdentifier>{0e6be729-a7e8-424e-9134-f132fd81ba9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\BinSum">
+      <UniqueIdentifier>{364ce403-f2e0-4734-ab02-64952fc1f6e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\List">
+      <UniqueIdentifier>{b886c524-a1ae-4adb-be88-4a183682a57c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\DLList">
+      <UniqueIdentifier>{fcc1baaa-c12f-4d8c-848b-92cb18764e9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\DynamicField">
+      <UniqueIdentifier>{f3159021-57a8-4498-add4-4aefbe110288}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cxx">
       <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\alloc\Test-new.cxx">
+      <Filter>applications\test\alloc</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\alloc\Test-malloc.cxx">
+      <Filter>applications\test\alloc</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\BinSum\Test-BinSum.cxx">
+      <Filter>applications\test\BinSum</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\List\Test-List.cxx">
+      <Filter>applications\test\List</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\DLList\Test-DLList.cxx">
+      <Filter>applications\test\DLList</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\DynamicField\Test-DynamicField.cxx">
+      <Filter>applications\test\DynamicField</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

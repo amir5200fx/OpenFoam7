@@ -49,12 +49,15 @@ namespace tnbLib
 							   Class DLListBase Declaration
 	\*---------------------------------------------------------------------------*/
 
+	
+
 	class DLListBase
 	{
 
 	public:
 
 		//- Link structure
+		
 		struct link
 		{
 			//- Pointer to next entry in list
@@ -69,7 +72,6 @@ namespace tnbLib
 			//- Deregister the link after removal
 			inline void deregister();
 		};
-
 
 	private:
 

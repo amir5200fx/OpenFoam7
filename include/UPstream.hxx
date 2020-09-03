@@ -42,7 +42,7 @@ SourceFiles
 
 #include <labelList.hxx>
 #include <DynamicList.hxx>
-#include <HashTable.hxx>
+//#include <HashTable.hxx>
 #include <tnbString.hxx>
 #include <NamedEnum.hxx>
 #include <ListOps.hxx>
@@ -52,6 +52,12 @@ SourceFiles
 
 namespace tnbLib
 {
+
+	// Forward Declarations
+	template<class T, unsigned SizeInc = 0, unsigned SizeMult = 2, unsigned SizeDiv = 1>
+	class DynamicList;
+
+	template<class T, class Key, class Hash> class HashTable;
 
 	/*---------------------------------------------------------------------------*\
 							  Class UPstream Declaration

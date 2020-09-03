@@ -309,12 +309,14 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <UPtrListI.hxx>
+#include <UPtrList_Imp.hxx>
+#include <UPtrListIO_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <UPtrList.cxx>
-#endif
+//#ifdef NoRepository
+//#include <UPtrList.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

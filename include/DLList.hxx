@@ -2,9 +2,6 @@
 #ifndef _DLList_Header
 #define _DLList_Header
 
-#include <LList.hxx>
-#include <DLListBase.hxx>
-
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -35,6 +32,9 @@ Description
 	Non-intrusive doubly-linked list.
 
 \*---------------------------------------------------------------------------*/
+
+#include <LList.hxx>
+#include <DLListBase.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

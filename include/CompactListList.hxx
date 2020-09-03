@@ -258,12 +258,14 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <CompactListListI.hxx>
+#include <CompactListList_Imp.hxx>
+#include <CompactListListIO_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <CompactListList.cxx>
-#endif
+//#ifdef NoRepository
+//#include <CompactListList.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

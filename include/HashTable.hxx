@@ -560,14 +560,16 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <HashTableI.hxx>
+#include <HashTable_Imp.hxx>
+#include <HashTableIO_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifndef NoHashTableC
-#ifdef NoRepository
-#include <HashTable.cxx>
-#endif
-#endif
+//#ifndef NoHashTableC
+//#ifdef NoRepository
+//#include <HashTable.cxx>  // Edited by amir
+//#endif
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

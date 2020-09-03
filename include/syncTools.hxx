@@ -617,9 +617,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <syncToolsTemplates.cxx>
-#endif
+#include <syncToolsI.hxx>
+
+//#ifdef NoRepository
+//#include <syncToolsTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -143,9 +143,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <wedgePointPatchField.cxx>
-#endif
+#include <wedgePointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <wedgePointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

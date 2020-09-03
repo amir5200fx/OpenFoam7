@@ -121,9 +121,11 @@ namespace tnbLib
 
 //#include <undefFieldFunctionsM.hxx>
 
-#ifdef NoRepository
-#include <DimensionedSphericalTensorField.cxx>
-#endif
+#include <DimensionedSphericalTensorFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <DimensionedSphericalTensorField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

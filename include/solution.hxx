@@ -159,9 +159,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <solutionTemplates.cxx>
-#endif
+#include <solutionTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <solutionTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

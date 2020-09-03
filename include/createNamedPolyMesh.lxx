@@ -1,0 +1,26 @@
+tnbLib::word regionName;
+
+if (args.optionReadIfPresent("region", regionName))
+{
+    tnbLib::Info
+        << "Create polyMesh " << regionName << " for time = "
+        << runTime.timeName() << tnbLib::nl << tnbLib::endl;
+}
+else
+{
+    regionName = tnbLib::polyMesh::defaultRegion;
+    tnbLib::Info
+        << "Create polyMesh for time = "
+        << runTime.timeName() << tnbLib::nl << tnbLib::endl;
+}
+
+tnbLib::polyMesh mesh
+(
+    tnbLib::IOobject
+    (
+        regionName,
+        runTime.timeName(),
+        runTime,
+        tnbLib::IOobject::MUST_READ
+    )
+);

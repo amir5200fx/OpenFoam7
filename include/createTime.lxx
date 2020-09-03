@@ -1,0 +1,3 @@
+tnbLib::Info<< "Create time\n" << tnbLib::endl;
+
+tnbLib::Time runTime(tnbLib::Time::controlDictName, args);

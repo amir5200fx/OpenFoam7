@@ -143,9 +143,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <TimeFunction1.cxx>
-#endif
+#include <TimeFunction1I.hxx>
+
+//#ifdef NoRepository
+//#include <TimeFunction1.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

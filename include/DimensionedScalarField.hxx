@@ -410,21 +410,21 @@ namespace tnbLib
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#define BesselFunc(func)                                                       \
-                                                                               \
-template<class GeoMesh>                                                        \
-tmp<DimensionedField<scalar, GeoMesh>> func                                    \
-(                                                                              \
-    const int n,                                                               \
-    const DimensionedField<scalar, GeoMesh>&                                   \
-);                                                                             \
-                                                                               \
-template<class GeoMesh>                                                        \
-tmp<DimensionedField<scalar, GeoMesh>> func                                    \
-(                                                                              \
-    const int n,                                                               \
-    const tmp<DimensionedField<scalar, GeoMesh>>&                              \
-);
+//#define BesselFunc(func)                                                       \
+//                                                                               \
+//template<class GeoMesh>                                                        \
+//tmp<DimensionedField<scalar, GeoMesh>> func                                    \
+//(                                                                              \
+//    const int n,                                                               \
+//    const DimensionedField<scalar, GeoMesh>&                                   \
+//);                                                                             \
+//                                                                               \
+//template<class GeoMesh>                                                        \
+//tmp<DimensionedField<scalar, GeoMesh>> func                                    \
+//(                                                                              \
+//    const int n,                                                               \
+//    const tmp<DimensionedField<scalar, GeoMesh>>&                              \
+//);
 
 		
 	template <class GeoMesh>
@@ -437,7 +437,7 @@ tmp<DimensionedField<scalar, GeoMesh>> func                                    \
 	template <class GeoMesh>
 	tmp<DimensionedField<scalar, GeoMesh>> yn(const int n, const tmp<DimensionedField<scalar, GeoMesh>>&);
 
-#undef BesselFunc
+//#undef BesselFunc
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -448,9 +448,11 @@ tmp<DimensionedField<scalar, GeoMesh>> func                                    \
 
 //#include <undefFieldFunctionsM.hxx>
 
-#ifdef NoRepository
-#include <DimensionedScalarField.cxx>
-#endif
+#include <DimensionedScalarFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <DimensionedScalarField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -168,10 +168,13 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <Polynomial.cxx>
-#include <PolynomialIO.cxx>
-#endif
+#include <Polynomial_Imp.hxx>
+#include <PolynomialIO_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <Polynomial.cxx>
+//#include <PolynomialIO.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

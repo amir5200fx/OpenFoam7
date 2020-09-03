@@ -172,10 +172,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <SquareI.hxx>
+#include <Square_Imp.hxx>
 
-#ifdef NoRepository
-#include <Square.cxx>
-#endif
+//#ifdef NoRepository
+//#include <Square.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -98,9 +98,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SmoothSolverTemplate.cxx>
-#endif
+#include <SmoothSolverTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <SmoothSolverTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -116,9 +116,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <TDILUPreconditioner.cxx>
-#endif
+#include <TDILUPreconditionerI.hxx>
+
+//#ifdef NoRepository
+//#include <TDILUPreconditioner.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

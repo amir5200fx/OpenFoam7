@@ -141,9 +141,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <BinSum.cxx>
-#endif
+//#ifdef NoRepository
+//#include <BinSum.cxx>
+//#endif
+
+#include <BinSumI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -86,9 +86,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <DictionaryTemplate.cxx>
-#endif
+#include <DictionaryTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <DictionaryTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

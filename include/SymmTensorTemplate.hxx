@@ -130,8 +130,9 @@ namespace tnbLib
 		// Member Operators
 
 			//- Inherit VectorSpace assignment operators
-		using SymmTensor::vsType::operator=;
-
+		//using SymmTensor::vsType::operator=;
+		using VectorSpace<SymmTensor<Cmpt>, Cmpt, 6>::operator =;
+		
 		//- Assign to given SphericalTensor
 		inline void operator=(const SphericalTensor<Cmpt>&);
 	};

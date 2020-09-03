@@ -183,7 +183,7 @@ namespace tnbLib
 }
 
 #ifdef NoRepository
-#   include "HashTable.cxx"
+//#   include "HashTable.cxx"  // Edited by amir
 #endif
 
 #endif // !_Istream_Header

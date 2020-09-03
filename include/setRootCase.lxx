@@ -1,0 +1,5 @@
+tnbLib::argList args(argc, argv);
+if (!args.checkRootCase())
+{
+    tnbLib::FatalError.exit();
+}

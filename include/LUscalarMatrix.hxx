@@ -139,9 +139,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <LUscalarMatrixTemplates.cxx>
-#endif
+#include <LUscalarMatrixTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <LUscalarMatrixTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

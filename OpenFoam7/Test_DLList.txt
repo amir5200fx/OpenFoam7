@@ -1,0 +1,73 @@
+
+And again using STL iterator: 
+
+element:0
+element:1.3
+element:2.6
+element:3.9
+element:5.2
+element:6.5
+element:7.8
+element:9.1
+element:10.4
+element:11.7
+element:100.3
+element:500.3
+
+And again using the same STL iterator: 
+
+Removing 0
+Removing 1.3
+Removing 2.6
+Removing 3.9
+Removing 5.2
+Removing 6.5
+Removing 7.8
+Removing 9.1
+Removing 10.4
+Removing 11.7
+Removing 100.3
+Removing 500.3
+
+And again using STL const_iterator: 
+
+element:500.3
+element:200.3
+element:100.3
+
+Testing swapUp and swapDown: 
+
+swapUp
+element:500.3
+element:100.3
+element:200.3
+
+swapDown
+element:100.3
+element:500.3
+element:200.3
+
+Testing transfer: 
+
+original: 
+3
+(
+100.3
+500.3
+200.3
+)
+
+source: 
+0
+(
+)
+
+target: 
+3
+(
+100.3
+500.3
+200.3
+)
+
+Done.

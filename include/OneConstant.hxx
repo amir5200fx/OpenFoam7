@@ -122,10 +122,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <OneConstantI.hxx>
+#include <OneConstant_Imp.hxx>
 
-#ifdef NoRepository
-#include <OneConstant.cxx>
-#endif
+//#ifdef NoRepository
+//#include <OneConstant.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

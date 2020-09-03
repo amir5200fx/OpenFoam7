@@ -104,11 +104,12 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <ConstantI.hxx>
+#include <Constant_Imp.hxx>
 
-#ifdef NoRepository
-#include <Constant.cxx>
-#include <Function1New.cxx>
-#endif
+//#ifdef NoRepository
+//#include <Constant.cxx>
+//#include <Function1New.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * // 
 

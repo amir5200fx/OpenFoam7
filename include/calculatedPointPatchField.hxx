@@ -126,9 +126,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <calculatedPointPatchField.cxx>
-#endif
+#include <calculatedPointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <calculatedPointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
