@@ -144,9 +144,11 @@ namespace tnbLib
 
 //#include <undefFieldFunctionsM.hxx>
 
-#ifdef NoRepository
-#include <DimensionedTensorField.cxx>
-#endif
+#include <DimensionedTensorFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <DimensionedTensorField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

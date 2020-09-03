@@ -30,47 +30,53 @@ tnbLib::jobInfo::jobInfo()
 	finishedJobPath_(),
 	cpuTime_()
 {
-	name() = "jobInfo";
+	//name() = "jobInfo";
 
-	if (Pstream::master())
-	{
-		if (writeJobControl)
-		{
-			string baseDir = getEnv("FOAM_JOB_DIR");
-			string jobFile = hostName() + '.' + tnbLib::name(pid());
+	//if (Pstream::master())
+	//{
 
-			fileName runningDir(baseDir / "runningJobs");
-			fileName finishedDir(baseDir / "finishedJobs");
+	//	cout << "writeJobControl = " << writeJobControl << std::endl;
+	//	system("pause");
+	//	//if (writeJobControl)
+	//		if (1)
+	//	{
+	//		string baseDir = getEnv("FOAM_JOB_DIR");
+	//		string jobFile = hostName() + '.' + tnbLib::name(pid());
+	//		cout << "base dir = " << baseDir << std::endl;
+	//		cout << "job file= " << jobFile << std::endl;
+	//		system("pause");
+	//		fileName runningDir(baseDir / "runningJobs");
+	//		fileName finishedDir(baseDir / "finishedJobs");
 
-			runningJobPath_ = runningDir / jobFile;
-			finishedJobPath_ = finishedDir / jobFile;
+	//		runningJobPath_ = runningDir / jobFile;
+	//		finishedJobPath_ = finishedDir / jobFile;
+	//		cout << "job path = " << runningJobPath_ << std::endl;
+	//		if (baseDir.empty())
+	//		{
+	//			FatalErrorInFunction
+	//				<< "Cannot get jobInfo directory $FOAM_JOB_DIR"
+	//				<< tnbLib::exit(FatalError);
+	//		}
 
-			if (baseDir.empty())
-			{
-				FatalErrorInFunction
-					<< "Cannot get jobInfo directory $FOAM_JOB_DIR"
-					<< tnbLib::exit(FatalError);
-			}
+	//		if (!isDir(runningDir) && !mkDir(runningDir))
+	//		{
+	//			FatalErrorInFunction
+	//				<< "Cannot make jobInfo directory " << runningDir
+	//				<< tnbLib::exit(FatalError);
+	//		}
 
-			if (!isDir(runningDir) && !mkDir(runningDir))
-			{
-				FatalErrorInFunction
-					<< "Cannot make jobInfo directory " << runningDir
-					<< tnbLib::exit(FatalError);
-			}
+	//		if (!isDir(finishedDir) && !mkDir(finishedDir))
+	//		{
+	//			FatalErrorInFunction
+	//				<< "Cannot make jobInfo directory " << finishedDir
+	//				<< tnbLib::exit(FatalError);
+	//		}
 
-			if (!isDir(finishedDir) && !mkDir(finishedDir))
-			{
-				FatalErrorInFunction
-					<< "Cannot make jobInfo directory " << finishedDir
-					<< tnbLib::exit(FatalError);
-			}
+	//		writeJobInfo = true;
+	//	}
+	//}
 
-			writeJobInfo = true;
-		}
-	}
-
-	constructed = true;
+	//constructed = true;
 }
 
 
@@ -193,6 +199,51 @@ void tnbLib::jobInfo::signalEnd() const
 	}
 
 	constructed = false;
+}
+
+void tnbLib::jobInfo::perform()
+{
+	name() = "jobInfo";
+
+	if (Pstream::master())
+	{
+		if (writeJobControl)
+		{
+			string baseDir = getEnv("FOAM_JOB_DIR");
+			string jobFile = hostName() + '.' + tnbLib::name(pid());
+
+			fileName runningDir(baseDir / "runningJobs");
+			fileName finishedDir(baseDir / "finishedJobs");
+
+			runningJobPath_ = runningDir / jobFile;
+			finishedJobPath_ = finishedDir / jobFile;
+
+			if (baseDir.empty())
+			{
+				FatalErrorInFunction
+					<< "Cannot get jobInfo directory $FOAM_JOB_DIR"
+					<< tnbLib::exit(FatalError);
+			}
+
+			if (!isDir(runningDir) && !mkDir(runningDir))
+			{
+				FatalErrorInFunction
+					<< "Cannot make jobInfo directory " << runningDir
+					<< tnbLib::exit(FatalError);
+			}
+
+			if (!isDir(finishedDir) && !mkDir(finishedDir))
+			{
+				FatalErrorInFunction
+					<< "Cannot make jobInfo directory " << finishedDir
+					<< tnbLib::exit(FatalError);
+			}
+
+			writeJobInfo = true;
+		}
+	}
+
+	constructed = true;
 }
 
 

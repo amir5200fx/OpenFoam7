@@ -199,10 +199,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <ScaleI.hxx>
+#include <Scale_Imp.hxx>
 
-#ifdef NoRepository
-#include <Scale.cxx>
-#endif
+//#ifdef NoRepository
+//#include <Scale.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

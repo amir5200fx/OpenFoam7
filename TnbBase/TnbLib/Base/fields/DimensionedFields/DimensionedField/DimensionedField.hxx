@@ -385,10 +385,12 @@ namespace tnbLib
 
 #include <DimensionedFieldI.hxx>
 #include <DimensionedFieldFunctions.hxx>
+#include <DimensionedField_Imp.hxx>
+#include <DimensionedFieldIO_Imp.hxx>
 
-#ifdef NoRepository
-#include <DimensionedField.cxx>
-#endif
+//#ifdef NoRepository
+//#include <DimensionedField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -121,9 +121,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <CompactIOList.cxx>
-#endif
+#include <CompactIOListI.hxx>
+
+//#ifdef NoRepository
+//#include <CompactIOList.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

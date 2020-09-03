@@ -126,9 +126,11 @@ namespace tnbLib
 
 //#include <undefFieldFunctionsM.hxx>
 
-#ifdef NoRepository
-#include <DimensionedSymmTensorField.cxx>
-#endif
+#include <DimensionedSymmTensorFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <DimensionedSymmTensorField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -349,11 +349,16 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <gatherScatterI.hxx>
+#include <combineGatherScatterI.hxx>
+#include <gatherScatterListI.hxx>
+#include <exchangeI.hxx>
+
 #ifdef NoRepository
-#include <gatherScatter.cxx>
-#include <combineGatherScatter.cxx>
-#include <gatherScatterList.cxx>
-#include <exchange.cxx>
+//#include <gatherScatter.cxx>
+//#include <combineGatherScatter.cxx>
+//#include <gatherScatterList.cxx>
+//#include <exchange.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

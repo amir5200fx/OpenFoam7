@@ -173,7 +173,7 @@ bool tnbLib::entry::New(dictionary& parentDict, Istream& is)
 				word varName = keyword(1, keyword.size() - 1);
 
 				// lookup the variable name in the given dictionary
-				const entry* ePtr = parentDict.lookupScopedEntryPtr
+				const tnbLib::entry* ePtr = parentDict.lookupScopedEntryPtr
 				(
 					varName,
 					true,

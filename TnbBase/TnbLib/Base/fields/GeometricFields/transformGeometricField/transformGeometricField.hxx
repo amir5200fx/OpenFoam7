@@ -112,9 +112,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <transformGeometricField.cxx>
-#endif
+#include <transformGeometricFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <transformGeometricField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

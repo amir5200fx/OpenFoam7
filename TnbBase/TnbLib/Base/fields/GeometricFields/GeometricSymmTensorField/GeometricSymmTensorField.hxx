@@ -184,9 +184,11 @@ namespace tnbLib
 
 //#include <undefFieldFunctionsM.hxx>
 
-#ifdef NoRepository
-#include <GeometricSymmTensorField.cxx>
-#endif
+#include <GeometricSymmTensorFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <GeometricSymmTensorField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

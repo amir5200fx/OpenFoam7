@@ -357,7 +357,9 @@ bool tnbLib::OFstreamCollator::write
 			totalSize += recvSizes[proci];
 			maxLocalSize = max(maxLocalSize, recvSizes[proci]);
 		}
-		Pstream::scatter(totalSize, Pstream::msgType(), localComm_);
+		//Pstream::scatter(totalSize, Pstream::msgType(), localComm_);  Edited by amir
+		auto totalSize_label = (label)totalSize;  // added by amir
+		Pstream::scatter(totalSize_label, Pstream::msgType(), localComm_);
 		Pstream::scatter(maxLocalSize, Pstream::msgType(), localComm_);
 	}
 

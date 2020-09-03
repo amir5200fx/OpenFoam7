@@ -158,9 +158,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <regionFunctionObjectTemplates.cxx>
-#endif
+#include <regionFunctionObjectI.hxx>
+
+//#ifdef NoRepository
+//#include <regionFunctionObjectTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

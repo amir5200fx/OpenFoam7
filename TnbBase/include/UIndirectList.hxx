@@ -42,7 +42,7 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
-#include <List.hxx>
+#include <UList.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -50,6 +50,7 @@ namespace tnbLib
 {
 
 	// Forward declaration of friend functions and operators
+	template<class T> class List;  // added by amir
 	template<class T> class UIndirectList;
 	template<class T> Ostream& operator<<(Ostream&, const UIndirectList<T>&);
 
@@ -167,10 +168,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <UIndirectListI.hxx>
+#include <UIndirectListIO_Imp.hxx>
 
-#ifdef NoRepository
-#include <UIndirectListIO.cxx>
-#endif
+//#ifdef NoRepository
+//#include <UIndirectListIO.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

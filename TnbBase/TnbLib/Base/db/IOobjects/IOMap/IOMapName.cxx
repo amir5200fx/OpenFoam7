@@ -1,5 +1,7 @@
 #include <IOMap.hxx>
 
+#include <dictionary.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 namespace tnbLib
 {

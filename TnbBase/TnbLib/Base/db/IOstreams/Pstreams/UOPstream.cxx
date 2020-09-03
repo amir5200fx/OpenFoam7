@@ -3,6 +3,9 @@
 #include <int.hxx>
 #include <token.hxx>
 
+#include <PstreamBuffers.hxx>  // added by amir
+#include <DynamicList.hxx>  // added by amir
+
 #include <cctype>
 
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //

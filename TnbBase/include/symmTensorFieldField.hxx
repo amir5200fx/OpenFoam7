@@ -180,9 +180,11 @@ namespace tnbLib
 
 //#include <undefFieldFunctionsM.hxx>
 
-#ifdef NoRepository
-#include <symmTensorFieldField.cxx>
-#endif
+#include <symmTensorFieldFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <symmTensorFieldField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

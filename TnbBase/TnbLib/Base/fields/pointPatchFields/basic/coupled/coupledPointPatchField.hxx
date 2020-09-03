@@ -144,9 +144,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <coupledPointPatchField.cxx>
-#endif
+#include <coupledPointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <coupledPointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

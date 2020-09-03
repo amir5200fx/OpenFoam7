@@ -441,29 +441,29 @@ namespace tnbLib
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#define BesselFunc(func)                                                       \
-                                                                               \
-template<template<class> class PatchField, class GeoMesh>                      \
-void func                                                                      \
-(                                                                              \
-    GeometricField<scalar, PatchField, GeoMesh>& Res,                          \
-    const int n,                                                               \
-    const GeometricField<scalar, PatchField, GeoMesh>& sf                      \
-);                                                                             \
-                                                                               \
-template<template<class> class PatchField, class GeoMesh>                      \
-tmp<GeometricField<scalar, PatchField, GeoMesh>> func                          \
-(                                                                              \
-    const int n,                                                               \
-    const GeometricField<scalar, PatchField, GeoMesh>&                         \
-);                                                                             \
-                                                                               \
-template<template<class> class PatchField, class GeoMesh>                      \
-tmp<GeometricField<scalar, PatchField, GeoMesh>> func                          \
-(                                                                              \
-    const int n,                                                               \
-    const tmp<GeometricField<scalar, PatchField, GeoMesh>>&                    \
-);
+//#define BesselFunc(func)                                                       \
+//                                                                               \
+//template<template<class> class PatchField, class GeoMesh>                      \
+//void func                                                                      \
+//(                                                                              \
+//    GeometricField<scalar, PatchField, GeoMesh>& Res,                          \
+//    const int n,                                                               \
+//    const GeometricField<scalar, PatchField, GeoMesh>& sf                      \
+//);                                                                             \
+//                                                                               \
+//template<template<class> class PatchField, class GeoMesh>                      \
+//tmp<GeometricField<scalar, PatchField, GeoMesh>> func                          \
+//(                                                                              \
+//    const int n,                                                               \
+//    const GeometricField<scalar, PatchField, GeoMesh>&                         \
+//);                                                                             \
+//                                                                               \
+//template<template<class> class PatchField, class GeoMesh>                      \
+//tmp<GeometricField<scalar, PatchField, GeoMesh>> func                          \
+//(                                                                              \
+//    const int n,                                                               \
+//    const tmp<GeometricField<scalar, PatchField, GeoMesh>>&                    \
+//);
 
 		
 	template <template<class> class PatchField, class GeoMesh>
@@ -484,7 +484,7 @@ tmp<GeometricField<scalar, PatchField, GeoMesh>> func                          \
 	tmp<GeometricField<scalar, PatchField, GeoMesh>> yn(const int n,
 	                                                    const tmp<GeometricField<scalar, PatchField, GeoMesh>>&);
 
-#undef BesselFunc
+//#undef BesselFunc
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -495,9 +495,11 @@ tmp<GeometricField<scalar, PatchField, GeoMesh>> func                          \
 
 //#include <undefFieldFunctionsM.hxx>
 
-#ifdef NoRepository
-#include <GeometricScalarField.cxx>
-#endif
+#include <GeometricScalarFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <GeometricScalarField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

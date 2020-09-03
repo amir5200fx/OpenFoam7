@@ -1,0 +1,14 @@
+tnbLib::Info
+    << "Create polyMesh for time = "
+    << runTime.timeName() << tnbLib::nl << tnbLib::endl;
+
+tnbLib::polyMesh mesh
+(
+    tnbLib::IOobject
+    (
+        tnbLib::polyMesh::defaultRegion,
+        runTime.timeName(),
+        runTime,
+        tnbLib::IOobject::MUST_READ
+    )
+);

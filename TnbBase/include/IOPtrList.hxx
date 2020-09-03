@@ -105,9 +105,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <IOPtrList.cxx>
-#endif
+#include <IOPtrListI.hxx>
+
+//#ifdef NoRepository
+//#include <IOPtrList.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

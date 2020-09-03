@@ -141,9 +141,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fieldMapperTemplates.cxx>
-#endif
+#include <fieldMapperI.hxx>
+
+//#ifdef NoRepository
+//#include <fieldMapperTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

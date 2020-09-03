@@ -193,9 +193,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <processorPointPatchField.cxx>
-#endif
+#include <processorPointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <processorPointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

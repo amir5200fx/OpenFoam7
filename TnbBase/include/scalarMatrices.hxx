@@ -168,9 +168,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <scalarMatricesTemplates.cxx>
-#endif
+#include <scalarMatricesTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <scalarMatricesTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

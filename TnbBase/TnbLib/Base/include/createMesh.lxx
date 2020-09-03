@@ -1,0 +1,14 @@
+tnbLib::Info
+    << "Create mesh for time = "
+    << runTime.timeName() << tnbLib::nl << tnbLib::endl;
+
+tnbLib::fvMesh mesh
+(
+    tnbLib::IOobject
+    (
+        tnbLib::fvMesh::defaultRegion,
+        runTime.timeName(),
+        runTime,
+        tnbLib::IOobject::MUST_READ
+    )
+);

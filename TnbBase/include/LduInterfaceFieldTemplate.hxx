@@ -125,9 +125,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <LduInterfaceFieldTemplate.cxx>
-#endif
+#include <LduInterfaceFieldTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <LduInterfaceFieldTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

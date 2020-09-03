@@ -178,9 +178,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <TableBase.cxx>
-#endif
+#include <TableBaseI.hxx>
+
+//#ifdef NoRepository
+//#include <TableBase.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

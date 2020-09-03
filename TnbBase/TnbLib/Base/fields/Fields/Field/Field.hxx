@@ -335,10 +335,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <FieldFunctions.hxx>
+#include <FieldI.hxx>
 
-#ifdef NoRepository
-#include <Field.cxx>
-#endif
+//#ifdef NoRepository
+//#include <Field.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

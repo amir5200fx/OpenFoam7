@@ -6,6 +6,8 @@
 #include <IOstreams.hxx>
 
 #include <Pstream.hxx>  // added by amir!
+#include <DynamicList.hxx>
+#include <HashTable.hxx>
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 

@@ -196,7 +196,8 @@ void tnbLib::codedBase::createLibrary
 		const fileName libPath = dynCode.libPath();
 
 		off_t mySize = tnbLib::fileSize(libPath);
-		off_t masterSize = mySize;
+		//off_t masterSize = mySize;  Edited by amir
+		auto masterSize = (label)mySize;
 		Pstream::scatter(masterSize);
 
 		if (debug)

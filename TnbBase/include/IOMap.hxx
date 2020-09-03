@@ -124,9 +124,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <IOMap.cxx>
-#endif
+#include <IOMapI.hxx>
+
+//#ifdef NoRepository
+//#include <IOMap.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

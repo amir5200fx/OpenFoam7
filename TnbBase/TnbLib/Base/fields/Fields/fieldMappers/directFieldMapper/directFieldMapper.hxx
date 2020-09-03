@@ -147,9 +147,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <directFieldMapperTemplates.cxx>
-#endif
+#include <directFieldMapperI.hxx>
+
+//#ifdef NoRepository
+//#include <directFieldMapperTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

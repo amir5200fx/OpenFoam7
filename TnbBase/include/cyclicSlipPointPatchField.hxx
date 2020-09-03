@@ -137,9 +137,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <cyclicSlipPointPatchField.cxx>
-#endif
+#include <cyclicSlipPointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <cyclicSlipPointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

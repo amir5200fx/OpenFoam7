@@ -228,10 +228,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <VectorSpaceI.hxx>
+#include <VectorSpace_Imp.hxx>
 
-#ifdef NoRepository
-#include <VectorSpace.cxx>
-#endif
+//#ifdef NoRepository
+//#include <VectorSpace.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

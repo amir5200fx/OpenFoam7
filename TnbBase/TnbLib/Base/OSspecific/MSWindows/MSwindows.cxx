@@ -5,6 +5,7 @@
 #include <fileName.hxx>
 #include <fileStat.hxx>
 
+#undef DWORD
 #undef DebugInfo  // added by amir
 #include <io.h> // _close
 #include <signal.h>

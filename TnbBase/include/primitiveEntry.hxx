@@ -194,9 +194,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <primitiveEntryTemplates.cxx>
-#endif
+#include <primitiveEntryTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <primitiveEntryTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

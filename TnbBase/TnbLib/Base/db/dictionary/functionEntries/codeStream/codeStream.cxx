@@ -216,7 +216,8 @@ tnbLib::functionEntries::codeStream::getFunction
 			//  fileModificationSkew.
 
 			off_t mySize = tnbLib::fileSize(libPath);
-			off_t masterSize = mySize;
+			//off_t masterSize = mySize; // Edited by amir
+			auto masterSize = (label)mySize;  // added by amir
 			Pstream::scatter(masterSize);
 
 			if (debug)

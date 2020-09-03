@@ -499,9 +499,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <GAMGAgglomerationTemplates.cxx>
-#endif
+#include <GAMGAgglomerationTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <GAMGAgglomerationTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

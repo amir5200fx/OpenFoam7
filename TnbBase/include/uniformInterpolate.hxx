@@ -81,9 +81,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <uniformInterpolate.cxx>
-#endif
+#include <uniformInterpolateI.hxx>
+
+//#ifdef NoRepository
+//#include <uniformInterpolate.cxx>
+//#endif
 
 // ************************************************************************* //
 

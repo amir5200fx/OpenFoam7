@@ -140,9 +140,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <emptyPointPatchField.cxx>
-#endif
+#include <emptyPointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <emptyPointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

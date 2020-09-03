@@ -49,7 +49,7 @@ SourceFiles
 #include <HashTable.hxx> //- added by amir
 #include <Istream.hxx> //- added by amir
 
-#define NoHashTableC
+//#define NoHashTableC
 #include <runTimeSelectionTables.hxx>
 
 #include <iostream>
@@ -61,7 +61,8 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 
-	class token;
+	class token; // added by amir
+	class Istream;  // added by amir
 
 	Istream& operator>>(Istream&, token&);
 	Ostream& operator<<(Ostream&, const token&);
@@ -77,7 +78,7 @@ namespace tnbLib
 	public:
 
 		//- Enumeration defining the types of token
-		enum tokenType : char
+		enum tokenType /*: char*/ // Edited by amir
 		{
 			UNDEFINED = 0,
 
@@ -96,7 +97,7 @@ namespace tnbLib
 		};
 
 		//- Standard punctuation tokens
-		enum punctuationToken : char
+		enum punctuationToken /*: char*/  // Edited by amir
 		{
 			NULL_TOKEN = '\0',
 			SPACE = ' ',
@@ -141,14 +142,58 @@ namespace tnbLib
 
 
 			//- Declare run-time constructor selection table
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				compound,
 				Istream,
 				(Istream& is),
 				(is)
-			);
+			);*/
+
+			typedef autoPtr<compound> (*IstreamConstructorPtr)(Istream& is);
+			typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
+			static IstreamConstructorTable* IstreamConstructorTablePtr_;
+			static void constructIstreamConstructorTables();
+			static void destroyIstreamConstructorTables();
+
+			template <class compoundType>
+			class addIstreamConstructorToTable
+			{
+			public:
+				static autoPtr<compound> New(Istream& is) { return autoPtr<compound>(new compoundType(is)); }
+
+				addIstreamConstructorToTable(const word& lookup = compoundType::typeName)
+				{
+					constructIstreamConstructorTables();
+					if (!IstreamConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "compound" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
+			};
+
+			template <class compoundType>
+			class addRemovableIstreamConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<compound> New(Istream& is) { return autoPtr<compound>(new compoundType(is)); }
+
+				addRemovableIstreamConstructorToTable(const word& lookup = compoundType::typeName) : lookup_(lookup)
+				{
+					constructIstreamConstructorTables();
+					IstreamConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovableIstreamConstructorToTable()
+				{
+					if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors
@@ -461,6 +506,6 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <tokenI.hxx>
-#include <Istream.hxx>
+//#include <Istream.hxx>
 
 #endif // !_token_Header

@@ -498,11 +498,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <pointPatchFieldFunctions.hxx>
+#include <pointPatchFieldI.hxx>
+#include <pointPatchFieldNew_Imp.hxx>
 
-#ifdef NoRepository
-#include <pointPatchField.cxx>
-#include <calculatedPointPatchField.hxx>
-#endif
+//#ifdef NoRepository
+//#include <pointPatchField.cxx>
+//#include <calculatedPointPatchField.hxx>
+//#endif
 
 
 #define addToPointPatchFieldRunTimeSelection(PatchTypeField, typePatchTypeField) \

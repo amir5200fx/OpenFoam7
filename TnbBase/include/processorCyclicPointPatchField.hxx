@@ -194,9 +194,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <processorCyclicPointPatchField.cxx>
-#endif
+#include <processorCyclicPointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <processorCyclicPointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

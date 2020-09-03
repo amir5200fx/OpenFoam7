@@ -65,8 +65,7 @@ namespace tnbLib
 	\*---------------------------------------------------------------------------*/
 
 	class entry
-		:
-		public IDLList<entry>::link
+		: public IDLList<entry>::link
 	{
 		// Private Data
 

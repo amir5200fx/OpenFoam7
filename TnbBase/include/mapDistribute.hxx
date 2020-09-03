@@ -652,9 +652,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <mapDistributeTemplates.cxx>
-#endif
+#include <mapDistributeTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <mapDistributeTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

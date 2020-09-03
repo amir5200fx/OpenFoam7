@@ -96,6 +96,9 @@ namespace tnbLib
 		void abort();
 
 		void signalEnd() const;
+
+		//- must be called at beginning of the program
+		void perform();  // Added by amir
 	};
 
 

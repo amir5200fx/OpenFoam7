@@ -259,10 +259,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <vectorTensorTransformI.hxx>
+#include <vectorTensorTransformTemplatesI.hxx>
 
-#ifdef NoRepository
-#include <vectorTensorTransformTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <vectorTensorTransformTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

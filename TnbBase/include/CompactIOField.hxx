@@ -139,9 +139,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <CompactIOField.cxx>
-#endif
+#include <CompactIOFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <CompactIOField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

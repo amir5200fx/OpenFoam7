@@ -45,6 +45,7 @@ SourceFiles
 #include <pTraits.hxx>
 #include <direction.hxx>
 
+#define WM_ARCH_OPTION 32
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

@@ -436,10 +436,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <faceI.hxx>
+#include <faceTemplatesI.hxx>
 
-#ifdef NoRepository
-#include <faceTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <faceTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

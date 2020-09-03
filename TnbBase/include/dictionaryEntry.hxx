@@ -43,7 +43,7 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
-#include <entry.hxx>
+//#include <entry.hxx>  Edited by amir
 #include <dictionary.hxx>
 #include <InfoProxy.hxx>
 
@@ -65,7 +65,7 @@ namespace tnbLib
 
 	class dictionaryEntry
 		:
-		public entry,
+		public tnbLib::entry,
 		public dictionary
 	{
 		// Private Member Functions
@@ -106,9 +106,9 @@ namespace tnbLib
 			const dictionaryEntry&
 		);
 
-		autoPtr<entry> clone(const dictionary& parentDict) const
+		autoPtr<tnbLib::entry> clone(const dictionary& parentDict) const
 		{
-			return autoPtr<entry>(new dictionaryEntry(parentDict, *this));
+			return autoPtr<tnbLib::entry>(new dictionaryEntry(parentDict, *this));
 		}
 
 

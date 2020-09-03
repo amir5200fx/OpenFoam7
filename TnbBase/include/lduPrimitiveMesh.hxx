@@ -277,9 +277,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <lduPrimitiveMeshTemplates.cxx>
-#endif
+#include <lduPrimitiveMeshTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <lduPrimitiveMeshTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -614,10 +614,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <cutI.hxx>
+#include <cutTemplatesI.hxx>
 
-#ifdef NoRepository
-#include <cutTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <cutTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

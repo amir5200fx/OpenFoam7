@@ -225,9 +225,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SlicedGeometricField.cxx>
-#endif
+#include <SlicedGeometricFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <SlicedGeometricField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

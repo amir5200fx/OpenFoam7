@@ -139,9 +139,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <symmetryPointPatchField.cxx>
-#endif
+#include <symmetryPointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <symmetryPointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

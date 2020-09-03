@@ -90,9 +90,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <UniformTemplate.cxx>
-#endif
+#include <UniformTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <UniformTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

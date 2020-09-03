@@ -37,10 +37,16 @@ License
 
 namespace tnbLib
 {
-	typedef PatchToPatchInterpolation
+	/*typedef PatchToPatchInterpolation
 		<
 		PrimitivePatch<face, SubList, const pointField&>,
 		PrimitivePatch<face, SubList, const pointField&>
+		>   patchToPatchInterpolation;*/  // Edited by amir
+
+	typedef PatchToPatchInterpolation
+		<
+		PrimitivePatch<face, SubList<const pointField&>>,
+		PrimitivePatch<face, SubList<const pointField&>>
 		>   patchToPatchInterpolation;
 }
 

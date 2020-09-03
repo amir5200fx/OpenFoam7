@@ -39,13 +39,19 @@ SourceFiles
 
 #include <UPstream.hxx>
 #include <Ostream.hxx>
-#include <DynamicList.hxx>
-#include <PstreamBuffers.hxx>
+//#include <DynamicList.hxx>
+//#include <PstreamBuffers.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
+
+	// Forward Declarations
+	class PstreamBuffers;
+
+	template<class T, unsigned SizeInc = 0, unsigned SizeMult = 2, unsigned SizeDiv = 1>
+	class DynamicList;
 
 	/*---------------------------------------------------------------------------*\
 							  Class UOPstream Declaration

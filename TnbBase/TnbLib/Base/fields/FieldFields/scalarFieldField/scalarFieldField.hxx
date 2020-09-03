@@ -453,15 +453,15 @@ namespace tnbLib
 	tmp<FieldField<Field, scalar>> y1(const tmp<FieldField<Field, scalar>>& tf);
 
 
-#define BesselFunc(func)                                                       \
-void func                                                                      \
-(                                                                              \
-    FieldField<Field, scalar>& Res,                                            \
-    const int n,                                                               \
-    const FieldField<Field, scalar>& sf                                        \
-);                                                                             \
-tmp<scalarField> func(const int n, const FieldField<Field, scalar>&);          \
-tmp<scalarField> func(const int n, const tmp<FieldField<Field, scalar>>&);
+//#define BesselFunc(func)                                                       \
+//void func                                                                      \
+//(                                                                              \
+//    FieldField<Field, scalar>& Res,                                            \
+//    const int n,                                                               \
+//    const FieldField<Field, scalar>& sf                                        \
+//);                                                                             \
+//tmp<scalarField> func(const int n, const FieldField<Field, scalar>&);          \
+//tmp<scalarField> func(const int n, const tmp<FieldField<Field, scalar>>&);
 
 		
 	void jn(FieldField<Field, scalar>& Res, const int n, const FieldField<Field, scalar>& sf);
@@ -472,7 +472,7 @@ tmp<scalarField> func(const int n, const tmp<FieldField<Field, scalar>>&);
 	tmp<scalarField> yn(const int n, const FieldField<Field, scalar>&);
 	tmp<scalarField> yn(const int n, const tmp<FieldField<Field, scalar>>&);
 
-#undef BesselFunc
+//#undef BesselFunc
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -483,9 +483,11 @@ tmp<scalarField> func(const int n, const tmp<FieldField<Field, scalar>>&);
 
 //#include <undefFieldFunctionsM.hxx>
 
-#ifdef NoRepository
-#include <scalarFieldField.cxx>
-#endif
+#include <scalarFieldFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <scalarFieldField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

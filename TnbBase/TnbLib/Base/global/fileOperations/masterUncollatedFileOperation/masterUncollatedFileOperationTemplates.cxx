@@ -5,6 +5,9 @@
 
 #include <IOstreams.hxx>  // added by amir
 #include <UOPstream.hxx>  // added by amir
+#include <UIPstream.hxx>  // added by amir
+
+#include <int32.hxx>
 
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 

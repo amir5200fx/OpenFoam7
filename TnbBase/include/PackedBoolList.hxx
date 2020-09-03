@@ -285,5 +285,6 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <PackedBoolListI.hxx>
+#include <PackedBoolList_Imp.hxx>
 
 #endif // !_PackedBoolList_Header

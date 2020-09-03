@@ -104,10 +104,13 @@ tnbLib::fileNameList tnbLib::findEtcFiles
 	// * ~/.OpenFOAM/VERSION
 	// * ~/.OpenFOAM
 	//
-	fileName searchDir = home() / ".OpenFOAM";
+	// fileName searchDir = home() / ".OpenFOAM"; Edited by amir
+	fileName searchDir = home() / "etc";
+
 	if (isDir(searchDir))
 	{
-		fileName fullName = searchDir / FOAMversion / name;
+		//fileName fullName = searchDir / FOAMversion / name;  Edited bt amir
+		fileName fullName = searchDir / name;
 		if (isFile(fullName))
 		{
 			results.append(fullName);

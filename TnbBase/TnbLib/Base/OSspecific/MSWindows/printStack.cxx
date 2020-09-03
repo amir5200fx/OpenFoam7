@@ -13,6 +13,8 @@
 #include <search.h>
 #include <stdio.h>
 
+//#define darwin
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -363,7 +365,7 @@ namespace tnbLib
 				{
 					string cName(msg.substr(start, plusPos - start));
 
-					int status;
+					//int status;
 
 					//- added by amir
 					std::cout << "not supposed to be called: printStack()" << std::endl;
@@ -422,6 +424,26 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 } // End namespace tnbLib
+
+
+void tnbLib::error::safePrintStack(std::ostream& os)
+{
+	//// Get raw stack symbols
+	//void *array[100];
+	//size_t size = backtrace(array, 100);
+	//char **strings = backtrace_symbols(array, size);
+
+	//// See if they contain function between () e.g. "(__libc_start_main+0xd0)"
+	//// and see if cplus_demangle can make sense of part before +
+	//for (size_t i = 0; i < size; i++)
+	//{
+	//	string msg(strings[i]);
+	//	fileName programFile;
+	//	word address;
+
+	//	os << '#' << label(i) << '\t' << msg << std::endl;
+	//}
+}
 
 
 // ************************************************************************* //

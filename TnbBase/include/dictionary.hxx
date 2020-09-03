@@ -55,7 +55,7 @@ SourceFiles
 #include <IDLList.hxx>
 #include <DLList.hxx>
 #include <fileName.hxx>
-#include <ITstream.hxx>
+#include <ITstream.hxx> 
 #include <HashTable.hxx>
 #include <wordList.hxx>
 #include <className.hxx>
@@ -71,6 +71,8 @@ namespace tnbLib
 	class regExp;
 	class dictionary;
 	class SHA1Digest;
+
+	class ITstream;  // added by amir
 
 	Istream& operator>>(Istream&, dictionary&);
 	Ostream& operator<<(Ostream&, const dictionary&);
@@ -160,7 +162,7 @@ namespace tnbLib
 	class dictionary
 		:
 		public dictionaryName,
-		public IDLList<entry>
+		public IDLList<tnbLib::entry>
 	{
 		// Private Data
 
@@ -169,13 +171,13 @@ namespace tnbLib
 		static bool writeOptionalEntries;
 
 		//- HashTable of the entries held on the DL-list for quick lookup
-		HashTable<entry*> hashedEntries_;
+		HashTable<tnbLib::entry*> hashedEntries_;
 
 		//- Parent dictionary
 		const dictionary& parent_;
 
 		//- Entries of matching patterns
-		DLList<entry*> patternEntries_;
+		DLList<tnbLib::entry*> patternEntries_;
 
 		//- Patterns as precompiled regular expressions
 		DLList<autoPtr<regExp>> patternRegexps_;
@@ -185,7 +187,7 @@ namespace tnbLib
 
 			 //- Find and return an entry data stream pointer if present
 			 //  otherwise return nullptr. Allows scoping using '.'
-		const entry* lookupScopedSubEntryPtr
+		const tnbLib::entry* lookupScopedSubEntryPtr
 		(
 			const word&,
 			bool recursive,
@@ -197,7 +199,7 @@ namespace tnbLib
 		(
 			const bool patternMatch,
 			const word& Keyword,
-			DLList<entry*>::const_iterator& wcLink,
+			DLList<tnbLib::entry*>::const_iterator& wcLink,
 			DLList<autoPtr<regExp>>::const_iterator& reLink
 		) const;
 
@@ -206,7 +208,7 @@ namespace tnbLib
 		(
 			const bool patternMatch,
 			const word& Keyword,
-			DLList<entry*>::iterator& wcLink,
+			DLList<tnbLib::entry*>::iterator& wcLink,
 			DLList<autoPtr<regExp>>::iterator& reLink
 		);
 
@@ -324,7 +326,7 @@ namespace tnbLib
 		//  otherwise return nullptr.
 		//  If recursive, search parent dictionaries.
 		//  If patternMatch, use regular expressions
-		const entry* lookupEntryPtr
+		const tnbLib::entry* lookupEntryPtr
 		(
 			const word&,
 			bool recursive,
@@ -335,7 +337,7 @@ namespace tnbLib
 		//  if present otherwise return nullptr.
 		//  If recursive, search parent dictionaries.
 		//  If patternMatch, use regular expressions.
-		entry* lookupEntryPtr
+		tnbLib::entry* lookupEntryPtr
 		(
 			const word&,
 			bool recursive,
@@ -345,7 +347,7 @@ namespace tnbLib
 		//- Find and return an entry data stream if present otherwise error.
 		//  If recursive, search parent dictionaries.
 		//  If patternMatch, use regular expressions.
-		const entry& lookupEntry
+		const tnbLib::entry& lookupEntry
 		(
 			const word&,
 			bool recursive,
@@ -416,7 +418,7 @@ namespace tnbLib
 		//- Find and return an entry data stream pointer if present
 		//  otherwise return nullptr. Allows scoping using '.'.
 		//  Special handling for ':' at start of keyword and '..'.
-		const entry* lookupScopedEntryPtr
+		const tnbLib::entry* lookupScopedEntryPtr
 		(
 			const word&,
 			bool recursive,
@@ -635,9 +637,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <dictionaryTemplates.cxx>
-#endif
+#include <dictionaryTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <dictionaryTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

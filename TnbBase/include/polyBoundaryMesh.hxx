@@ -266,9 +266,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <polyBoundaryMeshTemplates.cxx>
-#endif
+#include <polyBoundaryMeshTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <polyBoundaryMeshTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

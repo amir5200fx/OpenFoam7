@@ -128,9 +128,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <zeroGradientPointPatchField.cxx>
-#endif
+#include <zeroGradientPointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <zeroGradientPointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

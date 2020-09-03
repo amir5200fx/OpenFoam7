@@ -303,9 +303,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <stringListOpsTemplates.cxx>
-#endif
+#include <stringListOpsTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <stringListOpsTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

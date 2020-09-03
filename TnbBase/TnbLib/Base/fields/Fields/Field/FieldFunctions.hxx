@@ -127,10 +127,10 @@ namespace tnbLib
 	template<class Type>
 	tmp<Field<Type>> cmptMag(const tmp<Field<Type>>& tf);
 
-#define TMP_UNARY_FUNCTION(ReturnType, Func)                                   \
-                                                                               \
-template<class Type>                                                           \
-ReturnType Func(const tmp<Field<Type>>& tf1);
+//#define TMP_UNARY_FUNCTION(ReturnType, Func)                                   \
+//                                                                               \
+//template<class Type>                                                           \
+//ReturnType Func(const tmp<Field<Type>>& tf1);
 
 	template<class Type>
 	Type max(const UList<Type>& f);
@@ -185,11 +185,11 @@ ReturnType Func(const tmp<Field<Type>>& tf1);
 	template<class Type> Type average(const tmp<Field<Type>>& tf1);
 
 
-#define G_UNARY_FUNCTION(ReturnType, gFunc, Func, rFunc)                       \
-                                                                               \
-template<class Type>                                                           \
-ReturnType gFunc(const UList<Type>& f, const label comm = UPstream::worldComm);\
-TMP_UNARY_FUNCTION(ReturnType, gFunc)
+//#define G_UNARY_FUNCTION(ReturnType, gFunc, Func, rFunc)                       \
+//                                                                               \
+//template<class Type>                                                           \
+//ReturnType gFunc(const UList<Type>& f, const label comm = UPstream::worldComm);\
+//TMP_UNARY_FUNCTION(ReturnType, gFunc)
 
 		
 	template <class Type>
@@ -232,7 +232,7 @@ TMP_UNARY_FUNCTION(ReturnType, gFunc)
 	template <class Type>
 	Type gSumCmptMag(const tmp<Field<Type>>& tf1);
 
-#undef G_UNARY_FUNCTION
+//#undef G_UNARY_FUNCTION
 
 		template<class Type>
 	scalar gSumProd
@@ -259,7 +259,7 @@ TMP_UNARY_FUNCTION(ReturnType, gFunc)
 
 	template<class Type> Type gAverage(const tmp<Field<Type>>& tf1);
 
-#undef TMP_UNARY_FUNCTION
+//#undef TMP_UNARY_FUNCTION
 
 
 		
@@ -431,63 +431,63 @@ TMP_UNARY_FUNCTION(ReturnType, gFunc)
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#define PRODUCT_OPERATOR(product, Op, OpFunc)                                  \
-                                                                               \
-template<class Type1, class Type2>                                             \
-void OpFunc                                                                    \
-(                                                                              \
-    Field<typename product<Type1, Type2>::type>& res,                          \
-    const UList<Type1>& f1,                                                    \
-    const UList<Type2>& f2                                                     \
-);                                                                             \
-                                                                               \
-template<class Type1, class Type2>                                             \
-tmp<Field<typename product<Type1, Type2>::type>>                               \
-operator Op(const UList<Type1>& f1, const UList<Type2>& f2);                   \
-                                                                               \
-template<class Type1, class Type2>                                             \
-tmp<Field<typename product<Type1, Type2>::type>>                               \
-operator Op(const UList<Type1>& f1, const tmp<Field<Type2>>& tf2);             \
-                                                                               \
-template<class Type1, class Type2>                                             \
-tmp<Field<typename product<Type1, Type2>::type>>                               \
-operator Op(const tmp<Field<Type1>>& tf1, const UList<Type2>& f2);             \
-                                                                               \
-template<class Type1, class Type2>                                             \
-tmp<Field<typename product<Type1, Type2>::type>>                               \
-operator Op(const tmp<Field<Type1>>& tf1, const tmp<Field<Type2>>& tf2);       \
-                                                                               \
-template<class Type, class Form, class Cmpt, direction nCmpt>                  \
-void OpFunc                                                                    \
-(                                                                              \
-    Field<typename product<Type, Form>::type>& res,                            \
-    const UList<Type>& f1,                                                     \
-    const VectorSpace<Form,Cmpt,nCmpt>& vs                                     \
-);                                                                             \
-                                                                               \
-template<class Type, class Form, class Cmpt, direction nCmpt>                  \
-tmp<Field<typename product<Type, Form>::type>>                                 \
-operator Op(const UList<Type>& f1, const VectorSpace<Form,Cmpt,nCmpt>& vs);    \
-                                                                               \
-template<class Type, class Form, class Cmpt, direction nCmpt>                  \
-tmp<Field<typename product<Type, Form>::type>>                                 \
-operator Op(const tmp<Field<Type>>&tf1,const VectorSpace<Form,Cmpt,nCmpt>&vs); \
-                                                                               \
-template<class Form, class Cmpt, direction nCmpt, class Type>                  \
-void OpFunc                                                                    \
-(                                                                              \
-    Field<typename product<Form, Type>::type>& res,                            \
-    const VectorSpace<Form,Cmpt,nCmpt>& vs,                                    \
-    const UList<Type>& f1                                                      \
-);                                                                             \
-                                                                               \
-template<class Form, class Cmpt, direction nCmpt, class Type>                  \
-tmp<Field<typename product<Form, Type>::type>>                                 \
-operator Op(const VectorSpace<Form,Cmpt,nCmpt>& vs, const UList<Type>& f1);    \
-                                                                               \
-template<class Form, class Cmpt, direction nCmpt, class Type>                  \
-tmp<Field<typename product<Form, Type>::type>>                                 \
-operator Op(const VectorSpace<Form,Cmpt,nCmpt>&vs,const tmp<Field<Type>>&tf1);
+//#define PRODUCT_OPERATOR(product, Op, OpFunc)                                  \
+//                                                                               \
+//template<class Type1, class Type2>                                             \
+//void OpFunc                                                                    \
+//(                                                                              \
+//    Field<typename product<Type1, Type2>::type>& res,                          \
+//    const UList<Type1>& f1,                                                    \
+//    const UList<Type2>& f2                                                     \
+//);                                                                             \
+//                                                                               \
+//template<class Type1, class Type2>                                             \
+//tmp<Field<typename product<Type1, Type2>::type>>                               \
+//operator Op(const UList<Type1>& f1, const UList<Type2>& f2);                   \
+//                                                                               \
+//template<class Type1, class Type2>                                             \
+//tmp<Field<typename product<Type1, Type2>::type>>                               \
+//operator Op(const UList<Type1>& f1, const tmp<Field<Type2>>& tf2);             \
+//                                                                               \
+//template<class Type1, class Type2>                                             \
+//tmp<Field<typename product<Type1, Type2>::type>>                               \
+//operator Op(const tmp<Field<Type1>>& tf1, const UList<Type2>& f2);             \
+//                                                                               \
+//template<class Type1, class Type2>                                             \
+//tmp<Field<typename product<Type1, Type2>::type>>                               \
+//operator Op(const tmp<Field<Type1>>& tf1, const tmp<Field<Type2>>& tf2);       \
+//                                                                               \
+//template<class Type, class Form, class Cmpt, direction nCmpt>                  \
+//void OpFunc                                                                    \
+//(                                                                              \
+//    Field<typename product<Type, Form>::type>& res,                            \
+//    const UList<Type>& f1,                                                     \
+//    const VectorSpace<Form,Cmpt,nCmpt>& vs                                     \
+//);                                                                             \
+//                                                                               \
+//template<class Type, class Form, class Cmpt, direction nCmpt>                  \
+//tmp<Field<typename product<Type, Form>::type>>                                 \
+//operator Op(const UList<Type>& f1, const VectorSpace<Form,Cmpt,nCmpt>& vs);    \
+//                                                                               \
+//template<class Type, class Form, class Cmpt, direction nCmpt>                  \
+//tmp<Field<typename product<Type, Form>::type>>                                 \
+//operator Op(const tmp<Field<Type>>&tf1,const VectorSpace<Form,Cmpt,nCmpt>&vs); \
+//                                                                               \
+//template<class Form, class Cmpt, direction nCmpt, class Type>                  \
+//void OpFunc                                                                    \
+//(                                                                              \
+//    Field<typename product<Form, Type>::type>& res,                            \
+//    const VectorSpace<Form,Cmpt,nCmpt>& vs,                                    \
+//    const UList<Type>& f1                                                      \
+//);                                                                             \
+//                                                                               \
+//template<class Form, class Cmpt, direction nCmpt, class Type>                  \
+//tmp<Field<typename product<Form, Type>::type>>                                 \
+//operator Op(const VectorSpace<Form,Cmpt,nCmpt>& vs, const UList<Type>& f1);    \
+//                                                                               \
+//template<class Form, class Cmpt, direction nCmpt, class Type>                  \
+//tmp<Field<typename product<Form, Type>::type>>                                 \
+//operator Op(const VectorSpace<Form,Cmpt,nCmpt>&vs,const tmp<Field<Type>>&tf1);
 
 		
 	template <class Type1, class Type2>
@@ -673,7 +673,7 @@ operator Op(const VectorSpace<Form,Cmpt,nCmpt>&vs,const tmp<Field<Type>>&tf1);
 	tmp<Field<typename scalarProduct<Form, Type>::type>> operator &&(const VectorSpace<Form, Cmpt, nCmpt>& vs,
 	                                                                 const tmp<Field<Type>>& tf1);
 
-#undef PRODUCT_OPERATOR
+//#undef PRODUCT_OPERATOR
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -682,6 +682,7 @@ operator Op(const VectorSpace<Form,Cmpt,nCmpt>&vs,const tmp<Field<Type>>&tf1);
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <FieldFunctionsI.hxx>
 //#include <undefFieldFunctionsM.hxx>
 #include <scalarField.hxx>
 

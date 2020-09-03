@@ -799,10 +799,19 @@ LduMatrix<Type, DType, LUType>::solver::                                       \
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <LduMatrixTemplateI.hxx>
-#include <LduMatrixTemplate.cxx>
-#endif
+#include <LduMatrixTemplate_Imp.hxx>
+
+#include <LduMatrixOperationsTemplateI.hxx>
+#include <LduMatrixATmulTemplateI.hxx>
+#include <LduMatrixUpdateMatrixInterfacesTemplateI.hxx>
+#include <LduMatrixPreconditionerTemplateI.hxx>
+#include <LduMatrixSmootherTemplateI.hxx>
+#include <LduMatrixSolverTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <LduMatrixTemplateI.hxx>
+//#include <LduMatrixTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

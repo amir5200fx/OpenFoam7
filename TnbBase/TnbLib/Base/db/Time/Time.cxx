@@ -55,7 +55,8 @@ tnbLib::Time::format tnbLib::Time::format_(tnbLib::Time::format::general);
 
 int tnbLib::Time::precision_(6);
 
-const int tnbLib::Time::maxPrecision_(3 - log10(small));
+//const int tnbLib::Time::maxPrecision_(3 - log10(small));  Edited by amir
+const int tnbLib::Time::maxPrecision_(3 - (int)log10(small));
 
 tnbLib::word tnbLib::Time::controlDictName("controlDict");
 

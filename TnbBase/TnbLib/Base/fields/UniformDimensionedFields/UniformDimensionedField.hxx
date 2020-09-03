@@ -122,9 +122,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <UniformDimensionedField.cxx>
-#endif
+#include <UniformDimensionedFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <UniformDimensionedField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
