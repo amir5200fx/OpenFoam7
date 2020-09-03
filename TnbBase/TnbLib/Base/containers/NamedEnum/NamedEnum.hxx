@@ -118,9 +118,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NamedEnum.cxx>
-#endif
+#include <NamedEnumI.hxx>
+
+//#ifdef NoRepository
+//#include <NamedEnum.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

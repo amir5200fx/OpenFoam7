@@ -194,12 +194,14 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <PtrListI.hxx>
+#include <PtrList_Imp.hxx>
+#include <PtrListIO_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PtrList.cxx>
-#endif
+//#ifdef NoRepository
+//#include <PtrList.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

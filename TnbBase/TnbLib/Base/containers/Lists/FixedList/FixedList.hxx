@@ -375,12 +375,14 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <FixedListI.hxx>
+#include <FixedList_Imp.hxx>
+#include <FixedListIO_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <FixedList.cxx>
-#endif
+//#ifdef NoRepository
+//#include <FixedList.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

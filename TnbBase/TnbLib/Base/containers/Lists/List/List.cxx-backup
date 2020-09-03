@@ -2,7 +2,7 @@
 
 #include <ListLoopM.hxx>
 #include <FixedList.hxx>
-#include <PtrList.hxx>
+//#include <PtrList.hxx>
 #include <SLList.hxx>
 #include <IndirectList.hxx>
 #include <UIndirectList.hxx>
@@ -198,13 +198,13 @@ tnbLib::List<T>::List(const FixedList<T, Size>& lst)
 }
 
 
-template<class T>
-tnbLib::List<T>::List(const PtrList<T>& lst)
-	:
-	UList<T>(nullptr, lst.size())
-{
-	allocCopyList(lst);
-}
+//template<class T>
+//tnbLib::List<T>::List(const PtrList<T>& lst)
+//	:
+//	UList<T>(nullptr, lst.size())
+//{
+//	allocCopyList(lst);
+//}
 
 
 template<class T>

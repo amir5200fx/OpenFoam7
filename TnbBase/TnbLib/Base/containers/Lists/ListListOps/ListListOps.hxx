@@ -150,9 +150,11 @@ namespace tnbLib
 } // End namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ListListOps.cxx>
-#endif
+#include <ListListOpsI.hxx>
+
+//#ifdef NoRepository
+//#include <ListListOps.cxx>
+//#endif
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
