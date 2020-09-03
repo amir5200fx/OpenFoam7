@@ -2,8 +2,6 @@
 
 #include <Istream.hxx>
 #include <IOstreams.hxx>
-#include <error.hxx> // added by amir
-#include <dictionary.hxx> // added by amir
 #include <INew.hxx>
 
 

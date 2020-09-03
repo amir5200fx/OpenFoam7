@@ -1,7 +1,4 @@
-#include <ILList.hxx>
-
-#include <dictionary.hxx> // added by amir
-
+#pragma once
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 template<class LListBase, class T>
@@ -138,8 +135,3 @@ void tnbLib::ILList<LListBase, T>::operator=(ILList<LListBase, T>&& lst)
 
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
-
-#include <ILListIO.cxx>
-
-
-// ************************************************************************* //
