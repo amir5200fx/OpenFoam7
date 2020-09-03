@@ -1,5 +1,4 @@
-#include <LduMatrixTemplate.hxx>
-
+#pragma once
 #include <lduMatrix.hxx>
 #include <IOstreams.hxx>
 
@@ -347,12 +346,3 @@ tnbLib::Ostream& tnbLib::operator<<
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#include <LduMatrixOperationsTemplate.cxx>
-#include <LduMatrixATmulTemplate.cxx>
-#include <LduMatrixUpdateMatrixInterfacesTemplate.cxx>
-#include <LduMatrixPreconditioner.cxx>
-#include <LduMatrixSmootherTemplate.cxx>
-#include <LduMatrixSolverTemplate.cxx>
-
-// ************************************************************************* //

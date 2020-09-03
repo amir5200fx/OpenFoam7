@@ -91,9 +91,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <LLTMatrix.cxx>
-#endif
+#include <LLTMatrixI.hxx>
+
+//#ifdef NoRepository
+//#include <LLTMatrix.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

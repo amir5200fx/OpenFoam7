@@ -162,9 +162,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <simpleMatrix.cxx>
-#endif
+#include <simpleMatrixI.hxx>
+
+//#ifdef NoRepository
+//#include <simpleMatrix.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -124,9 +124,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <DiagonalPreconditionerTemplate.cxx>
-#endif
+#include <DiagonalPreconditionerTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <DiagonalPreconditionerTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

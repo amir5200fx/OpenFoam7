@@ -95,9 +95,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <DiagonalMatrix.cxx>
-#endif
+#include <DiagonalMatrixI.hxx>
+
+//#ifdef NoRepository
+//#include <DiagonalMatrix.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -110,12 +110,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <SymmetricSquareMatrixI.hxx>
+#include <SymmetricSquareMatrix_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SymmetricSquareMatrix.cxx>
-#endif
+//#ifdef NoRepository
+//#include <SymmetricSquareMatrix.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

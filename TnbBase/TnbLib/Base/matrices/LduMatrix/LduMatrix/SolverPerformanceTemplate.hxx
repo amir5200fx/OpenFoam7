@@ -296,9 +296,11 @@ const scalar solverPerformance##Type::vsmall_(vSmall);                         \
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SolverPerformanceTemplate.cxx>
-#endif
+#include <SolverPerformanceTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <SolverPerformanceTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

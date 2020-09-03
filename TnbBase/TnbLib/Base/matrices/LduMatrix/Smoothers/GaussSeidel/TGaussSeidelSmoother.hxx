@@ -102,9 +102,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <TGaussSeidelSmoother.cxx>
-#endif
+#include <TGaussSeidelSmootherI.hxx>
+
+//#ifdef NoRepository
+//#include <TGaussSeidelSmoother.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

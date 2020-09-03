@@ -285,9 +285,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <GAMGInterfaceTemplates.cxx>
-#endif
+#include <GAMGInterfaceTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <GAMGInterfaceTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

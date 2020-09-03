@@ -116,9 +116,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoPreconditionerTemplate.cxx>
-#endif
+#include <NoPreconditionerTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <NoPreconditionerTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
