@@ -1,0 +1,21 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Writes out values of fields interpolated to a specified list of points.
+
+\*---------------------------------------------------------------------------*/
+
+fields (p U);
+points
+(
+    (0 0 0)
+);
+
+#includeEtc "caseDicts/postProcessing/probes/internalProbes.cfg"
+
+// ************************************************************************* //

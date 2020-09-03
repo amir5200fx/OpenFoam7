@@ -1,0 +1,78 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+
+cyclic
+{
+    type  cyclic;
+}
+
+cyclicAMI
+{
+    type  cyclicAMI;
+}
+
+cyclicACMI
+{
+    type  cyclicACMI;
+    value $internalField;
+}
+
+cyclicSlip
+{
+    type  cyclicSlip;
+}
+
+conformalCoupled
+{
+    type  conformalCoupled;
+}
+
+empty
+{
+    type  empty;
+}
+
+nonuniformTransformCyclic
+{
+    type  nonuniformTransformCyclic;
+}
+
+cyclicRepeatAMI
+{
+    type  cyclicRepeatAMI;
+}
+
+processor
+{
+    type  processor;
+    value $internalField;
+}
+
+processorCyclic
+{
+    type  processorCyclic;
+    value $internalField;
+}
+
+symmetryPlane
+{
+    type  symmetryPlane;
+}
+
+symmetry
+{
+    type  symmetry;
+}
+
+wedge
+{
+    type  wedge;
+}
+
+
+// ************************************************************************* //
