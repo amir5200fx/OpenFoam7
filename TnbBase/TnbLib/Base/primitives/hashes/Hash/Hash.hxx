@@ -41,6 +41,8 @@ Description
 #include <fileName.hxx>
 #include <wordRe.hxx>
 
+#include <basetsd.h>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -216,12 +218,14 @@ namespace tnbLib
 
 		unsigned operator()(const void* const& p, unsigned seed) const
 		{
-			return Hash<long>()(long(p), seed);
+			//return Hash<long>()(long(p), seed);  Edited by amir
+			return Hash<long>()(PtrToLong(p), seed);
 		}
 
 		unsigned operator()(const void* const& p) const
 		{
-			return Hash<long>()(long(p));
+			//return Hash<long>()(long(p));  Edited by amir
+			return Hash<long>()(PtrToLong(p));
 		}
 
 	};

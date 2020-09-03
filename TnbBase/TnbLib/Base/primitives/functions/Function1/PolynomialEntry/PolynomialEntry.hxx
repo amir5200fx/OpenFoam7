@@ -135,9 +135,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PolynomialEntry.cxx>
-#endif
+#include <PolynomialEntryI.hxx>
+
+//#ifdef NoRepository
+//#include <PolynomialEntry.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

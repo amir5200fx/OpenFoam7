@@ -259,10 +259,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <Function1.cxx>
-#include <Constant.hxx>
-#endif
+#include <Function1I.hxx>
+
+//#ifdef NoRepository
+//#include <Function1.cxx>
+//#include <Constant.hxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -1,6 +1,7 @@
 #include <labelRange.hxx>
 
 #include <token.hxx>
+#include <Istream.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 

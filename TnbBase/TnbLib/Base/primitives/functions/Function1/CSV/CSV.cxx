@@ -3,6 +3,7 @@
 #include <DynamicList.hxx>
 
 #include <IStringStream.hxx>
+#include <fileOperation.hxx>  // added by amir
 
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 
@@ -69,7 +70,7 @@ template<class Type>
 void tnbLib::Function1Types::CSV<Type>::read()
 {
 	fileName expandedFile(fName_);
-	autoPtr<ISstream> isPtr(this->fileHandler().NewIFstream(expandedFile.expand()));
+	autoPtr<ISstream> isPtr(fileHandler().NewIFstream(expandedFile.expand()));
 	ISstream& is = isPtr();
 
 	if (!is.good())

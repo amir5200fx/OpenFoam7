@@ -165,10 +165,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <SineI.hxx>
+#include <Sine_Imp.hxx>
 
-#ifdef NoRepository
-#include <Sine.cxx>
-#endif
+//#ifdef NoRepository
+//#include <Sine.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

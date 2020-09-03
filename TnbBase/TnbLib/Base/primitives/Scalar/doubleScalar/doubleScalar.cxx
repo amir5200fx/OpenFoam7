@@ -1,7 +1,7 @@
 #include <doubleScalar.hxx>
 
 #include <token.hxx>
-
+#include <Istream.hxx>  // added by amir
 #include <sstream>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

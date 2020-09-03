@@ -103,10 +103,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <ZeroConstantI.hxx>
+#include <ZeroConstant_Imp.hxx>
 
-#ifdef NoRepository
-#include <ZeroConstant.cxx>
-#endif
+//#ifdef NoRepository
+//#include <ZeroConstant.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

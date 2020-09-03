@@ -187,7 +187,8 @@ namespace tnbLib
 		inline void operator&=(const Tensor<Cmpt>&);
 
 		//- Inherit MatrixSpace assignment operators
-		using Tensor::msType::operator=;
+		//using Tensor::msType::operator=;
+		using MatrixSpace<Tensor<Cmpt>, Cmpt, 3, 3>::operator =;
 
 		//- Assign to an equivalent vector space
 		template<class Cmpt2>

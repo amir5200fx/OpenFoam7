@@ -108,7 +108,7 @@ void tnbLib::globalIndexAndTransform::determineTransforms()
 
 	DynamicList<vectorTensorTransform> localTransforms;
 	DynamicField<scalar> localTols;
-
+	
 	label dummyMatch = -1;
 
 	forAll(patches, patchi)
