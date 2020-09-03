@@ -189,9 +189,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <DictionaryBase.cxx>
-#endif
+#include <DictionaryBase_Imp.hxx>
+#include <DictionaryBaseIO_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <DictionaryBase.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

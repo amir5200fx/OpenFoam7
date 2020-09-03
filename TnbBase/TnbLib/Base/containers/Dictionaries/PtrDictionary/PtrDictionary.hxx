@@ -100,9 +100,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PtrDictionary.cxx>
-#endif
+#include <PtrDictionaryI.hxx>
+
+//#ifdef NoRepository
+//#include <PtrDictionary.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -76,9 +76,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <UDictionary.cxx>
-#endif
+#include <UDictionaryI.hxx>
+
+//#ifdef NoRepository
+//#include <UDictionary.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
