@@ -160,9 +160,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <HashPtrTable.cxx>
-#endif
+#include <HashPtrTable_Imp.hxx>
+#include <HashPtrTableIO_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <HashPtrTable.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

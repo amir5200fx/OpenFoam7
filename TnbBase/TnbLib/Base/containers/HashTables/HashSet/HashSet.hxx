@@ -220,9 +220,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <HashSet.cxx>
-#endif
+#include <HashSetI.hxx>
+
+//#ifdef NoRepository
+//#include <HashSet.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
