@@ -101,9 +101,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <WRLsurfaceFormat.cxx>
-#endif
+#include <WRLsurfaceFormatI.hxx>
+
+//#ifdef NoRepository
+//#include <WRLsurfaceFormat.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

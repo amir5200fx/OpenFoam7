@@ -187,9 +187,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <MeshedSurfaceProxy.cxx>
-#endif
+#include <MeshedSurfaceProxyI.hxx>
+
+//#ifdef NoRepository
+//#include <MeshedSurfaceProxy.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

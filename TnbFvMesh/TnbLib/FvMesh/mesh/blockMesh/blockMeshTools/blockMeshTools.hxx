@@ -75,9 +75,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <blockMeshToolsTemplates.cxx>
-#endif
+#include <blockMeshToolsI.hxx>
+
+//#ifdef NoRepository
+//#include <blockMeshToolsTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -133,9 +133,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <TRIsurfaceFormat.cxx>
-#endif
+#include <TRIsurfaceFormatI.hxx>
+
+//#ifdef NoRepository
+//#include <TRIsurfaceFormat.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

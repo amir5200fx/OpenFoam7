@@ -345,9 +345,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <meshToolsTemplates.cxx>
-#endif
+#include <meshToolsI.hxx>
+
+//#ifdef NoRepository
+//#include <meshToolsTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

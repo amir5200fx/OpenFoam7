@@ -455,12 +455,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <mappedPatchBaseI.hxx>
+#include <mappedPatchBaseTemplatesI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <mappedPatchBaseTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <mappedPatchBaseTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -108,9 +108,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <jplotSetWriter.cxx>
-#endif
+#include <jplotSetWriterI.hxx>
+
+//#ifdef NoRepository
+//#include <jplotSetWriter.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

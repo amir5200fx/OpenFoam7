@@ -118,9 +118,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <GTSsurfaceFormat.cxx>
-#endif
+#include <GTSsurfaceFormatI.hxx>
+
+//#ifdef NoRepository
+//#include <GTSsurfaceFormat.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

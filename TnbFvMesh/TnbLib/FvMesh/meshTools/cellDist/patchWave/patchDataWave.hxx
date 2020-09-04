@@ -195,9 +195,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <patchDataWave.cxx>
-#endif
+#include <patchDataWaveI.hxx>
+
+//#ifdef NoRepository
+//#include <patchDataWave.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

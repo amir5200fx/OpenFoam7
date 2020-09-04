@@ -294,9 +294,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <surfaceIntersectionTemplates.cxx>
-#endif
+#include <surfaceIntersectionI.hxx>
+
+//#ifdef NoRepository
+//#include <surfaceIntersectionTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

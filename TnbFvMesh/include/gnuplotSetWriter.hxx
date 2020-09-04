@@ -102,9 +102,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <gnuplotSetWriter.cxx>
-#endif
+#include <gnuplotSetWriterI.hxx>
+
+//#ifdef NoRepository
+//#include <gnuplotSetWriter.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

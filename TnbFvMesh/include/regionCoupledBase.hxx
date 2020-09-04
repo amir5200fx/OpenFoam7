@@ -207,9 +207,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <regionCoupledBaseTemplates.cxx>
-#endif
+#include <regionCoupledBaseI.hxx>
+
+//#ifdef NoRepository
+//#include <regionCoupledBaseTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -236,9 +236,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <cyclicAMIPointPatchField.cxx>
-#endif
+#include <cyclicAMIPointPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <cyclicAMIPointPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

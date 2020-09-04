@@ -123,10 +123,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <OFFsurfaceFormatI.hxx>
 
-#ifdef NoRepository
-#include <OFFsurfaceFormat.cxx>
-#endif
+//#ifdef NoRepository
+//#include <OFFsurfaceFormat.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

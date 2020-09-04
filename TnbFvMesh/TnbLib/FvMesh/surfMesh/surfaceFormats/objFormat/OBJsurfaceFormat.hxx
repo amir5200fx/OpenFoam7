@@ -115,9 +115,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <OBJsurfaceFormat.cxx>
-#endif
+#include <OBJsurfaceFormatI.hxx>
+
+//#ifdef NoRepository
+//#include <OBJsurfaceFormat.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

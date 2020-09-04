@@ -164,9 +164,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <cellDistFuncsTemplates.cxx>
-#endif
+#include <cellDistFuncsTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <cellDistFuncsTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -379,9 +379,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <UnsortedMeshedSurface.cxx>
-#endif
+#include <UnsortedMeshedSurfaceI.hxx>
+#include <UnsortedMeshedSurfaceNewI.hxx>
+
+//#ifdef NoRepository
+//#include <UnsortedMeshedSurface.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

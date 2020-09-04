@@ -453,12 +453,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <cyclicAMIPolyPatchI.hxx>
+#include <cyclicAMIPolyPatchTemplatesI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <cyclicAMIPolyPatchTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <cyclicAMIPolyPatchTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

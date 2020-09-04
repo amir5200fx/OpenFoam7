@@ -102,9 +102,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <vtkSetWriter.cxx>
-#endif
+#include <vtkSetWriterI.hxx>
+
+//#ifdef NoRepository
+//#include <vtkSetWriter.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

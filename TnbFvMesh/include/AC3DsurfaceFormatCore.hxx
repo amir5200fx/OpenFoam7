@@ -89,9 +89,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <AC3DsurfaceFormatCoreTemplates.cxx>
-#endif
+#include <AC3DsurfaceFormatCoreI.hxx>
+
+//#ifdef NoRepository
+//#include <AC3DsurfaceFormatCoreTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

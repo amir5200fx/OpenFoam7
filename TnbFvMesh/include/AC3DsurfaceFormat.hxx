@@ -125,9 +125,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <AC3DsurfaceFormat.cxx>
-#endif
+#include <AC3DsurfaceFormatI.hxx>
+
+//#ifdef NoRepository
+//#include <AC3DsurfaceFormat.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -359,9 +359,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PointEdgeWave.cxx>
-#endif
+#include <PointEdgeWaveI.hxx>
+
+//#ifdef NoRepository
+//#include <PointEdgeWave.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

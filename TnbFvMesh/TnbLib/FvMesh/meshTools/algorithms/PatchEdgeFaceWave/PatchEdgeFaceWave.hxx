@@ -361,9 +361,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PatchEdgeFaceWave.cxx>
-#endif
+#include <PatchEdgeFaceWaveI.hxx>
+
+//#ifdef NoRepository
+//#include <PatchEdgeFaceWave.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

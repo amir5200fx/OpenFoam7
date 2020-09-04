@@ -172,9 +172,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <STLsurfaceFormat.cxx>
-#endif
+#include <STLsurfaceFormatI.hxx>
+
+//#ifdef NoRepository
+//#include <STLsurfaceFormat.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

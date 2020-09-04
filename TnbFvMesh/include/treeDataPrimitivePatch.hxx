@@ -270,9 +270,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <treeDataPrimitivePatch.cxx>
-#endif
+#include <treeDataPrimitivePatchI.hxx>
+
+//#ifdef NoRepository
+//#include <treeDataPrimitivePatch.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

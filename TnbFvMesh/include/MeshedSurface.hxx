@@ -471,9 +471,14 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <MeshedSurface.cxx>
-#endif
+#include <MeshedSurfaceI.hxx>
+#include <MeshedSurfaceZonesI.hxx>
+#include <MeshedSurfaceIOI.hxx>
+#include <MeshedSurfaceNewI.hxx>
+
+//#ifdef NoRepository
+//#include <MeshedSurface.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

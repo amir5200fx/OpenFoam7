@@ -104,9 +104,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SMESHsurfaceFormat.cxx>
-#endif
+#include <SMESHsurfaceFormatI.hxx>
+
+//#ifdef NoRepository
+//#include <SMESHsurfaceFormat.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

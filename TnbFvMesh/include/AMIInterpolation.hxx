@@ -622,12 +622,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <AMIInterpolationI.hxx>
+#include <AMIInterpolationTemplatesI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <AMIInterpolationTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <AMIInterpolationTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

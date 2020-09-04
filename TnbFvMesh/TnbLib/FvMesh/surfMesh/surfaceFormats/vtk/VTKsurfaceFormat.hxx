@@ -126,9 +126,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <VTKsurfaceFormat.cxx>
-#endif
+#include <VTKsurfaceFormatI.hxx>
+
+//#ifdef NoRepository
+//#include <VTKsurfaceFormat.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

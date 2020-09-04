@@ -169,9 +169,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <pointToPointPlanarInterpolationTemplates.cxx>
-#endif
+#include <pointToPointPlanarInterpolationI.hxx>
+
+//#ifdef NoRepository
+//#include <pointToPointPlanarInterpolationTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

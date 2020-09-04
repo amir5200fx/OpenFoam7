@@ -209,9 +209,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <writer.cxx>
-#endif
+#include <writerI.hxx>
+
+//#ifdef NoRepository
+//#include <writer.cxx>
+//#endif
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

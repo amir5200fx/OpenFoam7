@@ -145,9 +145,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <OFSsurfaceFormat.cxx>
-#endif
+#include <OFSsurfaceFormatI.hxx>
+
+//#ifdef NoRepository
+//#include <OFSsurfaceFormat.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

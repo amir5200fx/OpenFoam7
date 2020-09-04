@@ -563,10 +563,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <extendedEdgeMeshI.hxx>
+#include <extendedEdgeMeshTemplatesI.hxx>
 
-#ifdef NoRepository
-#include <extendedEdgeMeshTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <extendedEdgeMeshTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

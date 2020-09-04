@@ -398,9 +398,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <FaceCellWave.cxx>
-#endif
+#include <FaceCellWaveI.hxx>
+
+//#ifdef NoRepository
+//#include <FaceCellWave.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

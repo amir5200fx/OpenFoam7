@@ -170,9 +170,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <MeshWave.cxx>
-#endif
+#include <MeshWaveI.hxx>
+
+//#ifdef NoRepository
+//#include <MeshWave.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

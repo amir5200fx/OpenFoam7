@@ -102,9 +102,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ensightSetWriter.cxx>
-#endif
+#include <ensightSetWriterI.hxx>
+
+//#ifdef NoRepository
+//#include <ensightSetWriter.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

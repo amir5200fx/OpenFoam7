@@ -100,6 +100,8 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <X3DsurfaceFormatI.hxx>
+
 #ifdef NoRepository
 #include <X3DsurfaceFormat.cxx>
 #endif
