@@ -522,7 +522,13 @@ namespace tnbLib
 		//- Return a reference to the internal field
 		//  Note: this increments the event counter and checks the
 		//  old-time fields; avoid in loops.
-		typename Internal::FieldType& primitiveFieldRef();
+		//typename Internal::FieldType& primitiveFieldRef();  Edited by amir
+		typename Internal::FieldType& primitiveFieldRef()
+		{
+			this->setUpToDate();
+			storeOldTimes();
+			return *this;
+		}
 
 		//- Return a const-reference to the  internal field
 		inline const typename Internal::FieldType& primitiveField() const
