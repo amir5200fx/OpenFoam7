@@ -39,37 +39,37 @@ using namespace tnbLib;
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-//int main(int argc, char *argv[])
-//{
-//	Random rndGen(0);
-//
-//	scalarField samples(10000000);
-//	forAll(samples, i)
-//	{
-//		samples[i] = rndGen.scalar01();
-//	}
-//
-//	const scalar min = 0;
-//	const scalar max = 1;
-//	const scalar delta = 0.1;
-//
-//	BinSum<scalar, scalarField> count(min, max, delta);
-//	BinSum<scalar, scalarField> sum(min, max, delta);
-//
-//	forAll(samples, i)
-//	{
-//		count.add(samples[i], 1);
-//		sum.add(samples[i], samples[i]);
-//	}
-//
-//	Info << "sum    : " << sum << endl;
-//	Info << "count  : " << count << endl;
-//	Info << "average: " << sum / count << endl;
-//
-//	Info << "End\n" << endl;
-//
-//	return 0;
-//}
+int main(int argc, char *argv[])
+{
+	Random rndGen(0);
+
+	scalarField samples(10000000);
+	forAll(samples, i)
+	{
+		samples[i] = rndGen.scalar01();
+	}
+
+	const scalar min = 0;
+	const scalar max = 1;
+	const scalar delta = 0.1;
+
+	BinSum<scalar, scalarField> count(min, max, delta);
+	BinSum<scalar, scalarField> sum(min, max, delta);
+
+	forAll(samples, i)
+	{
+		count.add(samples[i], 1);
+		sum.add(samples[i], samples[i]);
+	}
+
+	Info << "sum    : " << sum << endl;
+	Info << "count  : " << count << endl;
+	Info << "average: " << sum / count << endl;
+
+	Info << "End\n" << endl;
+
+	return 0;
+}
 
 
 // ************************************************************************* //

@@ -897,15 +897,15 @@ tnbLib::GeometricField<Type, PatchField, GeoMesh>::ref()
 }
 
 
-template<class Type, template<class> class PatchField, class GeoMesh>
-typename
-tnbLib::GeometricField<Type, PatchField, GeoMesh>::Internal::FieldType&
-tnbLib::GeometricField<Type, PatchField, GeoMesh>::primitiveFieldRef()
-{
-	this->setUpToDate();
-	storeOldTimes();
-	return *this;
-}
+//template<class Type, template<class> class PatchField, class GeoMesh>
+//typename
+//tnbLib::GeometricField<Type, PatchField, GeoMesh>::Internal::FieldType&
+//tnbLib::GeometricField<Type, PatchField, GeoMesh>::primitiveFieldRef()
+//{
+//	this->setUpToDate();
+//	storeOldTimes();
+//	return *this;
+//}
 
 
 template<class Type, template<class> class PatchField, class GeoMesh>
