@@ -66,9 +66,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <interpolatePointToCell.cxx>
-#endif
+#include <interpolatePointToCellI.hxx>
+
+//#ifdef NoRepository
+//#include <interpolatePointToCell.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

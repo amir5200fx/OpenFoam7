@@ -184,9 +184,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <interpolationTable.cxx>
-#endif
+#include <interpolationTableI.hxx>
+
+//#ifdef NoRepository
+//#include <interpolationTable.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
