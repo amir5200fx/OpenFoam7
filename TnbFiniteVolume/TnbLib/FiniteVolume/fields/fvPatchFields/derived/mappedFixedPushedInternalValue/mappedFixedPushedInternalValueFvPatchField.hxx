@@ -177,9 +177,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <mappedFixedPushedInternalValueFvPatchField.cxx>
-#endif
+#include <mappedFixedPushedInternalValueFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <mappedFixedPushedInternalValueFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

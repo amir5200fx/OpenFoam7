@@ -307,9 +307,11 @@ makeSurfaceInterpolationTypeScheme(SS, tensor)
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <surfaceInterpolationScheme.cxx>
-#endif
+#include <surfaceInterpolationSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <surfaceInterpolationScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

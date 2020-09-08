@@ -86,9 +86,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvcSnGrad.cxx>
-#endif
+#include <fvcSnGradI.hxx>
+
+//#ifdef NoRepository
+//#include <fvcSnGrad.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

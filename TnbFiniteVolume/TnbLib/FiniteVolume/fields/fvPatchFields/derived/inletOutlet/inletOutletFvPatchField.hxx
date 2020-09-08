@@ -190,9 +190,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <inletOutletFvPatchField.cxx>
-#endif
+#include <inletOutletFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <inletOutletFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

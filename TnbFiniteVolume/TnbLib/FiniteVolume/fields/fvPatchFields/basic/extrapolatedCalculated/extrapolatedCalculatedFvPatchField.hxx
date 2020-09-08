@@ -148,9 +148,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <extrapolatedCalculatedFvPatchField.cxx>
-#endif
+#include <extrapolatedCalculatedFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <extrapolatedCalculatedFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

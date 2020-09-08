@@ -95,9 +95,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvcSurfaceIntegrate.cxx>
-#endif
+#include <fvcSurfaceIntegrateI.hxx>
+
+//#ifdef NoRepository
+//#include <fvcSurfaceIntegrate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

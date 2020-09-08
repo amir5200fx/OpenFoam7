@@ -183,9 +183,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <zeroGradientFvPatchField.cxx>
-#endif
+#include <zeroGradientFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <zeroGradientFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

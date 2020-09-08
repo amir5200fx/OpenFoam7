@@ -118,9 +118,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <levelSetTemplates.cxx>
-#endif
+#include <levelSetI.hxx>
+
+//#ifdef NoRepository
+//#include <levelSetTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

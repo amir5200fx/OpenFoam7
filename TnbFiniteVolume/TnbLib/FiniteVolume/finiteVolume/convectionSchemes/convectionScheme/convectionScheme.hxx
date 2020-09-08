@@ -250,9 +250,11 @@ makeMultivariateFvConvectionTypeScheme(SS, tensor)
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <convectionScheme.cxx>
-#endif
+#include <convectionSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <convectionScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

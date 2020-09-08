@@ -128,9 +128,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <wedgeFvsPatchField.cxx>
-#endif
+#include <wedgeFvsPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <wedgeFvsPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

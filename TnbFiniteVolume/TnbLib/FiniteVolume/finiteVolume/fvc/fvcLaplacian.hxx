@@ -238,9 +238,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvcLaplacian.cxx>
-#endif
+#include <fvcLaplacianI.hxx>
+
+//#ifdef NoRepository
+//#include <fvcLaplacian.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

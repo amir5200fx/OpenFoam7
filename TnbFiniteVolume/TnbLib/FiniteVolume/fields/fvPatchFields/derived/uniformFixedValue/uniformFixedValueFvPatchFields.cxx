@@ -10,7 +10,7 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
-	makePatchFields(uniformFixedGradient);
+	makePatchFields(uniformFixedValue);
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

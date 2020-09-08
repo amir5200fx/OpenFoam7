@@ -88,9 +88,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvcAverage.cxx>
-#endif
+#include <fvcAverageI.hxx>
+
+//#ifdef NoRepository
+//#include <fvcAverage.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

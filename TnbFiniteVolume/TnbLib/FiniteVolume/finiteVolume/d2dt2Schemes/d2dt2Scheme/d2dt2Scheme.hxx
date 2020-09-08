@@ -204,9 +204,11 @@ makeFvD2dt2TypeScheme(SS, tensor)
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <d2dt2Scheme.cxx>
-#endif
+#include <d2dt2SchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <d2dt2Scheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -151,9 +151,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PrghPressureFvPatchScalarField.cxx>
-#endif
+#include <PrghPressureFvPatchScalarFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <PrghPressureFvPatchScalarField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

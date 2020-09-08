@@ -214,9 +214,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <cellLimitedGrad.cxx>
-#endif
+#include <cellLimitedGradI.hxx>
+
+//#ifdef NoRepository
+//#include <cellLimitedGrad.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

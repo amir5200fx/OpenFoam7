@@ -140,9 +140,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include "symmetryFvPatchField.C"
-#endif
+#include <symmetryFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <symmetryFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

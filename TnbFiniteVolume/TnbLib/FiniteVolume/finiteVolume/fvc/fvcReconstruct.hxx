@@ -82,9 +82,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvcReconstruct.cxx>
-#endif
+#include <fvcReconstructI.hxx>
+//#include <fvcSimpleReconstruct_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <fvcReconstruct.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

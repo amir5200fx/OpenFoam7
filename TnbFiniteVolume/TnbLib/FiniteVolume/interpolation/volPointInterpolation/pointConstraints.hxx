@@ -213,9 +213,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <pointConstraintsTemplates.cxx>
-#endif
+#include <pointConstraintsI.hxx>
+
+//#ifdef NoRepository
+//#include <pointConstraintsTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

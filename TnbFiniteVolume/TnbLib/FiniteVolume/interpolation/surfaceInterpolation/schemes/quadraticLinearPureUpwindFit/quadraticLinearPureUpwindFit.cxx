@@ -6,6 +6,7 @@
 
 namespace tnbLib
 {
+
 	// Use stencil with three upwind cells:
 	// upwindCFCCellToFaceStencilObject + pureUpwind
 	makePureUpwindFitSurfaceInterpolationScheme

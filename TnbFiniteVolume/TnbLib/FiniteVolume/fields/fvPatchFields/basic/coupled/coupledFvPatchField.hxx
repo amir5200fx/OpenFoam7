@@ -233,9 +233,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <coupledFvPatchField.cxx>
-#endif
+#include <coupledFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <coupledFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

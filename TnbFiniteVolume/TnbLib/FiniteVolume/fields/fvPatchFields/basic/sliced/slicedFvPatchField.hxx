@@ -244,9 +244,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <slicedFvPatchField.cxx>
-#endif
+#include <slicedFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <slicedFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

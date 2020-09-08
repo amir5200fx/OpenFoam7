@@ -120,9 +120,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <singleRegionSolutionControlTemplates.cxx>
-#endif
+#include <singleRegionSolutionControlTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <singleRegionSolutionControlTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

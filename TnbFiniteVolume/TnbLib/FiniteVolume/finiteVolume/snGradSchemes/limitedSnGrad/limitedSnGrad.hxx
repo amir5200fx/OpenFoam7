@@ -189,9 +189,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <limitedSnGrad.cxx>
-#endif
+#include <limitedSnGradI.hxx>
+
+//#ifdef NoRepository
+//#include <limitedSnGrad.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

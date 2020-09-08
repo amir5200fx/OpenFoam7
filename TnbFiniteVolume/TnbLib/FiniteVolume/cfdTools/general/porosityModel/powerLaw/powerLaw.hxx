@@ -175,9 +175,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <powerLawTemplates.cxx>
-#endif
+#include <powerLawI.hxx>
+
+//#ifdef NoRepository
+//#include <powerLawTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

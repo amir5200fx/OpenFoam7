@@ -247,9 +247,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <surfaceInterpolate.cxx>
-#endif
+#include <surfaceInterpolateI.hxx>
+
+//#ifdef NoRepository
+//#include <surfaceInterpolate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

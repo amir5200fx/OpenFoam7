@@ -135,9 +135,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <steadyStateD2dt2Scheme.cxx>
-#endif
+#include <steadyStateD2dt2SchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <steadyStateD2dt2Scheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

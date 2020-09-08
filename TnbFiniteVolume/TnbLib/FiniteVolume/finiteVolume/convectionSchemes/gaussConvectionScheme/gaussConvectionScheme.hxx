@@ -147,9 +147,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <gaussConvectionScheme.cxx>
-#endif
+#include <gaussConvectionSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <gaussConvectionScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

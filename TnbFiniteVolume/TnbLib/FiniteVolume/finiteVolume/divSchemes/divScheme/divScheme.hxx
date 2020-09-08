@@ -188,9 +188,11 @@ makeFvDivTypeScheme(SS, tensor)
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <divScheme.cxx>
-#endif
+#include <divSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <divScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

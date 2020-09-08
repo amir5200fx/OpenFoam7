@@ -205,9 +205,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <waveTransmissiveFvPatchField.cxx>
-#endif
+#include <waveTransmissiveFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <waveTransmissiveFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

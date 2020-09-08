@@ -6,7 +6,7 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2013-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,41 +26,41 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::uniformFixedGradientFvPatchField
+	tnbLib::uniformFixedValueFvPatchField
 
 Description
-	This boundary condition provides a uniform fixed gradient condition.
+	This boundary condition provides a uniform fixed value condition.
 
 Usage
 	\table
 		Property     | Description             | Required    | Default value
-		uniformGradient | uniform gradient     | yes         |
+		uniformValue | uniform value           | yes         |
 	\endtable
 
 	Example of the boundary condition specification:
 	\verbatim
 	<patchName>
 	{
-		type            uniformFixedGradient;
-		uniformGradient constant 0.2;
+		type            uniformFixedValue;
+		uniformValue    constant 0.2;
 	}
 	\endverbatim
 
 Note
-	The uniformGradient entry is a Function1 type, able to describe time
+	The uniformValue entry is a Function1 type, able to describe time
 	varying functions.  The example above gives the usage for supplying a
 	constant value.
 
 See also
 	tnbLib::Function1Types
-	tnbLib::fixedGradientFvPatchField
+	tnbLib::fixedValueFvPatchField
 
 SourceFiles
-	uniformFixedGradientFvPatchField.C
+	uniformFixedValueFvPatchField.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fixedGradientFvPatchFields.hxx>
+#include <fixedValueFvPatchField.hxx>
 #include <Function1.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -69,37 +69,36 @@ namespace tnbLib
 {
 
 	/*---------------------------------------------------------------------------*\
-				  Class uniformFixedGradientFvPatchField Declaration
+					Class uniformFixedValueFvPatchField Declaration
 	\*---------------------------------------------------------------------------*/
 
 	template<class Type>
-	class uniformFixedGradientFvPatchField
+	class uniformFixedValueFvPatchField
 		:
-		public fixedGradientFvPatchField<Type>
+		public fixedValueFvPatchField<Type>
 	{
 		// Private Data
 
-			//- Gradient
-		autoPtr<Function1<Type>> uniformGradient_;
+		autoPtr<Function1<Type>> uniformValue_;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("uniformFixedGradient");
+		TypeName("uniformFixedValue");
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		uniformFixedGradientFvPatchField
+		uniformFixedValueFvPatchField
 		(
 			const fvPatch&,
 			const DimensionedField<Type, volMesh>&
 		);
 
 		//- Construct from patch and internal field and patch field
-		uniformFixedGradientFvPatchField
+		uniformFixedValueFvPatchField
 		(
 			const fvPatch&,
 			const DimensionedField<Type, volMesh>&,
@@ -107,27 +106,27 @@ namespace tnbLib
 		);
 
 		//- Construct from patch, internal field and dictionary
-		uniformFixedGradientFvPatchField
+		uniformFixedValueFvPatchField
 		(
 			const fvPatch&,
 			const DimensionedField<Type, volMesh>&,
 			const dictionary&
 		);
 
-		//- Construct by mapping given uniformFixedGradientFvPatchField
+		//- Construct by mapping given uniformFixedValueFvPatchField
 		//  onto a new patch
-		uniformFixedGradientFvPatchField
+		uniformFixedValueFvPatchField
 		(
-			const uniformFixedGradientFvPatchField<Type>&,
+			const uniformFixedValueFvPatchField<Type>&,
 			const fvPatch&,
 			const DimensionedField<Type, volMesh>&,
 			const fvPatchFieldMapper&
 		);
 
 		//- Copy constructor
-		uniformFixedGradientFvPatchField
+		uniformFixedValueFvPatchField
 		(
-			const uniformFixedGradientFvPatchField<Type>&
+			const uniformFixedValueFvPatchField<Type>&
 		);
 
 		//- Construct and return a clone
@@ -135,14 +134,14 @@ namespace tnbLib
 		{
 			return tmp<fvPatchField<Type>>
 				(
-					new uniformFixedGradientFvPatchField<Type>(*this)
+					new uniformFixedValueFvPatchField<Type>(*this)
 					);
 		}
 
 		//- Copy constructor setting internal field reference
-		uniformFixedGradientFvPatchField
+		uniformFixedValueFvPatchField
 		(
-			const uniformFixedGradientFvPatchField<Type>&,
+			const uniformFixedValueFvPatchField<Type>&,
 			const DimensionedField<Type, volMesh>&
 		);
 
@@ -154,7 +153,7 @@ namespace tnbLib
 		{
 			return tmp<fvPatchField<Type>>
 				(
-					new uniformFixedGradientFvPatchField<Type>(*this, iF)
+					new uniformFixedValueFvPatchField<Type>(*this, iF)
 					);
 		}
 
@@ -175,9 +174,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <uniformFixedGradientFvPatchField.cxx>
-#endif
+#include <uniformFixedValueFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <uniformFixedValueFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

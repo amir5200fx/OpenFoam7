@@ -121,9 +121,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <LeastSquaresVectorsTemplate.cxx>
-#endif
+#include <LeastSquaresVectorsTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <LeastSquaresVectorsTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

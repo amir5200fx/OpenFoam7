@@ -125,9 +125,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <UpwindFitData.cxx>
-#endif
+#include <UpwindFitDataI.hxx>
+
+//#ifdef NoRepository
+//#include <UpwindFitData.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -172,9 +172,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fixedMeanOutletInletFvPatchField.cxx>
-#endif
+#include <fixedMeanOutletInletFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <fixedMeanOutletInletFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -160,9 +160,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <jumpCyclicFvPatchField.cxx>
-#endif
+#include <jumpCyclicFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <jumpCyclicFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

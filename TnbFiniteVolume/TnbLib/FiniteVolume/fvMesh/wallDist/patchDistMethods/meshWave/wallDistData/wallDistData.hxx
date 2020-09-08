@@ -134,9 +134,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <wallDistData.cxx>
-#endif
+#include <wallDistDataI.hxx>
+
+//#ifdef NoRepository
+//#include <wallDistData.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

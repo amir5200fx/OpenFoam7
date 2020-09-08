@@ -164,9 +164,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fixedMeanFvPatchField.cxx>
-#endif
+#include <fixedMeanFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <fixedMeanFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

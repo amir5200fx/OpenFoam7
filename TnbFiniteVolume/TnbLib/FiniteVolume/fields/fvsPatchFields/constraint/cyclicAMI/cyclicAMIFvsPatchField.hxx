@@ -141,9 +141,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <cyclicAMIFvsPatchField.cxx>
-#endif
+#include <cyclicAMIFvsPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <cyclicAMIFvsPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

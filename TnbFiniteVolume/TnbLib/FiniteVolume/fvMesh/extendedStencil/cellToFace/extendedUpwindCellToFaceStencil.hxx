@@ -197,9 +197,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <extendedUpwindCellToFaceStencilTemplates.cxx>
-#endif
+#include <extendedUpwindCellToFaceStencilI.hxx>
+
+//#ifdef NoRepository
+//#include <extendedUpwindCellToFaceStencilTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

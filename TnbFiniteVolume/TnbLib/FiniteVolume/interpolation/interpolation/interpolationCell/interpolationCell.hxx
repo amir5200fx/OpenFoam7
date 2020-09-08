@@ -98,9 +98,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <interpolationCell.cxx>
-#endif
+#include <interpolationCellI.hxx>
+
+//#ifdef NoRepository
+//#include <interpolationCell.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

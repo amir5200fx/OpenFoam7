@@ -125,9 +125,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <orthogonalSnGrad.cxx>
-#endif
+#include <orthogonalSnGradI.hxx>
+
+//#ifdef NoRepository
+//#include <orthogonalSnGrad.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

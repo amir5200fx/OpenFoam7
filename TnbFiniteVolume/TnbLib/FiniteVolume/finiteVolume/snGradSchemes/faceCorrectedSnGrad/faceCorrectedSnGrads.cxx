@@ -1,8 +1,8 @@
 #include <faceCorrectedSnGrad.hxx>
 
 #include <fvMesh.hxx>
-
 #include <GeometricFields.hxx>  // added by amir
+#include <fvsPatchFields.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -2,6 +2,7 @@
 
 #include <fvBoundaryMesh.hxx>  // added by amir
 #include <volMesh.hxx>  // added by amir
+#include <fvPatchFields.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

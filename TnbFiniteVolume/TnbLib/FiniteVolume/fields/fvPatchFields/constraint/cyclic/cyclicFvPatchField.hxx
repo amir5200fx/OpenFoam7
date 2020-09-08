@@ -222,9 +222,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <cyclicFvPatchField.cxx>
-#endif
+#include <cyclicFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <cyclicFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -231,9 +231,11 @@ makelimitedSurfaceInterpolationTypeScheme(SS, tensor)
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <limitedSurfaceInterpolationScheme.cxx>
-#endif
+#include <limitedSurfaceInterpolationSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <limitedSurfaceInterpolationScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

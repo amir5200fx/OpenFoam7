@@ -88,9 +88,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <AverageField.cxx>
-#endif
+#include <AverageFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <AverageField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
