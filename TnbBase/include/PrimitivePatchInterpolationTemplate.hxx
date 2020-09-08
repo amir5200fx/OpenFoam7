@@ -161,8 +161,10 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <PrimitivePatchInterpolationTemplateI.hxx>
+
 #ifdef NoRepository
-#include <PrimitivePatchInterpolation.cxx>
+#include <PrimitivePatchInterpolationTemplate.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

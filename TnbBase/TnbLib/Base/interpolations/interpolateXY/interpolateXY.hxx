@@ -71,9 +71,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <interpolateXY.cxx>
-#endif
+#include <interpolateXYI.hxx>
+
+//#ifdef NoRepository
+//#include <interpolateXY.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

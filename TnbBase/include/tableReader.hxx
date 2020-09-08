@@ -122,9 +122,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <tableReader.cxx>
-#endif
+#include <tableReaderI.hxx>
+
+//#ifdef NoRepository
+//#include <tableReader.cxx>
+//#endif
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

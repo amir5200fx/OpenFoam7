@@ -247,9 +247,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <objectRegistryTemplates.cxx>
-#endif
+#include <objectRegistryI.hxx>
+
+//#ifdef NoRepository
+//#include <objectRegistryTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

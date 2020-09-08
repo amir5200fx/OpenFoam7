@@ -808,6 +808,8 @@ LduMatrix<Type, DType, LUType>::solver::                                       \
 #include <LduMatrixSmootherTemplateI.hxx>
 #include <LduMatrixSolverTemplateI.hxx>
 
+#include <LduMatrixTemplateI.hxx>
+
 //#ifdef NoRepository
 //#include <LduMatrixTemplateI.hxx>
 //#include <LduMatrixTemplate.cxx>

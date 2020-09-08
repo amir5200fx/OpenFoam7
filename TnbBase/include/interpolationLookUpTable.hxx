@@ -218,10 +218,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <interpolationLookUpTableI.hxx>
+#include <interpolationLookUpTable_Imp.hxx>
 
-#ifdef NoRepository
-#include <interpolationLookUpTable.cxx>
-#endif
+//#ifdef NoRepository
+//#include <interpolationLookUpTable.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

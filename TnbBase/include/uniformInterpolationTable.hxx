@@ -203,9 +203,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <uniformInterpolationTable.cxx>
-#endif
+#include <uniformInterpolationTable_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <uniformInterpolationTable.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

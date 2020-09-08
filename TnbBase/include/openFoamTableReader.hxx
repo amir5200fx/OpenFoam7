@@ -101,9 +101,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <openFoamTableReader.cxx>
-#endif
+#include <openFoamTableReaderI.hxx>
+
+//#ifdef NoRepository
+//#include <openFoamTableReader.cxx>
+//#endif
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -1,4 +1,5 @@
 #pragma once
+#include <GeometricFieldReuseFunctions.hxx>  // added by amir
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib

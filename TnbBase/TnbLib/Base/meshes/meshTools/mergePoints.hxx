@@ -74,9 +74,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <mergePoints.cxx>
-#endif
+#include <mergePointsI.hxx>
+
+//#ifdef NoRepository
+//#include <mergePoints.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

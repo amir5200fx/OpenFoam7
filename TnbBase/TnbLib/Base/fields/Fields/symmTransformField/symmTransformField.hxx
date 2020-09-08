@@ -124,9 +124,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <symmTransformField.cxx>
-#endif
+#include <symmTransformFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <symmTransformField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

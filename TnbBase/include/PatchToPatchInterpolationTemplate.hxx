@@ -231,9 +231,13 @@ namespace tnbLib
 
 } // End namespace tnbLib
 
-#ifdef NoRepository
-#include <PatchToPatchInterpolationTemplate.cxx>
-#endif
+#include <PatchToPatchInterpolationTemplateI.hxx>
+#include <PatchToPatchInterpolate_Imp.hxx>
+#include <CalcPatchToPatchWeights_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <PatchToPatchInterpolationTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

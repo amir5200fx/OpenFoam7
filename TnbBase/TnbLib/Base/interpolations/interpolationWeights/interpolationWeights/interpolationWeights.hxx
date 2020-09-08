@@ -149,9 +149,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <interpolationWeightsTemplates.cxx>
-#endif
+#include <interpolationWeightsI.hxx>
+
+//#ifdef NoRepository
+//#include <interpolationWeightsTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

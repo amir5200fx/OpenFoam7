@@ -5106,6 +5106,72 @@
     <ClInclude Include="TnbLib\Base\db\IOstreams\Pstreams\exchangeI.hxx">
       <Filter>TnbLib\Base\db\IOstreams\Pstreams</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\Base\dimensionedTypes\dimensionedType\dimensionedTypeI.hxx">
+      <Filter>TnbLib\Base\dimensionedTypes\dimensionedType</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\db\objectRegistry\objectRegistryI.hxx">
+      <Filter>TnbLib\Base\db\objectRegistry</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\interpolationTable\tableReaders\tableReaderI.hxx">
+      <Filter>TnbLib\Base\interpolations\interpolationTable\tableReaders</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\fields\Fields\transformList\transformListI.hxx">
+      <Filter>TnbLib\Base\fields\Fields\transformList</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\fields\Fields\symmTransformField\symmTransformFieldI.hxx">
+      <Filter>TnbLib\Base\fields\Fields\symmTransformField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\LduMatrix\lduMatrixTemplates_Imp.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\LduMatrix</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\interpolationTable\interpolationTableI.hxx">
+      <Filter>TnbLib\Base\interpolations\interpolationTable</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\algorithms\indexedOctree\indexedOctreeI.hxx">
+      <Filter>TnbLib\Base\algorithms\indexedOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\meshes\primitiveShapes\tetrahedron\tetrahedron_Imp.hxx">
+      <Filter>TnbLib\Base\meshes\primitiveShapes\tetrahedron</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\interpolationTable\tableReaders\openFoam\openFoamTableReaderI.hxx">
+      <Filter>TnbLib\Base\interpolations\interpolationTable\tableReaders\openFoam</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\meshes\meshTools\mergePointsI.hxx">
+      <Filter>TnbLib\Base\meshes\meshTools</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\interpolateXY\interpolateXYI.hxx">
+      <Filter>TnbLib\Base\interpolations\interpolateXY</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\interpolateSplineXY\interpolateSplineXYI.hxx">
+      <Filter>TnbLib\Base\interpolations\interpolateSplineXY</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\interpolatePointToCell\interpolatePointToCellI.hxx">
+      <Filter>TnbLib\Base\interpolations\interpolatePointToCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\interpolation2DTable\interpolation2DTableI.hxx">
+      <Filter>TnbLib\Base\interpolations\interpolation2DTable</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\interpolationLookUpTable\interpolationLookUpTable_Imp.hxx">
+      <Filter>TnbLib\Base\interpolations\interpolationLookUpTable</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\interpolationWeights\interpolationWeights\interpolationWeightsI.hxx">
+      <Filter>TnbLib\Base\interpolations\interpolationWeights\interpolationWeights</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\patchToPatchInterpolation\PatchToPatchInterpolationTemplateI.hxx">
+      <Filter>TnbLib\Base\interpolations\patchToPatchInterpolation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\patchToPatchInterpolation\PatchToPatchInterpolate_Imp.hxx">
+      <Filter>TnbLib\Base\interpolations\patchToPatchInterpolation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\patchToPatchInterpolation\CalcPatchToPatchWeights_Imp.hxx">
+      <Filter>TnbLib\Base\interpolations\patchToPatchInterpolation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\primitivePatchInterpolation\PrimitivePatchInterpolationTemplateI.hxx">
+      <Filter>TnbLib\Base\interpolations\primitivePatchInterpolation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\uniformInterpolationTable\uniformInterpolationTable_Imp.hxx">
+      <Filter>TnbLib\Base\interpolations\uniformInterpolationTable</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\Base\primitives\zero\zero.cxx">
@@ -6714,23 +6780,11 @@
     <None Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicIndexedOctree.cxx">
       <Filter>TnbLib\Base\algorithms\dynamicIndexedOctree</Filter>
     </None>
-    <None Include="TnbLib\Base\algorithms\indexedOctree\indexedOctree.cxx">
-      <Filter>TnbLib\Base\algorithms\indexedOctree</Filter>
-    </None>
     <None Include="TnbLib\Base\db\functionObjects\functionObjectList\postProcess.lxx">
       <Filter>TnbLib\Base\db\functionObjects\functionObjectList</Filter>
     </None>
     <None Include="TnbLib\Base\db\functionObjects\IOOutputFilter\IOOutputFilter.cxx">
       <Filter>TnbLib\Base\db\functionObjects\IOOutputFilter</Filter>
-    </None>
-    <None Include="TnbLib\Base\db\objectRegistry\objectRegistryTemplates.cxx">
-      <Filter>TnbLib\Base\db\objectRegistry</Filter>
-    </None>
-    <None Include="TnbLib\Base\fields\Fields\symmTransformField\symmTransformField.cxx">
-      <Filter>TnbLib\Base\fields\Fields\symmTransformField</Filter>
-    </None>
-    <None Include="TnbLib\Base\fields\Fields\transformList\transformList.cxx">
-      <Filter>TnbLib\Base\fields\Fields\transformList</Filter>
     </None>
     <None Include="TnbLib\Base\fields\ReadFields\readPointFields.lxx">
       <Filter>TnbLib\Base\fields\ReadFields</Filter>
@@ -6813,47 +6867,11 @@
     <None Include="TnbLib\Base\include\setSystemRunTimeDictionaryIO.lxx">
       <Filter>TnbLib\Base\include</Filter>
     </None>
-    <None Include="TnbLib\Base\interpolations\interpolatePointToCell\interpolatePointToCell.cxx">
-      <Filter>TnbLib\Base\interpolations\interpolatePointToCell</Filter>
-    </None>
-    <None Include="TnbLib\Base\interpolations\interpolateSplineXY\interpolateSplineXY.cxx">
-      <Filter>TnbLib\Base\interpolations\interpolateSplineXY</Filter>
-    </None>
-    <None Include="TnbLib\Base\interpolations\interpolateXY\interpolateXY.cxx">
-      <Filter>TnbLib\Base\interpolations\interpolateXY</Filter>
-    </None>
-    <None Include="TnbLib\Base\interpolations\interpolation2DTable\interpolation2DTable.cxx">
-      <Filter>TnbLib\Base\interpolations\interpolation2DTable</Filter>
-    </None>
-    <None Include="TnbLib\Base\interpolations\interpolationLookUpTable\interpolationLookUpTable.cxx">
-      <Filter>TnbLib\Base\interpolations\interpolationLookUpTable</Filter>
-    </None>
-    <None Include="TnbLib\Base\interpolations\interpolationTable\tableReaders\tableReader.cxx">
-      <Filter>TnbLib\Base\interpolations\interpolationTable\tableReaders</Filter>
-    </None>
     <None Include="TnbLib\Base\interpolations\interpolationTable\tableReaders\csv\csvTableReader.cxx">
       <Filter>TnbLib\Base\interpolations\interpolationTable\tableReaders\csv</Filter>
     </None>
-    <None Include="TnbLib\Base\interpolations\interpolationTable\tableReaders\openFoam\openFoamTableReader.cxx">
-      <Filter>TnbLib\Base\interpolations\interpolationTable\tableReaders\openFoam</Filter>
-    </None>
-    <None Include="TnbLib\Base\interpolations\interpolationTable\interpolationTable.cxx">
-      <Filter>TnbLib\Base\interpolations\interpolationTable</Filter>
-    </None>
-    <None Include="TnbLib\Base\interpolations\interpolationWeights\interpolationWeights\interpolationWeightsTemplates.cxx">
-      <Filter>TnbLib\Base\interpolations\interpolationWeights\interpolationWeights</Filter>
-    </None>
     <None Include="TnbLib\Base\interpolations\patchToPatchInterpolation\PatchToPatchInterpolationTemplate.cxx">
       <Filter>TnbLib\Base\interpolations\patchToPatchInterpolation</Filter>
-    </None>
-    <None Include="TnbLib\Base\interpolations\primitivePatchInterpolation\PrimitivePatchInterpolationTemplate.cxx">
-      <Filter>TnbLib\Base\interpolations\primitivePatchInterpolation</Filter>
-    </None>
-    <None Include="TnbLib\Base\interpolations\uniformInterpolationTable\uniformInterpolationTable.cxx">
-      <Filter>TnbLib\Base\interpolations\uniformInterpolationTable</Filter>
-    </None>
-    <None Include="TnbLib\Base\matrices\LduMatrix\LduMatrix\lduMatrixTemplates.cxx">
-      <Filter>TnbLib\Base\matrices\LduMatrix\LduMatrix</Filter>
     </None>
     <None Include="TnbLib\Base\db\IOstreams\Sstreams\ReadHex.cxx">
       <Filter>TnbLib\Base\db\IOstreams\Sstreams</Filter>
@@ -6882,15 +6900,6 @@
     <None Include="TnbLib\Base\primitives\demandDrivenEntry\demandDrivenEntry.cxx">
       <Filter>TnbLib\Base\primitives\demandDrivenEntry</Filter>
     </None>
-    <None Include="TnbLib\Base\meshes\meshTools\mergePoints.cxx">
-      <Filter>TnbLib\Base\meshes\meshTools</Filter>
-    </None>
-    <None Include="TnbLib\Base\interpolations\patchToPatchInterpolation\CalcPatchToPatchWeights.cxx">
-      <Filter>TnbLib\Base\interpolations\patchToPatchInterpolation</Filter>
-    </None>
-    <None Include="TnbLib\Base\interpolations\patchToPatchInterpolation\PatchToPatchInterpolate.cxx">
-      <Filter>TnbLib\Base\interpolations\patchToPatchInterpolation</Filter>
-    </None>
     <None Include="TnbLib\Base\primitives\subModelBase\subModelBaseTemplates.cxx">
       <Filter>TnbLib\Base\primitives\subModelBase</Filter>
     </None>
@@ -6903,17 +6912,11 @@
     <None Include="TnbLib\Base\fields\FieldFields\FieldField\FieldFieldFunctionsM.cxx">
       <Filter>TnbLib\Base\fields\FieldFields\FieldField</Filter>
     </None>
-    <None Include="TnbLib\Base\meshes\primitiveShapes\tetrahedron\tetrahedron.cxx">
-      <Filter>TnbLib\Base\meshes\primitiveShapes\tetrahedron</Filter>
-    </None>
     <None Include="TnbLib\Base\fields\DimensionedFields\DimensionedField\DimensionedFieldFunctionsM.cxx">
       <Filter>TnbLib\Base\fields\DimensionedFields\DimensionedField</Filter>
     </None>
     <None Include="TnbLib\Base\fields\DimensionedFields\DimensionedField\DimensionedFieldFunctionsM.hxx">
       <Filter>TnbLib\Base\fields\DimensionedFields\DimensionedField</Filter>
-    </None>
-    <None Include="TnbLib\Base\dimensionedTypes\dimensionedType\dimensionedType.cxx">
-      <Filter>TnbLib\Base\dimensionedTypes\dimensionedType</Filter>
     </None>
     <None Include="TnbLib\Base\global\new.cxx">
       <Filter>TnbLib\Base\global</Filter>

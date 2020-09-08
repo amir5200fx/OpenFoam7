@@ -306,27 +306,27 @@ namespace tnbLib
 			);
 
 
-#define PRODUCT_OPERATOR(product, op, opFunc)                                  \
-                                                                               \
-template<class Type1, class Type2>                                             \
-dimensioned<typename product<Type1, Type2>::type>                              \
-operator op(const dimensioned<Type1>&, const dimensioned<Type2>&);             \
-                                                                               \
-template<class Type, class Form, class Cmpt, direction nCmpt>                  \
-dimensioned<typename product<Type, Form>::type>                                \
-operator op                                                                    \
-(                                                                              \
-    const dimensioned<Type>&,                                                  \
-    const VectorSpace<Form,Cmpt,nCmpt>&                                        \
-);                                                                             \
-                                                                               \
-template<class Type, class Form, class Cmpt, direction nCmpt>                  \
-dimensioned<typename product<Form, Type>::type>                                \
-operator op                                                                    \
-(                                                                              \
-    const VectorSpace<Form,Cmpt,nCmpt>&,                                       \
-    const dimensioned<Type>&                                                   \
-);
+//#define PRODUCT_OPERATOR(product, op, opFunc)                                  \
+//                                                                               \
+//template<class Type1, class Type2>                                             \
+//dimensioned<typename product<Type1, Type2>::type>                              \
+//operator op(const dimensioned<Type1>&, const dimensioned<Type2>&);             \
+//                                                                               \
+//template<class Type, class Form, class Cmpt, direction nCmpt>                  \
+//dimensioned<typename product<Type, Form>::type>                                \
+//operator op                                                                    \
+//(                                                                              \
+//    const dimensioned<Type>&,                                                  \
+//    const VectorSpace<Form,Cmpt,nCmpt>&                                        \
+//);                                                                             \
+//                                                                               \
+//template<class Type, class Form, class Cmpt, direction nCmpt>                  \
+//dimensioned<typename product<Form, Type>::type>                                \
+//operator op                                                                    \
+//(                                                                              \
+//    const VectorSpace<Form,Cmpt,nCmpt>&,                                       \
+//    const dimensioned<Type>&                                                   \
+//);
 
 	template <class Type1, class Type2>
 	dimensioned<typename outerProduct<Type1, Type2>::type> operator
@@ -368,7 +368,7 @@ operator op                                                                    \
 	dimensioned<typename scalarProduct<Form, Type>::type> operator &&(const VectorSpace<Form, Cmpt, nCmpt>&,
 	                                                                  const dimensioned<Type>&);
 
-#undef PRODUCT_OPERATOR
+//#undef PRODUCT_OPERATOR
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -377,9 +377,11 @@ operator op                                                                    \
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <dimensionedType.cxx>
-#endif
+#include <dimensionedTypeI.hxx>
+
+//#ifdef NoRepository
+//#include <dimensionedType.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

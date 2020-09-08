@@ -693,9 +693,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <indexedOctree.cxx>
-#endif
+#include <indexedOctreeI.hxx>
+
+//#ifdef NoRepository
+//#include <indexedOctree.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

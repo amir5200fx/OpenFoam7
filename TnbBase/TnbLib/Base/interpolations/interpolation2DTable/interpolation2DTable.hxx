@@ -168,9 +168,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <interpolation2DTable.cxx>
-#endif
+#include <interpolation2DTableI.hxx>
+
+//#ifdef NoRepository
+//#include <interpolation2DTable.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
