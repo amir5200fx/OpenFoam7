@@ -99,9 +99,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ode.cxx>
-#endif
+#include <odeI.hxx>
+
+//#ifdef NoRepository
+//#include <ode.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

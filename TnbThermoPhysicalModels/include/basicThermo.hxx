@@ -482,9 +482,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <basicThermoTemplates.cxx>
-#endif
+#include <basicThermoI.hxx>
+
+//#ifdef NoRepository
+//#include <basicThermoTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

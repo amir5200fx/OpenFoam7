@@ -165,10 +165,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <constIsoSolidTransportI.hxx>
+#include <constIsoSolidTransport_Imp.hxx>
 
-#ifdef NoRepository
-#include <constIsoSolidTransport.cxx>
-#endif
+//#ifdef NoRepository
+//#include <constIsoSolidTransport.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

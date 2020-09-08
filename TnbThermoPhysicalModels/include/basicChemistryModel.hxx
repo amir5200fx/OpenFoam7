@@ -194,10 +194,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <basicChemistryModelI.hxx>
+#include <basicChemistryModelTemplates_Imp.hxx>
 
-#ifdef NoRepository
-#include <basicChemistryModelTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <basicChemistryModelTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

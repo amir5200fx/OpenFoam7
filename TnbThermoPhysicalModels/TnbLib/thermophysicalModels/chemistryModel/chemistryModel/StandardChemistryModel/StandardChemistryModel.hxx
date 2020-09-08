@@ -263,12 +263,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <StandardChemistryModelI.hxx>
+#include <StandardChemistryModel_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <StandardChemistryModel.cxx>
-#endif
+//#ifdef NoRepository
+//#include <StandardChemistryModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

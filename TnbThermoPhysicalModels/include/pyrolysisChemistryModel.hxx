@@ -240,12 +240,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <pyrolysisChemistryModelI.hxx>
+#include <pyrolysisChemistryModel_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <pyrolysisChemistryModel.cxx>
-#endif
+//#ifdef NoRepository
+//#include <pyrolysisChemistryModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

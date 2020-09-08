@@ -121,9 +121,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <heSolidThermo.cxx>
-#endif
+#include <heSolidThermoI.hxx>
+
+//#ifdef NoRepository
+//#include <heSolidThermo.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

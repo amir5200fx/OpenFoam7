@@ -129,9 +129,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <reactingMixture.cxx>
-#endif
+#include <reactingMixtureI.hxx>
+
+//#ifdef NoRepository
+//#include <reactingMixture.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

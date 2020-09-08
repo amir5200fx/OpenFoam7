@@ -148,9 +148,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <singleComponentMixture.cxx>
-#endif
+#include <singleComponentMixtureI.hxx>
+
+//#ifdef NoRepository
+//#include <singleComponentMixture.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

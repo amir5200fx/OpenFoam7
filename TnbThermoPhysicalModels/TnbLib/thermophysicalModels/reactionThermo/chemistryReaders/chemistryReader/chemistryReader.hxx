@@ -134,9 +134,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <chemistryReader.cxx>
-#endif
+#include <chemistryReaderI.hxx>
+
+//#ifdef NoRepository
+//#include <chemistryReader.cxx>
+//#endif
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

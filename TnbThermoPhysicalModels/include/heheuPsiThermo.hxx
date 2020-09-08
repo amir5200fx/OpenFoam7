@@ -162,9 +162,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-#ifdef NoRepository
-#include <heheuPsiThermo.cxx>
-#endif
+#include <heheuPsiThermoI.hxx>
+
+//#ifdef NoRepository
+//#include <heheuPsiThermo.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

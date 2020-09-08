@@ -163,13 +163,15 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <chemistryReductionMethodI.hxx>
+#include <chemistryReductionMethod_Imp.hxx>
+#include <chemistryReductionMethodNew_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <chemistryReductionMethod.cxx>
-#include <chemistryReductionMethodNew.cxx>
-#endif
+//#ifdef NoRepository
+//#include <chemistryReductionMethod.cxx>
+//#include <chemistryReductionMethodNew.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

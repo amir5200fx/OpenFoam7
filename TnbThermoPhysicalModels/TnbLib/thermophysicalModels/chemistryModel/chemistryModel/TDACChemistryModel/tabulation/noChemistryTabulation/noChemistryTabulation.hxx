@@ -127,9 +127,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <noChemistryTabulation.cxx>
-#endif
+#include <noChemistryTabulationI.hxx>
+
+//#ifdef NoRepository
+//#include <noChemistryTabulation.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

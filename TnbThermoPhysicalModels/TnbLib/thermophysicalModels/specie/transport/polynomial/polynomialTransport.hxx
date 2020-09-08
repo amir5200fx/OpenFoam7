@@ -215,10 +215,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <polynomialTransportI.hxx>
+#include <polynomialTransport_Imp.hxx>
 
-#ifdef NoRepository
-#include <polynomialTransport.cxx>
-#endif
+//#ifdef NoRepository
+//#include <polynomialTransport.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -208,10 +208,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <sutherlandTransportI.hxx>
+#include <sutherlandTransport_Imp.hxx>
 
-#ifdef NoRepository
-#include <sutherlandTransport.cxx>
-#endif
+//#ifdef NoRepository
+//#include <sutherlandTransport.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

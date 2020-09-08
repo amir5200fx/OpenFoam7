@@ -330,9 +330,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-#ifdef NoRepository
-#include <heThermo.cxx>
-#endif
+#include <heThermoI.hxx>
+
+//#ifdef NoRepository
+//#include <heThermo.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

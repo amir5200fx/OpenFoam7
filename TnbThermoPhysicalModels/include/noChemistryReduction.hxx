@@ -99,9 +99,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <noChemistryReduction.cxx>
-#endif
+#include <noChemistryReductionI.hxx>
+
+//#ifdef NoRepository
+//#include <noChemistryReduction.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

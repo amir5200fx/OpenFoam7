@@ -233,10 +233,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <logPolynomialTransportI.hxx>
+#include <logPolynomialTransport_Imp.hxx>
 
-#ifdef NoRepository
-#include <logPolynomialTransport.cxx>
-#endif
+//#ifdef NoRepository
+//#include <logPolynomialTransport.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

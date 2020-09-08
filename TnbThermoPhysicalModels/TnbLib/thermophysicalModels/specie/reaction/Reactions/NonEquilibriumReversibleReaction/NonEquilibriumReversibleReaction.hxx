@@ -228,9 +228,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NonEquilibriumReversibleReaction.cxx>
-#endif
+#include <NonEquilibriumReversibleReactionI.hxx>
+
+//#ifdef NoRepository
+//#include <NonEquilibriumReversibleReaction.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

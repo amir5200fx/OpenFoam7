@@ -237,9 +237,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ReversibleReaction.cxx>
-#endif
+#include <ReversibleReactionI.hxx>
+
+//#ifdef NoRepository
+//#include <ReversibleReaction.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -139,9 +139,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <moleFractions.cxX>
-#endif
+#include <moleFractionsI.hxx>
+
+//#ifdef NoRepository
+//#include <moleFractions.cxX>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

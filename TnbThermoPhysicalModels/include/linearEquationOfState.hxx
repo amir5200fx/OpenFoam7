@@ -222,10 +222,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <linearEquationOfStateI.hxx>
+#include <linearEquationOfState_Imp.hxx>
 
-#ifdef NoRepository
-#include <linearEquationOfState.cxx>
-#endif
+//#ifdef NoRepository
+//#include <linearEquationOfState.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -183,10 +183,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <constTransportI.hxx>
+#include <constTransport_Imp.hxx>
 
-#ifdef NoRepository
-#include <constTransport.cxx>
-#endif
+//#ifdef NoRepository
+//#include <constTransport.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

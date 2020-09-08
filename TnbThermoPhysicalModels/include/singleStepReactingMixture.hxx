@@ -185,12 +185,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <singleStepReactingMixtureI.hxx>
+#include <singleStepReactingMixture_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <singleStepReactingMixture.cxx>
-#endif
+//#ifdef NoRepository
+//#include <singleStepReactingMixture.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

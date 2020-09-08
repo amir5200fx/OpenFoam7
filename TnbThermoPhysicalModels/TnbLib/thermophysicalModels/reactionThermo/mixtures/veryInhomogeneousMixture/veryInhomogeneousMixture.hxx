@@ -181,9 +181,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-#ifdef NoRepository
-#include <veryInhomogeneousMixture.cxx>
-#endif
+#include <veryInhomogeneousMixtureI.hxx>
+
+//#ifdef NoRepository
+//#include <veryInhomogeneousMixture.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

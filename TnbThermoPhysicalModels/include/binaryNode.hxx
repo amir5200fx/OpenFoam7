@@ -196,9 +196,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <binaryNode.cxx>
-#endif
+#include <binaryNodeI.hxx>
+
+//#ifdef NoRepository
+//#include <binaryNode.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

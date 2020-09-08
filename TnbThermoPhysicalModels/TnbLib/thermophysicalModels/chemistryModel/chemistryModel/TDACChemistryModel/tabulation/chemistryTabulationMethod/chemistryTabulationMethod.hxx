@@ -179,10 +179,13 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <chemistryTabulationMethod.cxx>
-#include <chemistryTabulationMethodNew.cxx>
-#endif
+#include <chemistryTabulationMethodI.hxx>
+#include <chemistryTabulationMethodNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <chemistryTabulationMethod.cxx>
+//#include <chemistryTabulationMethodNew.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

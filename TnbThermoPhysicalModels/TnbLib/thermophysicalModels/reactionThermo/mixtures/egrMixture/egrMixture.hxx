@@ -186,9 +186,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-#ifdef NoRepository
-#include <egrMixture.cxx>
-#endif
+#include <egrMixtureI.hxx>
+
+//#ifdef NoRepository
+//#include <egrMixture.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

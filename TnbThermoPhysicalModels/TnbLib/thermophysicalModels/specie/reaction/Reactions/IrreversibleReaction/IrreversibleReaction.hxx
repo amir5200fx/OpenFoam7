@@ -241,9 +241,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <IrreversibleReaction.cxx>
-#endif
+#include <IrreversibleReactionI.hxx>
+
+//#ifdef NoRepository
+//#include <IrreversibleReaction.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

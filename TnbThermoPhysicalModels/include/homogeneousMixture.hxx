@@ -144,9 +144,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-#ifdef NoRepository
-#include <homogeneousMixture.cxx>
-#endif
+#include <homogeneousMixtureI.hxx>
+
+//#ifdef NoRepository
+//#include <homogeneousMixture.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

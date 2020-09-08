@@ -100,9 +100,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <EFA.cxx>
-#endif
+#include <EFAI.hxx>
+
+//#ifdef NoRepository
+//#include <EFA.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

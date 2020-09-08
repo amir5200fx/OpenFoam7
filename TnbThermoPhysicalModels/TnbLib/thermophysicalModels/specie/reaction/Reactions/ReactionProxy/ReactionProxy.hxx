@@ -179,9 +179,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ReactionProxy.cxx>
-#endif
+#include <ReactionProxyI.hxx>
+
+//#ifdef NoRepository
+//#include <ReactionProxy.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

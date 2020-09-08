@@ -132,9 +132,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-#ifdef NoRepository
-#include <pureMixture.cxx>
-#endif
+#include <pureMixtureI.hxx>
+
+//#ifdef NoRepository
+//#include <pureMixture.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

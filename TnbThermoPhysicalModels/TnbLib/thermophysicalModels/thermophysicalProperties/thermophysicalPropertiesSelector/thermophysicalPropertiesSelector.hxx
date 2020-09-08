@@ -171,10 +171,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <thermophysicalPropertiesSelectorI.hxx>
+#include <thermophysicalPropertiesSelector_Imp.hxx>
 
-#ifdef NoRepository
-#include <thermophysicalPropertiesSelector.cxx>
-#endif
+//#ifdef NoRepository
+//#include <thermophysicalPropertiesSelector.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

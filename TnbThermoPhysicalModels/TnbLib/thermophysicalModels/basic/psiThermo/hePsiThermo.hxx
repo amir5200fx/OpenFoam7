@@ -94,9 +94,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <hePsiThermo.cxx>
-#endif
+#include <hePsiThermoI.hxx>
+
+//#ifdef NoRepository
+//#include <hePsiThermo.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

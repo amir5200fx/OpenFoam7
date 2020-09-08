@@ -216,10 +216,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <polynomialSolidTransportI.hxx>
+#include <polynomialSolidTransport_Imp.hxx>
 
-#ifdef NoRepository
-#include <polynomialSolidTransport.cxx>
-#endif
+//#ifdef NoRepository
+//#include <polynomialSolidTransport.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

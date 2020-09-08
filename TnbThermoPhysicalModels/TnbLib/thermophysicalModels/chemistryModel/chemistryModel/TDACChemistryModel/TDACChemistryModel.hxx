@@ -295,10 +295,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <TDACChemistryModelI.hxx>
+#include <TDACChemistryModel_Imp.hxx>
 
-#ifdef NoRepository
-#include <TDACChemistryModel.cxx>
-#endif
+//#ifdef NoRepository
+//#include <TDACChemistryModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

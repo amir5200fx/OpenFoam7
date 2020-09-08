@@ -95,9 +95,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <heRhoThermo.cxx>
-#endif
+#include <heRhoThermoI.hxx>
+
+//#ifdef NoRepository
+//#include <heRhoThermo.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

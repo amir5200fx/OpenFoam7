@@ -156,33 +156,7 @@ namespace tnbLib
 		//- Entropy [J/kg/K]
 		inline scalar S(const scalar p, const scalar T) const;
 
-		inline scalar Cp
-		(
-			const scalar p,
-			const scalar T
-		) const
-		{
-			return Cv(p, T) + EquationOfState::CpMCv(p, T);
-		}
-
-		inline scalar Hs
-		(
-			const scalar p,
-			const scalar T
-		) const
-		{
-			return Es(p, T) + p / EquationOfState::rho(p, T);
-		}
-
-		inline scalar Ha
-		(
-			const scalar p,
-			const scalar T
-		) const
-		{
-			return Ea(p, T) + p / EquationOfState::rho(p, T);
-		}
-
+#include <EtoHthermo.lxx>
 
 
 		// Derivative term used for Jacobian
@@ -243,10 +217,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <eConstThermoI.hxx>
+#include <eConstThermo_Imp.hxx>
 
-#ifdef NoRepository
-#include <eConstThermo.cxx>
-#endif
+//#ifdef NoRepository
+//#include <eConstThermo.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -200,10 +200,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <WLFTransportI.hxx>
+#include <WLFTransport_Imp.hxx>
 
-#ifdef NoRepository
-#include <WLFTransport.cxx>
-#endif
+//#ifdef NoRepository
+//#include <WLFTransport.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

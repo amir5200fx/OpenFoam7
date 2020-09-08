@@ -251,12 +251,13 @@ defineTemplateTypeNameAndDebugWithName                                         \
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <icoPolynomialI.hxx>
+#include <icoPolynomial_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <icoPolynomial.cxx>
-#endif
+//#ifdef NoRepository
+//#include <icoPolynomial.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

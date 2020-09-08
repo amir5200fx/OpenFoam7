@@ -177,10 +177,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <exponentialSolidTransportI.hxx>
+#include <exponentialSolidTransport_Imp.hxx>
 
-#ifdef NoRepository
-#include <exponentialSolidTransport.cxx>
-#endif
+//#ifdef NoRepository
+//#include <exponentialSolidTransport.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

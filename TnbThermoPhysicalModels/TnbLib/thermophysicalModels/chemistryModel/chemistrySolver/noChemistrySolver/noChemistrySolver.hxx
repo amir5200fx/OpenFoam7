@@ -90,9 +90,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <noChemistrySolver.cxx>
-#endif
+#include <noChemistrySolverI.hxx>
+
+//#ifdef NoRepository
+//#include <noChemistrySolver.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

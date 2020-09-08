@@ -177,9 +177,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <foamChemistryReader.cxx>
-#endif
+#include <foamChemistryReaderI.hxx>
+
+//#ifdef NoRepository
+//#include <foamChemistryReader.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

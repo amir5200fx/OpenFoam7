@@ -232,9 +232,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-#ifdef NoRepository
-#include <SpecieMixture.cxx>
-#endif
+#include <SpecieMixtureI.hxx>
+
+//#ifdef NoRepository
+//#include <SpecieMixture.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
