@@ -78,6 +78,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\ODE\ODESolvers\adaptiveSolver;$(ProjectDir)TnbLib\ODE\ODESolvers\Euler;$(ProjectDir)TnbLib\ODE\ODESolvers\EulerSI;$(ProjectDir)TnbLib\ODE\ODESolvers\ODESolver;$(ProjectDir)TnbLib\ODE\ODESolvers\RKCK45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKDP45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKF45;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas23;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas34;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock12;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock23;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock34;$(ProjectDir)TnbLib\ODE\ODESolvers\seulex;$(ProjectDir)TnbLib\ODE\ODESolvers\SIBS;$(ProjectDir)TnbLib\ODE\ODESolvers\Trapezoid;$(ProjectDir)TnbLib\ODE\ODESystem;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,6 +126,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\ODE\ODESolvers\adaptiveSolver;$(ProjectDir)TnbLib\ODE\ODESolvers\Euler;$(ProjectDir)TnbLib\ODE\ODESolvers\EulerSI;$(ProjectDir)TnbLib\ODE\ODESolvers\ODESolver;$(ProjectDir)TnbLib\ODE\ODESolvers\RKCK45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKDP45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKF45;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas23;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas34;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock12;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock23;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock34;$(ProjectDir)TnbLib\ODE\ODESolvers\seulex;$(ProjectDir)TnbLib\ODE\ODESolvers\SIBS;$(ProjectDir)TnbLib\ODE\ODESolvers\Trapezoid;$(ProjectDir)TnbLib\ODE\ODESystem;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
