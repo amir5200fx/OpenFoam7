@@ -71,9 +71,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvcCurl.cxx>
-#endif
+#include <fvcCurlI.hxx>
+
+//#ifdef NoRepository
+//#include <fvcCurl.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

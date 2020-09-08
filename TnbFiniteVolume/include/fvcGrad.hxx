@@ -122,9 +122,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvcGrad.cxx>
-#endif
+#include <fvcGradI.hxx>
+
+//#ifdef NoRepository
+//#include <fvcGrad.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -140,9 +140,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <calculatedFvsPatchField.cxx>
-#endif
+#include <calculatedFvsPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <calculatedFvsPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

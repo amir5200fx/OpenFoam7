@@ -71,9 +71,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvcMagSqrGradGrad.cxx>
-#endif
+#include <fvcMagSqrGradGradI.hxx>
+
+//#ifdef NoRepository
+//#include <fvcMagSqrGradGrad.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

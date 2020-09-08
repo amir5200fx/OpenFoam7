@@ -148,9 +148,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <multivariateSelectionScheme.cxx>
-#endif
+#include <multivariateSelectionSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <multivariateSelectionScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

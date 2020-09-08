@@ -173,9 +173,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <symmetryPlaneFvPatchField.cxx>
-#endif
+#include <symmetryPlaneFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <symmetryPlaneFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

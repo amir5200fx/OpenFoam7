@@ -152,9 +152,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <basicSymmetryFvPatchField.cxx>
-#endif
+#include <basicSymmetryFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <basicSymmetryFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

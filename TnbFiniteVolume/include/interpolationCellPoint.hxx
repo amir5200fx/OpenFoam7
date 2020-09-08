@@ -112,12 +112,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <interpolationCellPointI.hxx>
+#include <interpolationCellPoint_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <interpolationCellPoint.cxx>
-#endif
+//#ifdef NoRepository
+//#include <interpolationCellPoint.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

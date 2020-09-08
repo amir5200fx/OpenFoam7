@@ -114,9 +114,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <interpolationCellPointFace.cxx>
-#endif
+#include <interpolationCellPointFaceI.hxx>
+
+//#ifdef NoRepository
+//#include <interpolationCellPointFace.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

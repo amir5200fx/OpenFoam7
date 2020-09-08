@@ -168,9 +168,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <patchDistMethodTemplates.cxx>
-#endif
+#include <patchDistMethodI.hxx>
+
+//#ifdef NoRepository
+//#include <patchDistMethodTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

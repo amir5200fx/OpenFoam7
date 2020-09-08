@@ -238,9 +238,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <solidificationTemplates.cxx>
-#endif
+#include <solidificationI.hxx>
+
+//#ifdef NoRepository
+//#include <solidificationTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

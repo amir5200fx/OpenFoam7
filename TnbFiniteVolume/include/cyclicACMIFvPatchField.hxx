@@ -150,9 +150,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <cyclicACMIFvPatchField.cxx>
-#endif
+#include <cyclicACMIFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <cyclicACMIFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

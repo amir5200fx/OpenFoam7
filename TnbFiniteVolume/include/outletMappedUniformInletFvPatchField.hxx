@@ -180,9 +180,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <outletMappedUniformInletFvPatchField.cxx>
-#endif
+#include <outletMappedUniformInletFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <outletMappedUniformInletFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

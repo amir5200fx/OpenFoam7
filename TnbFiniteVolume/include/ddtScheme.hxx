@@ -354,9 +354,11 @@ tmp<surfaceScalarField> SS<scalar>::fvcDdtPhiCorr                              \
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ddtScheme.cxx>
-#endif
+#include <ddtSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <ddtScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

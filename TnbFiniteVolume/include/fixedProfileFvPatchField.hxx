@@ -216,9 +216,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fixedProfileFvPatchField.cxx>
-#endif
+#include <fixedProfileFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <fixedProfileFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

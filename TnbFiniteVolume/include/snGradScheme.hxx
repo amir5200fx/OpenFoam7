@@ -219,9 +219,11 @@ makeSnGradTypeScheme(SS, tensor)
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <snGradScheme.cxx>
-#endif
+#include <snGradSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <snGradScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

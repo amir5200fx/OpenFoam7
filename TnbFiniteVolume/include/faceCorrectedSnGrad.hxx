@@ -149,9 +149,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <faceCorrectedSnGrad.cxx>
-#endif
+#include <faceCorrectedSnGradI.hxx>
+
+//#ifdef NoRepository
+//#include <faceCorrectedSnGrad.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

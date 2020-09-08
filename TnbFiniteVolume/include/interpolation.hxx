@@ -183,9 +183,12 @@ makeInterpolationType(SS, tensor)
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <interpolation.cxx>
-#endif
+#include <interpolationI.hxx>
+#include <interpolationNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <interpolation.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

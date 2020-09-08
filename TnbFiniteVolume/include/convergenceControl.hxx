@@ -174,9 +174,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <convergenceControlTemplates.cxx>
-#endif
+#include <convergenceControlI.hxx>
+
+//#ifdef NoRepository
+//#include <convergenceControlTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

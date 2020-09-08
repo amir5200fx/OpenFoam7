@@ -177,9 +177,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvcDiv.cxx>
-#endif
+#include <fvcDivI.hxx>
+
+//#ifdef NoRepository
+//#include <fvcDiv.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

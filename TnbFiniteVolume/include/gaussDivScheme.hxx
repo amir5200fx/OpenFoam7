@@ -111,9 +111,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <gaussDivScheme.cxx>
-#endif
+#include <gaussDivSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <gaussDivScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

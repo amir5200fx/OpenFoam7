@@ -118,6 +118,8 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <fvmDdtI.hxx>
+
 #ifdef NoRepository
 #include <fvmDdt.cxx>
 #endif

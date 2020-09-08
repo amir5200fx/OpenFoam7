@@ -234,9 +234,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <turbulentInletFvPatchField.cxx>
-#endif
+#include <turbulentInletFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <turbulentInletFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

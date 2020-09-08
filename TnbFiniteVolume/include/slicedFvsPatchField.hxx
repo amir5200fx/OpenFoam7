@@ -167,9 +167,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <slicedFvsPatchField.cxx>
-#endif
+#include <slicedFvsPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <slicedFvsPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

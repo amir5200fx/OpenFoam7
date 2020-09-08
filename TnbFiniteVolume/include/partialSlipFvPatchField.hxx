@@ -230,9 +230,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <partialSlipFvPatchField.cxx>
-#endif
+#include <partialSlipFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <partialSlipFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

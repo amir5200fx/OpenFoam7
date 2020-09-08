@@ -99,12 +99,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <interpolationPointMVCI.hxx>
+#include <interpolationPointMVC_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <interpolationPointMVC.cxx>
-#endif
+//#ifdef NoRepository
+//#include <interpolationPointMVC.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

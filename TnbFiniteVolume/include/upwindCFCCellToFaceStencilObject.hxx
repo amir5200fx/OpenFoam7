@@ -38,6 +38,8 @@ SourceFiles
 #include <CFCCellToFaceStencil.hxx>
 #include <MeshObject.hxx>
 
+#include <fvMesh.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -83,6 +85,32 @@ namespace tnbLib
 				CFCCellToFaceStencil(mesh),
 				pureUpwind,
 				minOpposedness
+			)
+		{
+			if (extendedCellToFaceStencil::debug)
+			{
+				Info << "Generated off-centred stencil " << type()
+					<< nl << endl;
+				writeStencilStats(Info, ownStencil(), ownMap());
+			}
+		}
+
+
+		//- added by amir (quadraticLinearPureUpwindFit.cxx wouldn't compile without this constructor)
+		upwindCFCCellToFaceStencilObject
+		(
+			const fvMesh& mesh
+		)
+			:
+			MeshObject
+			<
+			fvMesh,
+			tnbLib::TopologicalMeshObject,
+			upwindCFCCellToFaceStencilObject
+			>(mesh),
+			extendedUpwindCellToFaceStencil
+			(
+				CFCCellToFaceStencil(mesh)
 			)
 		{
 			if (extendedCellToFaceStencil::debug)

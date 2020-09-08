@@ -141,9 +141,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <cyclicSlipFvPatchField.cxx>
-#endif
+#include <cyclicSlipFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <cyclicSlipFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

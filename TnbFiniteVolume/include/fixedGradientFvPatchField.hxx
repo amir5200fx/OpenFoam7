@@ -229,9 +229,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fixedGradientFvPatchField.cxx>
-#endif
+#include <fixedGradientFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <fixedGradientFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

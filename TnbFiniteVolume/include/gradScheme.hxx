@@ -210,9 +210,11 @@ makeFvGradTypeScheme(SS, vector)
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <gradScheme.cxx>
-#endif
+#include <gradSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <gradScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

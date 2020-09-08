@@ -149,9 +149,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <LimitFuncs.cxx>
-#endif
+#include <LimitFuncsI.hxx>
+
+//#ifdef NoRepository
+//#include <LimitFuncs.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

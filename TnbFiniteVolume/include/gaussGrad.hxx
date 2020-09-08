@@ -162,9 +162,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <gaussGrad.cxx>
-#endif
+#include <gaussGradI.hxx>
+
+//#ifdef NoRepository
+//#include <gaussGrad.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

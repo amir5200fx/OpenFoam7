@@ -115,9 +115,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvcVolumeIntegrate.cxx>
-#endif
+#include <fvcVolumeIntegrateI.hxx>
+
+//#ifdef NoRepository
+//#include <fvcVolumeIntegrate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

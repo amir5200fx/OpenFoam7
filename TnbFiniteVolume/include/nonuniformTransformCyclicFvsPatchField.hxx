@@ -129,9 +129,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <nonuniformTransformCyclicFvsPatchField.cxx>
-#endif
+#include <nonuniformTransformCyclicFvsPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <nonuniformTransformCyclicFvsPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

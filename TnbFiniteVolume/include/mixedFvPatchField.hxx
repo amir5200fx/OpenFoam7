@@ -297,9 +297,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <mixedFvPatchField.cxx>
-#endif
+#include <mixedFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <mixedFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

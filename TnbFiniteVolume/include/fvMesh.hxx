@@ -64,6 +64,8 @@ SourceFiles
 #include <slicedSurfaceFieldsFwd.hxx>
 #include <className.hxx>
 
+#include <processorFvPatch.hxx>  // added by amir
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -408,10 +410,13 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvMeshTemplates.cxx>
-#include <fvPatchFvMeshTemplates.cxx>
-#endif
+#include <fvMeshI.hxx>
+
+
+//#ifdef NoRepository
+//#include <fvMeshTemplates.cxx>
+//#include <fvPatchFvMeshTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

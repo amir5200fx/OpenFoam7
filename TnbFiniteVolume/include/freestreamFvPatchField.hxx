@@ -169,9 +169,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <freestreamFvPatchField.cxx>
-#endif
+#include <freestreamFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <freestreamFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

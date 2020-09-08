@@ -1055,9 +1055,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvMatrix.cxx>
-#endif
+#include <fvMatrixI.hxx>
+#include <fvMatrixSolve_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <fvMatrix.cxx>
+//#endif
 
 // Specialisation for scalars
 #include <fvScalarMatrix.hxx>

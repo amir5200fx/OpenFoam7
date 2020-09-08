@@ -116,9 +116,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <multivariateIndependentScheme.cxx>
-#endif
+#include <multivariateIndependentSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <multivariateIndependentScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

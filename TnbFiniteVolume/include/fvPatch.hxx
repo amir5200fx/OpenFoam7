@@ -279,9 +279,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvPatchTemplates.cxx>
-#endif
+#include <fvPatchFvMeshTemplates_Imp.hxx>
+#include <fvPatchI.hxx>
+
+//#ifdef NoRepository
+//#include <fvPatchTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

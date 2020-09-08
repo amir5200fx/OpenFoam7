@@ -140,9 +140,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <boundedConvectionScheme.cxx>
-#endif
+#include <boundedConvectionSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <boundedConvectionScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -135,9 +135,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <multivariateGaussConvectionScheme.cxx>
-#endif
+#include <multivariateGaussConvectionSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <multivariateGaussConvectionScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

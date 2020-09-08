@@ -380,10 +380,15 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include "fvsPatchField.C"
-#include "calculatedFvsPatchField.H"
-#endif
+#include <fvsPatchFieldI.hxx>
+#include <fvsPatchFieldNew_Imp.hxx>
+
+#include <calculatedFvsPatchField.hxx>  //- added by amir
+
+//#ifdef NoRepository
+//#include <fvsPatchField.cxx>
+//#include <calculatedFvsPatchField.hxx>
+//#endif
 
 
 #define makeFvsPatchTypeFieldTypeName(type)                                    \

@@ -94,9 +94,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <interpolationCellPointWallModified.cxx>
-#endif
+#include <interpolationCellPointWallModifiedI.hxx>
+
+//#ifdef NoRepository
+//#include <interpolationCellPointWallModified.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

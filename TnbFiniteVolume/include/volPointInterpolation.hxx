@@ -262,9 +262,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <volPointInterpolate.cxx>
-#endif
+#include <volPointInterpolate_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <volPointInterpolate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

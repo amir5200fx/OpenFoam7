@@ -75,9 +75,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvcCellReduce.cxx>
-#endif
+#include <fvcCellReduceI.hxx>
+
+//#ifdef NoRepository
+//#include <fvcCellReduce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

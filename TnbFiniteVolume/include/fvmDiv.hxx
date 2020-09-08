@@ -91,9 +91,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvmDiv.cxx>
-#endif
+#include <fvmDivI.hxx>
+
+//#ifdef NoRepository
+//#include <fvmDiv.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

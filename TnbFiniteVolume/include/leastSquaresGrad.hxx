@@ -113,9 +113,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <leastSquaresGrad.cxx>
-#endif
+#include <leastSquaresGradI.hxx>
+
+//#ifdef NoRepository
+//#include <leastSquaresGrad.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -133,9 +133,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvcFluxTemplates.cxx>
-#endif
+#include <fvcFluxI.hxx>
+
+//#ifdef NoRepository
+//#include <fvcFluxTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

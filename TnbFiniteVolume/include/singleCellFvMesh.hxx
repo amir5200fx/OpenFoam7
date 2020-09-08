@@ -221,9 +221,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <singleCellFvMeshInterpolate.cxx>
-#endif
+#include <singleCellFvMeshInterpolate_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <singleCellFvMeshInterpolate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

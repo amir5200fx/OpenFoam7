@@ -161,9 +161,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <processorCyclicFvsPatchField.cxx>
-#endif
+#include <processorCyclicFvsPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <processorCyclicFvsPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

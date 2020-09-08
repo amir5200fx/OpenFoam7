@@ -99,9 +99,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <extendedFaceToCellStencilTemplates.cxx>
-#endif
+#include <extendedFaceToCellStencilI.hxx>
+
+//#ifdef NoRepository
+//#include <extendedFaceToCellStencilTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

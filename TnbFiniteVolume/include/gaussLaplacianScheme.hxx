@@ -175,9 +175,11 @@ gaussLaplacianScheme<Type, scalar>::fvcLaplacian                               \
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <gaussLaplacianScheme.cxx>
-#endif
+#include <gaussLaplacianSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <gaussLaplacianScheme.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

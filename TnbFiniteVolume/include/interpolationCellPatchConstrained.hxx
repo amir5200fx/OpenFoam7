@@ -100,9 +100,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <interpolationCellPatchConstrained.cxx>
-#endif
+#include <interpolationCellPatchConstrainedI.hxx>
+
+//#ifdef NoRepository
+//#include <interpolationCellPatchConstrained.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

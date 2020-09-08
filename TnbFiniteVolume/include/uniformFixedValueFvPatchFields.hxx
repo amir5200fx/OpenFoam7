@@ -27,7 +27,7 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include <uniformFixedGradientFvPatchField.hxx>
+#include <uniformFixedValueFvPatchField.hxx>
 #include <fieldTypes.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -37,7 +37,7 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	makePatchTypeFieldTypedefs(uniformFixedGradient);
+	makePatchTypeFieldTypedefs(uniformFixedValue);
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
