@@ -513,9 +513,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <faceCoupleInfoTemplates.cxx>
-#endif
+#include <faceCoupleInfoI.hxx>
+
+//#ifdef NoRepository
+//#include <faceCoupleInfoTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

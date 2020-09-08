@@ -268,9 +268,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <polyMeshFilterTemplates.cxx>
-#endif
+#include <polyMeshFilterI.hxx>
+
+//#ifdef NoRepository
+//#include <polyMeshFilterTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

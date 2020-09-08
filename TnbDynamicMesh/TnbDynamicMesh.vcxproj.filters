@@ -549,6 +549,30 @@
     <ClInclude Include="TnbLib\dynamicFvMesh\dynamicRefineFvMesh\dynamicRefineFvMesh.hxx">
       <Filter>TnbLib\dynamicFvMesh\dynamicRefineFvMesh</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshAdder\fvMeshAdderI.hxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshAdder</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshDistribute\fvMeshDistributeI.hxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshDistribute</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshSubset\fvMeshSubsetInterpolate_Imp.hxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshSubset</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshTools\fvMeshToolsI.hxx">
+      <Filter>TnbLib\dynamicMesh\fvMeshTools</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherAlgoI.hxx">
+      <Filter>TnbLib\dynamicMesh\motionSmoother</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyMeshAdder\faceCoupleInfoI.hxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshAdder</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilterI.hxx">
+      <Filter>TnbLib\dynamicMesh\polyMeshFilter</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\setUpdater\setUpdaterI.hxx">
+      <Filter>TnbLib\dynamicMesh\setUpdater</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.cxx">
@@ -608,9 +632,6 @@
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChange.cxx">
       <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChangeTemplates.cxx">
-      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\refinementData.cxx">
       <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
     </ClCompile>
@@ -635,22 +656,13 @@
     <ClCompile Include="TnbLib\dynamicMesh\setUpdater\setUpdater.cxx">
       <Filter>TnbLib\dynamicMesh\setUpdater</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\dynamicMesh\setUpdater\setUpdaterTemplates.cxx">
-      <Filter>TnbLib\dynamicMesh\setUpdater</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilter.cxx">
       <Filter>TnbLib\dynamicMesh\polyMeshFilter</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilterSettings.cxx">
       <Filter>TnbLib\dynamicMesh\polyMeshFilter</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilterTemplates.cxx">
-      <Filter>TnbLib\dynamicMesh\polyMeshFilter</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\polyMeshAdder\faceCoupleInfo.cxx">
-      <Filter>TnbLib\dynamicMesh\polyMeshAdder</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\dynamicMesh\polyMeshAdder\faceCoupleInfoTemplates.cxx">
       <Filter>TnbLib\dynamicMesh\polyMeshAdder</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\polyMeshAdder\polyMeshAdder.cxx">
@@ -752,26 +764,14 @@
     <ClCompile Include="TnbLib\dynamicMesh\fvMeshAdder\fvMeshAdder.cxx">
       <Filter>TnbLib\dynamicMesh\fvMeshAdder</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\dynamicMesh\fvMeshAdder\fvMeshAdderTemplates.cxx">
-      <Filter>TnbLib\dynamicMesh\fvMeshAdder</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\fvMeshDistribute\fvMeshDistribute.cxx">
       <Filter>TnbLib\dynamicMesh\fvMeshDistribute</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\fvMeshSubset\fvMeshSubset.cxx">
       <Filter>TnbLib\dynamicMesh\fvMeshSubset</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\dynamicMesh\fvMeshSubset\fvMeshSubsetInterpolate.cxx">
-      <Filter>TnbLib\dynamicMesh\fvMeshSubset</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\fvMeshTools\fvMeshTools.cxx">
       <Filter>TnbLib\dynamicMesh\fvMeshTools</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\dynamicMesh\fvMeshTools\fvMeshToolsTemplates.cxx">
-      <Filter>TnbLib\dynamicMesh\fvMeshTools</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\dynamicMesh\fvMeshDistribute\fvMeshDistributeTemplates.cxx">
-      <Filter>TnbLib\dynamicMesh\fvMeshDistribute</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\layerAdditionRemoval.cxx">
       <Filter>TnbLib\dynamicMesh\layerAdditionRemoval</Filter>
@@ -789,9 +789,6 @@
       <Filter>TnbLib\dynamicMesh\motionSmoother</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherAlgoCheck.cxx">
-      <Filter>TnbLib\dynamicMesh\motionSmoother</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherAlgoTemplates.cxx">
       <Filter>TnbLib\dynamicMesh\motionSmoother</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmoother.cxx">
@@ -857,5 +854,10 @@
     <ClCompile Include="TnbLib\dynamicFvMesh\dynamicRefineFvMesh\dynamicRefineFvMesh.cxx">
       <Filter>TnbLib\dynamicFvMesh\dynamicRefineFvMesh</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChangeTemplates.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </None>
   </ItemGroup>
 </Project>

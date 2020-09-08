@@ -119,8 +119,11 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#ifdef NoRepository
-#include <setUpdaterTemplates.cxx>
-#endif
+
+#include <setUpdaterI.hxx>
+
+//#ifdef NoRepository
+//#include <setUpdaterTemplates.cxx>
+//#endif
 
 #endif // !_setUpdater_Header

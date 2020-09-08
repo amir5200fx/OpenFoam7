@@ -57,6 +57,8 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\conversion\ensight\file;$(ProjectDir)TnbLib\conversion\ensight\part;$(ProjectDir)TnbLib\conversion\meshReader\starcd;$(ProjectDir)TnbLib\conversion\meshReader;$(ProjectDir)TnbLib\conversion\meshTables;$(ProjectDir)TnbLib\conversion\meshWriter\starcd;$(ProjectDir)TnbLib\conversion\meshWriter;$(ProjectDir)TnbLib\conversion\polyDualMesh;$(ProjectDir)TnbLib\dynamicFvMesh\dynamicFvMesh;$(ProjectDir)TnbLib\dynamicFvMesh\dynamicInkJetFvMesh;$(ProjectDir)TnbLib\dynamicFvMesh\dynamicInterpolatedFvMesh;$(ProjectDir)TnbLib\dynamicFvMesh\dynamicMotionSolverFvMesh;$(ProjectDir)TnbLib\dynamicFvMesh\dynamicRefineFvMesh;$(ProjectDir)TnbLib\dynamicFvMesh\staticFvMesh;$(ProjectDir)TnbLib\dynamicMesh\attachDetach;$(ProjectDir)TnbLib\dynamicMesh\boundaryMesh;$(ProjectDir)TnbLib\dynamicMesh\boundaryPatch;$(ProjectDir)TnbLib\dynamicMesh\createShellMesh;$(ProjectDir)TnbLib\dynamicMesh\extrudePatchMesh;$(ProjectDir)TnbLib\dynamicMesh\fvMeshAdder;$(ProjectDir)TnbLib\dynamicMesh\fvMeshDistribute;$(ProjectDir)TnbLib\dynamicMesh\fvMeshSubset;$(ProjectDir)TnbLib\dynamicMesh\fvMeshTools;$(ProjectDir)TnbLib\dynamicMesh\layerAdditionRemoval;$(ProjectDir)TnbLib\dynamicMesh\meshCut\cellCuts;$(ProjectDir)TnbLib\dynamicMesh\meshCut\cellLooper;$(ProjectDir)TnbLib\dynamicMesh\meshCut\directions\directionInfo;$(ProjectDir)TnbLib\dynamicMesh\meshCut\directions;$(ProjectDir)TnbLib\dynamicMesh\meshCut\edgeVertex;$(ProjectDir)TnbLib\dynamicMesh\meshCut\meshModifiers\boundaryCutter;$(ProjectDir)TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutAndRemove;$(ProjectDir)TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutter;$(ProjectDir)TnbLib\dynamicMesh\meshCut\meshModifiers\multiDirRefinement;$(ProjectDir)TnbLib\dynamicMesh\meshCut\meshModifiers\refinementIterator;$(ProjectDir)TnbLib\dynamicMesh\meshCut\meshModifiers\undoableMeshCutter;$(ProjectDir)TnbLib\dynamicMesh\meshCut\refineCell;$(ProjectDir)TnbLib\dynamicMesh\meshCut\splitCell;$(ProjectDir)TnbLib\dynamicMesh\meshCut\wallLayerCells\wallNormalInfo;$(ProjectDir)TnbLib\dynamicMesh\meshCut\wallLayerCells;$(ProjectDir)TnbLib\dynamicMesh\motionSmoother\badQualityToCell;$(ProjectDir)TnbLib\dynamicMesh\motionSmoother\badQualityToFace;$(ProjectDir)TnbLib\dynamicMesh\motionSmoother\polyMeshGeometry;$(ProjectDir)TnbLib\dynamicMesh\motionSmoother;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\componentDisplacement;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\componentVelocity;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\displacement;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\interpolation;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\linearSolver;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\points0;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\interpolatingSolidBodyMotionSolver;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\multiSolidBodyMotionSolver;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\pointPatchFields\derived\solidBodyMotionDisplacement;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\axisRotationMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\linearMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\multiMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingLinearMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingRotatingMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\rotatingMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\SDA;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\solidBodyMotionFunction;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\tabulated6DoFMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionSolver;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\motionSolver;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\motionSolverList;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\velocity;$(ProjectDir)TnbLib\dynamicMesh\perfectInterface;$(ProjectDir)TnbLib\dynamicMesh\pointInterpolator;$(ProjectDir)TnbLib\dynamicMesh\pointPatchDist;$(ProjectDir)TnbLib\dynamicMesh\polyMeshAdder;$(ProjectDir)TnbLib\dynamicMesh\polyMeshFilter;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\attachPolyTopoChanger;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyMeshModifier;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addObject;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\modifyObject;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\pointEdgeCollapse;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeObject;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\topoAction;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChanger;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\repatchPolyTopoChanger;$(ProjectDir)TnbLib\dynamicMesh\setUpdater;$(ProjectDir)TnbLib\dynamicMesh\slidingInterface\enrichedPatch;$(ProjectDir)TnbLib\dynamicMesh\slidingInterface;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,6 +106,8 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\conversion\ensight\file;$(ProjectDir)TnbLib\conversion\ensight\part;$(ProjectDir)TnbLib\conversion\meshReader\starcd;$(ProjectDir)TnbLib\conversion\meshReader;$(ProjectDir)TnbLib\conversion\meshTables;$(ProjectDir)TnbLib\conversion\meshWriter\starcd;$(ProjectDir)TnbLib\conversion\meshWriter;$(ProjectDir)TnbLib\conversion\polyDualMesh;$(ProjectDir)TnbLib\dynamicFvMesh\dynamicFvMesh;$(ProjectDir)TnbLib\dynamicFvMesh\dynamicInkJetFvMesh;$(ProjectDir)TnbLib\dynamicFvMesh\dynamicInterpolatedFvMesh;$(ProjectDir)TnbLib\dynamicFvMesh\dynamicMotionSolverFvMesh;$(ProjectDir)TnbLib\dynamicFvMesh\dynamicRefineFvMesh;$(ProjectDir)TnbLib\dynamicFvMesh\staticFvMesh;$(ProjectDir)TnbLib\dynamicMesh\attachDetach;$(ProjectDir)TnbLib\dynamicMesh\boundaryMesh;$(ProjectDir)TnbLib\dynamicMesh\boundaryPatch;$(ProjectDir)TnbLib\dynamicMesh\createShellMesh;$(ProjectDir)TnbLib\dynamicMesh\extrudePatchMesh;$(ProjectDir)TnbLib\dynamicMesh\fvMeshAdder;$(ProjectDir)TnbLib\dynamicMesh\fvMeshDistribute;$(ProjectDir)TnbLib\dynamicMesh\fvMeshSubset;$(ProjectDir)TnbLib\dynamicMesh\fvMeshTools;$(ProjectDir)TnbLib\dynamicMesh\layerAdditionRemoval;$(ProjectDir)TnbLib\dynamicMesh\meshCut\cellCuts;$(ProjectDir)TnbLib\dynamicMesh\meshCut\cellLooper;$(ProjectDir)TnbLib\dynamicMesh\meshCut\directions\directionInfo;$(ProjectDir)TnbLib\dynamicMesh\meshCut\directions;$(ProjectDir)TnbLib\dynamicMesh\meshCut\edgeVertex;$(ProjectDir)TnbLib\dynamicMesh\meshCut\meshModifiers\boundaryCutter;$(ProjectDir)TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutAndRemove;$(ProjectDir)TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutter;$(ProjectDir)TnbLib\dynamicMesh\meshCut\meshModifiers\multiDirRefinement;$(ProjectDir)TnbLib\dynamicMesh\meshCut\meshModifiers\refinementIterator;$(ProjectDir)TnbLib\dynamicMesh\meshCut\meshModifiers\undoableMeshCutter;$(ProjectDir)TnbLib\dynamicMesh\meshCut\refineCell;$(ProjectDir)TnbLib\dynamicMesh\meshCut\splitCell;$(ProjectDir)TnbLib\dynamicMesh\meshCut\wallLayerCells\wallNormalInfo;$(ProjectDir)TnbLib\dynamicMesh\meshCut\wallLayerCells;$(ProjectDir)TnbLib\dynamicMesh\motionSmoother\badQualityToCell;$(ProjectDir)TnbLib\dynamicMesh\motionSmoother\badQualityToFace;$(ProjectDir)TnbLib\dynamicMesh\motionSmoother\polyMeshGeometry;$(ProjectDir)TnbLib\dynamicMesh\motionSmoother;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\componentDisplacement;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\componentVelocity;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\displacement;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\interpolation;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\layeredSolver;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\linearSolver;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\points0;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\interpolatingSolidBodyMotionSolver;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\multiSolidBodyMotionSolver;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\pointPatchFields\derived\solidBodyMotionDisplacement;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\axisRotationMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\linearMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\multiMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingLinearMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\oscillatingRotatingMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\rotatingMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\SDA;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\solidBodyMotionFunction;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionFunctions\tabulated6DoFMotion;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\displacement\solidBody\solidBodyMotionSolver;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\motionSolver;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\motionSolverList;$(ProjectDir)TnbLib\dynamicMesh\motionSolvers\velocity;$(ProjectDir)TnbLib\dynamicMesh\perfectInterface;$(ProjectDir)TnbLib\dynamicMesh\pointInterpolator;$(ProjectDir)TnbLib\dynamicMesh\pointPatchDist;$(ProjectDir)TnbLib\dynamicMesh\polyMeshAdder;$(ProjectDir)TnbLib\dynamicMesh\polyMeshFilter;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\attachPolyTopoChanger;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyMeshModifier;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addObject;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\modifyObject;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\pointEdgeCollapse;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeObject;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\topoAction;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChange;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\polyTopoChanger;$(ProjectDir)TnbLib\dynamicMesh\polyTopoChange\repatchPolyTopoChanger;$(ProjectDir)TnbLib\dynamicMesh\setUpdater;$(ProjectDir)TnbLib\dynamicMesh\slidingInterface\enrichedPatch;$(ProjectDir)TnbLib\dynamicMesh\slidingInterface;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,9 +130,13 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\dynamicMesh\extrudePatchMesh\extrudePatchMesh.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\fvMeshAdder\directPointPatchFieldMapper.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\fvMeshAdder\fvMeshAdder.hxx" />
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshAdder\fvMeshAdderI.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\fvMeshDistribute\fvMeshDistribute.hxx" />
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshDistribute\fvMeshDistributeI.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\fvMeshSubset\fvMeshSubset.hxx" />
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshSubset\fvMeshSubsetInterpolate_Imp.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\fvMeshTools\fvMeshTools.hxx" />
+    <ClInclude Include="TnbLib\dynamicMesh\fvMeshTools\fvMeshToolsI.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\layerAdditionRemoval\layerAdditionRemoval.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfoI.hxx" />
@@ -136,6 +144,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\badQualityToFace\badQualityToFace.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\motionSmoother.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherAlgo.hxx" />
+    <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherAlgoI.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherData.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\motionSmoother\polyMeshGeometry\polyMeshGeometry.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\motionSolvers\componentDisplacement\componentDisplacementMotionSolver.hxx" />
@@ -168,8 +177,10 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\dynamicMesh\pointPatchDist\externalPointEdgePointI.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\pointPatchDist\pointPatchDist.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\polyMeshAdder\faceCoupleInfo.hxx" />
+    <ClInclude Include="TnbLib\dynamicMesh\polyMeshAdder\faceCoupleInfoI.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\polyMeshAdder\polyMeshAdder.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilter.hxx" />
+    <ClInclude Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilterI.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilterSettings.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilterSettingsI.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\attachPolyTopoChanger\attachPolyTopoChanger.hxx" />
@@ -206,6 +217,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\topoAction\topoAction.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\repatchPolyTopoChanger\repatchPolyTopoChanger.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\setUpdater\setUpdater.hxx" />
+    <ClInclude Include="TnbLib\dynamicMesh\setUpdater\setUpdaterI.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch\enrichedPatch.hxx" />
     <ClInclude Include="TnbLib\dynamicMesh\slidingInterface\slidingInterface.hxx" />
   </ItemGroup>
@@ -225,13 +237,9 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\dynamicMesh\createShellMesh\createShellMesh.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\extrudePatchMesh\extrudePatchMesh.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\fvMeshAdder\fvMeshAdder.cxx" />
-    <ClCompile Include="TnbLib\dynamicMesh\fvMeshAdder\fvMeshAdderTemplates.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\fvMeshDistribute\fvMeshDistribute.cxx" />
-    <ClCompile Include="TnbLib\dynamicMesh\fvMeshDistribute\fvMeshDistributeTemplates.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\fvMeshSubset\fvMeshSubset.cxx" />
-    <ClCompile Include="TnbLib\dynamicMesh\fvMeshSubset\fvMeshSubsetInterpolate.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\fvMeshTools\fvMeshTools.cxx" />
-    <ClCompile Include="TnbLib\dynamicMesh\fvMeshTools\fvMeshToolsTemplates.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\layerAdditionRemoval.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\badQualityToCell\badQualityToCell.cxx" />
@@ -239,7 +247,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmoother.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherAlgo.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherAlgoCheck.cxx" />
-    <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherAlgoTemplates.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\motionSmootherData.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\polyMeshGeometry\polyMeshGeometry.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\motionSolvers\componentDisplacement\componentDisplacementMotionSolver.cxx" />
@@ -271,11 +278,9 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\dynamicMesh\pointPatchDist\externalPointEdgePoint.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\pointPatchDist\pointPatchDist.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyMeshAdder\faceCoupleInfo.cxx" />
-    <ClCompile Include="TnbLib\dynamicMesh\polyMeshAdder\faceCoupleInfoTemplates.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyMeshAdder\polyMeshAdder.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilter.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilterSettings.cxx" />
-    <ClCompile Include="TnbLib\dynamicMesh\polyMeshFilter\polyMeshFilterTemplates.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\attachPolyTopoChanger\attachPolyTopoChanger.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyMeshModifier\polyMeshModifier.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyMeshModifier\polyMeshModifierNew.cxx" />
@@ -289,7 +294,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\hexRef8\refinementHistory.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\pointEdgeCollapse\pointEdgeCollapse.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChange.cxx" />
-    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChangeTemplates.cxx" />
+    <None Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChangeTemplates.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\refinementData.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\refinementDistanceData.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\removeCells.cxx" />
@@ -299,7 +304,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\topoAction\topoActions.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\repatchPolyTopoChanger\repatchPolyTopoChanger.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\setUpdater\setUpdater.cxx" />
-    <ClCompile Include="TnbLib\dynamicMesh\setUpdater\setUpdaterTemplates.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\coupleSlidingInterface.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\decoupleSlidingInterface.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch\enrichedPatch.cxx" />

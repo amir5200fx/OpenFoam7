@@ -5,6 +5,8 @@
 #include <processorPolyPatch.hxx>  // added by amir
 #include <volMesh.hxx>  // added by amir
 #include <surfaceMesh.hxx>  // added by amir
+#include <fvPatchFields.hxx>  // added by amir
+#include <fvsPatchFields.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

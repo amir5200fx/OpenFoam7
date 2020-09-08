@@ -511,9 +511,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <motionSmootherAlgoTemplates.cxx>
-#endif
+#include <motionSmootherAlgoI.hxx>
+
+//#ifdef NoRepository
+//#include <motionSmootherAlgoTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

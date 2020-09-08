@@ -331,9 +331,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvMeshSubsetInterpolate.cxx>
-#endif
+#include <fvMeshSubsetInterpolate_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <fvMeshSubsetInterpolate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

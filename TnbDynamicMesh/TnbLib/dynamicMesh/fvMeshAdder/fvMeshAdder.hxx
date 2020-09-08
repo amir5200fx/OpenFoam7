@@ -185,9 +185,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvMeshAdderTemplates.cxx>
-#endif
+#include <fvMeshAdderI.hxx>
+
+//#ifdef NoRepository
+//#include <fvMeshAdderTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
