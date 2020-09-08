@@ -18,8 +18,6 @@
     <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartFaces.cxx" />
     <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartIO.cxx" />
     <ClCompile Include="TnbLib\conversion\ensight\part\ensightParts.cxx" />
-    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartsTemplates.cxx" />
-    <ClCompile Include="TnbLib\conversion\ensight\part\ensightPartTemplates.cxx" />
     <ClCompile Include="TnbLib\conversion\meshReader\calcPointCells.cxx" />
     <ClCompile Include="TnbLib\conversion\meshReader\createPolyBoundary.cxx" />
     <ClCompile Include="TnbLib\conversion\meshReader\createPolyCells.cxx" />
@@ -38,7 +36,9 @@
     <ClInclude Include="TnbLib\conversion\ensight\part\ensightPart.hxx" />
     <ClInclude Include="TnbLib\conversion\ensight\part\ensightPartCells.hxx" />
     <ClInclude Include="TnbLib\conversion\ensight\part\ensightPartFaces.hxx" />
+    <ClInclude Include="TnbLib\conversion\ensight\part\ensightPartI.hxx" />
     <ClInclude Include="TnbLib\conversion\ensight\part\ensightParts.hxx" />
+    <ClInclude Include="TnbLib\conversion\ensight\part\ensightPartsI.hxx" />
     <ClInclude Include="TnbLib\conversion\meshReader\meshReader.hxx" />
     <ClInclude Include="TnbLib\conversion\meshReader\starcd\STARCDMeshReader.hxx" />
     <ClInclude Include="TnbLib\conversion\meshTables\boundaryRegion.hxx" />

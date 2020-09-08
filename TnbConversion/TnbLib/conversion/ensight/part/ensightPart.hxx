@@ -366,9 +366,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ensightPartTemplates.cxx>
-#endif
+#include <ensightPartI.hxx>
+
+//#ifdef NoRepository
+//#include <ensightPartTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
