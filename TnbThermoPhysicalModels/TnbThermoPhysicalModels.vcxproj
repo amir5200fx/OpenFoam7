@@ -95,7 +95,9 @@
       <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
 if not exist "$(ProjectDir)include" mkdir "$(ProjectDir)include"
 for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)include" /y
-for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -409,6 +411,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     </None>
     <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\thermo\thermo.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\thermo\thermoI.hxx" />
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\thermo\thermo_Imp.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\const\constTransport.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\const\constTransportI.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\specie\transport\const\constTransport_Imp.hxx" />
@@ -592,7 +595,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\thermophysicalModels\specie\thermo\eRefConst\eRefConstThermo.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\specie\thermo\hPolynomial\hPolynomialThermo.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\specie\thermo\hPower\hPowerThermo.cxx" />
-    <None Include="TnbLib\thermophysicalModels\specie\thermo\thermo\thermo.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\aC10H7CH3\aC10H7CH3.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\Ar\Ar.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\thermophysicalProperties\liquidProperties\bC10H7CH3\bC10H7CH3.cxx" />

@@ -1767,6 +1767,9 @@
     <ClInclude Include="TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalPropertiesSelector\thermophysicalPropertiesSelector_Imp.hxx">
       <Filter>TnbLib\thermophysicalModels\thermophysicalProperties\thermophysicalPropertiesSelector</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\thermo\thermo_Imp.hxx">
+      <Filter>TnbLib\thermophysicalModels\specie\thermo\thermo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\thermophysicalModels\basic\basicThermo\basicThermo.cxx">
@@ -2169,9 +2172,6 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="TnbLib\thermophysicalModels\specie\thermo\thermo\thermo.cxx">
-      <Filter>TnbLib\thermophysicalModels\specie\thermo\thermo</Filter>
-    </None>
     <None Include="TnbLib\thermophysicalModels\specie\reaction\Reactions\makeReaction.hxx">
       <Filter>TnbLib\thermophysicalModels\specie\reaction\Reactions</Filter>
     </None>

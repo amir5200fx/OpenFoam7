@@ -383,10 +383,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <thermoI.hxx>
+#include <thermo_Imp.hxx>
 
-#ifdef NoRepository
-#include <thermo.cxx>
-#endif
+//#ifdef NoRepository
+//#include <thermo.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
