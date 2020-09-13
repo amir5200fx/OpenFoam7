@@ -29,6 +29,17 @@
     <ClCompile Include="TnbLib\conversion\meshWriter\meshWriter.cxx" />
     <ClCompile Include="TnbLib\conversion\meshWriter\starcd\STARCDMeshWriter.cxx" />
     <ClCompile Include="TnbLib\conversion\polyDualMesh\polyDualMesh.cxx" />
+    <ClCompile Include="TnbLib\surfaceWriter\ensight\ensightPTraits.cxx" />
+    <ClCompile Include="TnbLib\surfaceWriter\ensight\ensightSurfaceWriter.cxx" />
+    <ClCompile Include="TnbLib\surfaceWriter\foam\foamSurfaceWriter.cxx" />
+    <ClCompile Include="TnbLib\surfaceWriter\nastran\nastranSurfaceWriter.cxx" />
+    <ClCompile Include="TnbLib\surfaceWriter\nastran\nastranSurfaceWriterTemplates.cxx" />
+    <ClCompile Include="TnbLib\surfaceWriter\none\noSurfaceWriter.cxx" />
+    <ClCompile Include="TnbLib\surfaceWriter\proxy\proxySurfaceWriter.cxx" />
+    <ClCompile Include="TnbLib\surfaceWriter\raw\rawSurfaceWriter.cxx" />
+    <ClCompile Include="TnbLib\surfaceWriter\starcd\starcdSurfaceWriter.cxx" />
+    <ClCompile Include="TnbLib\surfaceWriter\surfaceWriter.cxx" />
+    <ClCompile Include="TnbLib\surfaceWriter\vtk\vtkSurfaceWriter.cxx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\conversion\ensight\file\ensightFile.hxx" />
@@ -46,6 +57,17 @@
     <ClInclude Include="TnbLib\conversion\meshWriter\meshWriter.hxx" />
     <ClInclude Include="TnbLib\conversion\meshWriter\starcd\STARCDMeshWriter.hxx" />
     <ClInclude Include="TnbLib\conversion\polyDualMesh\polyDualMesh.hxx" />
+    <ClInclude Include="TnbLib\surfaceWriter\ensight\ensightPTraits.hxx" />
+    <ClInclude Include="TnbLib\surfaceWriter\ensight\ensightSurfaceWriter.hxx" />
+    <ClInclude Include="TnbLib\surfaceWriter\foam\foamSurfaceWriter.hxx" />
+    <ClInclude Include="TnbLib\surfaceWriter\makeSurfaceWriterMethods.hxx" />
+    <ClInclude Include="TnbLib\surfaceWriter\nastran\nastranSurfaceWriter.hxx" />
+    <ClInclude Include="TnbLib\surfaceWriter\none\noSurfaceWriter.hxx" />
+    <ClInclude Include="TnbLib\surfaceWriter\proxy\proxySurfaceWriter.hxx" />
+    <ClInclude Include="TnbLib\surfaceWriter\raw\rawSurfaceWriter.hxx" />
+    <ClInclude Include="TnbLib\surfaceWriter\starcd\starcdSurfaceWriter.hxx" />
+    <ClInclude Include="TnbLib\surfaceWriter\surfaceWriter.hxx" />
+    <ClInclude Include="TnbLib\surfaceWriter\vtk\vtkSurfaceWriter.hxx" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -86,7 +108,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\conversion\ensight\file;$(ProjectDir)TnbLib\conversion\ensight\part;$(ProjectDir)TnbLib\conversion\meshReader\starcd;$(ProjectDir)TnbLib\conversion\meshReader;$(ProjectDir)TnbLib\conversion\meshTables;$(ProjectDir)TnbLib\conversion\meshWriter\starcd;$(ProjectDir)TnbLib\conversion\meshWriter;$(ProjectDir)TnbLib\conversion\polyDualMesh;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\conversion\ensight\file;$(ProjectDir)TnbLib\conversion\ensight\part;$(ProjectDir)TnbLib\conversion\meshReader\starcd;$(ProjectDir)TnbLib\conversion\meshReader;$(ProjectDir)TnbLib\conversion\meshTables;$(ProjectDir)TnbLib\conversion\meshWriter\starcd;$(ProjectDir)TnbLib\conversion\meshWriter;$(ProjectDir)TnbLib\conversion\polyDualMesh;$(ProjectDir)TnbLib\surfaceWriter\ensight;$(ProjectDir)TnbLib\surfaceWriter\foam;$(ProjectDir)TnbLib\surfaceWriter\nastran;$(ProjectDir)TnbLib\surfaceWriter\none;$(ProjectDir)TnbLib\surfaceWriter\proxy;$(ProjectDir)TnbLib\surfaceWriter\raw;$(ProjectDir)TnbLib\surfaceWriter\starcd;$(ProjectDir)TnbLib\surfaceWriter\vtk;$(ProjectDir)TnbLib\surfaceWriter;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -108,7 +130,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\conversion\ensight\file;$(ProjectDir)TnbLib\conversion\ensight\part;$(ProjectDir)TnbLib\conversion\meshReader\starcd;$(ProjectDir)TnbLib\conversion\meshReader;$(ProjectDir)TnbLib\conversion\meshTables;$(ProjectDir)TnbLib\conversion\meshWriter\starcd;$(ProjectDir)TnbLib\conversion\meshWriter;$(ProjectDir)TnbLib\conversion\polyDualMesh;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\conversion\ensight\file;$(ProjectDir)TnbLib\conversion\ensight\part;$(ProjectDir)TnbLib\conversion\meshReader\starcd;$(ProjectDir)TnbLib\conversion\meshReader;$(ProjectDir)TnbLib\conversion\meshTables;$(ProjectDir)TnbLib\conversion\meshWriter\starcd;$(ProjectDir)TnbLib\conversion\meshWriter;$(ProjectDir)TnbLib\conversion\polyDualMesh;$(ProjectDir)TnbLib\surfaceWriter\ensight;$(ProjectDir)TnbLib\surfaceWriter\foam;$(ProjectDir)TnbLib\surfaceWriter\nastran;$(ProjectDir)TnbLib\surfaceWriter\none;$(ProjectDir)TnbLib\surfaceWriter\proxy;$(ProjectDir)TnbLib\surfaceWriter\raw;$(ProjectDir)TnbLib\surfaceWriter\starcd;$(ProjectDir)TnbLib\surfaceWriter\vtk;$(ProjectDir)TnbLib\surfaceWriter;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>

@@ -34,6 +34,33 @@
     <Filter Include="TnbLib\conversion\meshWriter\starcd">
       <UniqueIdentifier>{010897e0-e349-4858-8a08-90ab1cc663b8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\surfaceWriter">
+      <UniqueIdentifier>{ba1434cd-067f-4363-9d18-21944a08b71a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\surfaceWriter\ensight">
+      <UniqueIdentifier>{755c049e-a61b-44ca-b25a-95abb417fd0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\surfaceWriter\foam">
+      <UniqueIdentifier>{3b0e2957-3c92-458f-8daf-ba846e011abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\surfaceWriter\nastran">
+      <UniqueIdentifier>{e28f564f-54b3-4f1a-b813-02dc5627c688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\surfaceWriter\vtk">
+      <UniqueIdentifier>{89c92d13-9f92-4ca8-b3ab-b8b1acb8f869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\surfaceWriter\starcd">
+      <UniqueIdentifier>{409c7224-5a18-45b0-b704-0539eb5af02f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\surfaceWriter\raw">
+      <UniqueIdentifier>{1bf878a7-930e-4916-b57b-3175951399f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\surfaceWriter\proxy">
+      <UniqueIdentifier>{8d9e0684-3d86-473a-a8bb-33390d5f6254}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\surfaceWriter\none">
+      <UniqueIdentifier>{953c1f59-80c9-4ca0-847b-92fb9c90b7a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\conversion\ensight\file\ensightFile.cxx">
@@ -90,6 +117,39 @@
     <ClCompile Include="TnbLib\conversion\polyDualMesh\polyDualMesh.cxx">
       <Filter>TnbLib\conversion\polyDualMesh</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\surfaceWriter\ensight\ensightPTraits.cxx">
+      <Filter>TnbLib\surfaceWriter\ensight</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\surfaceWriter\ensight\ensightSurfaceWriter.cxx">
+      <Filter>TnbLib\surfaceWriter\ensight</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\surfaceWriter\surfaceWriter.cxx">
+      <Filter>TnbLib\surfaceWriter</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\surfaceWriter\foam\foamSurfaceWriter.cxx">
+      <Filter>TnbLib\surfaceWriter\foam</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\surfaceWriter\nastran\nastranSurfaceWriter.cxx">
+      <Filter>TnbLib\surfaceWriter\nastran</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\surfaceWriter\nastran\nastranSurfaceWriterTemplates.cxx">
+      <Filter>TnbLib\surfaceWriter\nastran</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\surfaceWriter\none\noSurfaceWriter.cxx">
+      <Filter>TnbLib\surfaceWriter\none</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\surfaceWriter\proxy\proxySurfaceWriter.cxx">
+      <Filter>TnbLib\surfaceWriter\proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\surfaceWriter\raw\rawSurfaceWriter.cxx">
+      <Filter>TnbLib\surfaceWriter\raw</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\surfaceWriter\starcd\starcdSurfaceWriter.cxx">
+      <Filter>TnbLib\surfaceWriter\starcd</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\surfaceWriter\vtk\vtkSurfaceWriter.cxx">
+      <Filter>TnbLib\surfaceWriter\vtk</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\conversion\ensight\file\ensightFile.hxx">
@@ -136,6 +196,39 @@
     </ClInclude>
     <ClInclude Include="TnbLib\conversion\ensight\part\ensightPartsI.hxx">
       <Filter>TnbLib\conversion\ensight\part</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceWriter\ensight\ensightPTraits.hxx">
+      <Filter>TnbLib\surfaceWriter\ensight</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceWriter\ensight\ensightSurfaceWriter.hxx">
+      <Filter>TnbLib\surfaceWriter\ensight</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceWriter\makeSurfaceWriterMethods.hxx">
+      <Filter>TnbLib\surfaceWriter</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceWriter\surfaceWriter.hxx">
+      <Filter>TnbLib\surfaceWriter</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceWriter\foam\foamSurfaceWriter.hxx">
+      <Filter>TnbLib\surfaceWriter\foam</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceWriter\nastran\nastranSurfaceWriter.hxx">
+      <Filter>TnbLib\surfaceWriter\nastran</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceWriter\none\noSurfaceWriter.hxx">
+      <Filter>TnbLib\surfaceWriter\none</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceWriter\proxy\proxySurfaceWriter.hxx">
+      <Filter>TnbLib\surfaceWriter\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceWriter\raw\rawSurfaceWriter.hxx">
+      <Filter>TnbLib\surfaceWriter\raw</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceWriter\starcd\starcdSurfaceWriter.hxx">
+      <Filter>TnbLib\surfaceWriter\starcd</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceWriter\vtk\vtkSurfaceWriter.hxx">
+      <Filter>TnbLib\surfaceWriter\vtk</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
