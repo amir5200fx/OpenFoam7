@@ -573,6 +573,12 @@
     <ClInclude Include="TnbLib\dynamicMesh\setUpdater\setUpdaterI.hxx">
       <Filter>TnbLib\dynamicMesh\setUpdater</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addPatchCellLayer.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChangeTemplatesI.hxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.cxx">
@@ -854,10 +860,11 @@
     <ClCompile Include="TnbLib\dynamicFvMesh\dynamicRefineFvMesh\dynamicRefineFvMesh.cxx">
       <Filter>TnbLib\dynamicFvMesh\dynamicRefineFvMesh</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addPatchCellLayer.cxx">
+      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChangeTemplates.cxx">
-      <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
-    </None>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
