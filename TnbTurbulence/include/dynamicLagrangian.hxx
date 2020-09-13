@@ -171,9 +171,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <dynamicLagrangian.cxx>
-#endif
+#include <dynamicLagrangianI.hxx>
+
+//#ifdef NoRepository
+//#include <dynamicLagrangian.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

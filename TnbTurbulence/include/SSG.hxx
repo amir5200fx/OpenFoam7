@@ -205,9 +205,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SSG.cxx>
-#endif
+#include <SSGI.hxx>
+
+//#ifdef NoRepository
+//#include <SSG.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

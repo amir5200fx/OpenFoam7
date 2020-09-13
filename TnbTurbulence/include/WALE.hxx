@@ -165,9 +165,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <WALE.cxx>
-#endif
+#include <WALEI.hxx>
+
+//#ifdef NoRepository
+//#include <WALE.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

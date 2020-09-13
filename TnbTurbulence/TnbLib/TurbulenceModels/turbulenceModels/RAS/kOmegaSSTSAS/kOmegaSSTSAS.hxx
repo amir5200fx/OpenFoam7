@@ -189,9 +189,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <kOmegaSSTSAS.cxx>
-#endif
+#include <kOmegaSSTSASI.hxx>
+
+//#ifdef NoRepository
+//#include <kOmegaSSTSAS.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

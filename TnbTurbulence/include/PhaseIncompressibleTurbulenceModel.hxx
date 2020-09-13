@@ -133,9 +133,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PhaseIncompressibleTurbulenceModel.cxx>
-#endif
+#include <PhaseIncompressibleTurbulenceModelI.hxx>
+
+//#ifdef NoRepository
+//#include <PhaseIncompressibleTurbulenceModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

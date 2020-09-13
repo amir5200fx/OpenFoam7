@@ -134,9 +134,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <eddyViscosity.cxx>
-#endif
+#include <eddyViscosityI.hxx>
+
+//#ifdef NoRepository
+//#include <eddyViscosity.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

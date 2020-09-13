@@ -193,9 +193,12 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#ifdef NoRepository
-#include <kOmega.cxx>
-#endif
+
+#include <kOmegaI.hxx>
+
+//#ifdef NoRepository
+//#include <kOmega.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

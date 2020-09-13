@@ -171,9 +171,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <kEqn.cxx>
-#endif
+#include <kEqnI.hxx>
+
+//#ifdef NoRepository
+//#include <kEqn.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

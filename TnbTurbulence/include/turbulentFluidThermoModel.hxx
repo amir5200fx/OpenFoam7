@@ -83,9 +83,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <turbulentFluidThermoModel.cxx>
-#endif
+#include <turbulentFluidThermoModelI.hxx>
+
+//#ifdef NoRepository
+//#include <turbulentFluidThermoModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

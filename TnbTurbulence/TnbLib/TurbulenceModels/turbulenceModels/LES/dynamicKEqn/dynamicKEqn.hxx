@@ -202,9 +202,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <dynamicKEqn.cxx>
-#endif
+#include <dynamicKEqnI.hxx>
+
+//#ifdef NoRepository
+//#include <dynamicKEqn.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

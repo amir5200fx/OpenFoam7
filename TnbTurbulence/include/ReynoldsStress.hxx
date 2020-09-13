@@ -168,9 +168,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ReynoldsStress.cxx>
-#endif
+#include <ReynoldsStressI.hxx>
+
+//#ifdef NoRepository
+//#include <ReynoldsStress.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

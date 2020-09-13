@@ -173,9 +173,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <Smagorinsky.cxx>
-#endif
+#include <SmagorinskyI.hxx>
+
+//#ifdef NoRepository
+//#include <Smagorinsky.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

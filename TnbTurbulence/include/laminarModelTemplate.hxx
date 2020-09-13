@@ -198,9 +198,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <laminarModelTemplate.cxx>
-#endif
+#include <laminarModelTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <laminarModelTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

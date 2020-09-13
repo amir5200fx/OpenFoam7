@@ -207,9 +207,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SpalartAllmaras.cxx>
-#endif
+#include <SpalartAllmarasI.hxx>
+
+//#ifdef NoRepository
+//#include <SpalartAllmaras.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

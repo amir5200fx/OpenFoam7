@@ -163,9 +163,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <Maxwell.cxx>
-#endif
+#include <MaxwellI.hxx>
+
+//#ifdef NoRepository
+//#include <Maxwell.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

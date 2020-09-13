@@ -157,9 +157,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <EddyDiffusivity.cxx>
-#endif
+#include <EddyDiffusivityI.hxx>
+
+//#ifdef NoRepository
+//#include <EddyDiffusivity.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

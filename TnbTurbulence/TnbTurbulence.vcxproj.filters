@@ -720,9 +720,6 @@
     <ClInclude Include="TnbLib\TurbulenceModels\incompressible\incompressibleTurbulenceModel.hxx">
       <Filter>TnbLib\TurbulenceModels\incompressible</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\TurbulenceModels\incompressible\TransportModels\turbulentTransportModel.hxx">
-      <Filter>TnbLib\TurbulenceModels\incompressible\turbulentTransportModels</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\TurbulenceModels\incompressible\TransportModels\turbulentTransportModels.hxx">
       <Filter>TnbLib\TurbulenceModels\incompressible\turbulentTransportModels</Filter>
     </ClInclude>
@@ -756,16 +753,151 @@
     <ClInclude Include="TnbLib\TurbulenceModels\phaseCompressible\LES\continuousGasKEqn\continuousGasKEqn.hxx">
       <Filter>TnbLib\TurbulenceModels\phaseCompressible\LES\continuousGasKEqn</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\compressible\CompressibleTurbulenceModel\CompressibleTurbulenceModelTemplateI.hxx">
+      <Filter>TnbLib\TurbulenceModels\compressible\CompressibleTurbulenceModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\compressible\EddyDiffusivity\EddyDiffusivityI.hxx">
+      <Filter>TnbLib\TurbulenceModels\compressible\EddyDiffusivity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\compressible\RAS\buoyantKEpsilon\buoyantKEpsilonI.hxx">
+      <Filter>TnbLib\TurbulenceModels\compressible\RAS\buoyantKEpsilon</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\compressible\ThermalDiffusivity\ThermalDiffusivityI.hxx">
+      <Filter>TnbLib\TurbulenceModels\compressible\ThermalDiffusivity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\thermalBaffle1D\thermalBaffle1DFvPatchScalarFieldI.hxx">
+      <Filter>TnbLib\TurbulenceModels\compressible\turbulentFluidThermoModels\derivedFvPatchFields\thermalBaffle1D</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\compressible\Models\turbulentFluidThermoModelI.hxx">
+      <Filter>TnbLib\TurbulenceModels\compressible\turbulentFluidThermoModels</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\incompressible\IncompressibleTurbulenceModel\IncompressibleTurbulenceModelTemplateI.hxx">
+      <Filter>TnbLib\TurbulenceModels\incompressible\IncompressibleTurbulenceModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\incompressible\TransportModels\turbulentTransportModelI.hxx">
+      <Filter>TnbLib\TurbulenceModels\incompressible\turbulentTransportModels</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\phaseCompressible\PhaseCompressibleTurbulenceModel\PhaseCompressibleTurbulenceModelI.hxx">
+      <Filter>TnbLib\TurbulenceModels\phaseCompressible\PhaseCompressibleTurbulenceModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\phaseIncompressible\PhaseIncompressibleTurbulenceModel\PhaseIncompressibleTurbulenceModelI.hxx">
+      <Filter>TnbLib\TurbulenceModels\phaseIncompressible\PhaseIncompressibleTurbulenceModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\Base\kOmegaSST\kOmegaSSTBaseI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\Base\kOmegaSST</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\kqRWallFunctions\kqR\kqRWallFunctionFvPatchFieldI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\kqRWallFunctions\kqRWallFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\eddyViscosity\eddyViscosityI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\eddyViscosity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\generalizedNewtonianI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\Giesekus\GiesekusI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\Giesekus</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\laminarModel\laminarModelTemplateI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\laminarModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\Maxwell\MaxwellI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\Maxwell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\Stokes\StokesI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\Stokes</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\LES\DeardorffDiffStress\DeardorffDiffStressI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\DeardorffDiffStress</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\LES\dynamicKEqn\dynamicKEqnI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\dynamicKEqn</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\LES\dynamicLagrangian\dynamicLagrangianI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\dynamicLagrangian</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\LES\kEqn\kEqnI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\kEqn</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\LES\kOmegaSSTDES\kOmegaSSTDESI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\kOmegaSSTDES</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\LES\LESeddyViscosity\LESeddyViscosityI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\LESeddyViscosity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\LES\LESModel\LESModelI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\LESModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\LES\Smagorinsky\SmagorinskyI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\Smagorinsky</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasDDES\SpalartAllmarasDDESI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasDDES</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasDES\SpalartAllmarasDESI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasDES</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasIDDES\SpalartAllmarasIDDESI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasIDDES</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\LES\WALE\WALEI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\WALE</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\linearViscousStress\linearViscousStressI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\linearViscousStress</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\nonlinearEddyViscosity\nonlinearEddyViscosityI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\nonlinearEddyViscosity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\kEpsilon\kEpsilonI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\kEpsilon</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmega\kOmegaI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmega</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSST\kOmegaSSTI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSST</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSSTLM\kOmegaSSTLMI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSSTLM</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSSTSAS\kOmegaSSTSASI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSSTSAS</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\LaunderSharmaKE\LaunderSharmaKEI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\LaunderSharmaKE</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\LRR\LRRI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\LRR</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\RASModel\RASModelI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\RASModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\realizableKE\realizableKEI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\realizableKE</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\RNGkEpsilon\RNGkEpsilonI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\RNGkEpsilon</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\SpalartAllmaras\SpalartAllmarasI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\SpalartAllmaras</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\SSG\SSGI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\SSG</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\v2f\v2fI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\v2f</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\ReynoldsStress\ReynoldsStressI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\ReynoldsStress</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\TurbulenceModel\TurbulenceModelTemplateI.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\TurbulenceModel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\Base\kOmegaSST\kOmegaSSTBase.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\Base\kOmegaSST</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\turbulenceModel.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\TurbulenceModel\TurbulenceModelTemplate.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\TurbulenceModel</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\epsilonWallFunctions\epsilon\epsilonWallFunctionFvPatchScalarField.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\epsilonWallFunctions\epsilonWallFunction</Filter>
@@ -775,9 +907,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\kqRWallFunctions\kLowRe\kLowReWallFunctionFvPatchScalarField.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\kqRWallFunctions\kLowReWallFunction</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\kqRWallFunctions\kqR\kqRWallFunctionFvPatchField.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\kqRWallFunctions\kqRWallFunction</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\kqRWallFunctions\kqR\kqRWallFunctionFvPatchFields.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\kqRWallFunctions\kqRWallFunction</Filter>
@@ -812,18 +941,6 @@
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\omegaWallFunctions\omega\omegaWallFunctionFvPatchScalarField.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\omegaWallFunctions\omegaWallFunction</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\RASModel\RASModel.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\RASModel</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\kEpsilon\kEpsilon.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\kEpsilon</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\eddyViscosity\eddyViscosity.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\eddyViscosity</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\linearViscousStress\linearViscousStress.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\linearViscousStress</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\Model\generalizedNewtonianViscosityModel.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\generalizedNewtonianViscosityModels\generalizedNewtonianViscosityModel</Filter>
     </ClCompile>
@@ -848,61 +965,10 @@
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\strainRateFunction\strainRateFunction.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\generalizedNewtonianViscosityModels\strainRateFunction</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\generalizedNewtonian.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\Stokes\Stokes.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\Stokes</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\Maxwell\Maxwell.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\Maxwell</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\Giesekus\Giesekus.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\Giesekus</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmega\kOmega.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmega</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSST\kOmegaSST.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSST</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSSTLM\kOmegaSSTLM.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSSTLM</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSSTSAS\kOmegaSSTSAS.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSSTSAS</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\LESModel\LESModel.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\LESModel</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\LESdelta\LESdelta.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\LESdelta</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\LaunderSharmaKE\LaunderSharmaKE.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\LaunderSharmaKE</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\ReynoldsStress\ReynoldsStress.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\ReynoldsStress</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\LRR\LRR.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\LRR</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\realizableKE\realizableKE.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\realizableKE</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\RNGkEpsilon\RNGkEpsilon.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\RNGkEpsilon</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\SpalartAllmaras\SpalartAllmaras.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\SpalartAllmaras</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\SSG\SSG.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\SSG</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\v2f\v2fBase.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\v2f</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\v2f\v2f.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\RAS\v2f</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\RAS\derivedFvPatchFields\MixingLengthDissipationRateInlet\turbulentMixingLengthDissipationRateInletFvPatchScalarField.cxx">
@@ -919,27 +985,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\compressible\compressibleTurbulenceModel.cxx">
       <Filter>TnbLib\TurbulenceModels\compressible</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\compressible\CompressibleTurbulenceModel\CompressibleTurbulenceModelTemplate.cxx">
-      <Filter>TnbLib\TurbulenceModels\compressible\CompressibleTurbulenceModel</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\compressible\EddyDiffusivity\EddyDiffusivity.cxx">
-      <Filter>TnbLib\TurbulenceModels\compressible\EddyDiffusivity</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\compressible\RAS\buoyantKEpsilon\buoyantKEpsilon.cxx">
-      <Filter>TnbLib\TurbulenceModels\compressible\RAS\buoyantKEpsilon</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\compressible\ThermalDiffusivity\ThermalDiffusivity.cxx">
-      <Filter>TnbLib\TurbulenceModels\compressible\ThermalDiffusivity</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\DeardorffDiffStress\DeardorffDiffStress.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\DeardorffDiffStress</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\dynamicKEqn\dynamicKEqn.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\dynamicKEqn</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\LESeddyViscosity\LESeddyViscosity.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\LESeddyViscosity</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\cubeRootVolDelta\cubeRootVolDelta.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\cubeRootVolDelta</Filter>
@@ -971,41 +1016,8 @@
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\LESfilters\anisotropicFilter\anisotropicFilter.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\LESfilters\anisotropicFilter</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\dynamicLagrangian\dynamicLagrangian.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\dynamicLagrangian</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\kEqn\kEqn.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\kEqn</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\kOmegaSSTDES\kOmegaSSTDES.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\kOmegaSSTDES</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\Smagorinsky\Smagorinsky.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\Smagorinsky</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasDDES\SpalartAllmarasDDES.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasDDES</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasDES\SpalartAllmarasDES.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasDES</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasIDDES\SpalartAllmarasIDDES.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasIDDES</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\WALE\WALE.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\LES\WALE</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\nonlinearEddyViscosity\nonlinearEddyViscosity.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\nonlinearEddyViscosity</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\laminarModel\laminarModelTemplate.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\laminarModel</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\wallFuns\alphats\alphatJayatilleke\alphatJayatillekeWallFunctionFvPatchScalarField.cxx">
       <Filter>TnbLib\TurbulenceModels\compressible\turbulentFluidThermoModels\derivedFvPatchFields\wallFunctions\alphatWallFunctions\alphatJayatillekeWallFunction</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\compressible\Models\turbulentFluidThermoModel.cxx">
-      <Filter>TnbLib\TurbulenceModels\compressible\turbulentFluidThermoModels</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\compressible\Models\turbulentFluidThermoModels.cxx">
       <Filter>TnbLib\TurbulenceModels\compressible\turbulentFluidThermoModels</Filter>
@@ -1021,9 +1033,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\temperatureCoupledBase\temperatureCoupledBase.cxx">
       <Filter>TnbLib\TurbulenceModels\compressible\turbulentFluidThermoModels\derivedFvPatchFields\temperatureCoupledBase</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\thermalBaffle1D\thermalBaffle1DFvPatchScalarField.cxx">
-      <Filter>TnbLib\TurbulenceModels\compressible\turbulentFluidThermoModels\derivedFvPatchFields\thermalBaffle1D</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\thermalBaffle1D\thermalBaffle1DFvPatchScalarFields.cxx">
       <Filter>TnbLib\TurbulenceModels\compressible\turbulentFluidThermoModels\derivedFvPatchFields\thermalBaffle1D</Filter>
@@ -1043,14 +1052,8 @@
     <ClCompile Include="TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\wallHeatTransfer\wallHeatTransferFvPatchScalarField.cxx">
       <Filter>TnbLib\TurbulenceModels\compressible\turbulentFluidThermoModels\derivedFvPatchFields\wallHeatTransfer</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\incompressible\IncompressibleTurbulenceModel\IncompressibleTurbulenceModelTemplate.cxx">
-      <Filter>TnbLib\TurbulenceModels\incompressible\IncompressibleTurbulenceModel</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\incompressible\incompressibleTurbulenceModel.cxx">
       <Filter>TnbLib\TurbulenceModels\incompressible</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\incompressible\TransportModels\turbulentTransportModel.cxx">
-      <Filter>TnbLib\TurbulenceModels\incompressible\turbulentTransportModels</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\incompressible\TransportModels\turbulentTransportModels.cxx">
       <Filter>TnbLib\TurbulenceModels\incompressible\turbulentTransportModels</Filter>
@@ -1076,14 +1079,13 @@
     <ClCompile Include="TnbLib\TurbulenceModels\incompressible\TransportModels\RAS\ShihQuadraticKE\ShihQuadraticKE.cxx">
       <Filter>TnbLib\TurbulenceModels\incompressible\turbulentTransportModels\RAS\ShihQuadraticKE</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\phaseIncompressible\PhaseIncompressibleTurbulenceModel\PhaseIncompressibleTurbulenceModel.cxx">
-      <Filter>TnbLib\TurbulenceModels\phaseIncompressible\PhaseIncompressibleTurbulenceModel</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\phaseCompressible\PhaseCompressibleTurbulenceModel\PhaseCompressibleTurbulenceModel.cxx">
-      <Filter>TnbLib\TurbulenceModels\phaseCompressible\PhaseCompressibleTurbulenceModel</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\phaseCompressible\LES\continuousGasKEqn\continuousGasKEqn.cxx">
       <Filter>TnbLib\TurbulenceModels\phaseCompressible\LES\continuousGasKEqn</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TnbLib\TurbulenceModels\incompressible\TransportModels\turbulentTransportModel.hxx">
+      <Filter>TnbLib\TurbulenceModels\incompressible\turbulentTransportModels</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -290,9 +290,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <kOmegaSSTLM.cxx>
-#endif
+#include <kOmegaSSTLMI.hxx>
+
+//#ifdef NoRepository
+//#include <kOmegaSSTLM.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

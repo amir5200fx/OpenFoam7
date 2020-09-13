@@ -243,9 +243,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <RASModel.cxx>
-#endif
+#include <RASModelI.hxx>
+
+//#ifdef NoRepository
+//#include <RASModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

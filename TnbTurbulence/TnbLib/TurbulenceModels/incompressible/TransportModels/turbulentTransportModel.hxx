@@ -77,9 +77,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <turbulentTransportModel.cxx>
-#endif
+#include <turbulentTransportModelI.hxx>
+
+//#ifdef NoRepository
+//#include <turbulentTransportModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

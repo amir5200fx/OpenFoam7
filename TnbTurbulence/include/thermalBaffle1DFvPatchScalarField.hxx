@@ -251,9 +251,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <thermalBaffle1DFvPatchScalarField.cxx>
-#endif
+#include <thermalBaffle1DFvPatchScalarFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <thermalBaffle1DFvPatchScalarField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

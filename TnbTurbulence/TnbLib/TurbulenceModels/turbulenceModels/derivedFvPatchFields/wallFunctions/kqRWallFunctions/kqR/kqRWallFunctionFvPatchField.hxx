@@ -157,9 +157,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <kqRWallFunctionFvPatchField.cxx>
-#endif
+#include <kqRWallFunctionFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <kqRWallFunctionFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

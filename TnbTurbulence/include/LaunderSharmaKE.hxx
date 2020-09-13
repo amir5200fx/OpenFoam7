@@ -204,9 +204,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <LaunderSharmaKE.cxx>
-#endif
+#include <LaunderSharmaKEI.hxx>
+
+//#ifdef NoRepository
+//#include <LaunderSharmaKE.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

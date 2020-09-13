@@ -162,9 +162,12 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#ifdef NoRepository
-#include <kOmegaSSTDES.cxx>
-#endif
+
+#include <kOmegaSSTDESI.hxx>
+
+//#ifdef NoRepository
+//#include <kOmegaSSTDES.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

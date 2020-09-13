@@ -131,9 +131,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <IncompressibleTurbulenceModelTemplate.cxx>
-#endif
+#include <IncompressibleTurbulenceModelTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <IncompressibleTurbulenceModelTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

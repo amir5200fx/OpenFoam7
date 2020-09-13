@@ -341,9 +341,12 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#ifdef NoRepository
-#include <kOmegaSSTBase.cxx>
-#endif
+
+#include <kOmegaSSTBaseI.hxx>
+
+//#ifdef NoRepository
+//#include <kOmegaSSTBase.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

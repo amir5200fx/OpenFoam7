@@ -176,9 +176,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <TurbulenceModelTemplate.cxx>
-#endif
+#include <TurbulenceModelTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <TurbulenceModelTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

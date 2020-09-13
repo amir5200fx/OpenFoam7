@@ -114,9 +114,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <linearViscousStress.cxx>
-#endif
+#include <linearViscousStressI.hxx>
+
+//#ifdef NoRepository
+//#include <linearViscousStress.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

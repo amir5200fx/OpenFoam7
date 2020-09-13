@@ -182,9 +182,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ThermalDiffusivity.cxx>
-#endif
+#include <ThermalDiffusivityI.hxx>
+
+//#ifdef NoRepository
+//#include <ThermalDiffusivity.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

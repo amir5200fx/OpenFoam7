@@ -158,9 +158,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PhaseCompressibleTurbulenceModel.cxx>
-#endif
+#include <PhaseCompressibleTurbulenceModelI.hxx>
+
+//#ifdef NoRepository
+//#include <PhaseCompressibleTurbulenceModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

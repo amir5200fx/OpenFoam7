@@ -162,9 +162,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <generalizedNewtonian.cxx>
-#endif
+#include <generalizedNewtonianI.hxx>
+
+//#ifdef NoRepository
+//#include <generalizedNewtonian.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
