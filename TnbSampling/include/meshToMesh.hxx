@@ -639,9 +639,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <meshToMeshTemplates.cxx>
-#endif
+#include <meshToMeshTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <meshToMeshTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

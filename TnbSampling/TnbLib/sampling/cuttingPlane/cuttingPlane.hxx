@@ -185,9 +185,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <cuttingPlaneTemplates.cxx>
-#endif
+#include <cuttingPlaneI.hxx>
+
+//#ifdef NoRepository
+//#include <cuttingPlaneTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

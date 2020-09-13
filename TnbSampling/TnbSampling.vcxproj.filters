@@ -91,9 +91,6 @@
     <Filter Include="TnbLib\sampling\sampledSurface\isoSurface">
       <UniqueIdentifier>{7ca4a284-47a7-4d7b-b2db-04d164ed4974}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TnbLib\sampling\sampledSurface\writers">
-      <UniqueIdentifier>{85583ade-6473-45ec-88d9-a94be8c3a6d9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TnbLib\sampling\sampledSurface\thresholdCellFaces">
       <UniqueIdentifier>{f9b49ddf-ab26-418a-9d78-79f6472a36a3}</UniqueIdentifier>
     </Filter>
@@ -117,30 +114,6 @@
     </Filter>
     <Filter Include="TnbLib\sampling\sampledSurface\sampledCuttingPlane">
       <UniqueIdentifier>{d51fe566-f30b-4a44-ad1e-86151f44ea95}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\sampling\sampledSurface\writers\ensight">
-      <UniqueIdentifier>{9756cf70-56cd-4561-9e46-f35f449bd9e8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\sampling\sampledSurface\writers\foam">
-      <UniqueIdentifier>{fc3a6e9c-9146-4300-8d77-12ef05e55b9c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\sampling\sampledSurface\writers\nastran">
-      <UniqueIdentifier>{a7e78e2a-5852-4fc7-8615-18fb58c3838e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\sampling\sampledSurface\writers\vtk">
-      <UniqueIdentifier>{b4257299-411c-469e-872b-e47c6df99703}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\sampling\sampledSurface\writers\starcd">
-      <UniqueIdentifier>{dffb39df-4ff5-4b2b-b1cc-e52ee2b8623f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\sampling\sampledSurface\writers\raw">
-      <UniqueIdentifier>{90730a7e-9da0-4701-830a-2029d0069d83}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\sampling\sampledSurface\writers\proxy">
-      <UniqueIdentifier>{fa1a2e0c-0409-46fd-81eb-cbb0a1086178}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\sampling\sampledSurface\writers\none">
-      <UniqueIdentifier>{aa52eca8-d7f1-4cd2-8d58-6318b0aca0a8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -279,45 +252,66 @@
     <ClInclude Include="TnbLib\sampling\sampledSurface\thresholdCellFaces\sampledThresholdCellFaces.hxx">
       <Filter>TnbLib\sampling\sampledSurface\thresholdCellFaces</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\surfaceWriter.hxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers</Filter>
+    <ClInclude Include="TnbLib\sampling\sampledSet\sampledSets\IOsampledSets.hxx">
+      <Filter>TnbLib\sampling\sampledSet\sampledSets</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\makeSurfaceWriterMethods.hxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers</Filter>
+    <ClInclude Include="TnbLib\sampling\cuttingPlane\cuttingPlaneI.hxx">
+      <Filter>TnbLib\sampling\cuttingPlane</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\ensight\ensightPTraits.hxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\ensight</Filter>
+    <ClInclude Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapperI.hxx">
+      <Filter>TnbLib\sampling\meshToMesh</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\ensight\ensightSurfaceWriter.hxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\ensight</Filter>
+    <ClInclude Include="TnbLib\sampling\meshToMesh\meshToMeshTemplatesI.hxx">
+      <Filter>TnbLib\sampling\meshToMesh</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\foam\foamSurfaceWriter.hxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\foam</Filter>
+    <ClInclude Include="TnbLib\sampling\meshToMesh0\meshToMesh0I.hxx">
+      <Filter>TnbLib\sampling\meshToMesh0</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\nastran\nastranSurfaceWriter.hxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\nastran</Filter>
+    <ClInclude Include="TnbLib\sampling\probes\patchProbesI.hxx">
+      <Filter>TnbLib\sampling\probes</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\none\noSurfaceWriter.hxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\none</Filter>
+    <ClInclude Include="TnbLib\sampling\probes\probesI.hxx">
+      <Filter>TnbLib\sampling\probes</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\proxy\proxySurfaceWriter.hxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\proxy</Filter>
+    <ClInclude Include="TnbLib\sampling\sampledSet\sampledSets\sampledSetsI.hxx">
+      <Filter>TnbLib\sampling\sampledSet\sampledSets</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\raw\rawSurfaceWriter.hxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\raw</Filter>
+    <ClInclude Include="TnbLib\sampling\sampledSurface\distanceSurface\distanceSurfaceI.hxx">
+      <Filter>TnbLib\sampling\sampledSurface\distanceSurface</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\starcd\starcdSurfaceWriter.hxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\starcd</Filter>
+    <ClInclude Include="TnbLib\sampling\sampledSurface\isoSurface\isoSurfaceI.hxx">
+      <Filter>TnbLib\sampling\sampledSurface\isoSurface</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\vtk\vtkSurfaceWriter.hxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\vtk</Filter>
+    <ClInclude Include="TnbLib\sampling\sampledSurface\isoSurface\sampledIsoSurfaceI.hxx">
+      <Filter>TnbLib\sampling\sampledSurface\isoSurface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledCuttingPlane\sampledCuttingPlaneI.hxx">
+      <Filter>TnbLib\sampling\sampledSurface\sampledCuttingPlane</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledPatch\sampledPatchI.hxx">
+      <Filter>TnbLib\sampling\sampledSurface\sampledPatch</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledPatchInternalField\sampledPatchInternalFieldI.hxx">
+      <Filter>TnbLib\sampling\sampledSurface\sampledPatchInternalField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledPlane\sampledPlaneI.hxx">
+      <Filter>TnbLib\sampling\sampledSurface\sampledPlane</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledSurface\sampledSurfaceI.hxx">
+      <Filter>TnbLib\sampling\sampledSurface\sampledSurface</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledSurfaces\sampledSurfacesI.hxx">
+      <Filter>TnbLib\sampling\sampledSurface\sampledSurfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh\sampledTriSurfaceMeshI.hxx">
+      <Filter>TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\sampledSurface\thresholdCellFaces\sampledThresholdCellFacesI.hxx">
+      <Filter>TnbLib\sampling\sampledSurface\thresholdCellFaces</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\sampling\cuttingPlane\cuttingPlane.cxx">
-      <Filter>TnbLib\sampling\cuttingPlane</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\cuttingPlane\cuttingPlaneTemplates.cxx">
       <Filter>TnbLib\sampling\cuttingPlane</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\sampling\graphField\writePatchGraph.cxx">
@@ -350,19 +344,10 @@
     <ClCompile Include="TnbLib\sampling\meshToMesh\meshToMeshParallelOps.cxx">
       <Filter>TnbLib\sampling\meshToMesh</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\sampling\meshToMesh\meshToMeshTemplates.cxx">
-      <Filter>TnbLib\sampling\meshToMesh</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapper.cxx">
       <Filter>TnbLib\sampling\meshToMesh</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapperTemplates.cxx">
-      <Filter>TnbLib\sampling\meshToMesh</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\sampling\meshToMesh0\meshToMesh0.cxx">
-      <Filter>TnbLib\sampling\meshToMesh0</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\meshToMesh0\meshToMesh0Templates.cxx">
       <Filter>TnbLib\sampling\meshToMesh0</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\sampling\meshToMesh0\calculateMeshToMesh0Addressing.cxx">
@@ -377,13 +362,7 @@
     <ClCompile Include="TnbLib\sampling\probes\probes.cxx">
       <Filter>TnbLib\sampling\probes</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\sampling\probes\patchProbesTemplates.cxx">
-      <Filter>TnbLib\sampling\probes</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\sampling\probes\probesGrouping.cxx">
-      <Filter>TnbLib\sampling\probes</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\probes\probesTemplates.cxx">
       <Filter>TnbLib\sampling\probes</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\sampling\sampledSet\arcUniform\arcUniform.cxx">
@@ -431,49 +410,25 @@
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledSurface\sampledSurface.cxx">
       <Filter>TnbLib\sampling\sampledSurface\sampledSurface</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledSurface\sampledSurfaceTemplates.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\sampledSurface</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\sampling\sampledSurface\distanceSurface\distanceSurface.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\distanceSurface</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\distanceSurface\distanceSurfaceTemplates.cxx">
       <Filter>TnbLib\sampling\sampledSurface\distanceSurface</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\sampling\sampledSurface\isoSurface\isoSurface.cxx">
       <Filter>TnbLib\sampling\sampledSurface\isoSurface</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\isoSurface\isoSurfaceTemplates.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\isoSurface</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\sampling\sampledSurface\isoSurface\sampledIsoSurface.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\isoSurface</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\isoSurface\sampledIsoSurfaceTemplates.cxx">
       <Filter>TnbLib\sampling\sampledSurface\isoSurface</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledCuttingPlane\sampledCuttingPlane.cxx">
       <Filter>TnbLib\sampling\sampledSurface\sampledCuttingPlane</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledCuttingPlane\sampledCuttingPlaneTemplates.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\sampledCuttingPlane</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledPatch\sampledPatch.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\sampledPatch</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledPatch\sampledPatchTemplates.cxx">
       <Filter>TnbLib\sampling\sampledSurface\sampledPatch</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledPatchInternalField\sampledPatchInternalField.cxx">
       <Filter>TnbLib\sampling\sampledSurface\sampledPatchInternalField</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledPatchInternalField\sampledPatchInternalFieldTemplates.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\sampledPatchInternalField</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledPlane\sampledPlane.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\sampledPlane</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledPlane\sampledPlaneTemplates.cxx">
       <Filter>TnbLib\sampling\sampledSurface\sampledPlane</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledSurfaces\sampledSurfaces.cxx">
@@ -482,13 +437,7 @@
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledSurfaces\sampledSurfacesGrouping.cxx">
       <Filter>TnbLib\sampling\sampledSurface\sampledSurfaces</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledSurfaces\sampledSurfacesTemplates.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\sampledSurfaces</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh\sampledTriSurfaceMesh.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh\sampledTriSurfaceMeshTemplates.cxx">
       <Filter>TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\sampling\sampledSurface\thresholdCellFaces\thresholdCellFaces.cxx">
@@ -497,41 +446,11 @@
     <ClCompile Include="TnbLib\sampling\sampledSurface\thresholdCellFaces\sampledThresholdCellFaces.cxx">
       <Filter>TnbLib\sampling\sampledSurface\thresholdCellFaces</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\thresholdCellFaces\sampledThresholdCellFacesTemplates.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\thresholdCellFaces</Filter>
+    <ClCompile Include="TnbLib\sampling\sampledSet\sampledSets\sampledSetsGrouping.cxx">
+      <Filter>TnbLib\sampling\sampledSet\sampledSets</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\surfaceWriter.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\ensight\ensightPTraits.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\ensight</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\ensight\ensightSurfaceWriter.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\ensight</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\foam\foamSurfaceWriter.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\foam</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\nastran\nastranSurfaceWriter.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\nastran</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\nastran\nastranSurfaceWriterTemplates.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\nastran</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\none\noSurfaceWriter.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\none</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\proxy\proxySurfaceWriter.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\proxy</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\raw\rawSurfaceWriter.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\raw</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\starcd\starcdSurfaceWriter.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\starcd</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\vtk\vtkSurfaceWriter.cxx">
-      <Filter>TnbLib\sampling\sampledSurface\writers\vtk</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

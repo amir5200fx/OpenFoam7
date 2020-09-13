@@ -174,9 +174,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <patchProbesTemplates.cxx>
-#endif
+#include <patchProbesI.hxx>
+
+//#ifdef NoRepository
+//#include <patchProbesTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

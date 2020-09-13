@@ -216,9 +216,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <sampledThresholdCellFacesTemplates.cxx>
-#endif
+#include <sampledThresholdCellFacesI.hxx>
+
+//#ifdef NoRepository
+//#include <sampledThresholdCellFacesTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

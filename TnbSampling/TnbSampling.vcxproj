@@ -78,6 +78,8 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\sampling\cuttingPlane;$(ProjectDir)TnbLib\sampling\graphField;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\direct;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\mapNearest;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod;$(ProjectDir)TnbLib\sampling\meshToMesh;$(ProjectDir)TnbLib\sampling\meshToMesh0;$(ProjectDir)TnbLib\sampling\probes;$(ProjectDir)TnbLib\sampling\sampledSet\arcUniform;$(ProjectDir)TnbLib\sampling\sampledSet\boundaryPoints;$(ProjectDir)TnbLib\sampling\sampledSet\boundaryRandom;$(ProjectDir)TnbLib\sampling\sampledSet\boxUniform;$(ProjectDir)TnbLib\sampling\sampledSet\circleRandom;$(ProjectDir)TnbLib\sampling\sampledSet\lineCell;$(ProjectDir)TnbLib\sampling\sampledSet\lineCellFace;$(ProjectDir)TnbLib\sampling\sampledSet\lineFace;$(ProjectDir)TnbLib\sampling\sampledSet\lineUniform;$(ProjectDir)TnbLib\sampling\sampledSet\points;$(ProjectDir)TnbLib\sampling\sampledSet\sampledSet;$(ProjectDir)TnbLib\sampling\sampledSet\sampledSets;$(ProjectDir)TnbLib\sampling\sampledSet\sphereRandom;$(ProjectDir)TnbLib\sampling\sampledSet\triSurfaceMeshSampledSet;$(ProjectDir)TnbLib\sampling\sampledSurface\distanceSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\isoSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledCuttingPlane;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPatch;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPatchInternalField;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPlane;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledSurfaces;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh;$(ProjectDir)TnbLib\sampling\sampledSurface\thresholdCellFaces;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\ensight;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\foam;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\nastran;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\none;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\proxy;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\raw;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\starcd;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\vtk;$(ProjectDir)TnbLib\sampling\sampledSurface\writers;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NoRepository
+;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,6 +127,8 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\sampling\cuttingPlane;$(ProjectDir)TnbLib\sampling\graphField;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\direct;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\mapNearest;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod;$(ProjectDir)TnbLib\sampling\meshToMesh;$(ProjectDir)TnbLib\sampling\meshToMesh0;$(ProjectDir)TnbLib\sampling\probes;$(ProjectDir)TnbLib\sampling\sampledSet\arcUniform;$(ProjectDir)TnbLib\sampling\sampledSet\boundaryPoints;$(ProjectDir)TnbLib\sampling\sampledSet\boundaryRandom;$(ProjectDir)TnbLib\sampling\sampledSet\boxUniform;$(ProjectDir)TnbLib\sampling\sampledSet\circleRandom;$(ProjectDir)TnbLib\sampling\sampledSet\lineCell;$(ProjectDir)TnbLib\sampling\sampledSet\lineCellFace;$(ProjectDir)TnbLib\sampling\sampledSet\lineFace;$(ProjectDir)TnbLib\sampling\sampledSet\lineUniform;$(ProjectDir)TnbLib\sampling\sampledSet\points;$(ProjectDir)TnbLib\sampling\sampledSet\sampledSet;$(ProjectDir)TnbLib\sampling\sampledSet\sampledSets;$(ProjectDir)TnbLib\sampling\sampledSet\sphereRandom;$(ProjectDir)TnbLib\sampling\sampledSet\triSurfaceMeshSampledSet;$(ProjectDir)TnbLib\sampling\sampledSurface\distanceSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\isoSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledCuttingPlane;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPatch;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPatchInternalField;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPlane;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledSurfaces;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh;$(ProjectDir)TnbLib\sampling\sampledSurface\thresholdCellFaces;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\ensight;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\foam;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\nastran;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\none;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\proxy;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\raw;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\starcd;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\vtk;$(ProjectDir)TnbLib\sampling\sampledSurface\writers;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NoRepository
+;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -134,22 +138,28 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\sampling\cuttingPlane\cuttingPlane.hxx" />
+    <ClInclude Include="TnbLib\sampling\cuttingPlane\cuttingPlaneI.hxx" />
     <ClInclude Include="TnbLib\sampling\graphField\makeGraph.hxx" />
     <ClInclude Include="TnbLib\sampling\graphField\writeCellGraph.hxx" />
     <ClInclude Include="TnbLib\sampling\graphField\writePatchGraph.hxx" />
     <ClInclude Include="TnbLib\sampling\meshToMesh0\meshToMesh0.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh0\meshToMesh0I.hxx" />
     <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight\cellVolumeWeightMethod.hxx" />
     <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\direct\directMethod.hxx" />
     <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\mapNearest\mapNearestMethod.hxx" />
     <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod\meshToMeshMethod.hxx" />
     <ClInclude Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod\meshToMeshMethodI.hxx" />
     <ClInclude Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapper.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapperI.hxx" />
     <ClInclude Include="TnbLib\sampling\meshToMesh\meshToMesh.hxx" />
     <ClInclude Include="TnbLib\sampling\meshToMesh\meshToMeshI.hxx" />
+    <ClInclude Include="TnbLib\sampling\meshToMesh\meshToMeshTemplatesI.hxx" />
     <ClInclude Include="TnbLib\sampling\meshToMesh\weightedFvPatchFieldMapper.hxx" />
     <ClInclude Include="TnbLib\sampling\probes\IOprobes.hxx" />
     <ClInclude Include="TnbLib\sampling\probes\patchProbes.hxx" />
+    <ClInclude Include="TnbLib\sampling\probes\patchProbesI.hxx" />
     <ClInclude Include="TnbLib\sampling\probes\probes.hxx" />
+    <ClInclude Include="TnbLib\sampling\probes\probesI.hxx" />
     <ClInclude Include="TnbLib\sampling\probes\probesIsNotEqOp.h" />
     <ClInclude Include="TnbLib\sampling\sampledSet\arcUniform\arcUniform.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSet\boundaryPoints\boundaryPoints.hxx" />
@@ -161,60 +171,56 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\sampling\sampledSet\lineFace\lineFace.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSet\lineUniform\lineUniform.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSet\points\points.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSet\sampledSets\IOsampledSets.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSet\sampledSets\sampledSets.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSet\sampledSets\sampledSetsI.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSet\sampledSet\sampledSet.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSet\sphereRandom\sphereRandom.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSet\triSurfaceMeshSampledSet\triSurfaceMeshSampledSet.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\distanceSurface\distanceSurface.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSurface\distanceSurface\distanceSurfaceI.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\isoSurface\isoSurface.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSurface\isoSurface\isoSurfaceI.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\isoSurface\sampledIsoSurface.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSurface\isoSurface\sampledIsoSurfaceI.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\sampledCuttingPlane\sampledCuttingPlane.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledCuttingPlane\sampledCuttingPlaneI.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\sampledPatchInternalField\sampledPatchInternalField.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledPatchInternalField\sampledPatchInternalFieldI.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\sampledPatch\sampledPatch.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledPatch\sampledPatchI.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\sampledPlane\sampledPlane.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledPlane\sampledPlaneI.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\sampledSurfaces\IOsampledSurfaces.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\sampledSurfaces\sampledSurfaces.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledSurfaces\sampledSurfacesI.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\sampledSurface\sampledSurface.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledSurface\sampledSurfaceI.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh\sampledTriSurfaceMesh.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh\sampledTriSurfaceMeshI.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\thresholdCellFaces\sampledThresholdCellFaces.hxx" />
+    <ClInclude Include="TnbLib\sampling\sampledSurface\thresholdCellFaces\sampledThresholdCellFacesI.hxx" />
     <ClInclude Include="TnbLib\sampling\sampledSurface\thresholdCellFaces\thresholdCellFaces.hxx" />
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\ensight\ensightPTraits.hxx" />
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\ensight\ensightSurfaceWriter.hxx" />
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\foam\foamSurfaceWriter.hxx" />
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\makeSurfaceWriterMethods.hxx" />
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\nastran\nastranSurfaceWriter.hxx" />
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\none\noSurfaceWriter.hxx" />
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\proxy\proxySurfaceWriter.hxx" />
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\raw\rawSurfaceWriter.hxx" />
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\starcd\starcdSurfaceWriter.hxx" />
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\surfaceWriter.hxx" />
-    <ClInclude Include="TnbLib\sampling\sampledSurface\writers\vtk\vtkSurfaceWriter.hxx" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\sampling\cuttingPlane\cuttingPlane.cxx" />
-    <ClCompile Include="TnbLib\sampling\cuttingPlane\cuttingPlaneTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\graphField\makeGraph.cxx" />
     <ClCompile Include="TnbLib\sampling\graphField\writeCellGraph.cxx" />
     <ClCompile Include="TnbLib\sampling\graphField\writePatchGraph.cxx" />
     <ClCompile Include="TnbLib\sampling\meshToMesh0\calculateMeshToMesh0Addressing.cxx" />
     <ClCompile Include="TnbLib\sampling\meshToMesh0\calculateMeshToMesh0Weights.cxx" />
     <ClCompile Include="TnbLib\sampling\meshToMesh0\meshToMesh0.cxx" />
-    <ClCompile Include="TnbLib\sampling\meshToMesh0\meshToMesh0Templates.cxx" />
     <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight\cellVolumeWeightMethod.cxx" />
     <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\direct\directMethod.cxx" />
     <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\mapNearest\mapNearestMethod.cxx" />
     <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod\meshToMeshMethod.cxx" />
     <ClCompile Include="TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod\meshToMeshMethodNew.cxx" />
     <ClCompile Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapper.cxx" />
-    <ClCompile Include="TnbLib\sampling\meshToMesh\distributedWeightedFvPatchFieldMapperTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\meshToMesh\meshToMesh.cxx" />
     <ClCompile Include="TnbLib\sampling\meshToMesh\meshToMeshParallelOps.cxx" />
-    <ClCompile Include="TnbLib\sampling\meshToMesh\meshToMeshTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\probes\patchProbes.cxx" />
-    <ClCompile Include="TnbLib\sampling\probes\patchProbesTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\probes\probes.cxx" />
     <ClCompile Include="TnbLib\sampling\probes\probesGrouping.cxx" />
-    <ClCompile Include="TnbLib\sampling\probes\probesTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSet\arcUniform\arcUniform.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSet\boundaryPoints\boundaryPoints.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSet\boundaryRandom\boundaryRandom.cxx" />
@@ -226,44 +232,26 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\sampling\sampledSet\lineUniform\lineUniform.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSet\points\points.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSet\sampledSets\sampledSets.cxx" />
+    <ClCompile Include="TnbLib\sampling\sampledSet\sampledSets\sampledSetsGrouping.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSet\sampledSet\sampledSet.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSet\sphereRandom\sphereRandom.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSet\triSurfaceMeshSampledSet\triSurfaceMeshSampledSet.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\distanceSurface\distanceSurface.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\distanceSurface\distanceSurfaceTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\isoSurface\isoSurface.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\isoSurface\isoSurfaceTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\isoSurface\sampledIsoSurface.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\isoSurface\sampledIsoSurfaceTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledCuttingPlane\sampledCuttingPlane.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledCuttingPlane\sampledCuttingPlaneTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledPatchInternalField\sampledPatchInternalField.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledPatchInternalField\sampledPatchInternalFieldTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledPatch\sampledPatch.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledPatch\sampledPatchTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledPlane\sampledPlane.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledPlane\sampledPlaneTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledSurfaces\sampledSurfaces.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledSurfaces\sampledSurfacesGrouping.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledSurfaces\sampledSurfacesTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledSurface\sampledSurface.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledSurface\sampledSurfaceTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh\sampledTriSurfaceMesh.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh\sampledTriSurfaceMeshTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\thresholdCellFaces\sampledThresholdCellFaces.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\thresholdCellFaces\sampledThresholdCellFacesTemplates.cxx" />
     <ClCompile Include="TnbLib\sampling\sampledSurface\thresholdCellFaces\thresholdCellFaces.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\ensight\ensightPTraits.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\ensight\ensightSurfaceWriter.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\foam\foamSurfaceWriter.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\nastran\nastranSurfaceWriter.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\nastran\nastranSurfaceWriterTemplates.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\none\noSurfaceWriter.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\proxy\proxySurfaceWriter.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\raw\rawSurfaceWriter.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\starcd\starcdSurfaceWriter.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\surfaceWriter.cxx" />
-    <ClCompile Include="TnbLib\sampling\sampledSurface\writers\vtk\vtkSurfaceWriter.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

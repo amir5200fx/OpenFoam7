@@ -8,6 +8,35 @@
 #include <PstreamReduceOps.hxx>  // added by amir
 #include <globalMeshData.hxx>  // added by amir
 
+namespace tnbLib
+{
+	//- Helper class for list
+	template<class Type>
+	class ListPlusEqOp
+	{
+	public:
+		void operator()(List<Type>& x, const List<Type> y) const
+		{
+			if (y.size())
+			{
+				if (x.size())
+				{
+					label sz = x.size();
+					x.setSize(sz + y.size());
+					forAll(y, i)
+					{
+						x[sz++] = y[i];
+					}
+				}
+				else
+				{
+					x = y;
+				}
+			}
+		}
+	};
+}
+
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -365,8 +394,7 @@ void tnbLib::meshToMesh::calculate(const word& methodName)
 			map.subMap(),
 			false,
 			tgtToSrcCellAddr_,
-			/*ListPlusEqOp<label>(),*/
-			globalMeshData::ListPlusEqOp<label>(),  // Editted by amir
+			ListPlusEqOp<label>(),
 			flipOp(),
 			labelList()
 		);
@@ -382,8 +410,7 @@ void tnbLib::meshToMesh::calculate(const word& methodName)
 			map.subMap(),
 			false,
 			tgtToSrcCellWght_,
-			/*ListPlusEqOp<scalar>(),*/
-			globalMeshData::ListPlusEqOp<scalar>(),  // Editted by amir
+			ListPlusEqOp<scalar>(),
 			flipOp(),
 			scalarList()
 		);

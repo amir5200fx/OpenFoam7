@@ -298,9 +298,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <probesTemplates.cxx>
-#endif
+#include <probesI.hxx>
+
+//#ifdef NoRepository
+//#include <probesTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

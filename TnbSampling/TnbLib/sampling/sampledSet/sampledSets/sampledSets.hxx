@@ -318,9 +318,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <sampledSetsTemplates.cxx>
-#endif
+#include <sampledSetsI.hxx>
+
+//#ifdef NoRepository
+//#include <sampledSetsTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

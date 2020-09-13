@@ -179,9 +179,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <sampledPatchInternalFieldTemplates.cxx>
-#endif
+#include <sampledPatchInternalFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <sampledPatchInternalFieldTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -7,6 +7,11 @@
 #include <Time.hxx>  // added by amir
 #include <volMesh.hxx>  // added by amir
 
+#include <surfaceFields.hxx> // added by amir
+#include <volFields.hxx>  // added by amir
+#include <fvPatchFields.hxx>  // added by amir
+
+
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -31,7 +36,7 @@ void tnbLib::sampledSurfaces::writeGeometry() const
 {
 	// Write to time directory under outputPath_
 	// Skip surface without faces (eg, a failed cut-plane)
-
+	
 	const fileName outputDir = outputPath_ / mesh_.time().timeName();
 
 	forAll(*this, surfI)
@@ -191,19 +196,18 @@ bool tnbLib::sampledSurfaces::write()
 
 		const IOobjectList objects(mesh_, mesh_.time().timeName());
 
-		sampleAndWrite<volScalarField>(objects);
-		sampleAndWrite<volVectorField>(objects);
-		sampleAndWrite<volSphericalTensorField>(objects);
-		sampleAndWrite<volSymmTensorField>(objects);
-		sampleAndWrite<volTensorField>(objects);
+		sampleAndWriteGeoField<volScalarField>(objects);
+		sampleAndWriteGeoField<volVectorField>(objects);
+		sampleAndWriteGeoField<volSphericalTensorField>(objects);
+		sampleAndWriteGeoField<volSymmTensorField>(objects);
+		sampleAndWriteGeoField<volTensorField>(objects);
 
-		sampleAndWrite<surfaceScalarField>(objects);
-		sampleAndWrite<surfaceVectorField>(objects);
-		sampleAndWrite<surfaceSphericalTensorField>(objects);
-		sampleAndWrite<surfaceSymmTensorField>(objects);
-		sampleAndWrite<surfaceTensorField>(objects);
+		sampleAndWriteGeoField<surfaceScalarField>(objects);
+		sampleAndWriteGeoField<surfaceVectorField>(objects);
+		sampleAndWriteGeoField<surfaceSphericalTensorField>(objects);
+		sampleAndWriteGeoField<surfaceSymmTensorField>(objects);
+		sampleAndWriteGeoField<surfaceTensorField>(objects);
 	}
-
 	return true;
 }
 

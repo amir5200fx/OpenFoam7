@@ -224,9 +224,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <sampledPlaneTemplates.cxx>
-#endif
+#include <sampledPlaneI.hxx>
+
+//#ifdef NoRepository
+//#include <sampledPlaneTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

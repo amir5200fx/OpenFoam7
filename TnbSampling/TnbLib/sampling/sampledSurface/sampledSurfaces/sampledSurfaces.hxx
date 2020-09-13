@@ -46,6 +46,9 @@ SourceFiles
 #include <wordReList.hxx>
 #include <IOobjectList.hxx>
 
+#include <fvsPatchFields.hxx>
+#include <fvPatchFields.hxx>
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -65,6 +68,7 @@ namespace tnbLib
 		public functionObject,
 		public PtrList<sampledSurface>
 	{
+
 		// Private classes
 
 			//- Class used for surface merging information
@@ -136,7 +140,7 @@ namespace tnbLib
 		//- Write geometry only
 		void writeGeometry() const;
 
-		//- Write sampled fieldName on surface and on outputDir path
+		//- Write sampled fieldName on surface and on outputDir path		
 		template<class Type>
 		void writeSurface
 		(
@@ -161,7 +165,7 @@ namespace tnbLib
 		);
 
 		//- Sample and write all sampled fields
-		template<class Type> void sampleAndWrite(const IOobjectList& objects);
+		template<class GeoField> void sampleAndWriteGeoField(const IOobjectList& objects);  //- renamed by amir
 
 
 	public:
@@ -247,9 +251,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <sampledSurfacesTemplates.cxx>
-#endif
+#include <sampledSurfacesI.hxx>
+
+//#ifdef NoRepository
+//#include <sampledSurfacesTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

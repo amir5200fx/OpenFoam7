@@ -265,9 +265,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <isoSurfaceTemplates.cxx>
-#endif
+#include <isoSurfaceI.hxx>
+
+//#ifdef NoRepository
+//#include <isoSurfaceTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

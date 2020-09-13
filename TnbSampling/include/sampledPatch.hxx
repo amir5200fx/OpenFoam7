@@ -291,9 +291,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <sampledPatchTemplates.cxx>
-#endif
+#include <sampledPatchI.hxx>
+
+//#ifdef NoRepository
+//#include <sampledPatchTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

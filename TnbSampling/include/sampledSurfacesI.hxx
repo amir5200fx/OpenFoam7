@@ -1,5 +1,4 @@
-#include <sampledSurfaces.hxx>
-
+#pragma once
 #include <volFields.hxx>
 #include <surfaceFields.hxx>
 #include <ListListOps.hxx>
@@ -81,7 +80,6 @@ void tnbLib::sampledSurfaces::writeSurface
 	}
 }
 
-
 template<class Type>
 void tnbLib::sampledSurfaces::sampleAndWrite
 (
@@ -122,7 +120,6 @@ void tnbLib::sampledSurfaces::sampleAndWrite
 	}
 }
 
-
 template<class Type>
 void tnbLib::sampledSurfaces::sampleAndWrite
 (
@@ -142,7 +139,7 @@ void tnbLib::sampledSurfaces::sampleAndWrite
 
 
 template<class GeoField>
-void tnbLib::sampledSurfaces::sampleAndWrite(const IOobjectList& objects)
+void tnbLib::sampledSurfaces::sampleAndWriteGeoField(const IOobjectList& objects)
 {
 	wordList names;
 	if (loadFromFiles_)

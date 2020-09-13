@@ -220,9 +220,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <sampledIsoSurfaceTemplates.cxx>
-#endif
+#include <sampledIsoSurfaceI.hxx>
+
+//#ifdef NoRepository
+//#include <sampledIsoSurfaceTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

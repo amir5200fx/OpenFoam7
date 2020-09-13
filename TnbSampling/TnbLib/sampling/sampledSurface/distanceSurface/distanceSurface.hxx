@@ -248,9 +248,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <distanceSurfaceTemplates.cxx>
-#endif
+#include <distanceSurfaceI.hxx>
+
+//#ifdef NoRepository
+//#include <distanceSurfaceTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

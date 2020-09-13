@@ -240,9 +240,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <sampledCuttingPlaneTemplates.cxx>
-#endif
+#include <sampledCuttingPlaneI.hxx>
+
+//#ifdef NoRepository
+//#include <sampledCuttingPlaneTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

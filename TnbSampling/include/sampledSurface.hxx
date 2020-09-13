@@ -449,9 +449,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <sampledSurfaceTemplates.cxx>
-#endif
+#include <sampledSurfaceI.hxx>
+
+//#ifdef NoRepository
+//#include <sampledSurfaceTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -214,9 +214,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <distributedWeightedFvPatchFieldMapperTemplates.cxx>
-#endif
+#include <distributedWeightedFvPatchFieldMapperI.hxx>
+
+//#ifdef NoRepository
+//#include <distributedWeightedFvPatchFieldMapperTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
