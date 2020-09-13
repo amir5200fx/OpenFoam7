@@ -19,9 +19,6 @@
     <Filter Include="TnbLib\FvMesh\mesh\extrudeModel">
       <UniqueIdentifier>{8eb0a6c4-b2fe-4e54-b2ae-18e604b5ab07}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh">
-      <UniqueIdentifier>{847c6ec4-13cd-477f-b8c5-a8a3eb4a486d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TnbLib\FvMesh\meshTools\algorithms">
       <UniqueIdentifier>{663d7fb0-9c65-499c-ab73-6abffb5f2746}</UniqueIdentifier>
     </Filter>
@@ -201,42 +198,6 @@
     </Filter>
     <Filter Include="TnbLib\FvMesh\mesh\extrudeModel\planeExtrusion">
       <UniqueIdentifier>{f82d8128-c8c1-47e8-8181-7eceb3ba2bcf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh\externalDisplacementMeshMover">
-      <UniqueIdentifier>{d7c5df5c-7e7e-41bf-a95a-13900407beec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh\meshRefinement">
-      <UniqueIdentifier>{aa8a2fe5-68d1-467c-8c52-89e408be2ce1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh\trackedParticle">
-      <UniqueIdentifier>{bde49f6c-8d45-4421-85bd-26f41a5b6b96}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh\snappyHexMeshDriver">
-      <UniqueIdentifier>{5e1f0add-00f7-4ed6-8b4e-7a4b15eaf406}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh\shellSurfaces">
-      <UniqueIdentifier>{fd2c7ac5-088f-4405-bd97-100462b25d4e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh\refinementSurfaces">
-      <UniqueIdentifier>{c39d23de-5b03-4ab6-b234-01b73d06ca81}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh\refinementFeatures">
-      <UniqueIdentifier>{7cfc73eb-5dce-4d02-a602-9af8c306d821}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue">
-      <UniqueIdentifier>{3b0d2bb1-3207-4282-b52e-13dffa080afb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh\snappyHexMeshDriver\layerParameters">
-      <UniqueIdentifier>{3ff61de7-0cc5-44aa-9e0d-bf3cfe7a18a3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh\snappyHexMeshDriver\snapParameters">
-      <UniqueIdentifier>{d174a807-7fc0-4758-9396-9bff4f7ad97c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh\snappyHexMeshDriver\refinementParameters">
-      <UniqueIdentifier>{42dced58-e195-42ba-a6c4-ecd5d091b07b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\mesh\snappyHexMesh\snappyHexMeshDriver\pointData">
-      <UniqueIdentifier>{e71d91b1-a08f-4d7a-b222-f0f9b21f45aa}</UniqueIdentifier>
     </Filter>
     <Filter Include="TnbLib\FvMesh\meshTools\algorithms\MeshWave">
       <UniqueIdentifier>{a103965f-db7a-49f4-ad07-42c195e5059f}</UniqueIdentifier>
