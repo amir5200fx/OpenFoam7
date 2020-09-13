@@ -491,9 +491,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <distributedTriSurfaceMeshTemplates.cxx>
-#endif
+#include <distributedTriSurfaceMeshI.hxx>
+
+//#ifdef NoRepository
+//#include <distributedTriSurfaceMeshTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

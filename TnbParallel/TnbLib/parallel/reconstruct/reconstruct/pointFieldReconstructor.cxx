@@ -2,153 +2,70 @@
 
 #include <Time.hxx>  // added by amir
 
-// * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
+// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
-template<class Type>
-tnbLib::tmp<tnbLib::GeometricField<Type, tnbLib::pointPatchField, tnbLib::pointMesh>>
-tnbLib::pointFieldReconstructor::reconstructField(const IOobject& fieldIoObject)
+tnbLib::pointFieldReconstructor::pointFieldReconstructor
+(
+	const pointMesh& mesh,
+	const PtrList<pointMesh>& procMeshes,
+	const PtrList<labelIOList>& pointProcAddressing,
+	const PtrList<labelIOList>& boundaryProcAddressing
+)
+	:
+	mesh_(mesh),
+	procMeshes_(procMeshes),
+	pointProcAddressing_(pointProcAddressing),
+	boundaryProcAddressing_(boundaryProcAddressing),
+	patchPointAddressing_(procMeshes.size()),
+	nReconstructed_(0)
 {
-	// Read the field for all the processors
-	PtrList<GeometricField<Type, pointPatchField, pointMesh>> procFields
-	(
-		procMeshes_.size()
-	);
+	// Inverse-addressing of the patch point labels.
+	labelList pointMap(mesh_.size(), -1);
 
+	// Create the pointPatch addressing
 	forAll(procMeshes_, proci)
 	{
-		procFields.set
-		(
-			proci,
-			new GeometricField<Type, pointPatchField, pointMesh>
-			(
-				IOobject
-				(
-					fieldIoObject.name(),
-					procMeshes_[proci]().time().timeName(),
-					procMeshes_[proci](),
-					IOobject::MUST_READ,
-					IOobject::NO_WRITE
-				),
-				procMeshes_[proci]
-				)
-		);
-	}
+		const pointMesh& procMesh = procMeshes_[proci];
 
+		patchPointAddressing_[proci].setSize(procMesh.boundary().size());
 
-	// Create the internalField
-	Field<Type> internalField(mesh_.size());
-
-	// Create the patch fields
-	PtrList<pointPatchField<Type>> patchFields(mesh_.boundary().size());
-
-
-	forAll(procMeshes_, proci)
-	{
-		const GeometricField<Type, pointPatchField, pointMesh>&
-			procField = procFields[proci];
-
-		// Get processor-to-global addressing for use in rmap
-		const labelList& procToGlobalAddr = pointProcAddressing_[proci];
-
-		// Set the cell values in the reconstructed field
-		internalField.rmap
-		(
-			procField.primitiveField(),
-			procToGlobalAddr
-		);
-
-		// Set the boundary patch values in the reconstructed field
-		forAll(boundaryProcAddressing_[proci], patchi)
+		forAll(procMesh.boundary(), patchi)
 		{
-			// Get patch index of the original patch
-			const label curBPatch = boundaryProcAddressing_[proci][patchi];
-
-			// check if the boundary patch is not a processor patch
-			if (curBPatch >= 0)
+			if (boundaryProcAddressing_[proci][patchi] >= 0)
 			{
-				if (!patchFields(curBPatch))
+				labelList& procPatchAddr = patchPointAddressing_[proci][patchi];
+				procPatchAddr.setSize(procMesh.boundary()[patchi].size(), -1);
+
+				const labelList& patchPointLabels =
+					mesh_.boundary()[boundaryProcAddressing_[proci][patchi]]
+					.meshPoints();
+
+				// Create the inverse-addressing of the patch point labels.
+				forAll(patchPointLabels, pointi)
 				{
-					patchFields.set(
-						curBPatch,
-						pointPatchField<Type>::New
-						(
-							procField.boundaryField()[patchi],
-							mesh_.boundary()[curBPatch],
-							DimensionedField<Type, pointMesh>::null(),
-							pointPatchFieldReconstructor
-							(
-								mesh_.boundary()[curBPatch].size()
-							)
-						)
-					);
+					pointMap[patchPointLabels[pointi]] = pointi;
 				}
 
-				patchFields[curBPatch].rmap
-				(
-					procField.boundaryField()[patchi],
-					patchPointAddressing_[proci][patchi]
-				);
+				const labelList& procPatchPoints =
+					procMesh.boundary()[patchi].meshPoints();
+
+				forAll(procPatchPoints, pointi)
+				{
+					procPatchAddr[pointi] =
+						pointMap
+						[
+							pointProcAddressing_[proci][procPatchPoints[pointi]]
+						];
+				}
+
+				if (procPatchAddr.size() && min(procPatchAddr) < 0)
+				{
+					FatalErrorInFunction
+						<< "Incomplete patch point addressing"
+						<< abort(FatalError);
+				}
 			}
 		}
-	}
-
-	// Construct and write the field
-	// setting the internalField and patchFields
-	return tmp<GeometricField<Type, pointPatchField, pointMesh>>
-		(
-			new GeometricField<Type, pointPatchField, pointMesh>
-			(
-				IOobject
-				(
-					fieldIoObject.name(),
-					mesh_().time().timeName(),
-					mesh_(),
-					IOobject::NO_READ,
-					IOobject::NO_WRITE
-				),
-				mesh_,
-				procFields[0].dimensions(),
-				internalField,
-				patchFields
-				)
-			);
-}
-
-
-// Reconstruct and write all point fields
-template<class Type>
-void tnbLib::pointFieldReconstructor::reconstructFields
-(
-	const IOobjectList& objects,
-	const HashSet<word>& selectedFields
-)
-{
-	word fieldClassName
-	(
-		GeometricField<Type, pointPatchField, pointMesh>::typeName
-	);
-
-	IOobjectList fields = objects.lookupClass(fieldClassName);
-
-	if (fields.size())
-	{
-		Info << "    Reconstructing " << fieldClassName << "s\n" << endl;
-
-		forAllConstIter(IOobjectList, fields, fieldIter)
-		{
-			if
-				(
-					!selectedFields.size()
-					|| selectedFields.found(fieldIter()->name())
-					)
-			{
-				Info << "        " << fieldIter()->name() << endl;
-
-				reconstructField<Type>(*fieldIter())().write();
-			}
-		}
-
-		Info << endl;
 	}
 }
 

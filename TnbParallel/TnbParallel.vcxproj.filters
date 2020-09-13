@@ -156,6 +156,21 @@
     <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\reconstructLagrangian.hxx">
       <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\parallel\decompose\decompose\fvFieldDecomposerDecomposeFieldsI.hxx">
+      <Filter>TnbLib\parallel\decompose\decompose</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\distributed\distributedTriSurfaceMesh\distributedTriSurfaceMeshI.hxx">
+      <Filter>TnbLib\parallel\distributed\distributedTriSurfaceMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\fvFieldReconstructorReconstructFieldsI.hxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\pointFieldReconstructorReconstructFieldsI.hxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\reconstructLagrangianFieldsI.hxx">
+      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\parallel\decompose\decompositionMethods\decompositionMethod\decompositionMethod.cxx">
@@ -215,19 +230,10 @@
     <ClCompile Include="TnbLib\parallel\decompose\decompose\fvFieldDecomposer.cxx">
       <Filter>TnbLib\parallel\decompose\decompose</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\parallel\decompose\decompose\fvFieldDecomposerDecomposeFields.cxx">
-      <Filter>TnbLib\parallel\decompose\decompose</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\parallel\distributed\distributedTriSurfaceMesh\distributedTriSurfaceMesh.cxx">
       <Filter>TnbLib\parallel\distributed\distributedTriSurfaceMesh</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\parallel\distributed\distributedTriSurfaceMesh\distributedTriSurfaceMeshTemplates.cxx">
-      <Filter>TnbLib\parallel\distributed\distributedTriSurfaceMesh</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\fvFieldReconstructor.cxx">
-      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\fvFieldReconstructorReconstructFields.cxx">
       <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\pointFieldReconstructor.cxx">
@@ -236,14 +242,11 @@
     <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\processorMeshes.cxx">
       <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\reconstructLagrangianFields.cxx">
-      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\reconstructLagrangianPositions.cxx">
       <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\parallel\reconstruct\reconstruct\pointFieldReconstructorReconstructFields.cxx">
-      <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
