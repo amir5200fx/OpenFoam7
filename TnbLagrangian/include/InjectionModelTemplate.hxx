@@ -387,12 +387,14 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <InjectionModelTemplateI.hxx>
+#include <InjectionModelTemplate_Imp.hxx>
+#include <InjectionModelTemplateNew_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <InjectionModelTemplate.cxx>
-#endif
+//#ifdef NoRepository
+//#include <InjectionModelTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

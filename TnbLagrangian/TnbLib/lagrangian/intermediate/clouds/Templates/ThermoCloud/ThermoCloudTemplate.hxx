@@ -381,12 +381,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <ThermoCloudTemplateI.hxx>
+#include <ThermoCloudTemplate_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ThermoCloudTemplate.cxx>
-#endif
+//#ifdef NoRepository
+//#include <ThermoCloudTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -184,9 +184,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PatchFlowRateInjection.cxx>
-#endif
+#include <PatchFlowRateInjectionI.hxx>
+
+//#ifdef NoRepository
+//#include <PatchFlowRateInjection.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

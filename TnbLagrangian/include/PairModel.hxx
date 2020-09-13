@@ -170,9 +170,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PairModel.cxx>
-#endif
+#include <PairModelI.hxx>
+#include <PairModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <PairModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -173,9 +173,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include "Moment.C"
-#endif
+#include <MomentI.hxx>
+
+//#ifdef NoRepository
+//#include <Moment.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

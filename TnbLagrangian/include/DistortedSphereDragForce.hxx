@@ -111,9 +111,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <DistortedSphereDragForce.cxx>
-#endif
+#include <DistortedSphereDragForceI.hxx>
+
+//#ifdef NoRepository
+//#include <DistortedSphereDragForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -205,12 +205,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <AveragingMethodI.hxx>
+#include <AveragingMethod_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <AveragingMethod.cxx>
-#endif
+//#ifdef NoRepository
+//#include <AveragingMethod.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

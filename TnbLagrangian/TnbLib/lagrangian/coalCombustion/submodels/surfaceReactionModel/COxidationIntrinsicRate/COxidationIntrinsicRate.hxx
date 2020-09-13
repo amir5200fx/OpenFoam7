@@ -179,9 +179,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <COxidationIntrinsicRate.cxx>
-#endif
+#include <COxidationIntrinsicRateI.hxx>
+
+//#ifdef NoRepository
+//#include <COxidationIntrinsicRate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

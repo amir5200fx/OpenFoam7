@@ -39,8 +39,28 @@ tnbLib::scalar tnbLib::patchInteractionData::mu() const
 	return mu_;
 }
 
+bool tnbLib::patchInteractionData::operator==(const patchInteractionData & p) const
+{
+	notImplemented("bool tnbLib::patchInteractionData::operator==(const patchInteractionData & p) const");
+	return true;
+}
+
+bool tnbLib::patchInteractionData::operator!=(const patchInteractionData & p) const
+{
+	return !operator==(p);
+}
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
+
+tnbLib::Ostream & tnbLib::operator<<
+(
+	Ostream & os,
+	const patchInteractionData & pid
+	)
+{
+	notImplemented("tnbLib::Ostream& tnbLib::operator<<(Ostream&, patchInteractionData &)");
+	return os;
+}
 
 tnbLib::Istream& tnbLib::operator>>
 (

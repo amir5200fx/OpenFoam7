@@ -102,9 +102,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoDamping.cxx>
-#endif
+#include <NoDampingI.hxx>
+
+//#ifdef NoRepository
+//#include <NoDamping.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -255,12 +255,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <SprayCloudTemplateI.hxx>
+#include <SprayCloudTemplate_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SprayCloudTemplate.cxx>
-#endif
+//#ifdef NoRepository
+//#include <SprayCloudTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

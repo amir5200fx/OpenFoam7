@@ -154,9 +154,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <LISAAtomization.cxx>
-#endif
+#include <LISAAtomizationI.hxx>
+
+//#ifdef NoRepository
+//#include <LISAAtomization.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

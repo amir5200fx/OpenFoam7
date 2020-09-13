@@ -111,9 +111,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoComposition.cxx>
-#endif
+#include <NoCompositionI.hxx>
+
+//#ifdef NoRepository
+//#include <NoComposition.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

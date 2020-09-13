@@ -198,9 +198,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <InflationInjection.cxx>
-#endif
+#include <InflationInjectionI.hxx>
+
+//#ifdef NoRepository
+//#include <InflationInjection.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

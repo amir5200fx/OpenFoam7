@@ -57,12 +57,12 @@ SourceFiles
 
 namespace tnbLib
 {
+	// Forward Declarations
+	template<class Type>
+	class AveragingMethod;  // added by amir
+
 	namespace DampingModels
 	{
-
-		// Forward Declarations
-		template<class Type>
-		class AveragingMethod;  // added by amir
 
 		/*---------------------------------------------------------------------------*\
 								 Class Relaxation Declaration
@@ -130,9 +130,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <Relaxation.cxx>
-#endif
+#include <RelaxationI.hxx>
+
+//#ifdef NoRepository
+//#include <Relaxation.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

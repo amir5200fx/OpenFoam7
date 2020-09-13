@@ -112,9 +112,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoSurfaceReaction.cxx>
-#endif
+#include <NoSurfaceReactionI.hxx>
+
+//#ifdef NoRepository
+//#include <NoSurfaceReaction.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

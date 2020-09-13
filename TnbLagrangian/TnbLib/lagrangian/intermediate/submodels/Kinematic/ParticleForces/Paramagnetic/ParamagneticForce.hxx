@@ -137,10 +137,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <ParamagneticForceI.hxx>
+#include <ParamagneticForce_Imp.hxx>
 
-#ifdef NoRepository
-#include <ParamagneticForce.cxx>
-#endif
+//#ifdef NoRepository
+//#include <ParamagneticForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

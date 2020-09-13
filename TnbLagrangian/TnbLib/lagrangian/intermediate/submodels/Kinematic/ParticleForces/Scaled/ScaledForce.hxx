@@ -138,9 +138,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ScaledForce.cxx>
-#endif
+#include <ScaledForceI.hxx>
+
+//#ifdef NoRepository
+//#include <ScaledForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -191,9 +191,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ThermoLookupTableInjection.cxx>
-#endif
+#include <ThermoLookupTableInjectionI.hxx>
+
+//#ifdef NoRepository
+//#include <ThermoLookupTableInjection.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

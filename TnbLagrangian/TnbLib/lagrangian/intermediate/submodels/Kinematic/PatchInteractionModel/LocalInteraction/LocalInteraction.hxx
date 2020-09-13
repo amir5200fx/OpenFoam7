@@ -142,9 +142,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <LocalInteraction.cxx>
-#endif
+#include <LocalInteractionI.hxx>
+
+//#ifdef NoRepository
+//#include <LocalInteraction.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

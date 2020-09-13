@@ -26,7 +26,7 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	Foam::radiationModels::absorptionEmissionModels::cloud
+	tnbLib::radiationModels::absorptionEmissionModels::cloud
 
 Description
 	Retrieves absorption/emission data from a cloud object
@@ -36,6 +36,69 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <absorptionEmissionModel.hxx>
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+namespace tnbLib
+{
+	namespace radiationModels
+	{
+		namespace absorptionEmissionModels
+		{
+
+			/*---------------------------------------------------------------------------*\
+										Class cloud Declaration
+			\*---------------------------------------------------------------------------*/
+
+			class cloud
+				:
+				public absorptionEmissionModel
+			{
+				// Private Data
+
+					//- Coefficients dictionary
+				dictionary coeffsDict_;
+
+				//- Cloud name(s)
+				const wordList cloudNames_;
+
+
+			public:
+
+				//- Runtime type information
+				TypeName("cloud");
+
+
+				// Constructors
+
+					//- Construct from components
+				cloud(const dictionary& dict, const fvMesh& mesh);
+
+
+				//- Destructor
+				virtual ~cloud();
+
+
+				// Member Functions
+
+					//- Absorption coefficient for dispersed phase
+				virtual tmp<volScalarField> aDisp(const label bandI = 0) const;
+
+				//- Emission coefficient for dispersed phase
+				virtual tmp<volScalarField> eDisp(const label bandI = 0) const;
+
+				//- Return emission contribution for dispersed phase
+				virtual tmp<volScalarField> EDisp(const label bandI = 0) const;
+			};
+
+
+			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+		} // End namespace absorptionEmissionModels
+	} // End namespace radiationModels
+} // End namespace tnbLib
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #endif // !_cloudAbsorptionEmission_Header

@@ -133,9 +133,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <VoidFraction.cxx>
-#endif
+#include <VoidFractionI.hxx>
+
+//#ifdef NoRepository
+//#include <VoidFraction.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

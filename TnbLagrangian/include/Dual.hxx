@@ -180,9 +180,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <Dual.cxx>
-#endif
+#include <DualI.hxx>
+
+//#ifdef NoRepository
+//#include <Dual.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

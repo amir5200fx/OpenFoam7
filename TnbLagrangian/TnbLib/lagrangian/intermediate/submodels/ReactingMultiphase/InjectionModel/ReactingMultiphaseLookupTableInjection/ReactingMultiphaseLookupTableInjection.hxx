@@ -190,9 +190,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ReactingMultiphaseLookupTableInjection.cxx>
-#endif
+#include <ReactingMultiphaseLookupTableInjectionI.hxx>
+
+//#ifdef NoRepository
+//#include <ReactingMultiphaseLookupTableInjection.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

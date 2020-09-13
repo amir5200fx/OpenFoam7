@@ -130,9 +130,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SinglePhaseMixture.cxx>
-#endif
+#include <SinglePhaseMixtureI.hxx>
+
+//#ifdef NoRepository
+//#include <SinglePhaseMixture.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

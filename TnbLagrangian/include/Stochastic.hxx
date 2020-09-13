@@ -117,9 +117,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <Stochastic.cxx>
-#endif
+#include <StochasticI.hxx>
+
+//#ifdef NoRepository
+//#include <Stochastic.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

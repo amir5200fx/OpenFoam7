@@ -307,12 +307,14 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <DSMCParcelTemplateI.hxx>
+#include <DSMCParcelTemplate_Imp.hxx>
+#include <DSMCParcelTemplateIO_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <DSMCParcelTemplate.cxx>
-#endif
+//#ifdef NoRepository
+//#include <DSMCParcelTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

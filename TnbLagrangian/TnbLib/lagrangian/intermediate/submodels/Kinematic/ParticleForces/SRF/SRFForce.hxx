@@ -120,9 +120,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SRFForce.cxx>
-#endif
+#include <SRFForceI.hxx>
+
+//#ifdef NoRepository
+//#include <SRFForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

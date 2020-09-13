@@ -188,9 +188,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ReactingLookupTableInjection.cxx>
-#endif
+
+#include <ReactingLookupTableInjectionI.hxx>
+
+//#ifdef NoRepository
+//#include <ReactingLookupTableInjection.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

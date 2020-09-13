@@ -341,9 +341,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ConeInjection.cxx>
-#endif
+#include <ConeInjectionI.hxx>
+
+//#ifdef NoRepository
+//#include <ConeInjection.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

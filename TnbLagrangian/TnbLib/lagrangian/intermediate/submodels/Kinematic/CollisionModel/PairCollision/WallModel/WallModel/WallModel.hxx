@@ -182,9 +182,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <WallModel.cxx>
-#endif
+#include <WallModelI.hxx>
+#include <WallModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <WallModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

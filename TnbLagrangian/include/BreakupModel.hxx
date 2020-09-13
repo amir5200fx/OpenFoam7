@@ -227,9 +227,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <BreakupModel.cxx>
-#endif
+#include <BreakupModelI.hxx>
+#include <BreakupModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <BreakupModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

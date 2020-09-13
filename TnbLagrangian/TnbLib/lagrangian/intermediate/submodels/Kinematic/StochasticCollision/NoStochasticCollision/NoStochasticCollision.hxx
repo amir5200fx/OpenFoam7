@@ -101,9 +101,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoStochasticCollision.cxx>
-#endif
+#include <NoStochasticCollisionI.hxx>
+
+//#ifdef NoRepository
+//#include <NoStochasticCollision.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

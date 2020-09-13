@@ -185,9 +185,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <CellZoneInjection.cxx>
-#endif
+#include <CellZoneInjectionI.hxx>
+
+//#ifdef NoRepository
+//#include <CellZoneInjection.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

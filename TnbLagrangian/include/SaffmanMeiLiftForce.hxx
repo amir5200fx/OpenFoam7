@@ -108,9 +108,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SaffmanMeiLiftForce.cxx>
-#endif
+#include <SaffmanMeiLiftForceI.hxx>
+
+//#ifdef NoRepository
+//#include <SaffmanMeiLiftForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

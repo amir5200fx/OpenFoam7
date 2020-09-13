@@ -178,9 +178,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <BinaryCollisionModel.cxx>
-#endif
+#include <BinaryCollisionModelI.hxx>
+#include <BinaryCollisionModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <BinaryCollisionModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

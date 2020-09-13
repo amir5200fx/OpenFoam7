@@ -81,9 +81,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoInflow.cxx>
-#endif
+#include <NoInflowI.hxx>
+
+//#ifdef NoRepository
+//#include <NoInflow.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

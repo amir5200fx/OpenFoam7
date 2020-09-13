@@ -186,9 +186,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ParticleErosion.cxx>
-#endif
+#include <ParticleErosionI.hxx>
+
+//#ifdef NoRepository
+//#include <ParticleErosion.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

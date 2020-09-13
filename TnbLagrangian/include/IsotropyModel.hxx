@@ -163,9 +163,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <IsotropyModel.cxx>
-#endif
+#include <IsotropyModelI.hxx>
+
+//#ifdef NoRepository
+//#include <IsotropyModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

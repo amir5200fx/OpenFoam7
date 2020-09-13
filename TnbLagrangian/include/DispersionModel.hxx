@@ -154,9 +154,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <DispersionModel.cxx>
-#endif
+#include <DispersionModelI.hxx>
+#include <DispersionModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <DispersionModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

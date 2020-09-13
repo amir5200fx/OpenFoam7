@@ -133,9 +133,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoInjection.cxx>
-#endif
+#include <NoInjectionI.hxx>
+
+//#ifdef NoRepository
+//#include <NoInjection.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

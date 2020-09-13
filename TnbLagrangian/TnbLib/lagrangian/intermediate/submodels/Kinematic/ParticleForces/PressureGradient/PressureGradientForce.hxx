@@ -141,10 +141,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <PressureGradientForceI.hxx>
+#include <PressureGradientForce_Imp.hxx>
 
-#ifdef NoRepository
-#include <PressureGradientForce.cxx>
-#endif
+//#ifdef NoRepository
+//#include <PressureGradientForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

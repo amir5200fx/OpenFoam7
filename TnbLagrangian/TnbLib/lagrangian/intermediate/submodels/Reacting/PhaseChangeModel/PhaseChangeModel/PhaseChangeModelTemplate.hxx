@@ -234,9 +234,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PhaseChangeModelTemplate.cxx>
-#endif
+#include <PhaseChangeModelTemplateI.hxx>
+#include <PhaseChangeModelTemplateNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <PhaseChangeModelTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

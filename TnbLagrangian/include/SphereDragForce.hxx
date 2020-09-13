@@ -118,9 +118,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SphereDragForce.cxx>
-#endif
+#include <SphereDragForceI.hxx>
+
+//#ifdef NoRepository
+//#include <SphereDragForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

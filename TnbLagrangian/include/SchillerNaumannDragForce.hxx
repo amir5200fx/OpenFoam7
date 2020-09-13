@@ -117,9 +117,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SchillerNaumannDragForce.cxx>
-#endif
+#include <SchillerNaumannDragForceI.hxx>
+
+//#ifdef NoRepository
+//#include <SchillerNaumannDragForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

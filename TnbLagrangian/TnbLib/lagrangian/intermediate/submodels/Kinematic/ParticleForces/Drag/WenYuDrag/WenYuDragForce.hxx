@@ -122,9 +122,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <WenYuDragForce.cxx>
-#endif
+#include <WenYuDragForceI.hxx>
+
+//#ifdef NoRepository
+//#include <WenYuDragForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

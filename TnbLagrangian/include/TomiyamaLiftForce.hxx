@@ -114,9 +114,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <TomiyamaLiftForce.cxx>
-#endif
+#include <TomiyamaLiftForceI.hxx>
+
+//#ifdef NoRepository
+//#include <TomiyamaLiftForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

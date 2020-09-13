@@ -295,9 +295,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <CompositionModel.cxx>
-#endif
+#include <CompositionModelI.hxx>
+#include <CompositionModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <CompositionModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

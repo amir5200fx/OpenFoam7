@@ -113,9 +113,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ErgunWenYuDragForce.cxx>
-#endif
+#include <ErgunWenYuDragForceI.hxx>
+
+//#ifdef NoRepository
+//#include <ErgunWenYuDragForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

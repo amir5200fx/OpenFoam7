@@ -185,9 +185,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PairCollision.cxx>
-#endif
+#include <PairCollisionI.hxx>
+
+//#ifdef NoRepository
+//#include <PairCollision.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

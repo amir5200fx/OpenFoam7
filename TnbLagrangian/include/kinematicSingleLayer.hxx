@@ -545,9 +545,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <kinematicSingleLayerTemplates.cxx>
-#endif
+#include <kinematicSingleLayer_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <kinematicSingleLayerTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

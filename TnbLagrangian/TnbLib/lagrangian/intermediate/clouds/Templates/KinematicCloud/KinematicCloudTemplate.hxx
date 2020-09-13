@@ -631,12 +631,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <KinematicCloudTemplateI.hxx>
+#include <KinematicCloudTemplate_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <KinematicCloudTemplate.cxx>
-#endif
+//#ifdef NoRepository
+//#include <KinematicCloudTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -200,9 +200,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <StochasticCollisionModel.cxx>
-#endif
+#include <StochasticCollisionModelI.hxx>
+#include <StochasticCollisionModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <StochasticCollisionModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

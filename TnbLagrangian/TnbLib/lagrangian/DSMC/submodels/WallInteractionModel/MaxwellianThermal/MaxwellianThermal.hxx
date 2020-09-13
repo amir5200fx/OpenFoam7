@@ -83,9 +83,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <MaxwellianThermal.cxx>
-#endif
+#include <MaxwellianThermalI.hxx>
+
+//#ifdef NoRepository
+//#include <MaxwellianThermal.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

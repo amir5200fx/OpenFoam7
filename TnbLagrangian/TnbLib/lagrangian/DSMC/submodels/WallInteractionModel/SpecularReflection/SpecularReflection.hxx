@@ -81,9 +81,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SpecularReflection.cxx>
-#endif
+#include <SpecularReflectionI.hxx>
+
+//#ifdef NoRepository
+//#include <SpecularReflection.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

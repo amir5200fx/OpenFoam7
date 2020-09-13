@@ -101,9 +101,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoDispersion.cxx>
-#endif
+#include <NoDispersionI.hxx>
+
+//#ifdef NoRepository
+//#include <NoDispersion.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

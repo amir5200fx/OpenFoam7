@@ -187,9 +187,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <COxidationMurphyShaddix.cxx>
-#endif
+#include <COxidationMurphyShaddixI.hxx>
+
+//#ifdef NoRepository
+//#include <COxidationMurphyShaddix.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

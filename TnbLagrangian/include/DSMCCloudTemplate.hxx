@@ -483,13 +483,14 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <DSMCCloudTemplateI.hxx>
+#include <DSMCCloudTemplate_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 
-#ifdef NoRepository
-#include <DSMCCloudTemplate.cxx>
-#endif
+//#ifdef NoRepository
+//#include <DSMCCloudTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

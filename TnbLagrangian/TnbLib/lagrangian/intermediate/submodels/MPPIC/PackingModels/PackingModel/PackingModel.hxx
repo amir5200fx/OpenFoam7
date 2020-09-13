@@ -176,9 +176,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PackingModel.cxx>
-#endif
+#include <PackingModelI.hxx>
+
+//#ifdef NoRepository
+//#include <PackingModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

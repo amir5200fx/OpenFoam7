@@ -128,9 +128,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <CloudSubModelBase.cxx>
-#endif
+#include <CloudSubModelBaseI.hxx>
+
+//#ifdef NoRepository
+//#include <CloudSubModelBase.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

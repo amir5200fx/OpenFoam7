@@ -132,14 +132,17 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SingleMixtureFraction.cxx>
-#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include <SingleMixtureFractionI.hxx>
+
+//#ifdef NoRepository
+//#include <SingleMixtureFraction.cxx>
+//#endif
 
 #endif // !_SingleMixtureFraction_Header

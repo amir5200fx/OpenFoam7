@@ -203,9 +203,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PatchInteractionModel.cxx>
-#endif
+#include <PatchInteractionModelI.hxx>
+#include <PatchInteractionModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <PatchInteractionModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

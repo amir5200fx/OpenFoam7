@@ -170,12 +170,14 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <correlationFunctionI.hxx>
+#include <correlationFunction_Imp.hxx>
+#include <correlationFunctionIO_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <correlationFunction.cxx>
-#endif
+//#ifdef NoRepository
+//#include <correlationFunction.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

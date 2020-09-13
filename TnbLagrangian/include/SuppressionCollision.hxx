@@ -105,9 +105,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SuppressionCollision.cxx>
-#endif
+#include <SuppressionCollisionI.hxx>
+
+//#ifdef NoRepository
+//#include <SuppressionCollision.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

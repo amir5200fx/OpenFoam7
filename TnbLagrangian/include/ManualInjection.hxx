@@ -181,9 +181,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ManualInjection.cxx>
-#endif
+#include <ManualInjectionI.hxx>
+
+//#ifdef NoRepository
+//#include <ManualInjection.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

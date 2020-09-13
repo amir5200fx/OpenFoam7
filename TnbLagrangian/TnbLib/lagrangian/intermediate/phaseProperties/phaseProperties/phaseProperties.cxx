@@ -300,5 +300,16 @@ tnbLib::label tnbLib::phaseProperties::id(const word& specieName) const
 	return -1;
 }
 
+//- added by amir
+bool tnbLib::phaseProperties::operator==(const phaseProperties & p) const
+{
+	notImplemented("bool tnbLib::phaseProperties::operator==(const phaseProperties & p) const");
+	return true;
+}
+
+bool tnbLib::phaseProperties::operator!=(const phaseProperties & p) const
+{
+	return !operator==(p);
+}
 
 // ************************************************************************* //

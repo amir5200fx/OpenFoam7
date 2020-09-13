@@ -163,10 +163,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <ParticleForceListI.hxx>
+#include <ParticleForceList_Imp.hxx>
 
-#ifdef NoRepository
-#include <ParticleForceList.cxx>
-#endif
+//#ifdef NoRepository
+//#include <ParticleForceList.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

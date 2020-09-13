@@ -170,6 +170,10 @@ namespace tnbLib
 		//  Returns -1 if not found
 		label id(const word& specieName) const;
 
+		
+		bool operator==(const phaseProperties&) const; //- added by amir
+		bool operator!=(const phaseProperties&) const; //- added by amir
+
 
 		// IOstream Operators
 

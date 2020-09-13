@@ -117,9 +117,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoAtomization.cxx>
-#endif
+#include <NoAtomizationI.hxx>
+
+//#ifdef NoRepository
+//#include <NoAtomization.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

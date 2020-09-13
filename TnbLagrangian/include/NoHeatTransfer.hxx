@@ -96,9 +96,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoHeatTransfer.cxx>
-#endif
+#include <NoHeatTransferI.hxx>
+
+//#ifdef NoRepository
+//#include <NoHeatTransfer.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

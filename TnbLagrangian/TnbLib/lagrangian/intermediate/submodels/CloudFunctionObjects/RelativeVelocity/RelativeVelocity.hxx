@@ -109,9 +109,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <RelativeVelocity.cxx>
-#endif
+#include <RelativeVelocityI.hxx>
+
+//#ifdef NoRepository
+//#include <RelativeVelocity.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

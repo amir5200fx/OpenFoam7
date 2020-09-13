@@ -126,9 +126,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <VirtualMassForce.cxx>
-#endif
+#include <VirtualMassForceI.hxx>
+
+//#ifdef NoRepository
+//#include <VirtualMassForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

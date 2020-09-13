@@ -265,12 +265,14 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <SurfaceFilmModelTemplateI.hxx>
+#include <SurfaceFilmModelTemplate_Imp.hxx>
+#include <SurfaceFilmModelTemplateNew_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SurfaceFilmModelTemplate.cxx>
-#endif
+//#ifdef NoRepository
+//#include <SurfaceFilmModelTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

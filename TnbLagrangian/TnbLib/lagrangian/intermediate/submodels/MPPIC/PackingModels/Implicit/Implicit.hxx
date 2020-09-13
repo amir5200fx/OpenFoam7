@@ -135,9 +135,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <Implicit.cxx>
-#endif
+#include <ImplicitI.hxx>
+
+//#ifdef NoRepository
+//#include <Implicit.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

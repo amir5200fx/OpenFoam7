@@ -709,9 +709,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <particleTemplates.cxx>
-#endif
+#include <particleTemplatesI.hxx>
+
+//#ifdef NoRepository
+//#include <particleTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

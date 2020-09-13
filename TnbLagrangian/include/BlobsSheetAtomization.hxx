@@ -132,9 +132,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <BlobsSheetAtomization.cxx>
-#endif
+#include <BlobsSheetAtomizationI.hxx>
+
+//#ifdef NoRepository
+//#include <BlobsSheetAtomization.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -91,9 +91,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <MixedDiffuseSpecular.cxx>
-#endif
+#include <MixedDiffuseSpecularI.hxx>
+
+//#ifdef NoRepository
+//#include <MixedDiffuseSpecular.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

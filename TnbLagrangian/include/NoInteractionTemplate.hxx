@@ -99,9 +99,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoInteractionTemplate.cxx>
-#endif
+#include <NoInteractionTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <NoInteractionTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

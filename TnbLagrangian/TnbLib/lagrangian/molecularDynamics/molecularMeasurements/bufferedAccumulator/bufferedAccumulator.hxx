@@ -163,12 +163,14 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <bufferedAccumulatorI.hxx>
+#include <bufferedAccumulator_Imp.hxx>
+#include <bufferedAccumulatorIO_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <bufferedAccumulator.cxx>
-#endif
+//#ifdef NoRepository
+//#include <bufferedAccumulator.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

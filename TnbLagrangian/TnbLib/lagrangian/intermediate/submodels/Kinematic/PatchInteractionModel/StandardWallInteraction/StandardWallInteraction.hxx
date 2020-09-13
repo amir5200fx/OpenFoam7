@@ -146,9 +146,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <StandardWallInteraction.cxx>
-#endif
+#include <StandardWallInteractionI.hxx>
+
+//#ifdef NoRepository
+//#include <StandardWallInteraction.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

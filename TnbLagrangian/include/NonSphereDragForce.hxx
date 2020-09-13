@@ -144,9 +144,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NonSphereDragForce.cxx>
-#endif
+#include <NonSphereDragForceI.hxx>
+
+//#ifdef NoRepository
+//#include <NonSphereDragForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

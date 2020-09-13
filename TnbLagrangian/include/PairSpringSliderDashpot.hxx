@@ -178,9 +178,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PairSpringSliderDashpot.cxx>
-#endif
+#include <PairSpringSliderDashpotI.hxx>
+
+//#ifdef NoRepository
+//#include <PairSpringSliderDashpot.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

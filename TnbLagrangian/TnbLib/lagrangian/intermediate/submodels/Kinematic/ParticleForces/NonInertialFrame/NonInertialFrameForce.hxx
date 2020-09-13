@@ -157,10 +157,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <NonInertialFrameForceI.hxx>
+#include <NonInertialFrameForce_Imp.hxx>
 
-#ifdef NoRepository
-#include <NonInertialFrameForce.cxx>
-#endif
+//#ifdef NoRepository
+//#include <NonInertialFrameForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

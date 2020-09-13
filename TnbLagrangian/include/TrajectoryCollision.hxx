@@ -118,9 +118,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <TrajectoryCollision.cxx>
-#endif
+#include <TrajectoryCollisionI.hxx>
+
+//#ifdef NoRepository
+//#include <TrajectoryCollision.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

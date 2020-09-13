@@ -175,12 +175,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <FacePostProcessingI.hxx>
+#include <FacePostProcessing_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <FacePostProcessing.cxx>
-#endif
+//#ifdef NoRepository
+//#include <FacePostProcessing.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

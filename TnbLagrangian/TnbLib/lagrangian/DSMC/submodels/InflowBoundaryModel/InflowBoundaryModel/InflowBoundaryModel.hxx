@@ -167,9 +167,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <InflowBoundaryModel.cxx>
-#endif
+#include <InflowBoundaryModelI.hxx>
+#include <InflowBoundaryModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <InflowBoundaryModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

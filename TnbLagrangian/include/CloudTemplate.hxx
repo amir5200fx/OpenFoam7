@@ -288,9 +288,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <CloudTemplate.cxx>
-#endif
+#include <CloudTemplateI.hxx>
+#include <CloudTemplateIO_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <CloudTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

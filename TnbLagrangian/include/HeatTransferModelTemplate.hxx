@@ -180,9 +180,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <HeatTransferModelTemplate.cxx>
-#endif
+#include <HeatTransferModelTemplateI.hxx>
+#include <HeatTransferModelTemplateNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <HeatTransferModelTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

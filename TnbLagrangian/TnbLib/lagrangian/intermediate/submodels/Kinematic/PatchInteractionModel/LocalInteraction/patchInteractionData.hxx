@@ -47,6 +47,12 @@ namespace tnbLib
 	class patchInteractionData;
 
 	// Forward declaration of friend functions
+	Ostream& operator<<
+		(
+			Ostream& os,
+			const patchInteractionData& pid
+			);  //- added by amir
+
 	Istream& operator>>
 		(
 			Istream& is,
@@ -96,7 +102,16 @@ namespace tnbLib
 		scalar mu() const;
 
 
+		bool operator==(const patchInteractionData&) const;  //- added by amir
+		bool operator!=(const patchInteractionData&) const;  //- added by amir
+
 		// I-O
+
+		friend Ostream& operator<<
+			(
+				Ostream& os,
+				const patchInteractionData& pid
+				);  //- added by amir
 
 			//- Istream operator
 		friend Istream& operator>>

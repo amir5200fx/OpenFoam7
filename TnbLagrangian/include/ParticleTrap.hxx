@@ -145,9 +145,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ParticleTrap.cxx>
-#endif
+#include <ParticleTrapI.hxx>
+
+//#ifdef NoRepository
+//#include <ParticleTrap.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

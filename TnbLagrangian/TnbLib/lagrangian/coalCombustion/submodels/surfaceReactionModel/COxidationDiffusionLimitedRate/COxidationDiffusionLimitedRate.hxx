@@ -161,9 +161,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <COxidationDiffusionLimitedRate.cxx>
-#endif
+#include <COxidationDiffusionLimitedRateI.hxx>
+
+//#ifdef NoRepository
+//#include <COxidationDiffusionLimitedRate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

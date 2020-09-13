@@ -333,12 +333,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <ReactingCloudTemplateI.hxx>
+#include <ReactingCloudTemplate_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ReactingCloudTemplate.cxx>
-#endif
+//#ifdef NoRepository
+//#include <ReactingCloudTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

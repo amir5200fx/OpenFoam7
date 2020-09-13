@@ -179,9 +179,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <WallSpringSliderDashpot.cxx>
-#endif
+#include <WallSpringSliderDashpotI.hxx>
+
+//#ifdef NoRepository
+//#include <WallSpringSliderDashpot.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

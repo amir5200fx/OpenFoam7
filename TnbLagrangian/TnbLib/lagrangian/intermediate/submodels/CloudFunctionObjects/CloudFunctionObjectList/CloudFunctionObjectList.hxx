@@ -144,10 +144,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <CloudFunctionObjectListI.hxx>
+#include <CloudFunctionObjectList_Imp.hxx>
 
-#ifdef NoRepository
-#include <CloudFunctionObjectList.cxx>
-#endif
+//#ifdef NoRepository
+//#include <CloudFunctionObjectList.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

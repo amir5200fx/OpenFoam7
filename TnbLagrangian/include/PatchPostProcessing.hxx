@@ -149,12 +149,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <PatchPostProcessingI.hxx>
+#include <PatchPostProcessing_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PatchPostProcessing.cxx>
-#endif
+//#ifdef NoRepository
+//#include <PatchPostProcessing.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

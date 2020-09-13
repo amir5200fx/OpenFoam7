@@ -124,10 +124,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <GravityForceI.hxx>
+#include <GravityForce_Imp.hxx>
 
-#ifdef NoRepository
-#include <GravityForce.cxx>
-#endif
+//#ifdef NoRepository
+//#include <GravityForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

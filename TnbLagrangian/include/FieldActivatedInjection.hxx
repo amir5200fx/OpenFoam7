@@ -203,9 +203,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <FieldActivatedInjection.cxx>
-#endif
+#include <FieldActivatedInjectionI.hxx>
+
+//#ifdef NoRepository
+//#include <FieldActivatedInjection.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

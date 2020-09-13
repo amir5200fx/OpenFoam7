@@ -106,9 +106,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoPhaseChangeTemplate.cxx>
-#endif
+#include <NoPhaseChangeTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <NoPhaseChangeTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

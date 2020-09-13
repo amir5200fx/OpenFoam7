@@ -160,9 +160,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <CollisionModel.cxx>
-#endif
+#include <CollisionModelI.hxx>
+#include <CollisionModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <CollisionModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

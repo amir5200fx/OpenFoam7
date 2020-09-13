@@ -174,9 +174,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <COxidationHurtMitchell.cxx>
-#endif
+#include <COxidationHurtMitchellI.hxx>
+
+//#ifdef NoRepository
+//#include <COxidationHurtMitchell.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

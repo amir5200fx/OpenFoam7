@@ -309,12 +309,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <ReactingMultiphaseCloudTemplateI.hxx>
+#include <ReactingMultiphaseCloudTemplate_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ReactingMultiphaseCloudTemplate.cxx>
-#endif
+//#ifdef NoRepository
+//#include <ReactingMultiphaseCloudTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -500,12 +500,14 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <SprayParcelI.hxx>
+#include <SprayParcel_Imp.hxx>
+#include <SprayParcelIO_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SprayParcel.cxx>
-#endif
+//#ifdef NoRepository
+//#include <SprayParcel.cxx>
+//#endif
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

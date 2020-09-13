@@ -178,9 +178,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <integrationSchemeTemplates.cxx>
-#endif
+#include <integrationSchemeI.hxx>
+
+//#ifdef NoRepository
+//#include <integrationSchemeTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

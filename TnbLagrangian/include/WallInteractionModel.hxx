@@ -160,9 +160,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <WallInteractionModel.cxx>
-#endif
+#include <WallInteractionModelI.hxx>
+#include <WallInteractionModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <WallInteractionModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -295,9 +295,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ThermoSurfaceFilm.cxx>
-#endif
+#include <ThermoSurfaceFilmI.hxx>
+
+//#ifdef NoRepository
+//#include <ThermoSurfaceFilm.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

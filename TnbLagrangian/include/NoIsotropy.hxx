@@ -97,9 +97,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <NoIsotropy.cxx>
-#endif
+#include <NoIsotropyI.hxx>
+
+//#ifdef NoRepository
+//#include <NoIsotropy.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

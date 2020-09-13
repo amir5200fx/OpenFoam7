@@ -110,9 +110,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <FreeStream.cxx>
-#endif
+#include <FreeStreamI.hxx>
+
+//#ifdef NoRepository
+//#include <FreeStream.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

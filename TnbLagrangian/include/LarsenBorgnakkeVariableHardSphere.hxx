@@ -116,9 +116,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <LarsenBorgnakkeVariableHardSphere.cxx>
-#endif
+#include <LarsenBorgnakkeVariableHardSphereI.hxx>
+
+//#ifdef NoRepository
+//#include <LarsenBorgnakkeVariableHardSphere.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

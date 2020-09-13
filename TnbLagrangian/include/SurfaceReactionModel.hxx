@@ -193,9 +193,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SurfaceReactionModel.cxx>
-#endif
+#include <SurfaceReactionModelI.hxx>
+#include <SurfaceReactionModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <SurfaceReactionModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

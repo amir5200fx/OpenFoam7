@@ -169,9 +169,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SHF.cxx>
-#endif
+#include <SHFI.hxx>
+
+//#ifdef NoRepository
+//#include <SHF.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

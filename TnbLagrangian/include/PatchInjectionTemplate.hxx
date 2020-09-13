@@ -179,9 +179,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PatchInjectionTemplate.cxx>
-#endif
+#include <PatchInjectionTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include <PatchInjectionTemplate.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -143,10 +143,11 @@ namespace tnbLib
 
 
 #include <LiftForceI.hxx>
+#include <LiftForce_Imp.hxx>
 
-#ifdef NoRepository
-#include <LiftForce.cxx>
-#endif
+//#ifdef NoRepository
+//#include <LiftForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -101,9 +101,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <VariableHardSphere.cxx>
-#endif
+#include <VariableHardSphereI.hxx>
+
+//#ifdef NoRepository
+//#include <VariableHardSphere.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

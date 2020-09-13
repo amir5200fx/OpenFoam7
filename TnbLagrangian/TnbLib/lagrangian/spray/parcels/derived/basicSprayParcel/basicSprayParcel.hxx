@@ -26,7 +26,7 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	Foam::basicSprayParcel
+	tnbLib::basicSprayParcel
 
 Description
 	Definition of spray parcel
@@ -42,5 +42,34 @@ SourceFiles
 #include <KinematicParcel.hxx>
 #include <ThermoParcel.hxx>
 #include <ReactingParcel.hxx>
+#include <SprayParcel.hxx>
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+namespace tnbLib
+{
+	typedef SprayParcel
+		<
+		ReactingParcel
+		<
+		ThermoParcel
+		<
+		KinematicParcel
+		<
+		particle
+		>
+		>
+		>
+		> basicSprayParcel;
+
+	template<>
+	inline bool contiguous<basicSprayParcel>()
+	{
+		return false;
+	}
+}
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #endif // !_basicSprayParcel_Header

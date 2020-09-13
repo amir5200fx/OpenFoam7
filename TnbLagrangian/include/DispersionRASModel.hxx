@@ -132,9 +132,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <DispersionRASModel.cxx>
-#endif
+#include <DispersionRASModelI.hxx>
+
+//#ifdef NoRepository
+//#include <DispersionRASModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

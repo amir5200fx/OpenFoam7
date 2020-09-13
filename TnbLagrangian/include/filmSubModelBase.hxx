@@ -124,12 +124,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <filmSubModelBaseI.hxx>
+#include <filmSubModelBase_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <filmSubModelBaseTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <filmSubModelBaseTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

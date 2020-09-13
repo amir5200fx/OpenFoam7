@@ -159,10 +159,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <BrownianMotionForceI.hxx>
+#include <BrownianMotionForce_Imp.hxx>
 
-#ifdef NoRepository
-#include <BrownianMotionForce.cxx>
-#endif
+//#ifdef NoRepository
+//#include <BrownianMotionForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

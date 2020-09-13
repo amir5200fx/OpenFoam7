@@ -188,9 +188,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <KinematicLookupTableInjection.cxx>
-#endif
+#include <KinematicLookupTableInjectionI.hxx>
+
+//#ifdef NoRepository
+//#include <KinematicLookupTableInjection.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

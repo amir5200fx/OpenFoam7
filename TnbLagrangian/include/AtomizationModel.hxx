@@ -179,9 +179,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <AtomizationModel.cxx>
-#endif
+#include <AtomizationModelI.hxx>
+#include <AtomizationModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <AtomizationModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

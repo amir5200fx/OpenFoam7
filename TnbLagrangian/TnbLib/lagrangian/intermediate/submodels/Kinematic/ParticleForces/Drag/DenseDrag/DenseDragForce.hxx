@@ -102,9 +102,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <DenseDragForce.cxx>
-#endif
+#include <DenseDragForceI.hxx>
+
+//#ifdef NoRepository
+//#include <DenseDragForce.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

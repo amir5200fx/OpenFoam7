@@ -126,9 +126,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ConstantRateDevolatilisation.cxx>
-#endif
+#include <ConstantRateDevolatilisationI.hxx>
+
+//#ifdef NoRepository
+//#include <ConstantRateDevolatilisation.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

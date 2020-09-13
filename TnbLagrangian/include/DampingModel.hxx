@@ -171,9 +171,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <DampingModel.cxx>
-#endif
+#include <DampingModelI.hxx>
+
+//#ifdef NoRepository
+//#include <DampingModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

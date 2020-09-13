@@ -97,9 +97,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <IOPosition.cxx>
-#endif
+#include <IOPositionI.hxx>
+
+//#ifdef NoRepository
+//#include <IOPosition.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

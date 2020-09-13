@@ -185,9 +185,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <DevolatilisationModel.cxx>
-#endif
+#include <DevolatilisationModelI.hxx>
+#include <DevolatilisationModelNew_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <DevolatilisationModel.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

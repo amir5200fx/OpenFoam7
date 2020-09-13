@@ -144,9 +144,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PatchCollisionDensity.cxx>
-#endif
+#include <PatchCollisionDensityI.hxx>
+
+//#ifdef NoRepository
+//#include <PatchCollisionDensity.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

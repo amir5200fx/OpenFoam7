@@ -136,6 +136,9 @@ namespace tnbLib
 				return E_;
 			}
 
+			//- added by amir to prevent compiler error
+			bool operator==(const volatileData& vd) const;  // added by amir
+			bool operator!=(const volatileData& vd) const;  // added by amir
 
 			// IOstream Operators
 
@@ -236,9 +239,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <SingleKineticRateDevolatilisation.cxx>
-#endif
+#include <SingleKineticRateDevolatilisationI.hxx>
+
+//#ifdef NoRepository
+//#include <SingleKineticRateDevolatilisation.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -672,5 +672,14 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <KinematicParcelI.hxx>
+#include <KinematicParcelTrackingDataI.hxx>
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#ifdef NoRepository
+#include <KinematicParcel.cxx>
+#endif
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
 
 #endif // !_KinematicParcel_Header

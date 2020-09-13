@@ -135,9 +135,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ORourkeCollision.cxx>
-#endif
+#include <ORourkeCollisionI.hxx>
+
+//#ifdef NoRepository
+//#include <ORourkeCollision.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
