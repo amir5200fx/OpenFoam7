@@ -3480,6 +3480,9 @@
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\limitedSurfaceInterpolationScheme\limitedSurfaceInterpolationSchemeI.hxx">
       <Filter>TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\limitedSurfaceInterpolationScheme</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedField\mappedPatchFieldBaseI.hxx">
+      <Filter>TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedField</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\basic\basicSymmetry\basicSymmetryFvPatchScalarField.cxx">
@@ -4646,9 +4649,6 @@
       <Filter>TnbLib\FiniteVolume\cfdTools\general\include</Filter>
     </None>
     <None Include="cpp.hint" />
-    <None Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedField\mappedPatchFieldBase.cxx">
-      <Filter>TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedField</Filter>
-    </None>
     <None Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFvPatchField\timeVaryingMappedFvPatchField.cxx">
       <Filter>TnbLib\FiniteVolume\fields\fvPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFvPatchField</Filter>
     </None>

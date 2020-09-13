@@ -380,6 +380,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedField\mappedFieldFvPatchFields.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedField\mappedFieldFvPatchFieldsFwd.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedField\mappedPatchFieldBase.hxx" />
+    <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedField\mappedPatchFieldBaseI.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedFixedInternalValue\mappedFixedInternalValueFvPatchField.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedFixedInternalValue\mappedFixedInternalValueFvPatchFieldI.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedFixedInternalValue\mappedFixedInternalValueFvPatchFields.hxx" />
@@ -1009,7 +1010,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\interfaceCompression\interfaceCompressionFvPatchScalarField.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\interstitialInletVelocity\interstitialInletVelocityFvPatchVectorField.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedField\mappedFieldFvPatchFields.cxx" />
-    <None Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedField\mappedPatchFieldBase.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedFixedInternalValue\mappedFixedInternalValueFvPatchFields.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedFixedPushedInternalValue\mappedFixedPushedInternalValueFvPatchFields.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedFixedValue\mappedFixedValueFvPatchFields.cxx" />
