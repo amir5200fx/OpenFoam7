@@ -78,6 +78,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement\componentLaplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity\componentLaplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion;$(ProjectDir)TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\directional;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\file;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseFaceDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inversePointDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseVolume;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\manipulators\exponential;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\manipulators\quadratic;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\motionDiffusivity;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\motionDirectional;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\uniform;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingVelocity;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,6 +126,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement\componentLaplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity\componentLaplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion;$(ProjectDir)TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\directional;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\file;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseFaceDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inversePointDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseVolume;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\manipulators\exponential;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\manipulators\quadratic;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\motionDiffusivity;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\motionDirectional;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\uniform;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingVelocity;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,8 +140,10 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian\displacementLaplacianFvMotionSolver.hxx" />
     <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress\displacementSBRStressFvMotionSolver.hxx" />
     <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolver.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolverI.hxx" />
     <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian\velocityLaplacianFvMotionSolver.hxx" />
     <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchField.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchFieldI.hxx" />
     <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchFields.hxx" />
     <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchFieldsFwd.hxx" />
     <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementFvPatchField.hxx" />
@@ -163,6 +167,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement\surfaceDisplacementPointPatchVectorField.hxx" />
     <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementPointPatchVectorField.hxx" />
     <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchField.hxx" />
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchFieldI.hxx" />
     <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchFields.hxx" />
     <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement\uniformInterpolatedDisplacementPointPatchVectorField.hxx" />
     <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement\waveDisplacementPointPatchVectorField.hxx" />
@@ -173,9 +178,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian\displacementLaplacianFvMotionSolver.cxx" />
     <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress\displacementSBRStressFvMotionSolver.cxx" />
     <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolver.cxx" />
-    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolverTemplates.cxx" />
     <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian\velocityLaplacianFvMotionSolver.cxx" />
-    <ClCompile Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchField.cxx" />
     <ClCompile Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchFields.cxx" />
     <ClCompile Include="TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementFvPatchFields.cxx" />
     <ClCompile Include="TnbLib\fvMotionSolver\motionDiffusivity\directional\directionalDiffusivity.cxx" />
@@ -195,7 +198,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity\oscillatingVelocityPointPatchVectorField.cxx" />
     <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement\surfaceDisplacementPointPatchVectorField.cxx" />
     <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementPointPatchVectorField.cxx" />
-    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchField.cxx" />
     <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchFields.cxx" />
     <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement\uniformInterpolatedDisplacementPointPatchVectorField.cxx" />
     <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement\waveDisplacementPointPatchVectorField.cxx" />

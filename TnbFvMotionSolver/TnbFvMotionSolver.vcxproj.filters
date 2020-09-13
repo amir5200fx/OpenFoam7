@@ -225,16 +225,19 @@
     <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian\velocityLaplacianFvMotionSolver.hxx">
       <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolverI.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchFieldI.hxx">
+      <Filter>TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchFieldI.hxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolver.cxx">
       <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolverTemplates.cxx">
-      <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchField.cxx">
-      <Filter>TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion\cellMotionFvPatchFields.cxx">
       <Filter>TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion</Filter>
@@ -295,9 +298,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementPointPatchVectorField.cxx">
       <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchField.cxx">
-      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchFields.cxx">
       <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue</Filter>

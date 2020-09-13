@@ -96,9 +96,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvMotionSolverTemplates.cxx>
-#endif
+#include <fvMotionSolverI.hxx>
+
+//#ifdef NoRepository
+//#include <fvMotionSolverTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

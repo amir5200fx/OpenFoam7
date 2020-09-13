@@ -138,9 +138,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <cellMotionFvPatchField.cxx>
-#endif
+#include <cellMotionFvPatchFieldI.hxx>
+
+//#ifdef NoRepository
+//#include <cellMotionFvPatchField.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
