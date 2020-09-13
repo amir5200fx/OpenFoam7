@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{a5c445d0-607e-46d7-afb0-7050c5915d42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh">
+      <UniqueIdentifier>{c057eca1-60e3-4745-824f-d3e63eb49aac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover">
+      <UniqueIdentifier>{26dfeda4-f2e0-4fe9-86a2-a31924861c0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue">
+      <UniqueIdentifier>{23d7838e-dff2-474b-885a-e082d0d49393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\meshRefinement">
+      <UniqueIdentifier>{5bf3bbae-bfda-4f33-a67d-b80140b176b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\trackedParticle">
+      <UniqueIdentifier>{85fed6c0-17e2-4296-a9fc-9256025bc782}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\snappyHexMeshDriver">
+      <UniqueIdentifier>{9c5481d3-f555-4d89-b647-54f056a47a05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\layerParameters">
+      <UniqueIdentifier>{623044d7-b541-4c8c-9316-37eb44f0c643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snapParameters">
+      <UniqueIdentifier>{f887bfe1-909f-4192-a5d6-cbc7368dc31e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\refinementParameters">
+      <UniqueIdentifier>{77689646-9a65-4edf-a404-50bf76d88c43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData">
+      <UniqueIdentifier>{37222a77-2fa9-48f5-a08c-08b34589fe85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\shellSurfaces">
+      <UniqueIdentifier>{4385a288-5b7a-4f4c-a680-5653cdda957c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\refinementSurfaces">
+      <UniqueIdentifier>{6a6df793-8377-4b12-8888-883f66979f07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\refinementFeatures">
+      <UniqueIdentifier>{35750054-de11-4d81-934f-498b186cc2e4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue\zeroFixedValuePointPatchField.cxx">
+      <Filter>TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue\zeroFixedValuePointPatchFields.cxx">
+      <Filter>TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\externalDisplacementMeshMover.cxx">
+      <Filter>TnbLib\snappyHexMesh\externalDisplacementMeshMover</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\medialAxisMeshMover.cxx">
+      <Filter>TnbLib\snappyHexMesh\externalDisplacementMeshMover</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\meshRefinement\meshRefinement.cxx">
+      <Filter>TnbLib\snappyHexMesh\meshRefinement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\meshRefinement\patchFaceOrientation.cxx">
+      <Filter>TnbLib\snappyHexMesh\meshRefinement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\refinementFeatures\refinementFeatures.cxx">
+      <Filter>TnbLib\snappyHexMesh\refinementFeatures</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\refinementSurfaces\refinementSurfaces.cxx">
+      <Filter>TnbLib\snappyHexMesh\refinementSurfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\refinementSurfaces\surfaceZonesInfo.cxx">
+      <Filter>TnbLib\snappyHexMesh\refinementSurfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\shellSurfaces\shellSurfaces.cxx">
+      <Filter>TnbLib\snappyHexMesh\shellSurfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\layerParameters\layerParameters.cxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver\layerParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData\pointData.cxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\refinementParameters\refinementParameters.cxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver\refinementParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snapParameters\snapParameters.cxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver\snapParameters</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappyLayerDriver.cxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappyLayerDriverShrink.cxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\meshRefinement\meshRefinementBaffles.cxx">
+      <Filter>TnbLib\snappyHexMesh\meshRefinement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\meshRefinement\meshRefinementMerge.cxx">
+      <Filter>TnbLib\snappyHexMesh\meshRefinement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\meshRefinement\meshRefinementProblemCells.cxx">
+      <Filter>TnbLib\snappyHexMesh\meshRefinement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappySnapDriver.cxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappyLayerDriverTemplates.cxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappyRefineDriver.cxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappySnapDriverFeature.cxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\trackedParticle\trackedParticle.cxx">
+      <Filter>TnbLib\snappyHexMesh\trackedParticle</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\trackedParticle\trackedParticleCloud.cxx">
+      <Filter>TnbLib\snappyHexMesh\trackedParticle</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\meshRefinement\meshRefinementRefine.cxx">
+      <Filter>TnbLib\snappyHexMesh\meshRefinement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\meshRefinement\meshRefinementTemplates.cxx">
+      <Filter>TnbLib\snappyHexMesh\meshRefinement</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue\zeroFixedValuePointPatchField.hxx">
+      <Filter>TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue\zeroFixedValuePointPatchFields.hxx">
+      <Filter>TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\displacementMeshMoverMotionSolver.hxx">
+      <Filter>TnbLib\snappyHexMesh\externalDisplacementMeshMover</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\externalDisplacementMeshMover.hxx">
+      <Filter>TnbLib\snappyHexMesh\externalDisplacementMeshMover</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\medialAxisMeshMover.hxx">
+      <Filter>TnbLib\snappyHexMesh\externalDisplacementMeshMover</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\meshRefinement\meshRefinement.hxx">
+      <Filter>TnbLib\snappyHexMesh\meshRefinement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\meshRefinement\patchFaceOrientation.hxx">
+      <Filter>TnbLib\snappyHexMesh\meshRefinement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\meshRefinement\patchFaceOrientationI.hxx">
+      <Filter>TnbLib\snappyHexMesh\meshRefinement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\refinementFeatures\refinementFeatures.hxx">
+      <Filter>TnbLib\snappyHexMesh\refinementFeatures</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\refinementSurfaces\refinementSurfaces.hxx">
+      <Filter>TnbLib\snappyHexMesh\refinementSurfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\refinementSurfaces\surfaceZonesInfo.hxx">
+      <Filter>TnbLib\snappyHexMesh\refinementSurfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\shellSurfaces\shellSurfaces.hxx">
+      <Filter>TnbLib\snappyHexMesh\shellSurfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\layerParameters\layerParameters.hxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver\layerParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData\pointData.hxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData\pointDataI.hxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\refinementParameters\refinementParameters.hxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver\refinementParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snapParameters\snapParameters.hxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver\snapParameters</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappyLayerDriver.hxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappySnapDriver.hxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappyRefineDriver.hxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\trackedParticle\trackedParticle.hxx">
+      <Filter>TnbLib\snappyHexMesh\trackedParticle</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+</Project>
