@@ -149,9 +149,6 @@
     <ClCompile Include="TnbLib\fvOptions\constraints\fixedTemperatureConstraint\fixedTemperatureConstraint.cxx">
       <Filter>TnbLib\fvOptions\constraints\fixedTemperatureConstraint</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\fvOptions\constraints\fixedValueConstraint\FixedValueConstraint.cxx">
-      <Filter>TnbLib\fvOptions\constraints\fixedValueConstraint</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\fvOptions\constraints\fixedValueConstraint\fixedValueConstraints.cxx">
       <Filter>TnbLib\fvOptions\constraints\fixedValueConstraint</Filter>
     </ClCompile>
@@ -164,5 +161,10 @@
     <ClCompile Include="TnbLib\fvOptions\interRegionOption\interRegionOption.cxx">
       <Filter>TnbLib\fvOptions\interRegionOption</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TnbLib\fvOptions\constraints\fixedValueConstraint\FixedValueConstraint.cxx">
+      <Filter>TnbLib\fvOptions\constraints\fixedValueConstraint</Filter>
+    </None>
   </ItemGroup>
 </Project>

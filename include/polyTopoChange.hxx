@@ -638,10 +638,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <polyTopoChangeI.hxx>
+#include <polyTopoChangeTemplatesI.hxx>
 
-#ifdef NoRepository
-#include <polyTopoChangeTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <polyTopoChangeTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -159,9 +159,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <mappedPatchFieldBase.cxx>
-#endif
+#include <mappedPatchFieldBaseI.hxx>
+
+//#ifdef NoRepository
+//#include <mappedPatchFieldBase.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

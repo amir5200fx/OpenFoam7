@@ -39,10 +39,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbSampling", "TnbSampling\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbConversion", "TnbConversion\TnbConversion.vcxproj", "{67F2BDF8-7CB4-475C-BC9C-5C7A97635CEE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbSnappyHexMesh", "TnbSnappyHexMesh\TnbSnappyHexMesh.vcxproj", "{B1732C40-8E89-4890-99DC-B2DF7C8D116D}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
@@ -184,11 +183,22 @@ Global
 		{67F2BDF8-7CB4-475C-BC9C-5C7A97635CEE}.Release|x64.ActiveCfg = Release|x64
 		{67F2BDF8-7CB4-475C-BC9C-5C7A97635CEE}.Release|x64.Build.0 = Release|x64
 		{67F2BDF8-7CB4-475C-BC9C-5C7A97635CEE}.Release|x86.ActiveCfg = Release|x64
+		{B1732C40-8E89-4890-99DC-B2DF7C8D116D}.Debug|x64.ActiveCfg = Debug|x64
+		{B1732C40-8E89-4890-99DC-B2DF7C8D116D}.Debug|x64.Build.0 = Debug|x64
+		{B1732C40-8E89-4890-99DC-B2DF7C8D116D}.Debug|x86.ActiveCfg = Debug|Win32
+		{B1732C40-8E89-4890-99DC-B2DF7C8D116D}.Debug|x86.Build.0 = Debug|Win32
+		{B1732C40-8E89-4890-99DC-B2DF7C8D116D}.Release|x64.ActiveCfg = Release|x64
+		{B1732C40-8E89-4890-99DC-B2DF7C8D116D}.Release|x64.Build.0 = Release|x64
+		{B1732C40-8E89-4890-99DC-B2DF7C8D116D}.Release|x86.ActiveCfg = Release|Win32
+		{B1732C40-8E89-4890-99DC-B2DF7C8D116D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1107BF8D-1C23-4E64-93DE-E2F73CB09919}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

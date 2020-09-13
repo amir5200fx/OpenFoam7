@@ -144,9 +144,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <pointFieldReconstructorReconstructFields.cxx>
-#endif
+#include <pointFieldReconstructorReconstructFieldsI.hxx>
+
+//#ifdef NoRepository
+//#include <pointFieldReconstructorReconstructFields.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

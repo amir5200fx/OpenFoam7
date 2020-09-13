@@ -209,9 +209,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <fvFieldDecomposerDecomposeFields.cxx>
-#endif
+#include <fvFieldDecomposerDecomposeFieldsI.hxx>
+
+//#ifdef NoRepository
+//#include <fvFieldDecomposerDecomposeFields.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

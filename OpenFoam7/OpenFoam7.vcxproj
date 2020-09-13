@@ -186,6 +186,9 @@
     <ProjectReference Include="..\TnbSampling\TnbSampling.vcxproj">
       <Project>{b0600bfc-62b5-4f92-9e5a-5b25fd93436a}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\TnbSnappyHexMesh\TnbSnappyHexMesh.vcxproj">
+      <Project>{b1732c40-8e89-4890-99dc-b2df7c8d116d}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\TnbThermoPhysicalModels\TnbThermoPhysicalModels.vcxproj">
       <Project>{5396b04c-6e67-4ee2-82f8-e56d26195cf9}</Project>
     </ProjectReference>
