@@ -211,9 +211,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <subModelBaseTemplates.cxx>
-#endif
+#include <subModelBaseI.hxx>
+
+//#ifdef NoRepository
+//#include <subModelBaseTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

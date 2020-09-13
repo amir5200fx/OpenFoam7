@@ -5172,6 +5172,12 @@
     <ClInclude Include="TnbLib\Base\interpolations\uniformInterpolationTable\uniformInterpolationTable_Imp.hxx">
       <Filter>TnbLib\Base\interpolations\uniformInterpolationTable</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\subModelBase\subModelBaseI.hxx">
+      <Filter>TnbLib\Base\primitives\subModelBase</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\demandDrivenEntry\demandDrivenEntry_Imp.hxx">
+      <Filter>TnbLib\Base\primitives\demandDrivenEntry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\Base\primitives\zero\zero.cxx">
@@ -6896,12 +6902,6 @@
     </None>
     <None Include="TnbLib\Base\primitives\functions\Function1\Function1\Function1New.cxx">
       <Filter>TnbLib\Base\primitives\functions\Function1\Function1</Filter>
-    </None>
-    <None Include="TnbLib\Base\primitives\demandDrivenEntry\demandDrivenEntry.cxx">
-      <Filter>TnbLib\Base\primitives\demandDrivenEntry</Filter>
-    </None>
-    <None Include="TnbLib\Base\primitives\subModelBase\subModelBaseTemplates.cxx">
-      <Filter>TnbLib\Base\primitives\subModelBase</Filter>
     </None>
     <None Include="TnbLib\Base\containers\Lists\List\ListLoopM.hxx">
       <Filter>TnbLib\Base\containers\Lists\List</Filter>

@@ -373,6 +373,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClInclude Include="TnbLib\Base\meshes\ProcessorTopology\ProcessorTopologyTemplateI.hxx" />
     <ClInclude Include="TnbLib\Base\meshes\Residuals\ResidualsI.hxx" />
     <ClInclude Include="TnbLib\Base\meshes\treeBoundBox\treeBoundBoxTemplatesI.hxx" />
+    <ClInclude Include="TnbLib\Base\primitives\demandDrivenEntry\demandDrivenEntry_Imp.hxx" />
     <ClInclude Include="TnbLib\Base\primitives\functions\Function1\Constant\Constant_Imp.hxx" />
     <ClInclude Include="TnbLib\Base\primitives\functions\Function1\Function1\Function1I.hxx" />
     <ClInclude Include="TnbLib\Base\primitives\functions\Function1\One\OneConstant_Imp.hxx" />
@@ -390,6 +391,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClInclude Include="TnbLib\Base\primitives\functions\TimeFunction1\TimeFunction1I.hxx" />
     <ClInclude Include="TnbLib\Base\primitives\globalIndexAndTransform\vectorTensorTransform\vectorTensorTransformTemplatesI.hxx" />
     <ClInclude Include="TnbLib\Base\primitives\strings\lists\stringListOpsTemplatesI.hxx" />
+    <ClInclude Include="TnbLib\Base\primitives\subModelBase\subModelBaseI.hxx" />
     <ClInclude Include="TnbLib\Base\primitives\VectorSpace\VectorSpace_Imp.hxx" />
     <ClInclude Include="TnbLib\Base\Pstream\mpi\allReduce.hxx" />
     <ClInclude Include="TnbLib\Base\Pstream\mpi\allReduceI.hxx" />
@@ -1792,7 +1794,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClCompile Include="TnbLib\Base\primitives\chars\char\charIO.cxx" />
     <ClCompile Include="TnbLib\Base\primitives\chars\wchar\wcharIO.cxx" />
     <ClCompile Include="TnbLib\Base\primitives\complex\complex.cxx" />
-    <None Include="TnbLib\Base\primitives\demandDrivenEntry\demandDrivenEntry.cxx" />
     <ClCompile Include="TnbLib\Base\primitives\DiagTensor\diagTensor\diagTensor.cxx" />
     <ClCompile Include="TnbLib\Base\primitives\direction\directionIO.cxx" />
     <None Include="TnbLib\Base\primitives\functions\Function1\CSV\CSV.cxx" />
@@ -1863,7 +1864,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClCompile Include="TnbLib\Base\primitives\strings\word\wordIO.cxx" />
     <ClCompile Include="TnbLib\Base\primitives\strings\word\wordIOList.cxx" />
     <ClCompile Include="TnbLib\Base\primitives\subModelBase\subModelBase.cxx" />
-    <None Include="TnbLib\Base\primitives\subModelBase\subModelBaseTemplates.cxx" />
     <ClCompile Include="TnbLib\Base\primitives\SymmTensor2D\symmTensor2D\symmTensor2D.cxx" />
     <ClCompile Include="TnbLib\Base\primitives\SymmTensor\labelSymmTensor\labelSymmTensor.cxx" />
     <ClCompile Include="TnbLib\Base\primitives\SymmTensor\symmTensor\symmTensor.cxx" />

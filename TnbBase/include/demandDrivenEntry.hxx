@@ -124,12 +124,13 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <demandDrivenEntryI.hxx>
+#include <demandDrivenEntry_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <demandDrivenEntry.cxx>
-#endif
+//#ifdef NoRepository
+//#include <demandDrivenEntry.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
