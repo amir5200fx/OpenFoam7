@@ -219,6 +219,9 @@
     <ClInclude Include="TnbLib\radiationModels\fvOptions\radiation\radiation.hxx">
       <Filter>TnbLib\radiationModels\fvOptions\radiation</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\sootModels\mixtureFraction\mixtureFractionI.hxx">
+      <Filter>TnbLib\radiationModels\sootModels\mixtureFraction</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\radiationModels\radiationModels\radiationModel\radiationModel.cxx">
@@ -274,9 +277,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\radiationModels\sootModels\noSoot\noSoot.cxx">
       <Filter>TnbLib\radiationModels\sootModels\noSoot</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\radiationModels\sootModels\mixtureFraction\mixtureFraction.cxx">
-      <Filter>TnbLib\radiationModels\sootModels\mixtureFraction</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\radiationModels\sootModels\mixtureFraction\mixtureFractions.cxx">
       <Filter>TnbLib\radiationModels\sootModels\mixtureFraction</Filter>

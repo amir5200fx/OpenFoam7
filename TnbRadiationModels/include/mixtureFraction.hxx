@@ -171,9 +171,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <mixtureFraction.cxx>
-#endif
+#include <mixtureFractionI.hxx>
+
+//#ifdef NoRepository
+//#include <mixtureFraction.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
