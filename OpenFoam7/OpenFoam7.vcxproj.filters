@@ -25,6 +25,48 @@
     <Filter Include="applications\test\DynamicField">
       <UniqueIdentifier>{f3159021-57a8-4498-add4-4aefbe110288}</UniqueIdentifier>
     </Filter>
+    <Filter Include="applications\test\cubicEqn">
+      <UniqueIdentifier>{3192840c-25d2-4af8-84f0-c4373e03d716}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\CompactListList">
+      <UniqueIdentifier>{a14f2528-ca08-4753-a79f-b57800aaafc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\callback">
+      <UniqueIdentifier>{c834a0ed-2bd3-437f-a02c-aa8e6e374cf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\Circulator">
+      <UniqueIdentifier>{d9601cec-56bc-4924-b5ab-c1ca4daef0a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\CompactIOList">
+      <UniqueIdentifier>{a90e5d3b-f409-40de-b5a4-9c5aca30b882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\cyclic">
+      <UniqueIdentifier>{e502dc39-ab40-4c2b-bb8c-5babe3193235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\dimensionedType">
+      <UniqueIdentifier>{0fd8b989-f528-48c2-a13b-03e1131c4d88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\Dictionary">
+      <UniqueIdentifier>{d4f44c1d-68cf-4bfc-8947-a99f50e9655b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\Distribution">
+      <UniqueIdentifier>{51fd9a49-41d9-465b-abce-1cf917fb7e3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\dynamicIndexedOctree">
+      <UniqueIdentifier>{53e62690-3416-4049-ae6c-f0341f92f3b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\DynamicList">
+      <UniqueIdentifier>{6c952438-0645-4729-ab56-6e86139feb14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\error">
+      <UniqueIdentifier>{8243ac65-38c6-4035-9a29-e1bc240ec868}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\fieldDependency">
+      <UniqueIdentifier>{e20cfb72-14f1-4cd9-b86c-f41e08aa92fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\fileName">
+      <UniqueIdentifier>{73d59503-1e49-4e70-aaf2-22001e061f4c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cxx">
@@ -48,5 +90,61 @@
     <ClCompile Include="applications\test\DynamicField\Test-DynamicField.cxx">
       <Filter>applications\test\DynamicField</Filter>
     </ClCompile>
+    <ClCompile Include="applications\test\cubicEqn\Test-cubicEqn.cxx">
+      <Filter>applications\test\cubicEqn</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\CompactListList\Test-CompactListList.cxx">
+      <Filter>applications\test\CompactListList</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\callback\Test-callback.cxx">
+      <Filter>applications\test\callback</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\Circulator\Test-Circulator.cxx">
+      <Filter>applications\test\Circulator</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\CompactIOList\Test-CompactIOList.cxx">
+      <Filter>applications\test\CompactIOList</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\cyclic\Test-cyclic.cxx">
+      <Filter>applications\test\cyclic</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\dimensionedType\Test-dimensionedType.cxx">
+      <Filter>applications\test\dimensionedType</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\Dictionary\Test-Dictionary.cxx">
+      <Filter>applications\test\Dictionary</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\Dictionary\Test-dictionary1.cxx">
+      <Filter>applications\test\Dictionary</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\Distribution\Test-Distribution.cxx">
+      <Filter>applications\test\Distribution</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\dynamicIndexedOctree\Test-dynamicIndexedOctree.cxx">
+      <Filter>applications\test\dynamicIndexedOctree</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\DynamicList\Test-DynamicList.cxx">
+      <Filter>applications\test\DynamicList</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\error\Test-error.cxx">
+      <Filter>applications\test\error</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\fieldDependency\Test-fieldDependency.cxx">
+      <Filter>applications\test\fieldDependency</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\fileName\Test-fileName.cxx">
+      <Filter>applications\test\fileName</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="applications\test\test.hxx">
+      <Filter>applications\test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+    <None Include="applications\test\cyclic\createFields.lxx">
+      <Filter>applications\test\cyclic</Filter>
+    </None>
   </ItemGroup>
 </Project>

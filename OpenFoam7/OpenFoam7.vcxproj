@@ -89,8 +89,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)applications\test;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,8 +126,9 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)applications\test;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,8 +140,23 @@
     <ClCompile Include="applications\test\alloc\Test-malloc.cxx" />
     <ClCompile Include="applications\test\alloc\Test-new.cxx" />
     <ClCompile Include="applications\test\BinSum\Test-BinSum.cxx" />
+    <ClCompile Include="applications\test\callback\Test-callback.cxx" />
+    <ClCompile Include="applications\test\Circulator\Test-Circulator.cxx" />
+    <ClCompile Include="applications\test\CompactIOList\Test-CompactIOList.cxx" />
+    <ClCompile Include="applications\test\CompactListList\Test-CompactListList.cxx" />
+    <ClCompile Include="applications\test\cubicEqn\Test-cubicEqn.cxx" />
+    <ClCompile Include="applications\test\cyclic\Test-cyclic.cxx" />
+    <ClCompile Include="applications\test\Dictionary\Test-Dictionary.cxx" />
+    <ClCompile Include="applications\test\Dictionary\Test-dictionary1.cxx" />
+    <ClCompile Include="applications\test\dimensionedType\Test-dimensionedType.cxx" />
+    <ClCompile Include="applications\test\Distribution\Test-Distribution.cxx" />
     <ClCompile Include="applications\test\DLList\Test-DLList.cxx" />
     <ClCompile Include="applications\test\DynamicField\Test-DynamicField.cxx" />
+    <ClCompile Include="applications\test\dynamicIndexedOctree\Test-dynamicIndexedOctree.cxx" />
+    <ClCompile Include="applications\test\DynamicList\Test-DynamicList.cxx" />
+    <ClCompile Include="applications\test\error\Test-error.cxx" />
+    <ClCompile Include="applications\test\fieldDependency\Test-fieldDependency.cxx" />
+    <ClCompile Include="applications\test\fileName\Test-fileName.cxx" />
     <ClCompile Include="applications\test\List\Test-List.cxx" />
     <ClCompile Include="main.cxx" />
   </ItemGroup>
@@ -198,6 +215,13 @@
     <ProjectReference Include="..\TnbTurbulence\TnbTurbulence.vcxproj">
       <Project>{c44b171d-747f-4fe0-b6e9-b8c6c88ddc40}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="applications\test\test.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="applications\test\cyclic\createFields.lxx" />
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

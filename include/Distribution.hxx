@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _Distribution_Header
-#define _Distribution_Header
+#ifndef _distribution_Header
+#define _distribution_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,189 +26,129 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::Distribution
+	tnbLib::distribution
 
 Description
-	Accumulating histogram of component values.
-	Specified bin resolution, automatic generation of bins.
+	Accumulating histogram of values.  Specified bin resolution
+	automatic generation of bins.
 
 SourceFiles
-	DistributionI.H
-	Distribution.C
-	DistributionIO.C
+	distributionI.H
+	distribution.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <List.hxx>
+#include <Map.hxx>
 #include <Pair.hxx>
+
+#include <typeInfo.hxx>  // added by amir
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
 
-	template<class Type>
-	class Distribution;
+	// Forward declaration of friend functions and operators
 
-	template<class Type>
-	Istream& operator>>(Istream&, Distribution<Type>&);
+	class distribution;
 
-	template<class Type>
-	Ostream& operator<<(Ostream&, const Distribution<Type>&);
+	Ostream& operator<<(Ostream&, const distribution&);
+
 
 	/*---------------------------------------------------------------------------*\
-							 Class Distribution Declaration
+							Class distribution Declaration
 	\*---------------------------------------------------------------------------*/
 
-	template<class Type>
-	class Distribution
+	class distribution
 		:
-		public List<List<scalar>>
+		public Map<label>
 	{
 		// Private Data
 
-			//- Width of the bin for each component
-		Type binWidth_;
-
-		//- The start bin index of each component
-		List<label> listStarts_;
+		scalar binWidth_;
 
 
 	public:
 
-		//- Component type
-		typedef typename pTraits<Type>::cmptType cmptType;
+		//- Runtime type information
+
+		TypeName("distribution");
+
+		// Static functions
+
+			//- Write to file
+
+		static void write
+		(
+			const fileName& file,
+			const List<Pair<scalar>>& pairs
+		);
 
 
 		// Constructors
 
 			//- Construct null
-		Distribution();
+		distribution();
 
-		//- Construct from separate binWidth for each component
-		Distribution(const Type& binWidth);
+		//- Construct from binWidth
+		distribution(const scalar binWidth);
 
 		//- Copy constructor
-		Distribution(const Distribution& d);
-
-		//- Move constructor
-		Distribution(Distribution&& d);
+		distribution(const distribution&);
 
 
 		//- Destructor
-		~Distribution();
+		virtual ~distribution();
 
 
 		// Member Functions
 
-			//- Sum the total weight added to the component in the
-			//  argument
-		scalar totalWeight(direction cmpt) const;
+		label totalEntries() const;
 
-		List<label> keys(direction cmpt) const;
+		scalar approxTotalEntries() const;
 
-		//- Return the appropriate List index for the given bin index.
-		//  Resizes the List if required
-		label index(direction cmpt, label n);
+		scalar mean() const;
 
-		//- Returns the indices of the first and last non-zero entries
-		Pair<label> validLimits(direction cmpt) const;
+		scalar median();
 
-		Type mean() const;
+		//- Add a value to the appropriate bin of the distribution.
+		void add(const scalar valueToAdd);
 
-		// From http://mathworld.wolfram.com/StatisticalMedian.html
-		// The statistical median is the value of the Distribution
-		// variable where the cumulative Distribution = 0.5.
-		Type median() const;
+		void add(const label valueToAdd);
 
-		//- Add a value to the distribution, optionally specifying a weight
-		void add
-		(
-			const Type& valueToAdd,
-			const Type& weight = pTraits<Type>::one
-		);
+		void insertMissingKeys();
 
-		//- Return the normalised distribution (probability density)
-		//  and bins
-		List<List<Pair<scalar>>> normalised() const;
+		List<Pair<scalar>> normalised();
 
-		//- Return the distribution of the total bin weights
-		List<List < Pair<scalar>>> raw() const;
+		List<Pair<scalar>> normalisedMinusMean();
 
-		//- Return the cumulative normalised distribution and
-		//  integration locations (at end of bins)
-		List<List<Pair<scalar>>> cumulativeNormalised() const;
+		List<Pair<scalar>> normalisedShifted(scalar shiftValue);
 
-		//- Return the cumulative total bin weights and integration
-		//  locations (at end of bins)
-		List<List<Pair<scalar>>> cumulativeRaw() const;
-
-		//- Resets the Distribution by clearing the stored lists.
-		//  Leaves the same number of them and the same binWidth.
-		void clear();
+		List<Pair<scalar>> raw();
 
 
 		// Access
 
-			//- Return the bin width
-		inline const Type& binWidth() const;
-
-		//- Return the List start bin indices
-		inline const List<label>& listStarts() const;
-
-		// Write
-
-			//- Write the distribution to file: key normalised raw.
-			//  Produces a separate file for each component.
-		void write(const fileName& filePrefix) const;
+		inline scalar binWidth() const;
 
 
 		// Member Operators
 
-		void operator=(const Distribution<Type>&);
-
-		void operator=(Distribution<Type>&&);
+		void operator=(const distribution&);
 
 
 		// IOstream Operators
 
-		friend Istream& operator>> <Type>
-			(
-				Istream&,
-				Distribution<Type>&
-				);
-
-		friend Ostream& operator<< <Type>
-			(
-				Ostream&,
-				const Distribution<Type>&
-				);
+		friend Ostream& operator<<(Ostream&, const distribution&);
 	};
 
 
-	// * * * * * * * * * * * * * * * Global Operators  * * * * * * * * * * * * * //
-
-	template<class Type>
-	Distribution<Type> operator+
-		(
-			const Distribution<Type>&,
-			const Distribution<Type>&
-			);
-
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <DistributionI.hxx>
-#include <Distribution_Imp.hxx>
+#include <distributionI.hxx>
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-//#ifdef NoRepository
-//#include <Distribution.cxx>
-//#endif
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_Distribution_Header
+#endif // !_distribution_Header
