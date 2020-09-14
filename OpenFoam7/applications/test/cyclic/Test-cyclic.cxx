@@ -1,8 +1,10 @@
+#include <test.hxx>
+
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2012-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -22,54 +24,37 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Application
-	Test-BinSum
+	icofoam
 
 Description
-	Test BinSum container
+	Incompressible CFD code
 
 \*---------------------------------------------------------------------------*/
 
-#include <test.hxx>
+#include <fvCFD.hxx>
+#include <MapFvFields.hxx>
+#include <MapGeometricFields.hxx>
 
-#include <List.hxx>
-#include <BinSum.hxx>
-#include <IOstreams.hxx>
-#include <Random.hxx>
-#include <scalarField.hxx>
-
-using namespace tnbLib;
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-void tnbLib::Test_BinSum()
+void tnbLib::Test_cyclic(int argc, char *argv[])
 {
-	Random rndGen(0);
+#include <setRootCase.lxx>
 
-	scalarField samples(10000000);
-	forAll(samples, i)
-	{
-		samples[i] = rndGen.scalar01();
-	}
+#include <createTime.lxx>
+#include <createMesh.lxx>
+#include "createFields.lxx"
 
-	const scalar min = 0;
-	const scalar max = 1;
-	const scalar delta = 0.1;
+	Info << polyPatch::constraintTypes() << endl;
 
-	BinSum<scalar, scalarField> count(min, max, delta);
-	BinSum<scalar, scalarField> sum(min, max, delta);
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	forAll(samples, i)
-	{
-		count.add(samples[i], 1);
-		sum.add(samples[i], samples[i]);
-	}
+	Info << nl << "Starting tests" << endl;
 
-	Info << "sum    : " << sum << endl;
-	Info << "count  : " << count << endl;
-	Info << "average: " << sum / count << endl;
+	Info << mesh.V() << endl;
+	Info << mesh.Sf() << endl;
+	Info << mesh.owner() << endl;
+	Info << mesh.neighbour() << endl;
 
-	Info << "End\n" << endl;
+	Info << fvc::div(U);
+
+	Info << "end" << endl;
 }
-
-
-// ************************************************************************* //

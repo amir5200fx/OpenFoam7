@@ -1,8 +1,10 @@
+#include <test.hxx>
+
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2012-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -21,55 +23,35 @@ License
 	You should have received a copy of the GNU General Public License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
-Application
-	Test-BinSum
-
 Description
-	Test BinSum container
 
 \*---------------------------------------------------------------------------*/
 
-#include <test.hxx>
-
-#include <List.hxx>
-#include <BinSum.hxx>
+#include <error.hxx>
 #include <IOstreams.hxx>
-#include <Random.hxx>
-#include <scalarField.hxx>
-
-using namespace tnbLib;
+#include <dictionary.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// Main program:
 
-void tnbLib::Test_BinSum()
+void tnbLib::Test_error()
 {
-	Random rndGen(0);
+	FatalError.throwExceptions();
 
-	scalarField samples(10000000);
-	forAll(samples, i)
+	try
 	{
-		samples[i] = rndGen.scalar01();
+		WarningInFunction << "warning 1" << endl;
+		IOWarningInFunction(Serr) << "warning 2" << endl;
+
+		dictionary dict;
+
+		IOWarningInFunction(dict) << "warning 3" << endl;
+
+		FatalErrorInFunction << "error 1" << endl;
+		FatalErrorInFunction << "error 2" << exit(FatalError);
 	}
-
-	const scalar min = 0;
-	const scalar max = 1;
-	const scalar delta = 0.1;
-
-	BinSum<scalar, scalarField> count(min, max, delta);
-	BinSum<scalar, scalarField> sum(min, max, delta);
-
-	forAll(samples, i)
+	catch (tnbLib::error& fErr)
 	{
-		count.add(samples[i], 1);
-		sum.add(samples[i], samples[i]);
+		Serr << "Caught Foam error " << fErr << nl << endl;
 	}
-
-	Info << "sum    : " << sum << endl;
-	Info << "count  : " << count << endl;
-	Info << "average: " << sum / count << endl;
-
-	Info << "End\n" << endl;
 }
-
-
-// ************************************************************************* //

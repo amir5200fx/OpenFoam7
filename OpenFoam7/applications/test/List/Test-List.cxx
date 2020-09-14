@@ -32,6 +32,8 @@ See also
 
 \*---------------------------------------------------------------------------*/
 
+#include <test.hxx>
+
 #include <OSspecific.hxx>
 #include <argList.hxx>
 #include <wordReList.hxx>
@@ -53,76 +55,72 @@ using namespace tnbLib;
 #include <jobInfo.hxx>
 
 
-//int main()
-//{
-//	jobInfo_.perform();
-//
-//	fileName myFileName("test1.txt");
-//	OFstream myFile(myFileName);
-//
-//	List<vector> list1(IStringStream("1 ((0 1 2))")());
-//	myFile << "list1: " << list1 << endl;
-//
-//	List<vector> list2
-//	{
-//		vector(0, 1, 2),
-//		vector(3, 4, 5),
-//		vector(6, 7, 8)
-//	};
-//	myFile << "list2: " << list2 << endl;
-//
-//	list1.append(list2);
-//	myFile << "list1.append(list2): " << list1 << endl;
-//
-//	myFile << findIndex(list2, vector(3, 4, 5)) << endl;
-//
-//	list2.setSize(10, vector(1, 2, 3));
-//	myFile << "list2: " << list2 << endl;
-//
-//	List<vector> list3(move(list2));
-//	myFile << "Transferred move" << endl;
-//	myFile << "list2: " << list2 << nl
-//		<< "list3: " << list3 << endl;
-//
-//	List<vector> list4
-//	{
-//		vector(0, 1, 2),
-//		vector(3, 4, 5),
-//		vector(6, 7, 8)
-//	};
-//	myFile << "list4: " << list4 << endl;
-//
-//	List<vector> list5
-//	{
-//		{5, 3, 1},
-//		{10, 2, 2},
-//		{8, 1, 0}
-//	};
-//	myFile << "list5: " << list5 << endl;
-//	list5 =
-//	{
-//		{8, 1, 0},
-//		{5, 3, 1},
-//		{10, 2, 2}
-//
-//	};
-//	myFile << "list5: " << list5 << endl;
-//
-//	list4.swap(list5);
-//	myFile << "Swapped via the swap() method" << endl;
-//	myFile << "list4: " << list4 << nl
-//		<< "list5: " << list5 << endl;
-//
-//	List<vector> list6(list4.begin(), list4.end());
-//	myFile << "list6: " << list6 << endl;
-//
-//	// Subset
-//	const labelList map{ 0, 2 };
-//	List<vector> subList3(list3, map);
-//	myFile << "Elements " << map << " out of " << list3
-//		<< " => " << subList3 << endl;
-//
-//	return 0;
-//}
+void tnbLib::Test_List()
+{
+	fileName myFileName("test1.txt");
+	OFstream myFile(myFileName);
+
+	List<vector> list1(IStringStream("1 ((0 1 2))")());
+	myFile << "list1: " << list1 << endl;
+
+	List<vector> list2
+	{
+		vector(0, 1, 2),
+		vector(3, 4, 5),
+		vector(6, 7, 8)
+	};
+	myFile << "list2: " << list2 << endl;
+
+	list1.append(list2);
+	myFile << "list1.append(list2): " << list1 << endl;
+
+	myFile << findIndex(list2, vector(3, 4, 5)) << endl;
+
+	list2.setSize(10, vector(1, 2, 3));
+	myFile << "list2: " << list2 << endl;
+
+	List<vector> list3(move(list2));
+	myFile << "Transferred move" << endl;
+	myFile << "list2: " << list2 << nl
+		<< "list3: " << list3 << endl;
+
+	List<vector> list4
+	{
+		vector(0, 1, 2),
+		vector(3, 4, 5),
+		vector(6, 7, 8)
+	};
+	myFile << "list4: " << list4 << endl;
+
+	List<vector> list5
+	{
+		{5, 3, 1},
+		{10, 2, 2},
+		{8, 1, 0}
+	};
+	myFile << "list5: " << list5 << endl;
+	list5 =
+	{
+		{8, 1, 0},
+		{5, 3, 1},
+		{10, 2, 2}
+
+	};
+	myFile << "list5: " << list5 << endl;
+
+	list4.swap(list5);
+	myFile << "Swapped via the swap() method" << endl;
+	myFile << "list4: " << list4 << nl
+		<< "list5: " << list5 << endl;
+
+	List<vector> list6(list4.begin(), list4.end());
+	myFile << "list6: " << list6 << endl;
+
+	// Subset
+	const labelList map{ 0, 2 };
+	List<vector> subList3(list3, map);
+	myFile << "Elements " << map << " out of " << list3
+		<< " => " << subList3 << endl;
+}
 
 // ************************************************************************* //

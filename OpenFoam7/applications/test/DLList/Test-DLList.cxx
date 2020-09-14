@@ -27,6 +27,8 @@ Description
 
 \*---------------------------------------------------------------------------*/
 
+#include <test.hxx>
+
 #include <OSspecific.hxx>
 
 #include <IOstreams.hxx>
@@ -37,84 +39,82 @@ Description
 
 using namespace tnbLib;
 
-//int main()
-//{
-//	jobInfo_.perform();
-//
-//	fileName myFileName("Test_DLList.txt");
-//	OFstream myFile(myFileName);
-//
-//	DLList<scalar> myList;
-//
-//	for (int i = 0; i < 10; i++)
-//	{
-//		myList.append(1.3*i);
-//	}
-//
-//	myList.append(100.3);
-//	myList.append(500.3);
-//
-//	myFile << nl << "And again using STL iterator: " << nl << endl;
-//
-//	forAllIter(DLList<scalar>, myList, iter)
-//	{
-//		myFile << "element:" << *iter << endl;
-//	}
-//
-//
-//	myFile << nl << "And again using the same STL iterator: " << nl << endl;
-//
-//	forAllIter(DLList<scalar>, myList, iter)
-//	{
-//		myFile << "Removing " << myList.remove(iter) << endl;
-//	}
-//
-//	myList.append(500.3);
-//	myList.append(200.3);
-//	myList.append(100.3);
-//
-//
-//	myFile << nl << "And again using STL const_iterator: " << nl << endl;
-//
-//
-//	forAllConstIter(DLList<scalar>, myList, iter)
-//	{
-//		myFile << "element:" << *iter << endl;
-//	}
-//
-//	myFile << nl << "Testing swapUp and swapDown: " << endl;
-//
-//	myFile << nl << "swapUp" << endl;
-//
-//	myList.swapUp(myList.DLListBase::first());
-//	myList.swapUp(myList.DLListBase::last());
-//
-//	forAllIter(DLList<scalar>, myList, iter)
-//	{
-//		myFile << "element:" << *iter << endl;
-//	}
-//
-//	myFile << nl << "swapDown" << endl;
-//
-//	myList.swapDown(myList.DLListBase::first());
-//	myList.swapDown(myList.DLListBase::last());
-//
-//	forAllIter(DLList<scalar>, myList, iter)
-//	{
-//		myFile << "element:" << *iter << endl;
-//	}
-//
-//
-//	myFile << nl << "Testing transfer: " << nl << nl
-//		<< "original: " << myList << endl;
-//
-//	DLList<scalar> newList;
-//	newList.transfer(myList);
-//
-//	myFile << nl << "source: " << myList << nl
-//		<< nl << "target: " << newList << endl;
-//
-//	myFile << nl << "Done." << endl;
-//
-//	return 0;
-//}
+void tnbLib::Test_DLList()
+{
+	
+
+	fileName myFileName("Test_DLList.txt");
+	OFstream myFile(myFileName);
+
+	DLList<scalar> myList;
+
+	for (int i = 0; i < 10; i++)
+	{
+		myList.append(1.3*i);
+	}
+
+	myList.append(100.3);
+	myList.append(500.3);
+
+	myFile << nl << "And again using STL iterator: " << nl << endl;
+
+	forAllIter(DLList<scalar>, myList, iter)
+	{
+		myFile << "element:" << *iter << endl;
+	}
+
+
+	myFile << nl << "And again using the same STL iterator: " << nl << endl;
+
+	forAllIter(DLList<scalar>, myList, iter)
+	{
+		myFile << "Removing " << myList.remove(iter) << endl;
+	}
+
+	myList.append(500.3);
+	myList.append(200.3);
+	myList.append(100.3);
+
+
+	myFile << nl << "And again using STL const_iterator: " << nl << endl;
+
+
+	forAllConstIter(DLList<scalar>, myList, iter)
+	{
+		myFile << "element:" << *iter << endl;
+	}
+
+	myFile << nl << "Testing swapUp and swapDown: " << endl;
+
+	myFile << nl << "swapUp" << endl;
+
+	myList.swapUp(myList.DLListBase::first());
+	myList.swapUp(myList.DLListBase::last());
+
+	forAllIter(DLList<scalar>, myList, iter)
+	{
+		myFile << "element:" << *iter << endl;
+	}
+
+	myFile << nl << "swapDown" << endl;
+
+	myList.swapDown(myList.DLListBase::first());
+	myList.swapDown(myList.DLListBase::last());
+
+	forAllIter(DLList<scalar>, myList, iter)
+	{
+		myFile << "element:" << *iter << endl;
+	}
+
+
+	myFile << nl << "Testing transfer: " << nl << nl
+		<< "original: " << myList << endl;
+
+	DLList<scalar> newList;
+	newList.transfer(myList);
+
+	myFile << nl << "source: " << myList << nl
+		<< nl << "target: " << newList << endl;
+
+	myFile << nl << "Done." << endl;
+}
