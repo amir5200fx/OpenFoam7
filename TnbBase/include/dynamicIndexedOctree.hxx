@@ -664,9 +664,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <dynamicIndexedOctree.cxx>
-#endif
+#include <dynamicIndexedOctreeI.hxx>
+
+//#ifdef NoRepository
+//#include <dynamicIndexedOctree.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

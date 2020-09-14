@@ -200,8 +200,8 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <DistributionI.hxx>
-#include <Distribution_Imp.hxx>
+#include <DistributionTemplateI.hxx>
+#include <DistributionTemplate_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -97,6 +97,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicIndexedOctree.hxx" />
+    <ClInclude Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicIndexedOctreeI.hxx" />
     <ClInclude Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicTreeDataPoint.hxx" />
     <ClInclude Include="TnbLib\Base\algorithms\indexedOctree\indexedOctree.hxx" />
     <ClInclude Include="TnbLib\Base\algorithms\indexedOctree\indexedOctreeI.hxx" />
@@ -172,9 +173,9 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClInclude Include="TnbLib\Base\containers\Lists\CompactListList\CompactListListI.hxx" />
     <ClInclude Include="TnbLib\Base\containers\Lists\CompactListList\CompactListListIO_Imp.hxx" />
     <ClInclude Include="TnbLib\Base\containers\Lists\CompactListList\CompactListList_Imp.hxx" />
-    <ClInclude Include="TnbLib\Base\containers\Lists\Distribution\Distribution.hxx" />
-    <ClInclude Include="TnbLib\Base\containers\Lists\Distribution\DistributionI.hxx" />
-    <ClInclude Include="TnbLib\Base\containers\Lists\Distribution\Distribution_Imp.hxx" />
+    <ClInclude Include="TnbLib\Base\containers\Lists\Distribution\DistributionTemplate.hxx" />
+    <ClInclude Include="TnbLib\Base\containers\Lists\Distribution\DistributionTemplateI.hxx" />
+    <ClInclude Include="TnbLib\Base\containers\Lists\Distribution\DistributionTemplate_Imp.hxx" />
     <ClInclude Include="TnbLib\Base\containers\Lists\DynamicList\DynamicList.hxx" />
     <ClInclude Include="TnbLib\Base\containers\Lists\DynamicList\DynamicListI.hxx" />
     <ClInclude Include="TnbLib\Base\containers\Lists\DynamicList\DynamicList_Imp.hxx" />
@@ -1346,7 +1347,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClCompile Include="TnbLib\Base\Pstream\mpi\UIPread.cxx" />
     <ClCompile Include="TnbLib\Base\Pstream\mpi\UOPwrite.cxx" />
     <ClCompile Include="TnbLib\Base\Pstream\mpi\UPstreamMPI.cxx" />
-    <None Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicIndexedOctree.cxx" />
     <ClCompile Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicIndexedOctreeName.cxx" />
     <ClCompile Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicTreeDataPoint.cxx" />
     <ClCompile Include="TnbLib\Base\algorithms\indexedOctree\indexedOctreeName.cxx" />

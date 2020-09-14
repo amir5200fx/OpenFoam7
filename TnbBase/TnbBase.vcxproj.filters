@@ -2547,12 +2547,6 @@
     <ClInclude Include="TnbLib\Base\containers\Lists\CompactListList\CompactListListI.hxx">
       <Filter>TnbLib\Base\containers\Lists\CompactListList</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\Base\containers\Lists\Distribution\Distribution.hxx">
-      <Filter>TnbLib\Base\containers\Lists\Distribution</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\Base\containers\Lists\Distribution\DistributionI.hxx">
-      <Filter>TnbLib\Base\containers\Lists\Distribution</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\Base\containers\Lists\DynamicList\DynamicList.hxx">
       <Filter>TnbLib\Base\containers\Lists\DynamicList</Filter>
     </ClInclude>
@@ -4485,9 +4479,6 @@
     <ClInclude Include="TnbLib\Base\containers\Lists\CompactListList\CompactListListIO_Imp.hxx">
       <Filter>TnbLib\Base\containers\Lists\CompactListList</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\Base\containers\Lists\Distribution\Distribution_Imp.hxx">
-      <Filter>TnbLib\Base\containers\Lists\Distribution</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\Base\containers\Lists\DynamicList\DynamicList_Imp.hxx">
       <Filter>TnbLib\Base\containers\Lists\DynamicList</Filter>
     </ClInclude>
@@ -5177,6 +5168,18 @@
     </ClInclude>
     <ClInclude Include="TnbLib\Base\primitives\demandDrivenEntry\demandDrivenEntry_Imp.hxx">
       <Filter>TnbLib\Base\primitives\demandDrivenEntry</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\containers\Lists\Distribution\DistributionTemplate.hxx">
+      <Filter>TnbLib\Base\containers\Lists\Distribution</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\containers\Lists\Distribution\DistributionTemplate_Imp.hxx">
+      <Filter>TnbLib\Base\containers\Lists\Distribution</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\containers\Lists\Distribution\DistributionTemplateI.hxx">
+      <Filter>TnbLib\Base\containers\Lists\Distribution</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicIndexedOctreeI.hxx">
+      <Filter>TnbLib\Base\algorithms\dynamicIndexedOctree</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -6783,9 +6786,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
-    <None Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicIndexedOctree.cxx">
-      <Filter>TnbLib\Base\algorithms\dynamicIndexedOctree</Filter>
-    </None>
     <None Include="TnbLib\Base\db\functionObjects\functionObjectList\postProcess.lxx">
       <Filter>TnbLib\Base\db\functionObjects\functionObjectList</Filter>
     </None>
