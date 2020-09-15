@@ -1,4 +1,4 @@
-#include <solidification.hxx>
+#include <solidificationPhaseChange.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>
 #include <thermoSingleLayer.hxx>
