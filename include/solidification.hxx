@@ -6,7 +6,7 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2013-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2017-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,104 +26,223 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::regionModels::surfaceFilmModels::solidification
+	tnbLib::porosityModels::solidification
 
 Description
-	Solidification phase change model where all film mass is converted when the
-	local temperature > activation temperature.  The latent heat is
-	assumed to be removed by heat-transfer to the wall.
+	Simple solidification porosity model
+
+	This is a simple approximation to solidification where the solid phase
+	is represented as a porous blockage with the drag-coefficient evaluated from
+
+		\f[
+			S = - \alpha \rho D(T) U
+		\f]
+
+	where
+	\vartable
+		\alpha  | Optional phase-fraction of solidifying phase
+		D(T)    | User-defined drag-coefficient as function of temperature
+	\endvartable
+
+	Note that the latent heat of solidification is not included and the
+	temperature is unchanged by the modelled change of phase.
+
+	Example of the solidification model specification:
+	\verbatim
+		type            solidification;
+
+		solidificationCoeffs
+		{
+			// Solidify between 330K and 330.5K
+			D table
+			(
+				(330.0     10000) // Solid below 330K
+				(330.5     0)     // Liquid above 330.5K
+			);
+
+			// Optional phase-fraction of solidifying phase
+			alpha alpha.liquid;
+
+			// Solidification porosity is isotropic
+			// use the global coordinate system
+			coordinateSystem
+			{
+				type    cartesian;
+				origin  (0 0 0);
+				coordinateRotation
+				{
+					type    axesRotation;
+					e1      (1 0 0);
+					e2      (0 1 0);
+				}
+			}
+		}
+	\endverbatim
 
 SourceFiles
 	solidification.C
+	solidificationTemplates.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <phaseChangeModel.hxx>
+#include <porosityModel.hxx>
+#include <Function1.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace regionModels
+	namespace porosityModels
 	{
-		namespace surfaceFilmModels
+
+		/*---------------------------------------------------------------------------*\
+							  Class solidification Declaration
+		\*---------------------------------------------------------------------------*/
+
+		class solidification
+			:
+			public porosityModel
 		{
+			// Private Data
 
-			/*---------------------------------------------------------------------------*\
-								   Class solidification Declaration
-			\*---------------------------------------------------------------------------*/
+				//- Name of temperature field, default = "T"
+			word TName_;
 
-			class solidification
-				:
-				public phaseChangeModel
-			{
-			protected:
+			//- Name of optional phase-fraction field, default = "none"
+			word alphaName_;
 
-				// Protected data
+			//- Name of density field, default = "rho"
+			word rhoName_;
 
-					//- Temperature at which solidification starts
-				scalar T0_;
-
-				//- Solidification limiter
-				//  Maximum fraction of film which can solidify in a time-step
-				scalar maxSolidificationFrac_;
-
-				//- Solidification limiter
-				//  Maximum rate at which the film can solidify
-				dimensionedScalar maxSolidificationRate_;
-
-				//- Accumulated solid mass [kg]
-				volScalarField mass_;
-
-				//- Accumulated solid thickness [m]
-				volScalarField thickness_;
+			//- User-defined drag-coefficient as function of temperature
+			autoPtr<Function1<scalar>> D_;
 
 
-			public:
+			// Private Member Functions
 
-				//- Runtime type information
-				TypeName("solidification");
+				//- Apply resistance
+			template<class AlphaFieldType, class RhoFieldType>
+			void apply
+			(
+				scalarField& Udiag,
+				const scalarField& V,
+				const AlphaFieldType& alpha,
+				const RhoFieldType& rho,
+				const volVectorField& U
+			) const;
+
+			//- Apply resistance
+			template<class AlphaFieldType, class RhoFieldType>
+			void apply
+			(
+				tensorField& AU,
+				const AlphaFieldType& alpha,
+				const RhoFieldType& rho,
+				const volVectorField& U
+			) const;
+
+			//- Apply resistance
+			template<class RhoFieldType>
+			void apply
+			(
+				scalarField& Udiag,
+				const scalarField& V,
+				const RhoFieldType& rho,
+				const volVectorField& U
+			) const;
+
+			//- Apply resistance
+			template<class RhoFieldType>
+			void apply
+			(
+				tensorField& AU,
+				const RhoFieldType& rho,
+				const volVectorField& U
+			) const;
 
 
-				// Constructors
+		public:
 
-					//- Construct from surface film model
-				solidification(surfaceFilmRegionModel& film, const dictionary& dict);
+			//- Runtime type information
+			TypeName("solidification");
 
-				//- Disallow default bitwise copy construction
-				solidification(const solidification&) = delete;
+			// Constructors
 
+			solidification
+			(
+				const word& name,
+				const word& modelType,
+				const fvMesh& mesh,
+				const dictionary& dict,
+				const word& cellZoneName
+			);
 
-				//- Destructor
-				virtual ~solidification();
-
-
-				// Member Functions
-
-					// Evolution
-
-						//- Correct
-				virtual void correctModel
-				(
-					const scalar dt,
-					scalarField& availableMass,
-					scalarField& dMass,
-					scalarField& dEnergy
-				);
+			//- Disallow default bitwise copy construction
+			solidification(const solidification&) = delete;
 
 
-				// Member Operators
-
-					//- Disallow default bitwise assignment
-				void operator=(const solidification&) = delete;
-			};
+			//- Destructor
+			virtual ~solidification();
 
 
-			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+			// Member Functions
 
-		} // End namespace surfaceFilmModels
-	} // End namespace regionModels
+				//- Transform the model data wrt mesh changes
+			virtual void calcTransformModelData();
+
+			//- Calculate the porosity force
+			virtual void calcForce
+			(
+				const volVectorField& U,
+				const volScalarField& rho,
+				const volScalarField& mu,
+				vectorField& force
+			) const;
+
+			//- Add resistance
+			virtual void correct(fvVectorMatrix& UEqn) const;
+
+			//- Add resistance
+			virtual void correct
+			(
+				fvVectorMatrix& UEqn,
+				const volScalarField& rho,
+				const volScalarField& mu
+			) const;
+
+			//- Add resistance
+			virtual void correct
+			(
+				const fvVectorMatrix& UEqn,
+				volTensorField& AU
+			) const;
+
+
+			// I-O
+
+				//- Write
+			bool writeData(Ostream& os) const;
+
+
+			// Member Operators
+
+				//- Disallow default bitwise assignment
+			void operator=(const solidification&) = delete;
+		};
+
+
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+	} // End namespace porosityModels
 } // End namespace tnbLib
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include <solidificationI.hxx>
+
+//#ifdef NoRepository
+//#include <solidificationTemplates.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
