@@ -42,7 +42,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -678,7 +680,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClInclude Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\heatTransferModel\mappedConvectiveHeatTransfer\mappedConvectiveHeatTransfer.hxx" />
     <ClInclude Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\noPhaseChange\noPhaseChange.hxx" />
     <ClInclude Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\phaseChangeModel\phaseChangeModel.hxx" />
-    <ClInclude Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\solidification\solidification.hxx" />
+    <ClInclude Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\solidification\solidificationPhaseChange.hxx" />
     <ClInclude Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\standardPhaseChange\standardPhaseChange.hxx" />
     <ClInclude Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\waxSolventEvaporation\waxSolventEvaporation.hxx" />
     <ClInclude Include="TnbLib\regionModels\surfaceFilmModels\surfaceFilmModel\surfaceFilmModel.hxx" />
@@ -904,7 +906,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClCompile Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\noPhaseChange\noPhaseChange.cxx" />
     <ClCompile Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\phaseChangeModel\phaseChangeModel.cxx" />
     <ClCompile Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\phaseChangeModel\phaseChangeModelNew.cxx" />
-    <ClCompile Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\solidification\solidification.cxx" />
+    <ClCompile Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\solidification\solidificationPhaseChange.cxx" />
     <ClCompile Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\standardPhaseChange\standardPhaseChange.cxx" />
     <ClCompile Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\waxSolventEvaporation\waxSolventEvaporation.cxx" />
     <ClCompile Include="TnbLib\regionModels\surfaceFilmModels\surfaceFilmModel\surfaceFilmModel.cxx" />

@@ -45,6 +45,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(MSMPI_INC);$(SolutionDir)Commons\pthreads\include;$(SolutionDir)Commons\zlib\include;$(SolutionDir)Commons\deelx;$(SolutionDir)Commons\dlfcn\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
+    <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(MSMPI_INC);$(SolutionDir)Commons\pthreads\include;$(SolutionDir)Commons\zlib\include;$(SolutionDir)Commons\deelx;$(SolutionDir)Commons\dlfcn\include;$(IncludePath)</IncludePath>
