@@ -90,7 +90,9 @@
       <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
 if not exist "$(ProjectDir)include" mkdir "$(ProjectDir)include"
 for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)include" /y
-for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
