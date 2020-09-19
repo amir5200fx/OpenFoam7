@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
 	jobInfo_.perform();
 
-	tnbLib::Test_dimensionedType();
+	tnbLib::Test_UniformField();
 
 	return 0;
 }

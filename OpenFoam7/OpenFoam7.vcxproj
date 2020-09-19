@@ -95,6 +95,8 @@
       <AdditionalIncludeDirectories>$(ProjectDir)applications\test;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,6 +134,8 @@
       <AdditionalIncludeDirectories>$(ProjectDir)applications\test;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -160,8 +164,107 @@
     <ClCompile Include="applications\test\DynamicList\Test-DynamicList.cxx" />
     <ClCompile Include="applications\test\error\Test-error.cxx" />
     <ClCompile Include="applications\test\fieldDependency\Test-fieldDependency.cxx" />
+    <ClCompile Include="applications\test\fileNameClean\Test-fileNameClean.cxx" />
     <ClCompile Include="applications\test\fileName\Test-fileName.cxx" />
+    <ClCompile Include="applications\test\findCell_octree\Test_findCell_octree.cxx" />
+    <ClCompile Include="applications\test\findSphereFeatureEdges_octree\Test_findSphereFeatureEdges_octree.cxx" />
+    <ClCompile Include="applications\test\findTimes\Test_findTimes.cxx" />
+    <ClCompile Include="applications\test\FixedList\Test_FixedList.cxx" />
+    <ClCompile Include="applications\test\Function1\Test_Function1.cxx" />
+    <ClCompile Include="applications\test\fvc\Test_fvc.cxx" />
+    <ClCompile Include="applications\test\fvSolutionCombine\Test_fvSolutionCombine.cxx" />
+    <ClCompile Include="applications\test\GAMGAgglomeration\Test_GAMGAgglomeration.cxx" />
+    <ClCompile Include="applications\test\globalIndex\Test_globalIndex.cxx" />
+    <ClCompile Include="applications\test\globalMeshData\Test_globalMeshData.cxx" />
+    <ClCompile Include="applications\test\graphXi\Test_graphXi.cxx" />
+    <ClCompile Include="applications\test\graph\Test_graph.cxx" />
+    <ClCompile Include="applications\test\graph\Test_graph2.cxx" />
+    <ClCompile Include="applications\test\Hashing\Test_Hashing.cxx" />
+    <ClCompile Include="applications\test\HashPtrTable\Test_HashPtrTable.cxx" />
+    <ClCompile Include="applications\test\HashSet\Test_HashSet.cxx" />
+    <ClCompile Include="applications\test\HashTable2\Test_HashTable2.cxx" />
+    <ClCompile Include="applications\test\HashTable3\Test_HashTable3.cxx" />
+    <ClCompile Include="applications\test\HashTable\Test_HashTable.cxx" />
+    <ClCompile Include="applications\test\hexRef8\Test_hexRef8.cxx" />
+    <ClCompile Include="applications\test\IndirectList\Test_IndirectList.cxx" />
+    <ClCompile Include="applications\test\IOField\Test_IOField.cxx" />
+    <ClCompile Include="applications\test\io\Test_io.cxx" />
+    <ClCompile Include="applications\test\ISLList\Test_ISLList.cxx" />
+    <ClCompile Include="applications\test\IStringStream\Test_IStringStream.cxx" />
+    <ClCompile Include="applications\test\labelRanges\Test_labelRanges.cxx" />
+    <ClCompile Include="applications\test\liquid\Test_liquid.cxx" />
+    <ClCompile Include="applications\test\ListHashTable\Test_ListHashTable.cxx" />
+    <ClCompile Include="applications\test\ListOps\Test_ListOps.cxx" />
     <ClCompile Include="applications\test\List\Test-List.cxx" />
+    <ClCompile Include="applications\test\mappedPatch\Test_mappedPatch.cxx" />
+    <ClCompile Include="applications\test\Map\Test_Map.cxx" />
+    <ClCompile Include="applications\test\Matrix\Test_Matrix.cxx" />
+    <ClCompile Include="applications\test\memInfo\Test_memInfo.cxx" />
+    <ClCompile Include="applications\test\mesh\Test_mesh.cxx" />
+    <ClCompile Include="applications\test\mkdir\Test_mkdir.cxx" />
+    <ClCompile Include="applications\test\momentOfInertia\Test_momentOfInertia.cxx" />
+    <ClCompile Include="applications\test\mvBak\Test_mvBak.cxx" />
+    <ClCompile Include="applications\test\NamedEnum\Test_NamedEnum.cxx" />
+    <ClCompile Include="applications\test\nullObject\Test_nullObject.cxx" />
+    <ClCompile Include="applications\test\ODE\Test_ODE.cxx" />
+    <ClCompile Include="applications\test\OStringStream\Test_OStringStream.cxx" />
+    <ClCompile Include="applications\test\PackedList1\Test_PackedList1.cxx" />
+    <ClCompile Include="applications\test\PackedList2\Test_PackedList2.cxx" />
+    <ClCompile Include="applications\test\PackedList3\Test_PackedList3.cxx" />
+    <ClCompile Include="applications\test\PackedList4\Test_PackedList4.cxx" />
+    <ClCompile Include="applications\test\PackedList\Test_PackedList.cxx" />
+    <ClCompile Include="applications\test\parallel\Test_parallel.cxx" />
+    <ClCompile Include="applications\test\parallel_communicators\Test_parallel_communicators.cxx" />
+    <ClCompile Include="applications\test\parallel_nonBlocking\Test_parallel_nonBlocking.cxx" />
+    <ClCompile Include="applications\test\passiveParticle\Test_passiveParticle.cxx" />
+    <ClCompile Include="applications\test\PatchEdgeFaceWave\Test_PatchEdgeFaceWave.cxx" />
+    <ClCompile Include="applications\test\patchRegion\Test_patchRegion.cxx" />
+    <ClCompile Include="applications\test\PatchTools\Test_PatchTools.cxx" />
+    <ClCompile Include="applications\test\PointEdgeWave\Test_PointEdgeWave.cxx" />
+    <ClCompile Include="applications\test\pointField\Test_pointField.cxx" />
+    <ClCompile Include="applications\test\Polynomial\Test_Polynomial.cxx" />
+    <ClCompile Include="applications\test\POSIX\Test_POSIX.cxx" />
+    <ClCompile Include="applications\test\prefixOSstream\Test_prefixOSstream.cxx" />
+    <ClCompile Include="applications\test\primitivePatch\Test_primitivePatch.cxx" />
+    <ClCompile Include="applications\test\pTraits\Test_pTraits.cxx" />
+    <ClCompile Include="applications\test\PtrListDictionary\Test_PtrListDictionary.cxx" />
+    <ClCompile Include="applications\test\PtrList\Test_PtrList.cxx" />
+    <ClCompile Include="applications\test\quaternion\Test_quaternion.cxx" />
+    <ClCompile Include="applications\test\reconstruct\Test_reconstruct.cxx" />
+    <ClCompile Include="applications\test\regex\Test_regex.cxx" />
+    <ClCompile Include="applications\test\rigidBodyDynamics\Test_rigidBodyDynamics.cxx" />
+    <ClCompile Include="applications\test\sha1\Test_sha1.cxx" />
+    <ClCompile Include="applications\test\simpleMatrix\Test_simpleMatrix.cxx" />
+    <ClCompile Include="applications\test\sizeof\Test_sizeof.cxx" />
+    <ClCompile Include="applications\test\slicedField\Test_slicedField.cxx" />
+    <ClCompile Include="applications\test\SLList\Test_SLList.cxx" />
+    <ClCompile Include="applications\test\sort\Test_sort.cxx" />
+    <ClCompile Include="applications\test\speed\scalarSpeed\Test_scalarSpeed.cxx" />
+    <ClCompile Include="applications\test\speed\vectorSpeed\Test_vectorSpeed.cxx" />
+    <ClCompile Include="applications\test\sphericalTensorField\Test_sphericalTensorField.cxx" />
+    <ClCompile Include="applications\test\spline\Test_spline.cxx" />
+    <ClCompile Include="applications\test\stringList\Test_stringList.cxx" />
+    <ClCompile Include="applications\test\string\Test_string.cxx" />
+    <ClCompile Include="applications\test\symmTensorField\Test_symmTensorField.cxx" />
+    <ClCompile Include="applications\test\syncTools\Test_syncTools.cxx" />
+    <ClCompile Include="applications\test\tensor2D\Test_tensor2D.cxx" />
+    <ClCompile Include="applications\test\tensor\Test_tensor.cxx" />
+    <ClCompile Include="applications\test\tetTetOverlap\Test_tetTetOverlap.cxx" />
+    <ClCompile Include="applications\test\thermoMixture\Test_thermoMixture.cxx" />
+    <ClCompile Include="applications\test\tmpField\Test_tmpField.cxx" />
+    <ClCompile Include="applications\test\tnbVersion\Test_tnbVersion.cxx" />
+    <ClCompile Include="applications\test\tokenize\Test_tokenize.cxx" />
+    <ClCompile Include="applications\test\triTet\Test_triTet.cxx" />
+    <ClCompile Include="applications\test\Tuple2\Test_Tuple2.cxx" />
+    <ClCompile Include="applications\test\UDictionary\Test_UDictionary.cxx" />
+    <ClCompile Include="applications\test\UIndirectList\Test_UIndirectList.cxx" />
+    <ClCompile Include="applications\test\UniformField\Test_UniformField.cxx" />
+    <ClCompile Include="applications\test\vectorTools\Test_vectorTools.cxx" />
+    <ClCompile Include="applications\test\vector\Test_vector.cxx" />
+    <ClCompile Include="applications\test\volField\Test_volField.cxx" />
+    <ClCompile Include="applications\test\volPointInterpolation\Test_volPointInterpolation.cxx" />
+    <ClCompile Include="applications\test\wallDist\Test_wallDist.cxx" />
+    <ClCompile Include="applications\test\wordRe\Test_wordRe.cxx" />
     <ClCompile Include="main.cxx" />
   </ItemGroup>
   <ItemGroup>

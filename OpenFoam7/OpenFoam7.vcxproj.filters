@@ -64,8 +64,305 @@
     <Filter Include="applications\test\fieldDependency">
       <UniqueIdentifier>{e20cfb72-14f1-4cd9-b86c-f41e08aa92fd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="applications\test\fileNameClean">
+      <UniqueIdentifier>{fdab162f-6c0d-4c8e-a7d7-c95f34e862ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\findCell_octree">
+      <UniqueIdentifier>{b99f694b-3137-4e65-b0ef-3cbdd4b8c95f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\findSphereFeatureEdges_octree">
+      <UniqueIdentifier>{6d6e19d6-edce-467a-bcf7-00e175a4398b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\findTimes">
+      <UniqueIdentifier>{70dc161f-32d5-4ec3-82f8-3e3281f3d789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\FixedList">
+      <UniqueIdentifier>{e0e49a71-792d-44ee-bdc1-b309dc67a0d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\tnbVersion">
+      <UniqueIdentifier>{d54ca176-4733-424e-852a-151adfb7e758}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\Function1">
+      <UniqueIdentifier>{573fffa4-a42c-455c-b4c9-c0683668bb67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\fvc">
+      <UniqueIdentifier>{e8985886-1532-42f9-954b-b585c54f3b13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\fvSolutionCombine">
+      <UniqueIdentifier>{86748c5b-35b7-49ee-b760-7f3ebc618276}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\GAMGAgglomeration">
+      <UniqueIdentifier>{54420c40-410b-46ac-898c-81506f4ccb52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\globalIndex">
+      <UniqueIdentifier>{21b6297f-2d37-42e3-a1ee-2bbcfc951b69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\globalMeshData">
+      <UniqueIdentifier>{5fe3e376-8469-490a-afff-d6cf2b07dec1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\graph">
+      <UniqueIdentifier>{8d73afbd-60f9-4e71-a162-7ca67a8db94e}</UniqueIdentifier>
+    </Filter>
     <Filter Include="applications\test\fileName">
       <UniqueIdentifier>{73d59503-1e49-4e70-aaf2-22001e061f4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\graphXi">
+      <UniqueIdentifier>{0cd4a960-f330-43ae-ade2-817dead145aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\Hashing">
+      <UniqueIdentifier>{0206000a-646b-4016-8c70-a218673e816d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\HashPtrTable">
+      <UniqueIdentifier>{07bd9be2-c6b0-48db-af0b-12093226d4c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\HashSet">
+      <UniqueIdentifier>{1895445e-8271-4d2c-a460-59ff4f0aa54f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\HashTable">
+      <UniqueIdentifier>{836b40d4-8284-48c6-a67b-c52f59927a23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\HashTable2">
+      <UniqueIdentifier>{b9b51224-f328-476a-9480-7c4bd2f78b15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\HashTable3">
+      <UniqueIdentifier>{6f9ff188-739c-4210-b925-87ff1f27a9fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\hexRef8">
+      <UniqueIdentifier>{1275b5e3-8e41-461d-be8a-621810ff5471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\IndirectList">
+      <UniqueIdentifier>{54a0a951-e91d-44be-a7b3-d402e4600acb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\io">
+      <UniqueIdentifier>{fa59f170-4c96-4b93-9d16-ce57144d5acf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\IOField">
+      <UniqueIdentifier>{bf60ed04-2544-49fd-b3a3-7a70f75b7823}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\ISLList">
+      <UniqueIdentifier>{b4e84983-6660-4754-9619-6779e45b4900}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\IStringStream">
+      <UniqueIdentifier>{eae8f8d2-ba4d-48f7-ade6-d941d39db035}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\labelRanges">
+      <UniqueIdentifier>{d0e2cf3d-18fe-40c9-8934-14b2017fa658}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\liquid">
+      <UniqueIdentifier>{c41bbd25-461a-4069-b822-9e644ceca01b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\ListHashTable">
+      <UniqueIdentifier>{572d0cc0-7c2c-47ff-9def-59b2faa212ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\ListOps">
+      <UniqueIdentifier>{c4cf315d-2587-4e8a-874a-a9558c39f20b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\Map">
+      <UniqueIdentifier>{bec7d40c-8258-43aa-9b40-935251ebdc49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\mappedPatch">
+      <UniqueIdentifier>{f35f3a4d-986a-4896-bb62-1b2964b63036}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\Matrix">
+      <UniqueIdentifier>{8a8cb0ca-cfe3-4456-ba3e-8343ebdff395}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\memInfo">
+      <UniqueIdentifier>{8daa2aad-3d95-4ef9-ae19-aee0b44d64e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\mesh">
+      <UniqueIdentifier>{37b305bc-d41a-4906-9503-b1f99e00567e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\mkdir">
+      <UniqueIdentifier>{31f034d5-dfb2-49db-8867-beb6e360a484}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\momentOfInertia">
+      <UniqueIdentifier>{93ebe775-0121-4ea4-81cf-33c8cfa029c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\mvBak">
+      <UniqueIdentifier>{fd214417-ef62-49f8-a169-acc8f0687821}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\NamedEnum">
+      <UniqueIdentifier>{7e0340ea-f9f8-47d4-9f64-b122d44ef486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\nullObject">
+      <UniqueIdentifier>{d2bfdd8c-4c5f-4521-b30f-dea7ad9523e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\ODE">
+      <UniqueIdentifier>{d468c4db-b0cb-4243-8867-6a9f261abc82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\OStringStream">
+      <UniqueIdentifier>{35fa7e41-d0c9-40b9-b337-5d2422b87910}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\PackedList">
+      <UniqueIdentifier>{fa1652bd-9da7-4362-9834-f6cb97b1fee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\PackedList1">
+      <UniqueIdentifier>{318b60a5-cdf2-4204-9d61-e3985817b8df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\PackedList2">
+      <UniqueIdentifier>{97d6a7b0-3470-4e77-b8d2-88e37dfad791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\PackedList3">
+      <UniqueIdentifier>{57c5d295-0ce5-4260-9518-d8c210fbc54d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\PackedList4">
+      <UniqueIdentifier>{c42a1345-8e70-4bdc-a96f-24357ffe9718}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\parallel">
+      <UniqueIdentifier>{023fbdb7-6495-49c5-9579-de293456b6ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\parallel_communicators">
+      <UniqueIdentifier>{cfbb08e9-b744-41a3-b2d1-ff127f660fee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\parallel_nonBlocking">
+      <UniqueIdentifier>{66c02972-2c6b-43e6-91b3-1e75c06630b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\passiveParticle">
+      <UniqueIdentifier>{00ecb313-1ac4-47f2-a9d9-45b910868292}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\PatchEdgeFaceWave">
+      <UniqueIdentifier>{047ecf0f-d8cd-4a1f-a8f0-fc99f95173fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\patchRegion">
+      <UniqueIdentifier>{0ee6188c-d3a6-4520-8ebb-7b569305e10b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\PatchTools">
+      <UniqueIdentifier>{1da41997-88cc-4e37-b93e-787be7d8a7ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\PointEdgeWave">
+      <UniqueIdentifier>{fc43e181-cabc-4603-9967-952001bfa000}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\pointField">
+      <UniqueIdentifier>{4f4d0fd0-2c68-4c14-9918-6d9e8b653077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\Polynomial">
+      <UniqueIdentifier>{792089b7-3c4a-4443-8cc4-44b91a3b23f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\POSIX">
+      <UniqueIdentifier>{22254a33-13aa-41a3-b11d-3590eaa83cc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\prefixOSstream">
+      <UniqueIdentifier>{18cf741d-78a8-4ca2-8dc6-3b4bad1765cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\primitivePatch">
+      <UniqueIdentifier>{57f601bb-96d6-4884-a967-eb0a6a36282e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\pTraits">
+      <UniqueIdentifier>{1d0f5bfa-65a7-494f-a729-409d566b873f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\PtrList">
+      <UniqueIdentifier>{4069e01d-d11e-4eb2-95b4-c8fd74074458}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\PtrListDictionary">
+      <UniqueIdentifier>{ef14356d-5aa8-4fd6-85fa-b378ecd151a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\quaternion">
+      <UniqueIdentifier>{d5a2fef4-ab55-4dd5-b4f7-2eb00d7c9988}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\reconstruct">
+      <UniqueIdentifier>{fae7603d-0521-485d-a863-5bfa0e62f3aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\regex">
+      <UniqueIdentifier>{9a7bdf61-acc2-4868-b22f-254b190be001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\rigidBodyDynamics">
+      <UniqueIdentifier>{b9a9736c-6728-4b6a-8a0e-e8f992222e3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\sha1">
+      <UniqueIdentifier>{c44c3afb-a981-432e-b73c-e4f781bbafe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\simpleMatrix">
+      <UniqueIdentifier>{148a9408-35e0-4afb-a996-5f54f8defce5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\sizeof">
+      <UniqueIdentifier>{345ad6d2-708e-425b-b79f-16771df3e861}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\slicedField">
+      <UniqueIdentifier>{fdfaec1d-b2a2-4c51-b67d-776fba9a189f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\SLList">
+      <UniqueIdentifier>{d1697ec9-7066-40f5-9383-675bc51d44e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\sort">
+      <UniqueIdentifier>{e4dd55ea-dbea-4f06-b5e6-9699a20d4105}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\speed">
+      <UniqueIdentifier>{80e912f0-e03e-4299-8382-1fe8c21e8c6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\speed\scalarSpeed">
+      <UniqueIdentifier>{29a6a898-48da-450e-a83b-3bdae36a5369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\speed\vectorSpeed">
+      <UniqueIdentifier>{af850bc8-a74c-4a0f-ab00-cf25e442a5b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\sphericalTensorField">
+      <UniqueIdentifier>{2a36bcef-3f30-47ca-8da4-abfd3fcaa6a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\spline">
+      <UniqueIdentifier>{01ed222b-3dff-4a97-b1e9-83642265f5e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\string">
+      <UniqueIdentifier>{7f07c364-996c-4cef-818a-b3c8f46e0790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\stringList">
+      <UniqueIdentifier>{1b7c473a-1a2d-4fd1-b287-1a417b085ac4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\symmTensorField">
+      <UniqueIdentifier>{340c7bf3-8027-44e2-997f-0d25f7159420}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\syncTools">
+      <UniqueIdentifier>{bd1296f5-73b9-49e0-b8c9-7c4bdb0d0624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\tensor">
+      <UniqueIdentifier>{a6f4133a-cc80-4877-8b5e-72ec03807ece}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\tensor2D">
+      <UniqueIdentifier>{33314c1d-9f11-44df-9a2c-fc37ba692b36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\tetTetOverlap">
+      <UniqueIdentifier>{64316fbc-ac87-444c-9997-bc9a86d64e96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\thermoMixture">
+      <UniqueIdentifier>{e9598f1e-a20c-4018-8eeb-1429971a74ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\tmpField">
+      <UniqueIdentifier>{ee883700-d390-494d-8bd9-8ab0e60a7396}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\tokenize">
+      <UniqueIdentifier>{9cc51634-2342-4d14-989a-5cbfe625535f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\triTet">
+      <UniqueIdentifier>{90c738f1-7d15-4ed3-8b75-37e3232adb65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\Tuple2">
+      <UniqueIdentifier>{2251f34e-f136-46ab-b4b2-ffae398e16df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\UDictionary">
+      <UniqueIdentifier>{156f4972-e618-478f-8f98-e27da3481459}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\UIndirectList">
+      <UniqueIdentifier>{169fc113-4391-43f3-bc18-dc52d2455c6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\UniformField">
+      <UniqueIdentifier>{6c202f8a-fd3e-482a-aecd-cabc5d3a680a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\vector">
+      <UniqueIdentifier>{c182712a-bd82-451e-98d5-46a1744e57a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\vectorTools">
+      <UniqueIdentifier>{ea8cf9d9-06fd-4131-98cc-6be86a67bc81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\volField">
+      <UniqueIdentifier>{bfe4d682-7898-464a-bb48-ec1abcbbfc07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\volPointInterpolation">
+      <UniqueIdentifier>{f425c86f-b59c-416e-ad7a-edfb893d99c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\wallDist">
+      <UniqueIdentifier>{724e7ec1-a5fa-4ed3-b417-6e9f4ee48d23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="applications\test\wordRe">
+      <UniqueIdentifier>{9d795a0b-1d02-4153-a4a5-c53ca96387c4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +431,303 @@
     </ClCompile>
     <ClCompile Include="applications\test\fileName\Test-fileName.cxx">
       <Filter>applications\test\fileName</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\fileNameClean\Test-fileNameClean.cxx">
+      <Filter>applications\test\fileNameClean</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\findCell_octree\Test_findCell_octree.cxx">
+      <Filter>applications\test\findCell_octree</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\findSphereFeatureEdges_octree\Test_findSphereFeatureEdges_octree.cxx">
+      <Filter>applications\test\findSphereFeatureEdges_octree</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\findTimes\Test_findTimes.cxx">
+      <Filter>applications\test\findTimes</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\FixedList\Test_FixedList.cxx">
+      <Filter>applications\test\FixedList</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\tnbVersion\Test_tnbVersion.cxx">
+      <Filter>applications\test\tnbVersion</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\Function1\Test_Function1.cxx">
+      <Filter>applications\test\Function1</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\fvc\Test_fvc.cxx">
+      <Filter>applications\test\fvc</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\fvSolutionCombine\Test_fvSolutionCombine.cxx">
+      <Filter>applications\test\fvSolutionCombine</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\GAMGAgglomeration\Test_GAMGAgglomeration.cxx">
+      <Filter>applications\test\GAMGAgglomeration</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\globalIndex\Test_globalIndex.cxx">
+      <Filter>applications\test\globalIndex</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\globalMeshData\Test_globalMeshData.cxx">
+      <Filter>applications\test\globalMeshData</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\graph\Test_graph.cxx">
+      <Filter>applications\test\graph</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\graph\Test_graph2.cxx">
+      <Filter>applications\test\graph</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\graphXi\Test_graphXi.cxx">
+      <Filter>applications\test\graphXi</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\Hashing\Test_Hashing.cxx">
+      <Filter>applications\test\Hashing</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\HashPtrTable\Test_HashPtrTable.cxx">
+      <Filter>applications\test\HashPtrTable</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\HashSet\Test_HashSet.cxx">
+      <Filter>applications\test\HashSet</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\HashTable\Test_HashTable.cxx">
+      <Filter>applications\test\HashTable</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\HashTable2\Test_HashTable2.cxx">
+      <Filter>applications\test\HashTable2</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\HashTable3\Test_HashTable3.cxx">
+      <Filter>applications\test\HashTable3</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\hexRef8\Test_hexRef8.cxx">
+      <Filter>applications\test\hexRef8</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\IndirectList\Test_IndirectList.cxx">
+      <Filter>applications\test\IndirectList</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\io\Test_io.cxx">
+      <Filter>applications\test\io</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\IOField\Test_IOField.cxx">
+      <Filter>applications\test\IOField</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\ISLList\Test_ISLList.cxx">
+      <Filter>applications\test\ISLList</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\IStringStream\Test_IStringStream.cxx">
+      <Filter>applications\test\IStringStream</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\labelRanges\Test_labelRanges.cxx">
+      <Filter>applications\test\labelRanges</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\liquid\Test_liquid.cxx">
+      <Filter>applications\test\liquid</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\ListHashTable\Test_ListHashTable.cxx">
+      <Filter>applications\test\ListHashTable</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\ListOps\Test_ListOps.cxx">
+      <Filter>applications\test\ListOps</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\Map\Test_Map.cxx">
+      <Filter>applications\test\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\mappedPatch\Test_mappedPatch.cxx">
+      <Filter>applications\test\mappedPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\Matrix\Test_Matrix.cxx">
+      <Filter>applications\test\Matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\memInfo\Test_memInfo.cxx">
+      <Filter>applications\test\memInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\mesh\Test_mesh.cxx">
+      <Filter>applications\test\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\mkdir\Test_mkdir.cxx">
+      <Filter>applications\test\mkdir</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\momentOfInertia\Test_momentOfInertia.cxx">
+      <Filter>applications\test\momentOfInertia</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\mvBak\Test_mvBak.cxx">
+      <Filter>applications\test\mvBak</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\NamedEnum\Test_NamedEnum.cxx">
+      <Filter>applications\test\NamedEnum</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\nullObject\Test_nullObject.cxx">
+      <Filter>applications\test\nullObject</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\ODE\Test_ODE.cxx">
+      <Filter>applications\test\ODE</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\OStringStream\Test_OStringStream.cxx">
+      <Filter>applications\test\OStringStream</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\PackedList\Test_PackedList.cxx">
+      <Filter>applications\test\PackedList</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\PackedList1\Test_PackedList1.cxx">
+      <Filter>applications\test\PackedList1</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\PackedList2\Test_PackedList2.cxx">
+      <Filter>applications\test\PackedList2</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\PackedList3\Test_PackedList3.cxx">
+      <Filter>applications\test\PackedList3</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\PackedList4\Test_PackedList4.cxx">
+      <Filter>applications\test\PackedList4</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\parallel\Test_parallel.cxx">
+      <Filter>applications\test\parallel</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\parallel_communicators\Test_parallel_communicators.cxx">
+      <Filter>applications\test\parallel_communicators</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\parallel_nonBlocking\Test_parallel_nonBlocking.cxx">
+      <Filter>applications\test\parallel_nonBlocking</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\passiveParticle\Test_passiveParticle.cxx">
+      <Filter>applications\test\passiveParticle</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\PatchEdgeFaceWave\Test_PatchEdgeFaceWave.cxx">
+      <Filter>applications\test\PatchEdgeFaceWave</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\patchRegion\Test_patchRegion.cxx">
+      <Filter>applications\test\patchRegion</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\PatchTools\Test_PatchTools.cxx">
+      <Filter>applications\test\PatchTools</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\PointEdgeWave\Test_PointEdgeWave.cxx">
+      <Filter>applications\test\PointEdgeWave</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\pointField\Test_pointField.cxx">
+      <Filter>applications\test\pointField</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\Polynomial\Test_Polynomial.cxx">
+      <Filter>applications\test\Polynomial</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\POSIX\Test_POSIX.cxx">
+      <Filter>applications\test\POSIX</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\prefixOSstream\Test_prefixOSstream.cxx">
+      <Filter>applications\test\prefixOSstream</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\primitivePatch\Test_primitivePatch.cxx">
+      <Filter>applications\test\primitivePatch</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\pTraits\Test_pTraits.cxx">
+      <Filter>applications\test\pTraits</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\PtrList\Test_PtrList.cxx">
+      <Filter>applications\test\PtrList</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\PtrListDictionary\Test_PtrListDictionary.cxx">
+      <Filter>applications\test\PtrListDictionary</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\quaternion\Test_quaternion.cxx">
+      <Filter>applications\test\quaternion</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\reconstruct\Test_reconstruct.cxx">
+      <Filter>applications\test\reconstruct</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\regex\Test_regex.cxx">
+      <Filter>applications\test\regex</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\rigidBodyDynamics\Test_rigidBodyDynamics.cxx">
+      <Filter>applications\test\rigidBodyDynamics</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\sha1\Test_sha1.cxx">
+      <Filter>applications\test\sha1</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\simpleMatrix\Test_simpleMatrix.cxx">
+      <Filter>applications\test\simpleMatrix</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\sizeof\Test_sizeof.cxx">
+      <Filter>applications\test\sizeof</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\slicedField\Test_slicedField.cxx">
+      <Filter>applications\test\slicedField</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\SLList\Test_SLList.cxx">
+      <Filter>applications\test\SLList</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\sort\Test_sort.cxx">
+      <Filter>applications\test\sort</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\speed\scalarSpeed\Test_scalarSpeed.cxx">
+      <Filter>applications\test\speed\scalarSpeed</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\speed\vectorSpeed\Test_vectorSpeed.cxx">
+      <Filter>applications\test\speed\vectorSpeed</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\sphericalTensorField\Test_sphericalTensorField.cxx">
+      <Filter>applications\test\sphericalTensorField</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\spline\Test_spline.cxx">
+      <Filter>applications\test\spline</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\string\Test_string.cxx">
+      <Filter>applications\test\string</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\stringList\Test_stringList.cxx">
+      <Filter>applications\test\stringList</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\symmTensorField\Test_symmTensorField.cxx">
+      <Filter>applications\test\symmTensorField</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\syncTools\Test_syncTools.cxx">
+      <Filter>applications\test\syncTools</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\tensor\Test_tensor.cxx">
+      <Filter>applications\test\tensor</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\tensor2D\Test_tensor2D.cxx">
+      <Filter>applications\test\tensor2D</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\tetTetOverlap\Test_tetTetOverlap.cxx">
+      <Filter>applications\test\tetTetOverlap</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\thermoMixture\Test_thermoMixture.cxx">
+      <Filter>applications\test\thermoMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\tmpField\Test_tmpField.cxx">
+      <Filter>applications\test\tmpField</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\tokenize\Test_tokenize.cxx">
+      <Filter>applications\test\tokenize</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\triTet\Test_triTet.cxx">
+      <Filter>applications\test\triTet</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\Tuple2\Test_Tuple2.cxx">
+      <Filter>applications\test\Tuple2</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\UDictionary\Test_UDictionary.cxx">
+      <Filter>applications\test\UDictionary</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\UIndirectList\Test_UIndirectList.cxx">
+      <Filter>applications\test\UIndirectList</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\UniformField\Test_UniformField.cxx">
+      <Filter>applications\test\UniformField</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\vector\Test_vector.cxx">
+      <Filter>applications\test\vector</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\vectorTools\Test_vectorTools.cxx">
+      <Filter>applications\test\vectorTools</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\volField\Test_volField.cxx">
+      <Filter>applications\test\volField</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\volPointInterpolation\Test_volPointInterpolation.cxx">
+      <Filter>applications\test\volPointInterpolation</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\wallDist\Test_wallDist.cxx">
+      <Filter>applications\test\wallDist</Filter>
+    </ClCompile>
+    <ClCompile Include="applications\test\wordRe\Test_wordRe.cxx">
+      <Filter>applications\test\wordRe</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
