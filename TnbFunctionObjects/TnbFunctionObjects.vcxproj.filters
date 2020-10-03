@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{9f14b931-601b-4899-94e0-39725977f2bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects">
+      <UniqueIdentifier>{2282f23b-1e44-4a58-8499-f61f05ae2cd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field">
+      <UniqueIdentifier>{f88e4892-85f2-4255-94bb-e2e0cbd682f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\forces">
+      <UniqueIdentifier>{4e2a79bf-df1d-49ed-8558-2314767faa70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\lagrangian">
+      <UniqueIdentifier>{3d946811-9e35-4dea-8802-cc71d8b0e849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\utilities">
+      <UniqueIdentifier>{c10c89c5-5689-40f0-a917-480f52ca4cc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\solvers">
+      <UniqueIdentifier>{f33ac987-415f-4337-a117-a537823fbf16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\add">
+      <UniqueIdentifier>{49672c8e-b154-47f2-98b4-94dca81e5cc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\age">
+      <UniqueIdentifier>{8e65936d-21e7-42b1-8d58-6bddcc18bb79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\blendingFactor">
+      <UniqueIdentifier>{cd567c60-2c1b-413d-bd76-e61466aa7bae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\components">
+      <UniqueIdentifier>{76ba3f5e-acbf-4b40-b5d3-75f12209cae0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\CourantNo">
+      <UniqueIdentifier>{da8a524d-04a1-4f52-8142-7bd7030d1175}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\ddt">
+      <UniqueIdentifier>{7957856e-b9d6-4e91-b18e-76b5a5c5cb87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\div">
+      <UniqueIdentifier>{c1990900-9935-46f0-8c69-409bd783074b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\enstrophy">
+      <UniqueIdentifier>{222d169b-7e97-47e7-b4f3-cabc0cbab746}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\fieldAverage">
+      <UniqueIdentifier>{6998159c-1e32-4ce1-9dfc-cde424314856}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\fieldCoordinateSystemTransform">
+      <UniqueIdentifier>{0e519f4a-ad93-4afd-a0a3-9ff75c832925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\fieldExpression">
+      <UniqueIdentifier>{f91a8457-db16-4bc0-8d8a-f20a8cd11dde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\fieldMinMax">
+      <UniqueIdentifier>{4284b83d-05ac-444c-851b-840a7a722089}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\fieldsExpression">
+      <UniqueIdentifier>{ebcb941f-b28d-4e21-914e-90bda891b94d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\fieldValues">
+      <UniqueIdentifier>{2df29983-c627-450e-ac71-bfe8ea630a80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\flowType">
+      <UniqueIdentifier>{c607df38-f5f7-4ca6-ab99-cf28d70f521e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\grad">
+      <UniqueIdentifier>{6e17f5c2-5240-44b3-a9ff-1fc14e180b30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\histogram">
+      <UniqueIdentifier>{06a25322-5b21-465a-b1e3-ff48b10ad21c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\interfaceHeight">
+      <UniqueIdentifier>{1f5674fc-5d98-4bf6-9db1-bc81d8530df2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\Lambda2">
+      <UniqueIdentifier>{d7874d59-35f5-4273-98d7-d36cf60803c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\log">
+      <UniqueIdentifier>{a76b99a3-cf1c-4fe5-9010-844af3a2fe6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\MachNo">
+      <UniqueIdentifier>{5b82b1c9-6fc0-4ca7-b347-64ccc88f480f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\mag">
+      <UniqueIdentifier>{1a3d4340-8a17-427b-a71c-4e1ef0c735a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\magSqr">
+      <UniqueIdentifier>{af95acf2-70af-4e77-8dd4-4bc83e0f176b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\nearWallFields">
+      <UniqueIdentifier>{d2ad5ec8-d4fa-4eea-ae4e-7b753fa703a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\yPlus">
+      <UniqueIdentifier>{d0049d3e-eb0b-4574-a3ce-fbcce4849e97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\XiReactionRate">
+      <UniqueIdentifier>{c4463ac0-0db6-419f-a824-b9ae13c04e23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\writeCellVolumes">
+      <UniqueIdentifier>{04d403c8-c738-4d38-864d-afe0fbde1e99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\writeCellCentres">
+      <UniqueIdentifier>{7a6a1471-5c04-4399-a8a8-1585e1c8a46c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\wallShearStress">
+      <UniqueIdentifier>{93c69fec-0a82-4f52-8676-602776e45c75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\wallHeatTransferCoeff">
+      <UniqueIdentifier>{09622d00-825c-4e29-8a17-5a9b32d65bfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\wallHeatFlux">
+      <UniqueIdentifier>{ddf5eaaf-b55f-47f5-bb0a-9eb69609ea98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\vorticity">
+      <UniqueIdentifier>{e0edf7b3-1d59-43ac-9b49-2bdd9f11dc2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\turbulenceIntensity">
+      <UniqueIdentifier>{34799e37-8257-4aaa-b25d-8e2349b2b703}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\turbulenceFields">
+      <UniqueIdentifier>{554e5c3b-5561-4579-ba1c-de610d352c4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\surfaceInterpolate">
+      <UniqueIdentifier>{b44e5df3-cd39-4e6d-a678-f828e3e90b3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\subtract">
+      <UniqueIdentifier>{175b6334-308b-4279-8cb3-5a23b53b10de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\streamLine">
+      <UniqueIdentifier>{47e10918-5ba5-47e6-af70-80b3db8399bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\streamFunction">
+      <UniqueIdentifier>{3079fd3d-9084-4028-b10e-74cad2a79a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\scale">
+      <UniqueIdentifier>{e8a005d7-2e5d-4bed-a5a8-1ca4825c8454}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\regionSizeDistribution">
+      <UniqueIdentifier>{cac3b086-cccb-4bbb-8689-8851d1a14780}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\readFields">
+      <UniqueIdentifier>{154b8a47-0d45-41c2-8ceb-25289f7dd546}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\randomise">
+      <UniqueIdentifier>{ea0aa8c1-1b6d-484f-af3c-e5cea486f35b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\Q">
+      <UniqueIdentifier>{fd24bce8-2789-446b-be7d-b2af9e9090c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\processorField">
+      <UniqueIdentifier>{1f2d5a0e-92e3-4259-b579-a841cae86555}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\pressure">
+      <UniqueIdentifier>{3af36ff1-781c-4d86-97f4-48b25a45e186}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\PecletNo">
+      <UniqueIdentifier>{e40f4d0c-9521-47f7-a01f-5d9e8d9f70c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\fieldAverage\fieldAverageItem">
+      <UniqueIdentifier>{f1cd9ae2-6887-46bb-968d-60c7425230f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\fieldValues\fieldValue">
+      <UniqueIdentifier>{12989c84-4c8d-415a-a029-d719f0fb3335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\fieldValues\fieldValueDelta">
+      <UniqueIdentifier>{9dc4b956-851d-4d32-95cd-439032d0233b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\fieldValues\volFieldValue">
+      <UniqueIdentifier>{7e5744e4-a2ff-4584-87aa-ee460ee609bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue">
+      <UniqueIdentifier>{0919aabd-b7d1-42ee-8b84-f4330fdb8f46}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldExpression\fieldExpression.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldExpression</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldsExpression\fieldsExpression.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldsExpression</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\add\add.hxx">
+      <Filter>TnbLib\functionObjects\field\add</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\age\age.hxx">
+      <Filter>TnbLib\functionObjects\field\age</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\blendingFactor\blendingFactor.hxx">
+      <Filter>TnbLib\functionObjects\field\blendingFactor</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\components\components.hxx">
+      <Filter>TnbLib\functionObjects\field\components</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\CourantNo\CourantNo.hxx">
+      <Filter>TnbLib\functionObjects\field\CourantNo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\ddt\ddt.hxx">
+      <Filter>TnbLib\functionObjects\field\ddt</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\div\div.hxx">
+      <Filter>TnbLib\functionObjects\field\div</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\enstrophy\enstrophy.hxx">
+      <Filter>TnbLib\functionObjects\field\enstrophy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldAverage\fieldAverageItem\fieldAverageItem.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldAverage\fieldAverageItem</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldAverage\fieldAverage.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldAverage</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldCoordinateSystemTransform\fieldCoordinateSystemTransform.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldCoordinateSystemTransform</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldMinMax\fieldMinMax.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldMinMax</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\_log\log.hxx">
+      <Filter>TnbLib\functionObjects\field\log</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\MachNo\MachNo.hxx">
+      <Filter>TnbLib\functionObjects\field\MachNo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\mag\mag.hxx">
+      <Filter>TnbLib\functionObjects\field\mag</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\magSqr\magSqr.hxx">
+      <Filter>TnbLib\functionObjects\field\magSqr</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\PecletNo\PecletNo.hxx">
+      <Filter>TnbLib\functionObjects\field\PecletNo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\PecletNo\pressure.hxx">
+      <Filter>TnbLib\functionObjects\field\pressure</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\processorField\processorField.hxx">
+      <Filter>TnbLib\functionObjects\field\processorField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\Q\Q.hxx">
+      <Filter>TnbLib\functionObjects\field\Q</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\randomise\randomise.hxx">
+      <Filter>TnbLib\functionObjects\field\randomise</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\readFields\readFields.hxx">
+      <Filter>TnbLib\functionObjects\field\readFields</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\yPlus\yPlus.hxx">
+      <Filter>TnbLib\functionObjects\field\yPlus</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\vorticity\vorticity.hxx">
+      <Filter>TnbLib\functionObjects\field\vorticity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\turbulenceIntensity\turbulenceIntensity.hxx">
+      <Filter>TnbLib\functionObjects\field\turbulenceIntensity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\scale\scale.hxx">
+      <Filter>TnbLib\functionObjects\field\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\grad\grad.hxx">
+      <Filter>TnbLib\functionObjects\field\grad</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldExpression\fieldExpression.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldExpression</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldExpression\fieldExpressionTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldExpression</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldsExpression\fieldsExpression.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldsExpression</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldsExpression\fieldsExpressionTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldsExpression</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\add\add.cxx">
+      <Filter>TnbLib\functionObjects\field\add</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\add\addTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\add</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\age\age.cxx">
+      <Filter>TnbLib\functionObjects\field\age</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\blendingFactor\blendingFactor.cxx">
+      <Filter>TnbLib\functionObjects\field\blendingFactor</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\blendingFactor\blendingFactorTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\blendingFactor</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\components\components.cxx">
+      <Filter>TnbLib\functionObjects\field\components</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\components\componentsTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\components</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\CourantNo\CourantNo.cxx">
+      <Filter>TnbLib\functionObjects\field\CourantNo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\ddt\ddt.cxx">
+      <Filter>TnbLib\functionObjects\field\ddt</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\ddt\ddtTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\ddt</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\div\div.cxx">
+      <Filter>TnbLib\functionObjects\field\div</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\div\divTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\div</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\enstrophy\enstrophy.cxx">
+      <Filter>TnbLib\functionObjects\field\enstrophy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldAverage\fieldAverageItem\fieldAverageItem.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldAverage\fieldAverageItem</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldAverage\fieldAverageItem\fieldAverageItemIO.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldAverage\fieldAverageItem</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldAverage\fieldAverage.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldAverage</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldAverage\fieldAverageTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldAverage</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldCoordinateSystemTransform\fieldCoordinateSystemTransform.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldCoordinateSystemTransform</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldCoordinateSystemTransform\fieldCoordinateSystemTransformTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldCoordinateSystemTransform</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldMinMax\fieldMinMax.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldMinMax</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldMinMax\fieldMinMaxTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldMinMax</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\_log\log.cxx">
+      <Filter>TnbLib\functionObjects\field\log</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\MachNo\MachNo.cxx">
+      <Filter>TnbLib\functionObjects\field\MachNo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\mag\mag.cxx">
+      <Filter>TnbLib\functionObjects\field\mag</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\mag\magTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\mag</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\magSqr\magSqr.cxx">
+      <Filter>TnbLib\functionObjects\field\magSqr</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\magSqr\magSqrTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\magSqr</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\PecletNo\PecletNo.cxx">
+      <Filter>TnbLib\functionObjects\field\PecletNo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\PecletNo\pressure.cxx">
+      <Filter>TnbLib\functionObjects\field\pressure</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\processorField\processorField.cxx">
+      <Filter>TnbLib\functionObjects\field\processorField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\Q\Q.cxx">
+      <Filter>TnbLib\functionObjects\field\Q</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\randomise\randomise.cxx">
+      <Filter>TnbLib\functionObjects\field\randomise</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\randomise\randomiseTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\randomise</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\readFields\readFields.cxx">
+      <Filter>TnbLib\functionObjects\field\readFields</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\readFields\readFieldsTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\readFields</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\yPlus\yPlus.cxx">
+      <Filter>TnbLib\functionObjects\field\yPlus</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\vorticity\vorticity.cxx">
+      <Filter>TnbLib\functionObjects\field\vorticity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\turbulenceIntensity\turbulenceIntensity.cxx">
+      <Filter>TnbLib\functionObjects\field\turbulenceIntensity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\scale\scale.cxx">
+      <Filter>TnbLib\functionObjects\field\scale</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\scale\scaleTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\scale</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\grad\grad.cxx">
+      <Filter>TnbLib\functionObjects\field\grad</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\grad\gradTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\grad</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

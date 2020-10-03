@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{3F7B243E-749E-4F13-BAB0-2D9A31BC7E91}</ProjectGuid>
+    <RootNamespace>TnbFunctionObjects</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\functionObjects\field\add;$(ProjectDir)TnbLib\functionObjects\field\age;$(ProjectDir)TnbLib\functionObjects\field\blendingFactor;$(ProjectDir)TnbLib\functionObjects\field\components;$(ProjectDir)TnbLib\functionObjects\field\CourantNo;$(ProjectDir)TnbLib\functionObjects\field\ddt;$(ProjectDir)TnbLib\functionObjects\field\div;$(ProjectDir)TnbLib\functionObjects\field\enstrophy;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage\fieldAverageItem;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage;$(ProjectDir)TnbLib\functionObjects\field\fieldCoordinateSystemTransform;$(ProjectDir)TnbLib\functionObjects\field\fieldExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldMinMax;$(ProjectDir)TnbLib\functionObjects\field\fieldsExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldValues;$(ProjectDir)TnbLib\functionObjects\field\flowType;$(ProjectDir)TnbLib\functionObjects\field\grad;$(ProjectDir)TnbLib\functionObjects\field\histogram;$(ProjectDir)TnbLib\functionObjects\field\interfaceHeight;$(ProjectDir)TnbLib\functionObjects\field\Lambda2;$(ProjectDir)TnbLib\functionObjects\field\_log;$(ProjectDir)TnbLib\functionObjects\field\MachNo;$(ProjectDir)TnbLib\functionObjects\field\mag;$(ProjectDir)TnbLib\functionObjects\field\magSqr;$(ProjectDir)TnbLib\functionObjects\field\nearWallFields;$(ProjectDir)TnbLib\functionObjects\field\PecletNo;$(ProjectDir)TnbLib\functionObjects\field\pressure;$(ProjectDir)TnbLib\functionObjects\field\processorField;$(ProjectDir)TnbLib\functionObjects\field\Q;$(ProjectDir)TnbLib\functionObjects\field\randomise;$(ProjectDir)TnbLib\functionObjects\field\readFields;$(ProjectDir)TnbLib\functionObjects\field\regionSizeDistribution;$(ProjectDir)TnbLib\functionObjects\field\scale;$(ProjectDir)TnbLib\functionObjects\field\streamFunction;$(ProjectDir)TnbLib\functionObjects\field\streamLine;$(ProjectDir)TnbLib\functionObjects\field\subtract;$(ProjectDir)TnbLib\functionObjects\field\surfaceInterpolate;$(ProjectDir)TnbLib\functionObjects\field\turbulenceFields;$(ProjectDir)TnbLib\functionObjects\field\turbulenceIntensity;$(ProjectDir)TnbLib\functionObjects\field\vorticity;$(ProjectDir)TnbLib\functionObjects\field\wallHeatFlux;$(ProjectDir)TnbLib\functionObjects\field\wallHeatTransferCoeff;$(ProjectDir)TnbLib\functionObjects\field\wallShearStress;$(ProjectDir)TnbLib\functionObjects\field\writeCellCentres;$(ProjectDir)TnbLib\functionObjects\field\writeCellVolumes;$(ProjectDir)TnbLib\functionObjects\field\XiReactionRate;$(ProjectDir)TnbLib\functionObjects\field\yPlus;$(ProjectDir)TnbLib\functionObjects\forces;$(ProjectDir)TnbLib\functionObjects\lagrangian;$(ProjectDir)TnbLib\functionObjects\solvers;$(ProjectDir)TnbLib\functionObjects\utilities;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\functionObjects\field\add;$(ProjectDir)TnbLib\functionObjects\field\age;$(ProjectDir)TnbLib\functionObjects\field\blendingFactor;$(ProjectDir)TnbLib\functionObjects\field\components;$(ProjectDir)TnbLib\functionObjects\field\CourantNo;$(ProjectDir)TnbLib\functionObjects\field\ddt;$(ProjectDir)TnbLib\functionObjects\field\div;$(ProjectDir)TnbLib\functionObjects\field\enstrophy;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage\fieldAverageItem;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage;$(ProjectDir)TnbLib\functionObjects\field\fieldCoordinateSystemTransform;$(ProjectDir)TnbLib\functionObjects\field\fieldExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldMinMax;$(ProjectDir)TnbLib\functionObjects\field\fieldsExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldValues;$(ProjectDir)TnbLib\functionObjects\field\flowType;$(ProjectDir)TnbLib\functionObjects\field\grad;$(ProjectDir)TnbLib\functionObjects\field\histogram;$(ProjectDir)TnbLib\functionObjects\field\interfaceHeight;$(ProjectDir)TnbLib\functionObjects\field\Lambda2;$(ProjectDir)TnbLib\functionObjects\field\_log;$(ProjectDir)TnbLib\functionObjects\field\MachNo;$(ProjectDir)TnbLib\functionObjects\field\mag;$(ProjectDir)TnbLib\functionObjects\field\magSqr;$(ProjectDir)TnbLib\functionObjects\field\nearWallFields;$(ProjectDir)TnbLib\functionObjects\field\PecletNo;$(ProjectDir)TnbLib\functionObjects\field\pressure;$(ProjectDir)TnbLib\functionObjects\field\processorField;$(ProjectDir)TnbLib\functionObjects\field\Q;$(ProjectDir)TnbLib\functionObjects\field\randomise;$(ProjectDir)TnbLib\functionObjects\field\readFields;$(ProjectDir)TnbLib\functionObjects\field\regionSizeDistribution;$(ProjectDir)TnbLib\functionObjects\field\scale;$(ProjectDir)TnbLib\functionObjects\field\streamFunction;$(ProjectDir)TnbLib\functionObjects\field\streamLine;$(ProjectDir)TnbLib\functionObjects\field\subtract;$(ProjectDir)TnbLib\functionObjects\field\surfaceInterpolate;$(ProjectDir)TnbLib\functionObjects\field\turbulenceFields;$(ProjectDir)TnbLib\functionObjects\field\turbulenceIntensity;$(ProjectDir)TnbLib\functionObjects\field\vorticity;$(ProjectDir)TnbLib\functionObjects\field\wallHeatFlux;$(ProjectDir)TnbLib\functionObjects\field\wallHeatTransferCoeff;$(ProjectDir)TnbLib\functionObjects\field\wallShearStress;$(ProjectDir)TnbLib\functionObjects\field\writeCellCentres;$(ProjectDir)TnbLib\functionObjects\field\writeCellVolumes;$(ProjectDir)TnbLib\functionObjects\field\XiReactionRate;$(ProjectDir)TnbLib\functionObjects\field\yPlus;$(ProjectDir)TnbLib\functionObjects\forces;$(ProjectDir)TnbLib\functionObjects\lagrangian;$(ProjectDir)TnbLib\functionObjects\solvers;$(ProjectDir)TnbLib\functionObjects\utilities;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\functionObjects\field\add\add.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\age\age.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\blendingFactor\blendingFactor.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\components\components.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\CourantNo\CourantNo.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\ddt\ddt.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\div\div.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\enstrophy\enstrophy.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldAverage\fieldAverage.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldAverage\fieldAverageItem\fieldAverageItem.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldCoordinateSystemTransform\fieldCoordinateSystemTransform.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldExpression\fieldExpression.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldMinMax\fieldMinMax.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldsExpression\fieldsExpression.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\grad\grad.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\MachNo\MachNo.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\magSqr\magSqr.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\mag\mag.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\PecletNo\PecletNo.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\PecletNo\pressure.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\processorField\processorField.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\Q\Q.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\randomise\randomise.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\readFields\readFields.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\scale\scale.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\turbulenceIntensity\turbulenceIntensity.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\vorticity\vorticity.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\yPlus\yPlus.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\_log\log.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\functionObjects\field\add\add.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\add\addTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\age\age.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\blendingFactor\blendingFactor.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\blendingFactor\blendingFactorTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\components\components.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\components\componentsTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\CourantNo\CourantNo.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\ddt\ddt.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\ddt\ddtTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\div\div.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\div\divTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\enstrophy\enstrophy.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldAverage\fieldAverage.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldAverage\fieldAverageItem\fieldAverageItem.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldAverage\fieldAverageItem\fieldAverageItemIO.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldAverage\fieldAverageTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldCoordinateSystemTransform\fieldCoordinateSystemTransform.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldCoordinateSystemTransform\fieldCoordinateSystemTransformTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldExpression\fieldExpression.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldExpression\fieldExpressionTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldMinMax\fieldMinMax.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldMinMax\fieldMinMaxTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldsExpression\fieldsExpression.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldsExpression\fieldsExpressionTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\grad\grad.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\grad\gradTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\MachNo\MachNo.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\magSqr\magSqr.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\magSqr\magSqrTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\mag\mag.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\mag\magTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\PecletNo\PecletNo.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\PecletNo\pressure.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\processorField\processorField.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\Q\Q.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\randomise\randomise.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\randomise\randomiseTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\readFields\readFields.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\readFields\readFieldsTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\scale\scale.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\scale\scaleTemplates.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\turbulenceIntensity\turbulenceIntensity.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\vorticity\vorticity.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\yPlus\yPlus.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\_log\log.cxx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
