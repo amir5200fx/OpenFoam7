@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{615e3435-42d3-41e0-9727-c1fc17526010}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base">
+      <UniqueIdentifier>{cbf67582-8a85-42c6-bcac-d2bdfe2458fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices">
+      <UniqueIdentifier>{78baf632-25a5-4095-ac72-cd5a23ffef01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix">
+      <UniqueIdentifier>{5496499f-5170-4006-ad93-26094660d45e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Preconditioners">
+      <UniqueIdentifier>{11c859f3-1538-4b5c-929d-a68d38982515}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\ILUPreconditioner">
+      <UniqueIdentifier>{7847fd7b-bf39-4ae3-b980-853e3d0482a7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\ILUPreconditioner\ILUPreconditioner.cxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\ILUPreconditioner</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\Base\matrices\LduMatrix\Preconditioners\ILUPreconditioner\ILUPreconditioner.hxx">
+      <Filter>TnbLib\Base\matrices\LduMatrix\Preconditioners\ILUPreconditioner</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
