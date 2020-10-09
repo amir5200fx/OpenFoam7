@@ -1,6 +1,6 @@
 #include <fvScalarMatrix.hxx>
 
-#include <Residuals.hxx>
+#include <ResidualsTemplate.hxx>
 #include <extrapolatedCalculatedFvPatchFields.hxx>
 
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
