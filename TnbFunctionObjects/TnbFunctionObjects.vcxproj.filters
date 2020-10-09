@@ -175,6 +175,36 @@
     <Filter Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue">
       <UniqueIdentifier>{0919aabd-b7d1-42ee-8b84-f4330fdb8f46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\functionObjects\utilities\abort">
+      <UniqueIdentifier>{dad5518e-dd47-460f-b77d-415d06bfa48d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\utilities\codedFunctionObject">
+      <UniqueIdentifier>{2db6104a-d739-4c12-b0c2-a2440453211b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\utilities\writeObjects">
+      <UniqueIdentifier>{f7c29fd7-06d5-48e0-b7f3-7610468e0ef6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\utilities\writeDictionary">
+      <UniqueIdentifier>{0e9669e4-0777-49a6-a06a-e340e687b8e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\utilities\timeActivatedFileUpdate">
+      <UniqueIdentifier>{1c59e29b-4b6a-4770-a058-5c0a671b0440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\utilities\time">
+      <UniqueIdentifier>{057e86a8-ef2b-4471-993c-86f1c09bf13d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\utilities\systemCall">
+      <UniqueIdentifier>{9c4bded1-dd14-4521-872a-654559ce1bde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\utilities\setTimeStep">
+      <UniqueIdentifier>{194b3d93-9c36-424f-8867-59bf9ee5b24c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\utilities\residuals">
+      <UniqueIdentifier>{577ff981-54ba-4140-a68d-fcbad543a024}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\utilities\removeRegisteredObject">
+      <UniqueIdentifier>{f9e63a5e-2be8-4154-b950-68d11f093f91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\functionObjects\field\fieldExpression\fieldExpression.hxx">
@@ -341,6 +371,36 @@
     </ClInclude>
     <ClInclude Include="TnbLib\functionObjects\field\surfaceInterpolate\surfaceInterpolateFunObj.hxx">
       <Filter>TnbLib\functionObjects\field\surfaceInterpolate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\utilities\abort\abort.hxx">
+      <Filter>TnbLib\functionObjects\utilities\abort</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\utilities\codedFunctionObject\codedFunctionObject.hxx">
+      <Filter>TnbLib\functionObjects\utilities\codedFunctionObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\utilities\removeRegisteredObject\removeRegisteredObject.hxx">
+      <Filter>TnbLib\functionObjects\utilities\removeRegisteredObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\utilities\residuals\residuals.hxx">
+      <Filter>TnbLib\functionObjects\utilities\residuals</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\utilities\setTimeStep\setTimeStepFunctionObject.hxx">
+      <Filter>TnbLib\functionObjects\utilities\setTimeStep</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\utilities\systemCall\systemCall.hxx">
+      <Filter>TnbLib\functionObjects\utilities\systemCall</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\utilities\time\timeFunctionObject.hxx">
+      <Filter>TnbLib\functionObjects\utilities\time</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\utilities\timeActivatedFileUpdate\timeActivatedFileUpdate.hxx">
+      <Filter>TnbLib\functionObjects\utilities\timeActivatedFileUpdate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\utilities\writeDictionary\writeDictionary.hxx">
+      <Filter>TnbLib\functionObjects\utilities\writeDictionary</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\utilities\writeObjects\writeObjects.hxx">
+      <Filter>TnbLib\functionObjects\utilities\writeObjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -586,6 +646,39 @@
     </ClCompile>
     <ClCompile Include="TnbLib\functionObjects\field\surfaceInterpolate\surfaceInterpolateFunObjTemplates.cxx">
       <Filter>TnbLib\functionObjects\field\surfaceInterpolate</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\utilities\abort\abort.cxx">
+      <Filter>TnbLib\functionObjects\utilities\abort</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\utilities\codedFunctionObject\codedFunctionObject.cxx">
+      <Filter>TnbLib\functionObjects\utilities\codedFunctionObject</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\utilities\removeRegisteredObject\removeRegisteredObject.cxx">
+      <Filter>TnbLib\functionObjects\utilities\removeRegisteredObject</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\utilities\residuals\residuals.cxx">
+      <Filter>TnbLib\functionObjects\utilities\residuals</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\utilities\residuals\residualsTemplates.cxx">
+      <Filter>TnbLib\functionObjects\utilities\residuals</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\utilities\setTimeStep\setTimeStepFunctionObject.cxx">
+      <Filter>TnbLib\functionObjects\utilities\setTimeStep</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\utilities\systemCall\systemCall.cxx">
+      <Filter>TnbLib\functionObjects\utilities\systemCall</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\utilities\time\timeFunctionObject.cxx">
+      <Filter>TnbLib\functionObjects\utilities\time</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\utilities\timeActivatedFileUpdate\timeActivatedFileUpdate.cxx">
+      <Filter>TnbLib\functionObjects\utilities\timeActivatedFileUpdate</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\utilities\writeDictionary\writeDictionary.cxx">
+      <Filter>TnbLib\functionObjects\utilities\writeDictionary</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\utilities\writeObjects\writeObjects.cxx">
+      <Filter>TnbLib\functionObjects\utilities\writeObjects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
