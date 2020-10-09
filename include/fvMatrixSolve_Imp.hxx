@@ -1,6 +1,6 @@
 #pragma once
 #include <LduMatrixTemplate.hxx>
-#include <Residuals.hxx>
+#include <ResidualsTemplate.hxx>
 
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 

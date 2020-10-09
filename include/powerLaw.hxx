@@ -6,7 +6,7 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2012-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,160 +26,80 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::porosityModels::powerLaw
+	tnbLib::laminarModels::generalizedNewtonianViscosityModels::powerLaw
 
 Description
-	Power law porosity model, given by:
-
-		\f[
-			S = - \rho C_0 |U|^{(C_1 - 1)} U
-		\f]
-
-	where
-	\vartable
-		C_0      | model linear coefficient
-		C_1      | model exponent coefficient
-	\endvartable
+	Standard power-law generalized Newtonian viscosity model
 
 SourceFiles
 	powerLaw.C
-	powerLawTemplates.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <porosityModel.hxx>
+#include <generalizedNewtonianViscosityModel.hxx>
+#include <dimensionedScalar.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace porosityModels
+	namespace laminarModels
 	{
-
-		/*---------------------------------------------------------------------------*\
-							  Class powerLaw Declaration
-		\*---------------------------------------------------------------------------*/
-
-		class powerLaw
-			:
-			public porosityModel
+		namespace generalizedNewtonianViscosityModels
 		{
-			// Private Data
 
-				//- C0 coefficient
-			scalar C0_;
+			/*---------------------------------------------------------------------------*\
+									   Class powerLaw Declaration
+			\*---------------------------------------------------------------------------*/
 
-			//- C1 coefficient
-			scalar C1_;
+			class powerLaw
+				:
+				public generalizedNewtonianViscosityModel
+			{
+				// Private Data
 
-			//- Name of density field
-			word rhoName_;
-
-
-			// Private Member Functions
-
-				//- Apply resistance
-			template<class RhoFieldType>
-			void apply
-			(
-				scalarField& Udiag,
-				const scalarField& V,
-				const RhoFieldType& rho,
-				const vectorField& U
-			) const;
-
-			//- Apply resistance
-			template<class RhoFieldType>
-			void apply
-			(
-				tensorField& AU,
-				const RhoFieldType& rho,
-				const vectorField& U
-			) const;
+				dimensionedScalar k_;
+				dimensionedScalar n_;
+				dimensionedScalar nuMin_;
+				dimensionedScalar nuMax_;
 
 
-		public:
+			public:
 
-			//- Runtime type information
-			TypeName("powerLaw");
-
-			// Constructors
-
-			powerLaw
-			(
-				const word& name,
-				const word& modelType,
-				const fvMesh& mesh,
-				const dictionary& dict,
-				const word& cellZoneName
-			);
-
-			//- Disallow default bitwise copy construction
-			powerLaw(const powerLaw&) = delete;
+				//- Runtime type information
+				TypeName("powerLaw");
 
 
-			//- Destructor
-			virtual ~powerLaw();
+				// Constructors
+
+					//- Construct from components
+				powerLaw(const dictionary& viscosityProperties);
 
 
-			// Member Functions
-
-				//- Transform the model data wrt mesh changes
-			virtual void calcTransformModelData();
-
-			//- Calculate the porosity force
-			virtual void calcForce
-			(
-				const volVectorField& U,
-				const volScalarField& rho,
-				const volScalarField& mu,
-				vectorField& force
-			) const;
-
-			//- Add resistance
-			virtual void correct(fvVectorMatrix& UEqn) const;
-
-			//- Add resistance
-			virtual void correct
-			(
-				fvVectorMatrix& UEqn,
-				const volScalarField& rho,
-				const volScalarField& mu
-			) const;
-
-			//- Add resistance
-			virtual void correct
-			(
-				const fvVectorMatrix& UEqn,
-				volTensorField& AU
-			) const;
+				//- Destructor
+				virtual ~powerLaw()
+				{}
 
 
-			// I-O
+				// Member Functions
 
-				//- Write
-			bool writeData(Ostream& os) const;
+					//- Read transportProperties dictionary
+				virtual bool read(const dictionary& viscosityProperties);
+
+				//- Return the laminar viscosity
+				virtual tmp<volScalarField> nu
+				(
+					const volScalarField& nu0,
+					const volScalarField& strainRate
+				) const;
+			};
 
 
-			// Member Operators
+			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-				//- Disallow default bitwise assignment
-			void operator=(const powerLaw&) = delete;
-		};
-
-
-		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-	} // End namespace porosityModels
+		} // End namespace generalizedNewtonianViscosityModels
+	} // End namespace laminarModels
 } // End namespace tnbLib
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#include <powerLawI.hxx>
-
-//#ifdef NoRepository
-//#include <powerLawTemplates.cxx>
-//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
