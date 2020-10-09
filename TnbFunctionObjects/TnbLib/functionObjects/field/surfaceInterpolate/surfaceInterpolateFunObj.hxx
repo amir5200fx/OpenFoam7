@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _surfaceInterpolate_Header
-#define _surfaceInterpolate_Header
+#ifndef _surfaceInterpolateFunOb_Header
+#define _surfaceInterpolateFunOb_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -175,4 +175,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_surfaceInterpolate_Header
+#endif // !_surfaceInterpolateFunOb_Header
