@@ -15,11 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ansysToFoam.cxx">
+    <ClCompile Include="writeMeshObj.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="ansysToFoam.L" />
   </ItemGroup>
 </Project>

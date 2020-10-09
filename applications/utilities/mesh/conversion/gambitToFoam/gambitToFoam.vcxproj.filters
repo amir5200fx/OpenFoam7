@@ -15,11 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="gambitToFoam.L" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="gambitToFoam.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="gambitToFoam.L" />
   </ItemGroup>
 </Project>
