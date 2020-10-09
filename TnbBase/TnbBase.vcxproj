@@ -373,7 +373,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClInclude Include="TnbLib\Base\meshes\primitiveShapes\cut\cutTemplatesI.hxx" />
     <ClInclude Include="TnbLib\Base\meshes\primitiveShapes\tetrahedron\tetrahedron_Imp.hxx" />
     <ClInclude Include="TnbLib\Base\meshes\ProcessorTopology\ProcessorTopologyTemplateI.hxx" />
-    <ClInclude Include="TnbLib\Base\meshes\Residuals\ResidualsI.hxx" />
+    <ClInclude Include="TnbLib\Base\meshes\Residuals\ResidualsTemplateI.hxx" />
     <ClInclude Include="TnbLib\Base\meshes\treeBoundBox\treeBoundBoxTemplatesI.hxx" />
     <ClInclude Include="TnbLib\Base\primitives\demandDrivenEntry\demandDrivenEntry_Imp.hxx" />
     <ClInclude Include="TnbLib\Base\primitives\functions\Function1\Constant\Constant_Imp.hxx" />
@@ -1111,7 +1111,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClInclude Include="TnbLib\Base\meshes\primitiveShapes\triangle\triPointRef.hxx" />
     <ClInclude Include="TnbLib\Base\meshes\ProcessorTopology\commSchedule.hxx" />
     <ClInclude Include="TnbLib\Base\meshes\ProcessorTopology\ProcessorTopologyTemplate.hxx" />
-    <ClInclude Include="TnbLib\Base\meshes\Residuals\Residuals.hxx" />
+    <ClInclude Include="TnbLib\Base\meshes\Residuals\ResidualsTemplate.hxx" />
     <ClInclude Include="TnbLib\Base\meshes\treeBoundBox\treeBoundBox.hxx" />
     <ClInclude Include="TnbLib\Base\meshes\treeBoundBox\treeBoundBoxI.hxx" />
     <ClInclude Include="TnbLib\Base\meshes\treeBoundBox\treeBoundBoxList.hxx" />

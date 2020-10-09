@@ -3537,9 +3537,6 @@
     <ClInclude Include="TnbLib\Base\meshes\treeBoundBox\treeBoundBoxList.hxx">
       <Filter>TnbLib\Base\meshes\treeBoundBox</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\Base\meshes\Residuals\Residuals.hxx">
-      <Filter>TnbLib\Base\meshes\Residuals</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\Base\meshes\ProcessorTopology\commSchedule.hxx">
       <Filter>TnbLib\Base\meshes\ProcessorTopology</Filter>
     </ClInclude>
@@ -4971,9 +4968,6 @@
     <ClInclude Include="TnbLib\Base\meshes\ProcessorTopology\ProcessorTopologyTemplateI.hxx">
       <Filter>TnbLib\Base\meshes\ProcessorTopology</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\Base\meshes\Residuals\ResidualsI.hxx">
-      <Filter>TnbLib\Base\meshes\Residuals</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\Base\meshes\treeBoundBox\treeBoundBoxTemplatesI.hxx">
       <Filter>TnbLib\Base\meshes\treeBoundBox</Filter>
     </ClInclude>
@@ -5180,6 +5174,12 @@
     </ClInclude>
     <ClInclude Include="TnbLib\Base\algorithms\dynamicIndexedOctree\dynamicIndexedOctreeI.hxx">
       <Filter>TnbLib\Base\algorithms\dynamicIndexedOctree</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\meshes\Residuals\ResidualsTemplate.hxx">
+      <Filter>TnbLib\Base\meshes\Residuals</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\meshes\Residuals\ResidualsTemplateI.hxx">
+      <Filter>TnbLib\Base\meshes\Residuals</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

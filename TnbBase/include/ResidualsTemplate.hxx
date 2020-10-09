@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _Residuals_Header
-#define _Residuals_Header
+#ifndef _ResidualsTemplate_Header
+#define _ResidualsTemplate_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -115,7 +115,7 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <ResidualsI.hxx>
+#include <ResidualsTemplateI.hxx>
 
 //#ifdef NoRepository
 //#include <ResidualsTemplates.cxx>
@@ -124,4 +124,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_Residuals_Header
+#endif // !_ResidualsTemplate_Header
