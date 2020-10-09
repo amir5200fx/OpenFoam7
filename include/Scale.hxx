@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _Scale_Header
+#define _Scale_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2017-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,94 +26,185 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::Function1Types::Scale
 
 Description
-	Multiplies a field by a scaling factor.
+	Function1 which scales a given 'value' function by a 'scale' scalar function
+	and scales the 'x' argument of the 'value' and 'scale' functions by the
+	optional 'xScale' scalar function.
 
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	This is particularly useful to ramp a time-varying value by one of the
+	monotonic ramp functions.
 
-See also
-	tnbLib::functionObjects::fvMeshFunctionObject
+	Usage for a vector:
+	\verbatim
+		<entryName>
+		{
+			type      scale;
+
+			scale
+			{
+				type        linearRamp;
+
+				start       0;
+				duration    10;
+			}
+
+			value
+			{
+				type        sine;
+
+				frequency   10;
+				amplitude   1;
+				scale       (1 0.1 0);
+				level       (10 1 0);
+			}
+		}
+	\endverbatim
+
+	Simplified usage to scale by a constant factor, e.g. 2:
+	\verbatim
+		<entryName>
+		{
+			type      scale;
+
+			scale     2;
+
+			value
+			{
+				type        sine;
+
+				frequency   10;
+				amplitude   1;
+				scale       (1 0.1 0);
+				level       (10 1 0);
+			}
+		}
+	\endverbatim
+
+	Usage including the optional 'xScale' function:
+	\verbatim
+		<entryName>
+		{
+			type      scale;
+
+			xScale    0.5;
+			scale     2;
+
+			value
+			{
+				type        sine;
+
+				frequency   10;
+				amplitude   1;
+				scale       (1 0.1 0);
+				level       (10 1 0);
+			}
+		}
+	\endverbatim
+
+	Where:
+	\table
+		Property | Description                                    | Required
+		value    | Function of type Function1<Type>               | yes
+		scale    | Scaling function of type Function1<scalar>     | yes
+		xScale   | 'x' scaling function of type Function1<scalar> | no
+	\endtable
 
 SourceFiles
-	scale.C
+	Scale.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fieldExpression.hxx>
+#include <Function1.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace functionObjects
+	namespace Function1Types
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								   Class Scale Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		template<class Type>
+		class Scale
 			:
-			public fieldExpression
+			public Function1<Type>
 		{
 			// Private Data
 
-				//- Scale factor
-			scalar scale_;
+				//- Argument scaling function
+			autoPtr<Function1<scalar>> xScale_;
+
+			//- Scalar scaling function
+			autoPtr<Function1<scalar>> scale_;
+
+			//- Value function
+			autoPtr<Function1<Type>> value_;
 
 
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
-
-			//- Calculate the scale of the field and return true if successful
-			virtual bool calc();
+				//- Read the coefficients from the given dictionary
+			void read(const dictionary& coeffs);
 
 
 		public:
 
-			//- Runtime type information
+			// Runtime type information
 			TypeName("scale");
 
 
 			// Constructors
 
-				//- Construct from Time and dictionary
-			scale
+				//- Construct from entry name and dictionary
+			Scale
 			(
-				const word& name,
-				const Time& runTime,
+				const word& entryName,
 				const dictionary& dict
 			);
 
+			//- Copy constructor
+			Scale(const Scale<Type>& se);
+
 
 			//- Destructor
-			virtual ~scale();
+			virtual ~Scale();
 
 
 			// Member Functions
 
-				//- Read the randomise data
-			virtual bool read(const dictionary&);
+				//- Return value for time t
+			virtual inline Type value(const scalar t) const;
+
+			//- Write in dictionary format
+			virtual void writeData(Ostream& os) const;
+
+
+			// Member Operators
+
+				//- Disallow default bitwise assignment
+			void operator=(const Scale<Type>&) = delete;
 		};
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	} // End namespace functionObjects
+	} // End namespace Function1Types
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <scaleTemplates.cxx>
-#endif
+#include <ScaleI.hxx>
+#include <Scale_Imp.hxx>
+
+//#ifdef NoRepository
+//#include <Scale.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_scale_Header
+#endif // !_Scale_Header

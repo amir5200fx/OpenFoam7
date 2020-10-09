@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _Histogram_Header
+#define _Histogram_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,147 +26,114 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::Histogram
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
-
-	Example:
-	\verbatim
-	histogram1
-	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
-	}
-	\endverbatim
-
-Usage
-	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
-	\endtable
-
-See also
-	tnbLib::functionObject
-	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
+	Calculates the counts per bin of a list.
 
 SourceFiles
-	histogram.C
+	Histogram.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <labelList.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace functionObjects
+
+
+	/*---------------------------------------------------------------------------*\
+							  Class Histogram Declaration
+	\*---------------------------------------------------------------------------*/
+
+	template<class List>
+	class Histogram
 	{
+		// Private Data
 
-		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
-		\*---------------------------------------------------------------------------*/
+			//- Counts per bin
+		labelList counts_;
 
-		class histogram
-			:
-			public fvMeshFunctionObject
+		//- Number of <= lowest bin
+		label nLow_;
+
+		//- Number of > highest bin
+		label nHigh_;
+
+
+		// Private Member Functions
+
+		void count(const List& bins, const List& l);
+
+
+	public:
+
+		// Constructors
+
+			//- Construct given bin values and input list
+		Histogram(const List& bins, const List& l);
+
+		//- Construct given min, max, number of bins and input list
+		Histogram
+		(
+			const typename List::const_reference min,
+			const typename List::const_reference max,
+			const label nBins,
+			const List& l
+		);
+
+		//- Disallow default bitwise copy construction
+		Histogram(const Histogram&) = delete;
+
+
+		// Member Functions
+
+				//- Return the counts per bin
+		inline const labelList& counts() const
 		{
-			// Private Data
+			return counts_;
+		}
 
-			writeFile file_;
+		//- Return the number of elements <= bins[0]
+		//  (so inclusive lowest bin value)
+		inline label nLow() const
+		{
+			return nLow_;
+		}
 
-			//- Name of field
-			word fieldName_;
-
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
+		//- Return the number of elements > bins[bins.size()-1]
+		//  (so exclusive highest bin value)
+		inline label nHigh() const
+		{
+			return nHigh_;
+		}
 
 
-			// Private Member Functions
+		// Member Operators
 
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+			//- Disallow default bitwise assignment
+		void operator=(const Histogram&) = delete;
+	};
 
 
-		public:
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-			//- Runtime type information
-			TypeName("histogram");
-
-
-			// Constructors
-
-				//- Construct from Time and dictionary
-			histogram
-			(
-				const word& name,
-				const Time& runTime,
-				const dictionary& dict
-			);
-
-			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
-
-
-			// Destructor
-			virtual ~histogram();
-
-
-			// Member Functions
-
-				//- Read the histogram data
-			virtual bool read(const dictionary&);
-
-			//- Execute, currently does nothing
-			virtual bool execute();
-
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
-			virtual bool write();
-
-
-			// Member Operators
-
-				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
-		};
-
-
-		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-	} // End namespace functionObjects
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+//    #include "HistogramI.H"
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include <HistogramI.hxx>
+
+#ifdef NoRepository
+#include <Histogram.cxx>
+#endif
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif // !_Histogram_Header
