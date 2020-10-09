@@ -5181,6 +5181,9 @@
     <ClInclude Include="TnbLib\Base\meshes\Residuals\ResidualsTemplateI.hxx">
       <Filter>TnbLib\Base\meshes\Residuals</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\functions\Function1\Function1\Function1New_Imp.hxx">
+      <Filter>TnbLib\Base\primitives\functions\Function1\Function1</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\Base\primitives\zero\zero.cxx">
@@ -6783,6 +6786,9 @@
     <ClCompile Include="TnbLib\Base\containers\Lists\PackedList\PackedBoolList.cxx">
       <Filter>TnbLib\Base\containers\Lists\PackedList</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\Base\primitives\functions\Function1\Function1\Function1.cxx">
+      <Filter>TnbLib\Base\primitives\functions\Function1\Function1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -6899,9 +6905,6 @@
     </None>
     <None Include="TnbLib\Base\primitives\functions\Function1\CSV\CSV.cxx">
       <Filter>TnbLib\Base\primitives\functions\Function1\CSV</Filter>
-    </None>
-    <None Include="TnbLib\Base\primitives\functions\Function1\Function1\Function1New.cxx">
-      <Filter>TnbLib\Base\primitives\functions\Function1\Function1</Filter>
     </None>
     <None Include="TnbLib\Base\containers\Lists\List\ListLoopM.hxx">
       <Filter>TnbLib\Base\containers\Lists\List</Filter>

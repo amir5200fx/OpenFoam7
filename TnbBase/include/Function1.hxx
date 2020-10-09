@@ -47,6 +47,31 @@ SourceFiles
 
 namespace tnbLib
 {
+	template<class Type>
+	class Function1;
+
+	namespace Function1Types
+	{
+
+		template<class Type>
+		class Constant;
+
+		template<class Type>
+		autoPtr<Function1<Type>> createConstant(const word& entryName, Istream& is);
+
+		template<>
+		autoPtr<Function1<label>> createConstant<label>(const word& entryName, Istream& is);
+		template<>
+		autoPtr<Function1<scalar>> createConstant<scalar>(const word& entryName, Istream& is);
+		template<>
+		autoPtr<Function1<vector>> createConstant<vector>(const word& entryName, Istream& is);
+		template<>
+		autoPtr<Function1<sphericalTensor>> createConstant<sphericalTensor>(const word& entryName, Istream& is);
+		template<>
+		autoPtr<Function1<symmTensor>> createConstant<symmTensor>(const word& entryName, Istream& is);
+		template<>
+		autoPtr<Function1<tensor>> createConstant<tensor>(const word& entryName, Istream& is);
+	}
 
 	// Forward declarations
 	class Time;
@@ -260,6 +285,7 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <Function1I.hxx>
+#include <Function1New_Imp.hxx>
 
 //#ifdef NoRepository
 //#include <Function1.cxx>
