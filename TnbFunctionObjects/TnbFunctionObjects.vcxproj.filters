@@ -264,6 +264,84 @@
     <ClInclude Include="TnbLib\functionObjects\field\grad\grad.hxx">
       <Filter>TnbLib\functionObjects\field\grad</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\fieldValue\fieldValue.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\fieldValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\fieldValue\fieldValueI.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\fieldValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\fieldValueDelta\fieldValueDelta.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\fieldValueDelta</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue\surfaceFieldValue.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\surfaceFieldValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue\surfaceFieldValueI.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\surfaceFieldValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\volFieldValue\volFieldValue.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\volFieldValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\flowType\flowType.hxx">
+      <Filter>TnbLib\functionObjects\field\flowType</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\histogram\histogram.hxx">
+      <Filter>TnbLib\functionObjects\field\histogram</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\interfaceHeight\interfaceHeight.hxx">
+      <Filter>TnbLib\functionObjects\field\interfaceHeight</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\Lambda2\Lambda2.hxx">
+      <Filter>TnbLib\functionObjects\field\Lambda2</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\nearWallFields\findCellParticle.hxx">
+      <Filter>TnbLib\functionObjects\field\nearWallFields</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\nearWallFields\nearWallFields.hxx">
+      <Filter>TnbLib\functionObjects\field\nearWallFields</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\regionSizeDistribution\regionSizeDistribution.hxx">
+      <Filter>TnbLib\functionObjects\field\regionSizeDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\streamFunction\streamFunction.hxx">
+      <Filter>TnbLib\functionObjects\field\streamFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\streamLine\streamLine.hxx">
+      <Filter>TnbLib\functionObjects\field\streamLine</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\streamLine\streamLineParticle.hxx">
+      <Filter>TnbLib\functionObjects\field\streamLine</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\streamLine\streamLineParticleCloud.hxx">
+      <Filter>TnbLib\functionObjects\field\streamLine</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\subtract\subtract.hxx">
+      <Filter>TnbLib\functionObjects\field\subtract</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\turbulenceFields\turbulenceFields.hxx">
+      <Filter>TnbLib\functionObjects\field\turbulenceFields</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\wallHeatFlux\wallHeatFlux.hxx">
+      <Filter>TnbLib\functionObjects\field\wallHeatFlux</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\wallHeatTransferCoeff\wallHeatTransferCoeff.hxx">
+      <Filter>TnbLib\functionObjects\field\wallHeatTransferCoeff</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\wallShearStress\wallShearStress.hxx">
+      <Filter>TnbLib\functionObjects\field\wallShearStress</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\writeCellCentres\writeCellCentres.hxx">
+      <Filter>TnbLib\functionObjects\field\writeCellCentres</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\writeCellVolumes\writeCellVolumes.hxx">
+      <Filter>TnbLib\functionObjects\field\writeCellVolumes</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\XiReactionRate\XiReactionRate.hxx">
+      <Filter>TnbLib\functionObjects\field\XiReactionRate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\surfaceInterpolate\surfaceInterpolateFunObj.hxx">
+      <Filter>TnbLib\functionObjects\field\surfaceInterpolate</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\functionObjects\field\fieldExpression\fieldExpression.cxx">
@@ -403,6 +481,111 @@
     </ClCompile>
     <ClCompile Include="TnbLib\functionObjects\field\grad\gradTemplates.cxx">
       <Filter>TnbLib\functionObjects\field\grad</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\fieldValue\fieldValue.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\fieldValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\fieldValue\fieldValueNew.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\fieldValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\fieldValue\fieldValueTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\fieldValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\fieldValueDelta\fieldValueDelta.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\fieldValueDelta</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\fieldValueDelta\fieldValueDeltaTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\fieldValueDelta</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue\surfaceFieldValue.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\surfaceFieldValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue\surfaceFieldValueTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\surfaceFieldValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\volFieldValue\volFieldValue.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\volFieldValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\volFieldValue\volFieldValueTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\volFieldValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\flowType\flowType.cxx">
+      <Filter>TnbLib\functionObjects\field\flowType</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\histogram\histogram.cxx">
+      <Filter>TnbLib\functionObjects\field\histogram</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\interfaceHeight\interfaceHeight.cxx">
+      <Filter>TnbLib\functionObjects\field\interfaceHeight</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\Lambda2\Lambda2.cxx">
+      <Filter>TnbLib\functionObjects\field\Lambda2</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\nearWallFields\findCellParticle.cxx">
+      <Filter>TnbLib\functionObjects\field\nearWallFields</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\nearWallFields\findCellParticleCloud.cxx">
+      <Filter>TnbLib\functionObjects\field\nearWallFields</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\nearWallFields\nearWallFields.cxx">
+      <Filter>TnbLib\functionObjects\field\nearWallFields</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\nearWallFields\nearWallFieldsTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\nearWallFields</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\regionSizeDistribution\regionSizeDistribution.cxx">
+      <Filter>TnbLib\functionObjects\field\regionSizeDistribution</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\regionSizeDistribution\regionSizeDistributionTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\regionSizeDistribution</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\streamFunction\streamFunction.cxx">
+      <Filter>TnbLib\functionObjects\field\streamFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\streamLine\streamLine.cxx">
+      <Filter>TnbLib\functionObjects\field\streamLine</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\streamLine\streamLineParticle.cxx">
+      <Filter>TnbLib\functionObjects\field\streamLine</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\streamLine\streamLineParticleCloud.cxx">
+      <Filter>TnbLib\functionObjects\field\streamLine</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\subtract\subtract.cxx">
+      <Filter>TnbLib\functionObjects\field\subtract</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\subtract\subtractTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\subtract</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\turbulenceFields\turbulenceFields.cxx">
+      <Filter>TnbLib\functionObjects\field\turbulenceFields</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\turbulenceFields\turbulenceFieldsTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\turbulenceFields</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\wallHeatFlux\wallHeatFlux.cxx">
+      <Filter>TnbLib\functionObjects\field\wallHeatFlux</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\wallHeatTransferCoeff\wallHeatTransferCoeff.cxx">
+      <Filter>TnbLib\functionObjects\field\wallHeatTransferCoeff</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\wallShearStress\wallShearStress.cxx">
+      <Filter>TnbLib\functionObjects\field\wallShearStress</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\writeCellCentres\writeCellCentres.cxx">
+      <Filter>TnbLib\functionObjects\field\writeCellCentres</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\writeCellVolumes\writeCellVolumes.cxx">
+      <Filter>TnbLib\functionObjects\field\writeCellVolumes</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\XiReactionRate\XiReactionRate.cxx">
+      <Filter>TnbLib\functionObjects\field\XiReactionRate</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\surfaceInterpolate\surfaceInterpolateFunObj.cxx">
+      <Filter>TnbLib\functionObjects\field\surfaceInterpolate</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\surfaceInterpolate\surfaceInterpolateFunObjTemplates.cxx">
+      <Filter>TnbLib\functionObjects\field\surfaceInterpolate</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

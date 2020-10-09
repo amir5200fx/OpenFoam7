@@ -1,9 +1,7 @@
-#include <PecletNo.hxx>
+#include <Lambda2.hxx>
 
-#include <turbulenceModel.hxx>
-#include <surfaceInterpolate.hxx>
+#include <fvcGrad.hxx>
 #include <addToRunTimeSelectionTable.hxx>
-
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
@@ -11,12 +9,12 @@ namespace tnbLib
 {
 	namespace functionObjects
 	{
-		defineTypeNameAndDebug(PecletNo, 0);
+		defineTypeNameAndDebug(Lambda2, 0);
 
 		addToRunTimeSelectionTable
 		(
 			functionObject,
-			PecletNo,
+			Lambda2,
 			dictionary
 		);
 	}
@@ -25,30 +23,24 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 
-bool tnbLib::functionObjects::PecletNo::calc()
+bool tnbLib::functionObjects::Lambda2::calc()
 {
-	if (foundObject<surfaceScalarField>(fieldName_))
+	if (foundObject<volVectorField>(fieldName_))
 	{
-		tmp<volScalarField> nuEff
-		(
-			mesh_.lookupObject<turbulenceModel>
-			(
-				turbulenceModel::propertiesName
-				).nuEff()
-		);
+		const volVectorField& U = lookupObject<volVectorField>(fieldName_);
+		const tmp<volTensorField> tgradU(fvc::grad(U));
+		const volTensorField& gradU = tgradU();
 
-		const surfaceScalarField& phi =
-			mesh_.lookupObject<surfaceScalarField>(fieldName_);
+		const volTensorField SSplusWW
+		(
+			(symm(gradU) & symm(gradU))
+			+ (skew(gradU) & skew(gradU))
+		);
 
 		return store
 		(
 			resultName_,
-			mag(phi)
-			/ (
-				mesh_.magSf()
-				*mesh_.surfaceInterpolation::deltaCoeffs()
-				*fvc::interpolate(nuEff)
-				)
+			-eigenValues(SSplusWW)().component(vector::Y)
 		);
 	}
 	else
@@ -60,22 +52,22 @@ bool tnbLib::functionObjects::PecletNo::calc()
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
-tnbLib::functionObjects::PecletNo::PecletNo
+tnbLib::functionObjects::Lambda2::Lambda2
 (
 	const word& name,
 	const Time& runTime,
 	const dictionary& dict
 )
 	:
-	fieldExpression(name, runTime, dict, "phi")
+	fieldExpression(name, runTime, dict, "U")
 {
-	setResultName("Pe", "phi");
+	setResultName(typeName, "U");
 }
 
 
 // * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
 
-tnbLib::functionObjects::PecletNo::~PecletNo()
+tnbLib::functionObjects::Lambda2::~Lambda2()
 {}
 
 
