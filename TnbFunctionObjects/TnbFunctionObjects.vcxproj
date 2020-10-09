@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugNoCopyHxx|Win32">
+      <Configuration>DebugNoCopyHxx</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugNoCopyHxx|x64">
+      <Configuration>DebugNoCopyHxx</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
@@ -31,6 +39,12 @@
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -39,6 +53,12 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
@@ -59,10 +79,16 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -98,6 +124,17 @@
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -117,6 +154,23 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)inclu
 for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y
 for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)include" /y
 for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\functionObjects\field\add;$(ProjectDir)TnbLib\functionObjects\field\age;$(ProjectDir)TnbLib\functionObjects\field\blendingFactor;$(ProjectDir)TnbLib\functionObjects\field\components;$(ProjectDir)TnbLib\functionObjects\field\CourantNo;$(ProjectDir)TnbLib\functionObjects\field\ddt;$(ProjectDir)TnbLib\functionObjects\field\div;$(ProjectDir)TnbLib\functionObjects\field\enstrophy;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage\fieldAverageItem;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage;$(ProjectDir)TnbLib\functionObjects\field\fieldCoordinateSystemTransform;$(ProjectDir)TnbLib\functionObjects\field\fieldExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldMinMax;$(ProjectDir)TnbLib\functionObjects\field\fieldsExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValueDelta;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\surfaceFieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\volFieldValue;$(ProjectDir)TnbLib\functionObjects\field\flowType;$(ProjectDir)TnbLib\functionObjects\field\grad;$(ProjectDir)TnbLib\functionObjects\field\histogram;$(ProjectDir)TnbLib\functionObjects\field\interfaceHeight;$(ProjectDir)TnbLib\functionObjects\field\Lambda2;$(ProjectDir)TnbLib\functionObjects\field\_log;$(ProjectDir)TnbLib\functionObjects\field\MachNo;$(ProjectDir)TnbLib\functionObjects\field\mag;$(ProjectDir)TnbLib\functionObjects\field\magSqr;$(ProjectDir)TnbLib\functionObjects\field\nearWallFields;$(ProjectDir)TnbLib\functionObjects\field\PecletNo;$(ProjectDir)TnbLib\functionObjects\field\pressure;$(ProjectDir)TnbLib\functionObjects\field\processorField;$(ProjectDir)TnbLib\functionObjects\field\Q;$(ProjectDir)TnbLib\functionObjects\field\randomise;$(ProjectDir)TnbLib\functionObjects\field\readFields;$(ProjectDir)TnbLib\functionObjects\field\regionSizeDistribution;$(ProjectDir)TnbLib\functionObjects\field\scale;$(ProjectDir)TnbLib\functionObjects\field\streamFunction;$(ProjectDir)TnbLib\functionObjects\field\streamLine;$(ProjectDir)TnbLib\functionObjects\field\subtract;$(ProjectDir)TnbLib\functionObjects\field\surfaceInterpolate;$(ProjectDir)TnbLib\functionObjects\field\turbulenceFields;$(ProjectDir)TnbLib\functionObjects\field\turbulenceIntensity;$(ProjectDir)TnbLib\functionObjects\field\vorticity;$(ProjectDir)TnbLib\functionObjects\field\wallHeatFlux;$(ProjectDir)TnbLib\functionObjects\field\wallHeatTransferCoeff;$(ProjectDir)TnbLib\functionObjects\field\wallShearStress;$(ProjectDir)TnbLib\functionObjects\field\writeCellCentres;$(ProjectDir)TnbLib\functionObjects\field\writeCellVolumes;$(ProjectDir)TnbLib\functionObjects\field\XiReactionRate;$(ProjectDir)TnbLib\functionObjects\field\yPlus;$(ProjectDir)TnbLib\functionObjects\forces\forceCoeffs;$(ProjectDir)TnbLib\functionObjects\forces\forces;$(ProjectDir)TnbLib\functionObjects\lagrangian\cloudInfo;$(ProjectDir)TnbLib\functionObjects\lagrangian\dsmcFields;$(ProjectDir)TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud;$(ProjectDir)TnbLib\functionObjects\solvers\phaseScalarTransport;$(ProjectDir)TnbLib\functionObjects\solvers\scalarTransport;$(ProjectDir)TnbLib\functionObjects\utilities\abort;$(ProjectDir)TnbLib\functionObjects\utilities\codedFunctionObject;$(ProjectDir)TnbLib\functionObjects\utilities\removeRegisteredObject;$(ProjectDir)TnbLib\functionObjects\utilities\residuals;$(ProjectDir)TnbLib\functionObjects\utilities\setTimeStep;$(ProjectDir)TnbLib\functionObjects\utilities\systemCall;$(ProjectDir)TnbLib\functionObjects\utilities\time;$(ProjectDir)TnbLib\functionObjects\utilities\timeActivatedFileUpdate;$(ProjectDir)TnbLib\functionObjects\utilities\writeDictionary;$(ProjectDir)TnbLib\functionObjects\utilities\writeObjects;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbSampling\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _initContinuityErrs_Header
-#define _initContinuityErrs_Header
+//#ifndef _initContinuityErrs_Header
+//#define _initContinuityErrs_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -33,7 +33,7 @@ Description
 
 \*---------------------------------------------------------------------------*/
 
-#include <scalar.hxx>
+//#include <scalar.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -41,4 +41,4 @@ tnbLib::scalar cumulativeContErr = 0;
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_initContinuityErrs_Header
+//#endif // !_initContinuityErrs_Header

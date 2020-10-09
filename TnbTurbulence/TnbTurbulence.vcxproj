@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugNoCopyHxx|Win32">
+      <Configuration>DebugNoCopyHxx</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugNoCopyHxx|x64">
+      <Configuration>DebugNoCopyHxx</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
@@ -31,6 +39,12 @@
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -39,6 +53,12 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
@@ -59,10 +79,16 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -70,6 +96,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
     <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -92,7 +121,36 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)inclu
 for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\TurbulenceModels\compressible\CompressibleTurbulenceModel;$(ProjectDir)TnbLib\TurbulenceModels\compressible\EddyDiffusivity;$(ProjectDir)TnbLib\TurbulenceModels\compressible\RAS\buoyantKEpsilon;$(ProjectDir)TnbLib\TurbulenceModels\compressible\ThermalDiffusivity;$(ProjectDir)TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\convectiveHeatTransfer;$(ProjectDir)TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\CoupledBaffleMixed;$(ProjectDir)TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\externalCoupledTempMixed;$(ProjectDir)TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\externalWallHeatFluxTemp;$(ProjectDir)TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\RadCoupledMixed;$(ProjectDir)TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\temperatureCoupledBase;$(ProjectDir)TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\thermalBaffle1D;$(ProjectDir)TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\totalFlowRate;$(ProjectDir)TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\wallFuns\alphats\alphatJayatilleke;$(ProjectDir)TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\wallFuns\alphats\alphat;$(ProjectDir)TnbLib\TurbulenceModels\compressible\Models\derivedFvPatchFields\wallHeatTransfer;$(ProjectDir)TnbLib\TurbulenceModels\compressible\Models;$(ProjectDir)TnbLib\TurbulenceModels\compressible;$(ProjectDir)TnbLib\TurbulenceModels\incompressible\IncompressibleTurbulenceModel;$(ProjectDir)TnbLib\TurbulenceModels\incompressible\TransportModels\derivedFvPatchFields\wallFuns\alphats\alphatJayatilleke;$(ProjectDir)TnbLib\TurbulenceModels\incompressible\TransportModels\RAS\kkLOmega;$(ProjectDir)TnbLib\TurbulenceModels\incompressible\TransportModels\RAS\LamBremhorstKE;$(ProjectDir)TnbLib\TurbulenceModels\incompressible\TransportModels\RAS\LienCubicKE;$(ProjectDir)TnbLib\TurbulenceModels\incompressible\TransportModels\RAS\LienLeschziner;$(ProjectDir)TnbLib\TurbulenceModels\incompressible\TransportModels\RAS\qZeta;$(ProjectDir)TnbLib\TurbulenceModels\incompressible\TransportModels\RAS\ShihQuadraticKE;$(ProjectDir)TnbLib\TurbulenceModels\incompressible\TransportModels;$(ProjectDir)TnbLib\TurbulenceModels\incompressible;$(ProjectDir)TnbLib\TurbulenceModels\phaseCompressible\LES\continuousGasKEqn;$(ProjectDir)TnbLib\TurbulenceModels\phaseCompressible\LES\Niceno;$(ProjectDir)TnbLib\TurbulenceModels\phaseCompressible\LES\SmagorinskyZhang;$(ProjectDir)TnbLib\TurbulenceModels\phaseCompressible\PhaseCompressibleTurbulenceModel;$(ProjectDir)TnbLib\TurbulenceModels\phaseCompressible\RAS\continuousGasKEpsilon;$(ProjectDir)TnbLib\TurbulenceModels\phaseCompressible\RAS\kOmegaSSTSato;$(ProjectDir)TnbLib\TurbulenceModels\phaseCompressible\RAS\LaheyKEpsilon;$(ProjectDir)TnbLib\TurbulenceModels\phaseCompressible\RAS\mixtureKEpsilon;$(ProjectDir)TnbLib\TurbulenceModels\phaseIncompressible\PhaseIncompressibleTurbulenceModel;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\Base\kOmegaSST;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\fixedShearStress;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\porousBafflePressure;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\epsilonWallFunctions\epsilon;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\fWallFunctions\f;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\kqRWallFunctions\kLowRe;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\kqRWallFunctions\kqR;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\nutWallFunctions\nutkRough;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\nutWallFunctions\nutk;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\nutWallFunctions\nutLowRe;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\nutWallFunctions\nutURough;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\nutWallFunctions\nutUSpalding;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\nutWallFunctions\nutUTabulated;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\nutWallFunctions\nutU;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\nutWallFunctions\nut;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\omegaWallFunctions\omega;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\derivedFvPatchFields\wallFunctions\v2WallFunctions\v2;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\eddyViscosity;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\BirdCarreau;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\Casson;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\CrossPowerLaw;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\Model;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\HerschelBulkley;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\powerLaw;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\strainRateFunction;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\laminar\Giesekus;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\laminar\laminarModel;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\laminar\Maxwell;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\laminar\Stokes;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\DeardorffDiffStress;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\dynamicKEqn;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\dynamicLagrangian;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\kEqn;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\kOmegaSSTDES;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\cubeRootVolDelta;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\IDDESDelta;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\LESdelta;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\maxDeltaxyz;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\PrandtlDelta;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\smoothDelta;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\vanDriestDelta;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESeddyViscosity;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESfilters\anisotropicFilter;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESfilters\laplaceFilter;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESfilters\LESfilter;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESfilters\simpleFilter;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\LESModel;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\Smagorinsky;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasDDES;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasDES;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\SpalartAllmarasIDDES;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\LES\WALE;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\linearViscousStress;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\nonlinearEddyViscosity;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\derivedFvPatchFields\MixingLengthDissipationRateInlet;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\derivedFvPatchFields\MixingLengthFrequencyInlet;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\kEpsilon;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmega;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSST;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSSTLM;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\kOmegaSSTSAS;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\LaunderSharmaKE;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\LRR;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\RASModel;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\realizableKE;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\RNGkEpsilon;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\SpalartAllmaras;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\SSG;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\RAS\v2f;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\ReynoldsStress;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels\TurbulenceModel;$(ProjectDir)TnbLib\TurbulenceModels\turbulenceModels;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>

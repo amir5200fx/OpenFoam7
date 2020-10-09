@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugNoCopyHxx|Win32">
+      <Configuration>DebugNoCopyHxx</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugNoCopyHxx|x64">
+      <Configuration>DebugNoCopyHxx</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
@@ -31,6 +39,12 @@
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -39,6 +53,12 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
@@ -59,10 +79,16 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -70,6 +96,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
     <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -93,7 +122,37 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)inclu
 for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\sampling\cuttingPlane;$(ProjectDir)TnbLib\sampling\graphField;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\cellVolumeWeight;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\direct;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\mapNearest;$(ProjectDir)TnbLib\sampling\meshToMesh\calcMethod\meshToMeshMethod;$(ProjectDir)TnbLib\sampling\meshToMesh;$(ProjectDir)TnbLib\sampling\meshToMesh0;$(ProjectDir)TnbLib\sampling\probes;$(ProjectDir)TnbLib\sampling\sampledSet\arcUniform;$(ProjectDir)TnbLib\sampling\sampledSet\boundaryPoints;$(ProjectDir)TnbLib\sampling\sampledSet\boundaryRandom;$(ProjectDir)TnbLib\sampling\sampledSet\boxUniform;$(ProjectDir)TnbLib\sampling\sampledSet\circleRandom;$(ProjectDir)TnbLib\sampling\sampledSet\lineCell;$(ProjectDir)TnbLib\sampling\sampledSet\lineCellFace;$(ProjectDir)TnbLib\sampling\sampledSet\lineFace;$(ProjectDir)TnbLib\sampling\sampledSet\lineUniform;$(ProjectDir)TnbLib\sampling\sampledSet\points;$(ProjectDir)TnbLib\sampling\sampledSet\sampledSet;$(ProjectDir)TnbLib\sampling\sampledSet\sampledSets;$(ProjectDir)TnbLib\sampling\sampledSet\sphereRandom;$(ProjectDir)TnbLib\sampling\sampledSet\triSurfaceMeshSampledSet;$(ProjectDir)TnbLib\sampling\sampledSurface\distanceSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\isoSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledCuttingPlane;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPatch;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPatchInternalField;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledPlane;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledSurface;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledSurfaces;$(ProjectDir)TnbLib\sampling\sampledSurface\sampledTriSurfaceMesh;$(ProjectDir)TnbLib\sampling\sampledSurface\thresholdCellFaces;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\ensight;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\foam;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\nastran;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\none;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\proxy;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\raw;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\starcd;$(ProjectDir)TnbLib\sampling\sampledSurface\writers\vtk;$(ProjectDir)TnbLib\sampling\sampledSurface\writers;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NoRepository
+;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>

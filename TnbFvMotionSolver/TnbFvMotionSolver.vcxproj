@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugNoCopyHxx|Win32">
+      <Configuration>DebugNoCopyHxx</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugNoCopyHxx|x64">
+      <Configuration>DebugNoCopyHxx</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
@@ -31,6 +39,12 @@
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -39,6 +53,12 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
@@ -59,10 +79,16 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -70,6 +96,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
     <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -92,7 +121,36 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)inclu
 for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\componentDisplacement\componentLaplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\componentVelocity\componentLaplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\displacement\laplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver;$(ProjectDir)TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian;$(ProjectDir)TnbLib\fvMotionSolver\fvPatchFields\derived\cellMotion;$(ProjectDir)TnbLib\fvMotionSolver\fvPatchFields\derived\surfaceSlipDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\directional;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\file;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseFaceDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inversePointDistance;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\inverseVolume;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\manipulators\exponential;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\manipulators\quadratic;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\motionDiffusivity;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\motionDirectional;$(ProjectDir)TnbLib\fvMotionSolver\motionDiffusivity\uniform;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\angularOscillatingVelocity;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\oscillatingVelocity;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\uniformInterpolatedDisplacement;$(ProjectDir)TnbLib\fvMotionSolver\pointPatchFields\derived\waveDisplacement;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>

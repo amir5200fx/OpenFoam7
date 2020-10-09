@@ -259,6 +259,9 @@
     <Filter Include="TnbLib\dynamicFvMesh\staticFvMesh">
       <UniqueIdentifier>{876f27bb-a12a-4a27-806a-a3d1965d4f27}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\dynamicFvMesh\include">
+      <UniqueIdentifier>{ed13cfe9-6f0d-4275-ae8b-9bbb6f4d82e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.hxx">
@@ -866,5 +869,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="TnbLib\dynamicFvMesh\include\createDyMControls.lxx">
+      <Filter>TnbLib\dynamicFvMesh\include</Filter>
+    </None>
+    <None Include="TnbLib\dynamicFvMesh\include\createDynamicFvMesh.lxx">
+      <Filter>TnbLib\dynamicFvMesh\include</Filter>
+    </None>
+    <None Include="TnbLib\dynamicFvMesh\include\createNamedDynamicFvMesh.lxx">
+      <Filter>TnbLib\dynamicFvMesh\include</Filter>
+    </None>
+    <None Include="TnbLib\dynamicFvMesh\include\meshCourantNo.lxx">
+      <Filter>TnbLib\dynamicFvMesh\include</Filter>
+    </None>
+    <None Include="TnbLib\dynamicFvMesh\include\readDyMControls.lxx">
+      <Filter>TnbLib\dynamicFvMesh\include</Filter>
+    </None>
   </ItemGroup>
 </Project>
