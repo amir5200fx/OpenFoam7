@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\BCs">
+      <UniqueIdentifier>{729cbdc7-506a-4593-b463-3658eb124933}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\BCs\mixedFixedValueSlip">
+      <UniqueIdentifier>{bcb445e5-2516-43d2-992a-5d7f0bf0b772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\BCs\rho">
+      <UniqueIdentifier>{d132bb23-b5a4-42ce-96d9-f092edbb9729}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\BCs\T">
+      <UniqueIdentifier>{862cea09-a569-4350-95c7-0530cb1dbbbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\BCs\U">
+      <UniqueIdentifier>{fa5e36f7-b606-45f9-a308-4e6c28e617bd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BCs\mixedFixedValueSlip\mixedFixedValueSlipFvPatchField.hxx">
+      <Filter>Source Files\BCs\mixedFixedValueSlip</Filter>
+    </ClInclude>
+    <ClInclude Include="BCs\mixedFixedValueSlip\mixedFixedValueSlipFvPatchFields.hxx">
+      <Filter>Source Files\BCs\mixedFixedValueSlip</Filter>
+    </ClInclude>
+    <ClInclude Include="BCs\mixedFixedValueSlip\mixedFixedValueSlipFvPatchFieldsFwd.hxx">
+      <Filter>Source Files\BCs\mixedFixedValueSlip</Filter>
+    </ClInclude>
+    <ClInclude Include="BCs\rho\fixedRhoFvPatchScalarField.hxx">
+      <Filter>Source Files\BCs\rho</Filter>
+    </ClInclude>
+    <ClInclude Include="BCs\T\smoluchowskiJumpTFvPatchScalarField.hxx">
+      <Filter>Source Files\BCs\T</Filter>
+    </ClInclude>
+    <ClInclude Include="BCs\U\maxwellSlipUFvPatchVectorField.hxx">
+      <Filter>Source Files\BCs\U</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BCs\mixedFixedValueSlip\mixedFixedValueSlipFvPatchFields.cxx">
+      <Filter>Source Files\BCs\mixedFixedValueSlip</Filter>
+    </ClCompile>
+    <ClCompile Include="BCs\rho\fixedRhoFvPatchScalarField.cxx">
+      <Filter>Source Files\BCs\rho</Filter>
+    </ClCompile>
+    <ClCompile Include="BCs\T\smoluchowskiJumpTFvPatchScalarField.cxx">
+      <Filter>Source Files\BCs\T</Filter>
+    </ClCompile>
+    <ClCompile Include="BCs\U\maxwellSlipUFvPatchVectorField.cxx">
+      <Filter>Source Files\BCs\U</Filter>
+    </ClCompile>
+    <ClCompile Include="rhoCentralFoam.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="centralCourantNo.lxx">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="createFieldRefs.lxx">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="directionInterpolate.lxx">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="readFluxScheme.lxx">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="setRDeltaT.lxx">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="BCs\mixedFixedValueSlip\mixedFixedValueSlipFvPatchField.cxx">
+      <Filter>Source Files\BCs\mixedFixedValueSlip</Filter>
+    </None>
+  </ItemGroup>
+</Project>
