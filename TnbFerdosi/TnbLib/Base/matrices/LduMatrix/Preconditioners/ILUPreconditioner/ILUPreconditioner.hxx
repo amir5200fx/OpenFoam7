@@ -4,6 +4,8 @@
 
 #include <lduMatrix.hxx>
 
+#include <tuple>
+
 namespace tnbLib
 {
 
@@ -38,8 +40,24 @@ namespace tnbLib
 
 		// Member Functions
 
+		static std::tuple<bool, label> 
+			isZero
+			(
+				const label row, 
+				const label start, const label end,
+				const labelUList& addr
+			);
+
+		static scalar 
+			multiplyInColumn
+			(
+				const label i, const label j,
+				const label start, const label end,
+				const scalarField& rL, const labelUList& addr
+			);
+
 		//- Calculate the reciprocal of the preconditioned diagonal
-		static void calcReciprocalD(scalarField& rD, scalarField& rL, const lduMatrix& matrix);
+		static void calcReciprocalLD(scalarField& rD, scalarField& rL, const lduMatrix& matrix);
 
 		//- Return wA the preconditioned form of residual rA
 		virtual void precondition
