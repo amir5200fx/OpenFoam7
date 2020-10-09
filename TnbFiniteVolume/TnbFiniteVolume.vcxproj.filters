@@ -2895,9 +2895,6 @@
     <ClInclude Include="TnbLib\FiniteVolume\cfdTools\general\include\fvCFD.hxx">
       <Filter>TnbLib\FiniteVolume\cfdTools\general\include</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\FiniteVolume\cfdTools\general\include\initContinuityErrs.hxx">
-      <Filter>TnbLib\FiniteVolume\cfdTools\general\include</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\FiniteVolume\cfdTools\general\levelSet\levelSet.hxx">
       <Filter>TnbLib\FiniteVolume\cfdTools\general\levelSet</Filter>
     </ClInclude>
@@ -4595,6 +4592,9 @@
     <ClCompile Include="TnbLib\FiniteVolume\cfdTools\general\SRF\derivedFvPatchFields\SRFFreestreamVelocityFvPatchVectorField\SRFFreestreamVelocityFvPatchVectorField.cxx">
       <Filter>TnbLib\FiniteVolume\cfdTools\general\SRF\derivedFvPatchFields\SRFFreestreamVelocityFvPatchVectorField</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\FiniteVolume\cfdTools\general\CorrectPhi\correctUphiBCs.cxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\CorrectPhi</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="TnbLib\FiniteVolume\cfdTools\general\include\alphaControls.lxx">
@@ -4669,6 +4669,60 @@
     </None>
     <None Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\fixedInternalValue\fixedInternalValueFvPatchField.cxx-backup">
       <Filter>TnbLib\FiniteVolume\fields\fvPatchFields\derived\fixedInternalValue</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\incompressible\CourantNo.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\incompressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\incompressible\continuityErrs.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\incompressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\incompressible\createPhi.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\incompressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\incompressible\createPhiv.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\incompressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\incompressible\createUf.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\incompressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\incompressible\createUfIfPresent.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\incompressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\incompressible\movingMeshContinuityErrs.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\incompressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\incompressible\movingMeshRhoUContinuityErrs.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\incompressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\incompressible\updateUf.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\incompressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\compressible\compressibleContinuityErrs.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\compressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\compressible\compressibleCourantNo.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\compressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\compressible\compressibleCreatePhi.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\compressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\compressible\createRhoUf.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\compressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\compressible\createRhoUfIfPresent.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\compressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\compressible\rhoEqn.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\compressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\compressible\updateRhoUf.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\compressible</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\general\include\initContinuityErrs.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\include</Filter>
+    </None>
+    <None Include="TnbLib\FiniteVolume\cfdTools\general\solutionControl\createControl.lxx">
+      <Filter>TnbLib\FiniteVolume\cfdTools\general\solutionControl</Filter>
     </None>
   </ItemGroup>
 </Project>
