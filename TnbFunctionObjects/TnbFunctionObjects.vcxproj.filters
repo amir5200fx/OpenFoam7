@@ -205,6 +205,27 @@
     <Filter Include="TnbLib\functionObjects\utilities\removeRegisteredObject">
       <UniqueIdentifier>{f9e63a5e-2be8-4154-b950-68d11f093f91}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\functionObjects\forces\forceCoeffs">
+      <UniqueIdentifier>{317fe974-977e-47aa-965f-e9f2bb18b591}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\forces\forces">
+      <UniqueIdentifier>{8dd8eb94-95bd-4d6c-8daa-066c76cd680b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\lagrangian\cloudInfo">
+      <UniqueIdentifier>{4c5335b8-887e-46b0-8175-e2dc1240ab1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\lagrangian\dsmcFields">
+      <UniqueIdentifier>{fe404f36-8ab4-4806-b021-683a7495ec54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud">
+      <UniqueIdentifier>{aabc02ec-8856-444f-950a-9098f4a63d4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\solvers\scalarTransport">
+      <UniqueIdentifier>{6137f79c-beca-40f0-a93e-e8f64d10e80e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\solvers\phaseScalarTransport">
+      <UniqueIdentifier>{924a78c7-07fd-4b7c-acf0-a58c6f54cee9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\functionObjects\field\fieldExpression\fieldExpression.hxx">
@@ -401,6 +422,27 @@
     </ClInclude>
     <ClInclude Include="TnbLib\functionObjects\utilities\writeObjects\writeObjects.hxx">
       <Filter>TnbLib\functionObjects\utilities\writeObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\forces\forces\forces.hxx">
+      <Filter>TnbLib\functionObjects\forces\forces</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\forces\forceCoeffs\forceCoeffs.hxx">
+      <Filter>TnbLib\functionObjects\forces\forceCoeffs</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\lagrangian\cloudInfo\cloudInfo.hxx">
+      <Filter>TnbLib\functionObjects\lagrangian\cloudInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\lagrangian\dsmcFields\dsmcFields.hxx">
+      <Filter>TnbLib\functionObjects\lagrangian\dsmcFields</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud\icoUncoupledKinematicCloud.hxx">
+      <Filter>TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\solvers\scalarTransport\scalarTransport.hxx">
+      <Filter>TnbLib\functionObjects\solvers\scalarTransport</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\solvers\phaseScalarTransport\phaseScalarTransport.hxx">
+      <Filter>TnbLib\functionObjects\solvers\phaseScalarTransport</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -679,6 +721,27 @@
     </ClCompile>
     <ClCompile Include="TnbLib\functionObjects\utilities\writeObjects\writeObjects.cxx">
       <Filter>TnbLib\functionObjects\utilities\writeObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\forces\forces\forces.cxx">
+      <Filter>TnbLib\functionObjects\forces\forces</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\forces\forceCoeffs\forceCoeffs.cxx">
+      <Filter>TnbLib\functionObjects\forces\forceCoeffs</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\lagrangian\cloudInfo\cloudInfo.cxx">
+      <Filter>TnbLib\functionObjects\lagrangian\cloudInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\lagrangian\dsmcFields\dsmcFields.cxx">
+      <Filter>TnbLib\functionObjects\lagrangian\dsmcFields</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud\icoUncoupledKinematicCloud.cxx">
+      <Filter>TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\solvers\scalarTransport\scalarTransport.cxx">
+      <Filter>TnbLib\functionObjects\solvers\scalarTransport</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\solvers\phaseScalarTransport\phaseScalarTransport.cxx">
+      <Filter>TnbLib\functionObjects\solvers\phaseScalarTransport</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

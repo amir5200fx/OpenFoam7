@@ -1,4 +1,0 @@
-scalarTransport/scalarTransport.C
-phaseScalarTransport/phaseScalarTransport.C
-
-LIB = $(FOAM_LIBBIN)/libsolverFunctionObjects
