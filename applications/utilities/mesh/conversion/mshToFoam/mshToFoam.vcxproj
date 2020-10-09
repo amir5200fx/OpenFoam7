@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A98FF127-D353-4391-899B-E6057ADD3F9F}</ProjectGuid>
-    <RootNamespace>datToFoam</RootNamespace>
+    <ProjectGuid>{C0427132-AC33-4C2C-82B7-42291194440E}</ProjectGuid>
+    <RootNamespace>mshToFoam</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -132,16 +132,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="datToFoam.cxx" />
+    <ClCompile Include="mshToFoam.cxx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\TnbBase\TnbBase.vcxproj">
+    <ProjectReference Include="..\..\..\..\..\TnbBase\TnbBase.vcxproj">
       <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\..\..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+    <ProjectReference Include="..\..\..\..\..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
       <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\..\..\TnbFvMesh\TnbFvMesh.vcxproj">
+    <ProjectReference Include="..\..\..\..\..\TnbFvMesh\TnbFvMesh.vcxproj">
       <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
     </ProjectReference>
   </ItemGroup>

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="meshToFoam.cxx">
+    <ClCompile Include="mshToFoam.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
