@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _randomise_Header
+#define _randomise_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2016-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,19 +26,18 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::randomise
 
 Description
-	Multiplies a field by a scaling factor.
+	Adds a random component to a field, with a specified perturbation magnitude.
 
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	The operation can be applied to any volume field.
 
 See also
 	tnbLib::functionObjects::fvMeshFunctionObject
 
 SourceFiles
-	scale.C
+	randomise.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -52,39 +51,39 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								   Class randomise Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class randomise
 			:
 			public fieldExpression
 		{
-			// Private Data
+			// Private member data
 
-				//- Scale factor
-			scalar scale_;
+				//- The magnitude of the purturbation
+			scalar magPerturbation_;
 
 
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
+				//- Calculate the randomisenitude of the field and register the result
 			template<class Type>
-			bool calcScale();
+			bool calcRandomised();
 
-			//- Calculate the scale of the field and return true if successful
+			//- Calculate the randomised field and return true if successful
 			virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scale");
+			TypeName("randomise");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scale
+			randomise
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,7 +92,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scale();
+			virtual ~randomise();
 
 
 			// Member Functions
@@ -111,9 +110,9 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <scaleTemplates.cxx>
+#include <randomiseTemplates.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_scale_Header
+#endif // !_randomise_Header

@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _processorField_Header
+#define _processorField_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,51 +26,37 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::processorField
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Writes a scalar field whose value is the local processor ID.  The output
+	field name is 'processorID'.
 
-	Example:
+	Example of function object specification:
 	\verbatim
-	histogram1
+	processorField1
 	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
+		type        processorField;
+		libs        ("libfieldFunctionObjects.so");
+		...
 	}
 	\endverbatim
 
 Usage
 	\table
 		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
+		type         | type name: processorField | yes       |
 	\endtable
 
 See also
-	tnbLib::functionObject
 	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
 
 SourceFiles
-	histogram.C
+	processorField.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,53 +66,23 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+							   Class processorField Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class processorField
 			:
 			public fvMeshFunctionObject
 		{
-			// Private Data
-
-			writeFile file_;
-
-			//- Name of field
-			word fieldName_;
-
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
-
-
-			// Private Member Functions
-
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
-
-
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("processorField");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			processorField
 			(
 				const word& name,
 				const Time& runTime,
@@ -134,31 +90,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			processorField(const processorField&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~processorField();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the input data
 			virtual bool read(const dictionary&);
 
-			//- Execute, currently does nothing
+			//- Calculate the processorID field
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Write the processorID field
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const processorField&) = delete;
 		};
 
 
@@ -169,4 +123,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_processorField_Header

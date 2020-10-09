@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _yPlus_Header
+#define _yPlus_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2013-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,107 +26,92 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::yPlus
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Evaluates and outputs turbulence y+ for models. Values written to
+	time directories as field 'yPlus'.
 
-	Example:
+	Example of function object specification:
 	\verbatim
-	histogram1
+	yPlus1
 	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
+		type        yPlus;
+		libs        ("libfieldFunctionObjects.so");
+		...
 	}
 	\endverbatim
 
 Usage
 	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
+		Property | Description                | Required   | Default value
+		type     | type name: yPlus           | yes        |
 	\endtable
+
+Note
+	Writing field 'yPlus' is done by default, but it can be overridden by
+	defining an empty \c objects list. For details see writeLocalObjects.
 
 See also
 	tnbLib::functionObject
 	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
+	tnbLib::functionObjects::logFiles
+	tnbLib::functionObjects::writeLocalObjects
+	tnbLib::functionObjects::timeControl
 
 SourceFiles
-	histogram.C
+	yPlus.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <logFiles.hxx>
+#include <writeLocalObjects.hxx>
+#include <volFieldsFwd.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
+
+	// Forward declaration of classes
+	class turbulenceModel;
+
 	namespace functionObjects
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+								  Class yPlus Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class yPlus
 			:
-			public fvMeshFunctionObject
+			public fvMeshFunctionObject,
+			public logFiles,
+			public writeLocalObjects
 		{
-			// Private Data
-
-			writeFile file_;
-
-			//- Name of field
-			word fieldName_;
-
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
-
-
 			// Private Member Functions
 
-			void writeGraph
+				//- File header information
+			virtual void writeFileHeader(const label i);
+
+			//- Calculate y+
+			tmp<volScalarField> calcYPlus
 			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+				const turbulenceModel& turbModel
+			);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("yPlus");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			yPlus
 			(
 				const word& name,
 				const Time& runTime,
@@ -134,31 +119,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			yPlus(const yPlus&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~yPlus();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the yPlus data
 			virtual bool read(const dictionary&);
 
-			//- Execute, currently does nothing
+			//- Calculate the yPlus field
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Write the yPlus field
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const yPlus&) = delete;
 		};
 
 
@@ -169,4 +152,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_yPlus_Header

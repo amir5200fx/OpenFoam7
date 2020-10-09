@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _timeActivatedFileUpdate_Header
+#define _timeActivatedFileUpdate_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,65 +26,96 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::timeActivatedFileUpdate
 
 Description
-	Multiplies a field by a scaling factor.
+	Performs a file copy/replacement once a specified time has been reached.
 
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	Example usage to update the fvSolution dictionary at various times
+	throughout the calculation:
 
-See also
-	tnbLib::functionObjects::fvMeshFunctionObject
+	\verbatim
+	fileUpdate1
+	{
+		type              timeActivatedFileUpdate;
+		libs              ("libutilityFunctionObjects.so");
+		writeControl      timeStep;
+		writeInterval     1;
+		fileToUpdate      "$FOAM_CASE/system/fvSolution";
+		timeVsFile
+		(
+			(-1 "$FOAM_CASE/system/fvSolution.0")
+			(0.10 "$FOAM_CASE/system/fvSolution.10")
+			(0.20 "$FOAM_CASE/system/fvSolution.20")
+			(0.35 "$FOAM_CASE/system/fvSolution.35")
+		);
+	}
+	\endverbatim
 
 SourceFiles
-	scale.C
+	timeActivatedFileUpdate.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fieldExpression.hxx>
+#include <functionObject.hxx>
+#include <Tuple2.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
+
+	// Forward declaration of classes
+	class Time;
+
 	namespace functionObjects
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+						  Class timeActivatedFileUpdate Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class timeActivatedFileUpdate
 			:
-			public fieldExpression
+			public functionObject
 		{
 			// Private Data
 
-				//- Scale factor
-			scalar scale_;
+				//- Reference to Time
+			const Time& time_;
+
+			//- Name of file to update
+			fileName fileToUpdate_;
+
+			//- List of times vs filenames
+			List<Tuple2<scalar, fileName>> timeVsFile_;
+
+			//- Index of last file copied
+			label lastIndex_;
 
 
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
+				//- Update file
+			void updateFile();
 
-			//- Calculate the scale of the field and return true if successful
-			virtual bool calc();
+			//- Disallow default bitwise copy construction
+			timeActivatedFileUpdate(const timeActivatedFileUpdate&) = delete;
+
+			//- Disallow default bitwise assignment
+			void operator=(const timeActivatedFileUpdate&) = delete;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scale");
+			TypeName("timeActivatedFileUpdate");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scale
+			timeActivatedFileUpdate
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,13 +124,19 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scale();
+			virtual ~timeActivatedFileUpdate();
 
 
 			// Member Functions
 
-				//- Read the randomise data
+				//- Read the timeActivatedFileUpdate data
 			virtual bool read(const dictionary&);
+
+			//- Execute file updates
+			virtual bool execute();
+
+			//- Do nothing
+			virtual bool write();
 		};
 
 
@@ -110,10 +147,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <scaleTemplates.cxx>
-#endif
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_scale_Header
+#endif // !_timeActivatedFileUpdate_Header

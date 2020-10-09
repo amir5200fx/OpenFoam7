@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _timeFunctionObject_Header
+#define _timeFunctionObject_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,51 +26,39 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::time
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Writes run time, CPU time and clock time
+	and optionally the CPU and clock times per time step.
 
-	Example:
+	Example of function object specification:
 	\verbatim
-	histogram1
+	time
 	{
-		type            histogram;
+		type            time;
 
-		libs            ("libfieldFunctionObjects.so");
+		libs            ("libutilityFunctionObjects.so");
 
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
+		writeControl    timeStep;
+		writeInterval   1;
+
+		perTimeStep     no;
 	}
 	\endverbatim
 
-Usage
-	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
-	\endtable
-
 See also
 	tnbLib::functionObject
-	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
+	tnbLib::regionFunctionObject
+	tnbLib::functionObjects::logFiles
 
 SourceFiles
-	histogram.C
+	time.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <regionFunctionObject.hxx>
+#include <logFiles.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,53 +68,44 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+							   Class time Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class time
 			:
-			public fvMeshFunctionObject
+			public regionFunctionObject,
+			public logFiles
 		{
-			// Private Data
+			// Private member data
 
-			writeFile file_;
+				//- Switch to write CPU and clock times per time-step
+			Switch perTimeStep_;
 
-			//- Name of field
-			word fieldName_;
+			//- Previous time-step CPU time
+			scalar cpuTime0_;
 
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
+			//- Previous time-step clock time
+			scalar clockTime0_;
 
 
-			// Private Member Functions
+		protected:
 
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+			// Protected Member Functions
+
+				//- Output file header information
+			virtual void writeFileHeader(const label i);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("time");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			time
 			(
 				const word& name,
 				const Time& runTime,
@@ -134,31 +113,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			time(const time&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~time();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the controls
 			virtual bool read(const dictionary&);
 
 			//- Execute, currently does nothing
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Write the time
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const time&) = delete;
 		};
 
 
@@ -169,4 +146,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_timeFunctionObject_Header

@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _removeRegisteredObject_Header
+#define _removeRegisteredObject_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2013-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,107 +26,78 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::removeRegisteredObject
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Removes registered objects if present in the database.
 
-	Example:
+	Example of function object specification:
 	\verbatim
-	histogram1
+	removeRegisteredObject1
 	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
+		type        removeRegisteredObject;
+		libs        ("libutilityFunctionObjects.so");
+		...
+		objects     (obj1 obj2);
 	}
 	\endverbatim
 
 Usage
 	\table
 		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
+		type         | type name: removeRegisteredObject | yes |
+		objects      | objects to remove       | yes         |
 	\endtable
 
 See also
 	tnbLib::functionObject
-	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
 
 SourceFiles
-	histogram.C
+	removeRegisteredObject.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <functionObject.hxx>
+#include <wordList.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
+
+	// Forward declaration of classes
+	class objectRegistry;
+
 	namespace functionObjects
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+						   Class removeRegisteredObject Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class removeRegisteredObject
 			:
-			public fvMeshFunctionObject
+			public functionObject
 		{
 			// Private Data
 
-			writeFile file_;
+				//- Reference to the objectRegistry
+			const objectRegistry& obr_;
 
-			//- Name of field
-			word fieldName_;
-
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
-
-
-			// Private Member Functions
-
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+			//- Names of objects to control
+			wordList objectNames_;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("removeRegisteredObject");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			removeRegisteredObject
 			(
 				const word& name,
 				const Time& runTime,
@@ -134,31 +105,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			removeRegisteredObject(const removeRegisteredObject&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~removeRegisteredObject();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the removeRegisteredObject data
 			virtual bool read(const dictionary&);
 
-			//- Execute, currently does nothing
+			//- Remove the registered objects
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Do nothing
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const removeRegisteredObject&) = delete;
 		};
 
 
@@ -169,4 +138,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_removeRegisteredObject_Header

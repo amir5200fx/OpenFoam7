@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _subtract_Header
+#define _subtract_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2016-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,23 +26,38 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::subtract
 
 Description
-	Multiplies a field by a scaling factor.
+	From the first field subtract the remaining fields in the list.
 
 	The operation can be applied to any volume or surface fields generating a
 	volume or surface scalar field.
 
+	Example of function object specification:
+	\verbatim
+	Tdiff
+	{
+		type            subtract;
+		libs            ("libfieldFunctionObjects.so");
+		fields          (T Tmean);
+		result          Tdiff;
+		executeControl  writeTime;
+		writeControl    writeTime;
+	}
+	\endverbatim
+
 See also
+	tnbLib::functionObjects::fieldsExpression
 	tnbLib::functionObjects::fvMeshFunctionObject
 
 SourceFiles
-	scale.C
+	subtract.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fieldExpression.hxx>
+
+#include <fieldsExpression.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -52,39 +67,37 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								   Class subtract Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class subtract
 			:
-			public fieldExpression
+			public fieldsExpression
 		{
-			// Private Data
-
-				//- Scale factor
-			scalar scale_;
-
-
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
+				//- Subtract the list of fields of the specified type
+				//  and return the result
+			template<class GeoFieldType>
+			tmp<GeoFieldType> calcFieldType() const;
 
-			//- Calculate the scale of the field and return true if successful
+			//- Subtract the list of fields and return true if successful
 			virtual bool calc();
 
 
 		public:
 
+			friend class fieldsExpression;
+
+
 			//- Runtime type information
-			TypeName("scale");
+			TypeName("subtract");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scale
+			subtract
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,13 +106,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scale();
-
-
-			// Member Functions
-
-				//- Read the randomise data
-			virtual bool read(const dictionary&);
+			virtual ~subtract();
 		};
 
 
@@ -111,9 +118,9 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <scaleTemplates.cxx>
+#include <subtractTemplates.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_scale_Header
+#endif // !_subtract_Header

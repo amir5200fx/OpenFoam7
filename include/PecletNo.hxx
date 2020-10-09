@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _PecletNo_Header
+#define _PecletNo_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2013-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,19 +26,17 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::PecletNo
 
 Description
-	Multiplies a field by a scaling factor.
-
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	Calculates and outputs the Peclet number as a surfaceScalarField.
 
 See also
+	tnbLib::functionObjects::fieldExpression
 	tnbLib::functionObjects::fvMeshFunctionObject
 
 SourceFiles
-	scale.C
+	PecletNo.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -52,39 +50,30 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								  Class PecletNo Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class PecletNo
 			:
 			public fieldExpression
 		{
-			// Private Data
-
-				//- Scale factor
-			scalar scale_;
-
-
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
-
-			//- Calculate the scale of the field and return true if successful
+				//- Calculate the Peclet number field and return true if successful
 			virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scale");
+			TypeName("PecletNo");
 
 
 			// Constructors
 
-				//- Construct from Time and dictionary
-			scale
+				//- Construct for given objectRegistry and dictionary.
+				//  Allow the possibility to load fields from files
+			PecletNo
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,13 +82,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scale();
-
-
-			// Member Functions
-
-				//- Read the randomise data
-			virtual bool read(const dictionary&);
+			virtual ~PecletNo();
 		};
 
 
@@ -110,10 +93,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <scaleTemplates.cxx>
-#endif
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_scale_Header
+#endif // !_PecletNo_Header

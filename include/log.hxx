@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _log_Header
+#define _log_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,19 +26,20 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::log
 
 Description
-	Multiplies a field by a scaling factor.
+	Calculates the natural logarithm of the specified scalar field.
 
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	Performs \f$ln(max(x, a))\f$ where \f$x\f$ is the field and \f$a\f$ an
+	optional clip to handle 0 or negative \f$x\f$.
 
 See also
+	tnbLib::functionObjects::fieldExpression
 	tnbLib::functionObjects::fvMeshFunctionObject
 
 SourceFiles
-	scale.C
+	log.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -52,39 +53,35 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								  Class log Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class log
 			:
 			public fieldExpression
 		{
 			// Private Data
 
-				//- Scale factor
-			scalar scale_;
+				//- Optional clip (default is 0)
+			scalar clip_;
 
 
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
-
-			//- Calculate the scale of the field and return true if successful
+				//- Calculate the log field and return true if successful
 			virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scale");
+			TypeName("log");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scale
+			log
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,7 +90,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scale();
+			virtual ~log();
 
 
 			// Member Functions
@@ -110,10 +107,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <scaleTemplates.cxx>
-#endif
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_scale_Header
+#endif // !_log_Header

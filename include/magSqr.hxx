@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _magSqr_Header
+#define _magSqr_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2016-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,19 +26,19 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::magSqr
 
 Description
-	Multiplies a field by a scaling factor.
+	Calculates the magnitude of the sqr of a field.
 
-	The operation can be applied to any volume or surface fields generating a
+	The operation can be applied to any volume or surface field generating a
 	volume or surface scalar field.
 
 See also
 	tnbLib::functionObjects::fvMeshFunctionObject
 
 SourceFiles
-	scale.C
+	magSqr.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -52,39 +52,35 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								   Class magSqr Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class magSqr
 			:
 			public fieldExpression
 		{
-			// Private Data
-
-				//- Scale factor
-			scalar scale_;
-
-
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
+				//- Calculate the magnitude of the sqr of the field
+				//  and register the result
 			template<class Type>
-			bool calcScale();
+			bool calcMagSqr();
 
-			//- Calculate the scale of the field and return true if successful
+			//- Calculate the magnitude of the sqr of the field
+			//  and return true if successful
 			virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scale");
+			TypeName("magSqr");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scale
+			magSqr
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,13 +89,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scale();
-
-
-			// Member Functions
-
-				//- Read the randomise data
-			virtual bool read(const dictionary&);
+			virtual ~magSqr();
 		};
 
 
@@ -111,9 +101,9 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <scaleTemplates.cxx>
+#include <magSqrTemplates.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_scale_Header
+#endif // !_magSqr_Header

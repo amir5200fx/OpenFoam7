@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _wallShearStress_Header
+#define _wallShearStress_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2013-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,51 +26,65 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::wallShearStress
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Calculates and write the shear-stress at wall patches as
+	the volVectorField field 'wallShearStress'.
 
-	Example:
+		\f[
+			Stress = R \dot n
+		\f]
+
+	where
+	\vartable
+		R       | stress tensor
+		n       | patch normal vector (into the domain)
+	\endvartable
+
+	The shear-stress symmetric tensor field is retrieved from the turbulence
+	model.  All wall patches are included by default; to restrict the
+	calculation to certain patches, use the optional 'patches' entry.
+
+	Example of function object specification:
 	\verbatim
-	histogram1
+	wallShearStress1
 	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
+		type        wallShearStress;
+		libs        ("libfieldFunctionObjects.so");
+		...
+		patches     (".*Wall");
 	}
 	\endverbatim
 
 Usage
 	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
+		Property | Description               | Required    | Default value
+		type     | type name: wallShearStress | yes        |
+		patches  | list of patches to process | no         | all wall patches
 	\endtable
+
+Note
+	Writing field 'wallShearStress' is done by default, but it can be overridden
+	by defining an empty \c objects list. For details see writeLocalObjects.
 
 See also
 	tnbLib::functionObject
 	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
+	tnbLib::functionObjects::logFiles
+	tnbLib::functionObjects::writeLocalObjects
+	tnbLib::functionObjects::timeControl
 
 SourceFiles
-	histogram.C
+	wallShearStress.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <logFiles.hxx>
+#include <writeLocalObjects.hxx>
+#include <volFieldsFwd.hxx>
+#include <HashSet.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,85 +94,76 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+							   Class wallShearStress Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class wallShearStress
 			:
-			public fvMeshFunctionObject
+			public fvMeshFunctionObject,
+			public logFiles,
+			public writeLocalObjects
 		{
-			// Private Data
 
-			writeFile file_;
+		protected:
 
-			//- Name of field
-			word fieldName_;
+			// Protected data
 
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
+				//- Optional list of patches to process
+			labelHashSet patchSet_;
 
 
-			// Private Member Functions
+			// Protected Member Functions
 
-			void writeGraph
+				//- File header information
+			virtual void writeFileHeader(const label i);
+
+			//- Calculate the shear-stress
+			tmp<volVectorField> calcShearStress
 			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+				const volSymmTensorField& Reff
+			);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("wallShearStress");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			wallShearStress
 			(
 				const word& name,
 				const Time& runTime,
-				const dictionary& dict
+				const dictionary&
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			wallShearStress(const wallShearStress&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~wallShearStress();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the wallShearStress data
 			virtual bool read(const dictionary&);
 
-			//- Execute, currently does nothing
+			//- Calculate the wall shear-stress
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Write the wall shear-stress
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const wallShearStress&) = delete;
 		};
 
 
@@ -169,4 +174,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_wallShearStress_Header

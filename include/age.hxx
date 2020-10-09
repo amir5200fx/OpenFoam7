@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _age_Header
+#define _age_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,51 +26,55 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::age
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
-
-	Example:
-	\verbatim
-	histogram1
-	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
-	}
-	\endverbatim
+	Calculates and writes out the time taken for a particle to travel from an
+	inlet to the location. Solves the following equation when incompressible:
+	\f[
+		\div (\phi t) = 1
+	\f]
+	where:
+	\vartable
+		t    | Age [s]
+		\phi | Volumetric flux [m^3/s]
+	\endvartable
+	Boundary conditions are generated automatically as zeroGradient on all
+	walls and inletOutlet everywhere else.
 
 Usage
 	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
+		Property | Description                   | Required | Default value
+		phi      | The name of the flux field    | no       | phi
+		rho      | The name of the density field | no       | rho
+		nCorr    | The number of correctors      | no       | 0
+		schemesField | The name of the field from which schemes are taken | \\
+		no | age
 	\endtable
 
-See also
-	tnbLib::functionObject
-	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
+	\verbatim
+	age1
+	{
+		type            age;
+		libs            ("libsolverFunctionObjects.so");
+
+		writeControl    writeTime;
+		writeInterval   1;
+
+		phi             phi;
+		rho             rho;
+		nCorr           10;
+		schemesField    k;
+	}
+	\endverbatim
 
 SourceFiles
-	histogram.C
+	age.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <volFields.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,85 +84,65 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+									   Class age Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class age
 			:
 			public fvMeshFunctionObject
 		{
 			// Private Data
 
-			writeFile file_;
+				//- The name of the flux field
+			word phiName_;
 
-			//- Name of field
-			word fieldName_;
+			//- The name of the density field
+			word rhoName_;
 
-			//- Maximum value
-			scalar max_;
+			//- Number of corrections
+			label nCorr_;
 
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
+			//- Name of field from which schemes are taken
+			word schemesField_;
 
 
 			// Private Member Functions
 
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+				//- The list of patch types for the age field
+			wordList patchTypes() const;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("age");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			age
 			(
 				const word& name,
 				const Time& runTime,
 				const dictionary& dict
 			);
 
-			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
 
-
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~age();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the data
 			virtual bool read(const dictionary&);
 
-			//- Execute, currently does nothing
+			//- Execute
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Write
 			virtual bool write();
-
-
-			// Member Operators
-
-				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
 		};
 
 
@@ -169,4 +153,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_age_Header

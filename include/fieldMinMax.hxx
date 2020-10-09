@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _readFields_Header
-#define _readFields_Header
+#ifndef _fieldMinMax_Header
+#define _fieldMinMax_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,19 +26,27 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::readFields
+	tnbLib::functionObjects::fieldMinMax
 
 Description
-	Reads fields from the time directories and adds them to the mesh database
-	for further post-processing.
+	Calculates the value and location of scalar minimum and maximum for a list
+	of user-specified fields.
+
+	For variables with a rank greater than zero, either the min/max of a
+	component value or the magnitude is reported.  When operating in parallel,
+	the processor owning the value is also given.
 
 	Example of function object specification:
 	\verbatim
-	readFields1
+	fieldMinMax1
 	{
-		type        readFields;
+		type        fieldMinMax;
 		libs        ("libfieldFunctionObjects.so");
 		...
+		write       yes;
+		log         yes;
+		location    yes;
+		mode        magnitude;
 		fields
 		(
 			U
@@ -50,23 +58,27 @@ Description
 Usage
 	\table
 		Property     | Description             | Required    | Default value
-		type         | type name: readFields   | yes         |
-		fields       | list of fields to read  |  no         |
+		type         | type name: fieldMinMax  | yes         |
+		write        | write min/max data to file |  no      | yes
+		log          | write min/max data to standard output | no | no
+		location     | write location of the min/max value | no | yes
+		mode         | calculation mode: magnitude or component | no | magnitude
 	\endtable
+
+	Output data is written to the file \<timeDir\>/fieldMinMax.dat
 
 See also
 	tnbLib::functionObjects::fvMeshFunctionObject
+	tnbLib::functionObjects::logFiles
 
 SourceFiles
-	readFields.C
+	fieldMinMax.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <volFieldsFwd.hxx>
-#include <surfaceFieldsFwd.hxx>
-
-#include <PtrList.hxx>  // added by amir
+#include <logFiles.hxx>
+#include <vector.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -76,56 +88,79 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class readFields Declaration
+							   Class fieldMinMax Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class readFields
+		class fieldMinMax
 			:
-			public fvMeshFunctionObject
+			public fvMeshFunctionObject,
+			public logFiles
 		{
+		public:
+
+			enum class modeType
+			{
+				mag,
+				cmpt
+			};
+
 		protected:
 
 			// Protected data
 
-				//- Fields to load
+				//- Mode type names
+			static const NamedEnum<modeType, 2> modeTypeNames_;
+
+			//- Switch to write location of min/max values
+			Switch location_;
+
+			//- Mode for min/max - only applicable for ranks > 0
+			modeType mode_;
+
+			//- Fields to assess min/max
 			wordList fieldSet_;
-
-			//- Loaded fields
-			PtrList<volScalarField> vsf_;
-			PtrList<volVectorField> vvf_;
-			PtrList<volSphericalTensorField> vSpheretf_;
-			PtrList<volSymmTensorField> vSymmtf_;
-			PtrList<volTensorField> vtf_;
-
-			PtrList<surfaceScalarField> ssf_;
-			PtrList<surfaceVectorField> svf_;
-			PtrList<surfaceSphericalTensorField> sSpheretf_;
-			PtrList<surfaceSymmTensorField> sSymmtf_;
-			PtrList<surfaceTensorField> stf_;
 
 
 			// Protected Member Functions
 
+				//- Helper function to write the output
 			template<class Type>
-			void loadField
+			void output
 			(
-				const word&,
-				PtrList<GeometricField<Type, fvPatchField, volMesh>>&,
-				PtrList<GeometricField<Type, fvsPatchField, surfaceMesh>>&
-			) const;
+				const word& fieldName,
+				const word& outputName,
+				const label minCell,
+				const label maxCell,
+				const vector& minC,
+				const vector& maxC,
+				const label minProci,
+				const label maxProci,
+				const Type& minValue,
+				const Type& maxValue
+			);
+
+			//- Calculate the field min/max
+			template<class Type>
+			void calcMinMaxFields
+			(
+				const word& fieldName,
+				const modeType& mode
+			);
+
+			//- Output file header information
+			virtual void writeFileHeader(const label i);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("readFields");
+			TypeName("fieldMinMax");
 
 
 			// Constructors
 
-				//- Construct for given objectRegistry and dictionary.
-				//  Allow the possibility to load fields from files
-			readFields
+				//- Construct from Time and dictionary
+			fieldMinMax
 			(
 				const word& name,
 				const Time& runTime,
@@ -133,29 +168,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			readFields(const readFields&) = delete;
+			fieldMinMax(const fieldMinMax&) = delete;
 
 
 			//- Destructor
-			virtual ~readFields();
+			virtual ~fieldMinMax();
 
 
 			// Member Functions
 
-				//- Read the set of fields from dictionary
+				//- Read the field min/max data
 			virtual bool read(const dictionary&);
 
-			//- Read the fields
+			//- Execute, currently does nothing
 			virtual bool execute();
 
-			//- Do nothing
+			//- Write the fieldMinMax
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const readFields&) = delete;
+			void operator=(const fieldMinMax&) = delete;
 		};
 
 
@@ -167,9 +202,9 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <readFieldsTemplates.cxx>
+#include <fieldMinMaxTemplates.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_readFields_Header
+#endif // !_fieldMinMax_Header

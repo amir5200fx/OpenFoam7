@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _readFields_Header
-#define _readFields_Header
+#ifndef _surfaceInterpolateFunOb_Header
+#define _surfaceInterpolateFunOb_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,45 +26,50 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::readFields
+	tnbLib::functionObjects::surfaceInterpolate
 
 Description
-	Reads fields from the time directories and adds them to the mesh database
-	for further post-processing.
+	Linearly interpolates volume fields to generate surface fields.
+
+	Fields are stored
+	- every time step the field is updated with new values
+	- at output it writes the fields
+
+	This functionObject can either be used
+	- to calculate a new field as a  post-processing step or
+	- since the fields are registered, used in another functionObject
 
 	Example of function object specification:
 	\verbatim
-	readFields1
+	surfaceInterpolate1
 	{
-		type        readFields;
+		type        surfaceInterpolate;
 		libs        ("libfieldFunctionObjects.so");
 		...
-		fields
-		(
-			U
-			p
-		);
+		fields      ((p pNear)(U UNear));
 	}
 	\endverbatim
 
 Usage
 	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: readFields   | yes         |
-		fields       | list of fields to read  |  no         |
+		Property | Description               | Required    | Default value
+		type     | type name: nearWallFields | yes         |
+		fields   | list of fields with corresponding output field names | yes |
 	\endtable
+
 
 See also
 	tnbLib::functionObjects::fvMeshFunctionObject
+	tnbLib::functionObjects::timeControl
 
 SourceFiles
-	readFields.C
+	surfaceInterpolate.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <volFieldsFwd.hxx>
 #include <surfaceFieldsFwd.hxx>
+#include <Tuple2.hxx>
 
 #include <PtrList.hxx>  // added by amir
 
@@ -72,14 +77,20 @@ SourceFiles
 
 namespace tnbLib
 {
+
+	// Forward declaration of classes
+	class objectRegistry;
+	class dictionary;
+	class mapPolyMesh;
+
 	namespace functionObjects
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class readFields Declaration
+						  Class surfaceInterpolate Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class readFields
+		class surfaceInterpolate
 			:
 			public fvMeshFunctionObject
 		{
@@ -87,16 +98,10 @@ namespace tnbLib
 
 			// Protected data
 
-				//- Fields to load
-			wordList fieldSet_;
+				//- Fields to process
+			List<Tuple2<word, word>> fieldSet_;
 
-			//- Loaded fields
-			PtrList<volScalarField> vsf_;
-			PtrList<volVectorField> vvf_;
-			PtrList<volSphericalTensorField> vSpheretf_;
-			PtrList<volSymmTensorField> vSymmtf_;
-			PtrList<volTensorField> vtf_;
-
+			//- Locally constructed fields
 			PtrList<surfaceScalarField> ssf_;
 			PtrList<surfaceVectorField> svf_;
 			PtrList<surfaceSphericalTensorField> sSpheretf_;
@@ -107,10 +112,8 @@ namespace tnbLib
 			// Protected Member Functions
 
 			template<class Type>
-			void loadField
+			void interpolateFields
 			(
-				const word&,
-				PtrList<GeometricField<Type, fvPatchField, volMesh>>&,
 				PtrList<GeometricField<Type, fvsPatchField, surfaceMesh>>&
 			) const;
 
@@ -118,14 +121,14 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("readFields");
+			TypeName("surfaceInterpolate");
 
 
 			// Constructors
 
 				//- Construct for given objectRegistry and dictionary.
 				//  Allow the possibility to load fields from files
-			readFields
+			surfaceInterpolate
 			(
 				const word& name,
 				const Time& runTime,
@@ -133,29 +136,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			readFields(const readFields&) = delete;
+			surfaceInterpolate(const surfaceInterpolate&) = delete;
 
 
 			//- Destructor
-			virtual ~readFields();
+			virtual ~surfaceInterpolate();
 
 
 			// Member Functions
 
-				//- Read the set of fields from dictionary
+				//- Read the controls
 			virtual bool read(const dictionary&);
 
-			//- Read the fields
+			//- Calculate the interpolated fields
 			virtual bool execute();
 
-			//- Do nothing
+			//- Write the interpolated fields
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const readFields&) = delete;
+			void operator=(const surfaceInterpolate&) = delete;
 		};
 
 
@@ -167,9 +170,9 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <readFieldsTemplates.cxx>
+#include <surfaceInterpolateFunObjTemplates.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_readFields_Header
+#endif // !_surfaceInterpolateFunOb_Header

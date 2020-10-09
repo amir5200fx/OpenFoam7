@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _setTimeStepFunctionObject_Header
+#define _setTimeStepFunctionObject_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2013-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,51 +26,22 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::setTimeStepFunctionObject
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
-
-	Example:
-	\verbatim
-	histogram1
-	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
-	}
-	\endverbatim
-
-Usage
-	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
-	\endtable
-
-See also
-	tnbLib::functionObject
-	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
+	Overrides the timeStep. Can only be used with
+	solvers with adjustTimeStep control (e.g. pimpleFoam). Makes no attempt
+	to cooperate with other timeStep 'controllers' (maxCo, other
+	functionObjects). Supports 'enabled' flag but none of the other ones
+	'startTime', 'endTime', 'writeControl' etc.
 
 SourceFiles
-	histogram.C
+	setTimeStepFunctionObject.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <functionObject.hxx>
+#include <Function1.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,53 +51,32 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+							Class setTimeStepFunctionObject Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class setTimeStepFunctionObject
 			:
-			public fvMeshFunctionObject
+			public functionObject
 		{
 			// Private Data
 
-			writeFile file_;
+				//- Reference to the time database
+			const Time& time_;
 
-			//- Name of field
-			word fieldName_;
-
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
-
-
-			// Private Member Functions
-
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+			//- Time step function/table
+			autoPtr<Function1<scalar>> timeStepPtr_;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("setTimeStep");
 
 
 			// Constructors
 
-				//- Construct from Time and dictionary
-			histogram
+				//- Construct from components
+			setTimeStepFunctionObject
 			(
 				const word& name,
 				const Time& runTime,
@@ -134,22 +84,30 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			setTimeStepFunctionObject(const setTimeStepFunctionObject&) = delete;
 
 
 			// Destructor
-			virtual ~histogram();
+			virtual ~setTimeStepFunctionObject();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Return time database
+			const Time& time() const;
+
+			//- Override the time-step value
+			virtual bool setTimeStep();
+
+			//- Read and set the function object if its data have changed
 			virtual bool read(const dictionary&);
 
-			//- Execute, currently does nothing
+			//- Called at each ++ or += of the time-loop.
+			//  postProcess overrides the usual executeControl behaviour and
+			//  forces execution (used in post-processing mode)
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
+			//- Called at each ++ or += of the time-loop.
 			//  postProcess overrides the usual writeControl behaviour and
 			//  forces writing always (used in post-processing mode)
 			virtual bool write();
@@ -158,7 +116,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const setTimeStepFunctionObject&) = delete;
 		};
 
 
@@ -169,4 +127,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_setTimeStepFunctionObject_Header

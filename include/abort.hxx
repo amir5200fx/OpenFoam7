@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _abort_Header
+#define _abort_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,51 +26,24 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::abort
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Watches for presence of the named file in the $FOAM_CASE directory
+	and aborts the calculation if it is present.
 
-	Example:
-	\verbatim
-	histogram1
-	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
-	}
-	\endverbatim
-
-Usage
-	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
-	\endtable
-
-See also
-	tnbLib::functionObject
-	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
+	Currently the following action types are supported:
+	- noWriteNow
+	- writeNow
+	- nextWrite
 
 SourceFiles
-	histogram.C
+	abort.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <functionObject.hxx>
+#include <NamedEnum.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,85 +53,91 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+							  Class abort Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class abort
 			:
-			public fvMeshFunctionObject
+			public functionObject
 		{
+		public:
+
+			// Public data
+
+				//- Enumeration defining the type of action
+			enum class actionType
+			{
+				noWriteNow,    //!< stop immediately without writing data
+				writeNow,      //!< write data and stop immediately
+				nextWrite      //!< stop the next time data are written
+			};
+
+		private:
+
 			// Private Data
 
-			writeFile file_;
+				//- Reference to the Time
+			const Time& time_;
 
-			//- Name of field
-			word fieldName_;
+			//- The fully-qualified name of the abort file
+			fileName abortFile_;
 
-			//- Maximum value
-			scalar max_;
+			//- Action type names
+			static const NamedEnum<actionType, 3> actionTypeNames_;
 
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
+			//- The type of action
+			actionType action_;
 
 
 			// Private Member Functions
 
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+				//- Remove abort file.
+			void removeFile() const;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("abort");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			abort
 			(
 				const word& name,
 				const Time& runTime,
-				const dictionary& dict
+				const dictionary&
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			abort(const abort&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~abort();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the dictionary settings
 			virtual bool read(const dictionary&);
 
-			//- Execute, currently does nothing
+			//- Execute, check existence of abort file and take action
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Execute, check existence of abort file and take action
 			virtual bool write();
+
+			//- Execute at the final time-loop, used for cleanup
+			virtual bool end();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const abort&) = delete;
 		};
 
 
@@ -169,4 +148,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_abort_Header

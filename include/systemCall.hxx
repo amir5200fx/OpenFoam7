@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _systemCall_Header
+#define _systemCall_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,51 +26,66 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::systemCall
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Executes system calls, entered in the form of a string lists.
 
-	Example:
+	Calls can be made at the following points in the calculation:
+	- every time step
+	- every output time
+	- end of the calculation
+
+	Example of function object specification:
 	\verbatim
-	histogram1
+	systemCall1
 	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
+		type        systemCall;
+		libs        ("libutilityFunctionObjects.so");
+		...
+		executeCalls
+		(
+			"echo execute"
+		);
+		writeCalls
+		(
+			"echo \*\*\* writing data \*\*\*"
+		);
+		endCalls
+		(
+			"echo \*\*\* writing .bashrc \*\*\*"
+			"cat ~/.bashrc"
+			"echo \*\*\* done \*\*\*"
+		);
 	}
 	\endverbatim
 
 Usage
 	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
+		Property     | Description              | Required    | Default value
+		type         | type name: systemCall    | yes         |
+		executeCalls | list of calls on execute | yes         |
+		writeCalls   | list of calls on write   | yes         |
+		endCalls     | list of calls on end     | yes         |
 	\endtable
+
+Note
+	Since this function object executes system calls, there is a potential
+	security risk.  In order to use the \c systemCall function object, the
+	\c allowSystemOperations must be set to '1'; otherwise, system calls will
+	not be allowed.
 
 See also
 	tnbLib::functionObject
-	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
+	tnbLib::functionObjects::timeControl
 
 SourceFiles
-	histogram.C
+	systemCall.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <functionObject.hxx>
+#include <stringList.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,53 +95,37 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+								 Class systemCall Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class systemCall
 			:
-			public fvMeshFunctionObject
+			public functionObject
 		{
+		protected:
+
 			// Private Data
 
-			writeFile file_;
+				//- List of calls to execute - every step
+			stringList executeCalls_;
 
-			//- Name of field
-			word fieldName_;
+			//- List of calls to execute when exiting the time-loop
+			stringList endCalls_;
 
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
-
-
-			// Private Member Functions
-
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+			//- List of calls to execute - write steps
+			stringList writeCalls_;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("systemCall");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			systemCall
 			(
 				const word& name,
 				const Time& runTime,
@@ -134,31 +133,32 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			systemCall(const systemCall&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~systemCall();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the system calls
 			virtual bool read(const dictionary&);
 
-			//- Execute, currently does nothing
+			//- Execute the "executeCalls" at each time-step
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Execute the "endCalls" at the final time-loop
+			virtual bool end();
+
+			//- Write, execute the "writeCalls"
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const systemCall&) = delete;
 		};
 
 
@@ -169,4 +169,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_systemCall_Header

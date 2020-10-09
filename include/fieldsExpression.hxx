@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _fieldsExpression_Header
+#define _fieldsExpression_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2012-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,51 +26,20 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::fieldsExpression
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
-
-	Example:
-	\verbatim
-	histogram1
-	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
-	}
-	\endverbatim
-
-Usage
-	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
-	\endtable
 
 See also
-	tnbLib::functionObject
 	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
 
 SourceFiles
-	histogram.C
+	fieldsExpression.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <volFieldsFwd.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,85 +49,94 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+								 Class fieldsExpression Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class fieldsExpression
 			:
 			public fvMeshFunctionObject
 		{
-			// Private Data
+		protected:
 
-			writeFile file_;
+			// Protected member data
 
-			//- Name of field
-			word fieldName_;
+				//- Names of fields to process
+			wordList fieldNames_;
 
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
+			//- Name of result fields
+			word resultName_;
 
 
-			// Private Member Functions
+			// Protected member functions
 
-			void writeGraph
+			void setResultName
 			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+				const word& typeName,
+				const wordList& defaultArg = wordList::null()
+			);
+
+			//- Call 'calcFieldType' for the given functionObject
+			//  for 'volField' and 'surfaceField' field types
+			template<class Type, class FOType>
+			bool calcFieldTypes(FOType& fo);
+
+			//- Call 'calcFieldTypes' for the given 'Type' and functionObject
+			template<class Type, class FOType>
+			bool calcType(FOType& fo);
+
+			//- Call 'calcType' for the given functionObject
+			//  for each primitive type
+			template<class FOType>
+			bool calcAllTypes(FOType& fo);
+
+			virtual bool calc() = 0;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("fieldsExpression");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			fieldsExpression
 			(
 				const word& name,
 				const Time& runTime,
-				const dictionary& dict
+				const dictionary& dict,
+				const wordList& fieldNames = wordList::null(),
+				const word& resultName = word::null
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			fieldsExpression(const fieldsExpression&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~fieldsExpression();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the fieldsExpression data
 			virtual bool read(const dictionary&);
 
-			//- Execute, currently does nothing
+			//- Calculate the result fields
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Write the result fields
 			virtual bool write();
+
+			//- Clear the result fields from the objectRegistry
+			virtual bool clear();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const fieldsExpression&) = delete;
 		};
 
 
@@ -169,4 +147,10 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#ifdef NoRepository
+#include <fieldsExpressionTemplates.cxx>
+#endif
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif // !_fieldsExpression_Header

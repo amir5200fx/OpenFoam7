@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _cloudInfo_Header
+#define _cloudInfo_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2012-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,51 +26,52 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::cloudInfo
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Outputs Lagrangian cloud information to a file.
 
-	Example:
+	The current outputs include:
+	- total current number of parcels
+	- total current mass of parcels
+
+	Example of function object specification:
 	\verbatim
-	histogram1
+	cloudInfo1
 	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
+		type        cloudInfo;
+		libs        ("libcloudFunctionObjects.so");
+		...
+		clouds
+		(
+			kinematicCloud1
+			thermoCloud1
+		);
 	}
 	\endverbatim
+
 
 Usage
 	\table
 		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
+		type         | type name: cloudInfo    | yes         |
+		clouds       | list of clouds names to process |yes  |
 	\endtable
+
+	The output data of each cloud is written to a file named \<cloudName\>.dat
 
 See also
 	tnbLib::functionObject
-	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
+	tnbLib::functionObjects::regionFunctionObject
+	tnbLib::functionObjects::logFiles
 
 SourceFiles
-	histogram.C
+	cloudInfo.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <regionFunctionObject.hxx>
+#include <logFiles.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,85 +81,62 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+								 Class cloudInfo Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class cloudInfo
 			:
-			public fvMeshFunctionObject
+			public regionFunctionObject,
+			public logFiles
 		{
-			// Private Data
+		protected:
 
-			writeFile file_;
+			// Protected Member Functions
 
-			//- Name of field
-			word fieldName_;
-
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
-
-
-			// Private Member Functions
-
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+				//- File header information
+			virtual void writeFileHeader(const label i);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("cloudInfo");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			cloudInfo
 			(
 				const word& name,
 				const Time& runTime,
-				const dictionary& dict
+				const dictionary&
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			cloudInfo(const cloudInfo&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~cloudInfo();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the controls
 			virtual bool read(const dictionary&);
 
 			//- Execute, currently does nothing
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Write
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const cloudInfo&) = delete;
 		};
 
 
@@ -169,4 +147,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_cloudInfo_Header

@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _ddt_Header
+#define _ddt_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2017-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,19 +26,19 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::ddt
 
 Description
-	Multiplies a field by a scaling factor.
+	Calculates the Eulerian time derivative of a field.
 
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	The operation can be applied to any volume field generating a field of the
+	same type.
 
 See also
 	tnbLib::functionObjects::fvMeshFunctionObject
 
 SourceFiles
-	scale.C
+	ddt.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -52,39 +52,34 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								 Class ddt Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class ddt
 			:
 			public fieldExpression
 		{
-			// Private Data
-
-				//- Scale factor
-			scalar scale_;
-
-
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
+				//- Calculate the magnitude of the field and register the result
 			template<class Type>
-			bool calcScale();
+			bool calcDdt();
 
-			//- Calculate the scale of the field and return true if successful
+			//- Calculate the time derivative of the field and return
+			//  true if successful
 			virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scale");
+			TypeName("ddt");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scale
+			ddt
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,13 +88,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scale();
-
-
-			// Member Functions
-
-				//- Read the randomise data
-			virtual bool read(const dictionary&);
+			virtual ~ddt();
 		};
 
 
@@ -111,9 +100,9 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <scaleTemplates.cxx>
+#include <ddtTemplates.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_scale_Header
+#endif // !_ddt_Header

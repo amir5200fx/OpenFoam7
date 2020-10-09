@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _writeCellVolumes_Header
+#define _writeCellVolumes_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,51 +26,36 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::writeCellVolumes
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Writes the cell-volumes volScalarField.
 
-	Example:
+	Example of function object specification:
 	\verbatim
-	histogram1
+	writeCellVolumes
 	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
+		type        writeCellVolumes;
+		libs        ("libfieldFunctionObjects.so");
+		...
 	}
 	\endverbatim
 
 Usage
 	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
+		Property  | Description                 | Required    | Default value
+		type      | type name: writeCellVolumes | yes       |
 	\endtable
 
 See also
-	tnbLib::functionObject
 	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
 
 SourceFiles
-	histogram.C
+	writeCellVolumes.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,53 +65,23 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+							   Class writeCellVolumes Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class writeCellVolumes
 			:
 			public fvMeshFunctionObject
 		{
-			// Private Data
-
-			writeFile file_;
-
-			//- Name of field
-			word fieldName_;
-
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
-
-
-			// Private Member Functions
-
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
-
-
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("writeCellVolumes");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			writeCellVolumes
 			(
 				const word& name,
 				const Time& runTime,
@@ -134,31 +89,26 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			writeCellVolumes(const writeCellVolumes&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~writeCellVolumes();
 
 
 			// Member Functions
 
-				//- Read the histogram data
-			virtual bool read(const dictionary&);
-
-			//- Execute, currently does nothing
+				//- Do nothing
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Write the cell-centre fields
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const writeCellVolumes&) = delete;
 		};
 
 
@@ -169,4 +119,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_writeCellVolumes_Header

@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _turbulenceIntensity_Header
+#define _turbulenceIntensity_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,51 +26,66 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::turbulenceIntensity
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Evaluates and writes the turbulence intensity field 'I'.
 
-	Example:
+	The turbulence intensity field 'I' is the root-mean-square of the turbulent
+	velocity fluctuations normalised by the local velocity magnitude:
+	\f[
+		I \equiv \frac{\sqrt{\frac{2}{3}\, k}}{U}
+	\f]
+	To avoid spurious extrema and division by 0 I is limited to 1 where the
+	velocity magnitude is less than the turbulent velocity fluctuations.
+
+	Example of function object specification:
 	\verbatim
-	histogram1
+	functions
 	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
+		.
+		.
+		.
+		turbulenceIntensity
+		{
+			type        turbulenceIntensity;
+			libs        ("libfieldFunctionObjects.so");
+		}
+		.
+		.
+		.
 	}
 	\endverbatim
 
-Usage
-	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
-	\endtable
+	or using the standard configuration file:
+	\verbatim
+	functions
+	{
+		.
+		.
+		.
+		#includeFunc turbulenceIntensity
+		.
+		.
+		.
+	}
+	\endverbatim
 
 See also
 	tnbLib::functionObject
 	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
+	tnbLib::functionObjects::logFiles
+	tnbLib::functionObjects::writeLocalObjects
+	tnbLib::functionObjects::timeControl
 
 SourceFiles
-	histogram.C
+	turbulenceIntensity.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <logFiles.hxx>
+#include <writeLocalObjects.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,53 +95,31 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+								  Class turbulenceIntensity Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class turbulenceIntensity
 			:
-			public fvMeshFunctionObject
+			public fvMeshFunctionObject,
+			public logFiles,
+			public writeLocalObjects
 		{
-			// Private Data
-
-			writeFile file_;
-
-			//- Name of field
-			word fieldName_;
-
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
-
-
 			// Private Member Functions
 
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+				//- File header information
+			virtual void writeFileHeader(const label i);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("turbulenceIntensity");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			turbulenceIntensity
 			(
 				const word& name,
 				const Time& runTime,
@@ -134,31 +127,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			turbulenceIntensity(const turbulenceIntensity&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~turbulenceIntensity();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the turbulenceIntensity data
 			virtual bool read(const dictionary&);
 
-			//- Execute, currently does nothing
+			//- Calculate the turbulenceIntensity field
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Write the turbulenceIntensity field
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const turbulenceIntensity&) = delete;
 		};
 
 
@@ -169,4 +160,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_turbulenceIntensity_Header

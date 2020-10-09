@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _XiReactionRate_Header
+#define _XiReactionRate_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,51 +26,37 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::XiReactionRate
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Writes the turbulent flame-speed and reaction-rate volScalarFields for the
+	Xi-based combustion models.
 
-	Example:
+	Example of function object specification:
 	\verbatim
-	histogram1
+	XiReactionRate
 	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
+		type        XiReactionRate;
+		libs        ("libfieldFunctionObjects.so");
+		...
 	}
 	\endverbatim
 
 Usage
 	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
+		Property  | Description                 | Required  | Default value
+		type      | type name: XiReactionRate   | yes       |
 	\endtable
 
 See also
-	tnbLib::functionObject
 	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
 
 SourceFiles
-	histogram.C
+	XiReactionRate.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,53 +66,23 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+							   Class XiReactionRate Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class XiReactionRate
 			:
 			public fvMeshFunctionObject
 		{
-			// Private Data
-
-			writeFile file_;
-
-			//- Name of field
-			word fieldName_;
-
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
-
-
-			// Private Member Functions
-
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
-
-
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("XiReactionRate");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			XiReactionRate
 			(
 				const word& name,
 				const Time& runTime,
@@ -134,31 +90,26 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			XiReactionRate(const XiReactionRate&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~XiReactionRate();
 
 
 			// Member Functions
 
-				//- Read the histogram data
-			virtual bool read(const dictionary&);
-
-			//- Execute, currently does nothing
+				//- Do nothing
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Write the cell-centre fields
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const XiReactionRate&) = delete;
 		};
 
 
@@ -169,4 +120,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_XiReactionRate_Header

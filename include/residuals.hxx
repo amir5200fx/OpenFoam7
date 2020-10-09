@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _residuals_Header
+#define _residuals_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2015-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,51 +26,43 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::residuals
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Writes out the initial residual for specified fields.
 
-	Example:
+	Example of function object specification:
 	\verbatim
-	histogram1
+	residuals
 	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
+		type            residuals;
+		writeControl   timeStep;
+		writeInterval  1;
+		fields
+		(
+			U
+			p
+		);
 	}
 	\endverbatim
 
-Usage
-	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
-	\endtable
+	Output data is written to the dir postProcessing/residuals/\<timeDir\>/
+	For vector/tensor fields, e.g. U, where an equation is solved for each
+	component, the largest residual of each component is written out.
 
 See also
 	tnbLib::functionObject
 	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
+	tnbLib::functionObjects::logFiles
+	tnbLib::functionObjects::timeControl
 
 SourceFiles
-	histogram.C
+	residuals.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <logFiles.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,53 +72,46 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+							   Class residuals Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class residuals
 			:
-			public fvMeshFunctionObject
+			public fvMeshFunctionObject,
+			public logFiles
 		{
-			// Private Data
+		protected:
 
-			writeFile file_;
+			// Protected data
 
-			//- Name of field
-			word fieldName_;
-
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
+				//- Fields to write residuals
+			wordList fieldSet_;
 
 
-			// Private Member Functions
+			// Protected Member Functions
 
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+				//- Output field header information
+			template<class Type>
+			void writeFileHeader(const word& fieldName);
+
+			//- Output file header information
+			virtual void writeFileHeader(const label i);
+
+			//- Calculate the field min/max
+			template<class Type>
+			void writeResidual(const word& fieldName);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("residuals");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			residuals
 			(
 				const word& name,
 				const Time& runTime,
@@ -134,31 +119,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			residuals(const residuals&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~residuals();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the controls
 			virtual bool read(const dictionary&);
 
 			//- Execute, currently does nothing
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Write the residuals
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const residuals&) = delete;
 		};
 
 
@@ -169,4 +152,10 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#ifdef NoRepository
+#include <residualsTemplates.cxx>
+#endif
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif // !_residuals_Header

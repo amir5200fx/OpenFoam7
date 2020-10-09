@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _wallHeatFlux_Header
+#define _wallHeatFlux_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,51 +26,56 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::wallHeatFlux
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Calculates and write the heat-flux at wall patches as the
+	volScalarField field 'wallHeatFlux'.
 
-	Example:
+	All wall patches are included by default; to restrict the calculation to
+	certain patches, use the optional 'patches' entry.
+
+	Example of function object specification:
 	\verbatim
-	histogram1
+	wallHeatFlux1
 	{
-		type            histogram;
-
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
+		type        wallHeatFlux;
+		libs        ("libfieldFunctionObjects.so");
+		...
+		region      fluid;
+		patches     (".*Wall");
 	}
 	\endverbatim
 
 Usage
 	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
+		Property | Description                | Required   | Default value
+		type     | type name: wallHeatFlux    | yes        |
+		patches  | list of patches to process | no         | all wall patches
+		region   | region to be evaluated     | no         | default region
 	\endtable
+
+Note
+	Writing field 'wallHeatFlux' is done by default, but it can be overridden by
+	defining an empty \c objects list. For details see writeLocalObjects.
 
 See also
 	tnbLib::functionObject
 	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
+	tnbLib::functionObjects::logFiles
+	tnbLib::functionObjects::writeLocalObjects
+	tnbLib::functionObjects::timeControl
 
 SourceFiles
-	histogram.C
+	wallHeatFlux.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <logFiles.hxx>
+#include <writeLocalObjects.hxx>
+#include <HashSet.hxx>
+#include <volFieldsFwd.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,85 +85,77 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+							   Class wallHeatFlux Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class wallHeatFlux
 			:
-			public fvMeshFunctionObject
+			public fvMeshFunctionObject,
+			public logFiles,
+			public writeLocalObjects
 		{
-			// Private Data
 
-			writeFile file_;
+		protected:
 
-			//- Name of field
-			word fieldName_;
+			// Protected data
 
-			//- Maximum value
-			scalar max_;
-
-			//- Minimum value
-			scalar min_;
-
-			//- Number of bins
-			label nBins_;
-
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
+				//- Optional list of patches to process
+			labelHashSet patchSet_;
 
 
-			// Private Member Functions
+			// Protected Member Functions
 
-			void writeGraph
+				//- File header information
+			virtual void writeFileHeader(const label i);
+
+			//- Calculate the heat-flux
+			tmp<volScalarField> calcWallHeatFlux
 			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+				const volScalarField& alpha,
+				const volScalarField& he
+			);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("wallHeatFlux");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			wallHeatFlux
 			(
 				const word& name,
 				const Time& runTime,
-				const dictionary& dict
+				const dictionary&
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			wallHeatFlux(const wallHeatFlux&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~wallHeatFlux();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the wallHeatFlux data
 			virtual bool read(const dictionary&);
 
-			//- Execute, currently does nothing
+			//- Calculate the wall heat-flux
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Write the wall heat-flux
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const wallHeatFlux&) = delete;
 		};
 
 
@@ -169,4 +166,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_wallHeatFlux_Header

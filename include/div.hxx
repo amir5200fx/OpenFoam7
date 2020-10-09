@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _div_Header
+#define _div_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2012-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,19 +26,18 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::div
 
 Description
-	Multiplies a field by a scaling factor.
-
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	Calculates the divergence of a field.  The operation is limited to
+	surfaceScalarFields and volVectorFields, and the output is a volScalarField.
 
 See also
+	tnbLib::functionObjects::fieldExpression
 	tnbLib::functionObjects::fvMeshFunctionObject
 
 SourceFiles
-	scale.C
+	div.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -52,39 +51,34 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								 Class div Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class div
 			:
 			public fieldExpression
 		{
-			// Private Data
-
-				//- Scale factor
-			scalar scale_;
-
-
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
+				//- Calculate the divergence of either a
+				//  volScalarField or a surfaceScalarField and register the result
+			template<class FieldType>
+			bool calcDiv();
 
-			//- Calculate the scale of the field and return true if successful
+			//- Calculate the divergence field and return true if successful
 			virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scale");
+			TypeName("div");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scale
+			div
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,13 +87,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scale();
-
-
-			// Member Functions
-
-				//- Read the randomise data
-			virtual bool read(const dictionary&);
+			virtual ~div();
 		};
 
 
@@ -111,9 +99,9 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <scaleTemplates.cxx>
+#include <divTemplates.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_scale_Header
+#endif // !_div_Header

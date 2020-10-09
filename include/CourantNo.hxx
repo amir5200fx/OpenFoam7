@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _CourantNo_Header
+#define _CourantNo_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2013-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,23 +26,24 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::CourantNo
 
 Description
-	Multiplies a field by a scaling factor.
-
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	Calculates and outputs the Courant number as a volScalarField.  The field is
+	stored on the mesh database so that it can be retrieved and used for other
+	applications.
 
 See also
+	tnbLib::functionObjects::fieldExpression
 	tnbLib::functionObjects::fvMeshFunctionObject
 
 SourceFiles
-	scale.C
+	CourantNo.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fieldExpression.hxx>
+#include <volFields.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -52,53 +53,58 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								  Class CourantNo Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class CourantNo
 			:
 			public fieldExpression
 		{
 			// Private Data
 
-				//- Scale factor
-			scalar scale_;
+				//- Name of flux field, default is "phi"
+			word phiName_;
+
+			//- Name of density field (optional)
+			word rhoName_;
 
 
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
+				//- Divide the Courant number by rho if required
+			tmp<volScalarField::Internal> byRho
+			(
+				const tmp<volScalarField::Internal>& Co
+			) const;
 
-			//- Calculate the scale of the field and return true if successful
+			//- Calculate the Courant number field and return true if successful
 			virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scale");
+			TypeName("CourantNo");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scale
+			CourantNo
 			(
 				const word& name,
-				const Time& runTime,
-				const dictionary& dict
+				const Time&,
+				const dictionary&
 			);
 
 
 			//- Destructor
-			virtual ~scale();
+			virtual ~CourantNo();
 
 
 			// Member Functions
 
-				//- Read the randomise data
+				//- Read the CourantNo data
 			virtual bool read(const dictionary&);
 		};
 
@@ -110,10 +116,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <scaleTemplates.cxx>
-#endif
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_scale_Header
+#endif // !_CourantNo_Header

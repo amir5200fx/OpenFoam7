@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _histogram_Header
-#define _histogram_Header
+#ifndef _scalarTransport_Header
+#define _scalarTransport_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2012-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,51 +26,35 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::histogram
+	tnbLib::functionObjects::scalarTransport
 
 Description
-	Write the volume-weighted histogram of a volScalarField.
+	Evolves a passive scalar transport equation.
 
-	Example:
-	\verbatim
-	histogram1
-	{
-		type            histogram;
+	- To specify the field name set the \c field entry
+	- To employ the same numerical schemes as another field set
+	  the \c schemesField entry,
+	- A constant diffusivity may be specified with the \c D entry,
 
-		libs            ("libfieldFunctionObjects.so");
-
-		field           p;
-		nBins           100;
-		min             -5;
-		max             5;
-		setFormat       gnuplot;
-	}
-	\endverbatim
-
-Usage
-	\table
-		Property     | Description             | Required    | Default value
-		type         | type name: histogram    | yes         |
-		field        | Field to analyse        | yes         |
-		nBins        | Number of bins for the histogram | yes|
-		max          | Maximum value sampled   | yes         |
-		min          | minimum value sampled   | no          | 0
-		setFormat    | Output format           | yes         |
-	\endtable
+	- Alternatively if a turbulence model is available a turbulent diffusivity
+	  may be constructed from the laminar and turbulent viscosities using the
+	  optional diffusivity coefficients \c alphaD and \c alphaDt (which default
+	  to 1):
+	  \verbatim
+		  D = alphaD*nu + alphaDt*nut
+	  \endverbatim
 
 See also
-	tnbLib::functionObject
 	tnbLib::functionObjects::fvMeshFunctionObject
-	tnbLib::functionObjects::writeFile
 
 SourceFiles
-	histogram.C
+	scalarTransport.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <fvMeshFunctionObject.hxx>
-#include <writeFile.hxx>
-#include <writer.hxx>
+#include <volFields.hxx>
+#include <fvOptionList.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -80,53 +64,65 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class histogram Declaration
+							   Class scalarTransport Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class histogram
+		class scalarTransport
 			:
 			public fvMeshFunctionObject
 		{
 			// Private Data
 
-			writeFile file_;
-
-			//- Name of field
+				//- Name of field to process
 			word fieldName_;
 
-			//- Maximum value
-			scalar max_;
+			//- Name of flux field (optional)
+			word phiName_;
 
-			//- Minimum value
-			scalar min_;
+			//- Name of density field (optional)
+			word rhoName_;
 
-			//- Number of bins
-			label nBins_;
+			//- Diffusion coefficient (optional)
+			scalar D_;
 
-			//- Output formatter to write
-			autoPtr<writer<scalar>> formatterPtr_;
+			//- Flag to indicate whether a constant, uniform D_ is specified
+			bool constantD_;
+
+			//- Laminar diffusion coefficient (optional)
+			scalar alphaD_;
+
+			//- Turbulent diffusion coefficient (optional)
+			scalar alphaDt_;
+
+			//- Number of corrector iterations (optional)
+			label nCorr_;
+
+			//- Name of field whose schemes are used (optional)
+			word schemesField_;
+
+			//- Run-time selectable finite volume options, e.g. sources, constraints
+			fv::optionList fvOptions_;
+
+			//- The scalar field
+			volScalarField s_;
 
 
 			// Private Member Functions
 
-			void writeGraph
-			(
-				const coordSet& coords,
-				const word& valueName,
-				const scalarField& values
-			) const;
+				//- Return the diffusivity field
+			tmp<volScalarField> D(const surfaceScalarField& phi) const;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			TypeName("scalarTransport");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			scalarTransport
 			(
 				const word& name,
 				const Time& runTime,
@@ -134,31 +130,30 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			scalarTransport(const scalarTransport&) = delete;
 
 
-			// Destructor
-			virtual ~histogram();
+			//- Destructor
+			virtual ~scalarTransport();
 
 
 			// Member Functions
 
-				//- Read the histogram data
+				//- Read the scalarTransport data
 			virtual bool read(const dictionary&);
 
-			//- Execute, currently does nothing
+			//- Calculate the scalarTransport
 			virtual bool execute();
 
-			//- Calculate the histogram and write.
-			//  postProcess overrides the usual writeControl behaviour and
-			//  forces writing always (used in post-processing mode)
+			//- Do nothing.
+			//  The volScalarField is registered and written automatically
 			virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			void operator=(const scalarTransport&) = delete;
 		};
 
 
@@ -169,4 +164,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_histogram_Header
+#endif // !_scalarTransport_Header

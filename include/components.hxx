@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _components_Header
+#define _components_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2016-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,19 +26,19 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::components
 
 Description
-	Multiplies a field by a scaling factor.
+	Calculates the components of a field.
 
 	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	volume or surface scalar fields for each component.
 
 See also
 	tnbLib::functionObjects::fvMeshFunctionObject
 
 SourceFiles
-	scale.C
+	components.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -52,39 +52,45 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								   Class components Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class components
 			:
 			public fieldExpression
 		{
-			// Private Data
+			// Private member data
 
-				//- Scale factor
-			scalar scale_;
+				//- List of the component field names
+			wordList resultNames_;
 
 
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
+				//- Calculate the components of the field with the specified type
+				//  and register the result
+			template<class GeoFieldType>
+			bool calcFieldComponents();
 
-			//- Calculate the scale of the field and return true if successful
+			//- Calculate the components of the field with the specified
+			//  element type and register the result
+			template<class Type>
+			bool calcComponents();
+
+			//- Calculate the components of the field and return true if successful
 			virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scale");
+			TypeName("components");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scale
+			components
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,13 +99,16 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scale();
+			virtual ~components();
 
 
 			// Member Functions
 
-				//- Read the randomise data
-			virtual bool read(const dictionary&);
+				//- Write the component fields
+			virtual bool write();
+
+			//- Clear the component fields from the objectRegistry
+			virtual bool clear();
 		};
 
 
@@ -111,9 +120,9 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <scaleTemplates.cxx>
+#include <componentsTemplates.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_scale_Header
+#endif // !_components_Header

@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _Q_Header
+#define _Q_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2013-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,19 +26,22 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::Q
 
 Description
-	Multiplies a field by a scaling factor.
+	Calculates and outputs the second invariant of the velocity gradient tensor
+	[1/s^2].
 
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	\f[
+		Q = 0.5(sqr(tr(\nabla U)) - tr(((\nabla U) \cdot (\nabla U))))
+	\f]
 
 See also
+	tnbLib::functionObjects::fieldExpression
 	tnbLib::functionObjects::fvMeshFunctionObject
 
 SourceFiles
-	scale.C
+	Q.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -52,39 +55,29 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								  Class Q Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class Q
 			:
 			public fieldExpression
 		{
-			// Private Data
-
-				//- Scale factor
-			scalar scale_;
-
-
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
-
-			//- Calculate the scale of the field and return true if successful
+				//- Calculate the Q field and return true if successful
 			virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scale");
+			TypeName("Q");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scale
+			Q
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,13 +86,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scale();
-
-
-			// Member Functions
-
-				//- Read the randomise data
-			virtual bool read(const dictionary&);
+			virtual ~Q();
 		};
 
 
@@ -110,10 +97,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <scaleTemplates.cxx>
-#endif
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_scale_Header
+#endif // !_Q_Header

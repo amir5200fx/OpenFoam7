@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _Lambda2_Header
+#define _Lambda2_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2013-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,19 +26,19 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::Lambda2
 
 Description
-	Multiplies a field by a scaling factor.
-
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	Calculates and outputs the second largest eigenvalue of the sum of the
+	square of the symmetrical and anti-symmetrical parts of the velocity
+	gradient tensor.
 
 See also
+	tnbLib::functionObjects::fieldExpression
 	tnbLib::functionObjects::fvMeshFunctionObject
 
 SourceFiles
-	scale.C
+	Lambda2.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -52,39 +52,29 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								  Class Lambda2 Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class Lambda2
 			:
 			public fieldExpression
 		{
-			// Private Data
-
-				//- Scale factor
-			scalar scale_;
-
-
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
-
-			//- Calculate the scale of the field and return true if successful
+				//- Calculate the Lambda2 field and return true if successful
 			virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scale");
+			TypeName("Lambda2");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scale
+			Lambda2
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,13 +83,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scale();
-
-
-			// Member Functions
-
-				//- Read the randomise data
-			virtual bool read(const dictionary&);
+			virtual ~Lambda2();
 		};
 
 
@@ -110,10 +94,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <scaleTemplates.cxx>
-#endif
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_scale_Header
+#endif // !_Lambda2_Header
