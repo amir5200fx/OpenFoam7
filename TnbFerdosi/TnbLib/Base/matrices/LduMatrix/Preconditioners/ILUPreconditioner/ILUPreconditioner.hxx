@@ -13,11 +13,25 @@ namespace tnbLib
 		: public lduMatrix::preconditioner
 	{
 
+	public:
+
+		struct bandMatrix
+		{
+			scalar** Array;
+			label* band;
+		};
+
+	private:
+
 		/*Private Data*/
 
 		//- The reciprocal preconditioned diagonal
 		scalarField rD_;
 		scalarField rL_;
+
+		bandMatrix bMatrix_;
+
+		scalar epsilon_;
 
 	public:
 
@@ -56,7 +70,11 @@ namespace tnbLib
 				const scalarField& rL, const labelUList& addr
 			);
 
+		static bandMatrix allocateBandMatrix(const lduMatrix& matrix);
+
 		//- Calculate the reciprocal of the preconditioned diagonal
+		static void calcReciprocalLD(bandMatrix& bnd, const lduMatrix& matrix, const scalar epsilon);
+
 		static void calcReciprocalLD(scalarField& rD, scalarField& rL, const lduMatrix& matrix);
 
 		//- Return wA the preconditioned form of residual rA
