@@ -318,6 +318,7 @@ tnbLib::polyMesh* tnbLib::blockMesh::createTopology
 	const word& regionName
 )
 {
+	cout << "create Topology : amir!" << std::endl;
 	blockList& blocks = *this;
 
 	word defaultPatchName = "defaultFaces";
