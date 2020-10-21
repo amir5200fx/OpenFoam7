@@ -13,13 +13,15 @@ namespace tnbLib
 	{
 		defineTypeNameAndDebug(includeFuncEntry, 0);
 
-		addToMemberFunctionSelectionTable
+		/*addToMemberFunctionSelectionTable
 		(
 			functionEntry,
 			includeFuncEntry,
 			execute,
 			dictionaryIstream
-		);
+		);*/
+
+		functionEntry::addexecutedictionaryIstreamMemberFunctionToTable<includeFuncEntry> addincludeFuncEntryexecutedictionaryIstreamMemberFunctionTofunctionEntryTable_;
 	}
 }
 

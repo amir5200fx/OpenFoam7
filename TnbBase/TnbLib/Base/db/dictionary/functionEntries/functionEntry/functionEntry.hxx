@@ -85,7 +85,7 @@ namespace tnbLib
 
 		// Member Function Selectors
 
-		declareMemberFunctionSelectionTable
+		/*declareMemberFunctionSelectionTable
 		(
 			bool,
 			functionEntry,
@@ -96,7 +96,28 @@ namespace tnbLib
 				Istream& is
 				),
 				(parentDict, is)
-		);
+		);*/
+
+		typedef bool (*executedictionaryIstreamMemberFunctionPtr)(dictionary& parentDict, Istream& is);
+		typedef HashTable<executedictionaryIstreamMemberFunctionPtr, word, string::hash>
+		executedictionaryIstreamMemberFunctionTable;
+		static executedictionaryIstreamMemberFunctionTable* executedictionaryIstreamMemberFunctionTablePtr_;
+
+		template <class functionEntryType>
+		class addexecutedictionaryIstreamMemberFunctionToTable
+		{
+		public:
+			addexecutedictionaryIstreamMemberFunctionToTable(const word& lookup = functionEntryType::typeName)
+			{
+				constructexecutedictionaryIstreamMemberFunctionTables();
+				executedictionaryIstreamMemberFunctionTablePtr_->insert(lookup, functionEntryType::execute);
+			}
+
+			~addexecutedictionaryIstreamMemberFunctionToTable() { destroyexecutedictionaryIstreamMemberFunctionTables(); }
+		};
+
+		static void constructexecutedictionaryIstreamMemberFunctionTables();
+		static void destroyexecutedictionaryIstreamMemberFunctionTables();
 
 		//- Execute the functionEntry in a sub-dict context
 		static bool execute
@@ -106,7 +127,7 @@ namespace tnbLib
 			Istream&
 		);
 
-		declareMemberFunctionSelectionTable
+		/*declareMemberFunctionSelectionTable
 		(
 			bool,
 			functionEntry,
@@ -118,7 +139,34 @@ namespace tnbLib
 				Istream& is
 				),
 				(parentDict, entry, is)
-		);
+		);*/
+
+		typedef bool (*executeprimitiveEntryIstreamMemberFunctionPtr)(const dictionary& parentDict, primitiveEntry& entry,
+		                                                              Istream& is);
+		typedef HashTable<executeprimitiveEntryIstreamMemberFunctionPtr, word, string::hash>
+		executeprimitiveEntryIstreamMemberFunctionTable;
+		static executeprimitiveEntryIstreamMemberFunctionTable* executeprimitiveEntryIstreamMemberFunctionTablePtr_;
+
+		template <class functionEntryType>
+		class addexecuteprimitiveEntryIstreamMemberFunctionToTable
+		{
+		public:
+			addexecuteprimitiveEntryIstreamMemberFunctionToTable(const word& lookup = functionEntryType::typeName)
+			{
+				std::cout << "typename = " << lookup << std::endl;
+				system("pause");
+				constructexecuteprimitiveEntryIstreamMemberFunctionTables();
+				executeprimitiveEntryIstreamMemberFunctionTablePtr_->insert(lookup, functionEntryType::execute);
+			}
+
+			~addexecuteprimitiveEntryIstreamMemberFunctionToTable()
+			{
+				destroyexecuteprimitiveEntryIstreamMemberFunctionTables();
+			}
+		};
+
+		static void constructexecuteprimitiveEntryIstreamMemberFunctionTables();
+		static void destroyexecuteprimitiveEntryIstreamMemberFunctionTables();
 
 		//- Execute the functionEntry in a primitiveEntry context
 		static bool execute

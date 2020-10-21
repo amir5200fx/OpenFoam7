@@ -8,19 +8,65 @@
 
 namespace tnbLib
 {
-	defineMemberFunctionSelectionTable
+	/*defineMemberFunctionSelectionTable
 	(
 		functionEntry,
 		execute,
 		dictionaryIstream
-	);
+	);*/
 
-	defineMemberFunctionSelectionTable
+	functionEntry::executedictionaryIstreamMemberFunctionTable* functionEntry::
+		executedictionaryIstreamMemberFunctionTablePtr_ = nullptr;
+
+	void functionEntry::constructexecutedictionaryIstreamMemberFunctionTables()
+	{
+		static bool constructed = false;
+		if (!constructed)
+		{
+			constructed = true;
+			functionEntry::executedictionaryIstreamMemberFunctionTablePtr_ = new functionEntry::
+				executedictionaryIstreamMemberFunctionTable;
+		}
+	}
+
+	void functionEntry::destroyexecutedictionaryIstreamMemberFunctionTables()
+	{
+		if (functionEntry::executedictionaryIstreamMemberFunctionTablePtr_)
+		{
+			delete functionEntry::executedictionaryIstreamMemberFunctionTablePtr_;
+			functionEntry::executedictionaryIstreamMemberFunctionTablePtr_ = nullptr;
+		}
+	};
+
+	/*defineMemberFunctionSelectionTable
 	(
 		functionEntry,
 		execute,
 		primitiveEntryIstream
-	);
+	);*/
+
+	functionEntry::executeprimitiveEntryIstreamMemberFunctionTable* functionEntry::
+		executeprimitiveEntryIstreamMemberFunctionTablePtr_ = nullptr;
+
+	void functionEntry::constructexecuteprimitiveEntryIstreamMemberFunctionTables()
+	{
+		static bool constructed = false;
+		if (!constructed)
+		{
+			constructed = true;
+			functionEntry::executeprimitiveEntryIstreamMemberFunctionTablePtr_ = new functionEntry::
+				executeprimitiveEntryIstreamMemberFunctionTable;
+		}
+	}
+
+	void functionEntry::destroyexecuteprimitiveEntryIstreamMemberFunctionTables()
+	{
+		if (functionEntry::executeprimitiveEntryIstreamMemberFunctionTablePtr_)
+		{
+			delete functionEntry::executeprimitiveEntryIstreamMemberFunctionTablePtr_;
+			functionEntry::executeprimitiveEntryIstreamMemberFunctionTablePtr_ = nullptr;
+		}
+	};
 }
 
 

@@ -11,7 +11,7 @@ namespace tnbLib
 	{
 		defineTypeNameAndDebug(negEntry, 0);
 
-		addToMemberFunctionSelectionTable
+		/*addToMemberFunctionSelectionTable
 		(
 			functionEntry,
 			negEntry,
@@ -25,7 +25,11 @@ namespace tnbLib
 			negEntry,
 			execute,
 			primitiveEntryIstream
-		);
+		);*/
+
+		//functionEntry::addexecutedictionaryIstreamMemberFunctionToTable<negEntry> addnegEntryexecutedictionaryIstreamMemberFunctionTofunctionEntryTable_;
+
+		//functionEntry::addexecuteprimitiveEntryIstreamMemberFunctionToTable<negEntry> addnegEntryexecuteprimitiveEntryIstreamMemberFunctionTofunctionEntryTable_;
 	}
 }
 
