@@ -58,7 +58,7 @@ OptimisationSwitches
 
     //- Parallel IO file handler
     //  uncollated (default), collated or masterUncollated
-    fileHandler uncollated;
+    fileHandler masterUncollated;
 
     //- collated: thread buffer size for queued file writes.
     //  If set to 0 or not sufficient for the file size threading is not used.
