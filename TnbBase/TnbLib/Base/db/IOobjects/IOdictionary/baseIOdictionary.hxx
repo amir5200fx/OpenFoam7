@@ -60,6 +60,8 @@ namespace tnbLib
 	{
 		// Private Data
 
+	protected:  // added by amir
+
 		static bool writeDictionaries;
 
 	public:
