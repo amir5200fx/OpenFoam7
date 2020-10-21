@@ -81,6 +81,11 @@ namespace tnbLib
 
 
 		// Member Functions
+		//- ReadData function required for regIOobject read operation
+		bool readData(Istream&) override;  // added by amir
+
+		//- WriteData function required for regIOobject write operation
+		bool writeData(Ostream&) const override;
 
 			//- Is object global
 		virtual bool global() const
