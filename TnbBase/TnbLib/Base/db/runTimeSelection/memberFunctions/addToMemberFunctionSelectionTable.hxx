@@ -37,8 +37,7 @@ Description
 
 
 // add to hash-table of functions with typename as the key
-#define addToMemberFunctionSelectionTable\
-(baseType,thisType,memberFunction,argNames)                                    \
+#define addToMemberFunctionSelectionTable(baseType,thisType,memberFunction,argNames) \
                                                                                \
     /* Add the thisType memberFunction to the table */                         \
     baseType::add##memberFunction##argNames##MemberFunctionToTable<thisType>   \
@@ -47,8 +46,7 @@ Description
 
 
 // add to hash-table of functions with 'lookup' as the key
-#define addNamedToMemberFunctionSelectionTable\
-(baseType,thisType,memberFunction,argNames,lookup)                             \
+#define addNamedToMemberFunctionSelectionTable(baseType,thisType,memberFunction,argNames,lookup) \
                                                                                \
     /* Add the thisType memberFunction to the table, find by lookup name */    \
     baseType::add##memberFunction##argNames##MemberFunctionToTable<thisType>   \
@@ -61,8 +59,7 @@ Description
 
 // add to hash-table of functions with typename as the key
 // use when baseType doesn't need a template argument (eg, is a typedef)
-#define addTemplateToMemberFunctionSelectionTable\
-(baseType,thisType,Targ,memberFunction,argNames)                               \
+#define addTemplateToMemberFunctionSelectionTable(baseType,thisType,Targ,memberFunction,argNames)\
                                                                                \
     /* Add the thisType memberFunction to the table */                         \
     baseType::add##memberFunction##argNames##                                  \
@@ -73,8 +70,7 @@ Description
 
 // add to hash-table of functions with 'lookup' as the key
 // use when baseType doesn't need a template argument (eg, is a typedef)
-#define addNamedTemplateToMemberFunctionSelectionTable\
-(baseType,thisType,Targ,memberFunction,argNames,lookup)                        \
+#define addNamedTemplateToMemberFunctionSelectionTable(baseType,thisType,Targ,memberFunction,argNames,lookup)\
                                                                                \
     /* Add the thisType memberFunction to the table, find by lookup name */    \
     baseType::add##memberFunction##argNames##                                  \
@@ -83,8 +79,7 @@ Description
     MemberFunctionTo##baseType##Table_(#lookup)
 
 // use when baseType requires the Targ template argument as well
-#define addTemplatedToMemberFunctionSelectionTable\
-(baseType,thisType,Targ,memberFunction,argNames)                               \
+#define addTemplatedToMemberFunctionSelectionTable(baseType,thisType,Targ,memberFunction,argNames) \
                                                                                \
     /* Add the thisType memberFunction to the table */                         \
     baseType<Targ>::add##memberFunction##argNames##                            \
@@ -93,8 +88,7 @@ Description
     baseType##Targ##Table_
 
 // use when baseType requires the Targ template argument as well
-#define addNamedTemplatedToMemberFunctionSelectionTable\
-(baseType,thisType,Targ,memberFunction,argNames,lookup)                        \
+#define addNamedTemplatedToMemberFunctionSelectionTable(baseType,thisType,Targ,memberFunction,argNames,lookup) \
                                                                                \
     /* Add the thisType memberFunction to the table, find by lookup name */    \
     baseType<Targ>::add##memberFunction##argNames##                            \
@@ -108,8 +102,7 @@ Description
 
 // add to hash-table of functions with typename as the key
 // use when baseType requires the Targ template argument as well
-#define addTemplatedToMemberFunctionSelectionTable\
-(baseType,thisType,Targ,memberFunction,argNames)                               \
+#define addTemplatedToMemberFunctionSelectionTable(baseType,thisType,Targ,memberFunction,argNames) \
                                                                                \
     /* Add the thisType memberFunction to the table */                         \
     baseType<Targ>::add##memberFunction##argNames##                            \
@@ -120,8 +113,7 @@ Description
 
 // add to hash-table of functions with 'lookup' as the key
 // use when baseType requires the Targ template argument as well
-#define addNamedTemplatedToMemberFunctionSelectionTable\
-(baseType,thisType,Targ,memberFunction,argNames,lookup)                        \
+#define addNamedTemplatedToMemberFunctionSelectionTable(baseType,thisType,Targ,memberFunction,argNames,lookup) \
                                                                                \
     /* Add the thisType memberFunction to the table, find by lookup name */    \
     baseType<Targ>::add##memberFunction##argNames##                            \
