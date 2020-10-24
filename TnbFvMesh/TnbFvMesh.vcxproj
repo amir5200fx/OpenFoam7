@@ -459,7 +459,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\sector\sector.hxx" />
     <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\sigmaRadial\sigmaRadial.hxx" />
     <ClInclude Include="TnbLib\FvMesh\mesh\extrudeModel\wedge\wedge.hxx" />
-    <ClInclude Include="TnbLib\FvMesh\renumber\renumberMethods\renumberMethod\renumberMethod.hxx" />
     <ClInclude Include="TnbLib\FvMesh\surfMesh\MeshedSurfaceAllocator\MeshedSurfaceIOAllocator.hxx" />
     <ClInclude Include="TnbLib\FvMesh\surfMesh\MeshedSurfaceProxy\MeshedSurfaceProxy.hxx" />
     <ClInclude Include="TnbLib\FvMesh\surfMesh\MeshedSurfaceProxy\MeshedSurfaceProxyI.hxx" />
@@ -801,7 +800,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\sector\sector.cxx" />
     <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\sigmaRadial\sigmaRadial.cxx" />
     <ClCompile Include="TnbLib\FvMesh\mesh\extrudeModel\wedge\wedge.cxx" />
-    <ClCompile Include="TnbLib\FvMesh\renumber\renumberMethods\renumberMethod\renumberMethod.cxx" />
     <ClCompile Include="TnbLib\FvMesh\surfMesh\MeshedSurfaceAllocator\MeshedSurfaceIOAllocator.cxx" />
     <ClCompile Include="TnbLib\FvMesh\surfMesh\MeshedSurfaceProxy\MeshedSurfaceProxyCore.cxx" />
     <ClCompile Include="TnbLib\FvMesh\surfMesh\MeshedSurface\MeshedSurfaceCore.cxx" />

@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{1d78d4ee-2820-456a-a711-4b7e23443e41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\renumber">
+      <UniqueIdentifier>{b73315f2-0672-44d3-8a26-ab8be3bf339b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\renumber\zoltanRenumber">
+      <UniqueIdentifier>{4e702294-5319-4505-91d6-ab7445b7cb6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\renumber\SloanRenumber">
+      <UniqueIdentifier>{0cab9e21-cd57-427f-9235-708d50be6cde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\renumber\renumberMethods">
+      <UniqueIdentifier>{d39e641d-bf49-4642-b5b0-5a543c192936}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\renumber\renumberMethods\CuthillMcKeeRenumber">
+      <UniqueIdentifier>{5917d8ce-e939-4595-bd2c-e1d66ef98e21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\renumber\renumberMethods\manualRenumber">
+      <UniqueIdentifier>{b1ae4d5b-3b1f-412b-8c75-64c05f1f8b53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\renumber\renumberMethods\structuredRenumber">
+      <UniqueIdentifier>{97d82248-7a72-4f56-a1ed-9a481d286870}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\renumber\renumberMethods\springRenumber">
+      <UniqueIdentifier>{995f5d47-f8a3-40c7-b51c-70eaeaa37172}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\renumber\renumberMethods\renumberMethod">
+      <UniqueIdentifier>{8627968d-2ca2-4282-87c1-62c4161bdd8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\renumber\renumberMethods\randomRenumber">
+      <UniqueIdentifier>{4529d7b9-2af8-4707-a744-f8e14100a38c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\renumber\renumberMethods\renumberMethod\renumberMethod.hxx">
+      <Filter>TnbLib\renumber\renumberMethods\renumberMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\renumber\renumberMethods\randomRenumber\randomRenumber.hxx">
+      <Filter>TnbLib\renumber\renumberMethods\randomRenumber</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\renumber\renumberMethods\manualRenumber\manualRenumber.hxx">
+      <Filter>TnbLib\renumber\renumberMethods\manualRenumber</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\renumber\renumberMethods\CuthillMcKeeRenumber\CuthillMcKeeRenumber.hxx">
+      <Filter>TnbLib\renumber\renumberMethods\CuthillMcKeeRenumber</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\renumber\renumberMethods\structuredRenumber\OppositeFaceCellWave.hxx">
+      <Filter>TnbLib\renumber\renumberMethods\structuredRenumber</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\renumber\renumberMethods\structuredRenumber\structuredRenumber.hxx">
+      <Filter>TnbLib\renumber\renumberMethods\structuredRenumber</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\renumber\renumberMethods\springRenumber\springRenumber.hxx">
+      <Filter>TnbLib\renumber\renumberMethods\springRenumber</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\renumber\SloanRenumber\SloanRenumber.hxx">
+      <Filter>TnbLib\renumber\SloanRenumber</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\renumber\zoltanRenumber\zoltanRenumber.hxx">
+      <Filter>TnbLib\renumber\zoltanRenumber</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\renumber\renumberMethods\structuredRenumber\OppositeFaceCellWaveI.hxx">
+      <Filter>TnbLib\renumber\renumberMethods\structuredRenumber</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\renumber\renumberMethods\renumberMethod\renumberMethod.cxx">
+      <Filter>TnbLib\renumber\renumberMethods\renumberMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\renumber\renumberMethods\randomRenumber\randomRenumber.cxx">
+      <Filter>TnbLib\renumber\renumberMethods\randomRenumber</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\renumber\renumberMethods\manualRenumber\manualRenumber.cxx">
+      <Filter>TnbLib\renumber\renumberMethods\manualRenumber</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\renumber\renumberMethods\CuthillMcKeeRenumber\CuthillMcKeeRenumber.cxx">
+      <Filter>TnbLib\renumber\renumberMethods\CuthillMcKeeRenumber</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\renumber\renumberMethods\structuredRenumber\OppositeFaceCellWave.cxx">
+      <Filter>TnbLib\renumber\renumberMethods\structuredRenumber</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\renumber\renumberMethods\structuredRenumber\OppositeFaceCellWaveName.cxx">
+      <Filter>TnbLib\renumber\renumberMethods\structuredRenumber</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\renumber\renumberMethods\structuredRenumber\structuredRenumber.cxx">
+      <Filter>TnbLib\renumber\renumberMethods\structuredRenumber</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\renumber\renumberMethods\springRenumber\springRenumber.cxx">
+      <Filter>TnbLib\renumber\renumberMethods\springRenumber</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\renumber\SloanRenumber\SloanRenumber.cxx">
+      <Filter>TnbLib\renumber\SloanRenumber</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\renumber\zoltanRenumber\zoltanRenumber.cxx">
+      <Filter>TnbLib\renumber\zoltanRenumber</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

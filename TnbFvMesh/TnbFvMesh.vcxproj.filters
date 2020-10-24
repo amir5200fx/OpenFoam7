@@ -763,36 +763,6 @@
     <Filter Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledLduInterface">
       <UniqueIdentifier>{b0d699a2-77d7-4eae-b1d7-f1866c947557}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TnbLib\FvMesh\renumber">
-      <UniqueIdentifier>{5bae175a-e650-404e-a535-96b1b48a6b2a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\renumber\zoltanRenumber">
-      <UniqueIdentifier>{07caa8bf-163f-4d26-9f79-b76acb2747b3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\renumber\SloanRenumber">
-      <UniqueIdentifier>{80af128a-a619-4bed-9099-925438977d7d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\renumber\renumberMethods">
-      <UniqueIdentifier>{fceecd17-3345-4351-98e9-ef900993ff5e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\renumber\renumberMethods\CuthillMcKeeRenumber">
-      <UniqueIdentifier>{141ad23f-8170-40df-94c2-7d2d1bd0aa7a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\renumber\renumberMethods\manualRenumber">
-      <UniqueIdentifier>{8222d68f-ada4-4380-8f27-61b3fcb83590}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\renumber\renumberMethods\structuredRenumber">
-      <UniqueIdentifier>{cea5db70-9de9-4a2b-bc29-fab8c06428e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\renumber\renumberMethods\springRenumber">
-      <UniqueIdentifier>{00291132-882e-4225-bc48-a3307995ade2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\renumber\renumberMethods\renumberMethod">
-      <UniqueIdentifier>{b0eb3fdf-837b-494c-b61e-6efd9234c47f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TnbLib\FvMesh\renumber\renumberMethods\randomRenumber">
-      <UniqueIdentifier>{d3cce2a2-b85f-4240-8dad-c837945a9b6a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="TnbLib\FvMesh\surfMesh\surfaceFormats\ac3d">
       <UniqueIdentifier>{f4d9050f-0054-4c11-a4fd-41ad7b4d678a}</UniqueIdentifier>
     </Filter>
@@ -1661,9 +1631,6 @@
     </ClInclude>
     <ClInclude Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch\regionCoupledWallPolyPatch.hxx">
       <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch</Filter>
-    </ClInclude>
-    <ClInclude Include="TnbLib\FvMesh\renumber\renumberMethods\renumberMethod\renumberMethod.hxx">
-      <Filter>TnbLib\FvMesh\renumber\renumberMethods\renumberMethod</Filter>
     </ClInclude>
     <ClInclude Include="TnbLib\FvMesh\meshTools\regionSplit\minData.hxx">
       <Filter>TnbLib\FvMesh\meshTools\regionSplit</Filter>
@@ -2773,9 +2740,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch\regionCoupledWallPolyPatch.cxx">
       <Filter>TnbLib\FvMesh\meshTools\regionCoupled\patches\regionCoupledPolyPatch</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\FvMesh\renumber\renumberMethods\renumberMethod\renumberMethod.cxx">
-      <Filter>TnbLib\FvMesh\renumber\renumberMethods\renumberMethod</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\FvMesh\meshTools\regionSplit\regionSplit.cxx">
       <Filter>TnbLib\FvMesh\meshTools\regionSplit</Filter>
