@@ -49,8 +49,8 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class labelRange;
-	Istream& operator>>(Istream&, labelRange&);
-	Ostream& operator<<(Ostream&, const labelRange&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, labelRange&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const labelRange&);
 
 	/*---------------------------------------------------------------------------*\
 							 Class labelRange Declaration
@@ -65,7 +65,7 @@ namespace tnbLib
 
 	public:
 
-		static int debug;
+		static FoamBase_EXPORT int debug;
 
 
 		// Public classes
@@ -92,7 +92,7 @@ namespace tnbLib
 		inline labelRange(const label start, const label size);
 
 		//- Construct from Istream.
-		labelRange(Istream&);
+		FoamBase_EXPORT labelRange(Istream&);
 
 
 		// Member Functions
@@ -117,11 +117,11 @@ namespace tnbLib
 
 		//- Return true if the ranges intersect
 		//  Optional test for ranges that also just touch each other
-		bool intersects(const labelRange&, const bool touches = false) const;
+		FoamBase_EXPORT bool intersects(const labelRange&, const bool touches = false) const;
 
 		//- Return a joined range, squashing any gaps in between
 		//  A prior intersects() check can be used to avoid squashing gaps.
-		labelRange join(const labelRange&) const;
+		FoamBase_EXPORT labelRange join(const labelRange&) const;
 
 
 		// Member Operators
@@ -134,7 +134,7 @@ namespace tnbLib
 
 		//- Join ranges, squashing any gaps in between
 		//  A prior intersects() check can be used to avoid squashing gaps.
-		labelRange& operator+=(const labelRange&);
+		FoamBase_EXPORT labelRange& operator+=(const labelRange&);
 
 		inline bool operator==(const labelRange&) const;
 		inline bool operator!=(const labelRange&) const;
@@ -200,10 +200,10 @@ namespace tnbLib
 	private:
 
 		//- const labelRange held by endIter_
-		static const labelRange endLabelRange_;
+		static FoamBase_EXPORT const labelRange endLabelRange_;
 
 		//- const_iterator returned by end(), cend()
-		static const const_iterator endIter_;
+		static FoamBase_EXPORT const const_iterator endIter_;
 	};
 
 

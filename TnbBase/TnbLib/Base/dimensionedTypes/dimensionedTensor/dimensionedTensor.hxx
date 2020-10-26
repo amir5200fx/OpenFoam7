@@ -52,30 +52,30 @@ namespace tnbLib
 
 	// global functions
 
-	dimensionedScalar tr(const dimensionedTensor&);
-	dimensionedTensor dev(const dimensionedTensor&);
-	dimensionedTensor dev2(const dimensionedTensor&);
-	dimensionedScalar det(const dimensionedTensor&);
-	dimensionedTensor cof(const dimensionedTensor&);
-	dimensionedTensor inv(const dimensionedTensor&);
-	dimensionedSymmTensor symm(const dimensionedTensor&);
-	dimensionedSymmTensor twoSymm(const dimensionedTensor&);
-	dimensionedTensor skew(const dimensionedTensor&);
+	FoamBase_EXPORT dimensionedScalar tr(const dimensionedTensor&);
+	FoamBase_EXPORT dimensionedTensor dev(const dimensionedTensor&);
+	FoamBase_EXPORT dimensionedTensor dev2(const dimensionedTensor&);
+	FoamBase_EXPORT dimensionedScalar det(const dimensionedTensor&);
+	FoamBase_EXPORT dimensionedTensor cof(const dimensionedTensor&);
+	FoamBase_EXPORT dimensionedTensor inv(const dimensionedTensor&);
+	FoamBase_EXPORT dimensionedSymmTensor symm(const dimensionedTensor&);
+	FoamBase_EXPORT dimensionedSymmTensor twoSymm(const dimensionedTensor&);
+	FoamBase_EXPORT dimensionedTensor skew(const dimensionedTensor&);
 
-	dimensionedVector eigenValues(const dimensionedTensor&);
-	dimensionedTensor eigenVectors(const dimensionedTensor&);
+	FoamBase_EXPORT dimensionedVector eigenValues(const dimensionedTensor&);
+	FoamBase_EXPORT dimensionedTensor eigenVectors(const dimensionedTensor&);
 
-	dimensionedVector eigenValues(const dimensionedSymmTensor&);
-	dimensionedTensor eigenVectors(const dimensionedSymmTensor&);
+	FoamBase_EXPORT dimensionedVector eigenValues(const dimensionedSymmTensor&);
+	FoamBase_EXPORT dimensionedTensor eigenVectors(const dimensionedSymmTensor&);
 
 
 	// global operators
 
 	//- Hodge Dual operator (tensor -> vector)
-	dimensionedVector operator*(const dimensionedTensor&);
+	FoamBase_EXPORT dimensionedVector operator*(const dimensionedTensor&);
 
 	//- Hodge Dual operator (vector -> tensor)
-	dimensionedTensor operator*(const dimensionedVector&);
+	FoamBase_EXPORT dimensionedTensor operator*(const dimensionedVector&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

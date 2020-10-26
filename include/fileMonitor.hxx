@@ -105,56 +105,59 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Update localState_ from any events.
-		void checkFiles() const;
+		FoamBase_EXPORT void checkFiles() const;
 
 
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("fileMonitor");
+		//ClassName("fileMonitor");
+		static const char* typeName_() { return "fileMonitor"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct null
-		fileMonitor(const bool useInotify);
+		FoamBase_EXPORT fileMonitor(const bool useInotify);
 
 		//- Disallow default bitwise copy construction
-		fileMonitor(const fileMonitor&) = delete;
+		FoamBase_EXPORT fileMonitor(const fileMonitor&) = delete;
 
 
 		//- Destructor
-		~fileMonitor();
+		FoamBase_EXPORT ~fileMonitor();
 
 
 		// Member Functions
 
 			//- Add file to watch. Return watch descriptor
-		label addWatch(const fileName&);
+		FoamBase_EXPORT label addWatch(const fileName&);
 
 		//- Remove file to watch. Return true if successful
-		bool removeWatch(const label watchFd);
+		FoamBase_EXPORT bool removeWatch(const label watchFd);
 
 		//- Get name of file being watched
-		const fileName& getFile(const label watchFd) const;
+		FoamBase_EXPORT const fileName& getFile(const label watchFd) const;
 
 		//- Check state using handle
-		fileState getState(const label watchFd) const;
+		FoamBase_EXPORT fileState getState(const label watchFd) const;
 
 		//- Check state of all files. Updates state_.
-		void updateStates
+		FoamBase_EXPORT void updateStates
 		(
 			const bool masterOnly,
 			const bool syncPar
 		) const;
 
 		//- Reset state (e.g. after having read it) using handle
-		void setUnmodified(const label watchFd);
+		FoamBase_EXPORT void setUnmodified(const label watchFd);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const fileMonitor&) = delete;
+		FoamBase_EXPORT void operator=(const fileMonitor&) = delete;
 	};
 
 

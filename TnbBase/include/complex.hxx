@@ -67,8 +67,8 @@ namespace tnbLib
 	inline complex operator*(const complex&, const scalar);
 	inline complex operator/(const complex&, const scalar);
 	inline complex operator/(const scalar, const complex&);
-	Istream& operator>>(Istream&, complex&);
-	Ostream& operator<<(Ostream&, const complex&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, complex&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const complex&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -90,10 +90,10 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
+		static FoamBase_EXPORT const char* const typeName;
 
-		static const complex zero;
-		static const complex one;
+		static FoamBase_EXPORT const complex zero;
+		static FoamBase_EXPORT const complex one;
 
 
 		// Constructors
@@ -105,7 +105,7 @@ namespace tnbLib
 		inline complex(const scalar Re, const scalar Im);
 
 		//- Construct from Istream
-		complex(Istream&);
+		FoamBase_EXPORT complex(Istream&);
 
 
 		// Member Functions
@@ -182,7 +182,7 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * Global functions  * * * * * * * * * * * * * * //
 
 	//- Return a string representation of a complex
-	word name(const complex&);
+	word FoamBase_EXPORT name(const complex&);
 
 
 	//- Data associated with complex type are contiguous

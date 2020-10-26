@@ -57,7 +57,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(emptyPointPatch::typeName_());
+		//TypeName(emptyPointPatch::typeName_());
+		static const char* typeName_() { return emptyPointPatch::typeName_(); }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

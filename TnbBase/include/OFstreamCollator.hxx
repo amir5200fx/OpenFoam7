@@ -157,7 +157,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Write actual file
-		static bool writeFile
+		static FoamBase_EXPORT bool writeFile
 		(
 			const label comm,
 			const word& typeName,
@@ -172,38 +172,42 @@ namespace tnbLib
 		);
 
 		//- Write all files in stack
-		static void* writeAll(void *threadarg);
+		static FoamBase_EXPORT void* writeAll(void *threadarg);
 
 		//- Wait for total size of objects_ (master + optional slave data)
 		//  to be wantedSize less than overall maxBufferSize.
-		void waitForBufferSpace(const off_t wantedSize) const;
+		FoamBase_EXPORT void waitForBufferSpace(const off_t wantedSize) const;
 
 
 	public:
 
 		// Declare name of the class and its debug switch
-		TypeName("OFstreamCollator");
+		//TypeName("OFstreamCollator");
+		static const char* typeName_() { return "OFstreamCollator"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from buffer size. 0 = do not use thread
-		OFstreamCollator(const off_t maxBufferSize);
+		FoamBase_EXPORT OFstreamCollator(const off_t maxBufferSize);
 
 		//- Construct from buffer size (0 = do not use thread) and local
 		//  thread
-		OFstreamCollator(const off_t maxBufferSize, const label comm);
+		FoamBase_EXPORT OFstreamCollator(const off_t maxBufferSize, const label comm);
 
 
 		//- Destructor
-		virtual ~OFstreamCollator();
+		FoamBase_EXPORT virtual ~OFstreamCollator();
 
 
 		// Member Functions
 
 			//- Write file with contents. Blocks until writethread has space
 			//  available (total file sizes < maxBufferSize)
-		bool write
+		FoamBase_EXPORT bool write
 		(
 			const word& typeName,
 			const fileName&,
@@ -216,7 +220,7 @@ namespace tnbLib
 		);
 
 		//- Wait for all thread actions to have finished
-		void waitAll();
+		FoamBase_EXPORT void waitAll();
 	};
 
 

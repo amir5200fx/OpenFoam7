@@ -61,13 +61,16 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Map all fields
-		void mapFields(const mapPolyMesh&);
+		FoamBase_EXPORT void mapFields(const mapPolyMesh&);
 
 
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("pointMesh");
+		//ClassName("pointMesh");
+		static const char* typeName_() { return "pointMesh"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		typedef pointMesh Mesh;
@@ -77,14 +80,14 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from polyMesh
-		explicit pointMesh(const polyMesh& pMesh);
+		FoamBase_EXPORT explicit pointMesh(const polyMesh& pMesh);
 
 		//- Disallow default bitwise copy construction
-		pointMesh(const pointMesh&) = delete;
+		FoamBase_EXPORT pointMesh(const pointMesh&) = delete;
 
 
 		//- Destructor
-		~pointMesh();
+		FoamBase_EXPORT ~pointMesh();
 
 
 		// Member Functions
@@ -120,33 +123,33 @@ namespace tnbLib
 		}
 
 		//- Reset for changed polyMesh
-		void reset(const bool validBoundary);
+		FoamBase_EXPORT void reset(const bool validBoundary);
 
 
 		// Mesh callbacks
 
 			//- Move points
-		virtual bool movePoints();
+		FoamBase_EXPORT virtual bool movePoints();
 
 		//- Update the mesh corresponding to given map
-		virtual void updateMesh(const mapPolyMesh& mpm);
+		FoamBase_EXPORT virtual void updateMesh(const mapPolyMesh& mpm);
 
 		//- Reordered/removed trailing patches. If validBoundary call is
 		//  parallel synced and all add the same patch with same settings
-		virtual void reorderPatches
+		FoamBase_EXPORT virtual void reorderPatches
 		(
 			const labelUList& newToOld,
 			const bool validBoundary
 		);
 
 		//- Inserted patch at patchi
-		virtual void addPatch(const label patchi);
+		FoamBase_EXPORT virtual void addPatch(const label patchi);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const pointMesh&) = delete;
+		FoamBase_EXPORT void operator=(const pointMesh&) = delete;
 
 		bool operator!=(const pointMesh& pm) const
 		{

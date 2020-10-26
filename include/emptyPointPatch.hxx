@@ -56,7 +56,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(emptyPolyPatch::typeName_());
+		//TypeName(emptyPolyPatch::typeName_());
+		static const char* typeName_() { return emptyPolyPatch::typeName_(); }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -81,7 +85,7 @@ namespace tnbLib
 		}
 
 		//- Accumulate the effect of constraint direction of this patch
-		virtual void applyConstraint
+		FoamBase_EXPORT virtual void applyConstraint
 		(
 			const label pointi,
 			pointConstraint&

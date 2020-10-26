@@ -85,12 +85,12 @@ namespace tnbLib
 
 
 	// Template specialisation for primitives that support negation
-	template<> scalar flipOp::operator()(const scalar&) const;
-	template<> vector flipOp::operator()(const vector&) const;
-	template<> sphericalTensor flipOp::operator()(const sphericalTensor&) const;
-	template<> symmTensor flipOp::operator()(const symmTensor&) const;
-	template<> tensor flipOp::operator()(const tensor&) const;
-	template<> triad flipOp::operator()(const triad&) const;
+	template<> FoamBase_EXPORT scalar flipOp::operator()(const scalar&) const;
+	template<> FoamBase_EXPORT vector flipOp::operator()(const vector&) const;
+	template<> FoamBase_EXPORT sphericalTensor flipOp::operator()(const sphericalTensor&) const;
+	template<> FoamBase_EXPORT symmTensor flipOp::operator()(const symmTensor&) const;
+	template<> FoamBase_EXPORT tensor flipOp::operator()(const tensor&) const;
+	template<> FoamBase_EXPORT triad flipOp::operator()(const triad&) const;
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

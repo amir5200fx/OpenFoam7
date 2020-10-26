@@ -51,7 +51,7 @@ namespace tnbLib
 
 	class procLduInterface;
 
-	Ostream& operator<<(Ostream&, const procLduInterface&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const procLduInterface&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -73,7 +73,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Dissallow construction as copy
-		procLduInterface(const procLduInterface&);
+		FoamBase_EXPORT procLduInterface(const procLduInterface&);
 
 
 	public:
@@ -83,13 +83,13 @@ namespace tnbLib
 
 		// Constructors
 
-		procLduInterface
+		FoamBase_EXPORT procLduInterface
 		(
 			const lduInterfaceField& interface,
 			const scalarField& coeffs
 		);
 
-		procLduInterface(Istream& is);
+		FoamBase_EXPORT procLduInterface(Istream& is);
 
 		autoPtr<procLduInterface> clone()
 		{

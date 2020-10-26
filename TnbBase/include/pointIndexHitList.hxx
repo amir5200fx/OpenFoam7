@@ -42,7 +42,7 @@ namespace tnbLib
 {
 	typedef List<pointIndexHit> pointIndexHitList;
 
-	scalar minDist
+	FoamBase_EXPORT scalar minDist
 	(
 		const List<pointIndexHit>& hitList
 	);

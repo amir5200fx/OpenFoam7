@@ -67,7 +67,7 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from entry name and dictionary
-			quarterCosineRamp
+			FoamBase_EXPORT quarterCosineRamp
 			(
 				const word& entryName,
 				const dictionary& dict
@@ -75,7 +75,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~quarterCosineRamp();
+			FoamBase_EXPORT virtual ~quarterCosineRamp();
 
 
 			// Member Functions

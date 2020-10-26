@@ -78,23 +78,27 @@ namespace tnbLib
 			// Private Member Functions
 
 				 //- Get the list of processors part of this set
-			static labelList subRanks(const label n);
+			static FoamBase_EXPORT labelList subRanks(const label n);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("hostCollated");
+			//TypeName("hostCollated");
+			static const char* typeName_() { return "hostCollated"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct null
-			hostCollatedFileOperation(const bool verbose);
+			FoamBase_EXPORT hostCollatedFileOperation(const bool verbose);
 
 
 			//- Destructor
-			virtual ~hostCollatedFileOperation();
+			FoamBase_EXPORT virtual ~hostCollatedFileOperation();
 		};
 
 

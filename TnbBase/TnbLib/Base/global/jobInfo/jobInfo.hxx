@@ -65,44 +65,44 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		bool write(Ostream&) const;
-		void end(const word& terminationType);
+		FoamBase_EXPORT bool write(Ostream&) const;
+		FoamBase_EXPORT void end(const word& terminationType);
 
 
 	public:
 
-		static bool constructed;
-		static bool writeJobControl;
-		static bool writeJobInfo;
+		static FoamBase_EXPORT bool constructed;
+		static FoamBase_EXPORT bool writeJobControl;
+		static FoamBase_EXPORT bool writeJobInfo;
 
 		// Constructors
 
 			//- Construct null
-		jobInfo();
+		FoamBase_EXPORT jobInfo();
 
 
 		//- Destructor
-		~jobInfo();
+		FoamBase_EXPORT ~jobInfo();
 
 
 		// Member Functions
 
-		void write(const word& executable, const fileName& casePath) const;
+		FoamBase_EXPORT void write(const word& executable, const fileName& casePath) const;
 
-		void end();
+		FoamBase_EXPORT void end();
 
-		void exit();
+		FoamBase_EXPORT void exit();
 
-		void abort();
+		FoamBase_EXPORT void abort();
 
-		void signalEnd() const;
+		FoamBase_EXPORT void signalEnd() const;
 
 		//- must be called at beginning of the program
-		void perform();  // Added by amir
+		FoamBase_EXPORT void perform();  // Added by amir
 	};
 
 
-	extern jobInfo jobInfo_;
+	FoamBase_EXPORT extern jobInfo jobInfo_;
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

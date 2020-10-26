@@ -68,22 +68,22 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Initialise the calculation of the patch geometry
-		virtual void initGeometry(PstreamBuffers&);
+		FoamBase_EXPORT virtual void initGeometry(PstreamBuffers&);
 
 		//- Calculate the patch geometry
-		virtual void calcGeometry(PstreamBuffers&);
+		FoamBase_EXPORT virtual void calcGeometry(PstreamBuffers&);
 
 		//- Initialise the patches for moving points
-		virtual void initMovePoints(PstreamBuffers&, const pointField&);
+		FoamBase_EXPORT virtual void initMovePoints(PstreamBuffers&, const pointField&);
 
 		//- Correct patches after moving points
-		virtual void movePoints(PstreamBuffers&, const pointField&);
+		FoamBase_EXPORT virtual void movePoints(PstreamBuffers&, const pointField&);
 
 		//- Initialise the update of the patch topology
-		virtual void initUpdateMesh(PstreamBuffers&);
+		FoamBase_EXPORT virtual void initUpdateMesh(PstreamBuffers&);
 
 		//- Update of the patch topology
-		virtual void updateMesh(PstreamBuffers&);
+		FoamBase_EXPORT virtual void updateMesh(PstreamBuffers&);
 
 
 	public:
@@ -95,38 +95,92 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName(polyPatch::typeName_());
+		//TypeName(polyPatch::typeName_());
+		static const char* typeName_() { return polyPatch::typeName_(); }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			facePointPatch,
 			polyPatch,
 			(const polyPatch& patch, const pointBoundaryMesh& bm),
 			(patch, bm)
-		);
+		);*/
+
+		typedef autoPtr<facePointPatch> (*polyPatchConstructorPtr)(const polyPatch& patch, const pointBoundaryMesh& bm);
+		typedef HashTable<polyPatchConstructorPtr, word, string::hash> polyPatchConstructorTable;
+		static FoamBase_EXPORT polyPatchConstructorTable* polyPatchConstructorTablePtr_;
+		static FoamBase_EXPORT void constructpolyPatchConstructorTables();
+		static FoamBase_EXPORT void destroypolyPatchConstructorTables();
+
+		template <class facePointPatchType>
+		class addpolyPatchConstructorToTable
+		{
+		public:
+			static autoPtr<facePointPatch> New(const polyPatch& patch, const pointBoundaryMesh& bm)
+			{
+				return autoPtr<facePointPatch>(new facePointPatchType(patch, bm));
+			}
+
+			addpolyPatchConstructorToTable(const word& lookup = facePointPatchType::typeName)
+			{
+				constructpolyPatchConstructorTables();
+				if (!polyPatchConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "facePointPatch" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addpolyPatchConstructorToTable() { destroypolyPatchConstructorTables(); }
+		};
+
+		template <class facePointPatchType>
+		class addRemovablepolyPatchConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<facePointPatch> New(const polyPatch& patch, const pointBoundaryMesh& bm)
+			{
+				return autoPtr<facePointPatch>(new facePointPatchType(patch, bm));
+			}
+
+			addRemovablepolyPatchConstructorToTable(const word& lookup = facePointPatchType::typeName) : lookup_(lookup)
+			{
+				constructpolyPatchConstructorTables();
+				polyPatchConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablepolyPatchConstructorToTable()
+			{
+				if (polyPatchConstructorTablePtr_) { polyPatchConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from polyPatch
-		facePointPatch
+		FoamBase_EXPORT facePointPatch
 		(
 			const polyPatch&,
 			const pointBoundaryMesh&
 		);
 
 		//- Disallow default bitwise copy construction
-		facePointPatch(const facePointPatch&) = delete;
+		FoamBase_EXPORT facePointPatch(const facePointPatch&) = delete;
 
 
 		// Selectors
 
 			//- Return a pointer to a new patch created on freestore from polyPatch
-		static autoPtr<facePointPatch> New
+		static FoamBase_EXPORT autoPtr<facePointPatch> New
 		(
 			const polyPatch&,
 			const pointBoundaryMesh&
@@ -194,7 +248,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const facePointPatch&) = delete;
+		FoamBase_EXPORT void operator=(const facePointPatch&) = delete;
 	};
 
 

@@ -71,10 +71,10 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Read the include fileName from Istream, expand and return
-			static fileName includeFileName(Istream&, const dictionary&);
+			static FoamBase_EXPORT fileName includeFileName(Istream&, const dictionary&);
 
 			//- Expand include fileName and return
-			static fileName includeFileName
+			static FoamBase_EXPORT fileName includeFileName
 			(
 				const fileName& dir,
 				const fileName&,
@@ -87,26 +87,29 @@ namespace tnbLib
 			// Static Data Members
 
 				//- Report which file is included to stdout
-			static bool log;
+			static FoamBase_EXPORT bool log;
 
 
 			//- Runtime type information
-			ClassName("include");
+			//ClassName("include");
+			static const char* typeName_() { return "include"; } 
+			static FoamBase_EXPORT const ::tnbLib::word typeName; 
+			static FoamBase_EXPORT int debug;
 
 
 			// Constructors
 
 				//- Disallow default bitwise copy construction
-			includeEntry(const includeEntry&) = delete;
+			FoamBase_EXPORT includeEntry(const includeEntry&) = delete;
 
 
 			// Member Functions
 
 				//- Execute the functionEntry in a sub-dict context
-			static bool execute(dictionary& parentDict, Istream&);
+			static FoamBase_EXPORT bool execute(dictionary& parentDict, Istream&);
 
 			//- Execute the functionEntry in a primitiveEntry context
-			static bool execute
+			static FoamBase_EXPORT bool execute
 			(
 				const dictionary& parentDict,
 				primitiveEntry&,
@@ -117,7 +120,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const includeEntry&) = delete;
+			FoamBase_EXPORT void operator=(const includeEntry&) = delete;
 		};
 
 

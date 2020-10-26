@@ -72,10 +72,10 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	//- Raise one uLabel to the power of another
-	uLabel pow(uLabel a, uLabel b);
+	FoamBase_EXPORT uLabel pow(uLabel a, uLabel b);
 
 	//- Evaluate n! : 0 < n <= 12
-	uLabel factorial(uLabel n);
+	FoamBase_EXPORT uLabel factorial(uLabel n);
 
 
 	inline uLabel& setComponent(uLabel& l, const direction)

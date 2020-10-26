@@ -95,7 +95,7 @@ namespace tnbLib
 		inline scalar error(const scalar x) const;
 
 		//- Get the roots
-		Roots<2> roots() const;
+		FoamBase_EXPORT Roots<2> roots() const;
 	};
 
 

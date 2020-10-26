@@ -67,7 +67,7 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from entry name and dictionary
-			quadraticRamp
+			FoamBase_EXPORT quadraticRamp
 			(
 				const word& entryName,
 				const dictionary& dict
@@ -75,7 +75,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~quadraticRamp();
+			FoamBase_EXPORT virtual ~quadraticRamp();
 
 
 			// Member Functions

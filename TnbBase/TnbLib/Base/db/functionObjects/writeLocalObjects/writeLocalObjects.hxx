@@ -102,13 +102,13 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Reset the list of local object names from a single word
-			void resetLocalObjectName(const word& name);
+			FoamBase_EXPORT void resetLocalObjectName(const word& name);
 
 			//- Reset the list of local object names from a wordList
-			void resetLocalObjectNames(const wordList& names);
+			FoamBase_EXPORT void resetLocalObjectNames(const wordList& names);
 
 			//- Get the list of field names to be written
-			virtual wordList objectNames();
+			FoamBase_EXPORT virtual wordList objectNames();
 
 
 		public:
@@ -116,33 +116,33 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from objectRegistry and inheriting function object
-			writeLocalObjects
+			FoamBase_EXPORT writeLocalObjects
 			(
 				const objectRegistry& obr,
 				const Switch& logRef
 			);
 
 			//- Disallow default bitwise copy construction
-			writeLocalObjects(const writeLocalObjects&) = delete;
+			FoamBase_EXPORT writeLocalObjects(const writeLocalObjects&) = delete;
 
 
 			//- Destructor
-			virtual ~writeLocalObjects();
+			FoamBase_EXPORT virtual ~writeLocalObjects();
 
 
 			// Member Functions
 
 				//- Return const access to the local object names
-			const wordList& localObjectNames() const;
+			FoamBase_EXPORT const wordList& localObjectNames() const;
 
 			//- Read the list of objects to be written
-			virtual bool read(const dictionary&);
+			FoamBase_EXPORT virtual bool read(const dictionary&);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const writeLocalObjects&) = delete;
+			FoamBase_EXPORT void operator=(const writeLocalObjects&) = delete;
 		};
 
 

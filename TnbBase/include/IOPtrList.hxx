@@ -58,7 +58,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("PtrList");
+		//TypeName("PtrList");
+		static const char* typeName_() { return "PtrList"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

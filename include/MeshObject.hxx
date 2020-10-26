@@ -171,11 +171,14 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("meshObject");
+		//ClassName("meshObject");
+		static const char* typeName_() { return "meshObject"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 		// Constructors
 
-		meshObject(const word& typeName, const objectRegistry& obr);
+		FoamBase_EXPORT meshObject(const word& typeName, const objectRegistry& obr);
 
 
 		// Static member functions

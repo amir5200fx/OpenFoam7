@@ -52,7 +52,7 @@ namespace tnbLib
 
 
 	//- Generate a random barycentric coordinate within the unit tetrahedron
-	barycentric barycentric01(Random& rndGen);
+	FoamBase_EXPORT barycentric barycentric01(Random& rndGen);
 
 
 	template<>

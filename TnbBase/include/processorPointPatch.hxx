@@ -70,40 +70,44 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Initialise the calculation of the patch geometry
-		virtual void initGeometry(PstreamBuffers&);
+		FoamBase_EXPORT virtual void initGeometry(PstreamBuffers&);
 
 		//- Calculate the patch geometry
-		virtual void calcGeometry(PstreamBuffers&);
+		FoamBase_EXPORT virtual void calcGeometry(PstreamBuffers&);
 
 		//- Initialise the patches for moving points
-		virtual void initMovePoints(PstreamBuffers&, const pointField&);
+		FoamBase_EXPORT virtual void initMovePoints(PstreamBuffers&, const pointField&);
 
 		//- Correct patches after moving points
-		virtual void movePoints(PstreamBuffers&, const pointField&);
+		FoamBase_EXPORT virtual void movePoints(PstreamBuffers&, const pointField&);
 
 		//- Initialise the update of the patch topology
-		virtual void initUpdateMesh(PstreamBuffers&);
+		FoamBase_EXPORT virtual void initUpdateMesh(PstreamBuffers&);
 
 		//- Update of the patch topology
-		virtual void updateMesh(PstreamBuffers&);
+		FoamBase_EXPORT virtual void updateMesh(PstreamBuffers&);
 
 
 		//- Disallow default bitwise copy construction
-		processorPointPatch(const processorPointPatch&);
+		FoamBase_EXPORT processorPointPatch(const processorPointPatch&);
 
 		//- Disallow default bitwise assignment
-		void operator=(const processorPointPatch&);
+		FoamBase_EXPORT void operator=(const processorPointPatch&);
 
 	public:
 
 		//- Runtime type information
-		TypeName(processorPolyPatch::typeName_());
+		//TypeName(processorPolyPatch::typeName_());
+		static const char* typeName_() { return processorPolyPatch::typeName_(); }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		processorPointPatch
+		FoamBase_EXPORT processorPointPatch
 		(
 			const polyPatch& patch,
 			const pointBoundaryMesh& bm
@@ -111,7 +115,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~processorPointPatch();
+		FoamBase_EXPORT virtual ~processorPointPatch();
 
 
 		// Member Functions
@@ -165,7 +169,7 @@ namespace tnbLib
 		}
 
 		//- Return mesh points in the correct order for the receiving side
-		const labelList& reverseMeshPoints() const;
+		FoamBase_EXPORT const labelList& reverseMeshPoints() const;
 
 	};
 

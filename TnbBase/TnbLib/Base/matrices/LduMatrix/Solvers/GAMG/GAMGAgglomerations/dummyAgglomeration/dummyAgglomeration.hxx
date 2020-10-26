@@ -60,27 +60,31 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("dummy");
+		//TypeName("dummy");
+		static const char* typeName_() { return "dummy"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given mesh and controls
-		dummyAgglomeration
+		FoamBase_EXPORT dummyAgglomeration
 		(
 			const lduMesh& mesh,
 			const dictionary& controlDict
 		);
 
 		//- Disallow default bitwise copy construction
-		dummyAgglomeration(const dummyAgglomeration&) = delete;
+		FoamBase_EXPORT dummyAgglomeration(const dummyAgglomeration&) = delete;
 
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const dummyAgglomeration&) = delete;
+		FoamBase_EXPORT void operator=(const dummyAgglomeration&) = delete;
 	};
 
 

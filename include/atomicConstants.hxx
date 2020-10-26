@@ -47,22 +47,22 @@ namespace tnbLib
 			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 				//- Group name for atomic constants
-			extern const char* const group;
+			FoamBase_EXPORT extern const char* const group;
 
 			//- Fine-structure constant: default SI units: []
-			extern const dimensionedScalar alpha;
+			FoamBase_EXPORT extern const dimensionedScalar alpha;
 
 			//- Rydberg constant: default SI units: [1/m]
-			extern const dimensionedScalar Rinf;
+			FoamBase_EXPORT extern const dimensionedScalar Rinf;
 
 			//- Bohr radius: default SI units: [m]
-			extern const dimensionedScalar a0;
+			FoamBase_EXPORT extern const dimensionedScalar a0;
 
 			//- Classical electron radius: default SI units: [m]
-			extern const dimensionedScalar re;
+			FoamBase_EXPORT extern const dimensionedScalar re;
 
 			//- Hartree energy: default SI units: [J]
-			extern const dimensionedScalar Eh;
+			FoamBase_EXPORT extern const dimensionedScalar Eh;
 
 
 			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

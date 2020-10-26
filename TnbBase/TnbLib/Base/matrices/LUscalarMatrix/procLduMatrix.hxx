@@ -53,7 +53,7 @@ namespace tnbLib
 
 	class procLduMatrix;
 
-	Ostream& operator<<(Ostream&, const procLduMatrix&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const procLduMatrix&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -75,7 +75,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Dissallow construction as copy
-		procLduMatrix(const procLduMatrix&);
+		FoamBase_EXPORT procLduMatrix(const procLduMatrix&);
 
 
 	public:
@@ -85,14 +85,14 @@ namespace tnbLib
 
 		// Constructors
 
-		procLduMatrix
+		FoamBase_EXPORT procLduMatrix
 		(
 			const lduMatrix& ldum,
 			const FieldField<Field, scalar>& interfaceCoeffs,
 			const lduInterfaceFieldPtrsList& interfaces
 		);
 
-		procLduMatrix(Istream& is);
+		FoamBase_EXPORT procLduMatrix(Istream& is);
 
 
 		// Member Functions

@@ -72,7 +72,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Convert the given lduMatrix into this LUscalarMatrix
-		void convert
+		FoamBase_EXPORT void convert
 		(
 			const lduMatrix& ldum,
 			const FieldField<Field, scalar>& interfaceCoeffs,
@@ -81,30 +81,33 @@ namespace tnbLib
 
 		//- Convert the given list of procLduMatrix into this LUscalarMatrix
 		//  on the master processor
-		void convert(const PtrList<procLduMatrix>& lduMatrices);
+		FoamBase_EXPORT void convert(const PtrList<procLduMatrix>& lduMatrices);
 
 
 		//- Print the ratio of the mag-sum of the off-diagonal coefficients
 		//  to the mag-diagonal
-		void printDiagonalDominance() const;
+		FoamBase_EXPORT void printDiagonalDominance() const;
 
 
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("LUscalarMatrix");
+		// ClassName("LUscalarMatrix");
+		static const char* typeName_() { return "LUscalarMatrix"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct null
-		LUscalarMatrix();
+		FoamBase_EXPORT LUscalarMatrix();
 
 		//- Construct from and perform LU decomposition of the matrix M
-		LUscalarMatrix(const scalarSquareMatrix& M);
+		FoamBase_EXPORT LUscalarMatrix(const scalarSquareMatrix& M);
 
 		//- Construct from lduMatrix and perform LU decomposition
-		LUscalarMatrix
+		FoamBase_EXPORT LUscalarMatrix
 		(
 			const lduMatrix&,
 			const FieldField<Field, scalar>& interfaceCoeffs,
@@ -115,7 +118,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Perform the LU decomposition of the matrix M
-		void decompose(const scalarSquareMatrix& M);
+		FoamBase_EXPORT void decompose(const scalarSquareMatrix& M);
 
 		//- Solve the linear system with the given source
 		//  and returning the solution in the Field argument x.
@@ -129,7 +132,7 @@ namespace tnbLib
 		tmp<Field<Type>> solve(const Field<Type>& source) const;
 
 		//- Set M to the inverse of this square matrix
-		void inv(scalarSquareMatrix& M) const;
+		FoamBase_EXPORT void inv(scalarSquareMatrix& M) const;
 	};
 
 

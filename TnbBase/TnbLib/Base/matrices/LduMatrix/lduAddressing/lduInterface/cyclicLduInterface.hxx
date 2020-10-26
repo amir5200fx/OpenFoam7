@@ -54,12 +54,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cyclicLduInterface");
+		//TypeName("cyclicLduInterface");
+		static const char* typeName_() { return "cyclicLduInterface"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 		//- Destructor
-		virtual ~cyclicLduInterface();
+		FoamBase_EXPORT virtual ~cyclicLduInterface();
 
 
 		// Member Functions
@@ -67,18 +71,18 @@ namespace tnbLib
 			// Access
 
 				//- Return neighbour
-		virtual label neighbPatchID() const = 0;
+		FoamBase_EXPORT virtual label neighbPatchID() const = 0;
 
-		virtual bool owner() const = 0;
+		FoamBase_EXPORT virtual bool owner() const = 0;
 
 		//- Return processor number
-		virtual const cyclicLduInterface& neighbPatch() const = 0;
+		FoamBase_EXPORT virtual const cyclicLduInterface& neighbPatch() const = 0;
 
 		//- Return face transformation tensor
-		virtual const tensorField& forwardT() const = 0;
+		FoamBase_EXPORT virtual const tensorField& forwardT() const = 0;
 
 		//- Return face reverse transformation tensor
-		virtual const tensorField& reverseT() const = 0;
+		FoamBase_EXPORT virtual const tensorField& reverseT() const = 0;
 	};
 
 

@@ -66,20 +66,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("FDIC");
+		//TypeName("FDIC");
+		static const char* typeName_() { return "FDIC"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from matrix components and preconditioner solver controls
-		FDICPreconditioner
+		FoamBase_EXPORT FDICPreconditioner
 		(
 			const lduMatrix::solver&,
 			const dictionary& solverControlsUnused
 		);
 
 		//- Disallow default bitwise copy construction
-		FDICPreconditioner(const FDICPreconditioner&) = delete;
+		FoamBase_EXPORT FDICPreconditioner(const FDICPreconditioner&) = delete;
 
 
 		//- Destructor
@@ -90,7 +94,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Return wA the preconditioned form of residual rA
-		virtual void precondition
+		FoamBase_EXPORT virtual void precondition
 		(
 			scalarField& wA,
 			const scalarField& rA,
@@ -101,7 +105,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const FDICPreconditioner&) = delete;
+		FoamBase_EXPORT void operator=(const FDICPreconditioner&) = delete;
 	};
 
 

@@ -60,7 +60,7 @@ namespace tnbLib
 
 			//- Construct given process index to send to and optional buffer size,
 			//  write format and IO version
-		OPstream
+		FoamBase_EXPORT OPstream
 		(
 			const commsTypes commsType,
 			const int toProcNo,

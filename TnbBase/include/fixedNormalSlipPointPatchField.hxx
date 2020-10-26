@@ -74,7 +74,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("fixedNormalSlip");
+		//TypeName("fixedNormalSlip");
+		static const char* typeName_() { return "fixedNormalSlip"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

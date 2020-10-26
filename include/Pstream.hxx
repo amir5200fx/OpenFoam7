@@ -67,7 +67,10 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("Pstream");
+		//ClassName("Pstream");
+		static const char* typeName_() { return "Pstream"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors

@@ -63,22 +63,25 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			ClassName("includeIfPresent");
+			//ClassName("includeIfPresent");
+			static const char* typeName_() { return "includeIfPresent"; } 
+			static FoamBase_EXPORT const ::tnbLib::word typeName; 
+			static FoamBase_EXPORT int debug;
 
 
 			// Constructors
 
 				//- Disallow default bitwise copy construction
-			includeIfPresentEntry(const includeIfPresentEntry&) = delete;
+			FoamBase_EXPORT includeIfPresentEntry(const includeIfPresentEntry&) = delete;
 
 
 			// Member Functions
 
 				//- Execute the functionEntry in a sub-dict context
-			static bool execute(dictionary& parentDict, Istream&);
+			static FoamBase_EXPORT bool execute(dictionary& parentDict, Istream&);
 
 			//- Execute the functionEntry in a primitiveEntry context
-			static bool execute
+			static FoamBase_EXPORT bool execute
 			(
 				const dictionary& parentDict,
 				primitiveEntry&,
@@ -89,7 +92,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const includeIfPresentEntry&) = delete;
+			FoamBase_EXPORT void operator=(const includeIfPresentEntry&) = delete;
 		};
 
 

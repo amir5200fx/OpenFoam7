@@ -59,10 +59,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct given an initial estimate for the number of entries
-		explicit IOobjectList(const label nIoObjects = 128);
+		FoamBase_EXPORT explicit IOobjectList(const label nIoObjects = 128);
 
 		//- Construct from objectRegistry and instance path
-		IOobjectList
+		FoamBase_EXPORT IOobjectList
 		(
 			const objectRegistry& db,
 			const fileName& instance,
@@ -73,50 +73,50 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		IOobjectList(const IOobjectList&);
+		FoamBase_EXPORT IOobjectList(const IOobjectList&);
 
 
 		//- Destructor
-		~IOobjectList();
+		FoamBase_EXPORT ~IOobjectList();
 
 
 		// Member Functions
 
 			//- Add an IOobject to the list
-		bool add(IOobject&);
+		FoamBase_EXPORT bool add(IOobject&);
 
 		//- Remove an IOobject from the list
-		bool remove(IOobject&);
+		FoamBase_EXPORT bool remove(IOobject&);
 
 		//- Lookup a given name and return IOobject ptr if found else nullptr
-		IOobject* lookup(const word& name) const;
+		FoamBase_EXPORT IOobject* lookup(const word& name) const;
 
 		//- Return the list for all IOobects whose name matches name
-		IOobjectList lookup(const wordRe& name) const;
+		FoamBase_EXPORT IOobjectList lookup(const wordRe& name) const;
 
 		//- Return the list for all IOobects whose name matches name
-		IOobjectList lookup(const wordReList& patterns) const;
+		FoamBase_EXPORT IOobjectList lookup(const wordReList& patterns) const;
 
 		//- Return the list for all IOobjects of a given class
-		IOobjectList lookupClass(const word& className) const;
+		FoamBase_EXPORT IOobjectList lookupClass(const word& className) const;
 
 		//- Return the list of names of the IOobjects
-		wordList names() const;
+		FoamBase_EXPORT wordList names() const;
 
 		//- Return the sorted list of names of the IOobjects
-		wordList sortedNames() const;
+		FoamBase_EXPORT wordList sortedNames() const;
 
 		//- Return the list of names of the IOobjects of given class
-		wordList names(const word& className) const;
+		FoamBase_EXPORT wordList names(const word& className) const;
 
 		//- Return the sorted list of names of the IOobjects of given class
-		wordList sortedNames(const word& className) const;
+		FoamBase_EXPORT wordList sortedNames(const word& className) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const IOobjectList&) = delete;
+		FoamBase_EXPORT void operator=(const IOobjectList&) = delete;
 	};
 
 

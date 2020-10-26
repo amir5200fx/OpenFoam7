@@ -75,10 +75,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate cell bounding box
-		treeBoundBox calcCellBb(const label celli) const;
+		FoamBase_EXPORT treeBoundBox calcCellBb(const label celli) const;
 
 		//- Initialise all member data
-		void update();
+		FoamBase_EXPORT void update();
 
 	public:
 
@@ -89,9 +89,9 @@ namespace tnbLib
 
 		public:
 
-			findNearestOp(const indexedOctree<treeDataCell>& tree);
+			FoamBase_EXPORT findNearestOp(const indexedOctree<treeDataCell>& tree);
 
-			void operator()
+			FoamBase_EXPORT void operator()
 				(
 					const labelUList& indices,
 					const point& sample,
@@ -101,7 +101,7 @@ namespace tnbLib
 					point& nearestPoint
 					) const;
 
-			void operator()
+			FoamBase_EXPORT void operator()
 				(
 					const labelUList& indices,
 					const linePointRef& ln,
@@ -120,9 +120,9 @@ namespace tnbLib
 
 		public:
 
-			findIntersectOp(const indexedOctree<treeDataCell>& tree);
+			FoamBase_EXPORT findIntersectOp(const indexedOctree<treeDataCell>& tree);
 
-			bool operator()
+			FoamBase_EXPORT bool operator()
 				(
 					const label index,
 					const point& start,
@@ -133,13 +133,16 @@ namespace tnbLib
 
 
 		// Declare name of the class and its debug switch
-		ClassName("treeDataCell");
+		//ClassName("treeDataCell");
+		static const char* typeName_() { return "treeDataCell"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh and subset of cells.
-		treeDataCell
+		FoamBase_EXPORT treeDataCell
 		(
 			const bool cacheBb,
 			const polyMesh&,
@@ -148,7 +151,7 @@ namespace tnbLib
 		);
 
 		//- Move construct from mesh and subset of cells, transferring contents
-		treeDataCell
+		FoamBase_EXPORT treeDataCell
 		(
 			const bool cacheBb,
 			const polyMesh&,
@@ -157,7 +160,7 @@ namespace tnbLib
 		);
 
 		//- Construct from mesh. Uses all cells in mesh.
-		treeDataCell
+		FoamBase_EXPORT treeDataCell
 		(
 			const bool cacheBb,
 			const polyMesh&,
@@ -191,7 +194,7 @@ namespace tnbLib
 
 		//- Get representative point cloud for all shapes inside
 		//  (one point per shape)
-		pointField shapePoints() const;
+		FoamBase_EXPORT pointField shapePoints() const;
 
 
 		// Search
@@ -209,14 +212,14 @@ namespace tnbLib
 		}
 
 		//- Does (bb of) shape at index overlap bb
-		bool overlaps
+		FoamBase_EXPORT bool overlaps
 		(
 			const label index,
 			const treeBoundBox& sampleBb
 		) const;
 
 		//- Does shape at index contain sample
-		bool contains
+		FoamBase_EXPORT bool contains
 		(
 			const label index,
 			const point& sample

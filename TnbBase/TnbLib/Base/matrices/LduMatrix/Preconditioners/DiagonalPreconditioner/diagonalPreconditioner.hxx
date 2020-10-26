@@ -63,20 +63,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("diagonal");
+		//TypeName("diagonal");
+		static const char* typeName_() { return "diagonal"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from matrix components and preconditioner solver controls
-		diagonalPreconditioner
+		FoamBase_EXPORT diagonalPreconditioner
 		(
 			const lduMatrix::solver&,
 			const dictionary& solverControlsUnused
 		);
 
 		//- Disallow default bitwise copy construction
-		diagonalPreconditioner(const diagonalPreconditioner&) = delete;
+		FoamBase_EXPORT diagonalPreconditioner(const diagonalPreconditioner&) = delete;
 
 
 		//- Destructor
@@ -87,7 +91,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Return wA the preconditioned form of residual rA
-		virtual void precondition
+		FoamBase_EXPORT virtual void precondition
 		(
 			scalarField& wA,
 			const scalarField& rA,
@@ -109,7 +113,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const diagonalPreconditioner&) = delete;
+		FoamBase_EXPORT void operator=(const diagonalPreconditioner&) = delete;
 	};
 
 

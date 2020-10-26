@@ -89,7 +89,7 @@ namespace tnbLib
 
 
 		template<>
-		tmp<Field<label>> Function1Types::Constant<label>::integrate
+		FoamBase_EXPORT tmp<Field<label>> Function1Types::Constant<label>::integrate
 		(
 			const scalarField& x1,
 			const scalarField& x2

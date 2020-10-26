@@ -77,19 +77,23 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Calculate the patch geometry
-		virtual void calcGeometry(PstreamBuffers&);
+		FoamBase_EXPORT virtual void calcGeometry(PstreamBuffers&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("wedge");
+		//TypeName("wedge");
+		static const char* typeName_() { return "wedge"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		wedgePolyPatch
+		FoamBase_EXPORT wedgePolyPatch
 		(
 			const word& name,
 			const label size,
@@ -100,7 +104,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		wedgePolyPatch
+		FoamBase_EXPORT wedgePolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -110,11 +114,11 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		wedgePolyPatch(const wedgePolyPatch&, const polyBoundaryMesh&);
+		FoamBase_EXPORT wedgePolyPatch(const wedgePolyPatch&, const polyBoundaryMesh&);
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		wedgePolyPatch
+		FoamBase_EXPORT wedgePolyPatch
 		(
 			const wedgePolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -124,7 +128,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		wedgePolyPatch
+		FoamBase_EXPORT wedgePolyPatch
 		(
 			const wedgePolyPatch& pp,
 			const polyBoundaryMesh& bm,

@@ -60,7 +60,18 @@ namespace tnbLib
 							Class indexedOctreeName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(indexedOctree);
+	//TemplateName(indexedOctree);
+	class indexedOctreeName
+	{
+	public:
+		indexedOctreeName()
+		{
+		}
+
+		static const char* typeName_() { return "indexedOctree"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\
@@ -146,7 +157,7 @@ namespace tnbLib
 			//- Helper: does bb intersect a sphere around sample? Or is any
 			//  corner point of bb closer than nearestDistSqr to sample.
 			//  (bb is implicitly provided as parent bb + octant)
-		static bool overlaps
+		static FoamBase_EXPORT bool overlaps
 		(
 			const treeBoundBox& parentBb,
 			const direction octant,
@@ -158,7 +169,7 @@ namespace tnbLib
 
 			//- Split list of indices into 8 bins
 			//  according to where they are in relation to mid.
-		void divide
+		FoamBase_EXPORT void divide
 		(
 			const labelList& indices,
 			const treeBoundBox& bb,
@@ -167,7 +178,7 @@ namespace tnbLib
 
 		//- Subdivide the contents node at position contentI.
 		//  Appends to contents.
-		node divide
+		FoamBase_EXPORT node divide
 		(
 			const treeBoundBox& bb,
 			DynamicList<labelList>& contents,
@@ -175,7 +186,7 @@ namespace tnbLib
 		) const;
 
 		//- Split any contents node with more than minSize elements.
-		void splitNodes
+		FoamBase_EXPORT void splitNodes
 		(
 			const label minSize,
 			DynamicList<node>& nodes,
@@ -184,7 +195,7 @@ namespace tnbLib
 
 		//- Reorder contents to be in same order as nodes.
 		//  Returns number of nodes on the compactLevel.
-		static label compactContents
+		static FoamBase_EXPORT label compactContents
 		(
 			DynamicList<node>& nodes,
 			DynamicList<labelList>& contents,
@@ -197,10 +208,10 @@ namespace tnbLib
 
 		//- Determine inside/outside per node (mixed if cannot be
 		//  determined). Only valid for closed shapes.
-		volumeType calcVolumeType(const label nodeI) const;
+		FoamBase_EXPORT volumeType calcVolumeType(const label nodeI) const;
 
 		//- Search cached volume type.
-		volumeType getVolumeType(const label nodeI, const point&) const;
+		FoamBase_EXPORT volumeType getVolumeType(const label nodeI, const point&) const;
 
 
 		// Query
@@ -221,7 +232,7 @@ namespace tnbLib
 		) const;
 
 		//- Return bbox of octant
-		treeBoundBox subBbox
+		FoamBase_EXPORT treeBoundBox subBbox
 		(
 			const label parentNodeI,
 			const direction octant
@@ -229,7 +240,7 @@ namespace tnbLib
 
 		//- Helper: take a point on/close to face of bb and push it
 		//  inside or outside of bb.
-		static point pushPoint
+		static FoamBase_EXPORT point pushPoint
 		(
 			const treeBoundBox&,
 			const point&,
@@ -238,7 +249,7 @@ namespace tnbLib
 
 		//- Helper: take a point on face of bb and push it
 		//  inside or outside of bb.
-		static point pushPoint
+		static FoamBase_EXPORT point pushPoint
 		(
 			const treeBoundBox&,
 			const direction,
@@ -251,7 +262,7 @@ namespace tnbLib
 		//  Guarantees that if pt is on a face it gets perturbed
 		//  so it is away from the face edges.
 		//  If pt is not on a face does nothing.
-		static point pushPointIntoFace
+		static FoamBase_EXPORT point pushPointIntoFace
 		(
 			const treeBoundBox& bb,
 			const vector& dir,          // end-start
@@ -259,7 +270,7 @@ namespace tnbLib
 		);
 
 		//- Walk to parent of node+octant.
-		bool walkToParent
+		FoamBase_EXPORT bool walkToParent
 		(
 			const label nodeI,
 			const direction octant,
@@ -270,7 +281,7 @@ namespace tnbLib
 
 		//- Walk tree to neighbouring node. Return false if edge of tree
 		//  hit.
-		bool walkToNeighbour
+		FoamBase_EXPORT bool walkToNeighbour
 		(
 			const point& facePoint,
 			const direction faceID,         // direction to walk in
@@ -279,7 +290,7 @@ namespace tnbLib
 		) const;
 
 		//- Debug: return verbose the bounding box faces
-		static word faceString(const direction faceID);
+		static FoamBase_EXPORT word faceString(const direction faceID);
 
 		//- Traverse a node. If intersects a triangle return first
 		// intersection point.
@@ -327,7 +338,7 @@ namespace tnbLib
 		) const;
 
 		//- Find all elements intersecting box.
-		void findBox
+		FoamBase_EXPORT void findBox
 		(
 			const label nodeI,
 			const treeBoundBox& searchBox,
@@ -336,7 +347,7 @@ namespace tnbLib
 
 
 		//- Find all elements intersecting sphere.
-		void findSphere
+		FoamBase_EXPORT void findSphere
 		(
 			const label nodeI,
 			const point& centre,
@@ -363,10 +374,10 @@ namespace tnbLib
 		// Other
 
 			//- Count number of elements on this and sublevels
-		label countElements(const labelBits index) const;
+		FoamBase_EXPORT label countElements(const labelBits index) const;
 
 		//- Dump node+octant to an obj file
-		void writeOBJ(const label nodeI, const direction octant) const;
+		FoamBase_EXPORT void writeOBJ(const label nodeI, const direction octant) const;
 
 		//- From index into contents_ to subNodes_ entry
 		static labelBits contentPlusOctant
@@ -400,16 +411,16 @@ namespace tnbLib
 	public:
 
 		//- Get the perturbation tolerance
-		static scalar& perturbTol();
+		static FoamBase_EXPORT scalar& perturbTol();
 
 
 		// Constructors
 
 			//- Construct null
-		indexedOctree(const Type& shapes);
+		FoamBase_EXPORT indexedOctree(const Type& shapes);
 
 		//- Construct from components
-		indexedOctree
+		FoamBase_EXPORT indexedOctree
 		(
 			const Type& shapes,
 			const List<node>& nodes,
@@ -417,7 +428,7 @@ namespace tnbLib
 		);
 
 		//- Construct from shapes
-		indexedOctree
+		FoamBase_EXPORT indexedOctree
 		(
 			const Type& shapes,
 			const treeBoundBox& bb,
@@ -428,7 +439,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		indexedOctree(const Type& shapes, Istream& is);
+		FoamBase_EXPORT indexedOctree(const Type& shapes, Istream& is);
 
 		//- Clone
 		autoPtr<indexedOctree<Type>> clone() const
@@ -519,7 +530,7 @@ namespace tnbLib
 
 		// Queries
 
-		pointIndexHit findNearest
+		FoamBase_EXPORT pointIndexHit findNearest
 		(
 			const point& sample,
 			const scalar nearestDistSqr
@@ -560,7 +571,7 @@ namespace tnbLib
 		//  - point: actual nearest point found
 		//  sets:
 		//  - linePoint : corresponding nearest point on line
-		pointIndexHit findNearest
+		FoamBase_EXPORT pointIndexHit findNearest
 		(
 			const linePointRef& ln,
 			treeBoundBox& tightest,
@@ -578,14 +589,14 @@ namespace tnbLib
 		) const;
 
 		//- Find nearest intersection of line between start and end.
-		pointIndexHit findLine
+		FoamBase_EXPORT pointIndexHit findLine
 		(
 			const point& start,
 			const point& end
 		) const;
 
 		//- Find any intersection of line between start and end.
-		pointIndexHit findLineAny
+		FoamBase_EXPORT pointIndexHit findLineAny
 		(
 			const point& start,
 			const point& end
@@ -611,12 +622,12 @@ namespace tnbLib
 
 		//- Find (in no particular order) indices of all shapes inside or
 		//  overlapping bounding box (i.e. all shapes not outside box)
-		labelList findBox(const treeBoundBox& bb) const;
+		FoamBase_EXPORT labelList findBox(const treeBoundBox& bb) const;
 
 		//- Find (in no particular order) indices of all shapes inside or
 		//  overlapping a bounding sphere (i.e. all shapes not outside
 		//  sphere)
-		labelList findSphere
+		FoamBase_EXPORT labelList findSphere
 		(
 			const point& centre,
 			const scalar radiusSqr
@@ -625,22 +636,22 @@ namespace tnbLib
 		//- Find deepest node (as parent+octant) containing point. Starts
 		//  off from starting index in nodes_ (use 0 to start from top)
 		//  Use getNode and getOctant to extract info, or call findIndices.
-		labelBits findNode(const label nodeI, const point&) const;
+		FoamBase_EXPORT labelBits findNode(const label nodeI, const point&) const;
 
 		//- Find shape containing point. Only implemented for certain
 		//  shapes.
-		label findInside(const point&) const;
+		FoamBase_EXPORT label findInside(const point&) const;
 
 		//- Find the shape indices that occupy the result of findNode
-		const labelList& findIndices(const point&) const;
+		FoamBase_EXPORT const labelList& findIndices(const point&) const;
 
 		//- Determine type (inside/outside/mixed) for point. unknown if
 		//  cannot be determined (e.g. non-manifold surface)
-		volumeType getVolumeType(const point&) const;
+		FoamBase_EXPORT volumeType getVolumeType(const point&) const;
 
 		//- Helper function to return the side. Returns outside if
 		//  outsideNormal&vec >= 0, inside otherwise
-		static volumeType getSide
+		static FoamBase_EXPORT volumeType getSide
 		(
 			const vector& outsideNormal,
 			const vector& vec
@@ -648,7 +659,7 @@ namespace tnbLib
 
 		//- Helper: does bb intersect a sphere around sample? Or is any
 		//  corner point of bb closer than nearestDistSqr to sample.
-		static bool overlaps
+		static FoamBase_EXPORT bool overlaps
 		(
 			const point& bbMin,
 			const point& bbMax,
@@ -671,14 +682,14 @@ namespace tnbLib
 
 			//- Print tree. Either print all indices (printContent = true) or
 			//  just size of contents nodes.
-		void print
+		FoamBase_EXPORT void print
 		(
 			prefixOSstream&,
 			const bool printContents,
 			const label
 		) const;
 
-		bool write(Ostream& os) const;
+		FoamBase_EXPORT bool write(Ostream& os) const;
 
 
 		// IOstream Operators

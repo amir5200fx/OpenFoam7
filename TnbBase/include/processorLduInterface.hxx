@@ -62,23 +62,27 @@ namespace tnbLib
 		mutable List<char> receiveBuf_;
 
 		//- Resize the buffer if required
-		void resizeBuf(List<char>& buf, const label size) const;
+		FoamBase_EXPORT void resizeBuf(List<char>& buf, const label size) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("processorLduInterface");
+		//TypeName("processorLduInterface");
+		static const char* typeName_() { return "processorLduInterface"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct null
-		processorLduInterface();
+		FoamBase_EXPORT processorLduInterface();
 
 
 		//- Destructor
-		virtual ~processorLduInterface();
+		FoamBase_EXPORT virtual ~processorLduInterface();
 
 
 		// Member Functions
@@ -86,19 +90,19 @@ namespace tnbLib
 			// Access
 
 				//- Return communicator used for parallel communication
-		virtual label comm() const = 0;
+		FoamBase_EXPORT virtual label comm() const = 0;
 
 		//- Return processor number (rank in communicator)
-		virtual int myProcNo() const = 0;
+		FoamBase_EXPORT virtual int myProcNo() const = 0;
 
 		//- Return neighbour processor number (rank in communicator)
-		virtual int neighbProcNo() const = 0;
+		FoamBase_EXPORT virtual int neighbProcNo() const = 0;
 
 		//- Return face transformation tensor
-		virtual const tensorField& forwardT() const = 0;
+		FoamBase_EXPORT virtual const tensorField& forwardT() const = 0;
 
 		//- Return message tag used for sending
-		virtual int tag() const = 0;
+		FoamBase_EXPORT virtual int tag() const = 0;
 
 		// Transfer functions
 

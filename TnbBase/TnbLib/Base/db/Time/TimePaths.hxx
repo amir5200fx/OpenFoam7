@@ -65,7 +65,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct given database name, rootPath and casePath
-		TimePaths
+		FoamBase_EXPORT TimePaths
 		(
 			const fileName& rootPath,
 			const fileName& caseName,
@@ -75,7 +75,7 @@ namespace tnbLib
 
 
 		//- Construct given database name, rootPath and casePath
-		TimePaths
+		FoamBase_EXPORT TimePaths
 		(
 			const bool processorCase,
 			const fileName& rootPath,
@@ -120,7 +120,7 @@ namespace tnbLib
 
 		//- Return system name for the case
 		//  which for parallel runs returns ../system()
-		fileName caseSystem() const;
+		FoamBase_EXPORT fileName caseSystem() const;
 
 		//- Return constant name
 		const word& constant() const
@@ -130,7 +130,7 @@ namespace tnbLib
 
 		//- Return constant name for the case
 		//  which for parallel runs returns ../constant()
-		fileName caseConstant() const;
+		FoamBase_EXPORT fileName caseConstant() const;
 
 		//- Return path
 		fileName path() const

@@ -55,13 +55,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("diagonal");
+		//TypeName("diagonal");
+		static const char* typeName_() { return "diagonal"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from matrix and solver controls
-		diagonalSolver
+		FoamBase_EXPORT diagonalSolver
 		(
 			const word& fieldName,
 			const lduMatrix& matrix,
@@ -72,7 +76,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		diagonalSolver(const diagonalSolver&) = delete;
+		FoamBase_EXPORT diagonalSolver(const diagonalSolver&) = delete;
 
 
 		// Member Functions
@@ -82,7 +86,7 @@ namespace tnbLib
 		{}
 
 		//- Solve the matrix with this solver
-		solverPerformance solve
+		FoamBase_EXPORT solverPerformance solve
 		(
 			scalarField& psi,
 			const scalarField& source,
@@ -93,7 +97,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const diagonalSolver&) = delete;
+		FoamBase_EXPORT void operator=(const diagonalSolver&) = delete;
 	};
 
 

@@ -62,18 +62,22 @@ namespace tnbLib
 		label nVcycles_;
 
 		//- Read the control parameters from the controlDict_
-		virtual void readControls();
+		FoamBase_EXPORT virtual void readControls();
 
 	public:
 
 		//- Runtime type information
-		TypeName("GAMG");
+		//TypeName("GAMG");
+		static const char* typeName_() { return "GAMG"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from matrix components and preconditioner solver controls
-		GAMGPreconditioner
+		FoamBase_EXPORT GAMGPreconditioner
 		(
 			const lduMatrix::solver&,
 			const dictionary& solverControls
@@ -81,13 +85,13 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~GAMGPreconditioner();
+		FoamBase_EXPORT virtual ~GAMGPreconditioner();
 
 
 		// Member Functions
 
 			//- Return wA the preconditioned form of residual rA
-		virtual void precondition
+		FoamBase_EXPORT virtual void precondition
 		(
 			scalarField& wA,
 			const scalarField& rA,

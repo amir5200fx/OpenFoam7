@@ -75,12 +75,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("GAMGInterface");
+		//TypeName("GAMGInterface");
+		static const char* typeName_() { return "GAMGInterface"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			GAMGInterface,
@@ -103,9 +107,72 @@ namespace tnbLib
 					fineLevelIndex,
 					coarseComm
 					)
-		);
+		);*/
 
-		declareRunTimeSelectionTable
+		typedef autoPtr<GAMGInterface> (*lduInterfaceConstructorPtr)(const label index,
+		                                                             const lduInterfacePtrsList& coarseInterfaces,
+		                                                             const lduInterface& fineInterface,
+		                                                             const labelField& localRestrictAddressing,
+		                                                             const labelField& neighbourRestrictAddressing,
+		                                                             const label fineLevelIndex, const label coarseComm);
+		typedef HashTable<lduInterfaceConstructorPtr, word, string::hash> lduInterfaceConstructorTable;
+		static FoamBase_EXPORT lduInterfaceConstructorTable* lduInterfaceConstructorTablePtr_;
+		static FoamBase_EXPORT void constructlduInterfaceConstructorTables();
+		static FoamBase_EXPORT void destroylduInterfaceConstructorTables();
+
+		template <class GAMGInterfaceType>
+		class addlduInterfaceConstructorToTable
+		{
+		public:
+			static autoPtr<GAMGInterface> New(const label index, const lduInterfacePtrsList& coarseInterfaces,
+			                                  const lduInterface& fineInterface, const labelField& localRestrictAddressing,
+			                                  const labelField& neighbourRestrictAddressing, const label fineLevelIndex,
+			                                  const label coarseComm)
+			{
+				return autoPtr<GAMGInterface>(new GAMGInterfaceType(index, coarseInterfaces, fineInterface, localRestrictAddressing,
+				                                                    neighbourRestrictAddressing, fineLevelIndex, coarseComm));
+			}
+
+			addlduInterfaceConstructorToTable(const word& lookup = GAMGInterfaceType::typeName)
+			{
+				constructlduInterfaceConstructorTables();
+				if (!lduInterfaceConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "GAMGInterface" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addlduInterfaceConstructorToTable() { destroylduInterfaceConstructorTables(); }
+		};
+
+		template <class GAMGInterfaceType>
+		class addRemovablelduInterfaceConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<GAMGInterface> New(const label index, const lduInterfacePtrsList& coarseInterfaces,
+			                                  const lduInterface& fineInterface, const labelField& localRestrictAddressing,
+			                                  const labelField& neighbourRestrictAddressing, const label fineLevelIndex,
+			                                  const label coarseComm)
+			{
+				return autoPtr<GAMGInterface>(new GAMGInterfaceType(index, coarseInterfaces, fineInterface, localRestrictAddressing,
+				                                                    neighbourRestrictAddressing, fineLevelIndex, coarseComm));
+			}
+
+			addRemovablelduInterfaceConstructorToTable(const word& lookup = GAMGInterfaceType::typeName) : lookup_(lookup)
+			{
+				constructlduInterfaceConstructorTables();
+				lduInterfaceConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablelduInterfaceConstructorToTable()
+			{
+				if (lduInterfaceConstructorTablePtr_) { lduInterfaceConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
+
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			GAMGInterface,
@@ -120,14 +187,65 @@ namespace tnbLib
 					coarseInterfaces,
 					is
 					)
-		);
+		);*/
+
+		typedef autoPtr<GAMGInterface> (*IstreamConstructorPtr)(const label index,
+		                                                        const lduInterfacePtrsList& coarseInterfaces, Istream& is);
+		typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
+		static FoamBase_EXPORT IstreamConstructorTable* IstreamConstructorTablePtr_;
+		static FoamBase_EXPORT void constructIstreamConstructorTables();
+		static FoamBase_EXPORT void destroyIstreamConstructorTables();
+
+		template <class GAMGInterfaceType>
+		class addIstreamConstructorToTable
+		{
+		public:
+			static autoPtr<GAMGInterface> New(const label index, const lduInterfacePtrsList& coarseInterfaces, Istream& is)
+			{
+				return autoPtr<GAMGInterface>(new GAMGInterfaceType(index, coarseInterfaces, is));
+			}
+
+			addIstreamConstructorToTable(const word& lookup = GAMGInterfaceType::typeName)
+			{
+				constructIstreamConstructorTables();
+				if (!IstreamConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "GAMGInterface" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
+		};
+
+		template <class GAMGInterfaceType>
+		class addRemovableIstreamConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<GAMGInterface> New(const label index, const lduInterfacePtrsList& coarseInterfaces, Istream& is)
+			{
+				return autoPtr<GAMGInterface>(new GAMGInterfaceType(index, coarseInterfaces, is));
+			}
+
+			addRemovableIstreamConstructorToTable(const word& lookup = GAMGInterfaceType::typeName) : lookup_(lookup)
+			{
+				constructIstreamConstructorTables();
+				IstreamConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableIstreamConstructorToTable()
+			{
+				if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Selectors
 
 			//- Return a pointer to a new interface created on freestore given
 			//  the fine interface
-		static autoPtr<GAMGInterface> New
+		static FoamBase_EXPORT autoPtr<GAMGInterface> New
 		(
 			const label index,
 			const lduInterfacePtrsList& coarseInterfaces,
@@ -140,7 +258,7 @@ namespace tnbLib
 
 		//- Return a pointer to a new interface created on freestore given
 		//  the fine interface
-		static autoPtr<GAMGInterface> New
+		static FoamBase_EXPORT autoPtr<GAMGInterface> New
 		(
 			const word& coupleType,
 			const label index,
@@ -180,7 +298,7 @@ namespace tnbLib
 
 
 		//- Construct from Istream
-		GAMGInterface
+		FoamBase_EXPORT GAMGInterface
 		(
 			const label index,
 			const lduInterfacePtrsList& coarseInterfaces,
@@ -188,7 +306,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		GAMGInterface(const GAMGInterface&) = delete;
+		FoamBase_EXPORT GAMGInterface(const GAMGInterface&) = delete;
 
 
 		// Member Functions
@@ -246,7 +364,7 @@ namespace tnbLib
 
 		//- Return the values of the given internal data adjacent to
 		//  the interface as a field
-		virtual tmp<labelField> interfaceInternalField
+		FoamBase_EXPORT virtual tmp<labelField> interfaceInternalField
 		(
 			const labelUList& internalData
 		) const;
@@ -257,10 +375,10 @@ namespace tnbLib
 			//- Merge the next level with this level
 			//  combining the face-restrict addressing
 			//  and copying the face-cell addressing
-		void combine(const GAMGInterface&);
+		FoamBase_EXPORT void combine(const GAMGInterface&);
 
 		//- Agglomerating the given fine-level coefficients and return
-		virtual tmp<scalarField> agglomerateCoeffs
+		FoamBase_EXPORT virtual tmp<scalarField> agglomerateCoeffs
 		(
 			const scalarField& fineCoeffs
 		) const;
@@ -269,13 +387,13 @@ namespace tnbLib
 		// I/O
 
 			//- Write to stream
-		virtual void write(Ostream&) const = 0;
+		FoamBase_EXPORT virtual void write(Ostream&) const = 0;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const GAMGInterface&) = delete;
+		FoamBase_EXPORT void operator=(const GAMGInterface&) = delete;
 	};
 
 

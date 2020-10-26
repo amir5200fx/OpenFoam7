@@ -38,6 +38,8 @@ SourceFiles
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <Base_Module.hxx>
+
 namespace tnbLib
 {
 
@@ -46,10 +48,10 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	char readChar(Istream&);
-	Istream& operator>>(Istream&, char&);
-	Ostream& operator<<(Ostream&, const char);
-	Ostream& operator<<(Ostream&, const char*);
+	FoamBase_EXPORT char readChar(Istream&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, char&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const char);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const char*);
 
 	inline bool isspace(char c)
 	{

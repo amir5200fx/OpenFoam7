@@ -69,7 +69,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("lduInterfaceField");
+		//TypeName("lduInterfaceField");
+		static const char* typeName_() { return "lduInterfaceField"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -82,11 +86,11 @@ namespace tnbLib
 		{}
 
 		//- Disallow default bitwise copy construction
-		lduInterfaceField(const lduInterfaceField&) = delete;
+		FoamBase_EXPORT lduInterfaceField(const lduInterfaceField&) = delete;
 
 
 		//- Destructor
-		virtual ~lduInterfaceField();
+		FoamBase_EXPORT virtual ~lduInterfaceField();
 
 
 		// Member Functions
@@ -138,7 +142,7 @@ namespace tnbLib
 		{}
 
 		//- Update result field based on interface functionality
-		virtual void updateInterfaceMatrix
+		FoamBase_EXPORT virtual void updateInterfaceMatrix
 		(
 			scalarField&,
 			const scalarField&,
@@ -151,7 +155,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const lduInterfaceField&) = delete;
+		FoamBase_EXPORT void operator=(const lduInterfaceField&) = delete;
 	};
 
 

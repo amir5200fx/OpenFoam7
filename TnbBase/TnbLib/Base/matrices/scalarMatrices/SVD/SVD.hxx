@@ -81,10 +81,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from a rectangular Matrix
-		SVD(const scalarRectangularMatrix& A, const scalar minCondition = 0);
+		FoamBase_EXPORT SVD(const scalarRectangularMatrix& A, const scalar minCondition = 0);
 
 		//- Disallow default bitwise copy construction
-		SVD(const SVD&) = delete;
+		FoamBase_EXPORT SVD(const SVD&) = delete;
 
 
 		// Access functions
@@ -108,13 +108,13 @@ namespace tnbLib
 		inline scalar minNonZeroS() const;
 
 		//- Return the matrix product V S^(-1) U^T (the pseudo inverse)
-		scalarRectangularMatrix VSinvUt() const;
+		FoamBase_EXPORT scalarRectangularMatrix VSinvUt() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const SVD&) = delete;
+		FoamBase_EXPORT void operator=(const SVD&) = delete;
 	};
 
 

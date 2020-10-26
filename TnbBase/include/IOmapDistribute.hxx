@@ -59,31 +59,35 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("mapDistribute");
+		//TypeName("mapDistribute");
+		static const char* typeName_() { return "mapDistribute"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct given an IOobject
-		IOmapDistribute(const IOobject&);
+		FoamBase_EXPORT IOmapDistribute(const IOobject&);
 
 		//- Construct given an IOobject and mapDistribute
-		IOmapDistribute(const IOobject&, const mapDistribute&);
+		FoamBase_EXPORT IOmapDistribute(const IOobject&, const mapDistribute&);
 
 		//- Move constructor transferring the mapDistribute contents
-		IOmapDistribute(const IOobject&, mapDistribute&&);
+		FoamBase_EXPORT IOmapDistribute(const IOobject&, mapDistribute&&);
 
 
 		//- Destructor
-		virtual ~IOmapDistribute();
+		FoamBase_EXPORT virtual ~IOmapDistribute();
 
 
 		// Member Functions
 
 			//- ReadData function required for regIOobject read operation
-		virtual bool readData(Istream&);
+		FoamBase_EXPORT virtual bool readData(Istream&);
 
 		//- WriteData function required for regIOobject write operation
-		virtual bool writeData(Ostream&) const;
+		FoamBase_EXPORT virtual bool writeData(Ostream&) const;
 
 	};
 

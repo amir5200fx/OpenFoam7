@@ -77,7 +77,7 @@ namespace tnbLib
 		const word prefix_;
 
 		//- String representation of timeControls enums
-		static const NamedEnum<timeControls, 8> timeControlNames_;
+		static FoamBase_EXPORT const NamedEnum<timeControls, 8> timeControlNames_;
 
 		//- Type of time control
 		timeControls timeControl_;
@@ -98,7 +98,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from Time object and dictionary
-		timeControl
+		FoamBase_EXPORT timeControl
 		(
 			const Time&,
 			const dictionary&,
@@ -106,23 +106,23 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		timeControl(const timeControl&) = delete;
+		FoamBase_EXPORT timeControl(const timeControl&) = delete;
 
 
 		//- Destructor
-		~timeControl();
+		FoamBase_EXPORT ~timeControl();
 
 
 		// Member Functions
 
 			//- Read from dictionary
-		void read(const dictionary&);
+		FoamBase_EXPORT void read(const dictionary&);
 
 		//- Return Time
 		inline const Time& time() const;
 
 		//- Flag to indicate whether to execute
-		bool execute();
+		FoamBase_EXPORT bool execute();
 
 		//- Return control
 		inline timeControls control() const;
@@ -137,7 +137,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const timeControl&) = delete;
+		FoamBase_EXPORT void operator=(const timeControl&) = delete;
 	};
 
 

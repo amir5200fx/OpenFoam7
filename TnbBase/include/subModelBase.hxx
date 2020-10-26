@@ -79,7 +79,7 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Flag to indicate whether data is/was read in-line
-		bool inLine() const;
+		FoamBase_EXPORT bool inLine() const;
 
 
 	public:
@@ -87,10 +87,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		subModelBase(dictionary& properties);
+		FoamBase_EXPORT subModelBase(dictionary& properties);
 
 		//- Construct from components without name
-		subModelBase
+		FoamBase_EXPORT subModelBase
 		(
 			dictionary& properties,
 			const dictionary& dict,
@@ -100,7 +100,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components with name
-		subModelBase
+		FoamBase_EXPORT subModelBase
 		(
 			const word& modelName,
 			dictionary& properties,
@@ -110,11 +110,11 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		subModelBase(const subModelBase& smb);
+		FoamBase_EXPORT subModelBase(const subModelBase& smb);
 
 
 		//- Destructor
-		virtual ~subModelBase();
+		FoamBase_EXPORT virtual ~subModelBase();
 
 
 		// Member Functions
@@ -122,34 +122,34 @@ namespace tnbLib
 			// Access
 
 				//- Return const access to the name of the sub-model
-		const word& modelName() const;
+		FoamBase_EXPORT const word& modelName() const;
 
 		//- Return const access to the cloud dictionary
-		const dictionary& dict() const;
+		FoamBase_EXPORT const dictionary& dict() const;
 
 		//- Return const access to the base name of the sub-model
-		const word& baseName() const;
+		FoamBase_EXPORT const word& baseName() const;
 
 		//- Return const access to the sub-model type
-		const word& modelType() const;
+		FoamBase_EXPORT const word& modelType() const;
 
 		//- Return const access to the coefficients dictionary
-		const dictionary& coeffDict() const;
+		FoamBase_EXPORT const dictionary& coeffDict() const;
 
 		//- Return const access to the properties dictionary
-		const dictionary& properties() const;
+		FoamBase_EXPORT const dictionary& properties() const;
 
 		//- Returns true if defaultCoeffs is true and outputs on printMsg
-		virtual bool defaultCoeffs(const bool printMsg) const;
+		FoamBase_EXPORT virtual bool defaultCoeffs(const bool printMsg) const;
 
 		//- Return the model 'active' status - default active = true
-		virtual bool active() const;
+		FoamBase_EXPORT virtual bool active() const;
 
 		//- Cache dependent sub-model fields
-		virtual void cacheFields(const bool store);
+		FoamBase_EXPORT virtual void cacheFields(const bool store);
 
 		//- Flag to indicate when to write a property
-		virtual bool writeTime() const;
+		FoamBase_EXPORT virtual bool writeTime() const;
 
 
 		// Edit
@@ -195,7 +195,7 @@ namespace tnbLib
 		// I-O
 
 			//- Write
-		virtual void write(Ostream& os) const;
+		FoamBase_EXPORT virtual void write(Ostream& os) const;
 
 
 		// Member Operators

@@ -62,13 +62,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("DIC");
+		//TypeName("DIC");
+		static const char* typeName_() { return "DIC"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from matrix components and preconditioner solver controls
-		DICPreconditioner
+		FoamBase_EXPORT DICPreconditioner
 		(
 			const lduMatrix::solver&,
 			const dictionary& solverControlsUnused
@@ -83,10 +87,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Calculate the reciprocal of the preconditioned diagonal
-		static void calcReciprocalD(scalarField& rD, const lduMatrix& matrix);
+		static FoamBase_EXPORT void calcReciprocalD(scalarField& rD, const lduMatrix& matrix);
 
 		//- Return wA the preconditioned form of residual rA
-		virtual void precondition
+		FoamBase_EXPORT virtual void precondition
 		(
 			scalarField& wA,
 			const scalarField& rA,

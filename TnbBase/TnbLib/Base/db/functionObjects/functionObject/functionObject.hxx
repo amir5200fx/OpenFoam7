@@ -149,12 +149,12 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		virtual const word& type() const = 0;
+		FoamBase_EXPORT virtual const word& type() const = 0;
 
-		static int debug;
+		static FoamBase_EXPORT int debug;
 
 		//- Global post-processing mode switch
-		static bool postProcess;
+		static FoamBase_EXPORT bool postProcess;
 
 		//- Switch write log to Info
 		Switch log;
@@ -162,20 +162,71 @@ namespace tnbLib
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			functionObject,
 			dictionary,
 			(const word& name, const Time& runTime, const dictionary& dict),
 			(name, runTime, dict)
-		);
+		);*/
+
+		typedef autoPtr<functionObject> (*dictionaryConstructorPtr)(const word& name, const Time& runTime,
+		                                                            const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamBase_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamBase_EXPORT void constructdictionaryConstructorTables();
+		static FoamBase_EXPORT void destroydictionaryConstructorTables();
+
+		template <class functionObjectType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<functionObject> New(const word& name, const Time& runTime, const dictionary& dict)
+			{
+				return autoPtr<functionObject>(new functionObjectType(name, runTime, dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = functionObjectType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "functionObject" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class functionObjectType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<functionObject> New(const word& name, const Time& runTime, const dictionary& dict)
+			{
+				return autoPtr<functionObject>(new functionObjectType(name, runTime, dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = functionObjectType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from components
-		functionObject(const word& name);
+		FoamBase_EXPORT functionObject(const word& name);
 
 		//- Return clone
 		autoPtr<functionObject> clone() const
@@ -185,13 +236,13 @@ namespace tnbLib
 		}
 
 		//- Disallow default bitwise copy construction
-		functionObject(const functionObject&) = delete;
+		FoamBase_EXPORT functionObject(const functionObject&) = delete;
 
 
 		// Selectors
 
 			//- Select from dictionary, based on its "type" entry
-		static autoPtr<functionObject> New
+		static FoamBase_EXPORT autoPtr<functionObject> New
 		(
 			const word& name,
 			const Time&,
@@ -200,52 +251,52 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~functionObject();
+		FoamBase_EXPORT virtual ~functionObject();
 
 
 		// Member Functions
 
 			//- Return the name of this functionObject
-		const word& name() const;
+		FoamBase_EXPORT const word& name() const;
 
 		//- Read and set the function object if its data have changed
-		virtual bool read(const dictionary&);
+		FoamBase_EXPORT virtual bool read(const dictionary&);
 
 		//- Called at each ++ or += of the time-loop.
 		//  postProcess overrides the usual executeControl behaviour and
 		//  forces execution (used in post-processing mode)
-		virtual bool execute() = 0;
+		FoamBase_EXPORT virtual bool execute() = 0;
 
 		//- Called at each ++ or += of the time-loop.
 		//  postProcess overrides the usual writeControl behaviour and
 		//  forces writing always (used in post-processing mode)
-		virtual bool write() = 0;
+		FoamBase_EXPORT virtual bool write() = 0;
 
 		//- Called when Time::run() determines that the time-loop exits.
 		//  By default it simply calls execute().
-		virtual bool end();
+		FoamBase_EXPORT virtual bool end();
 
 		//- Called by Time::setDeltaT(). Allows the function object to override
 		//  the time-step value.
 		//  Returns whether or not the value was overridden.
-		virtual bool setTimeStep();
+		FoamBase_EXPORT virtual bool setTimeStep();
 
 		//- Called by Time::adjustTimeStep(). Allows the function object to
 		//  insert a write time earlier than that already in use by the run
 		//  time. Returns the write time, or vGreat.
-		virtual scalar timeToNextWrite();
+		FoamBase_EXPORT virtual scalar timeToNextWrite();
 
 		//- Update for changes of mesh
-		virtual void updateMesh(const mapPolyMesh& mpm);
+		FoamBase_EXPORT virtual void updateMesh(const mapPolyMesh& mpm);
 
 		//- Update for changes of mesh
-		virtual void movePoints(const polyMesh& mesh);
+		FoamBase_EXPORT virtual void movePoints(const polyMesh& mesh);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const functionObject&) = delete;
+		FoamBase_EXPORT void operator=(const functionObject&) = delete;
 	};
 
 

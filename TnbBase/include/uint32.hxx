@@ -56,14 +56,14 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	//- Return a word representation of an uint32
-	word name(const uint32_t);
+	FoamBase_EXPORT word name(const uint32_t);
 
 	// * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-	uint32_t readUint32(Istream&);
-	bool read(const char*, uint32_t&);
-	Istream& operator>>(Istream&, uint32_t&);
-	Ostream& operator<<(Ostream&, const uint32_t);
+	FoamBase_EXPORT uint32_t readUint32(Istream&);
+	FoamBase_EXPORT bool read(const char*, uint32_t&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, uint32_t&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const uint32_t);
 
 	//- Template specialization for pTraits<uint32_t>
 	template<>
@@ -80,34 +80,34 @@ namespace tnbLib
 		// Member constants
 
 			//- Dimensionality of space
-		static const direction dim = 3;
+		static FoamBase_EXPORT const direction dim = 3;
 
 		//- Rank of uint32_t is 0
-		static const direction rank = 0;
+		static FoamBase_EXPORT const direction rank = 0;
 
 		//- Number of components in uint32_t is 1
-		static const direction nComponents = 1;
+		static FoamBase_EXPORT const direction nComponents = 1;
 
 
 		// Static Data Members
 
-		static const char* const typeName;
-		static const char* const componentNames[];
-		static const uint32_t zero;
-		static const uint32_t one;
-		static const uint32_t min;
-		static const uint32_t max;
-		static const uint32_t rootMax;
-		static const uint32_t rootMin;
+		static FoamBase_EXPORT const char* const typeName;
+		static FoamBase_EXPORT const char* const componentNames[];
+		static FoamBase_EXPORT const uint32_t zero;
+		static FoamBase_EXPORT const uint32_t one;
+		static FoamBase_EXPORT const uint32_t min;
+		static FoamBase_EXPORT const uint32_t max;
+		static FoamBase_EXPORT const uint32_t rootMax;
+		static FoamBase_EXPORT const uint32_t rootMin;
 
 
 		// Constructors
 
 			//- Construct from primitive
-		explicit pTraits(const uint32_t&);
+		FoamBase_EXPORT explicit pTraits(const uint32_t&);
 
 		//- Construct from Istream
-		pTraits(Istream&);
+		FoamBase_EXPORT pTraits(Istream&);
 
 
 		// Member Functions

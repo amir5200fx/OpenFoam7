@@ -47,33 +47,33 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	extern const dimensionSet dimless;
+	FoamBase_EXPORT extern const dimensionSet dimless;
 
-	extern const dimensionSet dimMass;
-	extern const dimensionSet dimLength;
-	extern const dimensionSet dimTime;
-	extern const dimensionSet dimTemperature;
-	extern const dimensionSet dimMoles;
-	extern const dimensionSet dimCurrent;
-	extern const dimensionSet dimLuminousIntensity;
+	FoamBase_EXPORT extern const dimensionSet dimMass;
+	FoamBase_EXPORT extern const dimensionSet dimLength;
+	FoamBase_EXPORT extern const dimensionSet dimTime;
+	FoamBase_EXPORT extern const dimensionSet dimTemperature;
+	FoamBase_EXPORT extern const dimensionSet dimMoles;
+	FoamBase_EXPORT extern const dimensionSet dimCurrent;
+	FoamBase_EXPORT extern const dimensionSet dimLuminousIntensity;
 
-	extern const dimensionSet dimArea;
-	extern const dimensionSet dimVolume;
-	extern const dimensionSet dimVol;
+	FoamBase_EXPORT extern const dimensionSet dimArea;
+	FoamBase_EXPORT extern const dimensionSet dimVolume;
+	FoamBase_EXPORT extern const dimensionSet dimVol;
 
-	extern const dimensionSet dimDensity;
-	extern const dimensionSet dimForce;
-	extern const dimensionSet dimEnergy;
-	extern const dimensionSet dimPower;
+	FoamBase_EXPORT extern const dimensionSet dimDensity;
+	FoamBase_EXPORT extern const dimensionSet dimForce;
+	FoamBase_EXPORT extern const dimensionSet dimEnergy;
+	FoamBase_EXPORT extern const dimensionSet dimPower;
 
-	extern const dimensionSet dimVelocity;
-	extern const dimensionSet dimAcceleration;
-	extern const dimensionSet dimPressure;
-	extern const dimensionSet dimCompressibility;
-	extern const dimensionSet dimGasConstant;
-	extern const dimensionSet dimSpecificHeatCapacity;
-	extern const dimensionSet dimViscosity;
-	extern const dimensionSet dimDynamicViscosity;
+	FoamBase_EXPORT extern const dimensionSet dimVelocity;
+	FoamBase_EXPORT extern const dimensionSet dimAcceleration;
+	FoamBase_EXPORT extern const dimensionSet dimPressure;
+	FoamBase_EXPORT extern const dimensionSet dimCompressibility;
+	FoamBase_EXPORT extern const dimensionSet dimGasConstant;
+	FoamBase_EXPORT extern const dimensionSet dimSpecificHeatCapacity;
+	FoamBase_EXPORT extern const dimensionSet dimViscosity;
+	FoamBase_EXPORT extern const dimensionSet dimDynamicViscosity;
 
 
 	class dimensionSets
@@ -98,7 +98,7 @@ namespace tnbLib
 
 			//- Construct from all units and set of units to use for inversion
 			//  (writing)
-		dimensionSets
+		FoamBase_EXPORT dimensionSets
 		(
 			const HashTable<dimensionedScalar>&,
 			const wordList& unitNames
@@ -119,19 +119,19 @@ namespace tnbLib
 		}
 
 		//- (if valid) obtain set of coefficients of unitNames
-		void coefficients(scalarField&) const;
+		FoamBase_EXPORT void coefficients(scalarField&) const;
 
 	};
 
 
 	//- Top level dictionary
-	dictionary& dimensionSystems();
+	FoamBase_EXPORT dictionary& dimensionSystems();
 
 	//- Set of all dimensions
-	const HashTable<dimensionedScalar>& unitSet();
+	FoamBase_EXPORT const HashTable<dimensionedScalar>& unitSet();
 
 	//- Set of units
-	const dimensionSets& writeUnitSet();
+	FoamBase_EXPORT const dimensionSets& writeUnitSet();
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

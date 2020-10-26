@@ -63,34 +63,34 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from time
-		tolerances(const Time& t, const fileName& dictName);
+		FoamBase_EXPORT tolerances(const Time& t, const fileName& dictName);
 
 		//- Disallow default bitwise copy construction
-		tolerances(const tolerances&) = delete;
+		FoamBase_EXPORT tolerances(const tolerances&) = delete;
 
 
 		// Member Functions
 
 			// Access
 
-		bool relax(const word& name) const;
-		scalar relaxationFactor(const word& name) const;
+		FoamBase_EXPORT bool relax(const word& name) const;
+		FoamBase_EXPORT scalar relaxationFactor(const word& name) const;
 
-		scalar solverTolerance(const word& name) const;
+		FoamBase_EXPORT scalar solverTolerance(const word& name) const;
 
-		bool solverRelativeTolerances() const;
-		scalar solverRelativeTolerance(const word& name) const;
+		FoamBase_EXPORT bool solverRelativeTolerances() const;
+		FoamBase_EXPORT scalar solverRelativeTolerance(const word& name) const;
 
 
 		// Read
 
 			//- Read the tolerances
-		bool read();
+		FoamBase_EXPORT bool read();
 
 
 		// Member Operators
 
-		void operator=(const tolerances&) = delete;
+		FoamBase_EXPORT void operator=(const tolerances&) = delete;
 	};
 
 

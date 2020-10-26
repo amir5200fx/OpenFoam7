@@ -62,13 +62,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("DILU");
+		//TypeName("DILU");
+		static const char* typeName_() { return "DILU"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from matrix components and preconditioner solver controls
-		DILUPreconditioner
+		FoamBase_EXPORT DILUPreconditioner
 		(
 			const lduMatrix::solver&,
 			const dictionary& solverControlsUnused
@@ -83,10 +87,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Calculate the reciprocal of the preconditioned diagonal
-		static void calcReciprocalD(scalarField& rD, const lduMatrix& matrix);
+		static FoamBase_EXPORT void calcReciprocalD(scalarField& rD, const lduMatrix& matrix);
 
 		//- Return wA the preconditioned form of residual rA
-		virtual void precondition
+		FoamBase_EXPORT virtual void precondition
 		(
 			scalarField& wA,
 			const scalarField& rA,
@@ -94,7 +98,7 @@ namespace tnbLib
 		) const;
 
 		//- Return wT the transpose-matrix preconditioned form of residual rT.
-		virtual void preconditionT
+		FoamBase_EXPORT virtual void preconditionT
 		(
 			scalarField& wT,
 			const scalarField& rT,

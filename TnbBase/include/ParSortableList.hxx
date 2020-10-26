@@ -61,7 +61,18 @@ namespace tnbLib
 							Class ParSortableListName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(ParSortableList);
+	//TemplateName(ParSortableList);
+	class ParSortableListName
+	{
+	public:
+		ParSortableListName()
+		{
+		}
+
+		static const char* typeName_() { return "ParSortableList"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\

@@ -60,24 +60,24 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct given an IOobject
-		unwatchedIOdictionary(const IOobject& io);
+		FoamBase_EXPORT unwatchedIOdictionary(const IOobject& io);
 
 		//- Construct given an IOobject and dictionary
-		unwatchedIOdictionary
+		FoamBase_EXPORT unwatchedIOdictionary
 		(
 			const IOobject& io,
 			const dictionary& dict
 		);
 
 		//- Construct given an IOobject and Istream
-		unwatchedIOdictionary(const IOobject& io, Istream& is);
+		FoamBase_EXPORT unwatchedIOdictionary(const IOobject& io, Istream& is);
 
 		//- Move constructor
-		unwatchedIOdictionary(unwatchedIOdictionary&&);
+		FoamBase_EXPORT unwatchedIOdictionary(unwatchedIOdictionary&&);
 
 
 		//- Destructor
-		virtual ~unwatchedIOdictionary();
+		FoamBase_EXPORT virtual ~unwatchedIOdictionary();
 
 
 		// Member Functions
@@ -96,11 +96,11 @@ namespace tnbLib
 		}
 
 		//- Add file watch on object (READ_IF_MODIFIED)
-		virtual void addWatch();
+		FoamBase_EXPORT virtual void addWatch();
 
 		//- Add file watch for fileName on object if not yet watched. Return
 		//  index of watch
-		virtual label addWatch(const fileName&);
+		FoamBase_EXPORT virtual label addWatch(const fileName&);
 
 		const fileNameList& files() const
 		{
@@ -116,7 +116,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Move assignment
-		void operator=(unwatchedIOdictionary&&);
+		FoamBase_EXPORT void operator=(unwatchedIOdictionary&&);
 	};
 
 

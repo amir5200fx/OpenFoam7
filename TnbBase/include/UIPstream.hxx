@@ -91,7 +91,7 @@ namespace tnbLib
 
 			//- Construct given process index to read from and optional buffer size,
 			//  read format and IO version
-		UIPstream
+		FoamBase_EXPORT UIPstream
 		(
 			const commsTypes commsType,
 			const int fromProcNo,
@@ -105,11 +105,11 @@ namespace tnbLib
 		);
 
 		//- Construct given buffers
-		UIPstream(const int fromProcNo, PstreamBuffers&);
+		FoamBase_EXPORT UIPstream(const int fromProcNo, PstreamBuffers&);
 
 
 		//- Destructor
-		~UIPstream();
+		FoamBase_EXPORT ~UIPstream();
 
 
 		// Member Functions
@@ -127,7 +127,7 @@ namespace tnbLib
 
 			//- Read into given buffer from given processor and return the
 			//  message size
-		static label read
+		static FoamBase_EXPORT label read
 		(
 			const commsTypes commsType,
 			const int fromProcNo,
@@ -138,34 +138,34 @@ namespace tnbLib
 		);
 
 		//- Return next token from stream
-		Istream& read(token&);
+		FoamBase_EXPORT Istream& read(token&);
 
 		//- Read a character
-		Istream& read(char&);
+		FoamBase_EXPORT Istream& read(char&);
 
 		//- Read a word
-		Istream& read(word&);
+		FoamBase_EXPORT Istream& read(word&);
 
 		// Read a string (including enclosing double-quotes)
-		Istream& read(string&);
+		FoamBase_EXPORT Istream& read(string&);
 
 		//- Read a label
-		Istream& read(label&);
+		FoamBase_EXPORT Istream& read(label&);
 
 		//- Read a floatScalar
-		Istream& read(floatScalar&);
+		FoamBase_EXPORT Istream& read(floatScalar&);
 
 		//- Read a doubleScalar
-		Istream& read(doubleScalar&);
+		FoamBase_EXPORT Istream& read(doubleScalar&);
 
 		//- Read a longDoubleScalar
-		Istream& read(longDoubleScalar&);
+		FoamBase_EXPORT Istream& read(longDoubleScalar&);
 
 		//- Read binary block
-		Istream& read(char*, std::streamsize);
+		FoamBase_EXPORT Istream& read(char*, std::streamsize);
 
 		//- Rewind and return the stream so that it may be read again
-		Istream& rewind();
+		FoamBase_EXPORT Istream& rewind();
 
 
 		// Edit
@@ -180,7 +180,7 @@ namespace tnbLib
 		// Print
 
 			//- Print description of IOstream to Ostream
-		void print(Ostream&) const;
+		FoamBase_EXPORT void print(Ostream&) const;
 	};
 
 

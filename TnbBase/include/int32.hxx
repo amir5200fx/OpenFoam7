@@ -57,21 +57,21 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	//- Return a word representation of an int32
-	word name(const int32_t);
+	FoamBase_EXPORT word name(const int32_t);
 
 	// * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-	int32_t readInt32(Istream&);
-	bool read(const char*, int32_t&);
-	Istream& operator>>(Istream&, int32_t&);
-	Ostream& operator<<(Ostream&, const int32_t);
+	FoamBase_EXPORT int32_t readInt32(Istream&);
+	FoamBase_EXPORT bool read(const char*, int32_t&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, int32_t&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const int32_t);
 
 	// On 32bit OSs long is not unambiguously int32_t (or int64_t) causing problems
 	// for IO operator resolution.
 	// This problem is avoided by explicitly defining the following operators:
 #if WM_ARCH_OPTION == 32
-	Istream& operator>>(Istream&, long&);
-	Ostream& operator<<(Ostream&, const long);
+	FoamBase_EXPORT Istream& operator>>(Istream&, long&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const long);
 #endif
 
 	inline void writeEntry(Ostream& os, const int32_t value)
@@ -95,34 +95,34 @@ namespace tnbLib
 		// Member constants
 
 			//- Dimensionality of space
-		static const direction dim = 3;
+		static FoamBase_EXPORT const direction dim = 3;
 
 		//- Rank of int32_t is 0
-		static const direction rank = 0;
+		static FoamBase_EXPORT const direction rank = 0;
 
 		//- Number of components in int32_t is 1
-		static const direction nComponents = 1;
+		static FoamBase_EXPORT const direction nComponents = 1;
 
 
 		// Static Data Members
 
-		static const char* const typeName;
-		static const char* const componentNames[];
-		static const int32_t zero;
-		static const int32_t one;
-		static const int32_t min;
-		static const int32_t max;
-		static const int32_t rootMax;
-		static const int32_t rootMin;
+		static FoamBase_EXPORT const char* const typeName;
+		static FoamBase_EXPORT const char* const componentNames[];
+		static FoamBase_EXPORT const int32_t zero;
+		static FoamBase_EXPORT const int32_t one;
+		static FoamBase_EXPORT const int32_t min;
+		static FoamBase_EXPORT const int32_t max;
+		static FoamBase_EXPORT const int32_t rootMax;
+		static FoamBase_EXPORT const int32_t rootMin;
 
 
 		// Constructors
 
 			//- Construct from primitive
-		explicit pTraits(const int32_t&);
+		explicit FoamBase_EXPORT pTraits(const int32_t&);
 
 		//- Construct from Istream
-		pTraits(Istream&);
+		FoamBase_EXPORT pTraits(Istream&);
 
 
 		// Member Functions

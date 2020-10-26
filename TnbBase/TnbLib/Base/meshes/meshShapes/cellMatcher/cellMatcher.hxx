@@ -156,17 +156,17 @@ namespace tnbLib
 
 			//- Calculates localFaces. Returns number of local vertices (or -1
 			//  if more than vertPerCell).
-		label calcLocalFaces(const faceList& faces, const labelList& myFaces);
+		FoamBase_EXPORT label calcLocalFaces(const faceList& faces, const labelList& myFaces);
 
 		//- Fill edge (start, end) to face number
-		void calcEdgeAddressing(const label numVert);
+		FoamBase_EXPORT void calcEdgeAddressing(const label numVert);
 
 		//- Fill vertex/face to index in face data structure
-		void calcPointFaceIndex();
+		FoamBase_EXPORT void calcPointFaceIndex();
 
 		//- Given start,end of edge lookup both faces sharing it and return
 		//  face != localFacei
-		label otherFace
+		FoamBase_EXPORT label otherFace
 		(
 			const label numVert,
 			const label v0,
@@ -180,7 +180,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct given mesh and shape factors
-		cellMatcher
+		FoamBase_EXPORT cellMatcher
 		(
 			const label vertPerCell,
 			const label facePerCell,
@@ -189,7 +189,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		cellMatcher(const cellMatcher&) = delete;
+		FoamBase_EXPORT cellMatcher(const cellMatcher&) = delete;
 
 
 		//- Destructor
@@ -215,22 +215,22 @@ namespace tnbLib
 
 		// Write
 
-		void write(Ostream& os) const;
+		FoamBase_EXPORT void write(Ostream& os) const;
 
 		// Cell shape dependent
 
-		virtual label nVertPerCell() const = 0;
+		FoamBase_EXPORT virtual label nVertPerCell() const = 0;
 
-		virtual label nFacePerCell() const = 0;
+		FoamBase_EXPORT virtual label nFacePerCell() const = 0;
 
-		virtual label nMaxVertPerFace() const = 0;
+		FoamBase_EXPORT virtual label nMaxVertPerFace() const = 0;
 
 		//- Hash value of all face sizes of this shape. Can be used for
 		//  quick initial recognition.
-		virtual label faceHashValue() const = 0;
+		FoamBase_EXPORT virtual label faceHashValue() const = 0;
 
 		//- Check whether number of face sizes match the shape.
-		virtual bool faceSizeMatch(const faceList&, const labelList&)
+		FoamBase_EXPORT virtual bool faceSizeMatch(const faceList&, const labelList&)
 			const = 0;
 
 		//- Low level shape recognition. Return true if matches.
@@ -240,7 +240,7 @@ namespace tnbLib
 		//  and labels of faces for this cell.
 		//  celli only used in combination with faceOwner to detect owner
 		//  status.
-		virtual bool matchShape
+		FoamBase_EXPORT virtual bool matchShape
 		(
 			const bool checkOnly,
 			const faceList& faces,
@@ -251,14 +251,14 @@ namespace tnbLib
 
 		//- Exact match. Uses faceSizeMatch.
 		//  Returns true if cell matches shape exactly.
-		virtual bool isA(const primitiveMesh& mesh, const label celli) = 0;
+		FoamBase_EXPORT virtual bool isA(const primitiveMesh& mesh, const label celli) = 0;
 
 		//- Exact match given all the faces forming a cell. No checks
 		//  on whether faces match up and form a closed shape.
-		virtual bool isA(const faceList&) = 0;
+		FoamBase_EXPORT virtual bool isA(const faceList&) = 0;
 
 		//- Like isA but also constructs a cellShape (if shape matches)
-		virtual bool matches
+		FoamBase_EXPORT virtual bool matches
 		(
 			const primitiveMesh& mesh,
 			const label celli,
@@ -268,7 +268,7 @@ namespace tnbLib
 
 		// Member Operators
 
-		void operator=(const cellMatcher&) = delete;
+		FoamBase_EXPORT void operator=(const cellMatcher&) = delete;
 	};
 
 

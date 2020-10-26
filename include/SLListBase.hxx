@@ -104,7 +104,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~SLListBase();
+		inline ~SLListBase();
 
 
 		// Member Functions
@@ -133,16 +133,16 @@ namespace tnbLib
 		// Edit
 
 			//- Add at head of list
-		void insert(link*);
+		FoamBase_EXPORT void insert(link*);
 
 		//- Add at tail of list
-		void append(link*);
+		FoamBase_EXPORT void append(link*);
 
 		//- Remove and return head
-		link* removeHead();
+		FoamBase_EXPORT link* removeHead();
 
 		// Remove and return element
-		link* remove(link*);
+		FoamBase_EXPORT link* remove(link*);
 
 		// Remove and return element specified by iterator
 		inline link* remove(iterator&);
@@ -258,10 +258,10 @@ namespace tnbLib
 	private:
 
 		//- Iterator returned by end()
-		static iterator endIter_;
+		static FoamBase_EXPORT iterator endIter_;
 
 		//- const_iterator returned by end()
-		static const_iterator endConstIter_;
+		static FoamBase_EXPORT const_iterator endConstIter_;
 	};
 
 

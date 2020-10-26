@@ -55,13 +55,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("algebraicPair");
+		//TypeName("algebraicPair");
+		static const char* typeName_() { return "algebraicPair"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given mesh and controls
-		algebraicPairGAMGAgglomeration
+		FoamBase_EXPORT algebraicPairGAMGAgglomeration
 		(
 			const lduMatrix& matrix,
 			const dictionary& controlDict

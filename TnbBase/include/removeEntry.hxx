@@ -69,25 +69,28 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			ClassName("remove");
+			//ClassName("remove");
+			static const char* typeName_() { return "remove"; } 
+			static FoamBase_EXPORT const ::tnbLib::word typeName; 
+			static FoamBase_EXPORT int debug;
 
 
 			// Constructors
 
 				//- Disallow default bitwise copy construction
-			removeEntry(const removeEntry&) = delete;
+			FoamBase_EXPORT removeEntry(const removeEntry&) = delete;
 
 
 			// Member Functions
 
 				//- Execute the functionEntry in a sub-dict context
-			static bool execute(dictionary& parentDict, Istream&);
+			static FoamBase_EXPORT bool execute(dictionary& parentDict, Istream&);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const removeEntry&) = delete;
+			void FoamBase_EXPORT operator=(const removeEntry&) = delete;
 		};
 
 

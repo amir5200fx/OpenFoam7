@@ -62,7 +62,7 @@ namespace tnbLib
 	//
 	//  \return The list of full paths of all the matching directories or
 	//  an empty list if the name cannot be found.
-	fileNameList findEtcDirs(const fileName& local = fileName::null);
+	FoamBase_EXPORT fileNameList findEtcDirs(const fileName& local = fileName::null);
 
 	//- Search for files from user/group/shipped directories.
 	//  The search scheme allows for version-specific and
@@ -83,7 +83,7 @@ namespace tnbLib
 	//  an empty list if the name cannot be found.
 	//  Optionally abort if the file cannot be found.
 	//  Optionally stop search after the first file has been found.
-	fileNameList findEtcFiles
+	FoamBase_EXPORT fileNameList findEtcFiles
 	(
 		const fileName&,
 		bool mandatory = false,
@@ -94,7 +94,7 @@ namespace tnbLib
 	//  \return The full path name of the first file found in the
 	//  search hierarchy or an empty fileName if the name cannot be found.
 	//  Optionally abort if the file cannot be found.
-	fileName findEtcFile(const fileName&, bool mandatory = false);
+	FoamBase_EXPORT fileName findEtcFile(const fileName&, bool mandatory = false);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -91,10 +91,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate addressing for mapping with inserted faces
-		void calcAddressing() const;
+		FoamBase_EXPORT void calcAddressing() const;
 
 		//- Clear out local storage
-		void clearOut();
+		FoamBase_EXPORT void clearOut();
 
 
 	public:
@@ -104,23 +104,23 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mapPolyMesh
-		faceMapper(const mapPolyMesh& mpm);
+		FoamBase_EXPORT faceMapper(const mapPolyMesh& mpm);
 
 		//- Disallow default bitwise copy construction
-		faceMapper(const faceMapper&) = delete;
+		FoamBase_EXPORT faceMapper(const faceMapper&) = delete;
 
 
 		//- Destructor
-		virtual ~faceMapper();
+		FoamBase_EXPORT virtual ~faceMapper();
 
 
 		// Member Functions
 
 			//- Return size of field before mapping
-		virtual label sizeBeforeMapping() const;
+		FoamBase_EXPORT virtual label sizeBeforeMapping() const;
 
 		//- Return number of internal faces before mapping
-		virtual label internalSizeBeforeMapping() const;
+		FoamBase_EXPORT virtual label internalSizeBeforeMapping() const;
 
 		//- Is the mapping direct
 		virtual bool direct() const
@@ -134,25 +134,25 @@ namespace tnbLib
 		}
 
 		//- Return direct addressing
-		virtual const labelUList& directAddressing() const;
+		FoamBase_EXPORT virtual const labelUList& directAddressing() const;
 
 		//- Return interpolated addressing
-		virtual const labelListList& addressing() const;
+		FoamBase_EXPORT virtual const labelListList& addressing() const;
 
 		//- Return interpolaion weights
-		virtual const scalarListList& weights() const;
+		FoamBase_EXPORT virtual const scalarListList& weights() const;
 
 		//- Return flux flip map
-		virtual const labelHashSet& flipFaceFlux() const;
+		FoamBase_EXPORT virtual const labelHashSet& flipFaceFlux() const;
 
 		//- Return number of old internalFaces
-		virtual label nOldInternalFaces() const;
+		FoamBase_EXPORT virtual label nOldInternalFaces() const;
 
 		//- Return old patch starts
-		virtual const labelList& oldPatchStarts() const;
+		FoamBase_EXPORT virtual const labelList& oldPatchStarts() const;
 
 		//- Return old patch sizes
-		virtual const labelList& oldPatchSizes() const;
+		FoamBase_EXPORT virtual const labelList& oldPatchSizes() const;
 
 		//- Are there any inserted faces
 		virtual bool insertedObjects() const
@@ -161,13 +161,13 @@ namespace tnbLib
 		}
 
 		//- Return list of inserted faces
-		virtual const labelList& insertedObjectLabels() const;
+		FoamBase_EXPORT virtual const labelList& insertedObjectLabels() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const faceMapper&) = delete;
+		FoamBase_EXPORT void operator=(const faceMapper&) = delete;
 	};
 
 

@@ -56,7 +56,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(cyclicSlipPolyPatch::typeName_());
+		//TypeName(cyclicSlipPolyPatch::typeName_());
+		static const char* typeName_() { return cyclicSlipPolyPatch::typeName_(); }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -81,10 +85,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Return point unit normals.
-		virtual const vectorField& pointNormals() const;
+		FoamBase_EXPORT virtual const vectorField& pointNormals() const;
 
 		//- Accumulate the effect of constraint direction of this patch
-		virtual void applyConstraint
+		FoamBase_EXPORT virtual void applyConstraint
 		(
 			const label pointi,
 			pointConstraint&

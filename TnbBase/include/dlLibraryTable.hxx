@@ -61,39 +61,42 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("dlLibraryTable");
+		//ClassName("dlLibraryTable");
+		static const char* typeName_() { return "dlLibraryTable"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct null
-		dlLibraryTable();
+		FoamBase_EXPORT dlLibraryTable();
 
 		//- Construct from dictionary and name of 'libs' entry giving
 		//  the libraries to load
-		dlLibraryTable(const dictionary&, const word&);
+		FoamBase_EXPORT dlLibraryTable(const dictionary&, const word&);
 
 		//- Disallow default bitwise copy construction
-		dlLibraryTable(const dlLibraryTable&) = delete;
+		FoamBase_EXPORT dlLibraryTable(const dlLibraryTable&) = delete;
 
 
 		//- Destructor
-		~dlLibraryTable();
+		FoamBase_EXPORT ~dlLibraryTable();
 
 
 		// Member Functions
 
 			//- Open the named library, optionally with warnings if problems occur
-		bool open(const fileName& name, const bool verbose = true);
+		FoamBase_EXPORT bool open(const fileName& name, const bool verbose = true);
 
 		//- Close the named library, optionally with warnings if problems occur
-		bool close(const fileName& name, const bool verbose = true);
+		FoamBase_EXPORT bool close(const fileName& name, const bool verbose = true);
 
 		//- Find the handle of the named library
-		void* findLibrary(const fileName& name);
+		FoamBase_EXPORT void* findLibrary(const fileName& name);
 
 		//- Open all the libraries listed in the 'libsEntry' entry in the
 		//  given dictionary if present
-		bool open(const dictionary&, const word& libsEntry);
+		FoamBase_EXPORT bool open(const dictionary&, const word& libsEntry);
 
 		//- Open all the libraries listed in the 'libsEntry' entry in the
 		//  given dictionary if present and check the additions
@@ -110,7 +113,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const dlLibraryTable&) = delete;
+		FoamBase_EXPORT void operator=(const dlLibraryTable&) = delete;
 	};
 
 

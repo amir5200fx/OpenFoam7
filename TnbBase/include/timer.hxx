@@ -87,16 +87,16 @@ namespace tnbLib
 		// Private data
 
 			//- old signal
-		static __p_sig_fn_t oldAction_;
+		static FoamBase_EXPORT __p_sig_fn_t oldAction_;
 
 		//- old alarm() value
-		static unsigned int oldTimeOut_;
+		static FoamBase_EXPORT unsigned int oldTimeOut_;
 
 
 		// Private Member Functions
 
 			//- alarm handler
-		static void signalHandler(int);
+		static FoamBase_EXPORT void signalHandler(int);
 
 
 	public:
@@ -104,25 +104,28 @@ namespace tnbLib
 		// Public data
 
 			//- Declare name of the class and its debug switch
-		ClassName("timer");
+		//ClassName("timer");
+		static const char* typeName_() { return "timer"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 		//- current time out value. Needed by macro timedOut
 		unsigned int newTimeOut_;
 
 		//- state for setjmp. Needed by macro timedOut
-		static jmp_buf envAlarm;
+		static FoamBase_EXPORT jmp_buf envAlarm;
 
 
 		// Constructors
 
 			//- Construct from components.
 			//  newTimeOut=0 makes it do nothing.
-		timer(const unsigned int newTimeOut);
+		FoamBase_EXPORT timer(const unsigned int newTimeOut);
 
 
 		// Destructor
 
-		~timer();
+		FoamBase_EXPORT ~timer();
 	};
 
 

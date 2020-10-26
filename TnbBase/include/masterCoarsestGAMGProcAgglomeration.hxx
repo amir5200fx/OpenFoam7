@@ -62,40 +62,44 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("masterCoarsest");
+		//TypeName("masterCoarsest");
+		static const char* typeName_() { return "masterCoarsest"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given agglomerator and controls
-		masterCoarsestGAMGProcAgglomeration
+		FoamBase_EXPORT masterCoarsestGAMGProcAgglomeration
 		(
 			GAMGAgglomeration& agglom,
 			const dictionary& controlDict
 		);
 
 		//- Disallow default bitwise copy construction
-		masterCoarsestGAMGProcAgglomeration
+		FoamBase_EXPORT masterCoarsestGAMGProcAgglomeration
 		(
 			const masterCoarsestGAMGProcAgglomeration&
 		);
 
 
 		//- Destructor
-		virtual ~masterCoarsestGAMGProcAgglomeration();
+		FoamBase_EXPORT virtual ~masterCoarsestGAMGProcAgglomeration();
 
 
 		// Member Functions
 
 		   //- Modify agglomeration. Return true if modified
-		virtual bool agglomerate();
+		FoamBase_EXPORT virtual bool agglomerate();
 
 		//- Disallow default bitwise assignment
 
 
 	// Member Operators
 
-		void operator=(const masterCoarsestGAMGProcAgglomeration&) = delete;
+		FoamBase_EXPORT void operator=(const masterCoarsestGAMGProcAgglomeration&) = delete;
 	};
 
 

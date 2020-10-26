@@ -49,15 +49,15 @@ namespace tnbLib
 
 	typedef Tensor2D<scalar> tensor2D;
 
-	vector2D eigenValues(const tensor2D& t);
-	vector2D eigenVector
+	FoamBase_EXPORT vector2D eigenValues(const tensor2D& t);
+	FoamBase_EXPORT vector2D eigenVector
 	(
 		const tensor2D& t,
 		const scalar lambda,
 		const vector2D& direction1
 	);
-	tensor2D eigenVectors(const tensor2D& t, const vector2D& lambdas);
-	tensor2D eigenVectors(const tensor2D& t);
+	FoamBase_EXPORT tensor2D eigenVectors(const tensor2D& t, const vector2D& lambdas);
+	FoamBase_EXPORT tensor2D eigenVectors(const tensor2D& t);
 
 	//- Data associated with tensor2D type are contiguous
 	template<>

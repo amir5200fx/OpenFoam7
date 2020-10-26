@@ -43,7 +43,7 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	tmp<vector2DField> zip(const tmp<scalarField>& x, const tmp<scalarField>& y);
+	FoamBase_EXPORT tmp<vector2DField> zip(const tmp<scalarField>& x, const tmp<scalarField>& y);
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -56,8 +56,8 @@ namespace tnbLib
 
 	class fileStat;
 
-	Istream& operator>>(Istream&, fileStat&);
-	Ostream& operator<<(Ostream&, const fileStat&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, fileStat&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const fileStat&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -78,16 +78,16 @@ namespace tnbLib
 		// Public static data
 
 			//- Number of file variants
-		static const label nVariants_;
+		static FoamBase_EXPORT const label nVariants_;
 
 		//- Extensions of the file variants
-		static const char* variantExts_[];
+		static FoamBase_EXPORT const char* variantExts_[];
 
 
 		// Constructors
 
 			//- Empty constructor
-		fileStat();
+		FoamBase_EXPORT fileStat();
 
 		//- Construct from components.
 		//  followLink : in case of link get status of pointed-to file
@@ -101,10 +101,10 @@ namespace tnbLib
 		);*/
 
 		//- Construct from components
-		fileStat(const fileName& fName, const unsigned int maxTime = 0);
+		FoamBase_EXPORT fileStat(const fileName& fName, const unsigned int maxTime = 0);
 
 		//- Construct from Istream
-		fileStat(Istream&);
+		FoamBase_EXPORT fileStat(Istream&);
 
 
 		// Member Functions
@@ -127,13 +127,13 @@ namespace tnbLib
 		// Check
 
 			//- Compare two fileStats for same device
-		bool sameDevice(const fileStat& stat2) const;
+		FoamBase_EXPORT bool sameDevice(const fileStat& stat2) const;
 
 		//- Compare two fileStats for same Inode
-		bool sameINode(const fileStat& stat2) const;
+		FoamBase_EXPORT bool sameINode(const fileStat& stat2) const;
 
 		//- Compare state against inode
-		bool sameINode(const label iNode) const;
+		FoamBase_EXPORT bool sameINode(const label iNode) const;
 
 
 		// IOstream Operators

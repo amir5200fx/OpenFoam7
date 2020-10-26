@@ -57,22 +57,22 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Disallow default bitwise copy construction
-		data(const data&) = delete;
+		FoamBase_EXPORT data(const data&) = delete;
 
 		//- Disallow default bitwise assignment
-		void operator=(const data&) = delete;
+		FoamBase_EXPORT void operator=(const data&) = delete;
 
 
 	public:
 
 		//- Debug switch
-		static int debug;
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct for objectRegistry
-		data(const objectRegistry& obr);
+		FoamBase_EXPORT data(const objectRegistry& obr);
 	};
 
 

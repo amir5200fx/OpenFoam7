@@ -56,7 +56,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("nonuniformTransformCyclic");
+		//TypeName("nonuniformTransformCyclic");
+		static const char* typeName_() { return "nonuniformTransformCyclic"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

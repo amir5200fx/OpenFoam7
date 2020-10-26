@@ -51,9 +51,9 @@ namespace tnbLib
 
 	// global functions
 
-	dimensionedScalar tr(const dimensionedSphericalTensor&);
-	dimensionedScalar det(const dimensionedSphericalTensor&);
-	dimensionedSphericalTensor inv(const dimensionedSphericalTensor&);
+	FoamBase_EXPORT dimensionedScalar tr(const dimensionedSphericalTensor&);
+	FoamBase_EXPORT dimensionedScalar det(const dimensionedSphericalTensor&);
+	FoamBase_EXPORT dimensionedSphericalTensor inv(const dimensionedSphericalTensor&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

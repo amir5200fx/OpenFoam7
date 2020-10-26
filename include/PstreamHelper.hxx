@@ -11,9 +11,9 @@ namespace tnbLib
 	class IPstream;
 	class OPstream;
 
-	IPstream CreateIPstream(const int toProcNo, const label bufSize, const int tag, const label comm);
+	FoamBase_EXPORT IPstream CreateIPstream(const int toProcNo, const label bufSize, const int tag, const label comm);
 
-	OPstream CreateOPstream(const int toProcNo, const label bufSize, const int tag, const label comm);
+	FoamBase_EXPORT OPstream CreateOPstream(const int toProcNo, const label bufSize, const int tag, const label comm);
 
 	template<class T>
 	void writeToOPstream(const int toProcNo, const label bufSize, const int tag, const label comm, const T& Value);

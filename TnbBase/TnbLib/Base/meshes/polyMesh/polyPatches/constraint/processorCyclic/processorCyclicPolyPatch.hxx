@@ -70,10 +70,10 @@ namespace tnbLib
 		// Protected Member functions
 
 			//- Initialise the calculation of the patch geometry
-		void initGeometry(PstreamBuffers&);
+		FoamBase_EXPORT void initGeometry(PstreamBuffers&);
 
 		//- Calculate the patch geometry
-		void calcGeometry(PstreamBuffers&);
+		FoamBase_EXPORT void calcGeometry(PstreamBuffers&);
 
 		//- Calculate the patch geometry with externally
 		//  provided geometry
@@ -92,28 +92,32 @@ namespace tnbLib
 		}
 
 		//- Initialise the patches for moving points
-		void initMovePoints(PstreamBuffers&, const pointField&);
+		FoamBase_EXPORT void initMovePoints(PstreamBuffers&, const pointField&);
 
 		//- Correct patches after moving points
-		void movePoints(PstreamBuffers&, const pointField&);
+		FoamBase_EXPORT void movePoints(PstreamBuffers&, const pointField&);
 
 		//- Initialise the update of the patch topology
-		virtual void initUpdateMesh(PstreamBuffers&);
+		FoamBase_EXPORT virtual void initUpdateMesh(PstreamBuffers&);
 
 		//- Update of the patch topology
-		virtual void updateMesh(PstreamBuffers&);
+		FoamBase_EXPORT virtual void updateMesh(PstreamBuffers&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("processorCyclic");
+		//TypeName("processorCyclic");
+		static const char* typeName_() { return "processorCyclic"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		processorCyclicPolyPatch
+		FoamBase_EXPORT processorCyclicPolyPatch
 		(
 			const label size,
 			const label start,
@@ -127,7 +131,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		processorCyclicPolyPatch
+		FoamBase_EXPORT processorCyclicPolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -137,7 +141,7 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		processorCyclicPolyPatch
+		FoamBase_EXPORT processorCyclicPolyPatch
 		(
 			const processorCyclicPolyPatch&,
 			const polyBoundaryMesh&
@@ -145,7 +149,7 @@ namespace tnbLib
 
 		//- Construct as given the original patch and resetting the
 		//  face list and boundary mesh information
-		processorCyclicPolyPatch
+		FoamBase_EXPORT processorCyclicPolyPatch
 		(
 			const processorCyclicPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -156,7 +160,7 @@ namespace tnbLib
 
 		//- Construct as given the original patch and resetting the
 		//  face list, boundary mesh information and referPatch
-		processorCyclicPolyPatch
+		FoamBase_EXPORT processorCyclicPolyPatch
 		(
 			const processorCyclicPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -167,7 +171,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		processorCyclicPolyPatch
+		FoamBase_EXPORT processorCyclicPolyPatch
 		(
 			const processorCyclicPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -256,7 +260,7 @@ namespace tnbLib
 
 
 		// Destructor
-		virtual ~processorCyclicPolyPatch();
+		FoamBase_EXPORT virtual ~processorCyclicPolyPatch();
 
 
 		// Member Functions
@@ -269,7 +273,7 @@ namespace tnbLib
 
 		//- Return the name of a processorCyclicPolyPatch
 		//  constructed from cyclicPolyPatch name and the processor IDs
-		static word newName
+		static FoamBase_EXPORT word newName
 		(
 			const word& cyclicPolyPatchName,
 			const label myProcNo,
@@ -278,7 +282,7 @@ namespace tnbLib
 
 		//- Return the indices of a processorCyclicPolyPatchs
 		//  constructed from the given cyclicPolyPatch
-		static labelList patchIDs
+		static FoamBase_EXPORT labelList patchIDs
 		(
 			const word& cyclicPolyPatchName,
 			const polyBoundaryMesh& bm
@@ -312,7 +316,7 @@ namespace tnbLib
 		}
 
 		//- Return message tag to use for communication
-		virtual int tag() const;
+		FoamBase_EXPORT virtual int tag() const;
 
 		//- Does this side own the patch ?
 		virtual bool owner() const
@@ -385,14 +389,14 @@ namespace tnbLib
 
 		//- Initialize ordering for primitivePatch. Does not
 		//  refer to *this (except for name() and type() etc.)
-		virtual void initOrder(PstreamBuffers&, const primitivePatch&) const;
+		FoamBase_EXPORT virtual void initOrder(PstreamBuffers&, const primitivePatch&) const;
 
 		//- Return new ordering for primitivePatch.
 		//  Ordering is -faceMap: for every face
 		//  index of the new face -rotation:for every new face the clockwise
 		//  shift of the original face. Return false if nothing changes
 		//  (faceMap is identity, rotation is 0), true otherwise.
-		virtual bool order
+		FoamBase_EXPORT virtual bool order
 		(
 			PstreamBuffers&,
 			const primitivePatch&,
@@ -402,7 +406,7 @@ namespace tnbLib
 
 
 		//- Write the polyPatch data as a dictionary
-		virtual void write(Ostream&) const;
+		FoamBase_EXPORT virtual void write(Ostream&) const;
 	};
 
 

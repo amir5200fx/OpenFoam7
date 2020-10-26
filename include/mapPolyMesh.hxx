@@ -276,7 +276,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components. Copy (except for oldCellVolumes).
-		mapPolyMesh
+		FoamBase_EXPORT mapPolyMesh
 		(
 			const polyMesh& mesh,
 			const label nOldPoints,
@@ -309,7 +309,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components and optionally reuse storage
-		mapPolyMesh
+		FoamBase_EXPORT mapPolyMesh
 		(
 			const polyMesh& mesh,
 			const label nOldPoints,
@@ -343,7 +343,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		mapPolyMesh(const mapPolyMesh&) = delete;
+		FoamBase_EXPORT mapPolyMesh(const mapPolyMesh&) = delete;
 
 
 		// Member Functions
@@ -648,7 +648,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const mapPolyMesh&) = delete;
+		FoamBase_EXPORT void operator=(const mapPolyMesh&) = delete;
 	};
 
 

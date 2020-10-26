@@ -74,7 +74,7 @@ namespace tnbLib
 	);
 
 	//- LU decompose the matrix with pivoting
-	void LUDecompose
+	FoamBase_EXPORT void LUDecompose
 	(
 		scalarSquareMatrix& matrix,
 		labelList& pivotIndices
@@ -82,7 +82,7 @@ namespace tnbLib
 
 	//- LU decompose the matrix with pivoting.
 	//  sign is -1 for odd number of row interchanges and 1 for even number.
-	void LUDecompose
+	FoamBase_EXPORT void LUDecompose
 	(
 		scalarSquareMatrix& matrix,
 		labelList& pivotIndices,
@@ -90,7 +90,7 @@ namespace tnbLib
 	);
 
 	//- LU decompose the matrix into a lower (L) and upper (U) part. U = L.T()
-	void LUDecompose(scalarSymmetricSquareMatrix& matrix);
+	FoamBase_EXPORT void LUDecompose(scalarSymmetricSquareMatrix& matrix);
 
 	//- LU back-substitution with given source, returning the solution
 	//  in the source
@@ -130,7 +130,7 @@ namespace tnbLib
 		const Matrix<Form, Type>& B
 	);
 
-	void multiply
+	FoamBase_EXPORT void multiply
 	(
 		scalarRectangularMatrix& answer,         // value changed in return
 		const scalarRectangularMatrix& A,
@@ -138,7 +138,7 @@ namespace tnbLib
 		const scalarRectangularMatrix& C
 	);
 
-	void multiply
+	FoamBase_EXPORT void multiply
 	(
 		scalarRectangularMatrix& answer,         // value changed in return
 		const scalarRectangularMatrix& A,
@@ -146,7 +146,7 @@ namespace tnbLib
 		const scalarRectangularMatrix& C
 	);
 
-	void multiply
+	FoamBase_EXPORT void multiply
 	(
 		scalarSquareMatrix& answer,         // value changed in return
 		const scalarSquareMatrix& A,
@@ -155,7 +155,7 @@ namespace tnbLib
 	);
 
 	//- Return the inverse of matrix A using SVD
-	scalarRectangularMatrix SVDinv
+	FoamBase_EXPORT scalarRectangularMatrix SVDinv
 	(
 		const scalarRectangularMatrix& A,
 		scalar minCondition = 0

@@ -59,9 +59,9 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 
 	class cellShape;
-	bool operator==(const cellShape&, const cellShape&);
-	Istream& operator>>(Istream&, cellShape&);
-	Ostream& operator<<(Ostream&, const cellShape&);
+	FoamBase_EXPORT bool operator==(const cellShape&, const cellShape&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, cellShape&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const cellShape&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -158,7 +158,7 @@ namespace tnbLib
 		inline scalar mag(const pointField&) const;
 
 		//- Collapse shape to correct one after removing duplicate vertices
-		void collapse();
+		FoamBase_EXPORT void collapse();
 
 
 		// Friend Operators

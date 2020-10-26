@@ -122,17 +122,17 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Helper function: parent (of parent etc.) of dictionary up to the top
-			static const dictionary& topDict(const dictionary&);
+			static FoamBase_EXPORT const dictionary& topDict(const dictionary&);
 
 			//- Helper function: access IOobject for master-only-reading
 			//  functionality
-			static bool doingMasterOnlyReading(const dictionary& dict);
+			static FoamBase_EXPORT bool doingMasterOnlyReading(const dictionary& dict);
 
 			//- Helper function: access to dlLibraryTable of Time
-			static dlLibraryTable& libs(const dictionary& dict);
+			static FoamBase_EXPORT dlLibraryTable& libs(const dictionary& dict);
 
 			//- Construct, compile, load and return streaming function
-			static streamingFunctionType getFunction
+			static FoamBase_EXPORT streamingFunctionType getFunction
 			(
 				const dictionary& parentDict,
 				const dictionary& codeDict
@@ -144,7 +144,7 @@ namespace tnbLib
 			// Static Data Members
 
 				//- Name of the C code template to be used
-			static const word codeTemplateC;
+			static FoamBase_EXPORT const word codeTemplateC;
 
 			// Related types
 
@@ -153,7 +153,10 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			ClassName("codeStream");
+			//ClassName("codeStream");
+			static const char* typeName_() { return "codeStream"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName; 
+			static FoamBase_EXPORT int debug;
 
 
 			// Constructors
@@ -165,10 +168,10 @@ namespace tnbLib
 			// Member Functions
 
 				//- Execute the functionEntry in a sub-dict context
-			static bool execute(dictionary& parentDict, Istream&);
+			static FoamBase_EXPORT bool execute(dictionary& parentDict, Istream&);
 
 			//- Execute the functionEntry in a primitiveEntry context
-			static bool execute
+			static FoamBase_EXPORT bool execute
 			(
 				const dictionary& parentDict,
 				primitiveEntry&,

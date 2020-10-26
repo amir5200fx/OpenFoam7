@@ -46,8 +46,8 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 
 	class volumeType;
-	Istream& operator>>(Istream& is, volumeType&);
-	Ostream& operator<<(Ostream& os, const volumeType& C);
+	FoamBase_EXPORT Istream& operator>>(Istream& is, volumeType&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const volumeType& C);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -80,7 +80,7 @@ namespace tnbLib
 
 		// Static data
 
-		static const NamedEnum<volumeType, 4> names;
+		static FoamBase_EXPORT const NamedEnum<volumeType, 4> names;
 
 
 		// Constructors

@@ -102,7 +102,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		mapAddedPolyMesh
+		FoamBase_EXPORT mapAddedPolyMesh
 		(
 			const label nOldPoints,
 			const label nOldFaces,

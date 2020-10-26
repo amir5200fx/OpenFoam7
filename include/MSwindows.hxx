@@ -14,10 +14,13 @@ namespace tnbLib
 	namespace MSwindows
 	{
 		//- Declare name of the class and it's debug switch
-		NamespaceName("MSwindows");
+		//NamespaceName("MSwindows");
+		inline const char* typeName_() { return "MSwindows"; }
+		FoamBase_EXPORT extern const ::tnbLib::word typeName; 
+		FoamBase_EXPORT extern int debug;
 
 		//- Get last windows api error from GetLastError
-		std::string getLastError();
+		FoamBase_EXPORT std::string getLastError();
 	}
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

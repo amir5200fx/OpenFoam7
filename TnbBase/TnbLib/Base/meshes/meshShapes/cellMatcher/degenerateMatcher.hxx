@@ -62,17 +62,17 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Matchers for all degenerate hex shapes
-		static hexMatcher hex;
-		static wedgeMatcher wedge;
-		static prismMatcher prism;
-		static tetWedgeMatcher tetWedge;
-		static pyrMatcher pyr;
-		static tetMatcher tet;
+		static FoamBase_EXPORT hexMatcher hex;
+		static FoamBase_EXPORT wedgeMatcher wedge;
+		static FoamBase_EXPORT prismMatcher prism;
+		static FoamBase_EXPORT tetWedgeMatcher tetWedge;
+		static FoamBase_EXPORT pyrMatcher pyr;
+		static FoamBase_EXPORT tetMatcher tet;
 
 		// Static functions
 
 			//- Recognize basic shape
-		static cellShape match
+		static FoamBase_EXPORT cellShape match
 		(
 			const faceList& faces,
 			const labelList& faceOwner,
@@ -85,14 +85,14 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Recognize shape given faces of a cell
-		static cellShape match(const faceList& faces);
+		static FoamBase_EXPORT cellShape match(const faceList& faces);
 
 		//- Recognize given uncollapsed shape (usually hex) with duplicate
 		//  vertices. cellShape just used to extract faces.
-		static cellShape match(const cellShape& shape);
+		static FoamBase_EXPORT cellShape match(const cellShape& shape);
 
 		//- Recognize shape given mesh and celli
-		static cellShape match(const primitiveMesh& mesh, const label celli);
+		static FoamBase_EXPORT cellShape match(const primitiveMesh& mesh, const label celli);
 	};
 
 

@@ -1732,6 +1732,9 @@
     <Filter Include="TnbLib\Base\Pstream\mpi">
       <UniqueIdentifier>{62285171-4fc9-4979-8924-8a119eb08b40}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\Base\module">
+      <UniqueIdentifier>{d0d3ccc0-f280-42bc-9917-265e05b552de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\Base\primitives\zero\zero.hxx">
@@ -5184,6 +5187,21 @@
     <ClInclude Include="TnbLib\Base\primitives\functions\Function1\Function1\Function1New_Imp.hxx">
       <Filter>TnbLib\Base\primitives\functions\Function1\Function1</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\Base\module\Base_Module.hxx">
+      <Filter>TnbLib\Base\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\primitives\functions\Function1\CSV\CSVI.hxx">
+      <Filter>TnbLib\Base\primitives\functions\Function1\CSV</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\db\IOstreams\Sstreams\ReadHexI.hxx">
+      <Filter>TnbLib\Base\db\IOstreams\Sstreams</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\global\fileOperations\masterUncollatedFileOperation\masterUncollatedFileOperationI.hxx">
+      <Filter>TnbLib\Base\global\fileOperations\masterUncollatedFileOperation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\interpolations\interpolationTable\tableReaders\csv\csvTableReaderI.hxx">
+      <Filter>TnbLib\Base\interpolations\interpolationTable\tableReaders\csv</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\Base\primitives\zero\zero.cxx">
@@ -6879,14 +6897,8 @@
     <None Include="TnbLib\Base\include\setSystemRunTimeDictionaryIO.lxx">
       <Filter>TnbLib\Base\include</Filter>
     </None>
-    <None Include="TnbLib\Base\interpolations\interpolationTable\tableReaders\csv\csvTableReader.cxx">
-      <Filter>TnbLib\Base\interpolations\interpolationTable\tableReaders\csv</Filter>
-    </None>
     <None Include="TnbLib\Base\interpolations\patchToPatchInterpolation\PatchToPatchInterpolationTemplate.cxx">
       <Filter>TnbLib\Base\interpolations\patchToPatchInterpolation</Filter>
-    </None>
-    <None Include="TnbLib\Base\db\IOstreams\Sstreams\ReadHex.cxx">
-      <Filter>TnbLib\Base\db\IOstreams\Sstreams</Filter>
     </None>
     <None Include="TnbLib\Base\fields\Fields\Field\FieldFunctionsM.cxx">
       <Filter>TnbLib\Base\fields\Fields\Field</Filter>
@@ -6903,14 +6915,8 @@
     <None Include="TnbLib\Base\fields\GeometricFields\GeometricField\GeometricFieldFunctionsM.hxx">
       <Filter>TnbLib\Base\fields\GeometricFields\GeometricField</Filter>
     </None>
-    <None Include="TnbLib\Base\primitives\functions\Function1\CSV\CSV.cxx">
-      <Filter>TnbLib\Base\primitives\functions\Function1\CSV</Filter>
-    </None>
     <None Include="TnbLib\Base\containers\Lists\List\ListLoopM.hxx">
       <Filter>TnbLib\Base\containers\Lists\List</Filter>
-    </None>
-    <None Include="TnbLib\Base\global\fileOperations\masterUncollatedFileOperation\masterUncollatedFileOperationTemplates.cxx">
-      <Filter>TnbLib\Base\global\fileOperations\masterUncollatedFileOperation</Filter>
     </None>
     <None Include="TnbLib\Base\fields\FieldFields\FieldField\FieldFieldFunctionsM.cxx">
       <Filter>TnbLib\Base\fields\FieldFields\FieldField</Filter>

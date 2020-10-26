@@ -51,8 +51,8 @@ namespace tnbLib
 
 	class memInfo;
 
-	Istream& operator>>(Istream&, memInfo&);
-	Ostream& operator<<(Ostream&, const memInfo&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, memInfo&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const memInfo&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -78,17 +78,17 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		memInfo();
+		FoamBase_EXPORT memInfo();
 
 
 		//- Destructor
-		~memInfo();
+		FoamBase_EXPORT ~memInfo();
 
 
 		// Member Functions
 
 			//- Parse /proc/\<pid\>/status
-		const memInfo& update();
+		FoamBase_EXPORT const memInfo& update();
 
 		// Access
 
@@ -114,7 +114,7 @@ namespace tnbLib
 		}
 
 		//- True if the memory information appears valid
-		bool valid() const;
+		FoamBase_EXPORT bool valid() const;
 
 
 		// IOstream Operators

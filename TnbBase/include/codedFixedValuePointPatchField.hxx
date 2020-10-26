@@ -160,7 +160,11 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName("codedFixedValue");
+		//TypeName("codedFixedValue");
+		static const char* typeName_() { return "codedFixedValue"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -67,7 +67,7 @@ namespace tnbLib
 		// Private static data
 
 			//- The parameters of the linear congruential iteration
-		static const type A = 0x5DEECE66D, C = 0xB, M = type(1) << 48;
+		static FoamBase_EXPORT const type A = 0x5DEECE66D, C = 0xB, M = type(1) << 48;
 
 
 		// Private Data
@@ -114,7 +114,7 @@ namespace tnbLib
 
 		//- Advance the state and return a scalar sample from a normal
 		//  distribution with mean zero and standard deviation one
-		scalar scalarNormal();
+		FoamBase_EXPORT scalar scalarNormal();
 
 
 		// Other types
@@ -141,7 +141,7 @@ namespace tnbLib
 			//  distribution between zero and one. Synchronises across all
 			//  cores. Use of this is discouraged. It is expensive and
 			//  introduces non-randomness in all cores other then the master.
-		scalar globalScalar01();
+		FoamBase_EXPORT scalar globalScalar01();
 	};
 
 

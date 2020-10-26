@@ -61,20 +61,20 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from original time and number of sub-cycles
-		subCycleTime(Time&, const label nSubCycles);
+		FoamBase_EXPORT subCycleTime(Time&, const label nSubCycles);
 
 
 		//- Destructor
-		~subCycleTime();
+		FoamBase_EXPORT ~subCycleTime();
 
 
 		// Member Functions
 
 			//- Return true if the number of sub-cycles has been reached
-		bool end() const;
+		FoamBase_EXPORT bool end() const;
 
 		//- End the sub-cycling and reset the time-state
-		void endSubCycle();
+		FoamBase_EXPORT void endSubCycle();
 
 		//- Return the total number of sub-cycles
 		label nSubCycles() const
@@ -92,10 +92,10 @@ namespace tnbLib
 		// Member Operators
 
 			//- Prefix increment
-		subCycleTime& operator++();
+		FoamBase_EXPORT subCycleTime& operator++();
 
 		//- Postfix increment
-		subCycleTime& operator++(int);
+		FoamBase_EXPORT subCycleTime& operator++(int);
 	};
 
 

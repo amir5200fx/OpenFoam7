@@ -60,29 +60,29 @@ namespace tnbLib
 		// Private data
 
 			//- Saved old signal trapping setting
-		static __p_sig_fn_t oldAction_;
+		static FoamBase_EXPORT __p_sig_fn_t oldAction_;
 
 
 		// Private Member Functions
 
-		static void sigSegvHandler(int);
+		static FoamBase_EXPORT void sigSegvHandler(int);
 
 
 	public:
 
 		// Constructors
 
-		sigSegv();
+		FoamBase_EXPORT sigSegv();
 
 
 		// Destructor
 
-		~sigSegv();
+		FoamBase_EXPORT ~sigSegv();
 
 
 		// Member functions
 
-		void set(const bool verbose);
+		FoamBase_EXPORT void set(const bool verbose);
 	};
 
 

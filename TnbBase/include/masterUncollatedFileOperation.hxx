@@ -406,7 +406,7 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Get the list of processors that are part of this communicator
-			static labelList subRanks(const label n);
+			static FoamBase_EXPORT labelList subRanks(const label n);
 
 			template<class Type>
 			Type scatterList(const UList<Type>&, const int, const label comm) const;
@@ -431,7 +431,7 @@ namespace tnbLib
 			) const;
 
 			//- Equivalent of Time::findInstance
-			static word findInstancePath
+			static FoamBase_EXPORT word findInstancePath
 			(
 				const instantList& timeDirs,
 				const instant& t
@@ -444,7 +444,7 @@ namespace tnbLib
 			// searchType    : how was found
 			// processorsDir : name of processor directory
 			// instance      : instance
-			virtual fileName filePathInfo
+			FoamBase_EXPORT virtual fileName filePathInfo
 			(
 				const bool checkGlobal,
 				const bool isFile,
@@ -455,7 +455,7 @@ namespace tnbLib
 			) const;
 
 			//- Construct filePath
-			fileName localObjectPath
+			FoamBase_EXPORT fileName localObjectPath
 			(
 				const IOobject&,
 				const pathType& searchType,
@@ -465,7 +465,7 @@ namespace tnbLib
 
 			//- Detect file (possibly compressed), read file contents and send
 			//  to processors
-			static void readAndSend
+			static FoamBase_EXPORT void readAndSend
 			(
 				const fileName& fName,
 				const labelUList& procs,
@@ -473,7 +473,7 @@ namespace tnbLib
 			);
 
 			//- Read files on comms master
-			static autoPtr<ISstream> read
+			static FoamBase_EXPORT autoPtr<ISstream> read
 			(
 				IOobject& io,
 				const label comm,
@@ -484,13 +484,17 @@ namespace tnbLib
 
 			//- Helper: check IO for local existence. Like filePathInfo but
 			//  without parent searchign and instance searching
-			bool exists(const dirIndexList&, IOobject& io) const;
+			FoamBase_EXPORT bool exists(const dirIndexList&, IOobject& io) const;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("masterUncollated");
+			//TypeName("masterUncollated");
+			static const char* typeName_() { return "masterUncollated"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Static data
@@ -498,20 +502,20 @@ namespace tnbLib
 				//- Max size of parallel communications. Switches from non-blocking
 				//  to scheduled when reading/writing files. Read as float to enable
 				//  easy specification of large sizes.
-			static float maxMasterFileBufferSize;
+			static FoamBase_EXPORT float maxMasterFileBufferSize;
 
 
 			// Constructors
 
 				//- Construct null
-			masterUncollatedFileOperation(const bool verbose);
+			FoamBase_EXPORT 	masterUncollatedFileOperation(const bool verbose);
 
 			//- Construct from communicator
-			masterUncollatedFileOperation(const label comm, const bool verbose);
+			FoamBase_EXPORT masterUncollatedFileOperation(const label comm, const bool verbose);
 
 
 			//- Destructor
-			virtual ~masterUncollatedFileOperation();
+			FoamBase_EXPORT virtual ~masterUncollatedFileOperation();
 
 
 			// Member Functions
@@ -519,13 +523,13 @@ namespace tnbLib
 				// OSSpecific equivalents
 
 					//- Make directory
-			virtual bool mkDir(const fileName&, mode_t = 0777) const;
+			FoamBase_EXPORT virtual bool mkDir(const fileName&, mode_t = 0777) const;
 
 			//- Set the file mode
-			virtual bool chMod(const fileName&, const mode_t) const;
+			FoamBase_EXPORT virtual bool chMod(const fileName&, const mode_t) const;
 
 			//- Return the file mode
-			virtual mode_t mode
+			FoamBase_EXPORT virtual mode_t mode
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -533,7 +537,7 @@ namespace tnbLib
 			) const;
 
 			//- Return the file type: directory, file or link
-			virtual fileType type
+			FoamBase_EXPORT virtual fileType type
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -542,7 +546,7 @@ namespace tnbLib
 
 			//- Does the name exist (as directory or file) in the file system?
 			//  Optionally enable/disable check for gzip file.
-			virtual bool exists
+			FoamBase_EXPORT virtual bool exists
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -550,7 +554,7 @@ namespace tnbLib
 			) const;
 
 			//- Does the name exist as a directory in the file system?
-			virtual bool isDir
+			FoamBase_EXPORT virtual bool isDir
 			(
 				const fileName&,
 				const bool followLink = true
@@ -558,7 +562,7 @@ namespace tnbLib
 
 			//- Does the name exist as a file in the file system?
 			//  Optionally enable/disable check for gzip file.
-			virtual bool isFile
+			FoamBase_EXPORT virtual bool isFile
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -566,7 +570,7 @@ namespace tnbLib
 			) const;
 
 			//- Return size of file
-			virtual off_t fileSize
+			FoamBase_EXPORT virtual off_t fileSize
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -574,7 +578,7 @@ namespace tnbLib
 			) const;
 
 			//- Return time of last file modification
-			virtual time_t lastModified
+			FoamBase_EXPORT virtual time_t lastModified
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -582,7 +586,7 @@ namespace tnbLib
 			) const;
 
 			//- Return time of last file modification
-			virtual double highResLastModified
+			FoamBase_EXPORT virtual double highResLastModified
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -590,7 +594,7 @@ namespace tnbLib
 			) const;
 
 			//- Read a directory and return the entries as a string list
-			virtual fileNameList readDir
+			FoamBase_EXPORT virtual fileNameList readDir
 			(
 				const fileName&,
 				const fileType = fileType::file,
@@ -599,7 +603,7 @@ namespace tnbLib
 			) const;
 
 			//- Copy, recursively if necessary, the source to the destination
-			virtual bool cp
+			FoamBase_EXPORT virtual bool cp
 			(
 				const fileName& src,
 				const fileName& dst,
@@ -608,10 +612,10 @@ namespace tnbLib
 
 			//- Create a softlink. dst should not exist. Returns true if
 			//  successful.
-			virtual bool ln(const fileName& src, const fileName& dst) const;
+			FoamBase_EXPORT virtual bool ln(const fileName& src, const fileName& dst) const;
 
 			//- Rename src to dst
-			virtual bool mv
+			FoamBase_EXPORT virtual bool mv
 			(
 				const fileName& src,
 				const fileName& dst,
@@ -621,17 +625,17 @@ namespace tnbLib
 			//- Rename to a corresponding backup file
 			//  If the backup file already exists, attempt with
 			//  "01" .. "99" suffix
-			virtual bool mvBak
+			FoamBase_EXPORT virtual bool mvBak
 			(
 				const fileName&,
 				const std::string& ext = "bak"
 			) const;
 
 			//- Remove a file, returning true if successful otherwise false
-			virtual bool rm(const fileName&) const;
+			FoamBase_EXPORT virtual bool rm(const fileName&) const;
 
 			//- Remove a directory and its contents
-			virtual bool rmDir(const fileName&) const;
+			FoamBase_EXPORT virtual bool rmDir(const fileName&) const;
 
 			//            //- Open a shared library. Return handle to library. Print error
 			//            //  message if library cannot be loaded (check = true)
@@ -645,7 +649,7 @@ namespace tnbLib
 					// (reg)IOobject functinality
 
 						//- Search for an object. checkGlobal : also check undecomposed case
-			virtual fileName filePath
+			FoamBase_EXPORT virtual fileName filePath
 			(
 				const bool checkGlobal,
 				const IOobject&,
@@ -654,14 +658,14 @@ namespace tnbLib
 
 			//- Search for a directory. checkGlobal : also check undecomposed
 			//  case
-			virtual fileName dirPath
+			FoamBase_EXPORT virtual fileName dirPath
 			(
 				const bool checkGlobal,
 				const IOobject&
 			) const;
 
 			//- Search directory for objects. Used in IOobjectList.
-			virtual fileNameList readObjects
+			FoamBase_EXPORT virtual fileNameList readObjects
 			(
 				const objectRegistry& db,
 				const fileName& instance,
@@ -670,7 +674,7 @@ namespace tnbLib
 			) const;
 
 			//- Read object header from supplied file
-			virtual bool readHeader
+			FoamBase_EXPORT virtual bool readHeader
 			(
 				IOobject&,
 				const fileName&,
@@ -679,7 +683,7 @@ namespace tnbLib
 
 			//- Reads header for regIOobject and returns an ISstream
 			//  to read the contents.
-			virtual autoPtr<ISstream> readStream
+			FoamBase_EXPORT virtual autoPtr<ISstream> readStream
 			(
 				regIOobject&,
 				const fileName&,
@@ -688,7 +692,7 @@ namespace tnbLib
 			) const;
 
 			//- Top-level read
-			virtual bool read
+			FoamBase_EXPORT virtual bool read
 			(
 				regIOobject&,
 				const bool masterOnly,
@@ -698,7 +702,7 @@ namespace tnbLib
 
 			//- Writes a regIOobject (so header, contents and divider).
 			//  Returns success state.
-			virtual bool writeObject
+			FoamBase_EXPORT virtual bool writeObject
 			(
 				const regIOobject&,
 				IOstream::streamFormat format = IOstream::ASCII,
@@ -708,10 +712,10 @@ namespace tnbLib
 			) const;
 
 			//- Generate an ISstream that reads a file
-			virtual autoPtr<ISstream> NewIFstream(const fileName&) const;
+			FoamBase_EXPORT virtual autoPtr<ISstream> NewIFstream(const fileName&) const;
 
 			//- Generate an Ostream that writes a file
-			virtual autoPtr<Ostream> NewOFstream
+			FoamBase_EXPORT virtual autoPtr<Ostream> NewOFstream
 			(
 				const fileName& pathname,
 				IOstream::streamFormat format = IOstream::ASCII,
@@ -724,50 +728,50 @@ namespace tnbLib
 			// File modification checking
 
 				//- Add watching of a file. Returns handle
-			virtual label addWatch(const fileName&) const;
+			FoamBase_EXPORT virtual label addWatch(const fileName&) const;
 
 			//- Remove watch on a file (using handle)
-			virtual bool removeWatch(const label) const;
+			FoamBase_EXPORT virtual bool removeWatch(const label) const;
 
 			//- Find index (or -1) of file in list of handles
-			virtual label findWatch
+			FoamBase_EXPORT virtual label findWatch
 			(
 				const labelList& watchIndices,
 				const fileName&
 			) const;
 
 			//- Helper: add watches for list of regIOobjects
-			virtual void addWatches(regIOobject&, const fileNameList&) const;
+			FoamBase_EXPORT virtual void addWatches(regIOobject&, const fileNameList&) const;
 
 			//- Get name of file being watched (using handle)
-			virtual fileName getFile(const label) const;
+			FoamBase_EXPORT virtual fileName getFile(const label) const;
 
 			//- Update state of all files
-			virtual void updateStates
+			FoamBase_EXPORT virtual void updateStates
 			(
 				const bool masterOnly,
 				const bool syncPar
 			) const;
 
 			//- Get current state of file (using handle)
-			virtual fileMonitor::fileState getState(const label) const;
+			FoamBase_EXPORT virtual fileMonitor::fileState getState(const label) const;
 
 			//- Set current state of file (using handle) to unmodified
-			virtual void setUnmodified(const label) const;
+			FoamBase_EXPORT virtual void setUnmodified(const label) const;
 
 
 			// Other
 
 				//- Same file?
-			static bool uniformFile(const fileNameList&);
+			static FoamBase_EXPORT bool uniformFile(const fileNameList&);
 
 			//- Get sorted list of times
-			virtual instantList findTimes(const fileName&, const word&) const;
+			FoamBase_EXPORT virtual instantList findTimes(const fileName&, const word&) const;
 
 			//- Find instance where IOobject is. Fails if cannot be found
 			//  and readOpt() is MUST_READ/MUST_READ_IF_MODIFIED. Otherwise
 			//  returns stopInstance.
-			virtual IOobject findInstance
+			FoamBase_EXPORT virtual IOobject findInstance
 			(
 				const IOobject& io,
 				const scalar startValue,
@@ -775,10 +779,10 @@ namespace tnbLib
 			) const;
 
 			//- Callback for time change
-			virtual void setTime(const Time&) const;
+			FoamBase_EXPORT virtual void setTime(const Time&) const;
 
 			//- Forcibly wait until all output done. Flush any cached data
-			virtual void flush() const;
+			FoamBase_EXPORT virtual void flush() const;
 
 			//- Return cached times
 			const HashPtrTable<instantList>& times() const
@@ -817,9 +821,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <masterUncollatedFileOperationTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <masterUncollatedFileOperationTemplates.cxx>
+//#endif
+
+#include <masterUncollatedFileOperationI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

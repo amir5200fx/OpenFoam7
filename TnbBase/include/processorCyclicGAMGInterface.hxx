@@ -56,13 +56,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("processorCyclic");
+		//TypeName("processorCyclic");
+		static const char* typeName_() { return "processorCyclic"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from fine-level interface,
 			//  local and neighbour restrict addressing
-		processorCyclicGAMGInterface
+		FoamBase_EXPORT processorCyclicGAMGInterface
 		(
 			const label index,
 			const lduInterfacePtrsList& coarseInterfaces,
@@ -74,7 +78,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		processorCyclicGAMGInterface
+		FoamBase_EXPORT processorCyclicGAMGInterface
 		(
 			const label index,
 			const lduInterfacePtrsList& coarseInterfaces,
@@ -82,7 +86,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		processorCyclicGAMGInterface
+		FoamBase_EXPORT processorCyclicGAMGInterface
 		(
 			const processorCyclicGAMGInterface&
 		) = delete;
@@ -90,13 +94,13 @@ namespace tnbLib
 
 		// Destructor
 
-		virtual ~processorCyclicGAMGInterface();
+		FoamBase_EXPORT virtual ~processorCyclicGAMGInterface();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const processorCyclicGAMGInterface&) = delete;
+		FoamBase_EXPORT void operator=(const processorCyclicGAMGInterface&) = delete;
 	};
 
 

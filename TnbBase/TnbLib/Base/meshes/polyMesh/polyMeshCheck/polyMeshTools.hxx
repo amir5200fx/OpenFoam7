@@ -58,7 +58,7 @@ namespace tnbLib
 
 		//- Generate orthogonality field. (1 for fully orthogonal, < 1 for
 		//  non-orthogonal)
-		static tmp<scalarField> faceOrthogonality
+		static FoamBase_EXPORT tmp<scalarField> faceOrthogonality
 		(
 			const polyMesh& mesh,
 			const vectorField& fAreas,
@@ -66,7 +66,7 @@ namespace tnbLib
 		);
 
 		//- Generate skewness field
-		static tmp<scalarField> faceSkewness
+		static FoamBase_EXPORT tmp<scalarField> faceSkewness
 		(
 			const polyMesh& mesh,
 			const pointField& points,
@@ -76,7 +76,7 @@ namespace tnbLib
 		);
 
 		//- Generate interpolation factors field
-		static tmp<scalarField> faceWeights
+		static FoamBase_EXPORT tmp<scalarField> faceWeights
 		(
 			const polyMesh& mesh,
 			const vectorField& fCtrs,
@@ -85,7 +85,7 @@ namespace tnbLib
 		);
 
 		//- Generate volume ratio field
-		static tmp<scalarField> volRatio
+		static FoamBase_EXPORT tmp<scalarField> volRatio
 		(
 			const polyMesh& mesh,
 			const scalarField& vol

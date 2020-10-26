@@ -78,16 +78,19 @@ namespace tnbLib
 		// Static Data Members
 
 			//- The name associated with the zone-labels dictionary entry
-		static const char * const labelsName;
+		static FoamBase_EXPORT const char * const labelsName;
 
 
 		//- Runtime type information
-		TypeName("cellZone");
-
+		//TypeName("cellZone");
+		static const char* typeName_() { return "cellZone"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			cellZone,
@@ -99,13 +102,64 @@ namespace tnbLib
 				const cellZoneMesh& zm
 				),
 				(name, dict, index, zm)
-		);
+		);*/
+
+		typedef autoPtr<cellZone> (*dictionaryConstructorPtr)(const word& name, const dictionary& dict, const label index,
+		                                                      const cellZoneMesh& zm);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamBase_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamBase_EXPORT void constructdictionaryConstructorTables();
+		static FoamBase_EXPORT void destroydictionaryConstructorTables();
+
+		template <class cellZoneType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<cellZone> New(const word& name, const dictionary& dict, const label index, const cellZoneMesh& zm)
+			{
+				return autoPtr<cellZone>(new cellZoneType(name, dict, index, zm));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = cellZoneType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "cellZone" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class cellZoneType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<cellZone> New(const word& name, const dictionary& dict, const label index, const cellZoneMesh& zm)
+			{
+				return autoPtr<cellZone>(new cellZoneType(name, dict, index, zm));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = cellZoneType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from components
-		cellZone
+		FoamBase_EXPORT cellZone
 		(
 			const word& name,
 			const labelUList& addr,
@@ -114,7 +168,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components, transferring contents
-		cellZone
+		FoamBase_EXPORT cellZone
 		(
 			const word& name,
 			labelList&& addr,
@@ -123,7 +177,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		cellZone
+		FoamBase_EXPORT cellZone
 		(
 			const word& name,
 			const dictionary&,
@@ -133,7 +187,7 @@ namespace tnbLib
 
 		//- Construct given the original zone and resetting the
 		//  cell list and zone mesh information
-		cellZone
+		FoamBase_EXPORT cellZone
 		(
 			const cellZone&,
 			const labelUList& addr,
@@ -143,7 +197,7 @@ namespace tnbLib
 
 		//- Construct given the original zone, resetting the
 		//  cell list and zone mesh information
-		cellZone
+		FoamBase_EXPORT cellZone
 		(
 			const cellZone&,
 			labelList&& addr,
@@ -152,7 +206,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		cellZone(const cellZone&) = delete;
+		FoamBase_EXPORT cellZone(const cellZone&) = delete;
 
 
 		//- Construct and return a clone, resetting the zone mesh
@@ -184,7 +238,7 @@ namespace tnbLib
 
 			//- Return a pointer to a new cell zone
 			//  created on freestore from dictionary
-		static autoPtr<cellZone> New
+		static FoamBase_EXPORT autoPtr<cellZone> New
 		(
 			const word& name,
 			const dictionary&,
@@ -194,19 +248,19 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~cellZone();
+		FoamBase_EXPORT virtual ~cellZone();
 
 
 		// Member Functions
 
 			//- Helper function to re-direct to zone::localID(...)
-		label whichCell(const label globalCellID) const;
+		FoamBase_EXPORT label whichCell(const label globalCellID) const;
 
 		//- Return zoneMesh reference
-		const cellZoneMesh& zoneMesh() const;
+		FoamBase_EXPORT const cellZoneMesh& zoneMesh() const;
 
 		//- Check zone definition. Return true if in error.
-		virtual bool checkDefinition(const bool report = false) const;
+		FoamBase_EXPORT virtual bool checkDefinition(const bool report = false) const;
 
 		//- Check whether zone is synchronised across coupled boundaries. Return
 		//  true if in error.
@@ -216,22 +270,22 @@ namespace tnbLib
 		}
 
 		//- Write dictionary
-		virtual void writeDict(Ostream&) const;
+		FoamBase_EXPORT virtual void writeDict(Ostream&) const;
 
 
 		// Member Operators
 
 			//- Assignment to zone, clearing demand-driven data
-		void operator=(const cellZone&);
+		FoamBase_EXPORT void operator=(const cellZone&);
 
 		//- Move assignment to zone, clearing demand-driven data
-		void operator=(cellZone&&);
+		FoamBase_EXPORT void operator=(cellZone&&);
 
 		//- Assign addressing, clearing demand-driven data
-		void operator=(const labelUList&);
+		FoamBase_EXPORT void operator=(const labelUList&);
 
 		//- Move addressing, clearing demand-driven data
-		void operator=(labelList&&);
+		FoamBase_EXPORT void operator=(labelList&&);
 
 
 		// I-O

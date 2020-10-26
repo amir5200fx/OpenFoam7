@@ -68,12 +68,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("linear");
+		//TypeName("linear");
+		static const char* typeName_() { return "linear"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		linearInterpolationWeights
+		FoamBase_EXPORT linearInterpolationWeights
 		(
 			const scalarField& samples
 		);
@@ -88,7 +92,7 @@ namespace tnbLib
 
 			//- Calculate weights and indices to calculate t from samples.
 			//  Returns true if indices changed.
-		virtual bool valueWeights
+		FoamBase_EXPORT virtual bool valueWeights
 		(
 			const scalar t,
 			labelList& indices,
@@ -97,7 +101,7 @@ namespace tnbLib
 
 		//- Calculate weights and indices to calculate integrand of t1..t2
 		//  from samples. Returns true if indices changed.
-		virtual bool integrationWeights
+		FoamBase_EXPORT virtual bool integrationWeights
 		(
 			const scalar t1,
 			const scalar t2,

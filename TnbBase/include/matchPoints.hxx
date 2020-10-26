@@ -50,7 +50,7 @@ namespace tnbLib
 	//  true if found corresponding point in 1 for every point in 0; false
 	//  otherwise. Compares mag(pt - origin) and does proper comparison for points
 	//  with (almost) identical mag. pts0 can be subset of pts1.
-	bool matchPoints
+	FoamBase_EXPORT bool matchPoints
 	(
 		const UList<point>& pts0,
 		const UList<point>& pts1,
@@ -65,7 +65,7 @@ namespace tnbLib
 	//  e.g., a face normal associated with each face centre.
 	//  A match between similar points is only allowed if their directions are
 	//  equal and opposite
-	bool matchPoints
+	FoamBase_EXPORT bool matchPoints
 	(
 		const UList<point>& pts0,
 		const UList<point>& pts1,

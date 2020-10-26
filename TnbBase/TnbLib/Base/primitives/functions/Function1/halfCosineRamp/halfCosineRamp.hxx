@@ -67,7 +67,7 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from entry name and dictionary
-			halfCosineRamp
+			FoamBase_EXPORT halfCosineRamp
 			(
 				const word& entryName,
 				const dictionary& dict
@@ -75,7 +75,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~halfCosineRamp();
+			FoamBase_EXPORT virtual ~halfCosineRamp();
 
 
 			// Member Functions

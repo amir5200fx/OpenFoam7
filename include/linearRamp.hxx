@@ -67,7 +67,7 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from entry name and dictionary
-			linearRamp
+			FoamBase_EXPORT linearRamp
 			(
 				const word& entryName,
 				const dictionary& dict
@@ -75,7 +75,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~linearRamp();
+			FoamBase_EXPORT virtual ~linearRamp();
 
 
 			// Member Functions

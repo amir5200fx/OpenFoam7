@@ -64,13 +64,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("DIC");
+		//TypeName("DIC");
+		static const char* typeName_() { return "DIC"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from matrix components
-		DICSmoother
+		FoamBase_EXPORT DICSmoother
 		(
 			const word& fieldName,
 			const lduMatrix& matrix,
@@ -83,7 +87,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Smooth the solution for a given number of sweeps
-		void smooth
+		FoamBase_EXPORT void smooth
 		(
 			scalarField& psi,
 			const scalarField& source,

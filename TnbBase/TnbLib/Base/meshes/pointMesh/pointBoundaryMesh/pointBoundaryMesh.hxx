@@ -64,7 +64,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate the geometry for the patches (transformation tensors etc.)
-		void calcGeometry();
+		FoamBase_EXPORT void calcGeometry();
 
 
 	public:
@@ -76,7 +76,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from polyBoundaryMesh
-		pointBoundaryMesh
+		FoamBase_EXPORT pointBoundaryMesh
 		(
 			const pointMesh&,
 			const polyBoundaryMesh&
@@ -84,7 +84,7 @@ namespace tnbLib
 
 		//- Disallow default bitwise copy construction
 		pointBoundaryMesh(const pointBoundaryMesh&) = delete;
-
+		FoamBase_EXPORT
 
 		// Member Functions
 
@@ -95,32 +95,32 @@ namespace tnbLib
 		}
 
 		//- Find patch index given a name
-		label findPatchID(const word& patchName) const;
+		FoamBase_EXPORT label findPatchID(const word& patchName) const;
 
 		//- Find patch indices given a name
-		labelList findIndices(const keyType&, const bool useGroups) const;
+		FoamBase_EXPORT labelList findIndices(const keyType&, const bool useGroups) const;
 
 		//- Correct pointBoundaryMesh after moving points
-		void movePoints(const pointField&);
+		FoamBase_EXPORT void movePoints(const pointField&);
 
 		//- Correct pointBoundaryMesh after topology update
-		void updateMesh();
+		FoamBase_EXPORT void updateMesh();
 
 		//- Create pointBoundaryMesh from polyBoundaryMesh
-		void reset(const polyBoundaryMesh&);
+		FoamBase_EXPORT void reset(const polyBoundaryMesh&);
 
 		//- Reorders patches. Ordering does not have to be done in
 		//  ascending or descending order. Reordering has to be unique.
 		//  (is shuffle). If validBoundary calls updateMesh()
 		//  after reordering to recalculate data (so call needs to be parallel
 		//  sync in that case)
-		void shuffle(const labelUList& newToOld, const bool validBoundary);
+		FoamBase_EXPORT void shuffle(const labelUList& newToOld, const bool validBoundary);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const pointBoundaryMesh&) = delete;
+		FoamBase_EXPORT void operator=(const pointBoundaryMesh&) = delete;
 	};
 
 

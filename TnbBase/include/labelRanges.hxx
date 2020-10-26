@@ -50,8 +50,8 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class labelRanges;
-	Istream& operator>>(Istream&, labelRanges&);
-	Ostream& operator<<(Ostream&, const labelRanges&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, labelRanges&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const labelRanges&);
 
 	/*---------------------------------------------------------------------------*\
 							 Class labelRanges Declaration
@@ -69,13 +69,13 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Insert range before specified insertion index, by copying up
-		void insertBefore(const label, const labelRange&);
+		FoamBase_EXPORT void insertBefore(const label, const labelRange&);
 
 		//- Purge empty ranges, by copying down
-		void purgeEmpty();
+		FoamBase_EXPORT void purgeEmpty();
 
 		//- Print the range for debugging purposes
-		Ostream& printRange(Ostream&, const labelRange&) const;
+		FoamBase_EXPORT Ostream& printRange(Ostream&, const labelRange&) const;
 
 
 	public:
@@ -89,7 +89,7 @@ namespace tnbLib
 		inline explicit labelRanges(const label);
 
 		//- Construct from Istream.
-		labelRanges(Istream&);
+		FoamBase_EXPORT labelRanges(Istream&);
 
 
 		// Member Functions
@@ -104,10 +104,10 @@ namespace tnbLib
 		inline bool contains(const label) const;
 
 		//- Add the range to the list
-		bool add(const labelRange&);
+		FoamBase_EXPORT bool add(const labelRange&);
 
 		//- Remove the range from the list
-		bool remove(const labelRange&);
+		FoamBase_EXPORT bool remove(const labelRange&);
 
 		// STL iterator
 
@@ -172,10 +172,10 @@ namespace tnbLib
 	private:
 
 		//- const labelRanges held by endIter_
-		static const labelRanges endLabelRanges_;
+		static FoamBase_EXPORT const labelRanges endLabelRanges_;
 
 		//- const_iterator returned by end(), cend()
-		static const const_iterator endIter_;
+		static FoamBase_EXPORT const const_iterator endIter_;
 	};
 
 

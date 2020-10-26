@@ -72,7 +72,18 @@ namespace tnbLib
 							Class PrimitivePatchName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(PrimitivePatch);
+	//TemplateName(PrimitivePatch);
+	class PrimitivePatchName
+	{
+	public:
+		PrimitivePatchName()
+		{
+		}
+
+		static const char* typeName_() { return "PrimitivePatch"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\

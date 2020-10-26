@@ -62,43 +62,47 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Disallow default bitwise copy construction
-		cyclicPointPatch(const cyclicPointPatch&);
+		FoamBase_EXPORT cyclicPointPatch(const cyclicPointPatch&);
 
 		//- Disallow default bitwise assignment
-		void operator=(const cyclicPointPatch&);
+		FoamBase_EXPORT void operator=(const cyclicPointPatch&);
 
 
 		// Demand driven private data
 
 			//- Initialise the calculation of the patch geometry
-		virtual void initGeometry(PstreamBuffers&);
+		FoamBase_EXPORT virtual void initGeometry(PstreamBuffers&);
 
 		//- Calculate the patch geometry
-		virtual void calcGeometry(PstreamBuffers&);
+		FoamBase_EXPORT virtual void calcGeometry(PstreamBuffers&);
 
 		//- Initialise the patches for moving points
-		virtual void initMovePoints(PstreamBuffers&, const pointField&);
+		FoamBase_EXPORT virtual void initMovePoints(PstreamBuffers&, const pointField&);
 
 		//- Correct patches after moving points
-		virtual void movePoints(PstreamBuffers&, const pointField&);
+		FoamBase_EXPORT virtual void movePoints(PstreamBuffers&, const pointField&);
 
 		//- Initialise the update of the patch topology
-		virtual void initUpdateMesh(PstreamBuffers&);
+		FoamBase_EXPORT virtual void initUpdateMesh(PstreamBuffers&);
 
 		//- Update of the patch topology
-		virtual void updateMesh(PstreamBuffers&);
+		FoamBase_EXPORT virtual void updateMesh(PstreamBuffers&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName(cyclicPolyPatch::typeName_());
+		//TypeName(cyclicPolyPatch::typeName_());
+		static const char* typeName_() { return cyclicPolyPatch::typeName_(); }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		cyclicPointPatch
+		FoamBase_EXPORT cyclicPointPatch
 		(
 			const polyPatch& patch,
 			const pointBoundaryMesh& bm
@@ -106,7 +110,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~cyclicPointPatch();
+		FoamBase_EXPORT virtual ~cyclicPointPatch();
 
 
 		// Member Functions
@@ -120,13 +124,13 @@ namespace tnbLib
 		}
 
 		//- Return the underlying cyclicPolyPatch
-		const cyclicPolyPatch& cyclicPatch() const
+		FoamBase_EXPORT const cyclicPolyPatch& cyclicPatch() const
 		{
 			return cyclicPolyPatch_;
 		}
 
 		//- Return neighbour point patch
-		const cyclicPointPatch& neighbPatch() const
+		FoamBase_EXPORT const cyclicPointPatch& neighbPatch() const
 		{
 			label patchi = cyclicPolyPatch_.neighbPatchID();
 			const pointPatch& pp = this->boundaryMesh()[patchi];
@@ -157,7 +161,7 @@ namespace tnbLib
 			//- Return the set of pairs of points that require transformation
 			//  and/or mapping. First index is on this patch, second on the
 			//  neighbour patch.
-		virtual const edgeList& transformPairs() const;
+		FoamBase_EXPORT virtual const edgeList& transformPairs() const;
 	};
 
 

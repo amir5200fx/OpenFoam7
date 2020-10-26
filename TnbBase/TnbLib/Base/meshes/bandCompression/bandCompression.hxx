@@ -50,10 +50,10 @@ namespace tnbLib
 	//  The algorithm uses a simple search through the neighbour list
 	//  Returns the order in which the cells need to be visited (i.e. ordered to
 	//  original)
-	labelList bandCompression(const labelListList& addressing);
+	FoamBase_EXPORT labelList bandCompression(const labelListList& addressing);
 
 	//- Renumber with addressing in losort form (neighbour + start in neighbour)
-	labelList bandCompression(const labelList& cellCells, const labelList& offsets);
+	FoamBase_EXPORT labelList bandCompression(const labelList& cellCells, const labelList& offsets);
 
 } // End namespace tnbLib
 

@@ -64,7 +64,7 @@ namespace tnbLib
 	protected:
 
 		//- Helper: check readOpt flags and read if necessary
-		bool readHeaderOk
+		FoamBase_EXPORT bool readHeaderOk
 		(
 			const IOstream::streamFormat PstreamFormat,
 			const word& typeName
@@ -94,10 +94,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Return Istream
-		Istream& readStream(const bool read = true);
+		FoamBase_EXPORT Istream& readStream(const bool read = true);
 
 		//- Dissallow assignment
-		void operator=(const regIOobject&);
+		FoamBase_EXPORT void operator=(const regIOobject&);
 
 
 	public:
@@ -105,34 +105,38 @@ namespace tnbLib
 		// Static data
 
 			//- Runtime type information
-		TypeName("regIOobject");
+		//TypeName("regIOobject");
+		static const char* typeName_() { return "regIOobject"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
-		static float fileModificationSkew;
+		static FoamBase_EXPORT float fileModificationSkew;
 
 
 		// Constructors
 
 			//- Construct from IOobject. Optional flag for if IOobject is the
 			//  top level regIOobject.
-		regIOobject(const IOobject&, const bool isTime = false);
+		FoamBase_EXPORT regIOobject(const IOobject&, const bool isTime = false);
 
 		//- Copy constructor
-		regIOobject(const regIOobject&);
+		FoamBase_EXPORT regIOobject(const regIOobject&);
 
 		//- Copy constructor, transferring registry registration to copy
 		//  if registerCopy is true
-		regIOobject(const regIOobject&, bool registerCopy);
+		FoamBase_EXPORT regIOobject(const regIOobject&, bool registerCopy);
 
 		//- Copy constructor with new name, transferring registry registration
 		//  to copy as specified
-		regIOobject(const word& newName, const regIOobject&, bool registerCopy);
+		FoamBase_EXPORT regIOobject(const word& newName, const regIOobject&, bool registerCopy);
 
 		//- Copy constructor with new IO parameters
-		regIOobject(const IOobject&, const regIOobject&);
+		FoamBase_EXPORT regIOobject(const IOobject&, const regIOobject&);
 
 
 		//- Destructor
-		virtual ~regIOobject();
+		FoamBase_EXPORT virtual ~regIOobject();
 
 
 		// Member Functions
@@ -140,13 +144,13 @@ namespace tnbLib
 			// Registration
 
 				//- Add object to registry
-		bool checkIn();
+		FoamBase_EXPORT bool checkIn();
 
 		//- Remove object from registry
-		bool checkOut();
+		FoamBase_EXPORT bool checkOut();
 
 		//- Add file watch on object (if registered and READ_IF_MODIFIED)
-		virtual void addWatch();
+		FoamBase_EXPORT virtual void addWatch();
 
 		//- Is this object owned by the registry?
 		inline bool ownedByRegistry() const;
@@ -178,11 +182,11 @@ namespace tnbLib
 
 		//- Return true if up-to-date with respect to given object
 		//  otherwise false
-		bool upToDate(const regIOobject&) const;
+		FoamBase_EXPORT bool upToDate(const regIOobject&) const;
 
 		//- Return true if up-to-date with respect to given objects
 		//  otherwise false
-		bool upToDate
+		FoamBase_EXPORT bool upToDate
 		(
 			const regIOobject&,
 			const regIOobject&
@@ -190,7 +194,7 @@ namespace tnbLib
 
 		//- Return true if up-to-date with respect to given objects
 		//  otherwise false
-		bool upToDate
+		FoamBase_EXPORT bool upToDate
 		(
 			const regIOobject&,
 			const regIOobject&,
@@ -199,7 +203,7 @@ namespace tnbLib
 
 		//- Return true if up-to-date with respect to given objects
 		//  otherwise false
-		bool upToDate
+		FoamBase_EXPORT bool upToDate
 		(
 			const regIOobject&,
 			const regIOobject&,
@@ -208,13 +212,13 @@ namespace tnbLib
 		) const;
 
 		//- Set up to date (obviously)
-		void setUpToDate();
+		FoamBase_EXPORT void setUpToDate();
 
 
 		// Edit
 
 			//- Rename
-		virtual void rename(const word& newName);
+		FoamBase_EXPORT virtual void rename(const word& newName);
 
 
 		// Reading
@@ -223,28 +227,28 @@ namespace tnbLib
 			//  in the case directory otherwise null. Does not search
 			//  up if parallel. Can be overridden to provide this functionality
 			//  (e.g. IOdictionary)
-		virtual fileName filePath() const;
+		FoamBase_EXPORT virtual fileName filePath() const;
 
 		//- Read and check header info
-		bool headerOk();
+		FoamBase_EXPORT bool headerOk();
 
 		//- Return Istream and check object type against that given
-		Istream& readStream(const word&, const bool read = true);
+		FoamBase_EXPORT Istream& readStream(const word&, const bool read = true);
 
 		//- Close Istream
-		void close();
+		FoamBase_EXPORT void close();
 
 		//- Virtual readData function.
 		//  Must be defined in derived types for which
 		//  re-reading is required
-		virtual bool readData(Istream&);
+		FoamBase_EXPORT virtual bool readData(Istream&);
 
 		//- Read object
-		virtual bool read();
+		FoamBase_EXPORT virtual bool read();
 
 		//- Add file watch for fileName on object if not yet watched. Return
 		//  index of watch
-		virtual label addWatch(const fileName&);
+		FoamBase_EXPORT virtual label addWatch(const fileName&);
 
 		//- Return file-monitoring handles
 		inline const labelList& watchIndices() const;
@@ -254,24 +258,24 @@ namespace tnbLib
 
 		//- Return true if the object's file (or files for objectRegistry)
 		//  have been modified. (modified state is cached by Time)
-		virtual bool modified() const;
+		FoamBase_EXPORT virtual bool modified() const;
 
 		//- Read object if modified (as set by call to modified)
-		virtual bool readIfModified();
+		FoamBase_EXPORT virtual bool readIfModified();
 
 		//- Is object same for all processors
 		//  Defaults to false, must be overridden by global IO classes
-		virtual bool global() const;
+		FoamBase_EXPORT virtual bool global() const;
 
 
 		// Writing
 
 			//- Pure virtual writaData function.
 			//  Must be defined in derived types
-		virtual bool writeData(Ostream&) const = 0;
+		FoamBase_EXPORT virtual bool writeData(Ostream&) const = 0;
 
 		//- Write using given format, version and compression
-		virtual bool writeObject
+		FoamBase_EXPORT virtual bool writeObject
 		(
 			IOstream::streamFormat,
 			IOstream::versionNumber,
@@ -280,12 +284,12 @@ namespace tnbLib
 		) const;
 
 		//- Write using setting from DB
-		virtual bool write(const bool write = true) const;
+		FoamBase_EXPORT virtual bool write(const bool write = true) const;
 
 
 		// Member Operators
 
-		void operator=(const IOobject&);
+		FoamBase_EXPORT void operator=(const IOobject&);
 	};
 
 

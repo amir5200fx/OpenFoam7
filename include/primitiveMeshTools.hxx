@@ -53,7 +53,7 @@ namespace tnbLib
 	public:
 
 		//- Generate non-orthogonality field (internal faces only)
-		static tmp<scalarField> faceOrthogonality
+		static FoamBase_EXPORT tmp<scalarField> faceOrthogonality
 		(
 			const primitiveMesh& mesh,
 			const vectorField& fAreas,
@@ -61,7 +61,7 @@ namespace tnbLib
 		);
 
 		//- Generate face pyramid volume fields
-		static void facePyramidVolume
+		static FoamBase_EXPORT void facePyramidVolume
 		(
 			const primitiveMesh& mesh,
 			const pointField& points,
@@ -71,7 +71,7 @@ namespace tnbLib
 		);
 
 		//- Generate skewness field
-		static tmp<scalarField> faceSkewness
+		static FoamBase_EXPORT tmp<scalarField> faceSkewness
 		(
 			const primitiveMesh& mesh,
 			const pointField& points,
@@ -81,7 +81,7 @@ namespace tnbLib
 		);
 
 		//- Generate cell openness and cell ascpect ratio field
-		static void cellClosedness
+		static FoamBase_EXPORT void cellClosedness
 		(
 			const primitiveMesh& mesh,
 			const Vector<label>& meshD,
@@ -93,7 +93,7 @@ namespace tnbLib
 
 		//- Generate face concavity field. Returns per face the (sin of the)
 		//  most concave angle between two consecutive edges
-		static tmp<scalarField> faceConcavity
+		static FoamBase_EXPORT tmp<scalarField> faceConcavity
 		(
 			const scalar maxSin,
 			const primitiveMesh& mesh,
@@ -104,7 +104,7 @@ namespace tnbLib
 		//- Generate face flatness field. Compares the individual triangles'
 		//  normals against the face average normal. Between 0 (fully warped)
 		//  and 1 (fully flat)
-		static tmp<scalarField> faceFlatness
+		static FoamBase_EXPORT tmp<scalarField> faceFlatness
 		(
 			const primitiveMesh& mesh,
 			const pointField& p,
@@ -114,7 +114,7 @@ namespace tnbLib
 
 		//- Generate edge alignment field. Is per face the minimum aligned edge
 		//  (does not use edge addressing)
-		static tmp<scalarField> edgeAlignment
+		static FoamBase_EXPORT tmp<scalarField> edgeAlignment
 		(
 			const primitiveMesh& mesh,
 			const Vector<label>& directions,
@@ -122,7 +122,7 @@ namespace tnbLib
 		);
 
 		//- Generate cell determinant field
-		static tmp<scalarField> cellDeterminant
+		static FoamBase_EXPORT tmp<scalarField> cellDeterminant
 		(
 			const primitiveMesh& mesh,
 			const Vector<label>& directions,
@@ -134,7 +134,7 @@ namespace tnbLib
 		// Helpers: single face check
 
 			//- Skewness of single face
-		static scalar faceSkewness
+		static FoamBase_EXPORT scalar faceSkewness
 		(
 			const primitiveMesh& mesh,
 			const pointField& p,
@@ -147,7 +147,7 @@ namespace tnbLib
 		);
 
 		//- Skewness of single boundary face
-		static scalar boundaryFaceSkewness
+		static FoamBase_EXPORT scalar boundaryFaceSkewness
 		(
 			const primitiveMesh& mesh,
 			const pointField& p,
@@ -159,7 +159,7 @@ namespace tnbLib
 		);
 
 		//- Orthogonality of single face
-		static scalar faceOrthogonality
+		static FoamBase_EXPORT scalar faceOrthogonality
 		(
 			const point& ownCc,
 			const point& neiCc,

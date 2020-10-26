@@ -63,7 +63,7 @@ namespace tnbLib
 
 			//- Construct given process index to read from and optional buffer size,
 			//  read format and IO version
-		IPstream
+		FoamBase_EXPORT IPstream
 		(
 			const commsTypes commsType,
 			const int fromProcNo,

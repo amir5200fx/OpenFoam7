@@ -69,20 +69,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cyclic");
+		//TypeName("cyclic");
+		static const char* typeName_() { return "cyclic"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from GAMG interface and fine level interface field
-		cyclicGAMGInterfaceField
+		FoamBase_EXPORT cyclicGAMGInterfaceField
 		(
 			const GAMGInterface& GAMGCp,
 			const lduInterfaceField& fineInterfaceField
 		);
 
 		//- Construct from GAMG interface and fine level interface field
-		cyclicGAMGInterfaceField
+		FoamBase_EXPORT cyclicGAMGInterfaceField
 		(
 			const GAMGInterface& GAMGCp,
 			const bool doTransform,
@@ -90,11 +94,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		cyclicGAMGInterfaceField(const cyclicGAMGInterfaceField&) = delete;
+		FoamBase_EXPORT cyclicGAMGInterfaceField(const cyclicGAMGInterfaceField&) = delete;
 
 
 		//- Destructor
-		virtual ~cyclicGAMGInterfaceField();
+		FoamBase_EXPORT virtual ~cyclicGAMGInterfaceField();
 
 
 		// Member Functions
@@ -138,7 +142,7 @@ namespace tnbLib
 		// Interface matrix update
 
 			//- Update result field based on interface functionality
-		virtual void updateInterfaceMatrix
+		FoamBase_EXPORT virtual void updateInterfaceMatrix
 		(
 			scalarField& result,
 			const scalarField& psiInternal,
@@ -151,7 +155,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const cyclicGAMGInterfaceField&) = delete;
+		FoamBase_EXPORT void operator=(const cyclicGAMGInterfaceField&) = delete;
 	};
 
 

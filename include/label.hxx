@@ -48,7 +48,7 @@ Description
 #define INT_SIZE(x,y) INT_ADD_DEF_SIZE(x,WM_LABEL_SIZE,y)
 
 #if WM_LABEL_SIZE != 32 && WM_LABEL_SIZE != 64
-#error "label.H: WM_LABEL_SIZE must be set to either 32 or 64"
+#error "label.hxx: WM_LABEL_SIZE must be set to either 32 or 64"
 #endif
 
 
@@ -73,10 +73,10 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	//- Raise one label to the power of another
-	label pow(label a, label b);
+	FoamBase_EXPORT label pow(label a, label b);
 
 	//- Evaluate n! : 0 < n <= 12
-	label factorial(label n);
+	FoamBase_EXPORT label factorial(label n);
 
 
 	inline label& setComponent(label& l, const direction)

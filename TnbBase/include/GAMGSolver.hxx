@@ -135,25 +135,25 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Read control parameters from the control dictionary
-		virtual void readControls();
+		FoamBase_EXPORT virtual void readControls();
 
 		//- Simplified access to interface level
-		const lduInterfaceFieldPtrsList& interfaceLevel
+		FoamBase_EXPORT const lduInterfaceFieldPtrsList& interfaceLevel
 		(
 			const label i
 		) const;
 
 		//- Simplified access to matrix level
-		const lduMatrix& matrixLevel(const label i) const;
+		FoamBase_EXPORT const lduMatrix& matrixLevel(const label i) const;
 
 		//- Simplified access to interface boundary coeffs level
-		const FieldField<Field, scalar>& interfaceBouCoeffsLevel
+		FoamBase_EXPORT const FieldField<Field, scalar>& interfaceBouCoeffsLevel
 		(
 			const label i
 		) const;
 
 		//- Simplified access to interface internal coeffs level
-		const FieldField<Field, scalar>& interfaceIntCoeffsLevel
+		FoamBase_EXPORT const FieldField<Field, scalar>& interfaceIntCoeffsLevel
 		(
 			const label i
 		) const;
@@ -161,7 +161,7 @@ namespace tnbLib
 		//- Agglomerate coarse matrix. Supply mesh to use - so we can
 		//  construct temporary matrix on the fine mesh (instead of the coarse
 		//  mesh)
-		void agglomerateMatrix
+		FoamBase_EXPORT void agglomerateMatrix
 		(
 			const label fineLevelIndex,
 			const lduMesh& coarseMesh,
@@ -169,7 +169,7 @@ namespace tnbLib
 		);
 
 		//- Agglomerate coarse interface coefficients
-		void agglomerateInterfaceCoefficients
+		FoamBase_EXPORT void agglomerateInterfaceCoefficients
 		(
 			const label fineLevelIndex,
 			const lduInterfacePtrsList& coarseMeshInterfaces,
@@ -180,7 +180,7 @@ namespace tnbLib
 		) const;
 
 		//- Collect matrices from other processors
-		void gatherMatrices
+		FoamBase_EXPORT void gatherMatrices
 		(
 			const labelList& procIDs,
 			const lduMesh& dummyMesh,
@@ -199,7 +199,7 @@ namespace tnbLib
 		) const;
 
 		//- Agglomerate processor matrices
-		void procAgglomerateMatrix
+		FoamBase_EXPORT void procAgglomerateMatrix
 		(
 			// Agglomeration information
 			const labelList& procAgglomMap,
@@ -216,7 +216,7 @@ namespace tnbLib
 		) const;
 
 		//- Agglomerate processor matrices
-		void procAgglomerateMatrix
+		FoamBase_EXPORT void procAgglomerateMatrix
 		(
 			const labelList& procAgglomMap,
 			const List<label>& agglomProcIDs,
@@ -224,7 +224,7 @@ namespace tnbLib
 		);
 
 		//- Interpolate the correction after injected prolongation
-		void interpolate
+		FoamBase_EXPORT void interpolate
 		(
 			scalarField& psi,
 			scalarField& Apsi,
@@ -236,7 +236,7 @@ namespace tnbLib
 
 		//- Interpolate the correction after injected prolongation and
 		//  re-normalise
-		void interpolate
+		FoamBase_EXPORT void interpolate
 		(
 			scalarField& psi,
 			scalarField& Apsi,
@@ -253,7 +253,7 @@ namespace tnbLib
 		//  At the same time do a Jacobi iteration on the coarseField using
 		//  the Acf provided after the coarseField values are used for the
 		//  scaling factor.
-		void scale
+		FoamBase_EXPORT void scale
 		(
 			scalarField& field,
 			scalarField& Acf,
@@ -265,7 +265,7 @@ namespace tnbLib
 		) const;
 
 		//- Initialise the data structures for the V-cycle
-		void initVcycle
+		FoamBase_EXPORT void initVcycle
 		(
 			PtrList<scalarField>& coarseCorrFields,
 			PtrList<scalarField>& coarseSources,
@@ -276,7 +276,7 @@ namespace tnbLib
 
 
 		//- Perform a single GAMG V-cycle with pre, post and finest smoothing.
-		void Vcycle
+		FoamBase_EXPORT void Vcycle
 		(
 			const PtrList<lduMatrix::smoother>& smoothers,
 			scalarField& psi,
@@ -295,7 +295,7 @@ namespace tnbLib
 
 		//- Create and return the dictionary to specify the PCG solver
 		//  to solve the coarsest level
-		dictionary PCGsolverDict
+		FoamBase_EXPORT dictionary PCGsolverDict
 		(
 			const scalar tol,
 			const scalar relTol
@@ -303,14 +303,14 @@ namespace tnbLib
 
 		//- Create and return the dictionary to specify the PBiCGStab solver
 		//  to solve the coarsest level
-		dictionary PBiCGStabSolverDict
+		FoamBase_EXPORT dictionary PBiCGStabSolverDict
 		(
 			const scalar tol,
 			const scalar relTol
 		) const;
 
 		//- Solve the coarsest level with either an iterative or direct solver
-		void solveCoarsestLevel
+		FoamBase_EXPORT void solveCoarsestLevel
 		(
 			scalarField& coarsestCorrField,
 			const scalarField& coarsestSource
@@ -322,13 +322,17 @@ namespace tnbLib
 		friend class GAMGPreconditioner;
 
 		//- Runtime type information
-		TypeName("GAMG");
+		//TypeName("GAMG");
+		static const char* typeName_() { return "GAMG"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from lduMatrix and solver controls
-		GAMGSolver
+		FoamBase_EXPORT GAMGSolver
 		(
 			const word& fieldName,
 			const lduMatrix& matrix,
@@ -340,13 +344,13 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~GAMGSolver();
+		FoamBase_EXPORT virtual ~GAMGSolver();
 
 
 		// Member Functions
 
 			//- Solve
-		virtual solverPerformance solve
+		FoamBase_EXPORT virtual solverPerformance solve
 		(
 			scalarField& psi,
 			const scalarField& source,

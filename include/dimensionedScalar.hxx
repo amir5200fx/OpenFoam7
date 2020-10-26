@@ -47,59 +47,59 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	dimensionedScalar operator+(const dimensionedScalar&, const scalar);
-	dimensionedScalar operator+(const scalar, const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar operator+(const dimensionedScalar&, const scalar);
+	FoamBase_EXPORT dimensionedScalar operator+(const scalar, const dimensionedScalar&);
 
-	dimensionedScalar operator-(const dimensionedScalar&, const scalar);
-	dimensionedScalar operator-(const scalar, const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar operator-(const dimensionedScalar&, const scalar);
+	FoamBase_EXPORT dimensionedScalar operator-(const scalar, const dimensionedScalar&);
 
-	dimensionedScalar operator*(const dimensionedScalar&, const scalar);
-	dimensionedScalar operator/(const scalar, const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar operator*(const dimensionedScalar&, const scalar);
+	FoamBase_EXPORT dimensionedScalar operator/(const scalar, const dimensionedScalar&);
 
-	dimensionedScalar pow(const dimensionedScalar&, const dimensionedScalar&);
-	dimensionedScalar pow3(const dimensionedScalar&);
-	dimensionedScalar pow4(const dimensionedScalar&);
-	dimensionedScalar pow5(const dimensionedScalar&);
-	dimensionedScalar pow6(const dimensionedScalar&);
-	dimensionedScalar pow025(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar pow(const dimensionedScalar&, const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar pow3(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar pow4(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar pow5(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar pow6(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar pow025(const dimensionedScalar&);
 
-	dimensionedScalar sqrt(const dimensionedScalar&);
-	dimensionedScalar cbrt(const dimensionedScalar&);
-	dimensionedScalar hypot(const dimensionedScalar&, const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar sqrt(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar cbrt(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar hypot(const dimensionedScalar&, const dimensionedScalar&);
 
-	dimensionedScalar sign(const dimensionedScalar&);
-	dimensionedScalar pos(const dimensionedScalar&);
-	dimensionedScalar pos0(const dimensionedScalar&);
-	dimensionedScalar neg(const dimensionedScalar&);
-	dimensionedScalar neg0(const dimensionedScalar&);
-	dimensionedScalar posPart(const dimensionedScalar&);
-	dimensionedScalar negPart(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar sign(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar pos(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar pos0(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar neg(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar neg0(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar posPart(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar negPart(const dimensionedScalar&);
 
-	dimensionedScalar exp(const dimensionedScalar&);
-	dimensionedScalar log(const dimensionedScalar&);
-	dimensionedScalar log10(const dimensionedScalar&);
-	dimensionedScalar sin(const dimensionedScalar&);
-	dimensionedScalar cos(const dimensionedScalar&);
-	dimensionedScalar tan(const dimensionedScalar&);
-	dimensionedScalar asin(const dimensionedScalar&);
-	dimensionedScalar acos(const dimensionedScalar&);
-	dimensionedScalar atan(const dimensionedScalar&);
-	dimensionedScalar atan2(const dimensionedScalar&, const dimensionedScalar&);
-	dimensionedScalar sinh(const dimensionedScalar&);
-	dimensionedScalar cosh(const dimensionedScalar&);
-	dimensionedScalar tanh(const dimensionedScalar&);
-	dimensionedScalar asinh(const dimensionedScalar&);
-	dimensionedScalar acosh(const dimensionedScalar&);
-	dimensionedScalar atanh(const dimensionedScalar&);
-	dimensionedScalar erf(const dimensionedScalar&);
-	dimensionedScalar erfc(const dimensionedScalar&);
-	dimensionedScalar lgamma(const dimensionedScalar&);
-	dimensionedScalar j0(const dimensionedScalar&);
-	dimensionedScalar j1(const dimensionedScalar&);
-	dimensionedScalar jn(const int, const dimensionedScalar&);
-	dimensionedScalar y0(const dimensionedScalar&);
-	dimensionedScalar y1(const dimensionedScalar&);
-	dimensionedScalar yn(const int, const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar exp(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar log(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar log10(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar sin(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar cos(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar tan(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar asin(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar acos(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar atan(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar atan2(const dimensionedScalar&, const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar sinh(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar cosh(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar tanh(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar asinh(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar acosh(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar atanh(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar erf(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar erfc(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar lgamma(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar j0(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar j1(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar jn(const int, const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar y0(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar y1(const dimensionedScalar&);
+	FoamBase_EXPORT dimensionedScalar yn(const int, const dimensionedScalar&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

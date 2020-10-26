@@ -63,12 +63,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("GAMGInterfaceField");
+		//TypeName("GAMGInterfaceField");
+		static const char* typeName_() { return "GAMGInterfaceField"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			GAMGInterfaceField,
@@ -78,9 +82,61 @@ namespace tnbLib
 				const lduInterfaceField& fineInterface
 				),
 				(GAMGCp, fineInterface)
-		);
+		);*/
 
-		declareRunTimeSelectionTable
+		typedef autoPtr<GAMGInterfaceField> (*lduInterfaceFieldConstructorPtr)(
+			const GAMGInterface& GAMGCp, const lduInterfaceField& fineInterface);
+		typedef HashTable<lduInterfaceFieldConstructorPtr, word, string::hash> lduInterfaceFieldConstructorTable;
+		static FoamBase_EXPORT lduInterfaceFieldConstructorTable* lduInterfaceFieldConstructorTablePtr_;
+		static FoamBase_EXPORT void constructlduInterfaceFieldConstructorTables();
+		static FoamBase_EXPORT void destroylduInterfaceFieldConstructorTables();
+
+		template <class GAMGInterfaceFieldType>
+		class addlduInterfaceFieldConstructorToTable
+		{
+		public:
+			static autoPtr<GAMGInterfaceField> New(const GAMGInterface& GAMGCp, const lduInterfaceField& fineInterface)
+			{
+				return autoPtr<GAMGInterfaceField>(new GAMGInterfaceFieldType(GAMGCp, fineInterface));
+			}
+
+			addlduInterfaceFieldConstructorToTable(const word& lookup = GAMGInterfaceFieldType::typeName)
+			{
+				constructlduInterfaceFieldConstructorTables();
+				if (!lduInterfaceFieldConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "GAMGInterfaceField" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addlduInterfaceFieldConstructorToTable() { destroylduInterfaceFieldConstructorTables(); }
+		};
+
+		template <class GAMGInterfaceFieldType>
+		class addRemovablelduInterfaceFieldConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<GAMGInterfaceField> New(const GAMGInterface& GAMGCp, const lduInterfaceField& fineInterface)
+			{
+				return autoPtr<GAMGInterfaceField>(new GAMGInterfaceFieldType(GAMGCp, fineInterface));
+			}
+
+			addRemovablelduInterfaceFieldConstructorToTable(const word& lookup = GAMGInterfaceFieldType::typeName) : lookup_(
+				lookup)
+			{
+				constructlduInterfaceFieldConstructorTables();
+				lduInterfaceFieldConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablelduInterfaceFieldConstructorToTable()
+			{
+				if (lduInterfaceFieldConstructorTablePtr_) { lduInterfaceFieldConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
+
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			GAMGInterfaceField,
@@ -91,14 +147,65 @@ namespace tnbLib
 				const int rank
 				),
 				(GAMGCp, doTransform, rank)
-		);
+		);*/
+
+		typedef autoPtr<GAMGInterfaceField> (*lduInterfaceConstructorPtr)(const GAMGInterface& GAMGCp, const bool doTransform,
+		                                                                  const int rank);
+		typedef HashTable<lduInterfaceConstructorPtr, word, string::hash> lduInterfaceConstructorTable;
+		static FoamBase_EXPORT lduInterfaceConstructorTable* lduInterfaceConstructorTablePtr_;
+		static FoamBase_EXPORT void constructlduInterfaceConstructorTables();
+		static FoamBase_EXPORT void destroylduInterfaceConstructorTables();
+
+		template <class GAMGInterfaceFieldType>
+		class addlduInterfaceConstructorToTable
+		{
+		public:
+			static autoPtr<GAMGInterfaceField> New(const GAMGInterface& GAMGCp, const bool doTransform, const int rank)
+			{
+				return autoPtr<GAMGInterfaceField>(new GAMGInterfaceFieldType(GAMGCp, doTransform, rank));
+			}
+
+			addlduInterfaceConstructorToTable(const word& lookup = GAMGInterfaceFieldType::typeName)
+			{
+				constructlduInterfaceConstructorTables();
+				if (!lduInterfaceConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "GAMGInterfaceField" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addlduInterfaceConstructorToTable() { destroylduInterfaceConstructorTables(); }
+		};
+
+		template <class GAMGInterfaceFieldType>
+		class addRemovablelduInterfaceConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<GAMGInterfaceField> New(const GAMGInterface& GAMGCp, const bool doTransform, const int rank)
+			{
+				return autoPtr<GAMGInterfaceField>(new GAMGInterfaceFieldType(GAMGCp, doTransform, rank));
+			}
+
+			addRemovablelduInterfaceConstructorToTable(const word& lookup = GAMGInterfaceFieldType::typeName) : lookup_(lookup)
+			{
+				constructlduInterfaceConstructorTables();
+				lduInterfaceConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablelduInterfaceConstructorToTable()
+			{
+				if (lduInterfaceConstructorTablePtr_) { lduInterfaceConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Selectors
 
 			//- Return a pointer to a new interface created on freestore given
 			//  the fine interface
-		static autoPtr<GAMGInterfaceField> New
+		static FoamBase_EXPORT autoPtr<GAMGInterfaceField> New
 		(
 			const GAMGInterface& GAMGCp,
 			const lduInterfaceField& fineInterface
@@ -106,7 +213,7 @@ namespace tnbLib
 
 		//- Return a pointer to a new interface created on freestore given
 		//  the fine interface
-		static autoPtr<GAMGInterfaceField> New
+		static FoamBase_EXPORT autoPtr<GAMGInterfaceField> New
 		(
 			const GAMGInterface& GAMGCp,
 			const bool doTransform,
@@ -140,7 +247,7 @@ namespace tnbLib
 		{}
 
 		//- Disallow default bitwise copy construction
-		GAMGInterfaceField(const GAMGInterfaceField&) = delete;
+		FoamBase_EXPORT GAMGInterfaceField(const GAMGInterfaceField&) = delete;
 
 
 		// Member Functions
@@ -157,7 +264,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const GAMGInterfaceField&) = delete;
+		FoamBase_EXPORT void operator=(const GAMGInterfaceField&) = delete;
 	};
 
 

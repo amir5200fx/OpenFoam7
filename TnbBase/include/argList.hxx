@@ -128,7 +128,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Helper function for printUsage
-		static void printOptionUsage
+		static FoamBase_EXPORT void printOptionUsage
 		(
 			const label location,
 			const string& str
@@ -140,11 +140,11 @@ namespace tnbLib
 		//
 		// Also export FOAM_CASE and FOAM_CASENAME environment variables
 		// so they can be used immediately (eg, in decomposeParDict)
-		void getRootCase();
+		FoamBase_EXPORT void getRootCase();
 
 		//- Transcribe argv into internal args_
 		//  return true if any "(" ... ")" sequences were captured
-		bool regroupArgv(int& argc, char**& argv);
+		FoamBase_EXPORT bool regroupArgv(int& argc, char**& argv);
 
 
 	public:
@@ -152,28 +152,28 @@ namespace tnbLib
 		// Static Data Members
 
 			//- A list of valid (mandatory) arguments
-		static SLList<string> validArgs;
+		static FoamBase_EXPORT SLList<string> validArgs;
 
 		//- A list of valid options
-		static HashTable<string> validOptions;
+		static FoamBase_EXPORT HashTable<string> validOptions;
 
 		//- A list of valid parallel options
-		static HashTable<string> validParOptions;
+		static FoamBase_EXPORT HashTable<string> validParOptions;
 
 		//- Short usage information for validOptions
-		static HashTable<string> optionUsage;
+		static FoamBase_EXPORT HashTable<string> optionUsage;
 
 		//- Additional notes for usage
-		static SLList<string> notes;
+		static FoamBase_EXPORT SLList<string> notes;
 
 		//- Min offset for displaying usage (default: 20)
-		static string::size_type usageMin;
+		static FoamBase_EXPORT string::size_type usageMin;
 
 		//- Max screen width for displaying usage (default: 80)
-		static string::size_type usageMax;
+		static FoamBase_EXPORT string::size_type usageMax;
 
 		//- Standard name for the post-processing option
-		static word postProcessOptionName;
+		static FoamBase_EXPORT word postProcessOptionName;
 
 		// Class to initialize options table
 		// with the standard case related options
@@ -181,11 +181,11 @@ namespace tnbLib
 		{
 		public:
 
-			initValidTables();
+			FoamBase_EXPORT initValidTables();
 
 			//- Clear the options table
 			//  for utilities which do not operate on files rather than cases
-			static void clear();
+			static FoamBase_EXPORT void clear();
 		};
 
 
@@ -193,7 +193,7 @@ namespace tnbLib
 
 			//- Construct from argc and argv
 			//  checking the arguments and options as requested
-		argList
+		FoamBase_EXPORT argList
 		(
 			int& argc,
 			char**& argv,
@@ -203,7 +203,7 @@ namespace tnbLib
 		);
 
 		//- Construct copy with new options
-		argList
+		FoamBase_EXPORT argList
 		(
 			const argList& args,
 			const HashTable<string>& options,
@@ -214,13 +214,13 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~argList();
+		FoamBase_EXPORT virtual ~argList();
 
 
 		// Member Functions
 
 			//- Parse
-		void parse
+		FoamBase_EXPORT void parse
 		(
 			bool checkArgs,
 			bool checkOpts,
@@ -331,7 +331,7 @@ namespace tnbLib
 		// Edit
 
 			//- Add to a bool option to validOptions with usage information
-		static void addBoolOption
+		static FoamBase_EXPORT void addBoolOption
 		(
 			const word& opt,
 			const string& usage = ""
@@ -339,7 +339,7 @@ namespace tnbLib
 
 		//- Add to an option to validOptions with usage information
 		//  An option with an empty param is a bool option
-		static void addOption
+		static FoamBase_EXPORT void addOption
 		(
 			const word& opt,
 			const string& param = "",
@@ -347,7 +347,7 @@ namespace tnbLib
 		);
 
 		//- Add option usage information to optionUsage
-		static void addUsage
+		static FoamBase_EXPORT void addUsage
 		(
 			const word& opt,
 			const string& usage
@@ -355,50 +355,50 @@ namespace tnbLib
 
 		//- Add extra notes for the usage information
 		//  This string is used "as-is" without additional formatting
-		static void addNote(const string&);
+		static FoamBase_EXPORT void addNote(const string&);
 
 		//- Remove option from validOptions and from optionUsage
-		static void removeOption(const word& opt);
+		static FoamBase_EXPORT void removeOption(const word& opt);
 
 		//- Remove the parallel options
-		static void noParallel();
+		static FoamBase_EXPORT void noParallel();
 
 		//- Return true if the post-processing option is specified
-		static bool postProcess(int argc, char *argv[]);
+		static FoamBase_EXPORT bool postProcess(int argc, char *argv[]);
 
 		//- Set option directly (use with caution)
 		//  An option with an empty param is a bool option.
 		//  Not all valid options can also be set: eg, -case, -roots, ...
 		//  Return true if the existing option value needed changing,
 		//  or if the option did not previously exist.
-		bool setOption(const word& opt, const string& param = "");
+		FoamBase_EXPORT bool setOption(const word& opt, const string& param = "");
 
 		//- Unset option directly (use with caution)
 		//  Not all valid options can also be unset: eg, -case, -roots ...
 		//  Return true if the option existed before being unset.
-		bool unsetOption(const word& opt);
+		FoamBase_EXPORT bool unsetOption(const word& opt);
 
 
 		// Print
 
 			//- Print notes (if any)
-		void printNotes() const;
+		FoamBase_EXPORT void printNotes() const;
 
 		//- Print usage
-		void printUsage() const;
+		FoamBase_EXPORT void printUsage() const;
 
 		//- Display documentation in browser
 		//  Optionally display the application source code
-		void displayDoc(bool source = false) const;
+		FoamBase_EXPORT void displayDoc(bool source = false) const;
 
 
 		// Check
 
 			//- Check argument list
-		bool check(bool checkArgs = true, bool checkOpts = true) const;
+		FoamBase_EXPORT bool check(bool checkArgs = true, bool checkOpts = true) const;
 
 		//- Check root path and case path
-		bool checkRootCase() const;
+		FoamBase_EXPORT bool checkRootCase() const;
 	};
 
 

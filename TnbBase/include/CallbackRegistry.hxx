@@ -57,7 +57,18 @@ namespace tnbLib
 						   Class CallbackRegistry Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(CallbackRegistry);
+	//TemplateName(CallbackRegistry);
+	class CallbackRegistryName
+	{
+	public:
+		CallbackRegistryName()
+		{
+		}
+
+		static const char* typeName_() { return "CallbackRegistry"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\

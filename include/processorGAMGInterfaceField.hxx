@@ -84,20 +84,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("processor");
+		//TypeName("processor");
+		static const char* typeName_() { return "processor"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from GAMG interface and fine level interface field
-		processorGAMGInterfaceField
+		FoamBase_EXPORT processorGAMGInterfaceField
 		(
 			const GAMGInterface& GAMGCp,
 			const lduInterfaceField& fineInterface
 		);
 
 		//- Construct from GAMG interface and fine level interface field
-		processorGAMGInterfaceField
+		FoamBase_EXPORT processorGAMGInterfaceField
 		(
 			const GAMGInterface& GAMGCp,
 			const bool doTransform,
@@ -105,14 +109,14 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		processorGAMGInterfaceField
+		FoamBase_EXPORT processorGAMGInterfaceField
 		(
 			const processorGAMGInterfaceField&
 		) = delete;
 
 
 		//- Destructor
-		virtual ~processorGAMGInterfaceField();
+		FoamBase_EXPORT virtual ~processorGAMGInterfaceField();
 
 
 		// Member Functions
@@ -129,7 +133,7 @@ namespace tnbLib
 		// Interface matrix update
 
 			//- Initialise neighbour matrix update
-		virtual void initInterfaceMatrixUpdate
+		FoamBase_EXPORT virtual void initInterfaceMatrixUpdate
 		(
 			scalarField& result,
 			const scalarField& psiInternal,
@@ -139,7 +143,7 @@ namespace tnbLib
 		) const;
 
 		//- Update result field based on interface functionality
-		virtual void updateInterfaceMatrix
+		FoamBase_EXPORT virtual void updateInterfaceMatrix
 		(
 			scalarField& result,
 			const scalarField& psiInternal,
@@ -191,7 +195,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const processorGAMGInterfaceField&) = delete;
+		FoamBase_EXPORT void operator=(const processorGAMGInterfaceField&) = delete;
 	};
 
 

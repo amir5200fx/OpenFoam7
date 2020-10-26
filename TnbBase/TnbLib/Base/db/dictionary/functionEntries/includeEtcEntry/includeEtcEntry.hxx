@@ -83,7 +83,7 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Expand include fileName and return
-			static fileName includeEtcFileName
+			static FoamBase_EXPORT fileName includeEtcFileName
 			(
 				const fileName&,
 				const dictionary&
@@ -99,22 +99,25 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			ClassName("includeEtc");
+			//ClassName("includeEtc");
+			static const char* typeName_() { return "includeEtc"; } 
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
 
 
 			// Constructors
 
 				//- Disallow default bitwise copy construction
-			includeEtcEntry(const includeEtcEntry&) = delete;
+			FoamBase_EXPORT includeEtcEntry(const includeEtcEntry&) = delete;
 
 
 			// Member Functions
 
 				//- Execute the functionEntry in a sub-dict context
-			static bool execute(dictionary& parentDict, Istream&);
+			static FoamBase_EXPORT bool execute(dictionary& parentDict, Istream&);
 
 			//- Execute the functionEntry in a primitiveEntry context
-			static bool execute
+			static FoamBase_EXPORT bool execute
 			(
 				const dictionary& parentDict,
 				primitiveEntry&,
@@ -125,7 +128,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const includeEtcEntry&) = delete;
+			FoamBase_EXPORT void operator=(const includeEtcEntry&) = delete;
 		};
 
 

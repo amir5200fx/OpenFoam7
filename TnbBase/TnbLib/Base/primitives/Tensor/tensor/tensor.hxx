@@ -51,27 +51,27 @@ namespace tnbLib
 
 	typedef Tensor<scalar> tensor;
 
-	vector eigenValues(const tensor& T);
-	vector eigenVector
+	FoamBase_EXPORT vector eigenValues(const tensor& T);
+	FoamBase_EXPORT vector eigenVector
 	(
 		const tensor& T,
 		const scalar lambda,
 		const vector& direction1,
 		const vector& direction2
 	);
-	tensor eigenVectors(const tensor& T, const vector& lambdas);
-	tensor eigenVectors(const tensor& T);
+	FoamBase_EXPORT tensor eigenVectors(const tensor& T, const vector& lambdas);
+	FoamBase_EXPORT tensor eigenVectors(const tensor& T);
 
-	vector eigenValues(const symmTensor& T);
-	vector eigenVector
+	FoamBase_EXPORT vector eigenValues(const symmTensor& T);
+	FoamBase_EXPORT vector eigenVector
 	(
 		const symmTensor& T,
 		const scalar lambda,
 		const vector& direction1,
 		const vector& direction2
 	);
-	tensor eigenVectors(const symmTensor& T, const vector& lambdas);
-	tensor eigenVectors(const symmTensor& T);
+	FoamBase_EXPORT tensor eigenVectors(const symmTensor& T, const vector& lambdas);
+	FoamBase_EXPORT tensor eigenVectors(const symmTensor& T);
 
 	//- Data associated with tensor type are contiguous
 	template<>

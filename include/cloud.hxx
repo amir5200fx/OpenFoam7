@@ -58,26 +58,30 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cloud");
+		//TypeName("cloud");
+		static const char* typeName_() { return "cloud"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- The prefix to local: %lagrangian
-		static const word prefix;
+		static FoamBase_EXPORT const word prefix;
 
 		//- The default cloud name: %defaultCloud
-		static word defaultName;
+		static FoamBase_EXPORT word defaultName;
 
 
 		// Constructors
 
 			//- Construct for the given objectRegistry and named cloud instance
-		cloud(const objectRegistry&, const word& cloudName = defaultName);
+		FoamBase_EXPORT cloud(const objectRegistry&, const word& cloudName = defaultName);
 
 		//- Disallow default bitwise copy construction
-		cloud(const cloud&) = delete;
+		FoamBase_EXPORT cloud(const cloud&) = delete;
 
 
 		//- Destructor
-		virtual ~cloud();
+		FoamBase_EXPORT virtual ~cloud();
 
 
 		// Member Functions
@@ -86,13 +90,13 @@ namespace tnbLib
 
 				//- Remap the cells of particles corresponding to the
 				//  mesh topology change
-		virtual void autoMap(const mapPolyMesh&);
+		FoamBase_EXPORT virtual void autoMap(const mapPolyMesh&);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const cloud&) = delete;
+		FoamBase_EXPORT void operator=(const cloud&) = delete;
 	};
 
 

@@ -73,22 +73,25 @@ namespace tnbLib
 			//- Gets labels of changed faces and propagates them to the edges.
 			//  Returns labels of edges changed. Does not cross edges marked in
 			//  regionEdge
-		labelList faceToEdge
+		FoamBase_EXPORT labelList faceToEdge
 		(
 			const labelList& changedFaces,
 			labelList& edgeRegion
 		);
 
 		//- Reverse of faceToEdge: gets edges and returns faces
-		labelList edgeToFace(const labelList& changedEdges);
+		FoamBase_EXPORT labelList edgeToFace(const labelList& changedEdges);
 
 		//- Fill *this with current zone for every face reachable
 		//  from facei without crossing edge marked in borderEdge.
-		void markZone(label facei);
+		FoamBase_EXPORT void markZone(label facei);
 
 	public:
 
-		ClassName("patchZones");
+		//ClassName("patchZones");
+		static const char* typeName_() { return "patchZones"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
@@ -96,7 +99,7 @@ namespace tnbLib
 			//- Fills *this with zone of face. Zone is area
 			//  reachable by edge crossing without crossing borderEdge
 			//  (bool for every edge in patch).
-		patchZones(const primitivePatch& pp, const boolList& borderEdge);
+		FoamBase_EXPORT patchZones(const primitivePatch& pp, const boolList& borderEdge);
 
 
 		// Member Functions

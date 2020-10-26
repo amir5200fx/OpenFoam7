@@ -76,7 +76,10 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			ClassName("calc");
+			//ClassName("calc");
+			static const char* typeName_() { return "calc"; } 
+			static FoamBase_EXPORT const ::tnbLib::word typeName; 
+			static FoamBase_EXPORT int debug;
 
 
 			// Constructors
@@ -88,10 +91,10 @@ namespace tnbLib
 			// Member Functions
 
 				//- Execute the functionEntry in a sub-dict context
-			static bool execute(dictionary& parentDict, Istream&);
+			static FoamBase_EXPORT bool execute(dictionary& parentDict, Istream&);
 
 			//- Execute the functionEntry in a primitiveEntry context
-			static bool execute
+			static FoamBase_EXPORT bool execute
 			(
 				const dictionary& parentDict,
 				primitiveEntry&,

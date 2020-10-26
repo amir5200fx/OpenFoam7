@@ -68,7 +68,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct given size
-		setSizeFieldMapper(const label size);
+		FoamBase_EXPORT setSizeFieldMapper(const label size);
 
 
 		//- Destructor
@@ -87,58 +87,58 @@ namespace tnbLib
 
 		// Member Operators
 
-		virtual void operator()
+		FoamBase_EXPORT virtual void operator()
 			(
 				Field<scalar>& f,
 				const Field<scalar>& mapF
 				) const;
 
-		virtual void operator()
+		FoamBase_EXPORT virtual void operator()
 			(
 				Field<vector>& f,
 				const Field<vector>& mapF
 				) const;
 
-		virtual void operator()
+		FoamBase_EXPORT virtual void operator()
 			(
 				Field<sphericalTensor>& f,
 				const Field<sphericalTensor>& mapF
 				) const;
 
-		virtual void operator()
+		FoamBase_EXPORT virtual void operator()
 			(
 				Field<symmTensor>& f,
 				const Field<symmTensor>& mapF
 				) const;
 
-		virtual void operator()
+		FoamBase_EXPORT virtual void operator()
 			(
 				Field<tensor>& f,
 				const Field<tensor>& mapF
 				) const;
 
 
-		virtual tmp<Field<scalar>> operator()
+		FoamBase_EXPORT virtual tmp<Field<scalar>> operator()
 			(
 				const Field<scalar>& mapF
 				) const;
 
-		virtual tmp<Field<vector>> operator()
+		FoamBase_EXPORT virtual tmp<Field<vector>> operator()
 			(
 				const Field<vector>& mapF
 				) const;
 
-		virtual tmp<Field<sphericalTensor>> operator()
+		FoamBase_EXPORT virtual tmp<Field<sphericalTensor>> operator()
 			(
 				const Field<sphericalTensor>& mapF
 				) const;
 
-		virtual tmp<Field<symmTensor>> operator()
+		FoamBase_EXPORT virtual tmp<Field<symmTensor>> operator()
 			(
 				const Field<symmTensor>& mapF
 				) const;
 
-		virtual tmp<Field<tensor>> operator()
+		FoamBase_EXPORT virtual tmp<Field<tensor>> operator()
 			(
 				const Field<tensor>& mapF
 				) const;

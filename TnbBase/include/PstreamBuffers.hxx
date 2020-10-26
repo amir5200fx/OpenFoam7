@@ -115,14 +115,14 @@ namespace tnbLib
 
 		// Static data
 
-		static DynamicList<char> nullBuf;
+		static FoamBase_EXPORT DynamicList<char> nullBuf;
 
 
 		// Constructors
 
 			//- Construct given comms type,
 			//  write format and IO version
-		PstreamBuffers
+		FoamBase_EXPORT PstreamBuffers
 		(
 			const UPstream::commsTypes commsType,
 			const int tag = UPstream::msgType(),
@@ -132,7 +132,7 @@ namespace tnbLib
 		);
 
 		//- Destructor
-		~PstreamBuffers();
+		FoamBase_EXPORT ~PstreamBuffers();
 
 
 		// Member Functions
@@ -145,15 +145,15 @@ namespace tnbLib
 		//- Mark all sends as having been done. This will start receives
 		//  in non-blocking mode. If block will wait for all transfers to
 		//  finish (only relevant for nonBlocking mode)
-		void finishedSends(const bool block = true);
+		FoamBase_EXPORT void finishedSends(const bool block = true);
 
 		//- Mark all sends as having been done. Same as above but also returns
 		//  sizes (bytes) received. Note:currently only valid for
 		//  non-blocking.
-		void finishedSends(labelList& recvSizes, const bool block = true);
+		FoamBase_EXPORT void finishedSends(labelList& recvSizes, const bool block = true);
 
 		//- Clear storage and reset
-		void clear();
+		FoamBase_EXPORT void clear();
 
 	};
 

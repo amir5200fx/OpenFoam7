@@ -179,30 +179,30 @@ namespace tnbLib
 		// Topological calculations
 
 			//- Calculate cell shapes
-		void calcCellShapes() const;
+		FoamBase_EXPORT void calcCellShapes() const;
 
 		//- Calculate cell-cell addressing
-		void calcCellCells() const;
+		FoamBase_EXPORT void calcCellCells() const;
 
 		//- Calculate point-cell addressing
-		void calcPointCells() const;
+		FoamBase_EXPORT void calcPointCells() const;
 
 		//- Calculate cell-face addressing
-		void calcCells() const;
+		FoamBase_EXPORT void calcCells() const;
 
 		//- Calculate edge list
-		void calcCellEdges() const;
+		FoamBase_EXPORT void calcCellEdges() const;
 
 		//- Calculate point-point addressing
-		void calcPointPoints() const;
+		FoamBase_EXPORT void calcPointPoints() const;
 
 		//- Calculate edges, pointEdges and faceEdges (if doFaceEdges=true)
 		//  During edge calculation, a larger set of data is assembled.
 		//  Create and destroy as a set, using clearOutEdges()
-		void calcEdges(const bool doFaceEdges) const;
-		void clearOutEdges();
+		FoamBase_EXPORT void calcEdges(const bool doFaceEdges) const;
+		FoamBase_EXPORT void clearOutEdges();
 		//- Helper: return (after optional creation) edge between two points
-		static label getEdge
+		static FoamBase_EXPORT label getEdge
 		(
 			List<DynamicList<label>>&,
 			DynamicList<edge>&,
@@ -210,7 +210,7 @@ namespace tnbLib
 			const label
 		);
 		//- For on-the-fly addressing calculation
-		static label findFirstCommonElementFromSortedLists
+		static FoamBase_EXPORT label findFirstCommonElementFromSortedLists
 		(
 			const labelList&,
 			const labelList&
@@ -224,26 +224,26 @@ namespace tnbLib
 
 				//- Cell closedness warning threshold
 				//  set as the fraction of un-closed area to closed area
-		static scalar closedThreshold_;
+		static FoamBase_EXPORT scalar closedThreshold_;
 
 		//- Aspect ratio warning threshold
-		static scalar aspectThreshold_;
+		static FoamBase_EXPORT scalar aspectThreshold_;
 
 		//- Non-orthogonality warning threshold in deg
-		static scalar nonOrthThreshold_;
+		static FoamBase_EXPORT scalar nonOrthThreshold_;
 
 		//- Skewness warning threshold
-		static scalar skewThreshold_;
+		static FoamBase_EXPORT scalar skewThreshold_;
 
 		//- Threshold where faces are considered coplanar
-		static scalar planarCosAngle_;
+		static FoamBase_EXPORT scalar planarCosAngle_;
 
 
 		// Geometrical calculations
 
 			//- Calculate face centres and areas
-		void calcFaceCentresAndAreas() const;
-		void makeFaceCentresAndAreas
+		FoamBase_EXPORT void calcFaceCentresAndAreas() const;
+		FoamBase_EXPORT void makeFaceCentresAndAreas
 		(
 			const pointField& p,
 			vectorField& fCtrs,
@@ -251,8 +251,8 @@ namespace tnbLib
 		) const;
 
 		//- Calculate cell centres and volumes
-		void calcCellCentresAndVols() const;
-		void makeCellCentresAndVols
+		FoamBase_EXPORT void calcCellCentresAndVols() const;
+		FoamBase_EXPORT void makeCellCentresAndVols
 		(
 			const vectorField& fCtrs,
 			const vectorField& fAreas,
@@ -261,13 +261,13 @@ namespace tnbLib
 		) const;
 
 		//- Calculate edge vectors
-		void calcEdgeVectors() const;
+		FoamBase_EXPORT void calcEdgeVectors() const;
 
 
 		// Mesh checking
 
 			//- Check if all points on face are shared with another face.
-		bool checkDuplicateFaces
+		FoamBase_EXPORT bool checkDuplicateFaces
 		(
 			const label,
 			const Map<label>&,
@@ -276,7 +276,7 @@ namespace tnbLib
 		) const;
 
 		//- Check that shared points are in consecutive order.
-		bool checkCommonOrder
+		FoamBase_EXPORT bool checkCommonOrder
 		(
 			const label,
 			const Map<label>&,
@@ -284,7 +284,7 @@ namespace tnbLib
 		) const;
 
 		//- Check boundary for closedness
-		bool checkClosedBoundary
+		FoamBase_EXPORT bool checkClosedBoundary
 		(
 			const vectorField&,
 			const bool,
@@ -292,7 +292,7 @@ namespace tnbLib
 		) const;
 
 		//- Check cells for closedness
-		bool checkClosedCells
+		FoamBase_EXPORT bool checkClosedCells
 		(
 			const vectorField& faceAreas,
 			const scalarField& cellVolumes,
@@ -303,7 +303,7 @@ namespace tnbLib
 		) const;
 
 		//- Check for negative face areas
-		bool checkFaceAreas
+		FoamBase_EXPORT bool checkFaceAreas
 		(
 			const vectorField& faceAreas,
 			const bool report,
@@ -312,7 +312,7 @@ namespace tnbLib
 		) const;
 
 		//- Check for negative cell volumes
-		bool checkCellVolumes
+		FoamBase_EXPORT bool checkCellVolumes
 		(
 			const scalarField& vols,
 			const bool report,
@@ -321,7 +321,7 @@ namespace tnbLib
 		) const;
 
 		//- Check for non-orthogonality
-		bool checkFaceOrthogonality
+		FoamBase_EXPORT bool checkFaceOrthogonality
 		(
 			const vectorField& fAreas,
 			const vectorField& cellCtrs,
@@ -330,7 +330,7 @@ namespace tnbLib
 		) const;
 
 		//- Check face pyramid volume
-		bool checkFacePyramids
+		FoamBase_EXPORT bool checkFacePyramids
 		(
 			const pointField& points,
 			const vectorField& ctrs,
@@ -341,7 +341,7 @@ namespace tnbLib
 		) const;
 
 		//- Check face skewness
-		bool checkFaceSkewness
+		FoamBase_EXPORT bool checkFaceSkewness
 		(
 			const pointField& points,
 			const vectorField& fCtrs,
@@ -356,7 +356,7 @@ namespace tnbLib
 		//  angles < 190 (or 10 degrees concavity) (if truly concave and
 		//  points not visible from face centre the face-pyramid check in
 		//  checkMesh will fail)
-		bool checkFaceAngles
+		FoamBase_EXPORT bool checkFaceAngles
 		(
 			const pointField& points,
 			const vectorField& faceAreas,
@@ -366,7 +366,7 @@ namespace tnbLib
 		) const;
 
 		//- Check face warpage
-		bool checkFaceFlatness
+		FoamBase_EXPORT bool checkFaceFlatness
 		(
 			const pointField& points,
 			const vectorField& faceCentres,
@@ -377,7 +377,7 @@ namespace tnbLib
 		) const;
 
 		//- Check for concave cells by the planes of faces
-		bool checkConcaveCells
+		FoamBase_EXPORT bool checkConcaveCells
 		(
 			const vectorField& fAreas,
 			const pointField& fCentres,
@@ -387,14 +387,17 @@ namespace tnbLib
 
 
 		//- Construct null
-		primitiveMesh();
+		FoamBase_EXPORT primitiveMesh();
 
 
 	public:
 
 		// Static data
 
-		ClassName("primitiveMesh");
+		//ClassName("primitiveMesh");
+		static const char* typeName_() { return "primitiveMesh"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 		//- Estimated number of cells per edge
 		static const unsigned cellsPerEdge_ = 4;
@@ -430,7 +433,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		primitiveMesh
+		FoamBase_EXPORT primitiveMesh
 		(
 			const label nPoints,
 			const label nInternalFaces,
@@ -439,17 +442,17 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		primitiveMesh(const primitiveMesh&);
+		FoamBase_EXPORT primitiveMesh(const primitiveMesh&);
 
 
 		//- Destructor
-		virtual ~primitiveMesh();
+		FoamBase_EXPORT virtual ~primitiveMesh();
 
 
 		// Member Functions
 
 			//- Reset this primitiveMesh given the primitive array sizes
-		void reset
+		FoamBase_EXPORT void reset
 		(
 			const label nPoints,
 			const label nInternalFaces,
@@ -458,7 +461,7 @@ namespace tnbLib
 		);
 
 		//- Reset this primitiveMesh given the primitive array sizes and cells
-		void reset
+		FoamBase_EXPORT void reset
 		(
 			const label nPoints,
 			const label nInternalFaces,
@@ -468,7 +471,7 @@ namespace tnbLib
 		);
 
 		//- Reset this primitiveMesh given the primitive array sizes and cells
-		void reset
+		FoamBase_EXPORT void reset
 		(
 			const label nPoints,
 			const label nInternalFaces,
@@ -505,33 +508,33 @@ namespace tnbLib
 		// Primitive mesh data
 
 			//- Return mesh points
-		virtual const pointField& points() const = 0;
+		FoamBase_EXPORT virtual const pointField& points() const = 0;
 
 		//- Return faces
-		virtual const faceList& faces() const = 0;
+		FoamBase_EXPORT virtual const faceList& faces() const = 0;
 
 		//- Face face-owner addressing
-		virtual const labelList& faceOwner() const = 0;
+		FoamBase_EXPORT virtual const labelList& faceOwner() const = 0;
 
 		//- Face face-neighbour addressing
-		virtual const labelList& faceNeighbour() const = 0;
+		FoamBase_EXPORT virtual const labelList& faceNeighbour() const = 0;
 
 		//- Return old points for mesh motion
-		virtual const pointField& oldPoints() const = 0;
+		FoamBase_EXPORT virtual const pointField& oldPoints() const = 0;
 
 
 		// Derived mesh data
 
 			//- Return cell shapes
-		const cellShapeList& cellShapes() const;
+		FoamBase_EXPORT const cellShapeList& cellShapes() const;
 
 		//- Return mesh edges. Uses calcEdges.
-		const edgeList& edges() const;
+		FoamBase_EXPORT const edgeList& edges() const;
 
 		//- Helper function to calculate cell-face addressing from
 		//  face-cell addressing. If nCells is not provided it will
 		//  scan for the maximum.
-		static void calcCells
+		static FoamBase_EXPORT void calcCells
 		(
 			cellList&,
 			const labelUList& own,
@@ -543,7 +546,7 @@ namespace tnbLib
 		//  if points already ordered, false and fills pointMap (old to
 		//  new). Map splits points into those not used by any boundary
 		//  face and those that are.
-		static bool calcPointOrder
+		static FoamBase_EXPORT bool calcPointOrder
 		(
 			label& nInternalPoints,
 			labelList& pointMap,
@@ -554,36 +557,36 @@ namespace tnbLib
 
 		// Return mesh connectivity
 
-		const labelListList& cellCells() const;
+		FoamBase_EXPORT const labelListList& cellCells() const;
 		// faceCells given as owner and neighbour
-		const labelListList& edgeCells() const;
-		const labelListList& pointCells() const;
+		FoamBase_EXPORT const labelListList& edgeCells() const;
+		FoamBase_EXPORT const labelListList& pointCells() const;
 
-		const cellList& cells() const;
+		FoamBase_EXPORT const cellList& cells() const;
 		// faceFaces considered unnecessary
-		const labelListList& edgeFaces() const;
-		const labelListList& pointFaces() const;
+		FoamBase_EXPORT const labelListList& edgeFaces() const;
+		FoamBase_EXPORT const labelListList& pointFaces() const;
 
-		const labelListList& cellEdges() const;
-		const labelListList& faceEdges() const;
+		FoamBase_EXPORT const labelListList& cellEdges() const;
+		FoamBase_EXPORT const labelListList& faceEdges() const;
 		// edgeEdges considered unnecessary
-		const labelListList& pointEdges() const;
-		const labelListList& pointPoints() const;
-		const labelListList& cellPoints() const;
+		FoamBase_EXPORT const labelListList& pointEdges() const;
+		FoamBase_EXPORT const labelListList& pointPoints() const;
+		FoamBase_EXPORT const labelListList& cellPoints() const;
 
 
 		// Geometric data (raw!)
 
-		const vectorField& cellCentres() const;
-		const vectorField& faceCentres() const;
-		const scalarField& cellVolumes() const;
-		const vectorField& faceAreas() const;
+		FoamBase_EXPORT const vectorField& cellCentres() const;
+		FoamBase_EXPORT const vectorField& faceCentres() const;
+		FoamBase_EXPORT const scalarField& cellVolumes() const;
+		FoamBase_EXPORT const vectorField& faceAreas() const;
 
 
 		// Mesh motion
 
 			//- Move points, returns volumes swept by faces in motion
-		tmp<scalarField> movePoints
+		FoamBase_EXPORT tmp<scalarField> movePoints
 		(
 			const pointField& p,
 			const pointField& oldP
@@ -597,35 +600,35 @@ namespace tnbLib
 		// Topological checks
 
 			//- Check face ordering
-		virtual bool checkUpperTriangular
+		FoamBase_EXPORT virtual bool checkUpperTriangular
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr
 		) const;
 
 		//- Check cell zip-up
-		virtual bool checkCellsZipUp
+		FoamBase_EXPORT virtual bool checkCellsZipUp
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr
 		) const;
 
 		//- Check uniqueness of face vertices
-		virtual bool checkFaceVertices
+		FoamBase_EXPORT virtual bool checkFaceVertices
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr
 		) const;
 
 		//- Check for unused points
-		virtual bool checkPoints
+		FoamBase_EXPORT virtual bool checkPoints
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr
 		) const;
 
 		//- Check face-face connectivity
-		virtual bool checkFaceFaces
+		FoamBase_EXPORT virtual bool checkFaceFaces
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr
@@ -635,11 +638,11 @@ namespace tnbLib
 		// Geometric checks
 
 			//- Check boundary for closedness
-		virtual bool checkClosedBoundary(const bool report = false)
+		FoamBase_EXPORT virtual bool checkClosedBoundary(const bool report = false)
 			const;
 
 		//- Check cells for closedness
-		virtual bool checkClosedCells
+		FoamBase_EXPORT virtual bool checkClosedCells
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr,
@@ -648,28 +651,28 @@ namespace tnbLib
 		) const;
 
 		//- Check for negative face areas
-		virtual bool checkFaceAreas
+		FoamBase_EXPORT virtual bool checkFaceAreas
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr
 		) const;
 
 		//- Check for negative cell volumes
-		virtual bool checkCellVolumes
+		FoamBase_EXPORT virtual bool checkCellVolumes
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr
 		) const;
 
 		//- Check for non-orthogonality
-		virtual bool checkFaceOrthogonality
+		FoamBase_EXPORT virtual bool checkFaceOrthogonality
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr
 		) const;
 
 		//- Check face pyramid volume
-		virtual bool checkFacePyramids
+		FoamBase_EXPORT virtual bool checkFacePyramids
 		(
 			const bool report = false,
 			const scalar minPyrVol = -small,
@@ -677,14 +680,14 @@ namespace tnbLib
 		) const;
 
 		//- Check face skewness
-		virtual bool checkFaceSkewness
+		FoamBase_EXPORT virtual bool checkFaceSkewness
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr
 		) const;
 
 		//- Check face angles
-		virtual bool checkFaceAngles
+		FoamBase_EXPORT virtual bool checkFaceAngles
 		(
 			const bool report = false,
 			const scalar maxSin = 10,    // In degrees
@@ -694,7 +697,7 @@ namespace tnbLib
 		//- Check face warpage: decompose face and check ratio between
 		//  magnitude of sum of triangle areas and sum of magnitude of
 		//  triangle areas.
-		virtual bool checkFaceFlatness
+		FoamBase_EXPORT virtual bool checkFaceFlatness
 		(
 			const bool report,
 			const scalar warnFlatness,  // When to include in set.
@@ -703,7 +706,7 @@ namespace tnbLib
 
 		//- Check for point-point-nearness,
 		//  e.g. colocated points which may be part of baffles.
-		virtual bool checkPointNearness
+		FoamBase_EXPORT virtual bool checkPointNearness
 		(
 			const bool report,
 			const scalar reportDistSqr,
@@ -711,7 +714,7 @@ namespace tnbLib
 		) const;
 
 		//- Check edge length
-		virtual bool checkEdgeLength
+		FoamBase_EXPORT virtual bool checkEdgeLength
 		(
 			const bool report,
 			const scalar minLenSqr,
@@ -719,7 +722,7 @@ namespace tnbLib
 		) const;
 
 		//- Check for concave cells by the planes of faces
-		virtual bool checkConcaveCells
+		FoamBase_EXPORT virtual bool checkConcaveCells
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr
@@ -728,27 +731,27 @@ namespace tnbLib
 
 		//- Check mesh topology for correctness.
 		//  Returns false for no error.
-		virtual bool checkTopology(const bool report = false) const;
+		FoamBase_EXPORT virtual bool checkTopology(const bool report = false) const;
 
 		//- Check mesh geometry (& implicitly topology) for correctness.
 		//  Returns false for no error.
-		virtual bool checkGeometry(const bool report = false) const;
+		FoamBase_EXPORT virtual bool checkGeometry(const bool report = false) const;
 
 		//- Check mesh for correctness. Returns false for no error.
-		virtual bool checkMesh(const bool report = false) const;
+		FoamBase_EXPORT virtual bool checkMesh(const bool report = false) const;
 
 		//- Set the closedness ratio warning threshold
-		static scalar setClosedThreshold(const scalar);
+		static FoamBase_EXPORT scalar setClosedThreshold(const scalar);
 
 		//- Set the aspect ratio warning threshold
-		static scalar setAspectThreshold(const scalar);
+		static FoamBase_EXPORT scalar setAspectThreshold(const scalar);
 
 		//- Set the non-orthogonality warning threshold in degrees
-		static scalar setNonOrthThreshold(const scalar);
+		static FoamBase_EXPORT scalar setNonOrthThreshold(const scalar);
 
 		//- Set the skewness warning threshold as percentage
 		//  of the face area vector
-		static scalar setSkewThreshold(const scalar);
+		static FoamBase_EXPORT scalar setSkewThreshold(const scalar);
 
 
 		// Useful derived info
@@ -756,7 +759,7 @@ namespace tnbLib
 			//- Return true if the point in the cell bounding box.
 			//  The bounding box may be isotropically inflated by the fraction
 			//  inflationFraction
-		bool pointInCellBB
+		FoamBase_EXPORT bool pointInCellBB
 		(
 			const point& p,
 			label celli,
@@ -764,19 +767,19 @@ namespace tnbLib
 		) const;
 
 		//- Return true if the  point is in the cell
-		bool pointInCell(const point& p, label celli) const;
+		FoamBase_EXPORT bool pointInCell(const point& p, label celli) const;
 
 		//- Find the cell with the nearest cell centre to location
-		label findNearestCell(const point& location) const;
+		FoamBase_EXPORT label findNearestCell(const point& location) const;
 
 		//- Find cell enclosing this location (-1 if not in mesh)
-		label findCell(const point& location) const;
+		FoamBase_EXPORT label findCell(const point& location) const;
 
 
 		//  Storage management
 
 			//- Print a list of all the currently allocated mesh data
-		void printAllocated() const;
+		FoamBase_EXPORT void printAllocated() const;
 
 		// Per storage whether allocated
 		inline bool hasCellShapes() const;
@@ -804,92 +807,92 @@ namespace tnbLib
 		// result.
 
 		//- cellCells using cells.
-		const labelList& cellCells
+		FoamBase_EXPORT const labelList& cellCells
 		(
 			const label celli,
 			DynamicList<label>&
 		) const;
 
-		const labelList& cellCells(const label celli) const;
+		FoamBase_EXPORT const labelList& cellCells(const label celli) const;
 
 		//- cellPoints using cells
-		const labelList& cellPoints
+		FoamBase_EXPORT const labelList& cellPoints
 		(
 			const label celli,
 			DynamicList<label>&
 		) const;
 
-		const labelList& cellPoints(const label celli) const;
+		FoamBase_EXPORT const labelList& cellPoints(const label celli) const;
 
 		//- pointCells using pointFaces
-		const labelList& pointCells
+		FoamBase_EXPORT const labelList& pointCells
 		(
 			const label pointi,
 			DynamicList<label>&
 		) const;
 
-		const labelList& pointCells(const label pointi) const;
+		FoamBase_EXPORT const labelList& pointCells(const label pointi) const;
 
 		//- pointPoints using edges, pointEdges
-		const labelList& pointPoints
+		FoamBase_EXPORT const labelList& pointPoints
 		(
 			const label pointi,
 			DynamicList<label>&
 		) const;
 
-		const labelList& pointPoints(const label pointi) const;
+		FoamBase_EXPORT const labelList& pointPoints(const label pointi) const;
 
 		//- faceEdges using pointFaces, edges, pointEdges
-		const labelList& faceEdges
+		FoamBase_EXPORT const labelList& faceEdges
 		(
 			const label facei,
 			DynamicList<label>&
 		) const;
 
-		const labelList& faceEdges(const label facei) const;
+		FoamBase_EXPORT const labelList& faceEdges(const label facei) const;
 
 		//- edgeFaces using pointFaces, edges, pointEdges
-		const labelList& edgeFaces
+		FoamBase_EXPORT const labelList& edgeFaces
 		(
 			const label edgeI,
 			DynamicList<label>&
 		) const;
 
-		const labelList& edgeFaces(const label edgeI) const;
+		FoamBase_EXPORT const labelList& edgeFaces(const label edgeI) const;
 
 		//- edgeCells using pointFaces, edges, pointEdges
-		const labelList& edgeCells
+		FoamBase_EXPORT const labelList& edgeCells
 		(
 			const label edgeI,
 			DynamicList<label>&
 		) const;
 
-		const labelList& edgeCells(const label edgeI) const;
+		FoamBase_EXPORT const labelList& edgeCells(const label edgeI) const;
 
 		//- cellEdges using cells, pointFaces, edges, pointEdges
-		const labelList& cellEdges
+		FoamBase_EXPORT const labelList& cellEdges
 		(
 			const label celli,
 			DynamicList<label>&
 		) const;
 
-		const labelList& cellEdges(const label celli) const;
+		FoamBase_EXPORT const labelList& cellEdges(const label celli) const;
 
 
 		//- Clear geometry
-		void clearGeom();
+		FoamBase_EXPORT void clearGeom();
 
 		//- Clear topological data
-		void clearAddressing();
+		FoamBase_EXPORT void clearAddressing();
 
 		//- Clear all geometry and addressing unnecessary for CFD
-		void clearOut();
+		FoamBase_EXPORT void clearOut();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const primitiveMesh&) = delete;
+		FoamBase_EXPORT void operator=(const primitiveMesh&) = delete;
 	};
 
 

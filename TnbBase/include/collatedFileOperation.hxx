@@ -82,14 +82,14 @@ namespace tnbLib
 
 			// Private Member Functions
 
-			static labelList ioRanks();
+			static FoamBase_EXPORT labelList ioRanks();
 
 			//- Is proci master of communicator (in parallel) or master of
 			//  the io ranks (non-parallel)
-			bool isMasterRank(const label proci) const;
+			FoamBase_EXPORT bool isMasterRank(const label proci) const;
 
 			//- Append to processors/ file
-			bool appendObject
+			FoamBase_EXPORT bool appendObject
 			(
 				const regIOobject& io,
 				const fileName& pathName,
@@ -102,7 +102,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("collated");
+			//TypeName("collated");
+			static const char* typeName_() { return "collated"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Static data
@@ -110,16 +114,16 @@ namespace tnbLib
 				//- Max size of thread buffer size. This is the overall size of
 				//  all files to be written. Starts blocking if not enough size.
 				//  Read as float to enable easy specification of large sizes.
-			static float maxThreadFileBufferSize;
+			static FoamBase_EXPORT float maxThreadFileBufferSize;
 
 
 			// Constructors
 
 				//- Construct null
-			collatedFileOperation(const bool verbose);
+			FoamBase_EXPORT collatedFileOperation(const bool verbose);
 
 			//- Construct from user communicator
-			collatedFileOperation
+			FoamBase_EXPORT collatedFileOperation
 			(
 				const label comm,
 				const labelList& ioRanks,
@@ -129,7 +133,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~collatedFileOperation();
+			FoamBase_EXPORT virtual ~collatedFileOperation();
 
 
 			// Member Functions
@@ -137,7 +141,7 @@ namespace tnbLib
 				// (reg)IOobject functionality
 
 					//- Generate disk file name for object. Opposite of filePath.
-			virtual fileName objectPath
+			FoamBase_EXPORT virtual fileName objectPath
 			(
 				const IOobject& io,
 				const word& typeName
@@ -145,7 +149,7 @@ namespace tnbLib
 
 			//- Writes a regIOobject (so header, contents and divider).
 			//  Returns success state.
-			virtual bool writeObject
+			FoamBase_EXPORT virtual bool writeObject
 			(
 				const regIOobject&,
 				IOstream::streamFormat format = IOstream::ASCII,
@@ -157,17 +161,17 @@ namespace tnbLib
 			// Other
 
 				//- Forcibly wait until all output done. Flush any cached data
-			virtual void flush() const;
+			FoamBase_EXPORT virtual void flush() const;
 
 			//- Actual name of processors dir
-			virtual word processorsDir(const IOobject&) const;
+			FoamBase_EXPORT virtual word processorsDir(const IOobject&) const;
 
 			//- Actual name of processors dir
-			virtual word processorsDir(const fileName&) const;
+			FoamBase_EXPORT virtual word processorsDir(const fileName&) const;
 
 			//- Set number of processor directories/results. Only used in
 			//  decomposePar
-			virtual void setNProcs(const label nProcs);
+			FoamBase_EXPORT virtual void setNProcs(const label nProcs);
 		};
 
 

@@ -59,13 +59,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("spline");
+		//TypeName("spline");
+		static const char* typeName_() { return "spline"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components. By default make sure samples are
 			//  equidistant.
-		splineInterpolationWeights
+		FoamBase_EXPORT splineInterpolationWeights
 		(
 			const scalarField& samples,
 			const bool checkEqualDistance = true
@@ -81,7 +85,7 @@ namespace tnbLib
 
 			//- Calculate weights and indices to calculate t from samples.
 			//  Returns true if indices changed.
-		virtual bool valueWeights
+		FoamBase_EXPORT virtual bool valueWeights
 		(
 			const scalar t,
 			labelList& indices,

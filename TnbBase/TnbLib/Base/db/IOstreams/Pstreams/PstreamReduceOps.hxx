@@ -159,7 +159,7 @@ namespace tnbLib
 
 
 	// Insist there are specialisations for the common reductions of scalar(s)
-	void reduce
+	FoamBase_EXPORT void reduce
 	(
 		scalar& Value,
 		const sumOp<scalar>& bop,
@@ -167,7 +167,7 @@ namespace tnbLib
 		const label comm = UPstream::worldComm
 	);
 
-	void reduce
+	FoamBase_EXPORT void reduce
 	(
 		scalar& Value,
 		const minOp<scalar>& bop,
@@ -175,7 +175,7 @@ namespace tnbLib
 		const label comm = UPstream::worldComm
 	);
 
-	void reduce
+	FoamBase_EXPORT void reduce
 	(
 		vector2D& Value,
 		const sumOp<vector2D>& bop,
@@ -183,7 +183,7 @@ namespace tnbLib
 		const label comm = UPstream::worldComm
 	);
 
-	void sumReduce
+	FoamBase_EXPORT void sumReduce
 	(
 		scalar& Value,
 		label& Count,
@@ -191,7 +191,7 @@ namespace tnbLib
 		const label comm = UPstream::worldComm
 	);
 
-	void reduce
+	FoamBase_EXPORT void reduce
 	(
 		scalar& Value,
 		const sumOp<scalar>& bop,

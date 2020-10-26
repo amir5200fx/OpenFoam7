@@ -66,10 +66,10 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Debug: write agglomeration info
-		void printStats(Ostream& os, GAMGAgglomeration& agglom) const;
+		FoamBase_EXPORT void printStats(Ostream& os, GAMGAgglomeration& agglom) const;
 
 		//- Agglomerate a level. Return true if anything has changed
-		bool agglomerate
+		FoamBase_EXPORT bool agglomerate
 		(
 			const label fineLevelIndex,
 			const labelList& procAgglomMap,
@@ -79,19 +79,23 @@ namespace tnbLib
 		);
 
 		//- Debug: calculate global cell-cells
-		static labelListList globalCellCells(const lduMesh&);
+		static FoamBase_EXPORT labelListList globalCellCells(const lduMesh&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("GAMGProcAgglomeration");
+		//TypeName("GAMGProcAgglomeration");
+		static const char* typeName_() { return "GAMGProcAgglomeration"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
 			//- Runtime selection table for pure geometric agglomerators
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			GAMGProcAgglomeration,
@@ -104,26 +108,79 @@ namespace tnbLib
 					agglom,
 					controlDict
 					)
-		);
+		);*/
+
+		typedef autoPtr<GAMGProcAgglomeration> (*GAMGAgglomerationConstructorPtr)(
+			GAMGAgglomeration& agglom, const dictionary& controlDict);
+		typedef HashTable<GAMGAgglomerationConstructorPtr, word, string::hash> GAMGAgglomerationConstructorTable;
+		static FoamBase_EXPORT GAMGAgglomerationConstructorTable* GAMGAgglomerationConstructorTablePtr_;
+		static FoamBase_EXPORT void constructGAMGAgglomerationConstructorTables();
+		static FoamBase_EXPORT void destroyGAMGAgglomerationConstructorTables();
+
+		template <class GAMGProcAgglomerationType>
+		class addGAMGAgglomerationConstructorToTable
+		{
+		public:
+			static autoPtr<GAMGProcAgglomeration> New(GAMGAgglomeration& agglom, const dictionary& controlDict)
+			{
+				return autoPtr<GAMGProcAgglomeration>(new GAMGProcAgglomerationType(agglom, controlDict));
+			}
+
+			addGAMGAgglomerationConstructorToTable(const word& lookup = GAMGProcAgglomerationType::typeName)
+			{
+				constructGAMGAgglomerationConstructorTables();
+				if (!GAMGAgglomerationConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "GAMGProcAgglomeration" << std::
+						endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addGAMGAgglomerationConstructorToTable() { destroyGAMGAgglomerationConstructorTables(); }
+		};
+
+		template <class GAMGProcAgglomerationType>
+		class addRemovableGAMGAgglomerationConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<GAMGProcAgglomeration> New(GAMGAgglomeration& agglom, const dictionary& controlDict)
+			{
+				return autoPtr<GAMGProcAgglomeration>(new GAMGProcAgglomerationType(agglom, controlDict));
+			}
+
+			addRemovableGAMGAgglomerationConstructorToTable(const word& lookup = GAMGProcAgglomerationType::typeName) : lookup_(
+				lookup)
+			{
+				constructGAMGAgglomerationConstructorTables();
+				GAMGAgglomerationConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableGAMGAgglomerationConstructorToTable()
+			{
+				if (GAMGAgglomerationConstructorTablePtr_) { GAMGAgglomerationConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct given agglomerator and controls
-		GAMGProcAgglomeration
+		FoamBase_EXPORT GAMGProcAgglomeration
 		(
 			GAMGAgglomeration& agglom,
 			const dictionary& controlDict
 		);
 
 		//- Disallow default bitwise copy construction
-		GAMGProcAgglomeration(const GAMGProcAgglomeration&) = delete;
+		FoamBase_EXPORT GAMGProcAgglomeration(const GAMGProcAgglomeration&) = delete;
 
 
 		// Selectors
 
 			//- Return the selected agglomerator
-		static autoPtr<GAMGProcAgglomeration> New
+		static FoamBase_EXPORT autoPtr<GAMGProcAgglomeration> New
 		(
 			const word& type,
 			GAMGAgglomeration& agglom,
@@ -132,19 +189,19 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~GAMGProcAgglomeration();
+		FoamBase_EXPORT virtual ~GAMGProcAgglomeration();
 
 
 		// Member Functions
 
 			//- Modify agglomeration. Return true if modified
-		virtual bool agglomerate() = 0;
+		FoamBase_EXPORT virtual bool agglomerate() = 0;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const GAMGProcAgglomeration&) = delete;
+		FoamBase_EXPORT void operator=(const GAMGProcAgglomeration&) = delete;
 	};
 
 

@@ -74,7 +74,7 @@ namespace tnbLib
 
 			//- Return (on master) all single-cell meshes collected. single-cell
 			//  meshes are just one cell with all proc faces intact.
-		autoPtr<lduPrimitiveMesh> singleCellMesh
+		FoamBase_EXPORT autoPtr<lduPrimitiveMesh> singleCellMesh
 		(
 			const label singleCellMeshComm,
 			const lduMesh& mesh,
@@ -83,48 +83,52 @@ namespace tnbLib
 
 		//- Construct processor agglomeration: for every processor the
 		//  coarse processor-cluster it agglomerates onto
-		tmp<labelField> processorAgglomeration(const lduMesh&) const;
+		FoamBase_EXPORT tmp<labelField> processorAgglomeration(const lduMesh&) const;
 
 		//- Do we need to agglomerate across processors?
-		bool doProcessorAgglomeration(const lduMesh&) const;
+		FoamBase_EXPORT bool doProcessorAgglomeration(const lduMesh&) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("procFaces");
+		//TypeName("procFaces");
+		static const char* typeName_() { return "procFaces"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given agglomerator and controls
-		procFacesGAMGProcAgglomeration
+		FoamBase_EXPORT procFacesGAMGProcAgglomeration
 		(
 			GAMGAgglomeration& agglom,
 			const dictionary& controlDict
 		);
 
 		//- Disallow default bitwise copy construction
-		procFacesGAMGProcAgglomeration
+		FoamBase_EXPORT procFacesGAMGProcAgglomeration
 		(
 			const procFacesGAMGProcAgglomeration&
 		);
 
 
 		//- Destructor
-		virtual ~procFacesGAMGProcAgglomeration();
+		FoamBase_EXPORT virtual ~procFacesGAMGProcAgglomeration();
 
 
 		// Member Functions
 
 		   //- Modify agglomeration. Return true if modified
-		virtual bool agglomerate();
+		FoamBase_EXPORT virtual bool agglomerate();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const procFacesGAMGProcAgglomeration&) = delete;
+		FoamBase_EXPORT void operator=(const procFacesGAMGProcAgglomeration&) = delete;
 	};
 
 
