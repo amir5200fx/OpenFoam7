@@ -16,14 +16,14 @@ tnbLib::token::token(Istream& is)
 
 // * * * * * * * * * * * * IOstream operators  * * * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, token& t)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, token& t)
 {
 	t.clear();
 	return is.read(t);
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const token& t)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const token& t)
 {
 	switch (t.type_)
 	{
@@ -91,19 +91,19 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const token& t)
 }
 
 
-ostream& tnbLib::operator<<(ostream& os, const token::punctuationToken& pt)
+FoamBase_EXPORT ostream& tnbLib::operator<<(ostream& os, const token::punctuationToken& pt)
 {
 	return os << char(pt);
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const token::punctuationToken& pt)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const token::punctuationToken& pt)
 {
 	return os << char(pt);
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const token::compound& ct)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const token::compound& ct)
 {
 	os << ct.type() << token::SPACE;
 	ct.write(os);
@@ -114,7 +114,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const token::compound& ct)
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-ostream& tnbLib::operator<<(ostream& os, const InfoProxy<token>& ip)
+FoamBase_EXPORT ostream& tnbLib::operator<<(ostream& os, const InfoProxy<token>& ip)
 {
 	const token& t = ip.t_;
 
@@ -190,7 +190,7 @@ ostream& tnbLib::operator<<(ostream& os, const InfoProxy<token>& ip)
 
 
 template<>
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const InfoProxy<token>& ip)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const InfoProxy<token>& ip)
 {
 	const token& t = ip.t_;
 

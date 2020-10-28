@@ -1,9 +1,11 @@
 #include <token.hxx>
 
+#include <runTimeSelectionTables.hxx>  // added by amir
 #include <wordList.hxx> // added by amir
 #include <IOstreams.hxx> // added by amir
 #include <Istream.hxx>  // added by amir
-
+#include <error.hxx>  // added by amir
+ 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
 namespace tnbLib
