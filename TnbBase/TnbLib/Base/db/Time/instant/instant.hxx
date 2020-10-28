@@ -142,16 +142,16 @@ namespace tnbLib
 
 		// Friend Operators
 
-		friend bool operator==(const instant&, const instant&);
-		friend bool operator!=(const instant&, const instant&);
-		friend bool operator<(const instant&, const instant&);
-		friend bool operator>(const instant&, const instant&);
+		friend FoamBase_EXPORT bool operator==(const instant&, const instant&);
+		friend FoamBase_EXPORT bool operator!=(const instant&, const instant&);
+		friend FoamBase_EXPORT bool operator<(const instant&, const instant&);
+		friend FoamBase_EXPORT bool operator>(const instant&, const instant&);
 
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, instant&);
-		friend Ostream& operator<<(Ostream&, const instant&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, instant&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const instant&);
 	};
 
 

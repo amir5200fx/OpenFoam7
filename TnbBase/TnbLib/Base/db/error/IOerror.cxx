@@ -232,7 +232,7 @@ void tnbLib::IOerror::abort()
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const IOerror& ioErr)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const IOerror& ioErr)
 {
 	if (!os.bad())
 	{

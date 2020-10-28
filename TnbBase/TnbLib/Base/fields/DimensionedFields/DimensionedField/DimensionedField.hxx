@@ -109,7 +109,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("DimensionedField");
+		//TypeName("DimensionedField");
+		static const char* typeName_() { return "DimensionedField"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Static Member Functions

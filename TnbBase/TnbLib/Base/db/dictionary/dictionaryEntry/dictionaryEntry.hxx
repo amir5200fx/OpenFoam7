@@ -167,12 +167,12 @@ namespace tnbLib
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const dictionaryEntry&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const dictionaryEntry&);
 	};
 
 
 	template<>
-	Ostream& operator<<(Ostream&, const InfoProxy<dictionaryEntry>&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<dictionaryEntry>&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

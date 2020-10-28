@@ -92,7 +92,7 @@ namespace tnbLib
 		};
 
 		//- Ostream operator
-		friend Ostream& operator<<(Ostream& os, const streamFormat& sf);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const streamFormat& sf);
 
 		//- Version number type
 		class versionNumber
@@ -187,7 +187,7 @@ namespace tnbLib
 
 
 			//- Ostream operator
-			friend Ostream& operator<<(Ostream& os, const versionNumber& vn);
+			friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const versionNumber& vn);
 		};
 
 
@@ -202,13 +202,13 @@ namespace tnbLib
 		// Public static data
 
 			//- Original version number
-		static const versionNumber originalVersion;
+		static FoamBase_EXPORT const versionNumber originalVersion;
 
 		//- Current version number
-		static const versionNumber currentVersion;
+		static FoamBase_EXPORT const versionNumber currentVersion;
 
 		//- Default precision
-		static unsigned int precision_;
+		static FoamBase_EXPORT unsigned int precision_;
 
 
 	private:
@@ -537,11 +537,11 @@ namespace tnbLib
 	};
 
 
-	Ostream& operator<<(Ostream& os, const IOstream::streamFormat& sf);
-	Ostream& operator<<(Ostream& os, const IOstream::versionNumber& vn);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const IOstream::streamFormat& sf);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const IOstream::versionNumber& vn);
 
 	template<>
-	Ostream& operator<<(Ostream& os, const InfoProxy<IOstream>& ip);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const InfoProxy<IOstream>& ip);
 
 
 	// --------------------------------------------------------------------

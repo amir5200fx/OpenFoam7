@@ -201,7 +201,7 @@ namespace tnbLib
 		virtual const word& type() const { return typeName; };
 
 		//- The default control dictionary name (normally "controlDict")
-		static word controlDictName;
+		static FoamBase_EXPORT word controlDictName;
 
 
 		// Constructors

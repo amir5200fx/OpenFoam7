@@ -145,7 +145,7 @@ namespace tnbLib
 
 		//- Calculate intersection of shape with ray. Sets result
 		//  accordingly
-		FoamBase_EXPORT bool intersects
+		bool intersects
 		(
 			const label index,
 			const point& start,

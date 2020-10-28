@@ -179,7 +179,7 @@ namespace tnbLib
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const entry&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const entry&);
 	};
 
 

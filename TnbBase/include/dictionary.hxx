@@ -74,8 +74,8 @@ namespace tnbLib
 
 	class ITstream;  // added by amir
 
-	Istream& operator>>(Istream&, dictionary&);
-	Ostream& operator<<(Ostream&, const dictionary&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, dictionary&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const dictionary&);
 
 	/*---------------------------------------------------------------------------*\
 							Class dictionaryName Declaration
@@ -593,10 +593,10 @@ namespace tnbLib
 		// IOstream Operators
 
 			//- Read dictionary from Istream
-		friend Istream& operator>>(Istream&, dictionary&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, dictionary&);
 
 		//- Write dictionary to Ostream
-		friend Ostream& operator<<(Ostream&, const dictionary&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const dictionary&);
 	};
 
 

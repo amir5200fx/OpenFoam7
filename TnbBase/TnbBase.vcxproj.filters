@@ -5202,6 +5202,12 @@
     <ClInclude Include="TnbLib\Base\interpolations\interpolationTable\tableReaders\csv\csvTableReaderI.hxx">
       <Filter>TnbLib\Base\interpolations\interpolationTable\tableReaders\csv</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\Base\db\IOstreams\token\token_Imp.hxx">
+      <Filter>TnbLib\Base\db\IOstreams\token</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\Base\db\functionObjects\IOOutputFilter\IOOutputFilterI.hxx">
+      <Filter>TnbLib\Base\db\functionObjects\IOOutputFilter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\Base\primitives\zero\zero.cxx">
@@ -6812,9 +6818,6 @@
     <None Include="cpp.hint" />
     <None Include="TnbLib\Base\db\functionObjects\functionObjectList\postProcess.lxx">
       <Filter>TnbLib\Base\db\functionObjects\functionObjectList</Filter>
-    </None>
-    <None Include="TnbLib\Base\db\functionObjects\IOOutputFilter\IOOutputFilter.cxx">
-      <Filter>TnbLib\Base\db\functionObjects\IOOutputFilter</Filter>
     </None>
     <None Include="TnbLib\Base\fields\ReadFields\readPointFields.lxx">
       <Filter>TnbLib\Base\fields\ReadFields</Filter>

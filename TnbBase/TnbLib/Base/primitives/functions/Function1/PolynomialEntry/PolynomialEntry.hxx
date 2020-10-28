@@ -78,7 +78,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("polynomial");
+			//TypeName("polynomial");
+			static const char* typeName_() { return "polynomial"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

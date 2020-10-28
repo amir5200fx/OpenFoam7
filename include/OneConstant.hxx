@@ -63,7 +63,11 @@ namespace tnbLib
 		public:
 
 			// Runtime type information
-			TypeName("one");
+			//TypeName("one");
+			static const char* typeName_() { return "one"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

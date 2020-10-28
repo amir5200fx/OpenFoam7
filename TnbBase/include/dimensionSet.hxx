@@ -338,89 +338,89 @@ namespace tnbLib
 
 		// Friend Functions
 
-		friend dimensionSet max(const dimensionSet&, const dimensionSet&);
-		friend dimensionSet min(const dimensionSet&, const dimensionSet&);
-		friend dimensionSet cmptMultiply
+		friend FoamBase_EXPORT dimensionSet max(const dimensionSet&, const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet min(const dimensionSet&, const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet cmptMultiply
 		(
 			const dimensionSet&,
 			const dimensionSet&
 		);
-		friend dimensionSet cmptDivide
+		friend FoamBase_EXPORT dimensionSet cmptDivide
 		(
 			const dimensionSet&,
 			const dimensionSet&
 		);
 
-		friend dimensionSet pow(const dimensionSet&, const scalar);
-		friend dimensionSet pow(const dimensionSet&, const dimensionedScalar&);
-		friend dimensionSet pow(const dimensionedScalar&, const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet pow(const dimensionSet&, const scalar);
+		friend FoamBase_EXPORT dimensionSet pow(const dimensionSet&, const dimensionedScalar&);
+		friend FoamBase_EXPORT dimensionSet pow(const dimensionedScalar&, const dimensionSet&);
 
-		friend dimensionSet sqr(const dimensionSet&);
-		friend dimensionSet pow3(const dimensionSet&);
-		friend dimensionSet pow4(const dimensionSet&);
-		friend dimensionSet pow5(const dimensionSet&);
-		friend dimensionSet pow6(const dimensionSet&);
-		friend dimensionSet pow025(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet sqr(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet pow3(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet pow4(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet pow5(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet pow6(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet pow025(const dimensionSet&);
 
-		friend dimensionSet sqrt(const dimensionSet&);
-		friend dimensionSet magSqr(const dimensionSet&);
-		friend dimensionSet mag(const dimensionSet&);
-		friend dimensionSet sign(const dimensionSet&);
-		friend dimensionSet pos0(const dimensionSet&);
-		friend dimensionSet neg(const dimensionSet&);
-		friend dimensionSet inv(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet sqrt(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet magSqr(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet mag(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet sign(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet pos0(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet neg(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet inv(const dimensionSet&);
 
 		//- Function to check the argument is dimensionless
 		//  for transcendental functions
-		friend dimensionSet trans(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet trans(const dimensionSet&);
 
-		friend dimensionSet atan2(const dimensionSet&, const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet atan2(const dimensionSet&, const dimensionSet&);
 
 		//- Return the argument; transformations do not change the dimensions
-		friend dimensionSet transform(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet transform(const dimensionSet&);
 
 
 		// Friend operators
 
-		friend dimensionSet operator-(const dimensionSet&);
+		friend FoamBase_EXPORT dimensionSet operator-(const dimensionSet&);
 
-		friend dimensionSet operator+
+		friend FoamBase_EXPORT dimensionSet operator+
 			(
 				const dimensionSet&,
 				const dimensionSet&
 				);
 
-		friend dimensionSet operator-
+		friend FoamBase_EXPORT dimensionSet operator-
 			(
 				const dimensionSet&,
 				const dimensionSet&
 				);
 
-		friend dimensionSet operator*
+		friend FoamBase_EXPORT dimensionSet operator*
 			(
 				const dimensionSet&,
 				const dimensionSet&
 				);
 
-		friend dimensionSet operator/
+		friend FoamBase_EXPORT dimensionSet operator/
 			(
 				const dimensionSet&,
 				const dimensionSet&
 				);
 
-		friend dimensionSet operator&
+		friend FoamBase_EXPORT dimensionSet operator&
 			(
 				const dimensionSet&,
 				const dimensionSet&
 				);
 
-		friend dimensionSet operator^
+		friend FoamBase_EXPORT dimensionSet operator^
 			(
 				const dimensionSet&,
 				const dimensionSet&
 				);
 
-		friend dimensionSet operator&&
+		friend FoamBase_EXPORT dimensionSet operator&&
 			(
 				const dimensionSet&,
 				const dimensionSet&
@@ -429,8 +429,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, dimensionSet&);
-		friend Ostream& operator<<(Ostream&, const dimensionSet&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, dimensionSet&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const dimensionSet&);
 	};
 
 

@@ -130,7 +130,7 @@ namespace tnbLib
 			inotifyMaster
 		};
 
-		static const NamedEnum<fileCheckTypes, 4> fileCheckTypesNames;
+		static FoamBase_EXPORT const NamedEnum<fileCheckTypes, 4> fileCheckTypesNames;
 
 	private:
 
@@ -485,7 +485,7 @@ namespace tnbLib
 
 
 	template<>
-	Ostream& operator<<(Ostream& os, const InfoProxy<IOobject>& ip);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const InfoProxy<IOobject>& ip);
 
 
 	//- Template function for obtaining global status

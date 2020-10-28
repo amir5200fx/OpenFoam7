@@ -139,7 +139,7 @@ void tnbLib::writeEntry(Ostream& os, const dictionary& value)
 
 // * * * * * * * * * * * * * * Istream Operator  * * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, dictionary& dict)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, dictionary& dict)
 {
 	// Reset input mode assuming this is a "top-level" dictionary
 	functionEntries::inputModeEntry::clear();
@@ -191,7 +191,7 @@ void tnbLib::dictionary::write(Ostream& os, bool subDict) const
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const dictionary& dict)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const dictionary& dict)
 {
 	dict.write(os, true);
 	return os;

@@ -61,7 +61,11 @@ namespace tnbLib
 		public:
 
 			// Runtime type information
-			TypeName("quarterCosineRamp");
+			//TypeName("quarterCosineRamp");
+			static const char* typeName_() { return "quarterCosineRamp"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

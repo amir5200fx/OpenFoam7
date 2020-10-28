@@ -178,7 +178,7 @@ void tnbLib::IOstream::print(Ostream& os, const int streamState) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const IOstream::streamFormat& sf)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const IOstream::streamFormat& sf)
 {
 	if (sf == IOstream::ASCII)
 	{
@@ -193,7 +193,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const IOstream::streamFormat& s
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const IOstream::versionNumber& vn)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const IOstream::versionNumber& vn)
 {
 	os << vn.str().c_str();
 	return os;
@@ -201,7 +201,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const IOstream::versionNumber& 
 
 
 template<>
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const InfoProxy<IOstream>& ip)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const InfoProxy<IOstream>& ip)
 {
 	ip.t_.print(os);
 	return os;

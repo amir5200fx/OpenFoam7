@@ -37,7 +37,7 @@ tnbLib::Ostream& tnbLib::OSstream::write(const char c)
 
 tnbLib::Ostream& tnbLib::OSstream::write(const char* str)
 {
-	lineNumber_ += string(str).count(token::NL);
+	lineNumber_ += (label)string(str).count(token::NL);  // '(label)' is added by amir
 	os_ << str;
 	setState(os_.rdstate());
 	return *this;

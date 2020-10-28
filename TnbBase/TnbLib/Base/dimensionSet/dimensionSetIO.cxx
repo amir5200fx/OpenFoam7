@@ -695,7 +695,7 @@ void tnbLib::writeEntry(Ostream& os, const dimensionSet& value)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, dimensionSet& dset)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, dimensionSet& dset)
 {
 	scalar multiplier;
 	dset.read(is, multiplier);
@@ -714,7 +714,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, dimensionSet& dset)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const dimensionSet& dset)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const dimensionSet& dset)
 {
 	scalar multiplier;
 	dset.write(os, multiplier);

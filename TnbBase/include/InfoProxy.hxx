@@ -45,7 +45,7 @@ namespace tnbLib
 	\*---------------------------------------------------------------------------*/
 
 	template<class T> class InfoProxy;
-	template<class T> Ostream& operator<<(Ostream&, const InfoProxy<T>&);
+	template<class T> FoamBase_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<T>&);
 
 	template<class T>
 	class InfoProxy
@@ -59,7 +59,7 @@ namespace tnbLib
 			t_(t)
 		{}
 
-		friend Ostream& operator<< <T>
+		friend FoamBase_EXPORT Ostream& operator<< <T>
 			(Ostream&, const InfoProxy<T>&);
 	};
 

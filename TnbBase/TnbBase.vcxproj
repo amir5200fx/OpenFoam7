@@ -252,6 +252,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClInclude Include="TnbLib\Base\db\dictionary\dictionaryTemplatesI.hxx" />
     <ClInclude Include="TnbLib\Base\db\dictionary\primitiveEntry\primitiveEntryTemplatesI.hxx" />
     <ClInclude Include="TnbLib\Base\db\dynamicLibrary\dlLibraryTable\dlLibraryTableI.hxx" />
+    <ClInclude Include="TnbLib\Base\db\functionObjects\IOOutputFilter\IOOutputFilterI.hxx" />
     <ClInclude Include="TnbLib\Base\db\functionObjects\regionFunctionObject\regionFunctionObjectI.hxx" />
     <ClInclude Include="TnbLib\Base\db\functionObjects\writeFile\writeFileI.hxx" />
     <ClInclude Include="TnbLib\Base\db\IOobjects\CompactIOField\CompactIOFieldI.hxx" />
@@ -270,6 +271,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClInclude Include="TnbLib\Base\db\IOstreams\Pstreams\gatherScatterListI.hxx" />
     <ClInclude Include="TnbLib\Base\db\IOstreams\Pstreams\PstreamHelper.hxx" />
     <ClInclude Include="TnbLib\Base\db\IOstreams\Sstreams\ReadHexI.hxx" />
+    <ClInclude Include="TnbLib\Base\db\IOstreams\token\token_Imp.hxx" />
     <ClInclude Include="TnbLib\Base\db\objectRegistry\objectRegistryI.hxx" />
     <ClInclude Include="TnbLib\Base\dimensionedTypes\dimensionedType\dimensionedTypeI.hxx" />
     <ClInclude Include="TnbLib\Base\fields\DimensionedFields\DimensionedField\DimensionedFieldFunctions_Imp.hxx" />
@@ -1441,7 +1443,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClCompile Include="TnbLib\Base\db\error\messageStream.cxx" />
     <ClCompile Include="TnbLib\Base\db\functionObjects\functionObjectList\functionObjectList.cxx" />
     <ClCompile Include="TnbLib\Base\db\functionObjects\functionObject\functionObject.cxx" />
-    <None Include="TnbLib\Base\db\functionObjects\IOOutputFilter\IOOutputFilter.cxx" />
     <ClCompile Include="TnbLib\Base\db\functionObjects\logFiles\logFiles.cxx" />
     <ClCompile Include="TnbLib\Base\db\functionObjects\regionFunctionObject\regionFunctionObject.cxx" />
     <ClCompile Include="TnbLib\Base\db\functionObjects\timeControl\timeControl.cxx" />

@@ -108,8 +108,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream& is, volumeType& vt);
-		friend Ostream& operator<<(Ostream& os, const volumeType& vt);
+		FoamBase_EXPORT friend Istream& operator>>(Istream& is, volumeType& vt);
+		FoamBase_EXPORT friend Ostream& operator<<(Ostream& os, const volumeType& vt);
 	};
 
 

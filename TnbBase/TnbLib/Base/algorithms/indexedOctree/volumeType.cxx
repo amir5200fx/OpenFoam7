@@ -25,7 +25,7 @@ const tnbLib::NamedEnum<tnbLib::volumeType, 4> tnbLib::volumeType::names;
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, volumeType& vt)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, volumeType& vt)
 {
 	// Read beginning of volumeType
 	is.readBegin("volumeType");
@@ -45,7 +45,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, volumeType& vt)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const volumeType& vt)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const volumeType& vt)
 {
 	os << static_cast<int>(vt.t_);
 

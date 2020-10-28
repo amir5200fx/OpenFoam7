@@ -58,7 +58,7 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class error;
-	Ostream& operator<<(Ostream&, const error&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const error&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -181,7 +181,7 @@ namespace tnbLib
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const error&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const error&);
 	};
 
 

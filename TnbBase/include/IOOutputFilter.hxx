@@ -71,7 +71,7 @@ namespace tnbLib
 
 			//- Construct from an IOobject for IOdictionary
 			//  Allow the possibility to load fields from files
-		FoamBase_EXPORT IOOutputFilter
+		IOOutputFilter
 		(
 			const word& outputFilterName,
 			const IOobject& ioDict,
@@ -81,7 +81,7 @@ namespace tnbLib
 		//- Construct for given objectRegistry and dictionary
 		//  Allow dictionary to be optional
 		//  Allow the possibility to load fields from files
-		FoamBase_EXPORT IOOutputFilter
+		IOOutputFilter
 		(
 			const word& outputFilterName,
 			const objectRegistry&,
@@ -93,7 +93,7 @@ namespace tnbLib
 		//- Construct for given objectRegistry and dictionary
 		//  Dictionary read from full path.
 		//  Allow the possibility to load fields from files
-		FoamBase_EXPORT IOOutputFilter
+		IOOutputFilter
 		(
 			const word& outputFilterName,
 			const objectRegistry&,
@@ -103,41 +103,41 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		FoamBase_EXPORT IOOutputFilter(const IOOutputFilter&) = delete;
+		IOOutputFilter(const IOOutputFilter&) = delete;
 
 
 		//- Destructor
-		FoamBase_EXPORT virtual ~IOOutputFilter();
+		virtual ~IOOutputFilter();
 
 
 		// Member Functions
 
 			//- Return name
-		FoamBase_EXPORT virtual const word& name() const;
+		virtual const word& name() const;
 
 		//- Inherit read from OutputFilter
 		using OutputFilter::read;
 
 		//- Read output filter properties
-		FoamBase_EXPORT virtual bool read();
+		virtual bool read();
 
 		//- Inherit write from regIOobject
 		using regIOobject::write;
 
 		//- Sample and write
-		FoamBase_EXPORT virtual bool write(const bool write = true);
+		virtual bool write(const bool write = true);
 
 		//- Update for changes of mesh
-		FoamBase_EXPORT virtual void updateMesh(const mapPolyMesh& mpm);
+		virtual void updateMesh(const mapPolyMesh& mpm);
 
 		//- Update for changes of mesh
-		FoamBase_EXPORT virtual void movePoints(const polyMesh& mesh);
+		virtual void movePoints(const polyMesh& mesh);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		FoamBase_EXPORT void operator=(const IOOutputFilter&) = delete;
+		void operator=(const IOOutputFilter&) = delete;
 	};
 
 
@@ -147,9 +147,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <IOOutputFilter.cxx>
-#endif
+//#ifdef NoRepository
+//#include <IOOutputFilter.cxx>
+//#endif
+
+#include <IOOutputFilterI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

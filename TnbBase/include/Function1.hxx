@@ -40,6 +40,8 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <autoPtr.hxx>  // added by amir
+#include <runTimeSelectionTables.hxx>  // added by amir
 #include <dictionary.hxx>
 #include <Field.hxx>
 
@@ -103,20 +105,74 @@ namespace tnbLib
 		typedef Type returnType;
 
 		//- Runtime type information
-		TypeName("Function1")
+		//TypeName("Function1")
+		static const char* typeName_() { return "Function1"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; }
 
-			//- Declare runtime constructor selection table
-			declareRunTimeSelectionTable
+		//- Declare runtime constructor selection table
+		/*declareRunTimeSelectionTable
+		(
+			autoPtr,
+			Function1,
+			dictionary,
 			(
-				autoPtr,
-				Function1,
-				dictionary,
-				(
-					const word& entryName,
-					const dictionary& dict
-					),
-					(entryName, dict)
-			);
+				const word& entryName,
+				const dictionary& dict
+				),
+				(entryName, dict)
+		);*/
+
+		typedef autoPtr<Function1> (*dictionaryConstructorPtr)(const word& entryName, const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamBase_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamBase_EXPORT void constructdictionaryConstructorTables();
+		static FoamBase_EXPORT void destroydictionaryConstructorTables();
+
+		template <class Function1Type>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<Function1> New(const word& entryName, const dictionary& dict)
+			{
+				return autoPtr<Function1>(new Function1Type(entryName, dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = Function1Type::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "Function1" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class Function1Type>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<Function1> New(const word& entryName, const dictionary& dict)
+			{
+				return autoPtr<Function1>(new Function1Type(entryName, dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = Function1Type::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
