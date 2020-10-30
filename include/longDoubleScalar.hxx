@@ -151,13 +151,13 @@ namespace tnbLib
 		// Member constants
 
 			//- Dimensionality of space
-		static FoamBase_EXPORT const direction dim = 3;
+		static const direction dim = 3;
 
 		//- Rank of longDoubleScalar is 0
-		static FoamBase_EXPORT const direction rank = 0;
+		static const direction rank = 0;
 
 		//- Number of components in longDoubleScalar is 1
-		static FoamBase_EXPORT const direction nComponents = 1;
+		static const direction nComponents = 1;
 
 
 		// Static Data Members

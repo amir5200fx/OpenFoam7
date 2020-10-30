@@ -137,7 +137,7 @@ namespace tnbLib
 
 		// Friend Operators
 
-		friend bool operator==(const cell&, const cell&);
+		friend FoamBase_EXPORT bool operator==(const cell&, const cell&);
 		friend bool operator!=(const cell&, const cell&);
 	};
 

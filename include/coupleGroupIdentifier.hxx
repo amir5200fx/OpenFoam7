@@ -110,7 +110,7 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const coupleGroupIdentifier&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const coupleGroupIdentifier&);
 	};
 
 

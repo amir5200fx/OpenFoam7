@@ -68,7 +68,7 @@ namespace tnbLib
 		// Static Data Members
 
 			//- The set of names corresponding to the enumeration Enum
-		static const char* names[nEnum];
+		static Foam_EXPORT const char* names[nEnum];
 
 
 		// Constructors

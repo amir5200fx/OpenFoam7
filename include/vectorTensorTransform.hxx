@@ -177,9 +177,9 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream& is, vectorTensorTransform&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream& is, vectorTensorTransform&);
 
-		friend Ostream& operator<<(Ostream& os, const vectorTensorTransform&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const vectorTensorTransform&);
 	};
 
 

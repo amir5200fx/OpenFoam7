@@ -139,8 +139,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, keyType&);
-		friend Ostream& operator<<(Ostream&, const keyType&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, keyType&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const keyType&);
 	};
 
 

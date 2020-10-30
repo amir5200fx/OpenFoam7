@@ -246,8 +246,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream& is, globalIndex& gi);
-		friend Ostream& operator<<(Ostream& os, const globalIndex& gi);
+		friend FoamBase_EXPORT Istream& operator>>(Istream& is, globalIndex& gi);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const globalIndex& gi);
 	};
 
 

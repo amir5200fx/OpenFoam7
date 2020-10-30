@@ -111,17 +111,17 @@ namespace tnbLib
 		{}
 
 		//- Correct patches after moving points
-		virtual void movePoints(PstreamBuffers&, const pointField& p);
+		FoamBase_EXPORT virtual void movePoints(PstreamBuffers&, const pointField& p);
 
 		//- Initialise the update of the patch topology
 		virtual void initUpdateMesh(PstreamBuffers&)
 		{}
 
 		//- Update of the patch topology
-		virtual void updateMesh(PstreamBuffers&);
+		FoamBase_EXPORT virtual void updateMesh(PstreamBuffers&);
 
 		//- Clear geometry
-		virtual void clearGeom();
+		FoamBase_EXPORT virtual void clearGeom();
 
 
 	public:
@@ -519,7 +519,7 @@ namespace tnbLib
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const polyPatch&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const polyPatch&);
 	};
 
 

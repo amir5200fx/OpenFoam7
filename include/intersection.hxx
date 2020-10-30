@@ -56,7 +56,7 @@ namespace tnbLib
 			//  The tolerance is relative to the object size.
 			//  Used to determine if a half-ray from a point in plane of triangle
 			// intersects the triangle or not.
-		static scalar planarTol_;
+		static FoamBase_EXPORT scalar planarTol_;
 
 	public:
 

@@ -40,7 +40,7 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
-#include <Base_Module.hxx>
+#include <includeModule.hxx>
 
 #include <string>
 

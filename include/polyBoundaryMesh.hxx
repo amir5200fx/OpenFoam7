@@ -260,7 +260,7 @@ namespace tnbLib
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const polyBoundaryMesh&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const polyBoundaryMesh&);
 	};
 
 

@@ -212,8 +212,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, Switch&);
-		friend Ostream& operator<<(Ostream&, const Switch&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, Switch&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const Switch&);
 	};
 
 
