@@ -81,7 +81,7 @@ tnbLib::autoPtr<tnbLib::block> tnbLib::block::New
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const block& b)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const block& b)
 {
 	os << b.points() << nl
 		<< b.cells() << nl

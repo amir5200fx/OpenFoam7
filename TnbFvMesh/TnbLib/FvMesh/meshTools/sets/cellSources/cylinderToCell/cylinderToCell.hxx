@@ -69,19 +69,23 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("cylinderToCell");
+		/*TypeName("cylinderToCell");*/
+		static const char* typeName_() { return "cylinderToCell"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		cylinderToCell
+		FoamFvMesh_EXPORT cylinderToCell
 		(
 			const polyMesh& mesh,
 			const vector& p1,
@@ -90,14 +94,14 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		cylinderToCell
+		FoamFvMesh_EXPORT cylinderToCell
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		cylinderToCell
+		FoamFvMesh_EXPORT cylinderToCell
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -105,7 +109,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~cylinderToCell();
+		FoamFvMesh_EXPORT virtual ~cylinderToCell();
 
 
 		// Member Functions
@@ -115,7 +119,7 @@ namespace tnbLib
 			return CELLSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

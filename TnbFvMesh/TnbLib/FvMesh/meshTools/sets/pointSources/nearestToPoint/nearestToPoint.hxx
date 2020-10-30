@@ -55,7 +55,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- Points to select nearest to
 		pointField points_;
@@ -63,32 +63,36 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("nearestToPoint");
+		/*TypeName("nearestToPoint");*/
+		static const char* typeName_() { return "nearestToPoint"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		nearestToPoint
+		FoamFvMesh_EXPORT nearestToPoint
 		(
 			const polyMesh& mesh,
 			const pointField& points
 		);
 
 		//- Construct from dictionary
-		nearestToPoint
+		FoamFvMesh_EXPORT nearestToPoint
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		nearestToPoint
+		FoamFvMesh_EXPORT nearestToPoint
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -96,7 +100,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~nearestToPoint();
+		FoamFvMesh_EXPORT virtual ~nearestToPoint();
 
 
 		// Member Functions
@@ -106,7 +110,7 @@ namespace tnbLib
 			return POINTSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

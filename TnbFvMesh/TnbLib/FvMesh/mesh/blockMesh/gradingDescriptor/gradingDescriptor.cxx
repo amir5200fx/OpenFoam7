@@ -64,7 +64,7 @@ tnbLib::gradingDescriptor tnbLib::gradingDescriptor::inv() const
 
 // * * * * * * * * * * * * * * * Member Operators  * * * * * * * * * * * * * //
 
-bool tnbLib::gradingDescriptor::operator==(const gradingDescriptor& gd) const
+FoamFvMesh_EXPORT bool tnbLib::gradingDescriptor::operator==(const gradingDescriptor& gd) const
 {
 	return
 		equal(blockFraction_, gd.blockFraction_)
@@ -73,7 +73,7 @@ bool tnbLib::gradingDescriptor::operator==(const gradingDescriptor& gd) const
 }
 
 
-bool tnbLib::gradingDescriptor::operator!=(const gradingDescriptor& gd) const
+FoamFvMesh_EXPORT bool tnbLib::gradingDescriptor::operator!=(const gradingDescriptor& gd) const
 {
 	return !operator==(gd);
 }
@@ -81,7 +81,7 @@ bool tnbLib::gradingDescriptor::operator!=(const gradingDescriptor& gd) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, gradingDescriptor& gd)
+FoamFvMesh_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, gradingDescriptor& gd)
 {
 	// Examine next token
 	token t(is);
@@ -105,7 +105,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, gradingDescriptor& gd)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const gradingDescriptor& gd)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const gradingDescriptor& gd)
 {
 	if (equal(gd.blockFraction_, 1))
 	{

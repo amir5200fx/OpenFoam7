@@ -81,12 +81,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("searchableSurface");
+		/*TypeName("searchableSurface");*/
+		static const char* typeName_() { return "searchableSurface"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Declare run-time constructor selection table
 
 			// For the dictionary constructor
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			searchableSurface,
@@ -96,7 +100,54 @@ namespace tnbLib
 				const dictionary& dict
 				),
 				(io, dict)
-		);
+		);*/
+
+		typedef autoPtr<searchableSurface> (*dictConstructorPtr)(const IOobject& io, const dictionary& dict);
+		typedef HashTable<dictConstructorPtr, word, string::hash> dictConstructorTable;
+		static FoamFvMesh_EXPORT dictConstructorTable* dictConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructdictConstructorTables();
+		static FoamFvMesh_EXPORT void destroydictConstructorTables();
+
+		template <class searchableSurfaceType>
+		class adddictConstructorToTable
+		{
+		public:
+			static autoPtr<searchableSurface> New(const IOobject& io, const dictionary& dict)
+			{
+				return autoPtr<searchableSurface>(new searchableSurfaceType(io, dict));
+			}
+
+			adddictConstructorToTable(const word& lookup = searchableSurfaceType::typeName)
+			{
+				constructdictConstructorTables();
+				if (!dictConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "searchableSurface" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictConstructorToTable() { destroydictConstructorTables(); }
+		};
+
+		template <class searchableSurfaceType>
+		class addRemovabledictConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<searchableSurface> New(const IOobject& io, const dictionary& dict)
+			{
+				return autoPtr<searchableSurface>(new searchableSurfaceType(io, dict));
+			}
+
+			addRemovabledictConstructorToTable(const word& lookup = searchableSurfaceType::typeName) : lookup_(lookup)
+			{
+				constructdictConstructorTables();
+				dictConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictConstructorToTable() { if (dictConstructorTablePtr_) { dictConstructorTablePtr_->erase(lookup_); } }
+		};;
 
 
 		//- Class used for the read-construction of
@@ -127,10 +178,10 @@ namespace tnbLib
 
 		// Constructors
 
-		searchableSurface(const IOobject& io);
+		FoamFvMesh_EXPORT searchableSurface(const IOobject& io);
 
 		//- Disallow default bitwise copy construction
-		searchableSurface(const searchableSurface&) = delete;
+		FoamFvMesh_EXPORT searchableSurface(const searchableSurface&) = delete;
 
 		//- Clone
 		virtual autoPtr<searchableSurface> clone() const
@@ -143,7 +194,7 @@ namespace tnbLib
 		// Selectors
 
 			//- Return a reference to the selected searchableSurface
-		static autoPtr<searchableSurface> New
+		static FoamFvMesh_EXPORT autoPtr<searchableSurface> New
 		(
 			const word& surfaceType,
 			const IOobject& io,
@@ -152,7 +203,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~searchableSurface();
+		FoamFvMesh_EXPORT virtual ~searchableSurface();
 
 
 		// Member Functions
@@ -170,13 +221,13 @@ namespace tnbLib
 		}
 
 		//- Names of regions
-		virtual const wordList& regions() const = 0;
+		FoamFvMesh_EXPORT virtual const wordList& regions() const = 0;
 
 		//- Whether supports volume type below
-		virtual bool hasVolumeType() const = 0;
+		FoamFvMesh_EXPORT virtual bool hasVolumeType() const = 0;
 
 		//- Range of local indices that can be returned
-		virtual label size() const = 0;
+		FoamFvMesh_EXPORT virtual label size() const = 0;
 
 		//- Range of global indices that can be returned
 		virtual label globalSize() const
@@ -186,21 +237,21 @@ namespace tnbLib
 
 		//- Get representative set of element coordinates
 		//  Usually the element centres (should be of length size()).
-		virtual tmp<pointField> coordinates() const = 0;
+		FoamFvMesh_EXPORT virtual tmp<pointField> coordinates() const = 0;
 
 		//- Get bounding spheres (centre and radius squared), one per element.
 		//  Any point on element is guaranteed to be inside.
-		virtual void boundingSpheres
+		FoamFvMesh_EXPORT virtual void boundingSpheres
 		(
 			pointField& centres,
 			scalarField& radiusSqr
 		) const = 0;
 
 		//- Get the points that define the surface.
-		virtual tmp<pointField> points() const = 0;
+		FoamFvMesh_EXPORT virtual tmp<pointField> points() const = 0;
 
 		//- Does any part of the surface overlap the supplied bound box?
-		virtual bool overlaps(const boundBox& bb) const = 0;
+		FoamFvMesh_EXPORT virtual bool overlaps(const boundBox& bb) const = 0;
 
 		// Single point queries.
 
@@ -259,7 +310,7 @@ namespace tnbLib
 		// Multiple point queries. When surface is distributed the index
 		// should be a global index. Not done yet.
 
-		virtual void findNearest
+		FoamFvMesh_EXPORT virtual void findNearest
 		(
 			const pointField& sample,
 			const scalarField& nearestDistSqr,
@@ -282,7 +333,7 @@ namespace tnbLib
 		//- Find first intersection on segment from start to end.
 		//  Note: searchableSurfacesQueries expects no
 		//  intersection to be found if start==end. Is problem?
-		virtual void findLine
+		FoamFvMesh_EXPORT virtual void findLine
 		(
 			const pointField& start,
 			const pointField& end,
@@ -290,7 +341,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Return any intersection on segment from start to end.
-		virtual void findLineAny
+		FoamFvMesh_EXPORT virtual void findLineAny
 		(
 			const pointField& start,
 			const pointField& end,
@@ -298,7 +349,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Get all intersections in order from start to end.
-		virtual void findLineAll
+		FoamFvMesh_EXPORT virtual void findLineAll
 		(
 			const pointField& start,
 			const pointField& end,
@@ -306,14 +357,14 @@ namespace tnbLib
 		) const = 0;
 
 		//- From a set of points and indices get the region
-		virtual void getRegion
+		FoamFvMesh_EXPORT virtual void getRegion
 		(
 			const List<pointIndexHit>&,
 			labelList& region
 		) const = 0;
 
 		//- From a set of points and indices get the normal
-		virtual void getNormal
+		FoamFvMesh_EXPORT virtual void getNormal
 		(
 			const List<pointIndexHit>&,
 			vectorField& normal
@@ -321,7 +372,7 @@ namespace tnbLib
 
 		//- Determine type (inside/outside) for point. unknown if
 		//  cannot be determined (e.g. non-manifold surface)
-		virtual void getVolumeType
+		FoamFvMesh_EXPORT virtual void getVolumeType
 		(
 			const pointField&,
 			List<volumeType>&
@@ -329,7 +380,7 @@ namespace tnbLib
 
 		//- Find nearest, normal and region. Can be overridden with
 		//  optimised implementation
-		virtual void findNearest
+		FoamFvMesh_EXPORT virtual void findNearest
 		(
 			const pointField& sample,
 			const scalarField& nearestDistSqr,
@@ -371,7 +422,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const searchableSurface&) = delete;
+		FoamFvMesh_EXPORT void operator=(const searchableSurface&) = delete;
 	};
 
 

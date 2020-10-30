@@ -93,14 +93,14 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * Member Operators  * * * * * * * * * * * * * //
 
-	bool tnbLib::geometricSurfacePatch::operator!=(const geometricSurfacePatch& p)
+	FoamFvMesh_EXPORT bool tnbLib::geometricSurfacePatch::operator!=(const geometricSurfacePatch& p)
 		const
 	{
 		return !(*this == p);
 	}
 
 
-	bool tnbLib::geometricSurfacePatch::operator==(const geometricSurfacePatch& p)
+	FoamFvMesh_EXPORT bool tnbLib::geometricSurfacePatch::operator==(const geometricSurfacePatch& p)
 		const
 	{
 		return
@@ -113,7 +113,7 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-	Istream& operator>>(Istream& is, geometricSurfacePatch& gp)
+	FoamFvMesh_EXPORT Istream& operator>>(Istream& is, geometricSurfacePatch& gp)
 	{
 		is >> gp.name_ >> gp.geometricType_;
 
@@ -121,7 +121,7 @@ namespace tnbLib
 	}
 
 
-	Ostream& operator<<(Ostream& os, const geometricSurfacePatch& gp)
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream& os, const geometricSurfacePatch& gp)
 	{
 		gp.write(os);
 		os.check

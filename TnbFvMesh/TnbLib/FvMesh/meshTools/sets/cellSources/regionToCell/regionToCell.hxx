@@ -72,7 +72,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- Name of cellSet to keep to
 		const word setName_;
@@ -87,7 +87,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Mark faces in between selected and unselected elements
-		void markRegionFaces
+		FoamFvMesh_EXPORT void markRegionFaces
 		(
 			const boolList& selectedCell,
 			boolList& regionFace
@@ -95,30 +95,34 @@ namespace tnbLib
 
 		//- Determine for every disconnected region in the mesh whether
 		//  it contains a locationInMesh
-		boolList findRegions(const bool verbose, const regionSplit&) const;
+		FoamFvMesh_EXPORT boolList findRegions(const bool verbose, const regionSplit&) const;
 
 		//- Deselect regions not containing a locationInMesh
-		void unselectOutsideRegions(boolList& selectedCell) const;
+		FoamFvMesh_EXPORT void unselectOutsideRegions(boolList& selectedCell) const;
 
 		//- Deselect one layer of cells from selectedCell
-		void shrinkRegions(boolList& selectedCell) const;
+		FoamFvMesh_EXPORT void shrinkRegions(boolList& selectedCell) const;
 
 		//- Erode a given number of layers from selectedCell. Remove any
 		//  region that gets disconnected that way.
-		void erode(boolList& selectedCell) const;
+		FoamFvMesh_EXPORT void erode(boolList& selectedCell) const;
 
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("regionToCell");
+		/*TypeName("regionToCell");*/
+		static const char* typeName_() { return "regionToCell"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		regionToCell
+		FoamFvMesh_EXPORT regionToCell
 		(
 			const polyMesh& mesh,
 			const word& setName,
@@ -127,14 +131,14 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		regionToCell
+		FoamFvMesh_EXPORT regionToCell
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		regionToCell
+		FoamFvMesh_EXPORT regionToCell
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -142,7 +146,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~regionToCell();
+		FoamFvMesh_EXPORT virtual ~regionToCell();
 
 
 		// Member Functions
@@ -152,7 +156,7 @@ namespace tnbLib
 			return CELLSETSOURCE;
 		}
 
-		virtual void applyToSet(const topoSetSource::setAction action, topoSet&)
+		FoamFvMesh_EXPORT virtual void applyToSet(const topoSetSource::setAction action, topoSet&)
 			const;
 
 	};

@@ -50,7 +50,7 @@ namespace tnbLib
 
 	class surfZoneIOList;
 
-	Ostream& operator<<(Ostream&, const surfZoneIOList&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const surfZoneIOList&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -65,43 +65,47 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("surfZoneList");
+		/*TypeName("surfZoneList");*/
+		static const char* typeName_() { return "surfZoneList"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from IOobject
-		explicit surfZoneIOList(const IOobject&);
+		FoamFvMesh_EXPORT explicit surfZoneIOList(const IOobject&);
 
 		//- Construct from IOobject and surfZoneList
-		surfZoneIOList(const IOobject&, const surfZoneList&);
+		FoamFvMesh_EXPORT surfZoneIOList(const IOobject&, const surfZoneList&);
 
 		//- Construct from IOobject and surfZoneList
-		surfZoneIOList(const IOobject&, surfZoneList&&);
+		FoamFvMesh_EXPORT surfZoneIOList(const IOobject&, surfZoneList&&);
 
 		//- Disallow default bitwise copy construction
-		surfZoneIOList(const surfZoneIOList&) = delete;
+		FoamFvMesh_EXPORT surfZoneIOList(const surfZoneIOList&) = delete;
 
 
 		//- Destructor
-		~surfZoneIOList();
+		FoamFvMesh_EXPORT ~surfZoneIOList();
 
 
 		// Member Functions
 
 			//- writeData member function required by regIOobject
-		bool writeData(Ostream&) const;
+		FoamFvMesh_EXPORT bool writeData(Ostream&) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const surfZoneIOList&) = delete;
+		FoamFvMesh_EXPORT void operator=(const surfZoneIOList&) = delete;
 
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const surfZoneIOList&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const surfZoneIOList&);
 	};
 
 

@@ -12,7 +12,7 @@ namespace tnbLib
 	addToRunTimeSelectionTable(topoSetSource, faceToCell, word);
 	addToRunTimeSelectionTable(topoSetSource, faceToCell, istream);
 
-	template<>
+	/*template<>
 	const char* tnbLib::NamedEnum
 		<
 		tnbLib::faceToCell::faceAction,
@@ -23,7 +23,7 @@ namespace tnbLib
 		"owner",
 		"any",
 		"all"
-	};
+	};*/
 }
 
 

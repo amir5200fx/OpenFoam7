@@ -54,8 +54,8 @@ namespace tnbLib
 	class wallPoint;
 
 	// Forward declaration of friend functions and operators
-	Ostream& operator<<(Ostream&, const wallPoint&);
-	Istream& operator>>(Istream&, wallPoint&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const wallPoint&);
+	FoamFvMesh_EXPORT Istream& operator>>(Istream&, wallPoint&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -210,8 +210,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const wallPoint&);
-		friend Istream& operator>>(Istream&, wallPoint&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const wallPoint&);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream&, wallPoint&);
 	};
 
 

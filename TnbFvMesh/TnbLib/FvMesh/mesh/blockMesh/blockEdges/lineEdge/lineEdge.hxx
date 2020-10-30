@@ -58,16 +58,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("line");
+			//TypeName("line");
+			static const char* typeName_() { return "line"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			lineEdge(const pointField&, const label start, const label end);
+			FoamFvMesh_EXPORT lineEdge(const pointField&, const label start, const label end);
 
 			//- Construct from Istream with a pointField
-			lineEdge
+			FoamFvMesh_EXPORT lineEdge
 			(
 				const dictionary& dict,
 				const label index,
@@ -78,17 +82,17 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~lineEdge();
+			FoamFvMesh_EXPORT virtual ~lineEdge();
 
 
 			// Member Functions
 
 				//- Return the point position corresponding to the curve parameter
 				//  0 <= lambda <= 1
-			point position(const scalar) const;
+			FoamFvMesh_EXPORT point position(const scalar) const;
 
 			//- Return the length of the curve
-			scalar length() const;
+			FoamFvMesh_EXPORT scalar length() const;
 		};
 
 

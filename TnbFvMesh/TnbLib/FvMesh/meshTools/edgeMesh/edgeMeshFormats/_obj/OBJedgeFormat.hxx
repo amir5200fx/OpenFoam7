@@ -60,7 +60,7 @@ namespace tnbLib
 		{
 			// Private Member Functions
 
-			void readVertices
+			FoamFvMesh_EXPORT void readVertices
 			(
 				const string& line,
 				string::size_type& endNum,
@@ -73,10 +73,10 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from file name
-			OBJedgeFormat(const fileName&);
+			FoamFvMesh_EXPORT OBJedgeFormat(const fileName&);
 
 			//- Disallow default bitwise copy construction
-			OBJedgeFormat(const OBJedgeFormat&) = delete;
+			FoamFvMesh_EXPORT OBJedgeFormat(const OBJedgeFormat&) = delete;
 
 
 			// Selectors
@@ -99,10 +99,10 @@ namespace tnbLib
 			// Member Functions
 
 				//- Write surface mesh components by proxy
-			static void write(const fileName&, const edgeMesh&);
+			static FoamFvMesh_EXPORT void write(const fileName&, const edgeMesh&);
 
 			//- Read from file
-			virtual bool read(const fileName&);
+			FoamFvMesh_EXPORT virtual bool read(const fileName&);
 
 			//- Write object file
 			virtual void write(const fileName& name) const
@@ -114,7 +114,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const OBJedgeFormat&) = delete;
+			FoamFvMesh_EXPORT void operator=(const OBJedgeFormat&) = delete;
 		};
 
 

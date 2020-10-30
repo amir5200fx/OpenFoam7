@@ -56,7 +56,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("vtk");
+		//TypeName("vtk");
+		static const char* typeName_() { return "vtk"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

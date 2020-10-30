@@ -28,7 +28,7 @@ namespace tnbLib
 {
 	defineTypeNameAndDebug(mappedPatchBase, 0);
 
-	template<>
+	/*template<>
 	const char* tnbLib::NamedEnum
 		<
 		tnbLib::mappedPatchBase::sampleMode,
@@ -53,7 +53,7 @@ namespace tnbLib
 		"uniform",
 		"nonuniform",
 		"normal"
-	};
+	};*/
 }
 
 

@@ -74,7 +74,7 @@ namespace tnbLib
 
 			// Private Member Functions
 
-			bool read(const fileName&);
+			FoamFvMesh_EXPORT bool read(const fileName&);
 
 
 		public:
@@ -82,14 +82,14 @@ namespace tnbLib
 			// Constructors
 
 				//- Read from file, filling in the information
-			TRIsurfaceFormatCore(const fileName&);
+			FoamFvMesh_EXPORT TRIsurfaceFormatCore(const fileName&);
 
 			//- Disallow default bitwise copy construction
-			TRIsurfaceFormatCore(const TRIsurfaceFormatCore&) = delete;
+			FoamFvMesh_EXPORT TRIsurfaceFormatCore(const TRIsurfaceFormatCore&) = delete;
 
 
 			//- Destructor
-			~TRIsurfaceFormatCore();
+			FoamFvMesh_EXPORT ~TRIsurfaceFormatCore();
 
 
 			// Member Functions
@@ -131,7 +131,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const TRIsurfaceFormatCore&) = delete;
+			FoamFvMesh_EXPORT void operator=(const TRIsurfaceFormatCore&) = delete;
 		};
 
 

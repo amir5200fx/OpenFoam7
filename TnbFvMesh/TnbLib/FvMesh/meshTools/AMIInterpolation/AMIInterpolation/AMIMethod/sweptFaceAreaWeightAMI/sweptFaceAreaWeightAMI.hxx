@@ -112,11 +112,11 @@ namespace tnbLib
 
 			//- Minimum length of a cut as a ratio of the overall projected edge
 			//  length
-		static const scalar minCutRatio_;
+		static FoamFvMesh_EXPORT const scalar minCutRatio_;
 
 		//- Maximum allowable dot product between a source point normal and a
 		//  target triangle
-		static const scalar maxDot_;
+		static FoamFvMesh_EXPORT const scalar maxDot_;
 
 
 		// Private classes
@@ -177,7 +177,7 @@ namespace tnbLib
 		) const;
 
 		//- Write an OBJ file of a face
-		void writeFaceOBJ
+		FoamFvMesh_EXPORT void writeFaceOBJ
 		(
 			const face& f,
 			const pointField& ps,
@@ -185,7 +185,7 @@ namespace tnbLib
 		) const;
 
 		//- Write an OBJ file of the source projection
-		void writeProjectionOBJ
+		FoamFvMesh_EXPORT void writeProjectionOBJ
 		(
 			const label srcN,
 			const FixedList<point, 4>& srcTri,
@@ -198,7 +198,7 @@ namespace tnbLib
 		//  reverse direction the projection will be reduced to span only the
 		//  region in which the projection points forward through the target
 		//  plane. Returns the number of edges in the projection (0, 3 or 4).
-		label getSourceProjection
+		FoamFvMesh_EXPORT label getSourceProjection
 		(
 			FixedList<point, 4>& srcTri,
 			FixedList<point, 4>& srcNrm,
@@ -206,7 +206,7 @@ namespace tnbLib
 		) const;
 
 		//- Get the cutting plane, for an edge of the source projection.
-		plane getCutPlane
+		FoamFvMesh_EXPORT plane getCutPlane
 		(
 			const point& p0,
 			const point& p1,
@@ -216,10 +216,10 @@ namespace tnbLib
 		) const;
 
 		//- The minimum weight below which connections are discarded
-		virtual scalar minWeight() const;
+		FoamFvMesh_EXPORT virtual scalar minWeight() const;
 
 		//- The maximum edge angle that the walk will cross
-		virtual scalar maxWalkAngle() const;
+		FoamFvMesh_EXPORT virtual scalar maxWalkAngle() const;
 
 
 
@@ -230,7 +230,7 @@ namespace tnbLib
 			// Evaluation
 
 				//- Area of intersection between source and target faces
-		virtual scalar interArea
+		FoamFvMesh_EXPORT virtual scalar interArea
 		(
 			const label srcFacei,
 			const label tgtFacei
@@ -240,7 +240,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("sweptFaceAreaWeightAMI");
+		//TypeName("sweptFaceAreaWeightAMI");
+		static const char* typeName_() { return "sweptFaceAreaWeightAMI"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -250,7 +254,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~sweptFaceAreaWeightAMI();
+		FoamFvMesh_EXPORT virtual ~sweptFaceAreaWeightAMI();
 	};
 
 

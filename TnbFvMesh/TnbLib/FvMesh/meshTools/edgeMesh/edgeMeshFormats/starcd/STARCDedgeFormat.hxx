@@ -87,7 +87,7 @@ namespace tnbLib
 
 			// Protected Member Functions
 
-			static void writeCase
+			static FoamFvMesh_EXPORT void writeCase
 			(
 				Ostream&,
 				const pointField&,
@@ -100,10 +100,10 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from file name
-			STARCDedgeFormat(const fileName&);
+			FoamFvMesh_EXPORT STARCDedgeFormat(const fileName&);
 
 			//- Disallow default bitwise copy construction
-			STARCDedgeFormat(const STARCDedgeFormat&) = delete;
+			FoamFvMesh_EXPORT STARCDedgeFormat(const STARCDedgeFormat&) = delete;
 
 
 			// Selectors
@@ -126,10 +126,10 @@ namespace tnbLib
 			// Member Functions
 
 				//- Write edge mesh
-			static void write(const fileName&, const edgeMesh&);
+			static FoamFvMesh_EXPORT void write(const fileName&, const edgeMesh&);
 
 			//- Read from file
-			virtual bool read(const fileName&);
+			FoamFvMesh_EXPORT virtual bool read(const fileName&);
 
 			//- Write object
 			virtual void write(const fileName& name) const
@@ -141,7 +141,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const STARCDedgeFormat&) = delete;
+			FoamFvMesh_EXPORT void operator=(const STARCDedgeFormat&) = delete;
 		};
 
 

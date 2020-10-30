@@ -54,16 +54,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cellSet");
+		/*TypeName("cellSet");*/
+		static const char* typeName_() { return "cellSet"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from IOobject. No checking.
-		cellSet(const IOobject& obj);
+		FoamFvMesh_EXPORT cellSet(const IOobject& obj);
 
 		//- Construct from polyMesh and name. Checks for valid cell ids.
-		cellSet
+		FoamFvMesh_EXPORT cellSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -72,7 +76,7 @@ namespace tnbLib
 		);
 
 		//- Construct empty from size of labelHashSet
-		cellSet
+		FoamFvMesh_EXPORT cellSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -81,7 +85,7 @@ namespace tnbLib
 		);
 
 		//- Construct from existing set
-		cellSet
+		FoamFvMesh_EXPORT cellSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -90,7 +94,7 @@ namespace tnbLib
 		);
 
 		//- Construct from labelHashSet
-		cellSet
+		FoamFvMesh_EXPORT cellSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -102,7 +106,7 @@ namespace tnbLib
 		// Used for tetMesh cellSet only.
 
 			//- Construct from objectRegistry and name.
-		cellSet
+		FoamFvMesh_EXPORT cellSet
 		(
 			const Time&,
 			const word& name,
@@ -111,7 +115,7 @@ namespace tnbLib
 		);
 
 		//- Construct empty from objectRegistry.
-		cellSet
+		FoamFvMesh_EXPORT cellSet
 		(
 			const Time&,
 			const word& name,
@@ -120,7 +124,7 @@ namespace tnbLib
 		);
 
 		//- Construct from labelHashSet
-		cellSet
+		FoamFvMesh_EXPORT cellSet
 		(
 			const Time&,
 			const word& name,
@@ -129,11 +133,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		cellSet(const cellSet&) = delete;
+		FoamFvMesh_EXPORT cellSet(const cellSet&) = delete;
 
 
 		//- Destructor
-		virtual ~cellSet();
+		FoamFvMesh_EXPORT virtual ~cellSet();
 
 
 		// Member Functions
@@ -143,13 +147,13 @@ namespace tnbLib
 		{}
 
 		//- Return max index+1.
-		virtual label maxSize(const polyMesh& mesh) const;
+		FoamFvMesh_EXPORT virtual label maxSize(const polyMesh& mesh) const;
 
 		//- Update any stored data for new labels
-		virtual void updateMesh(const mapPolyMesh& morphMap);
+		FoamFvMesh_EXPORT virtual void updateMesh(const mapPolyMesh& morphMap);
 
 		//- Write maxLen items with label and coordinates.
-		virtual void writeDebug
+		FoamFvMesh_EXPORT virtual void writeDebug
 		(
 			Ostream& os,
 			const primitiveMesh&,

@@ -72,11 +72,11 @@ namespace tnbLib
 
 			//- Precalculate the rational cumulative parameter value
 			//  and the line-length
-		void calcParam();
+		FoamFvMesh_EXPORT void calcParam();
 
 		//- Return the line segment and the local parameter [0..1]
 		//  corresponding to the global lambda [0..1]
-		label localParameter(scalar& lambda) const;
+		FoamFvMesh_EXPORT label localParameter(scalar& lambda) const;
 
 
 	public:
@@ -84,40 +84,40 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		polyLine
+		FoamFvMesh_EXPORT polyLine
 		(
 			const pointField&,
 			const bool notImplementedClosed = false
 		);
 
 		//- Disallow default bitwise copy construction
-		polyLine(const polyLine&) = delete;
+		FoamFvMesh_EXPORT polyLine(const polyLine&) = delete;
 
 
 		// Member Functions
 
 			//- Return const-access to the control-points
-		const pointField& points() const;
+		FoamFvMesh_EXPORT const pointField& points() const;
 
 		//- Return the number of line segments
-		label nSegments() const;
+		FoamFvMesh_EXPORT label nSegments() const;
 
 		//- Return the point position corresponding to the curve parameter
 		//  0 <= lambda <= 1
-		point position(const scalar) const;
+		FoamFvMesh_EXPORT point position(const scalar) const;
 
 		//- Return the point position corresponding to the local parameter
 		//  0 <= lambda <= 1 on the given segment
-		point position(const label segment, const scalar) const;
+		FoamFvMesh_EXPORT point position(const label segment, const scalar) const;
 
 		//- Return the length of the curve
-		scalar length() const;
+		FoamFvMesh_EXPORT scalar length() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const polyLine&) = delete;
+		FoamFvMesh_EXPORT void operator=(const polyLine&) = delete;
 	};
 
 

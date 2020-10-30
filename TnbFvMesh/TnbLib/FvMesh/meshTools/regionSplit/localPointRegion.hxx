@@ -90,7 +90,7 @@ namespace tnbLib
 
 			//- Given minimum cell the points on a face are connected to
 			//  determine the points to be duplicated.
-		void countPointRegions
+		FoamFvMesh_EXPORT void countPointRegions
 		(
 			const polyMesh& mesh,
 			const boolList& candidatePoint,
@@ -99,7 +99,7 @@ namespace tnbLib
 		);
 
 		//- Do all: calculate points that need to be duplicated.
-		void calcPointRegions
+		FoamFvMesh_EXPORT void calcPointRegions
 		(
 			const polyMesh& mesh,
 			boolList& candidatePoint
@@ -108,7 +108,7 @@ namespace tnbLib
 
 		//- Check if two faces are equal. If forward = false checks f1 in
 		//  reverse order.
-		static bool isDuplicate
+		static FoamFvMesh_EXPORT bool isDuplicate
 		(
 			const face& f0,
 			const face& f1,
@@ -118,17 +118,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("localPointRegion");
+		/*ClassName("localPointRegion");*/
+		static const char* typeName_() { return "localPointRegion"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh. Assumes all non-coupled boundary points
 			//  are candidates for duplication
-		localPointRegion(const polyMesh& mesh);
+		FoamFvMesh_EXPORT localPointRegion(const polyMesh& mesh);
 
 		//- Construct from mesh and candidate points for duplication
-		localPointRegion
+		FoamFvMesh_EXPORT localPointRegion
 		(
 			const polyMesh& mesh,
 			const labelList& candidatePoints
@@ -145,7 +148,7 @@ namespace tnbLib
 				//  of same size as the input list
 				//  with -1 or index of other face in the input list.
 				//  Does not handle duplicate faces on both sides of processor patch
-		static labelList findDuplicateFaces
+		static FoamFvMesh_EXPORT labelList findDuplicateFaces
 		(
 			const primitiveMesh&,
 			const labelList&
@@ -153,7 +156,7 @@ namespace tnbLib
 
 		//- Helper routine to find all baffles (two boundary faces
 		//  using the same points but in reverse order)
-		static labelPairList findDuplicateFacePairs(const polyMesh&);
+		static FoamFvMesh_EXPORT labelPairList findDuplicateFacePairs(const polyMesh&);
 
 		// Access
 
@@ -191,7 +194,7 @@ namespace tnbLib
 		// Edit
 
 			//- Force recalculation of locally stored data on topological change
-		void updateMesh(const mapPolyMesh&);
+		FoamFvMesh_EXPORT void updateMesh(const mapPolyMesh&);
 	};
 
 

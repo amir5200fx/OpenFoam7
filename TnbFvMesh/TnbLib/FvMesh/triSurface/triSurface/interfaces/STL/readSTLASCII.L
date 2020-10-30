@@ -31,14 +31,14 @@ License
    ------ local definitions
  \* ------------------------------------------------------------------------ */
 
-#include "IFstream.H"
-#include "triSurface.H"
-#include "floatVector.H"
-#include "OSspecific.H"
-#include "mergePoints.H"
-//#include "memInfo.H"
+#include <IFstream.hxx>
+#include <triSurface.hxx>
+#include <floatVector.hxx>
+#include <OSspecific.hxx>
+#include <mergePoints.hxx>
+//#include <memInfo.hxx>
 
-using namespace Foam;
+using namespace tnbLib;
 
 // Dummy yyFlexLexer::yylex() to keep the linker happy. It is not called
 //! \cond dummy
@@ -243,7 +243,7 @@ endsolid              {space}("endsolid"|"ENDSOLID")({some_space}{word})*
     }
 
 <readSolidName>{string} {
-        word solidName(Foam::string::validate<word>(YYText()));
+        word solidName(tnbLib::string::validate<word>(YYText()));
         if (STLsolidNames_.found(solidName))
         {
             region_ = STLsolidNames_[solidName];
@@ -392,7 +392,7 @@ bool triSurface::readSTLASCII(const fileName& STLfileName)
 
     // Create the lexer obtaining the approximate number of vertices in the STL
     // from the file size
-    STLLexer lexer(&STLstream.stdStream(), Foam::fileSize(STLfileName)/400);
+    STLLexer lexer(&STLstream.stdStream(), tnbLib::fileSize(STLfileName)/400);
     while (lexer.lex() != 0)
     {}
 

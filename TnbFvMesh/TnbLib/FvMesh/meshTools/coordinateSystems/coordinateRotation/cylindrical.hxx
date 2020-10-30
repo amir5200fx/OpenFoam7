@@ -84,31 +84,35 @@ namespace tnbLib
 
 			//- Return the local transformation tensor
 			//  corresponding to the given vector
-		tensor R(const vector& dir) const;
+		FoamFvMesh_EXPORT tensor R(const vector& dir) const;
 
 		//- Initialise transformation tensor field for cell set
-		void init
+		FoamFvMesh_EXPORT void init
 		(
 			const objectRegistry& obr,
 			const List<label>& cells
 		);
 
 		//- Initialise transformation tensor field for all cells
-		void init(const objectRegistry& obr);
+		FoamFvMesh_EXPORT void init(const objectRegistry& obr);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("cylindrical");
+		//TypeName("cylindrical");
+		static const char* typeName_() { return "cylindrical"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from dictionary and objectRegistry
-		cylindrical(const dictionary&, const objectRegistry&);
+		FoamFvMesh_EXPORT cylindrical(const dictionary&, const objectRegistry&);
 
 		//- Construct from components for all cells
-		cylindrical
+		FoamFvMesh_EXPORT cylindrical
 		(
 			const objectRegistry&,
 			const vector& axis,
@@ -116,7 +120,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components for list of cells
-		cylindrical
+		FoamFvMesh_EXPORT cylindrical
 		(
 			const objectRegistry&,
 			const vector& axis,
@@ -125,10 +129,10 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		cylindrical(const dictionary&);
+		FoamFvMesh_EXPORT cylindrical(const dictionary&);
 
 		//- Construct from tensor Field
-		cylindrical(const tensorField&);
+		FoamFvMesh_EXPORT cylindrical(const tensorField&);
 
 		//- Return clone
 		autoPtr<cylindrical> clone() const
@@ -145,10 +149,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Reset rotation to an identity rotation
-		virtual void clear();
+		FoamFvMesh_EXPORT virtual void clear();
 
 		//- Update the rotation for a list of cells
-		virtual void updateCells(const polyMesh& mesh, const labelList& cells);
+		FoamFvMesh_EXPORT virtual void updateCells(const polyMesh& mesh, const labelList& cells);
 
 		//- Return local-to-global transformation tensor
 		virtual const tensor& R() const
@@ -190,22 +194,22 @@ namespace tnbLib
 		}
 
 		//- Transform vectorField using transformation tensor field
-		virtual tmp<vectorField> transform(const vectorField& tf) const;
+		FoamFvMesh_EXPORT virtual tmp<vectorField> transform(const vectorField& tf) const;
 
 		//- Transform vector using transformation tensor
-		virtual vector transform(const vector& v) const;
+		FoamFvMesh_EXPORT virtual vector transform(const vector& v) const;
 
 		//- Transform vector using transformation tensor for component
-		virtual vector transform(const vector& v, const label cmptI) const;
+		FoamFvMesh_EXPORT virtual vector transform(const vector& v, const label cmptI) const;
 
 		//- Inverse transform vectorField using transformation tensor field
-		virtual tmp<vectorField> invTransform(const vectorField& vf) const;
+		FoamFvMesh_EXPORT virtual tmp<vectorField> invTransform(const vectorField& vf) const;
 
 		//- Inverse transform vector using transformation tensor
-		virtual vector invTransform(const vector& v) const;
+		FoamFvMesh_EXPORT virtual vector invTransform(const vector& v) const;
 
 		//- Inverse transform vector using transformation tensor for component
-		virtual vector invTransform(const vector& v, const label cmptI) const;
+		FoamFvMesh_EXPORT virtual vector invTransform(const vector& v, const label cmptI) const;
 
 		//- Return if the rotation is uniform
 		virtual bool uniform() const
@@ -214,13 +218,13 @@ namespace tnbLib
 		}
 
 		//- Transform tensor field using transformation tensorField
-		virtual tmp<tensorField> transformTensor(const tensorField& tf) const;
+		FoamFvMesh_EXPORT virtual tmp<tensorField> transformTensor(const tensorField& tf) const;
 
 		//- Transform tensor using transformation tensorField
-		virtual tensor transformTensor(const tensor& t) const;
+		FoamFvMesh_EXPORT virtual tensor transformTensor(const tensor& t) const;
 
 		//- Transform tensor sub-field using transformation tensorField
-		virtual tmp<tensorField> transformTensor
+		FoamFvMesh_EXPORT virtual tmp<tensorField> transformTensor
 		(
 			const tensorField& tf,
 			const labelList& cellMap
@@ -228,20 +232,20 @@ namespace tnbLib
 
 		//- Transform vectorField using transformation tensorField and return
 		// symmetrical tensorField
-		virtual tmp<symmTensorField> transformVector
+		FoamFvMesh_EXPORT virtual tmp<symmTensorField> transformVector
 		(
 			const vectorField& vf
 		) const;
 
 		//- Transform vector using transformation tensor and return
 		// symmetrical tensor (R & st & R.T())
-		virtual symmTensor transformVector(const vector& v) const;
+		FoamFvMesh_EXPORT virtual symmTensor transformVector(const vector& v) const;
 
 
 		// Write
 
 			//- Write
-		virtual void write(Ostream&) const;
+		FoamFvMesh_EXPORT virtual void write(Ostream&) const;
 	};
 
 

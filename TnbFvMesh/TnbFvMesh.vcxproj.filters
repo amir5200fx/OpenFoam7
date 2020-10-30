@@ -832,6 +832,33 @@
     <Filter Include="TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh\extendedEdgeMeshFormats\extendedEdgeMeshFormat">
       <UniqueIdentifier>{e57314b3-87c2-426d-b987-01c907e9ed22}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\FvMesh\module">
+      <UniqueIdentifier>{ae14414a-8772-4c16-baa8-0fbe70af39fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files\FvMesh\triSurface">
+      <UniqueIdentifier>{f0d431e6-7569-4cc4-9e44-c9f95bfdedd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files\FvMesh\triSurface\triSurface">
+      <UniqueIdentifier>{813cf6fb-ffc9-446a-8dcb-9853d8939194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files\FvMesh\triSurface\triSurface\interfaces">
+      <UniqueIdentifier>{95246ed6-0a3b-4509-aa4c-7f40122fc326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BisonFlex Files\FvMesh\triSurface\triSurface\interfaces\STL">
+      <UniqueIdentifier>{435d6a0f-9de3-4c8f-a135-3ed7ba53f3b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\triSurface">
+      <UniqueIdentifier>{ede1f0b2-55d1-4c69-b413-57a93d22e3f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\triSurface\triSurface">
+      <UniqueIdentifier>{407eaf9d-0418-4949-8628-d414ebe0c119}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\triSurface\triSurface\interfaces">
+      <UniqueIdentifier>{2e50fc18-b694-4ce9-a2bb-1cd3b3204a3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files\triSurface\triSurface\interfaces\STL">
+      <UniqueIdentifier>{1f6bce3c-6e33-428d-a55a-4f4fcdb5b77a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.hxx">
@@ -1974,6 +2001,12 @@
     <ClInclude Include="TnbLib\FvMesh\surfMesh\UnsortedMeshedSurface\UnsortedMeshedSurfaceNewI.hxx">
       <Filter>TnbLib\FvMesh\surfMesh\UnsortedMeshedSurface</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\module\FvMesh_Module.hxx">
+      <Filter>TnbLib\FvMesh\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\nas\NASsurfaceFormatI.hxx">
+      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\nas</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.cxx">
@@ -2822,9 +2855,6 @@
     <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\gts\GTSsurfaceFormatRunTime.cxx">
       <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\gts</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\nas\NASsurfaceFormat.cxx">
-      <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\nas</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\nas\NASsurfaceFormatRunTime.cxx">
       <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\nas</Filter>
     </ClCompile>
@@ -2945,6 +2975,51 @@
     <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh\extendedFeatureEdgeMesh\extendedFeatureEdgeMesh.cxx">
       <Filter>TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh\extendedFeatureEdgeMesh</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\coordinateSystems\coordinateSystemsIOPtrListTypeNameAndDebug.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\coordinateSystems</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\coordSet\coordSetNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\coordSet</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\fileFormats\vtk\vtkUnstructuredReaderNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\fileFormats\vtk</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\AMIInterpolation\faceAreaIntersect\faceAreaIntersectNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\faceAreaIntersect</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh\extendedEdgeMeshNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\edgeMesh\extendedEdgeMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch\mappedPatchBaseNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\mappedPatches\mappedPolyPatch</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\pointToCell\pointToCellNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\pointToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\faceZoneToCell\faceZoneToCellNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\faceZoneToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\cellSources\faceToCell\faceToCellNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\cellSources\faceToCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\pointToFace\pointToFaceNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\pointToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\topoSetSource\topoSetSourceNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\topoSetSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\pointSources\cellToPoint\cellToPointNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\cellToPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\pointSources\faceToPoint\faceToPointNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\pointSources\faceToPoint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\cellToFace\cellToFaceNamedEnum.cxx">
+      <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\cellToFace</Filter>
+    </ClCompile>
+    <ClCompile Include="readSTLASCII.cxx">
+      <Filter>Generated Files\triSurface\triSurface\interfaces\STL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="TnbLib\FvMesh\meshTools\sets\faceSources\normalToFace\normalToFace.cxx">
@@ -2955,6 +3030,9 @@
   <ItemGroup>
     <CustomBuild Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLsurfaceFormatASCII.L">
       <Filter>BisonFlex Files\FvMesh\surfMesh\surfaceFormats\stl</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\STL\readSTLASCII.L">
+      <Filter>BisonFlex Files\FvMesh\triSurface\triSurface\interfaces\STL</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

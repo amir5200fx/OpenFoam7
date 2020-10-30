@@ -62,26 +62,30 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		pointIndexHit findLine
+		FoamFvMesh_EXPORT pointIndexHit findLine
 		(
 			const point& start,
 			const point& end
 		) const;
 
 		//- Return the boundBox of the plane
-		boundBox calcBounds() const;
+		FoamFvMesh_EXPORT boundBox calcBounds() const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("searchablePlane");
+		/*TypeName("searchablePlane");*/
+		static const char* typeName_() { return "searchablePlane"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		searchablePlane
+		FoamFvMesh_EXPORT searchablePlane
 		(
 			const IOobject& io,
 			const point& basePoint,
@@ -89,23 +93,23 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary (used by searchableSurface)
-		searchablePlane
+		FoamFvMesh_EXPORT searchablePlane
 		(
 			const IOobject& io,
 			const dictionary& dict
 		);
 
 		//- Disallow default bitwise copy construction
-		searchablePlane(const searchablePlane&) = delete;
+		FoamFvMesh_EXPORT searchablePlane(const searchablePlane&) = delete;
 
 
 		//- Destructor
-		virtual ~searchablePlane();
+		FoamFvMesh_EXPORT virtual ~searchablePlane();
 
 
 		// Member Functions
 
-		virtual const wordList& regions() const;
+		FoamFvMesh_EXPORT virtual const wordList& regions() const;
 
 		//- Whether supports volume type below
 		virtual bool hasVolumeType() const
@@ -130,7 +134,7 @@ namespace tnbLib
 		//- Get bounding spheres (centre and radius squared), one per element.
 		//  Any point on element is guaranteed to be inside.
 		//  Note: radius limited to sqr(great)
-		virtual void boundingSpheres
+		FoamFvMesh_EXPORT 	virtual void boundingSpheres
 		(
 			pointField& centres,
 			scalarField& radiusSqr
@@ -153,21 +157,21 @@ namespace tnbLib
 
 		// Multiple point queries.
 
-		virtual void findNearest
+		FoamFvMesh_EXPORT virtual void findNearest
 		(
 			const pointField& sample,
 			const scalarField& nearestDistSqr,
 			List<pointIndexHit>&
 		) const;
 
-		virtual void findLine
+		FoamFvMesh_EXPORT virtual void findLine
 		(
 			const pointField& start,
 			const pointField& end,
 			List<pointIndexHit>&
 		) const;
 
-		virtual void findLineAny
+		FoamFvMesh_EXPORT virtual void findLineAny
 		(
 			const pointField& start,
 			const pointField& end,
@@ -175,7 +179,7 @@ namespace tnbLib
 		) const;
 
 		//- Get all intersections in order from start to end.
-		virtual void findLineAll
+		FoamFvMesh_EXPORT virtual void findLineAll
 		(
 			const pointField& start,
 			const pointField& end,
@@ -183,14 +187,14 @@ namespace tnbLib
 		) const;
 
 		//- From a set of points and indices get the region
-		virtual void getRegion
+		FoamFvMesh_EXPORT virtual void getRegion
 		(
 			const List<pointIndexHit>&,
 			labelList& region
 		) const;
 
 		//- From a set of points and indices get the normal
-		virtual void getNormal
+		FoamFvMesh_EXPORT virtual void getNormal
 		(
 			const List<pointIndexHit>&,
 			vectorField& normal
@@ -198,7 +202,7 @@ namespace tnbLib
 
 		//- Determine type (inside/outside/mixed) for point. unknown if
 		//  cannot be determined (e.g. non-manifold surface)
-		virtual void getVolumeType
+		FoamFvMesh_EXPORT virtual void getVolumeType
 		(
 			const pointField&,
 			List<volumeType>&
@@ -217,7 +221,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const searchablePlane&) = delete;
+		FoamFvMesh_EXPORT void operator=(const searchablePlane&) = delete;
 	};
 
 

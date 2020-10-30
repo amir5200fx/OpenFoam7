@@ -55,7 +55,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(cyclicRepeatAMIPolyPatch::typeName_());
+		//TypeName(cyclicRepeatAMIPolyPatch::typeName_());
+		static const char* typeName_() { return cyclicRepeatAMIPolyPatch::typeName_(); }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -69,7 +73,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~cyclicRepeatAMIPointPatch();
+		FoamFvMesh_EXPORT virtual ~cyclicRepeatAMIPointPatch();
 	};
 
 

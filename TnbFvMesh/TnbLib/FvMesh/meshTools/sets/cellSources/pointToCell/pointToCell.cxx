@@ -12,7 +12,7 @@ namespace tnbLib
 	addToRunTimeSelectionTable(topoSetSource, pointToCell, word);
 	addToRunTimeSelectionTable(topoSetSource, pointToCell, istream);
 
-	template<>
+	/*template<>
 	const char* tnbLib::NamedEnum
 		<
 		tnbLib::pointToCell::pointAction,
@@ -21,7 +21,7 @@ namespace tnbLib
 	{
 		"any",
 		"edge"
-	};
+	};*/
 }
 
 

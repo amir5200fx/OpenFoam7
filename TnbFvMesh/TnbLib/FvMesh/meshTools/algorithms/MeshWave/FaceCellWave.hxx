@@ -67,7 +67,18 @@ namespace tnbLib
 							Class FaceCellWaveName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(FaceCellWave);
+	//TemplateName(FaceCellWave);
+	class FaceCellWaveName
+	{
+	public:
+		FaceCellWaveName()
+		{
+		}
+
+		static const char* typeName_() { return "FaceCellWave"; }
+		static const FoamFvMesh_EXPORT word typeName;
+		static FoamFvMesh_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\
@@ -127,7 +138,7 @@ namespace tnbLib
 
 		//- Updates cellInfo with information from neighbour. Updates all
 		//  statistics.
-		bool updateCell
+		FoamFvMesh_EXPORT bool updateCell
 		(
 			const label celli,
 			const label neighbourFacei,
@@ -138,7 +149,7 @@ namespace tnbLib
 
 		//- Updates faceInfo with information from neighbour. Updates all
 		//  statistics.
-		bool updateFace
+		FoamFvMesh_EXPORT bool updateFace
 		(
 			const label facei,
 			const label neighbourCelli,
@@ -149,7 +160,7 @@ namespace tnbLib
 
 		//- Updates faceInfo with information from same face. Updates all
 		//  statistics.
-		bool updateFace
+		FoamFvMesh_EXPORT bool updateFace
 		(
 			const label facei,
 			const Type& neighbourInfo,
@@ -161,14 +172,14 @@ namespace tnbLib
 		// Parallel, cyclic
 
 			//- Debugging: check info on both sides of cyclic
-		void checkCyclic(const polyPatch& pPatch) const;
+		FoamFvMesh_EXPORT void checkCyclic(const polyPatch& pPatch) const;
 
 		//- Has cyclic patch?
 		template<class PatchType>
 		bool hasPatch() const;
 
 		//- Merge received patch data into global data
-		void mergeFaceInfo
+		FoamFvMesh_EXPORT void mergeFaceInfo
 		(
 			const polyPatch& patch,
 			const label nFaces,
@@ -177,7 +188,7 @@ namespace tnbLib
 		);
 
 		//- Extract info for single patch only
-		label getChangedPatchFaces
+		FoamFvMesh_EXPORT label getChangedPatchFaces
 		(
 			const polyPatch& patch,
 			const label startFacei,
@@ -187,7 +198,7 @@ namespace tnbLib
 		) const;
 
 		//- Handle leaving domain. Implementation referred to Type
-		void leaveDomain
+		FoamFvMesh_EXPORT void leaveDomain
 		(
 			const polyPatch& patch,
 			const label nFaces,
@@ -196,7 +207,7 @@ namespace tnbLib
 		) const;
 
 		//- Handle leaving domain. Implementation referred to Type
-		void enterDomain
+		FoamFvMesh_EXPORT void enterDomain
 		(
 			const polyPatch& patch,
 			const label nFaces,
@@ -205,7 +216,7 @@ namespace tnbLib
 		) const;
 
 		//- Offset face labels by constant value
-		static void offset
+		static FoamFvMesh_EXPORT void offset
 		(
 			const polyPatch& patch,
 			const label off,
@@ -214,7 +225,7 @@ namespace tnbLib
 		);
 
 		//- Apply transformation to Type
-		void transform
+		FoamFvMesh_EXPORT void transform
 		(
 			const tensorField& rotTensor,
 			const label nFaces,
@@ -222,7 +233,7 @@ namespace tnbLib
 		);
 
 		//- Apply transformation to Type
-		void transform
+		FoamFvMesh_EXPORT void transform
 		(
 			const vectorTensorTransform& trans,
 			const label nFaces,
@@ -230,27 +241,27 @@ namespace tnbLib
 		);
 
 		//- Merge data from across processor boundaries
-		void handleProcPatches();
+		FoamFvMesh_EXPORT void handleProcPatches();
 
 		//- Merge data from across cyclics
-		void handleCyclicPatches();
+		FoamFvMesh_EXPORT void handleCyclicPatches();
 
 		//- Merge data from across AMI cyclics
-		void handleAMICyclicPatches();
+		FoamFvMesh_EXPORT void handleAMICyclicPatches();
 
 		//- Merge data across explicitly provided local connections (usually
 		//  baffles)
-		void handleExplicitConnections();
+		FoamFvMesh_EXPORT void handleExplicitConnections();
 
 
 		// Protected static data
 
-		static const scalar geomTol_;
-		static scalar propagationTol_;
+		static FoamFvMesh_EXPORT const scalar geomTol_;
+		static FoamFvMesh_EXPORT scalar propagationTol_;
 
 		//- Used as default trackdata value to satisfy default template
 		//  argument.
-		static int dummyTrackData_;
+		static FoamFvMesh_EXPORT int dummyTrackData_;
 
 
 	public:
@@ -274,7 +285,7 @@ namespace tnbLib
 
 			// Construct from mesh. Use setFaceInfo and iterate() to do actual
 			// calculation.
-		FaceCellWave
+		FoamFvMesh_EXPORT FaceCellWave
 		(
 			const polyMesh&,
 			UList<Type>& allFaceInfo,
@@ -285,7 +296,7 @@ namespace tnbLib
 		//- Construct from mesh and list of changed faces with the Type
 		//  for these faces. Iterates until nothing changes or maxIter reached.
 		//  (maxIter can be 0)
-		FaceCellWave
+		FoamFvMesh_EXPORT FaceCellWave
 		(
 			const polyMesh&,
 			const labelList& initialChangedFaces,
@@ -300,7 +311,7 @@ namespace tnbLib
 		//  and list of changed faces with the Type
 		//  for these faces. Iterates until nothing changes or maxIter reached.
 		//  (maxIter can be 0)
-		FaceCellWave
+		FoamFvMesh_EXPORT FaceCellWave
 		(
 			const polyMesh&,
 			const labelPairList& explicitConnections,
@@ -314,7 +325,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		FaceCellWave(const FaceCellWave&) = delete;
+		FoamFvMesh_EXPORT FaceCellWave(const FaceCellWave&) = delete;
 
 
 		//- Destructor
@@ -355,16 +366,16 @@ namespace tnbLib
 		//  - not enough iterations done
 		//  - a disconnected mesh
 		//  - a mesh without walls in it
-		label getUnsetCells() const;
+		FoamFvMesh_EXPORT label getUnsetCells() const;
 
 		//- Get number of unvisited faces
-		label getUnsetFaces() const;
+		FoamFvMesh_EXPORT label getUnsetFaces() const;
 
 
 		// Edit
 
 			//- Set initial changed faces
-		void setFaceInfo
+		FoamFvMesh_EXPORT void setFaceInfo
 		(
 			const labelList& changedFaces,
 			const List<Type>& changedFacesInfo
@@ -372,22 +383,22 @@ namespace tnbLib
 
 		//- Propagate from face to cell. Returns total number of cells
 		//  (over all processors) changed.
-		virtual label faceToCell();
+		FoamFvMesh_EXPORT virtual label faceToCell();
 
 		//- Propagate from cell to face. Returns total number of faces
 		//  (over all processors) changed. (Faces on processorpatches are
 		//  counted double)
-		virtual label cellToFace();
+		FoamFvMesh_EXPORT virtual label cellToFace();
 
 		//- Iterate until no changes or maxIter reached.  Returns actual
 		//  number of iterations.
-		virtual label iterate(const label maxIter);
+		FoamFvMesh_EXPORT virtual label iterate(const label maxIter);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const FaceCellWave&) = delete;
+		FoamFvMesh_EXPORT void operator=(const FaceCellWave&) = delete;
 	};
 
 

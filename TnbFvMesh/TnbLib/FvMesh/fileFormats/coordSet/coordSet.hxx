@@ -72,7 +72,7 @@ namespace tnbLib
 	private:
 
 		//- String representation of coordFormat enums
-		static const NamedEnum<coordFormat, 5> coordFormatNames_;
+		static FoamFvMesh_EXPORT const NamedEnum<coordFormat, 5> coordFormatNames_;
 
 
 	protected:
@@ -92,7 +92,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		coordSet
+		FoamFvMesh_EXPORT coordSet
 		(
 			const word& name,
 			const word& axis
@@ -100,7 +100,7 @@ namespace tnbLib
 
 
 		//- Construct from components
-		coordSet
+		FoamFvMesh_EXPORT coordSet
 		(
 			const word& name,
 			const word& axis,
@@ -128,16 +128,16 @@ namespace tnbLib
 		}
 
 		//- Is axis specification a vector
-		bool hasVectorAxis() const;
+		FoamFvMesh_EXPORT bool hasVectorAxis() const;
 
 		//- Get coordinate of point according to axis specification.
 		//  If axis="distance" is the curveDist[index]
-		scalar scalarCoord(const label index) const;
+		FoamFvMesh_EXPORT scalar scalarCoord(const label index) const;
 
 		//- Get point according to axis="xyz" specification
-		vector vectorCoord(const label index) const;
+		FoamFvMesh_EXPORT vector vectorCoord(const label index) const;
 
-		Ostream& write(Ostream& os) const;
+		FoamFvMesh_EXPORT Ostream& write(Ostream& os) const;
 	};
 
 

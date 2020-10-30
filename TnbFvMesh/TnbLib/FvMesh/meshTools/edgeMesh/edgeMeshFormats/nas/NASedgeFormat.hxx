@@ -60,10 +60,10 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from file name
-			NASedgeFormat(const fileName&);
+			FoamFvMesh_EXPORT NASedgeFormat(const fileName&);
 
 			//- Disallow default bitwise copy construction
-			NASedgeFormat(const NASedgeFormat&) = delete;
+			FoamFvMesh_EXPORT NASedgeFormat(const NASedgeFormat&) = delete;
 
 
 			// Selectors
@@ -86,13 +86,13 @@ namespace tnbLib
 			// Member Functions
 
 				//- Read from a file
-			virtual bool read(const fileName&);
+			FoamFvMesh_EXPORT virtual bool read(const fileName&);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const NASedgeFormat&) = delete;
+			FoamFvMesh_EXPORT void operator=(const NASedgeFormat&) = delete;
 		};
 
 

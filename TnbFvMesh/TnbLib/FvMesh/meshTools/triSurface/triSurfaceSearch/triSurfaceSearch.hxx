@@ -78,7 +78,7 @@ namespace tnbLib
 			//  point : return 1 unique hit
 			//  edge  : return 1 hit if in the cone of the edge faces
 			//        : return 2 hits if outside or on the cone.
-		bool checkUniqueHit
+		FoamFvMesh_EXPORT bool checkUniqueHit
 		(
 			const pointIndexHit& currHit,
 			const DynamicList<pointIndexHit, 1, 1>& hits,
@@ -91,13 +91,13 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from surface. Holds reference to surface!
-		explicit triSurfaceSearch(const triSurface&);
+		FoamFvMesh_EXPORT explicit triSurfaceSearch(const triSurface&);
 
 		//- Construct from surface and dictionary.
-		triSurfaceSearch(const triSurface&, const dictionary& dict);
+		FoamFvMesh_EXPORT triSurfaceSearch(const triSurface&, const dictionary& dict);
 
 		//- Construct from components
-		triSurfaceSearch
+		FoamFvMesh_EXPORT triSurfaceSearch
 		(
 			const triSurface& surface,
 			const scalar tolerance,
@@ -105,20 +105,20 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		triSurfaceSearch(const triSurfaceSearch&) = delete;
+		FoamFvMesh_EXPORT triSurfaceSearch(const triSurfaceSearch&) = delete;
 
 
 		//- Destructor
-		~triSurfaceSearch();
+		FoamFvMesh_EXPORT ~triSurfaceSearch();
 
 
 		// Member Functions
 
 			//- Clear storage
-		void clearOut();
+		FoamFvMesh_EXPORT void clearOut();
 
 		//- Demand driven construction of the octree
-		const indexedOctree<treeDataTriSurface>& tree() const;
+		FoamFvMesh_EXPORT const indexedOctree<treeDataTriSurface>& tree() const;
 
 		//- Return reference to the surface.
 		const triSurface& surface() const
@@ -139,9 +139,9 @@ namespace tnbLib
 		}
 
 		//- Calculate for each searchPoint inside/outside status.
-		boolList calcInside(const pointField& searchPoints) const;
+		FoamFvMesh_EXPORT boolList calcInside(const pointField& searchPoints) const;
 
-		void findNearest
+		FoamFvMesh_EXPORT void findNearest
 		(
 			const pointField& samples,
 			const scalarField& nearestDistSqr,
@@ -153,16 +153,16 @@ namespace tnbLib
 		//  - hit()      : whether nearest point found within bounding box
 		//  - hitPoint() : coordinate of nearest point
 		//  - index()    : surface triangle label
-		pointIndexHit nearest(const point&, const vector& span) const;
+		FoamFvMesh_EXPORT pointIndexHit nearest(const point&, const vector& span) const;
 
-		void findLine
+		FoamFvMesh_EXPORT void findLine
 		(
 			const pointField& start,
 			const pointField& end,
 			List<pointIndexHit>& info
 		) const;
 
-		void findLineAny
+		FoamFvMesh_EXPORT void findLineAny
 		(
 			const pointField& start,
 			const pointField& end,
@@ -170,7 +170,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculate all intersections from start to end
-		void findLineAll
+		FoamFvMesh_EXPORT void findLineAll
 		(
 			const pointField& start,
 			const pointField& end,
@@ -181,7 +181,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const triSurfaceSearch&) = delete;
+		FoamFvMesh_EXPORT void operator=(const triSurfaceSearch&) = delete;
 	};
 
 

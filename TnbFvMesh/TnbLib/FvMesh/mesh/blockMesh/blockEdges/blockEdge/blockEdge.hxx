@@ -48,7 +48,7 @@ namespace tnbLib
 
 	class blockEdge;
 
-	Ostream& operator<<(Ostream&, const blockEdge&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const blockEdge&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -71,7 +71,7 @@ namespace tnbLib
 
 			//- Return a complete point field by appending the start/end points
 			//  to the given list
-		static pointField appendEndPoints
+		static FoamFvMesh_EXPORT pointField appendEndPoints
 		(
 			const pointField&,
 			const label start,
@@ -83,11 +83,15 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("blockEdge");
+		//TypeName("blockEdge");
+		static const char* typeName_() { return "blockEdge"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			blockEdge,
@@ -100,13 +104,67 @@ namespace tnbLib
 				Istream& is
 				),
 				(dict, index, geometry, points, is)
-		);
+		);*/
+
+		typedef autoPtr<blockEdge> (*IstreamConstructorPtr)(const dictionary& dict, const label index,
+		                                                    const searchableSurfaces& geometry, const pointField& points,
+		                                                    Istream& is);
+		typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
+		static FoamFvMesh_EXPORT IstreamConstructorTable* IstreamConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructIstreamConstructorTables();
+		static FoamFvMesh_EXPORT void destroyIstreamConstructorTables();
+
+		template <class blockEdgeType>
+		class addIstreamConstructorToTable
+		{
+		public:
+			static autoPtr<blockEdge> New(const dictionary& dict, const label index, const searchableSurfaces& geometry,
+			                              const pointField& points, Istream& is)
+			{
+				return autoPtr<blockEdge>(new blockEdgeType(dict, index, geometry, points, is));
+			}
+
+			addIstreamConstructorToTable(const word& lookup = blockEdgeType::typeName)
+			{
+				constructIstreamConstructorTables();
+				if (!IstreamConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "blockEdge" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
+		};
+
+		template <class blockEdgeType>
+		class addRemovableIstreamConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<blockEdge> New(const dictionary& dict, const label index, const searchableSurfaces& geometry,
+			                              const pointField& points, Istream& is)
+			{
+				return autoPtr<blockEdge>(new blockEdgeType(dict, index, geometry, points, is));
+			}
+
+			addRemovableIstreamConstructorToTable(const word& lookup = blockEdgeType::typeName) : lookup_(lookup)
+			{
+				constructIstreamConstructorTables();
+				IstreamConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableIstreamConstructorToTable()
+			{
+				if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from components
-		blockEdge
+		FoamFvMesh_EXPORT blockEdge
 		(
 			const pointField& points,
 			const label start,
@@ -114,7 +172,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream setting pointsList
-		blockEdge
+		FoamFvMesh_EXPORT blockEdge
 		(
 			const dictionary& dict,
 			const label index,
@@ -123,10 +181,10 @@ namespace tnbLib
 		);
 
 		//- Clone function
-		virtual autoPtr<blockEdge> clone() const;
+		FoamFvMesh_EXPORT virtual autoPtr<blockEdge> clone() const;
 
 		//- New function which constructs and returns pointer to a blockEdge
-		static autoPtr<blockEdge> New
+		static FoamFvMesh_EXPORT autoPtr<blockEdge> New
 		(
 			const dictionary& dict,
 			const label index,
@@ -202,22 +260,22 @@ namespace tnbLib
 
 		//- Return the point position corresponding to the curve parameter
 		//  0 <= lambda <= 1
-		virtual point position(const scalar) const = 0;
+		FoamFvMesh_EXPORT virtual point position(const scalar) const = 0;
 
 		//- Return the point positions corresponding to the curve parameters
 		//  0 <= lambda <= 1
-		virtual tmp<pointField> position(const scalarList&) const;
+		FoamFvMesh_EXPORT virtual tmp<pointField> position(const scalarList&) const;
 
 		//- Return the length of the curve
-		virtual scalar length() const = 0;
+		FoamFvMesh_EXPORT virtual scalar length() const = 0;
 
 		//- Write edge with variable backsubstitution
-		void write(Ostream&, const dictionary&) const;
+		FoamFvMesh_EXPORT void write(Ostream&, const dictionary&) const;
 
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const blockEdge&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const blockEdge&);
 	};
 
 

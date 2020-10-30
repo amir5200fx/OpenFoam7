@@ -73,21 +73,25 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("sector");
+			//TypeName("sector");
+			static const char* typeName_() { return "sector"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
 				//- Construct from dictionary
-			sector(const dictionary& dict);
+			FoamFvMesh_EXPORT sector(const dictionary& dict);
 
 
 			//- Destructor
-			virtual ~sector();
+			FoamFvMesh_EXPORT virtual ~sector();
 
 
 			// Member Operators
 
-			point operator()
+			FoamFvMesh_EXPORT point operator()
 				(
 					const point& surfacePoint,
 					const vector& surfaceNormal,

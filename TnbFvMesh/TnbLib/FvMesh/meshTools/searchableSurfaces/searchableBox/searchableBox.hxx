@@ -64,7 +64,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Project onto component dir of planePt and update index() (=face)
-		void projectOntoCoordPlane
+		FoamFvMesh_EXPORT void projectOntoCoordPlane
 		(
 			const direction dir,
 			const point& planePt,
@@ -75,7 +75,7 @@ namespace tnbLib
 		using searchableSurface::findNearest;
 
 		//- Returns miss or hit with face (0..5)
-		pointIndexHit findNearest
+		FoamFvMesh_EXPORT pointIndexHit findNearest
 		(
 			const point& bbMid,
 			const point& sample,
@@ -86,32 +86,36 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("searchableBox");
+		/*TypeName("searchableBox");*/
+		static const char* typeName_() { return "searchableBox"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		searchableBox(const IOobject& io, const treeBoundBox& bb);
+		FoamFvMesh_EXPORT searchableBox(const IOobject& io, const treeBoundBox& bb);
 
 		//- Construct from dictionary (used by searchableSurface)
-		searchableBox
+		FoamFvMesh_EXPORT searchableBox
 		(
 			const IOobject& io,
 			const dictionary& dict
 		);
 
 		//- Disallow default bitwise copy construction
-		searchableBox(const searchableBox&) = delete;
+		FoamFvMesh_EXPORT searchableBox(const searchableBox&) = delete;
 
 
 		//- Destructor
-		virtual ~searchableBox();
+		FoamFvMesh_EXPORT virtual ~searchableBox();
 
 
 		// Member Functions
 
-		virtual const wordList& regions() const;
+		FoamFvMesh_EXPORT virtual const wordList& regions() const;
 
 		//- Whether supports volume type below
 		virtual bool hasVolumeType() const
@@ -127,18 +131,18 @@ namespace tnbLib
 
 		//- Get representative set of element coordinates
 		//  Usually the element centres (should be of length size()).
-		virtual tmp<pointField> coordinates() const;
+		FoamFvMesh_EXPORT virtual tmp<pointField> coordinates() const;
 
 		//- Get bounding spheres (centre and radius squared), one per element.
 		//  Any point on element is guaranteed to be inside.
-		virtual void boundingSpheres
+		FoamFvMesh_EXPORT virtual void boundingSpheres
 		(
 			pointField& centres,
 			scalarField& radiusSqr
 		) const;
 
 		//- Get the points that define the surface.
-		virtual tmp<pointField> points() const;
+		FoamFvMesh_EXPORT virtual tmp<pointField> points() const;
 
 		// Does any part of the surface overlap the supplied bound box?
 		virtual bool overlaps(const boundBox& bb) const
@@ -153,7 +157,7 @@ namespace tnbLib
 			//  - bool : any point found nearer than nearestDistSqr
 			//  - label: relevant index in surface (=face 0..5)
 			//  - point: actual nearest point found
-		pointIndexHit findNearest
+		FoamFvMesh_EXPORT pointIndexHit findNearest
 		(
 			const point& sample,
 			const scalar nearestDistSqr
@@ -164,7 +168,7 @@ namespace tnbLib
 		//  - bool : any point found nearer than nearestDistSqr
 		//  - label: relevant index in surface(=?)
 		//  - point: actual nearest point found
-		pointIndexHit findNearestOnEdge
+		FoamFvMesh_EXPORT pointIndexHit findNearestOnEdge
 		(
 			const point& sample,
 			const scalar nearestDistSqr
@@ -178,7 +182,7 @@ namespace tnbLib
 		//  sets:
 		//  - tightest  : bounding box
 		//  - linePoint : corresponding nearest point on line
-		pointIndexHit findNearest
+		FoamFvMesh_EXPORT pointIndexHit findNearest
 		(
 			const linePointRef& ln,
 			treeBoundBox& tightest,
@@ -186,14 +190,14 @@ namespace tnbLib
 		) const;
 
 		//- Find nearest intersection of line between start and end.
-		pointIndexHit findLine
+		FoamFvMesh_EXPORT pointIndexHit findLine
 		(
 			const point& start,
 			const point& end
 		) const;
 
 		//- Find any intersection of line between start and end.
-		pointIndexHit findLineAny
+		FoamFvMesh_EXPORT pointIndexHit findLineAny
 		(
 			const point& start,
 			const point& end
@@ -202,21 +206,21 @@ namespace tnbLib
 
 		// Multiple point queries.
 
-		virtual void findNearest
+		FoamFvMesh_EXPORT virtual void findNearest
 		(
 			const pointField& sample,
 			const scalarField& nearestDistSqr,
 			List<pointIndexHit>&
 		) const;
 
-		virtual void findLine
+		FoamFvMesh_EXPORT virtual void findLine
 		(
 			const pointField& start,
 			const pointField& end,
 			List<pointIndexHit>&
 		) const;
 
-		virtual void findLineAny
+		FoamFvMesh_EXPORT virtual void findLineAny
 		(
 			const pointField& start,
 			const pointField& end,
@@ -224,7 +228,7 @@ namespace tnbLib
 		) const;
 
 		//- Get all intersections in order from start to end.
-		virtual void findLineAll
+		FoamFvMesh_EXPORT virtual void findLineAll
 		(
 			const pointField& start,
 			const pointField& end,
@@ -232,14 +236,14 @@ namespace tnbLib
 		) const;
 
 		//- From a set of points and indices get the region
-		virtual void getRegion
+		FoamFvMesh_EXPORT virtual void getRegion
 		(
 			const List<pointIndexHit>&,
 			labelList& region
 		) const;
 
 		//- From a set of points and indices get the normal
-		virtual void getNormal
+		FoamFvMesh_EXPORT virtual void getNormal
 		(
 			const List<pointIndexHit>&,
 			vectorField& normal
@@ -247,7 +251,7 @@ namespace tnbLib
 
 		//- Determine type (inside/outside/mixed) for point. unknown if
 		//  cannot be determined (e.g. non-manifold surface)
-		virtual void getVolumeType
+		FoamFvMesh_EXPORT virtual void getVolumeType
 		(
 			const pointField&,
 			List<volumeType>&
@@ -266,7 +270,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const searchableBox&) = delete;
+		FoamFvMesh_EXPORT void operator=(const searchableBox&) = delete;
 	};
 
 

@@ -11,7 +11,7 @@ namespace tnbLib
 	defineRunTimeSelectionTable(topoSetSource, word);
 	defineRunTimeSelectionTable(topoSetSource, istream);
 
-	template<>
+	/*template<>
 	const char* tnbLib::NamedEnum
 		<
 		tnbLib::topoSetSource::setAction,
@@ -26,7 +26,7 @@ namespace tnbLib
 		"subset",
 		"list",
 		"remove"
-	};
+	};*/
 }
 
 

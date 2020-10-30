@@ -76,12 +76,12 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Check for too small edges
-		static void checkEdges(const triSurface& surf);
+		static FoamFvMesh_EXPORT void checkEdges(const triSurface& surf);
 
 		//- Intersect selected surface edges (edgeLabels) with surface2.
 		//  Updates *this with pointHits and classification_ with status
 		//  of hitPoint compared to edge end points.
-		void intersectEdges
+		FoamFvMesh_EXPORT void intersectEdges
 		(
 			const triSurface& surf1,
 			const pointField& points1,          // surf1 meshPoints
@@ -94,7 +94,7 @@ namespace tnbLib
 		//  Move point (in points1) by factor*surf1PointTol in direction of
 		//  edge. Mark pointEdges of moved point in affectedEdges.
 		//  Return true if anything changed.
-		bool inlinePerturb
+		FoamFvMesh_EXPORT bool inlinePerturb
 		(
 			const triSurface& surf1,
 			const scalarField& surf1PointTol,
@@ -106,7 +106,7 @@ namespace tnbLib
 
 		//- Perturb single endpoint of edge if edge is algigned with face.
 		//  See inlinePerturb. Return true if anything changed.
-		bool rotatePerturb
+		FoamFvMesh_EXPORT bool rotatePerturb
 		(
 			const triSurface& surf1,
 			const scalarField& surf1PointTol,
@@ -120,7 +120,7 @@ namespace tnbLib
 		//- Perturb edge by shifting in direction trianglecentre - intersection
 		//  when hits close to face. Update points, mark affected edges and
 		//  return true if anything changed.
-		bool offsetPerturb
+		FoamFvMesh_EXPORT bool offsetPerturb
 		(
 			const triSurface& surf1,
 			const triSurface& surf2,
@@ -134,29 +134,32 @@ namespace tnbLib
 
 	public:
 
-		ClassName("edgeIntersections");
+		/*ClassName("edgeIntersections");*/
+		static const char* typeName_() { return "edgeIntersections"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Static Data Members
 
 			//- Cosine between edge and face normal when considered parallel
 			//  (note: should be private and make access- and set- function)
-		static scalar alignedCos_;
+		static FoamFvMesh_EXPORT scalar alignedCos_;
 
 
 		// Static Functions
 
 			//- Calculate min edge length for every surface point
-		static scalarField minEdgeLength(const triSurface& surf);
+		static FoamFvMesh_EXPORT scalarField minEdgeLength(const triSurface& surf);
 
 
 		// Constructors
 
 			//- Construct null
-		edgeIntersections();
+		FoamFvMesh_EXPORT edgeIntersections();
 
 		//- Construct from surface and tolerance
-		edgeIntersections
+		FoamFvMesh_EXPORT edgeIntersections
 		(
 			const triSurface& surf1,
 			const triSurfaceSearch& query2,
@@ -164,7 +167,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components
-		edgeIntersections
+		FoamFvMesh_EXPORT edgeIntersections
 		(
 			const List<List<pointIndexHit>>&,
 			const labelListList&
@@ -190,7 +193,7 @@ namespace tnbLib
 			//  Points will be the new surface points.
 			//  Returns number of iterations needed. (= nIters if still
 			//  has degenerate cuts)
-		label removeDegenerates
+		FoamFvMesh_EXPORT label removeDegenerates
 		(
 			const label nIters,
 			const triSurface& surf1,
@@ -202,7 +205,7 @@ namespace tnbLib
 		//- Merge (or override) edge intersection for a subset
 		//  (given as edge map and face map - for face indices stored in
 		//  pointIndexHit.index())
-		void merge
+		FoamFvMesh_EXPORT void merge
 		(
 			const edgeIntersections&,
 			const labelList& edgeMap,

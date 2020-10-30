@@ -53,7 +53,7 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 
 	class surfZoneIdentifier;
-	Ostream& operator<<(Ostream&, const surfZoneIdentifier&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const surfZoneIdentifier&);
 
 	/*---------------------------------------------------------------------------*\
 						Class surfZoneIdentifier Declaration
@@ -78,10 +78,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		surfZoneIdentifier();
+		FoamFvMesh_EXPORT surfZoneIdentifier();
 
 		//- Construct from components
-		surfZoneIdentifier
+		FoamFvMesh_EXPORT surfZoneIdentifier
 		(
 			const word& name,
 			const label index,
@@ -90,7 +90,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		surfZoneIdentifier
+		FoamFvMesh_EXPORT surfZoneIdentifier
 		(
 			const word& name,
 			const dictionary&,
@@ -98,7 +98,7 @@ namespace tnbLib
 		);
 
 		//- Construct from another zone identifier, resetting the index
-		surfZoneIdentifier
+		FoamFvMesh_EXPORT surfZoneIdentifier
 		(
 			const surfZoneIdentifier&,
 			const label index
@@ -106,7 +106,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~surfZoneIdentifier();
+		FoamFvMesh_EXPORT virtual ~surfZoneIdentifier();
 
 
 		// Member Functions
@@ -142,7 +142,7 @@ namespace tnbLib
 		}
 
 		//- Write surfZoneIdentifier as a dictionary
-		void write(Ostream&) const;
+		FoamFvMesh_EXPORT void write(Ostream&) const;
 
 		//- Write surfZoneIdentifier as a dictionary
 //        void writeDict(Ostream&) const;
@@ -157,7 +157,7 @@ namespace tnbLib
 
 	// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const surfZoneIdentifier&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const surfZoneIdentifier&);
 		//        friend Istream& operator>>(Istream&, surfZoneIdentifier&);
 	};
 

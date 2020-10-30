@@ -62,21 +62,21 @@ namespace tnbLib
 
 			// Private Member Functions
 
-			const searchableSurface& lookupSurface
+			FoamFvMesh_EXPORT const searchableSurface& lookupSurface
 			(
 				const searchableSurfaces& geometry,
 				Istream& is
 			) const;
 
 			//- Convert i,j to single index
-			label index
+			FoamFvMesh_EXPORT label index
 			(
 				const labelPair& n,
 				const labelPair& coord
 			) const;
 
 			//- Calculate lambdas (but unnormalised)
-			void calcLambdas
+			FoamFvMesh_EXPORT void calcLambdas
 			(
 				const labelPair& n,
 				const pointField& points,
@@ -88,13 +88,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("project");
+			//TypeName("project");
+			static const char* typeName_() { return "project"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Istream setting pointsList
-			projectFace
+			FoamFvMesh_EXPORT projectFace
 			(
 				const dictionary& dict,
 				const label index,
@@ -103,7 +107,7 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			projectFace(const projectFace&) = delete;
+			FoamFvMesh_EXPORT projectFace(const projectFace&) = delete;
 
 
 			//- Destructor
@@ -114,7 +118,7 @@ namespace tnbLib
 			// Member Functions
 
 				//- Project the given points onto the surface
-			virtual void project
+			FoamFvMesh_EXPORT virtual void project
 			(
 				const blockDescriptor&,
 				const label blockFacei,
@@ -125,7 +129,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const projectFace&) = delete;
+			FoamFvMesh_EXPORT void operator=(const projectFace&) = delete;
 		};
 
 

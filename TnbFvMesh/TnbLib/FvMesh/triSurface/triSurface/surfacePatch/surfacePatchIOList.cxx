@@ -122,7 +122,7 @@ bool tnbLib::surfacePatchIOList::writeData(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfacePatchIOList& patches)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfacePatchIOList& patches)
 {
 	os << patches.size() << nl << token::BEGIN_LIST;
 

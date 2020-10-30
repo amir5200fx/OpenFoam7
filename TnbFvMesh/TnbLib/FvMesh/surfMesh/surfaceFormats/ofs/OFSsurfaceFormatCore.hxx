@@ -59,7 +59,7 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Write header information and surfZoneList
-			static void writeHeader
+			static FoamFvMesh_EXPORT void writeHeader
 			(
 				Ostream&,
 				const pointField&,
