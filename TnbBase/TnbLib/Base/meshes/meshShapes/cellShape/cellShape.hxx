@@ -163,18 +163,18 @@ namespace tnbLib
 
 		// Friend Operators
 
-		friend bool operator==(const cellShape&, const cellShape&);
+		friend FoamBase_EXPORT bool operator==(const cellShape&, const cellShape&);
 
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, cellShape&);
-		friend Ostream& operator<<(Ostream&, const cellShape&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, cellShape&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const cellShape&);
 	};
 
 
 	template<>
-	Ostream& operator<<(Ostream& os, const InfoProxy<cellShape>& ip);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const InfoProxy<cellShape>& ip);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

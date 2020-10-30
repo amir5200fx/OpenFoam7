@@ -210,14 +210,14 @@ namespace tnbLib
 
 		// friend Operators
 
-		friend bool operator==(const plane&, const plane&);
-		friend bool operator!=(const plane&, const plane&);
+		friend FoamBase_EXPORT bool operator==(const plane&, const plane&);
+		friend FoamBase_EXPORT bool operator!=(const plane&, const plane&);
 
 
 		// IOstream Operators
 
 			//- Write plane properties
-		friend Ostream& operator<<(Ostream&, const plane&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const plane&);
 	};
 
 

@@ -83,13 +83,13 @@ tnbLib::globalIndex::globalIndex(Istream& is)
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, globalIndex& gi)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, globalIndex& gi)
 {
 	return is >> gi.offsets_;
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const globalIndex& gi)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const globalIndex& gi)
 {
 	return os << gi.offsets_;
 }

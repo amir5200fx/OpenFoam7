@@ -373,7 +373,7 @@ void tnbLib::polyPatch::operator=(const polyPatch& p)
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const polyPatch& p)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const polyPatch& p)
 {
 	p.write(os);
 	os.check("Ostream& operator<<(Ostream& os, const polyPatch& p");

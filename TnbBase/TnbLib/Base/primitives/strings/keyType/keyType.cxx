@@ -42,7 +42,7 @@ bool tnbLib::keyType::match
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, keyType& kw)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, keyType& kw)
 {
 	token t(is);
 
@@ -90,7 +90,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, keyType& kw)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const keyType& kw)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const keyType& kw)
 {
 	os.write(kw);
 	os.check("Ostream& operator<<(Ostream&, const keyType&)");

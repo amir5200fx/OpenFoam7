@@ -79,7 +79,7 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const Tensor I;
+		static FoamBase_EXPORT const Tensor I;
 
 
 		//- Component labeling enumeration

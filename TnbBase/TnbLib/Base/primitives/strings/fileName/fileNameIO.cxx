@@ -12,7 +12,7 @@ tnbLib::fileName::fileName(Istream& is)
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, fileName& fn)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, fileName& fn)
 {
 	token t(is);
 
@@ -45,7 +45,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, fileName& fn)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const fileName& fn)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const fileName& fn)
 {
 	os.write(fn);
 	os.check("Ostream& operator<<(Ostream&, const fileName&)");

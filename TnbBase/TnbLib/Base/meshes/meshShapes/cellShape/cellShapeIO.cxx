@@ -5,7 +5,7 @@
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, cellShape& s)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, cellShape& s)
 {
 	bool readEndBracket = false;
 
@@ -68,7 +68,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, cellShape& s)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const cellShape & s)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const cellShape & s)
 {
 	// Write beginning of record
 	os << token::BEGIN_LIST;
@@ -90,7 +90,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const cellShape & s)
 
 
 template<>
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const InfoProxy<cellShape>& ip)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const InfoProxy<cellShape>& ip)
 {
 	const cellShape& cs = ip.t_;
 

@@ -126,7 +126,7 @@ tnbLib::quaternion tnbLib::pow(const quaternion& q, const scalar power)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, quaternion& q)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, quaternion& q)
 {
 	// Read beginning of quaternion
 	is.readBegin("quaternion");
@@ -143,7 +143,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, quaternion& q)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const quaternion& q)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const quaternion& q)
 {
 	os << token::BEGIN_LIST
 		<< q.w() << token::SPACE << q.v()

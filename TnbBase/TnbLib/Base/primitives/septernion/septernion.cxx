@@ -78,7 +78,7 @@ tnbLib::septernion tnbLib::average
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, septernion& s)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, septernion& s)
 {
 	// Read beginning of septernion
 	is.readBegin("septernion");
@@ -95,7 +95,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, septernion& s)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const septernion& s)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const septernion& s)
 {
 	os << token::BEGIN_LIST
 		<< s.t() << token::SPACE << s.r()

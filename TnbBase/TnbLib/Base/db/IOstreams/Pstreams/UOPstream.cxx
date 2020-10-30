@@ -44,11 +44,11 @@ inline void tnbLib::UOPstream::writeToBuffer
 	if (align > 1)
 	{
 		// Align bufPosition. Pads sendBuf_.size() - oldPos characters.
-		alignedPos = align + ((sendBuf_.size() - 1) & ~(align - 1));
+		alignedPos = (label)align + (((label)sendBuf_.size() - 1) & ~((label)align - 1));	//- modified by amir
 	}
 
 	// Extend if necessary
-	sendBuf_.setSize(alignedPos + count);
+	sendBuf_.setSize(alignedPos + (label)count);	//- modified by amir
 
 	const char* dataPtr = reinterpret_cast<const char*>(data);
 	size_t i = count;

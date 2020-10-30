@@ -483,7 +483,7 @@ void tnbLib::plane::writeDict(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-bool tnbLib::operator==(const plane& a, const plane& b)
+FoamBase_EXPORT bool tnbLib::operator==(const plane& a, const plane& b)
 {
 	if (a.point_ == b.point_ && a.normal_ == b.normal_)
 	{
@@ -495,7 +495,7 @@ bool tnbLib::operator==(const plane& a, const plane& b)
 	}
 }
 
-bool tnbLib::operator!=(const plane& a, const plane& b)
+FoamBase_EXPORT bool tnbLib::operator!=(const plane& a, const plane& b)
 {
 	return !(a == b);
 }
@@ -503,7 +503,7 @@ bool tnbLib::operator!=(const plane& a, const plane& b)
 
 // * * * * * * * * * * * * * * * Friend Functions  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const plane& a)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const plane& a)
 {
 	os << a.normal_ << token::SPACE << a.point_;
 

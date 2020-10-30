@@ -40,7 +40,7 @@ See also
 
 \*---------------------------------------------------------------------------*/
 
-#include <Base_Module.hxx>
+#include <includeModule.hxx>
 
 #include <cwchar>
 #include <string>

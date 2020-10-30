@@ -15,7 +15,7 @@ tnbLib::cellModel::cellModel(Istream& is)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const cellModel& c)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const cellModel& c)
 {
 	os << "name" << tab << c.name_ << tab
 		<< "index" << tab << c.index_ << tab
@@ -28,7 +28,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const cellModel& c)
 
 
 template<>
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const InfoProxy<cellModel>& ip)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const InfoProxy<cellModel>& ip)
 {
 	const cellModel& cm = ip.t_;
 

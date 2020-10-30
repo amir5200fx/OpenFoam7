@@ -21,7 +21,7 @@ tnbLib::wordRe::wordRe(Istream& is)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, wordRe& w)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, wordRe& w)
 {
 	token t(is);
 
@@ -68,7 +68,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, wordRe& w)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const wordRe& w)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const wordRe& w)
 {
 	os.writeQuoted(w, w.isPattern());
 	os.check("Ostream& operator<<(Ostream&, const wordRe&)");

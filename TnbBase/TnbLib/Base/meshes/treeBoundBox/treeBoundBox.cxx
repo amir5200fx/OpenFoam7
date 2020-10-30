@@ -619,7 +619,7 @@ void tnbLib::treeBoundBox::writeOBJ(const fileName& fName) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-bool tnbLib::operator==(const treeBoundBox& a, const treeBoundBox& b)
+FoamBase_EXPORT bool tnbLib::operator==(const treeBoundBox& a, const treeBoundBox& b)
 {
 	return operator==
 		(
@@ -629,7 +629,7 @@ bool tnbLib::operator==(const treeBoundBox& a, const treeBoundBox& b)
 }
 
 
-bool tnbLib::operator!=(const treeBoundBox& a, const treeBoundBox& b)
+FoamBase_EXPORT bool tnbLib::operator!=(const treeBoundBox& a, const treeBoundBox& b)
 {
 	return !(a == b);
 }
@@ -637,13 +637,13 @@ bool tnbLib::operator!=(const treeBoundBox& a, const treeBoundBox& b)
 
 // * * * * * * * * * * * * * * * Ostream Operator  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const treeBoundBox& bb)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const treeBoundBox& bb)
 {
 	return os << static_cast<const boundBox&>(bb);
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, treeBoundBox& bb)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, treeBoundBox& bb)
 {
 	return is >> static_cast<boundBox&>(bb);
 }

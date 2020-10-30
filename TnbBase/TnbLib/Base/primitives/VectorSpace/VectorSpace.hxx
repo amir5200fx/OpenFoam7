@@ -110,14 +110,14 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
-		static const char* const componentNames[];
-		static const Form zero;
-		static const Form one;
-		static const Form max;
-		static const Form min;
-		static const Form rootMax;
-		static const Form rootMin;
+		static FoamBase_EXPORT const char* const typeName;
+		static FoamBase_EXPORT const char* const componentNames[];
+		static FoamBase_EXPORT const Form zero;
+		static FoamBase_EXPORT const Form one;
+		static FoamBase_EXPORT const Form max;
+		static FoamBase_EXPORT const Form min;
+		static FoamBase_EXPORT const Form rootMax;
+		static FoamBase_EXPORT const Form rootMin;
 
 
 		// Sub-Block Classes

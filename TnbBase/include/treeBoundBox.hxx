@@ -365,14 +365,14 @@ namespace tnbLib
 
 		// Friend Operators
 
-		friend bool operator==(const treeBoundBox&, const treeBoundBox&);
-		friend bool operator!=(const treeBoundBox&, const treeBoundBox&);
+		friend FoamBase_EXPORT bool operator==(const treeBoundBox&, const treeBoundBox&);
+		friend FoamBase_EXPORT bool operator!=(const treeBoundBox&, const treeBoundBox&);
 
 
 		// IOstream operator
 
-		friend Istream& operator>>(Istream& is, treeBoundBox&);
-		friend Ostream& operator<<(Ostream& os, const treeBoundBox&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream& is, treeBoundBox&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const treeBoundBox&);
 	};
 
 

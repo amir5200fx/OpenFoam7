@@ -5208,6 +5208,9 @@
     <ClInclude Include="TnbLib\Base\db\functionObjects\IOOutputFilter\IOOutputFilterI.hxx">
       <Filter>TnbLib\Base\db\functionObjects\IOOutputFilter</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\Base\module\includeModule.hxx">
+      <Filter>TnbLib\Base\module</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\Base\primitives\zero\zero.cxx">

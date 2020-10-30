@@ -119,7 +119,7 @@ namespace tnbLib
 		FoamBase_EXPORT void orthogonalize();
 
 		//- Normalize each set axis vector to have a unit magnitude
-		FoamBase_EXPORT void normalize();
+		inline void normalize();
 
 		//- Align this triad with the given vector v
 		//  by rotating the most aligned axis to be coincident with v

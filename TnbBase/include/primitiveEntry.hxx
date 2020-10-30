@@ -185,7 +185,7 @@ namespace tnbLib
 
 
 	template<>
-	Ostream& operator<<(Ostream&, const InfoProxy<primitiveEntry>&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<primitiveEntry>&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

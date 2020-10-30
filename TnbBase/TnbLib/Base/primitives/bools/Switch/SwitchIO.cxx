@@ -12,7 +12,7 @@ tnbLib::Switch::Switch(Istream& is)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, Switch& s)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, Switch& s)
 {
 	token t(is);
 
@@ -63,7 +63,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, Switch& s)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const Switch& s)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const Switch& s)
 {
 	os << Switch::names[int(s.switch_)];
 	os.check("Ostream& operator<<(Ostream&, const Switch&)");

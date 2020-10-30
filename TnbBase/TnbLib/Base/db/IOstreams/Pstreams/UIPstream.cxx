@@ -49,7 +49,7 @@ inline void tnbLib::UIPstream::readFromBuffer
 	char* dataPtr = reinterpret_cast<char*>(data);
 	size_t i = count;
 	while (i--) *dataPtr++ = *bufPtr++;
-	externalBufPosition_ += count;
+	externalBufPosition_ += (label)count;  //- modified by amir
 	checkEof();
 }
 
@@ -268,7 +268,7 @@ tnbLib::Istream& tnbLib::UIPstream::read(word& str)
 	size_t len;
 	readFromBuffer(len);
 	str = &externalBuf_[externalBufPosition_];
-	externalBufPosition_ += len + 1;
+	externalBufPosition_ += (label)len + 1;  //- modified by amir
 	checkEof();
 	return *this;
 }
@@ -279,7 +279,7 @@ tnbLib::Istream& tnbLib::UIPstream::read(string& str)
 	size_t len;
 	readFromBuffer(len);
 	str = &externalBuf_[externalBufPosition_];
-	externalBufPosition_ += len + 1;
+	externalBufPosition_ += (label)len + 1;	//- modified by amir
 	checkEof();
 	return *this;
 }

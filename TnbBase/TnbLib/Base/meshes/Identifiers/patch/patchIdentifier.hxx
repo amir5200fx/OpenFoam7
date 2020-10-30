@@ -165,7 +165,7 @@ namespace tnbLib
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const patchIdentifier&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const patchIdentifier&);
 	};
 
 

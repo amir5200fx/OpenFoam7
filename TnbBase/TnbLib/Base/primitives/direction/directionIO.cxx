@@ -13,7 +13,7 @@ tnbLib::direction tnbLib::readDirection(Istream& is)
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, direction& d)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, direction& d)
 {
 	token t(is);
 
@@ -44,7 +44,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, direction& d)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const direction d)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const direction d)
 {
 	os.write(label(d));
 	os.check("Ostream& operator<<(Ostream&, const direction)");
@@ -52,7 +52,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const direction d)
 }
 
 
-std::ostream& tnbLib::operator<<(std::ostream& os, const direction d)
+FoamBase_EXPORT std::ostream& tnbLib::operator<<(std::ostream& os, const direction d)
 {
 	os << int(d);
 	return os;

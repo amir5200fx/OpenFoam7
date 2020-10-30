@@ -164,20 +164,20 @@ namespace tnbLib
 		// Friend operators
 
 			//- Equality operator: true => ptr to models are equal !
-		friend bool operator==(const cellModel&, const cellModel&);
+		friend inline bool operator==(const cellModel&, const cellModel&);
 
 		//- Inequality operator: true => ptr to models are not equal !
-		friend bool operator!=(const cellModel&, const cellModel&);
+		friend inline bool operator!=(const cellModel&, const cellModel&);
 
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const cellModel&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const cellModel&);
 	};
 
 
 	template<>
-	Ostream& operator<<(Ostream& os, const InfoProxy<cellModel>& ip);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const InfoProxy<cellModel>& ip);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

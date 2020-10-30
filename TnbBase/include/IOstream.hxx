@@ -144,7 +144,7 @@ namespace tnbLib
 			}
 
 			//- Return the versionNumber as a character string
-			string str() const;
+			FoamBase_EXPORT string str() const;
 
 
 			// Member Operators
@@ -313,11 +313,11 @@ namespace tnbLib
 
 			//- Check IOstream status for given operation
 			//  print IOstream state if error has occurred
-		virtual bool check(const char* operation) const;
+		FoamBase_EXPORT virtual bool check(const char* operation) const;
 
 		//- Check IOstream status for given operation
 		//  print IOstream state if error has occurred and exit
-		void fatalCheck(const char* operation) const;
+		FoamBase_EXPORT void fatalCheck(const char* operation) const;
 
 		//- Return true if stream has been opened
 		bool opened() const

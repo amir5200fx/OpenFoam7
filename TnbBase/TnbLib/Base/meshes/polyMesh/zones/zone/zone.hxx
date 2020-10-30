@@ -211,7 +211,7 @@ namespace tnbLib
 		// I-O
 
 			//- Ostream Operator
-		friend Ostream& operator<<(Ostream&, const zone&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const zone&);
 	};
 
 

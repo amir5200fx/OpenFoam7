@@ -77,7 +77,7 @@ void tnbLib::patchIdentifier::write(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const patchIdentifier& pi)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const patchIdentifier& pi)
 {
 	pi.write(os);
 	os.check("Ostream& operator<<(Ostream&, const patchIdentifier&)");

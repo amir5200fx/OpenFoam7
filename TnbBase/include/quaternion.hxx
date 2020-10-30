@@ -230,8 +230,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream& is, quaternion&);
-		friend Ostream& operator<<(Ostream& os, const quaternion& C);
+		friend FoamBase_EXPORT Istream& operator>>(Istream& is, quaternion&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const quaternion& C);
 	};
 
 

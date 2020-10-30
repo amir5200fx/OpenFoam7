@@ -126,13 +126,13 @@ namespace tnbLib
 
 		// Friend Operators
 
-		friend word operator&(const word&, const word&);
+		friend inline word operator&(const word&, const word&);
 
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, word&);
-		friend Ostream& operator<<(Ostream&, const word&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, word&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const word&);
 	};
 
 

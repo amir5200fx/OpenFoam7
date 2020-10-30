@@ -289,7 +289,7 @@ tnbLib::point tnbLib::boundBox::nearest(const point& pt) const
 
 // * * * * * * * * * * * * * * * Ostream Operator  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const boundBox& bb)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const boundBox& bb)
 {
 	if (os.format() == IOstream::ASCII)
 	{
@@ -310,7 +310,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const boundBox& bb)
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, boundBox& bb)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, boundBox& bb)
 {
 	if (is.format() == IOstream::ASCII)
 	{

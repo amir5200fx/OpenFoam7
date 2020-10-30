@@ -120,10 +120,10 @@ namespace tnbLib
 		// IOstream Operators
 
 			//- Read peak/size/rss from stream
-		friend Istream& operator>>(Istream&, memInfo&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, memInfo&);
 
 		//- Write peak/size/rss to stream
-		friend Ostream& operator<<(Ostream&, const memInfo&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const memInfo&);
 	};
 
 

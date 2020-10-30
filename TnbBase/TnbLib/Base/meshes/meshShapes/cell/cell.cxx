@@ -254,7 +254,7 @@ tnbLib::scalar tnbLib::cell::mag
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-bool tnbLib::operator==(const cell& a, const cell& b)
+FoamBase_EXPORT bool tnbLib::operator==(const cell& a, const cell& b)
 {
 	// Trivial reject: faces are different size
 	if (a.size() != b.size())

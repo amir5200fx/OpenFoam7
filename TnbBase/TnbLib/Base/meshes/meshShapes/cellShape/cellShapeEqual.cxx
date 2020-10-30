@@ -30,7 +30,7 @@ Description
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-bool tnbLib::operator==(const cellShape& a, const cellShape& b)
+FoamBase_EXPORT bool tnbLib::operator==(const cellShape& a, const cellShape& b)
 {
 	// Basic rule: we assume that the sequence of labels in each list
 	// will be circular in the same order (but not necessarily in the

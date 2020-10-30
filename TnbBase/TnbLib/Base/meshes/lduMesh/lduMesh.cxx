@@ -25,7 +25,7 @@ const tnbLib::objectRegistry& tnbLib::lduMesh::thisDb() const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const InfoProxy<lduMesh>& ip)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const InfoProxy<lduMesh>& ip)
 {
 	const lduMesh& ldum = ip.t_;
 	const lduAddressing& addr = ldum.lduAddr();

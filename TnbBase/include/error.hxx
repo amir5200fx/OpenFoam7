@@ -294,7 +294,7 @@ namespace tnbLib
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const IOerror&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const IOerror&);
 	};
 
 

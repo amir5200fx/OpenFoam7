@@ -153,23 +153,23 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
-		static const char* const componentNames[];
-		static const doubleScalar zero;
-		static const doubleScalar one;
-		static const doubleScalar max;
-		static const doubleScalar min;
-		static const doubleScalar rootMax;
-		static const doubleScalar rootMin;
+		static FoamBase_EXPORT const char* const typeName;
+		static FoamBase_EXPORT const char* const componentNames[];
+		static FoamBase_EXPORT const doubleScalar zero;
+		static FoamBase_EXPORT const doubleScalar one;
+		static FoamBase_EXPORT const doubleScalar max;
+		static FoamBase_EXPORT const doubleScalar min;
+		static FoamBase_EXPORT const doubleScalar rootMax;
+		static FoamBase_EXPORT const doubleScalar rootMin;
 
 
 		// Constructors
 
 			//- Construct from primitive
-		explicit pTraits(const doubleScalar&);
+		FoamBase_EXPORT explicit pTraits(const doubleScalar&);
 
 		//- Construct from Istream
-		pTraits(Istream&);
+		FoamBase_EXPORT pTraits(Istream&);
 
 
 		// Member Functions
@@ -191,7 +191,7 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	//- Return a string representation of a doubleScalar
-	word name(const doubleScalar);
+	FoamBase_EXPORT word name(const doubleScalar);
 
 
 	// Standard C++ transcendental functions
@@ -451,13 +451,13 @@ namespace tnbLib
 
 	doubleScalar readScalar(Istream&);
 
-	void writeEntry(Ostream& os, const doubleScalar value);
+	FoamBase_EXPORT void writeEntry(Ostream& os, const doubleScalar value);
 
 
 	// * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-	Istream& operator>>(Istream&, doubleScalar&);
-	Ostream& operator<<(Ostream&, const doubleScalar);
+	FoamBase_EXPORT Istream& operator>>(Istream&, doubleScalar&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const doubleScalar);
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

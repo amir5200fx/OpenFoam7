@@ -12,7 +12,7 @@ char tnbLib::readChar(Istream& is)
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, char& c)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, char& c)
 {
 	is.read(c);
 	is.check("Istream& operator>>(Istream&, char&)");
@@ -20,7 +20,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, char& c)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const char c)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const char c)
 {
 	os.write(c);
 	os.check("Ostream& operator<<(Ostream&, const char)");
@@ -28,7 +28,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const char c)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const char* s)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const char* s)
 {
 	os.write(s);
 	os.check("Ostream& operator<<(Ostream&, const char*)");

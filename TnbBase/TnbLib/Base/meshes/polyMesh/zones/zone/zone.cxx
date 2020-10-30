@@ -241,7 +241,7 @@ void tnbLib::zone::operator=(labelList&& addr)
 
 // * * * * * * * * * * * * * * * Ostream Operator  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const zone& z)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const zone& z)
 {
 	z.write(os);
 	os.check("Ostream& operator<<(Ostream& f, const zone& z");

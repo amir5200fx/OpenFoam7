@@ -149,8 +149,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream& is, septernion&);
-		friend Ostream& operator<<(Ostream& os, const septernion& C);
+		friend FoamBase_EXPORT Istream& operator>>(Istream& is, septernion&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const septernion& C);
 	};
 
 

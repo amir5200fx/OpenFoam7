@@ -477,10 +477,10 @@ namespace tnbLib
 		// IOstream Operators
 
 			//- Read dictionary from Istream
-		friend Istream& operator>>(Istream&, mapDistributeBase&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, mapDistributeBase&);
 
 		//- Write dictionary to Ostream
-		friend Ostream& operator<<(Ostream&, const mapDistributeBase&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const mapDistributeBase&);
 	};
 
 
