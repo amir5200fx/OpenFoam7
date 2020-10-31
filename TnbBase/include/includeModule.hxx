@@ -2,6 +2,7 @@
 #ifndef _includeModule_Header
 #define _includeModule_Header
 
+include <Base_Module.hxx>
 #ifdef FoamBase_EXPORT_DEFINE
 #include <Base_Module.hxx>
 #endif // FoamBase_EXPORT_DEFINE
