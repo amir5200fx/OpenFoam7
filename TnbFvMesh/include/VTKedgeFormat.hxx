@@ -58,14 +58,14 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Write header information with points
-			static void writeHeader
+			static FoamFvMesh_EXPORT void writeHeader
 			(
 				Ostream&,
 				const pointField&
 			);
 
 			//- Write edges
-			static void writeEdges(Ostream&, const UList<edge>&);
+			static FoamFvMesh_EXPORT void writeEdges(Ostream&, const UList<edge>&);
 
 
 		public:
@@ -74,10 +74,10 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from file name
-			VTKedgeFormat(const fileName&);
+			FoamFvMesh_EXPORT VTKedgeFormat(const fileName&);
 
 			//- Disallow default bitwise copy construction
-			VTKedgeFormat(const VTKedgeFormat&) = delete;
+			FoamFvMesh_EXPORT VTKedgeFormat(const VTKedgeFormat&) = delete;
 
 
 			// Selectors
@@ -100,10 +100,10 @@ namespace tnbLib
 			// Member Functions
 
 				//- Write surface mesh components by proxy
-			static void write(const fileName&, const edgeMesh&);
+			static FoamFvMesh_EXPORT void write(const fileName&, const edgeMesh&);
 
 			//- Read from file
-			virtual bool read(const fileName&);
+			virtual FoamFvMesh_EXPORT bool read(const fileName&);
 
 			//- Write object file
 			virtual void write(const fileName& name) const
@@ -115,7 +115,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const VTKedgeFormat&) = delete;
+			FoamFvMesh_EXPORT void operator=(const VTKedgeFormat&) = delete;
 		};
 
 

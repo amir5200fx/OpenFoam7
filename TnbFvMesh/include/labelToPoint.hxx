@@ -55,7 +55,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- Point labels read from dictionary
 		labelList labels_;
@@ -63,32 +63,36 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("labelToPoint");
+		/*TypeName("labelToPoint");*/
+		static const char* typeName_() { return "labelToPoint"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		labelToPoint
+		FoamFvMesh_EXPORT labelToPoint
 		(
 			const polyMesh& mesh,
 			const labelList& labels
 		);
 
 		//- Construct from dictionary
-		labelToPoint
+		FoamFvMesh_EXPORT labelToPoint
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		labelToPoint
+		FoamFvMesh_EXPORT labelToPoint
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -96,7 +100,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~labelToPoint();
+		FoamFvMesh_EXPORT virtual ~labelToPoint();
 
 
 		// Member Functions
@@ -106,7 +110,7 @@ namespace tnbLib
 			return POINTSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

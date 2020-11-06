@@ -113,13 +113,13 @@ namespace tnbLib
 		}
 
 		//- Update references to storedFaces
-		virtual void updateFacesRef();
+		FoamFvMesh_EXPORT virtual void updateFacesRef();
 
 		//- Update references to storedPoints
-		virtual void updatePointsRef();
+		FoamFvMesh_EXPORT virtual void updatePointsRef();
 
 		//- Update references to storedPoints/storedFaces
-		virtual void updateRefs();
+		FoamFvMesh_EXPORT virtual void updateRefs();
 
 
 	public:
@@ -133,19 +133,23 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName("surfMesh");
+		/*TypeName("surfMesh");*/
+		static const char* typeName_() { return "surfMesh"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Return the mesh sub-directory name (normally "surfMesh")
-		static word meshSubDir;
+		static FoamFvMesh_EXPORT word meshSubDir;
 
 		// Constructors
 
 			//- Construct from IOobject, with alternative surface name
-		explicit surfMesh(const IOobject&, const word& surfName = "");
+		FoamFvMesh_EXPORT explicit surfMesh(const IOobject&, const word& surfName = "");
 
 		//- Construct by transferring components (points, faces) without zones.
 		//  surfZones are added using addZones() member function
-		surfMesh
+		FoamFvMesh_EXPORT surfMesh
 		(
 			const IOobject&,
 			pointField&&,
@@ -154,7 +158,7 @@ namespace tnbLib
 		);
 
 		//- Construct copy/move from MeshedSurface
-		surfMesh
+		FoamFvMesh_EXPORT surfMesh
 		(
 			const IOobject&,
 			MeshedSurface<face>&& surf,
@@ -162,11 +166,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		surfMesh(const surfMesh&);
+		FoamFvMesh_EXPORT surfMesh(const surfMesh&);
 
 
 		//- Destructor
-		virtual ~surfMesh();
+		FoamFvMesh_EXPORT virtual ~surfMesh();
 
 
 		// Member Functions
@@ -174,27 +178,27 @@ namespace tnbLib
 			// Database
 
 				//- Return the local mesh directory (dbDir()/meshSubDir)
-		fileName meshDir() const;
+		FoamFvMesh_EXPORT fileName meshDir() const;
 
 		//- Return the current instance directory for points
 		//  Used in the consruction of geometric mesh data dependent
 		//  on points
-		const fileName& pointsInstance() const;
+		FoamFvMesh_EXPORT const fileName& pointsInstance() const;
 
 		//- Return the current instance directory for faces
-		const fileName& facesInstance() const;
+		FoamFvMesh_EXPORT const fileName& facesInstance() const;
 
 		//- Set the instance for mesh files
-		void setInstance(const fileName&);
+		FoamFvMesh_EXPORT void setInstance(const fileName&);
 
 
 		// Access
 
 			//- Return the number of raw points
-		virtual label nPoints() const;
+		FoamFvMesh_EXPORT virtual label nPoints() const;
 
 		//- Return the number of raw faces
-		virtual label nFaces() const;
+		FoamFvMesh_EXPORT virtual label nFaces() const;
 
 		//- Return number of faces
 		virtual label size() const
@@ -204,10 +208,10 @@ namespace tnbLib
 
 
 		//- Return points
-		virtual const pointField& points() const;
+		FoamFvMesh_EXPORT virtual const pointField& points() const;
 
 		//- Return faces
-		virtual const faceList& faces() const;
+		FoamFvMesh_EXPORT virtual const faceList& faces() const;
 
 		//- Return surface zones
 		virtual const surfZoneList& surfZones() const
@@ -216,10 +220,10 @@ namespace tnbLib
 		}
 
 		//- Check the surface zone definitions
-		void checkZones();
+		FoamFvMesh_EXPORT void checkZones();
 
 		//- Add surface zones
-		void addZones
+		FoamFvMesh_EXPORT void addZones
 		(
 			const List<surfZone>&,
 			const bool validate = true
@@ -227,15 +231,15 @@ namespace tnbLib
 
 		//- Update the mesh based on the mesh files saved in
 		//  time directories
-		virtual readUpdateState readUpdate();
+		FoamFvMesh_EXPORT virtual readUpdateState readUpdate();
 
 		//- Update the mesh corresponding to given map
 
 		//- Remove surface zones
-		void removeZones();
+		FoamFvMesh_EXPORT void removeZones();
 
 		//- Reset mesh primitive data.
-		void resetPrimitives
+		FoamFvMesh_EXPORT void resetPrimitives
 		(
 			pointField&& points,
 			faceList&& faces,
@@ -245,43 +249,43 @@ namespace tnbLib
 
 
 		//- Transfer the contents of the argument and annul the argument
-		void transfer(MeshedSurface<face>&);
+		FoamFvMesh_EXPORT void transfer(MeshedSurface<face>&);
 
 
 		//- Avoid masking the normal objectRegistry write
 		using surfaceRegistry::write;
 
 		//- Write to file
-		static void write(const fileName&, const surfMesh&);
+		static FoamFvMesh_EXPORT void write(const fileName&, const surfMesh&);
 
 		//- Write to file
-		void write(const fileName&);
+		FoamFvMesh_EXPORT void write(const fileName&);
 
 		//  Storage management
 
 			//- Clear geometry
-		void clearGeom();
+		FoamFvMesh_EXPORT void clearGeom();
 
 		//- Clear addressing
-		void clearAddressing();
+		FoamFvMesh_EXPORT void clearAddressing();
 
 		//- Clear all geometry and addressing unnecessary for CFD
-		void clearOut();
+		FoamFvMesh_EXPORT void clearOut();
 
 		//- Clear primitive data (points, faces and cells)
-		void clearPrimitives();
+		FoamFvMesh_EXPORT void clearPrimitives();
 
 		//- Remove all files from mesh instance
-		void removeFiles(const fileName& instanceDir) const;
+		FoamFvMesh_EXPORT void removeFiles(const fileName& instanceDir) const;
 
 		//- Remove all files from mesh instance()
-		void removeFiles() const;
+		FoamFvMesh_EXPORT void removeFiles() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const surfMesh&) = delete;
+		FoamFvMesh_EXPORT void operator=(const surfMesh&) = delete;
 	};
 
 

@@ -86,7 +86,7 @@ namespace tnbLib
 
 			//- Used as default trackdata value to satisfy default template
 			//  argument.
-		static FoamFvMesh_EXPORT int dummyTrackData_;
+		static int dummyTrackData_;
 
 
 	public:

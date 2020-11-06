@@ -75,29 +75,33 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("searchableExtrudedCircle");
+		/*TypeName("searchableExtrudedCircle");*/
+		static const char* typeName_() { return "searchableExtrudedCircle"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from dictionary (used by searchableSurface)
-		searchableExtrudedCircle
+		FoamFvMesh_EXPORT searchableExtrudedCircle
 		(
 			const IOobject& io,
 			const dictionary& dict
 		);
 
 		//- Disallow default bitwise copy construction
-		searchableExtrudedCircle(const searchableExtrudedCircle&) = delete;
+		FoamFvMesh_EXPORT searchableExtrudedCircle(const searchableExtrudedCircle&) = delete;
 
 
 		//- Destructor
-		virtual ~searchableExtrudedCircle();
+		FoamFvMesh_EXPORT virtual ~searchableExtrudedCircle();
 
 
 		// Member Functions
 
-		virtual const wordList& regions() const;
+		FoamFvMesh_EXPORT virtual const wordList& regions() const;
 
 		//- Whether supports volume type below
 		virtual bool hasVolumeType() const
@@ -106,15 +110,15 @@ namespace tnbLib
 		}
 
 		//- Range of local indices that can be returned.
-		virtual label size() const;
+		FoamFvMesh_EXPORT virtual label size() const;
 
 		//- Get representative set of element coordinates
 		//  Usually the element centres (should be of length size()).
-		virtual tmp<pointField> coordinates() const;
+		FoamFvMesh_EXPORT virtual tmp<pointField> coordinates() const;
 
 		//- Get bounding spheres (centre and radius squared), one per element.
 		//  Any point on element is guaranteed to be inside.
-		virtual void boundingSpheres
+		FoamFvMesh_EXPORT virtual void boundingSpheres
 		(
 			pointField& centres,
 			scalarField& radiusSqr
@@ -136,7 +140,7 @@ namespace tnbLib
 
 		// Multiple point queries.
 
-		virtual void findNearest
+		FoamFvMesh_EXPORT virtual void findNearest
 		(
 			const pointField& sample,
 			const scalarField& nearestDistSqr,
@@ -147,7 +151,7 @@ namespace tnbLib
 		//  an interpolated (along the curve) point on the surface.
 		//  The lambdas[0] is equivalent for start, lambdas.last()
 		//  is equivalent for end.
-		virtual void findParametricNearest
+		FoamFvMesh_EXPORT virtual void findParametricNearest
 		(
 			const point& start,
 			const point& end,
@@ -188,14 +192,14 @@ namespace tnbLib
 		}
 
 		//- From a set of points and indices get the region
-		virtual void getRegion
+		FoamFvMesh_EXPORT virtual void getRegion
 		(
 			const List<pointIndexHit>&,
 			labelList& region
 		) const;
 
 		//- From a set of points and indices get the normal
-		virtual void getNormal
+		FoamFvMesh_EXPORT virtual void getNormal
 		(
 			const List<pointIndexHit>&,
 			vectorField& normal
@@ -222,7 +226,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const searchableExtrudedCircle&) = delete;
+		FoamFvMesh_EXPORT void operator=(const searchableExtrudedCircle&) = delete;
 	};
 
 

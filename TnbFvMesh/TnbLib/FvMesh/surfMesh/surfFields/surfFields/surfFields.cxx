@@ -1,3 +1,4 @@
+#define FoamDimensionedField_EXPORT_DEFINE
 #include <surfFields.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

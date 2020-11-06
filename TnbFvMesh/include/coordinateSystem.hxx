@@ -81,8 +81,8 @@ namespace tnbLib
 
 	class coordinateSystem;
 
-	bool operator!=(const coordinateSystem&, const coordinateSystem&);
-	Ostream& operator<<(Ostream&, const coordinateSystem&);
+	FoamFvMesh_EXPORT bool operator!=(const coordinateSystem&, const coordinateSystem&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const coordinateSystem&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -112,11 +112,11 @@ namespace tnbLib
 
 			//- Convert from local coordinate system to the global Cartesian system
 			//  with optional translation for the origin
-		virtual vector localToGlobal(const vector&, bool translate) const;
+		FoamFvMesh_EXPORT virtual vector localToGlobal(const vector&, bool translate) const;
 
 		//- Convert from local coordinate system to the global Cartesian system
 		//  with optional translation for the origin
-		virtual tmp<vectorField> localToGlobal
+		FoamFvMesh_EXPORT virtual tmp<vectorField> localToGlobal
 		(
 			const vectorField&,
 			bool translate
@@ -124,43 +124,47 @@ namespace tnbLib
 
 		//- Convert from global Cartesian system to the local coordinate system
 		//  with optional translation for the origin
-		virtual vector globalToLocal(const vector&, bool translate) const;
+		FoamFvMesh_EXPORT virtual vector globalToLocal(const vector&, bool translate) const;
 
 		//- Convert from global Cartesian system to the local coordinate system
 		//  with optional translation for the origin
-		virtual tmp<vectorField> globalToLocal
+		FoamFvMesh_EXPORT virtual tmp<vectorField> globalToLocal
 		(
 			const vectorField&,
 			bool translate
 		) const;
 
 		//- Init from dict and obr
-		void init(const dictionary&);
+		FoamFvMesh_EXPORT void init(const dictionary&);
 
 		//- Init from dictionary
-		void init(const dictionary&, const objectRegistry&);
+		FoamFvMesh_EXPORT void init(const dictionary&, const objectRegistry&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("coordinateSystem");
+		/*TypeName("coordinateSystem");*/
+		static const char* typeName_() { return "coordinateSystem"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct null. This is equivalent to an identity coordinateSystem
-		coordinateSystem();
+		FoamFvMesh_EXPORT coordinateSystem();
 
 		//- Construct copy with a different name
-		coordinateSystem
+		FoamFvMesh_EXPORT coordinateSystem
 		(
 			const word& name,
 			const coordinateSystem&
 		);
 
 		//- Construct from origin and rotation
-		coordinateSystem
+		FoamFvMesh_EXPORT coordinateSystem
 		(
 			const word& name,
 			const point& origin,
@@ -168,7 +172,7 @@ namespace tnbLib
 		);
 
 		//- Construct from origin and 2 axes
-		coordinateSystem
+		FoamFvMesh_EXPORT coordinateSystem
 		(
 			const word& name,
 			const point& origin,
@@ -177,18 +181,18 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary with a given name
-		coordinateSystem(const word& name, const dictionary&);
+		FoamFvMesh_EXPORT coordinateSystem(const word& name, const dictionary&);
 
 		//- Construct from dictionary with default name
-		coordinateSystem(const dictionary&);
+		FoamFvMesh_EXPORT coordinateSystem(const dictionary&);
 
 		//- Construct from dictionary (default name)
 		//  With the ability to reference global coordinateSystems
-		coordinateSystem(const objectRegistry&, const dictionary&);
+		FoamFvMesh_EXPORT coordinateSystem(const objectRegistry&, const dictionary&);
 
 		//- Construct from Istream
 		//  The Istream contains a word followed by a dictionary
-		coordinateSystem(Istream&);
+		FoamFvMesh_EXPORT coordinateSystem(Istream&);
 
 
 		//- Return clone
@@ -199,7 +203,7 @@ namespace tnbLib
 
 
 		// Declare run-time constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			coordinateSystem,
@@ -209,30 +213,80 @@ namespace tnbLib
 				const dictionary& dict
 				),
 				(obr, dict)
-		);
+		);*/
+
+		typedef autoPtr<coordinateSystem> (*dictionaryConstructorPtr)(const objectRegistry& obr, const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamFvMesh_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructdictionaryConstructorTables();
+		static FoamFvMesh_EXPORT void destroydictionaryConstructorTables();
+
+		template <class coordinateSystemType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<coordinateSystem> New(const objectRegistry& obr, const dictionary& dict)
+			{
+				return autoPtr<coordinateSystem>(new coordinateSystemType(obr, dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = coordinateSystemType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "coordinateSystem" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class coordinateSystemType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<coordinateSystem> New(const objectRegistry& obr, const dictionary& dict)
+			{
+				return autoPtr<coordinateSystem>(new coordinateSystemType(obr, dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = coordinateSystemType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Selectors
 
 			//- Select constructed from dictionary and objectRegistry
-		static autoPtr<coordinateSystem> New
+		static FoamFvMesh_EXPORT autoPtr<coordinateSystem> New
 		(
 			const objectRegistry& obr,
 			const dictionary& dict
 		);
 
 		//- Select constructed from dictionary
-		static autoPtr<coordinateSystem> New
+		static FoamFvMesh_EXPORT autoPtr<coordinateSystem> New
 		(
 			const dictionary& dict
 		);
 
 		//- Select constructed from Istream
-		static autoPtr<coordinateSystem> New(Istream& is);
+		static FoamFvMesh_EXPORT autoPtr<coordinateSystem> New(Istream& is);
 
 
 		//- Destructor
-		virtual ~coordinateSystem();
+		FoamFvMesh_EXPORT virtual ~coordinateSystem();
 
 
 		// Member Functions
@@ -289,7 +343,7 @@ namespace tnbLib
 		//- Return as dictionary of entries
 		//  \param[in] ignoreType drop type (cartesian, cylindrical, etc)
 		//  when generating the dictionary
-		virtual dictionary dict(bool ignoreType = false) const;
+		FoamFvMesh_EXPORT virtual dictionary dict(bool ignoreType = false) const;
 
 
 		// Edit
@@ -308,16 +362,16 @@ namespace tnbLib
 
 		//- Reset origin and rotation to an identity coordinateSystem
 		//  Also resets the note
-		virtual void clear();
+		FoamFvMesh_EXPORT virtual void clear();
 
 
 		// Write
 
 			//- Write
-		virtual void write(Ostream&) const;
+		FoamFvMesh_EXPORT virtual void write(Ostream&) const;
 
 		//- Write dictionary
-		void writeDict(Ostream&, bool subDict = true) const;
+		FoamFvMesh_EXPORT void writeDict(Ostream&, bool subDict = true) const;
 
 
 		// Transformations
@@ -383,7 +437,7 @@ namespace tnbLib
 
 			// friend Operators
 
-		friend bool operator!=
+		friend FoamFvMesh_EXPORT bool operator!=
 			(
 				const coordinateSystem&,
 				const coordinateSystem&
@@ -392,7 +446,7 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const coordinateSystem&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const coordinateSystem&);
 	};
 
 

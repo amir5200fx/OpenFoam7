@@ -53,12 +53,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("blockVertex");
+		//TypeName("blockVertex");
+		static const char* typeName_() { return "blockVertex"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			blockVertex,
@@ -70,19 +74,72 @@ namespace tnbLib
 				Istream& is
 				),
 				(dict, index, geometry, is)
-		);
+		);*/
+
+		typedef autoPtr<blockVertex> (*IstreamConstructorPtr)(const dictionary& dict, const label index,
+		                                                      const searchableSurfaces& geometry, Istream& is);
+		typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
+		static FoamFvMesh_EXPORT IstreamConstructorTable* IstreamConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructIstreamConstructorTables();
+		static FoamFvMesh_EXPORT void destroyIstreamConstructorTables();
+
+		template <class blockVertexType>
+		class addIstreamConstructorToTable
+		{
+		public:
+			static autoPtr<blockVertex> New(const dictionary& dict, const label index, const searchableSurfaces& geometry,
+			                                Istream& is)
+			{
+				return autoPtr<blockVertex>(new blockVertexType(dict, index, geometry, is));
+			}
+
+			addIstreamConstructorToTable(const word& lookup = blockVertexType::typeName)
+			{
+				constructIstreamConstructorTables();
+				if (!IstreamConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "blockVertex" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
+		};
+
+		template <class blockVertexType>
+		class addRemovableIstreamConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<blockVertex> New(const dictionary& dict, const label index, const searchableSurfaces& geometry,
+			                                Istream& is)
+			{
+				return autoPtr<blockVertex>(new blockVertexType(dict, index, geometry, is));
+			}
+
+			addRemovableIstreamConstructorToTable(const word& lookup = blockVertexType::typeName) : lookup_(lookup)
+			{
+				constructIstreamConstructorTables();
+				IstreamConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableIstreamConstructorToTable()
+			{
+				if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct null
-		blockVertex();
+		FoamFvMesh_EXPORT blockVertex();
 
 		//- Clone function
-		virtual autoPtr<blockVertex> clone() const;
+		FoamFvMesh_EXPORT virtual autoPtr<blockVertex> clone() const;
 
 		//- New function which constructs and returns pointer to a blockVertex
-		static autoPtr<blockVertex> New
+		static FoamFvMesh_EXPORT autoPtr<blockVertex> New
 		(
 			const dictionary& dict,
 			const label index,
@@ -121,13 +178,13 @@ namespace tnbLib
 
 		// Member Functions
 
-		virtual operator point() const = 0;
+		FoamFvMesh_EXPORT virtual operator point() const = 0;
 
 		//- Read vertex index with optional name lookup
-		static label read(Istream&, const dictionary&);
+		static FoamFvMesh_EXPORT label read(Istream&, const dictionary&);
 
 		//- Write vertex index with optional name backsubstitution
-		static void write(Ostream&, const label, const dictionary&);
+		static FoamFvMesh_EXPORT void write(Ostream&, const label, const dictionary&);
 	};
 
 

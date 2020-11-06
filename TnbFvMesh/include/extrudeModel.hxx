@@ -68,11 +68,15 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("extrudeModel");
+		//TypeName("extrudeModel");
+		static const char* typeName_() { return "extrudeModel"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			extrudeModel,
@@ -81,47 +85,97 @@ namespace tnbLib
 				const dictionary& dict
 				),
 				(dict)
-		);
+		);*/
+
+		typedef autoPtr<extrudeModel> (*dictionaryConstructorPtr)(const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamFvMesh_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructdictionaryConstructorTables();
+		static FoamFvMesh_EXPORT void destroydictionaryConstructorTables();
+
+		template <class extrudeModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<extrudeModel> New(const dictionary& dict)
+			{
+				return autoPtr<extrudeModel>(new extrudeModelType(dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = extrudeModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "extrudeModel" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class extrudeModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<extrudeModel> New(const dictionary& dict)
+			{
+				return autoPtr<extrudeModel>(new extrudeModelType(dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = extrudeModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from dictionary
-		extrudeModel(const word& modelType, const dictionary&);
+		FoamFvMesh_EXPORT extrudeModel(const word& modelType, const dictionary&);
 
 		//- Disallow default bitwise copy construction
-		extrudeModel(const extrudeModel&) = delete;
+		FoamFvMesh_EXPORT extrudeModel(const extrudeModel&) = delete;
 
 
 		// Selectors
 
 			//- Select null constructed
-		static autoPtr<extrudeModel> New(const dictionary&);
+		static FoamFvMesh_EXPORT autoPtr<extrudeModel> New(const dictionary&);
 
 
 		//- Destructor
-		virtual ~extrudeModel();
+		FoamFvMesh_EXPORT virtual ~extrudeModel();
 
 
 		// Member Functions
 
 			// Access
 
-		label nLayers() const;
+		FoamFvMesh_EXPORT label nLayers() const;
 
-		scalar expansionRatio() const;
+		FoamFvMesh_EXPORT scalar expansionRatio() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const extrudeModel&) = delete;
+		FoamFvMesh_EXPORT void operator=(const extrudeModel&) = delete;
 
 		//- Helper: calculate cumulative relative thickness for layer.
 		//  (layer=0 -> 0; layer=nLayers -> 1)
-		scalar sumThickness(const label layer) const;
+		FoamFvMesh_EXPORT scalar sumThickness(const label layer) const;
 
-		virtual point operator()
+		FoamFvMesh_EXPORT virtual point operator()
 			(
 				const point& surfacePoint,
 				const vector& surfaceNormal,

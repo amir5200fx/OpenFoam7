@@ -70,13 +70,16 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("OBJstream");
+		/*ClassName("OBJstream");*/
+		static const char* typeName_() { return "OBJstream"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from pathname
-		OBJstream
+		FoamFvMesh_EXPORT OBJstream
 		(
 			const fileName& pathname,
 			streamFormat format = ASCII,
@@ -86,7 +89,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~OBJstream();
+		FoamFvMesh_EXPORT ~OBJstream();
 
 
 		// Member Functions
@@ -106,19 +109,19 @@ namespace tnbLib
 		using Ostream::write;
 
 		//- Write character
-		virtual Ostream& write(const char);
+		FoamFvMesh_EXPORT virtual Ostream& write(const char);
 
 		//- Write character string
-		virtual Ostream& write(const char*);
+		FoamFvMesh_EXPORT virtual Ostream& write(const char*);
 
 		//- Write word
-		virtual Ostream& write(const word&);
+		FoamFvMesh_EXPORT virtual Ostream& write(const word&);
 
-		virtual Ostream& write(const string&);
+		FoamFvMesh_EXPORT virtual Ostream& write(const string&);
 
 		//- Write std::string surrounded by quotes.
 		//  Optional write without quotes.
-		virtual Ostream& writeQuoted
+		FoamFvMesh_EXPORT virtual Ostream& writeQuoted
 		(
 			const std::string&,
 			const bool quoted = true
@@ -128,19 +131,19 @@ namespace tnbLib
 		// Direct write functionality
 
 			//- Write point
-		Ostream& write(const point&);
+		FoamFvMesh_EXPORT Ostream& write(const point&);
 
 		//- Write point and vector normal ('vn')
-		Ostream& write(const point&, const vector&);
+		FoamFvMesh_EXPORT Ostream& write(const point&, const vector&);
 
 		//- Write edge as points with line
-		Ostream& write(const edge&, const UList<point>&);
+		FoamFvMesh_EXPORT Ostream& write(const edge&, const UList<point>&);
 
 		//- Write line
-		Ostream& write(const linePointRef&);
+		FoamFvMesh_EXPORT Ostream& write(const linePointRef&);
 
 		//- Write line with points and vector normals ('vn')
-		Ostream& write
+		FoamFvMesh_EXPORT Ostream& write
 		(
 			const linePointRef&,
 			const vector& n0,
@@ -148,10 +151,10 @@ namespace tnbLib
 		);
 
 		//- Write triangle as points with lines or filled polygon
-		Ostream& write(const triPointRef&, const bool lines = true);
+		FoamFvMesh_EXPORT Ostream& write(const triPointRef&, const bool lines = true);
 
 		//- Write face as points with lines or filled polygon
-		Ostream& write
+		FoamFvMesh_EXPORT Ostream& write
 		(
 			const face&,
 			const UList<point>&,
@@ -159,7 +162,7 @@ namespace tnbLib
 		);
 
 		//- Write patch as points and faces with lines or filled polygons
-		Ostream& write
+		FoamFvMesh_EXPORT Ostream& write
 		(
 			const faceList&,
 			const pointField&,

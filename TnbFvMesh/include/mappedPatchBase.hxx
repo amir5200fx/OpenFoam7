@@ -130,9 +130,9 @@ namespace tnbLib
 			NORMAL              // use face normal + distance
 		};
 
-		static const NamedEnum<sampleMode, 6> sampleModeNames_;
+		static FoamFvMesh_EXPORT const NamedEnum<sampleMode, 6> sampleModeNames_;
 
-		static const NamedEnum<offsetMode, 3> offsetModeNames_;
+		static FoamFvMesh_EXPORT const NamedEnum<offsetMode, 3> offsetModeNames_;
 
 
 		//- Helper class for finding nearest
@@ -249,10 +249,10 @@ namespace tnbLib
 
 			//- Get the points from face-centre-decomposition face centres
 			//  and project them onto the face-diagonal-decomposition triangles.
-		tmp<pointField> facePoints(const polyPatch&) const;
+		FoamFvMesh_EXPORT tmp<pointField> facePoints(const polyPatch&) const;
 
 		//- Collect single list of samples and originating processor+face.
-		void collectSamples
+		FoamFvMesh_EXPORT void collectSamples
 		(
 			const pointField& facePoints,
 			pointField&,
@@ -262,7 +262,7 @@ namespace tnbLib
 		) const;
 
 		//- Find cells/faces containing samples
-		void findSamples
+		FoamFvMesh_EXPORT void findSamples
 		(
 			const sampleMode mode,      // search mode
 			const pointField&,
@@ -272,16 +272,16 @@ namespace tnbLib
 		) const;
 
 		//- Get the sample points given the face points
-		tmp<pointField> samplePoints(const pointField&) const;
+		FoamFvMesh_EXPORT tmp<pointField> samplePoints(const pointField&) const;
 
 		//- Calculate mapping
-		void calcMapping() const;
+		FoamFvMesh_EXPORT void calcMapping() const;
 
 		//- Calculate AMI interpolator
-		void calcAMI() const;
+		FoamFvMesh_EXPORT void calcAMI() const;
 
 		//- Helper to read field or non-uniform list from dictionary
-		static tmp<pointField> readListOrField
+		static FoamFvMesh_EXPORT tmp<pointField> readListOrField
 		(
 			const word& keyword,
 			const dictionary& dict,
@@ -292,16 +292,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("mappedPatchBase");
+		/*TypeName("mappedPatchBase");*/
+		static const char* typeName_() { return "mappedPatchBase"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch
-		mappedPatchBase(const polyPatch&);
+		FoamFvMesh_EXPORT mappedPatchBase(const polyPatch&);
 
 		//- Construct with offsetMode=non-uniform
-		mappedPatchBase
+		FoamFvMesh_EXPORT mappedPatchBase
 		(
 			const polyPatch& pp,
 			const word& sampleRegion,
@@ -311,7 +315,7 @@ namespace tnbLib
 		);
 
 		//- Construct from offsetMode=uniform
-		mappedPatchBase
+		FoamFvMesh_EXPORT mappedPatchBase
 		(
 			const polyPatch& pp,
 			const word& sampleRegion,
@@ -321,7 +325,7 @@ namespace tnbLib
 		);
 
 		//- Construct from offsetMode=normal and distance
-		mappedPatchBase
+		FoamFvMesh_EXPORT mappedPatchBase
 		(
 			const polyPatch& pp,
 			const word& sampleRegion,
@@ -331,18 +335,18 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		mappedPatchBase(const polyPatch&, const dictionary&);
+		FoamFvMesh_EXPORT mappedPatchBase(const polyPatch&, const dictionary&);
 
 		//- Construct from dictionary and (collocated) sample mode
 		//  (only for nearestPatchFace, nearestPatchFaceAMI, nearestPatchPoint)
 		//  Assumes zero offset.
-		mappedPatchBase(const polyPatch&, const sampleMode, const dictionary&);
+		FoamFvMesh_EXPORT mappedPatchBase(const polyPatch&, const sampleMode, const dictionary&);
 
 		//- Construct as copy, resetting patch
-		mappedPatchBase(const polyPatch&, const mappedPatchBase&);
+		FoamFvMesh_EXPORT mappedPatchBase(const polyPatch&, const mappedPatchBase&);
 
 		//- Construct as copy, resetting patch, map original data
-		mappedPatchBase
+		FoamFvMesh_EXPORT mappedPatchBase
 		(
 			const polyPatch&,
 			const mappedPatchBase&,
@@ -351,12 +355,12 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~mappedPatchBase();
+		FoamFvMesh_EXPORT virtual ~mappedPatchBase();
 
 
 		// Member Functions
 
-		void clearOut();
+		FoamFvMesh_EXPORT void clearOut();
 
 		// Access
 
@@ -394,19 +398,19 @@ namespace tnbLib
 		) const;
 
 		//- Return a pointer to the AMI projection surface
-		const autoPtr<tnbLib::searchableSurface>& surfPtr() const;
+		FoamFvMesh_EXPORT const autoPtr<tnbLib::searchableSurface>& surfPtr() const;
 
 		//- Get the region mesh
-		const polyMesh& sampleMesh() const;
+		FoamFvMesh_EXPORT const polyMesh& sampleMesh() const;
 
 		//- Get the patch on the region
-		const polyPatch& samplePolyPatch() const;
+		FoamFvMesh_EXPORT const polyPatch& samplePolyPatch() const;
 
 
 		// Helpers
 
 			//- Get the sample points
-		tmp<pointField> samplePoints() const;
+		FoamFvMesh_EXPORT tmp<pointField> samplePoints() const;
 
 		//- Get a point on the face given a face decomposition method:
 		//  face-centre-tet : face centre. Returns index of face.
@@ -414,7 +418,7 @@ namespace tnbLib
 		//  face-diagonal   : intersection of ray from cellcentre to
 		//                    facecentre with any of the triangles.
 		//                    Returns index (0..size-2) of triangle.
-		static pointIndexHit facePoint
+		static FoamFvMesh_EXPORT pointIndexHit facePoint
 		(
 			const polyMesh&,
 			const label facei,
@@ -444,7 +448,7 @@ namespace tnbLib
 		// I/O
 
 			//- Write as a dictionary
-		virtual void write(Ostream&) const;
+		FoamFvMesh_EXPORT virtual void write(Ostream&) const;
 	};
 
 

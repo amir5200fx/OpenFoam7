@@ -68,7 +68,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Read construct from IOobjects
-		MeshedSurfaceIOAllocator
+		FoamFvMesh_EXPORT MeshedSurfaceIOAllocator
 		(
 			const IOobject& ioPoints,
 			const IOobject& ioFaces,
@@ -76,7 +76,7 @@ namespace tnbLib
 		);
 
 		//- Construct from IOobjects, copying components
-		MeshedSurfaceIOAllocator
+		FoamFvMesh_EXPORT MeshedSurfaceIOAllocator
 		(
 			const IOobject& ioPoints,
 			const pointField& points,
@@ -87,7 +87,7 @@ namespace tnbLib
 		);
 
 		//- Construct from IOobjects, possibly transferring components
-		MeshedSurfaceIOAllocator
+		FoamFvMesh_EXPORT MeshedSurfaceIOAllocator
 		(
 			const IOobject& ioPoints,
 			pointField&& points,
@@ -98,7 +98,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		MeshedSurfaceIOAllocator(const MeshedSurfaceIOAllocator&) = delete;
+		FoamFvMesh_EXPORT MeshedSurfaceIOAllocator(const MeshedSurfaceIOAllocator&) = delete;
 
 
 		// Member Functions
@@ -145,17 +145,17 @@ namespace tnbLib
 		//  Storage management
 
 			//- Clear primitive data (points, faces and zones)
-		void clear();
+		FoamFvMesh_EXPORT void clear();
 
 		//- Reset primitive data (points, faces and zones)
-		void resetFaces
+		FoamFvMesh_EXPORT void resetFaces
 		(
 			faceList&& faces,
 			surfZoneList&& zones
 		);
 
 		//- Reset primitive data (points, faces and zones)
-		void reset
+		FoamFvMesh_EXPORT void reset
 		(
 			pointField&& points,
 			faceList&& faces,
@@ -164,7 +164,7 @@ namespace tnbLib
 
 		//- Reset primitive data (points, faces and zones)
 		//  Note, optimized to avoid overwriting data (with null)
-		void reset
+		FoamFvMesh_EXPORT void reset
 		(
 			List<point>&& points,
 			faceList&& faces,
@@ -175,7 +175,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const MeshedSurfaceIOAllocator&) = delete;
+		FoamFvMesh_EXPORT void operator=(const MeshedSurfaceIOAllocator&) = delete;
 	};
 
 

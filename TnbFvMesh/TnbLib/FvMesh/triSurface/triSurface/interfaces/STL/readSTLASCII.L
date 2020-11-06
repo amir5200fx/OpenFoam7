@@ -25,7 +25,7 @@ License
 
 %{
 
-#undef yyFlexLexer
+//#undef yyFlexLexer
 
  /* ------------------------------------------------------------------------ *\
    ------ local definitions

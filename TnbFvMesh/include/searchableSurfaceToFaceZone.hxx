@@ -57,7 +57,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- Surface
 		autoPtr<searchableSurface> surfacePtr_;
@@ -65,12 +65,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("searchableSurfaceToFaceZone");
+		/*TypeName("searchableSurfaceToFaceZone");*/
+		static const char* typeName_() { return "searchableSurfaceToFaceZone"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from dictionary
-		searchableSurfaceToFaceZone
+		FoamFvMesh_EXPORT searchableSurfaceToFaceZone
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
@@ -78,7 +82,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~searchableSurfaceToFaceZone();
+		FoamFvMesh_EXPORT virtual ~searchableSurfaceToFaceZone();
 
 
 		// Member Functions
@@ -88,7 +92,7 @@ namespace tnbLib
 			return FACEZONESOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

@@ -60,8 +60,8 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class edgeMesh;
-	Istream& operator>>(Istream&, edgeMesh&);
-	Ostream& operator<<(Ostream&, const edgeMesh&);
+	FoamFvMesh_EXPORT Istream& operator>>(Istream&, edgeMesh&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const edgeMesh&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -87,7 +87,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate point-edge addressing (inverse of edges)
-		void calcPointEdges() const;
+		FoamFvMesh_EXPORT void calcPointEdges() const;
 
 
 	protected:
@@ -104,58 +104,62 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("edgeMesh");
+		/*TypeName("edgeMesh");*/
+		static const char* typeName_() { return "edgeMesh"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Static
 
 			//- Can we read this file format?
-		static bool canRead(const fileName&, const bool verbose = false);
+		static FoamFvMesh_EXPORT bool canRead(const fileName&, const bool verbose = false);
 
 		//- Can we read this file format?
-		static bool canReadType(const word& ext, const bool verbose = false);
+		static FoamFvMesh_EXPORT bool canReadType(const word& ext, const bool verbose = false);
 
 		//- Can we write this file format type?
-		static bool canWriteType(const word& ext, const bool verbose = false);
+		static FoamFvMesh_EXPORT bool canWriteType(const word& ext, const bool verbose = false);
 
-		static wordHashSet readTypes();
-		static wordHashSet writeTypes();
+		static FoamFvMesh_EXPORT wordHashSet readTypes();
+		static FoamFvMesh_EXPORT wordHashSet writeTypes();
 
 
 		// Constructors
 
 			//- Construct null
-		edgeMesh();
+		FoamFvMesh_EXPORT edgeMesh();
 
 		//- Construct from components
-		edgeMesh(const pointField&, const edgeList&);
+		FoamFvMesh_EXPORT edgeMesh(const pointField&, const edgeList&);
 
 		//- Construct by transferring components (points, edges).
-		edgeMesh
+		FoamFvMesh_EXPORT edgeMesh
 		(
 			pointField&&,
 			edgeList&&
 		);
 
 		//- Copy constructor
-		edgeMesh(const edgeMesh&);
+		FoamFvMesh_EXPORT edgeMesh(const edgeMesh&);
 
 		//- Move constructor
-		edgeMesh(edgeMesh&&);
+		FoamFvMesh_EXPORT edgeMesh(edgeMesh&&);
 
 		//- Construct from file name (uses extension to determine type)
-		edgeMesh(const fileName&);
+		FoamFvMesh_EXPORT edgeMesh(const fileName&);
 
 		//- Construct from file name (uses extension to determine type)
-		edgeMesh(const fileName&, const word& ext);
+		FoamFvMesh_EXPORT edgeMesh(const fileName&, const word& ext);
 
 		//- Construct from Istream
-		edgeMesh(Istream&);
+		FoamFvMesh_EXPORT edgeMesh(Istream&);
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			edgeMesh,
@@ -164,29 +168,73 @@ namespace tnbLib
 				const fileName& name
 				),
 				(name)
-		);
+		);*/
+
+		typedef autoPtr<edgeMesh> (*fileExtensionConstructorPtr)(const fileName& name);
+		typedef HashTable<fileExtensionConstructorPtr, word, string::hash> fileExtensionConstructorTable;
+		static FoamFvMesh_EXPORT fileExtensionConstructorTable* fileExtensionConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructfileExtensionConstructorTables();
+		static FoamFvMesh_EXPORT void destroyfileExtensionConstructorTables();
+
+		template <class edgeMeshType>
+		class addfileExtensionConstructorToTable
+		{
+		public:
+			static autoPtr<edgeMesh> New(const fileName& name) { return autoPtr<edgeMesh>(new edgeMeshType(name)); }
+
+			addfileExtensionConstructorToTable(const word& lookup = edgeMeshType::typeName)
+			{
+				constructfileExtensionConstructorTables();
+				if (!fileExtensionConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "edgeMesh" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addfileExtensionConstructorToTable() { destroyfileExtensionConstructorTables(); }
+		};
+
+		template <class edgeMeshType>
+		class addRemovablefileExtensionConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<edgeMesh> New(const fileName& name) { return autoPtr<edgeMesh>(new edgeMeshType(name)); }
+
+			addRemovablefileExtensionConstructorToTable(const word& lookup = edgeMeshType::typeName) : lookup_(lookup)
+			{
+				constructfileExtensionConstructorTables();
+				fileExtensionConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablefileExtensionConstructorToTable()
+			{
+				if (fileExtensionConstructorTablePtr_) { fileExtensionConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Selectors
 
 			//- Select constructed from filename (explicit extension)
-		static autoPtr<edgeMesh> New
+		static FoamFvMesh_EXPORT autoPtr<edgeMesh> New
 		(
 			const fileName&,
 			const word& ext
 		);
 
 		//- Select constructed from filename (implicit extension)
-		static autoPtr<edgeMesh> New(const fileName&);
+		static FoamFvMesh_EXPORT autoPtr<edgeMesh> New(const fileName&);
 
 
 		//- Destructor
-		virtual ~edgeMesh();
+		FoamFvMesh_EXPORT virtual ~edgeMesh();
 
 
 		// Member Function Selectors
 
-		declareMemberFunctionSelectionTable
+		/*declareMemberFunctionSelectionTable
 		(
 			void,
 			edgeMesh,
@@ -197,25 +245,45 @@ namespace tnbLib
 				const edgeMesh& mesh
 				),
 				(name, mesh)
-		);
+		);*/
+
+		typedef void (*writefileExtensionMemberFunctionPtr)(const fileName& name, const edgeMesh& mesh);
+		typedef HashTable<writefileExtensionMemberFunctionPtr, word, string::hash> writefileExtensionMemberFunctionTable;
+		static FoamFvMesh_EXPORT writefileExtensionMemberFunctionTable* writefileExtensionMemberFunctionTablePtr_;
+
+		template <class edgeMeshType>
+		class addwritefileExtensionMemberFunctionToTable
+		{
+		public:
+			addwritefileExtensionMemberFunctionToTable(const word& lookup = edgeMeshType::typeName)
+			{
+				constructwritefileExtensionMemberFunctionTables();
+				writefileExtensionMemberFunctionTablePtr_->insert(lookup, edgeMeshType::write);
+			}
+
+			~addwritefileExtensionMemberFunctionToTable() { destroywritefileExtensionMemberFunctionTables(); }
+		};
+
+		static FoamFvMesh_EXPORT void constructwritefileExtensionMemberFunctionTables();
+		static FoamFvMesh_EXPORT void destroywritefileExtensionMemberFunctionTables();
 
 		//- Write to file
-		static void write(const fileName&, const edgeMesh&);
+		static FoamFvMesh_EXPORT void write(const fileName&, const edgeMesh&);
 
 
 		// Member Functions
 
 			//- Transfer the contents of the argument and annul the argument
-		void transfer(edgeMesh&);
+		FoamFvMesh_EXPORT void transfer(edgeMesh&);
 
 
 		// Read
 
 			//- Read from file. Chooses reader based on explicit extension
-		bool read(const fileName&, const word& ext);
+		FoamFvMesh_EXPORT bool read(const fileName&, const word& ext);
 
 		//- Read from file. Chooses reader based on detected extension
-		virtual bool read(const fileName&);
+		FoamFvMesh_EXPORT virtual bool read(const fileName&);
 
 
 		// Access
@@ -231,36 +299,36 @@ namespace tnbLib
 
 		//- Find connected regions. Set region number per edge.
 		//  Returns number of regions.
-		label regions(labelList& edgeRegion) const;
+		FoamFvMesh_EXPORT label regions(labelList& edgeRegion) const;
 
 
 		// Edit
 
 			//- Clear all storage
-		virtual void clear();
+		FoamFvMesh_EXPORT virtual void clear();
 
 		//- Reset primitive data (points, edges)
 		//  Note, optimized to avoid overwriting data (with null)
-		virtual void reset
+		FoamFvMesh_EXPORT virtual void reset
 		(
 			pointField&& points,
 			edgeList&& edges
 		);
 
 		//- Scale points. A non-positive factor is ignored
-		virtual void scalePoints(const scalar);
+		FoamFvMesh_EXPORT virtual void scalePoints(const scalar);
 
 		//- Merge common points (points within mergeDist). Return map from
 		//  old to new points.
-		virtual void mergePoints(const scalar mergeDist, labelList&);
+		FoamFvMesh_EXPORT virtual void mergePoints(const scalar mergeDist, labelList&);
 
 		//- Merge duplicate edges
-		virtual void mergeEdges();
+		FoamFvMesh_EXPORT virtual void mergeEdges();
 
 
 		// Write
 
-		virtual void writeStats(Ostream&) const;
+		FoamFvMesh_EXPORT virtual void writeStats(Ostream&) const;
 
 		//- Generic write routine. Chooses writer based on extension.
 		virtual void write(const fileName& name) const
@@ -277,8 +345,8 @@ namespace tnbLib
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const edgeMesh&);
-		friend Istream& operator>>(Istream&, edgeMesh&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const edgeMesh&);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream&, edgeMesh&);
 
 	};
 

@@ -53,6 +53,16 @@ SourceFiles
 #include <primitiveFieldsFwd.hxx>
 #include <labelPair.hxx>
 
+#ifdef FoamFvMesh_EXPORT_DEFINE
+#define FoamFaceCellWave_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFaceCellWave_EXPORT_DEFINE
+#define FoamFaceCellWave_EXPORT __declspec(dllexport)
+#else
+#define FoamFaceCellWave_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -67,7 +77,18 @@ namespace tnbLib
 							Class FaceCellWaveName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(FaceCellWave);
+	//TemplateName(FaceCellWave);
+	class FaceCellWaveName
+	{
+	public:
+		FaceCellWaveName()
+		{
+		}
+
+		static const char* typeName_() { return "FaceCellWave"; }
+		static const FoamFvMesh_EXPORT word typeName;
+		static FoamFvMesh_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\
@@ -245,12 +266,12 @@ namespace tnbLib
 
 		// Protected static data
 
-		static const scalar geomTol_;
-		static scalar propagationTol_;
+		static FoamFaceCellWave_EXPORT const scalar geomTol_;
+		static FoamFaceCellWave_EXPORT scalar propagationTol_;
 
 		//- Used as default trackdata value to satisfy default template
 		//  argument.
-		static int dummyTrackData_;
+		static FoamFaceCellWave_EXPORT int dummyTrackData_;
 
 
 	public:

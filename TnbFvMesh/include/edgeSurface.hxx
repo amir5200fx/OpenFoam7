@@ -100,10 +100,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Dump edges in obj format
-		static void writeOBJ(const pointField&, const edgeList&, Ostream&);
+		static FoamFvMesh_EXPORT void writeOBJ(const pointField&, const edgeList&, Ostream&);
 
 		//- Dump selected edges in obj format
-		static void writeOBJ
+		static FoamFvMesh_EXPORT void writeOBJ
 		(
 			const pointField&,
 			const edgeList&,
@@ -112,17 +112,20 @@ namespace tnbLib
 		);
 
 		//- Calculate pointEdges
-		void calcPointEdges();
+		FoamFvMesh_EXPORT void calcPointEdges();
 
 
 	public:
 
-		ClassName("edgeSurface");
+		/*ClassName("edgeSurface");*/
+		static const char* typeName_() { return "edgeSurface"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct from surface and intersection description
-		edgeSurface
+		FoamFvMesh_EXPORT edgeSurface
 		(
 			const triSurface& surf,
 			const bool isFirstSurface,
@@ -194,7 +197,7 @@ namespace tnbLib
 
 			//- Add intersection edges to a face. Used for connecting
 			//  floating intersection on face to rest of face.
-		void addIntersectionEdges(const label facei, const edgeList&);
+		FoamFvMesh_EXPORT void addIntersectionEdges(const label facei, const edgeList&);
 	};
 
 

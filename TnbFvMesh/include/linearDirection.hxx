@@ -63,21 +63,25 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("linearDirection");
+			//TypeName("linearDirection");
+			static const char* typeName_() { return "linearDirection"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
 				//- Construct from dictionary
-			linearDirection(const dictionary& dict);
+			FoamFvMesh_EXPORT linearDirection(const dictionary& dict);
 
 
 			//- Destructor
-			virtual ~linearDirection();
+			FoamFvMesh_EXPORT virtual ~linearDirection();
 
 
 			// Member Operators
 
-			point operator()
+			FoamFvMesh_EXPORT point operator()
 				(
 					const point& surfacePoint,
 					const vector& surfaceNormal,

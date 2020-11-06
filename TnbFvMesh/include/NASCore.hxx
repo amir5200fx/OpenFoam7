@@ -57,13 +57,13 @@ namespace tnbLib
 			// Public Member Functions
 
 				//- Do weird things to extract number
-			static scalar parseNASCoord(const string&);
+			static FoamFvMesh_EXPORT scalar parseNASCoord(const string&);
 
 
 			// Constructors
 
 				//- Construct null
-			NASCore();
+			FoamFvMesh_EXPORT NASCore();
 		};
 
 

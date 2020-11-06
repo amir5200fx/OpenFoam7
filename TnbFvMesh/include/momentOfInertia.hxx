@@ -56,7 +56,7 @@ namespace tnbLib
 
 	public:
 
-		static void massPropertiesSolid
+		static FoamFvMesh_EXPORT void massPropertiesSolid
 		(
 			const pointField& pts,
 			const triFaceList& triFaces,
@@ -66,7 +66,7 @@ namespace tnbLib
 			tensor& J
 		);
 
-		static void massPropertiesShell
+		static FoamFvMesh_EXPORT void massPropertiesShell
 		(
 			const pointField& pts,
 			const triFaceList& triFaces,
@@ -76,7 +76,7 @@ namespace tnbLib
 			tensor& J
 		);
 
-		static void massPropertiesSolid
+		static FoamFvMesh_EXPORT void massPropertiesSolid
 		(
 			const triSurface& surf,
 			scalar density,
@@ -85,7 +85,7 @@ namespace tnbLib
 			tensor& J
 		);
 
-		static void massPropertiesShell
+		static FoamFvMesh_EXPORT void massPropertiesShell
 		(
 			const triSurface& surf,
 			scalar density,
@@ -94,7 +94,7 @@ namespace tnbLib
 			tensor& J
 		);
 
-		static tensor applyParallelAxisTheorem
+		static FoamFvMesh_EXPORT tensor applyParallelAxisTheorem
 		(
 			scalar mass,
 			const vector& cM,
@@ -103,13 +103,13 @@ namespace tnbLib
 		);
 
 		// Calculate the inertia tensor for all cells in the mesh
-		static tmp<tensorField> meshInertia
+		static FoamFvMesh_EXPORT tmp<tensorField> meshInertia
 		(
 			const polyMesh& mesh
 		);
 
 		// Calculate the inertia tensor the given cell
-		static tensor meshInertia
+		static FoamFvMesh_EXPORT tensor meshInertia
 		(
 			const polyMesh& mesh,
 			label celli

@@ -1,3 +1,4 @@
+#define FoamNamedEnum_EXPORT_DEFINE
 #include <pointToCell.hxx>
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //

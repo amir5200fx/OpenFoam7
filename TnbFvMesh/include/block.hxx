@@ -56,7 +56,7 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class block;
-	Ostream& operator<<(Ostream&, const block&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const block&);
 
 	/*---------------------------------------------------------------------------*\
 							   Class block Declaration
@@ -78,21 +78,25 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Creates vertices for cells filling the block
-		void createPoints();
+		FoamFvMesh_EXPORT void createPoints();
 
 		//- Creates boundary patch faces for the block
-		void createBoundary();
+		FoamFvMesh_EXPORT void createBoundary();
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("block");
+		//TypeName("block");
+		static const char* typeName_() { return "block"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			block,
@@ -106,13 +110,66 @@ namespace tnbLib
 				Istream& is
 				),
 				(dict, index, vertices, edges, faces, is)
-		);
+		);*/
+
+		typedef autoPtr<block> (*IstreamConstructorPtr)(const dictionary& dict, const label index, const pointField& vertices,
+		                                                const blockEdgeList& edges, const blockFaceList& faces, Istream& is);
+		typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
+		static FoamFvMesh_EXPORT IstreamConstructorTable* IstreamConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructIstreamConstructorTables();
+		static FoamFvMesh_EXPORT void destroyIstreamConstructorTables();
+
+		template <class blockType>
+		class addIstreamConstructorToTable
+		{
+		public:
+			static autoPtr<block> New(const dictionary& dict, const label index, const pointField& vertices,
+			                          const blockEdgeList& edges, const blockFaceList& faces, Istream& is)
+			{
+				return autoPtr<block>(new blockType(dict, index, vertices, edges, faces, is));
+			}
+
+			addIstreamConstructorToTable(const word& lookup = blockType::typeName)
+			{
+				constructIstreamConstructorTables();
+				if (!IstreamConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "block" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
+		};
+
+		template <class blockType>
+		class addRemovableIstreamConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<block> New(const dictionary& dict, const label index, const pointField& vertices,
+			                          const blockEdgeList& edges, const blockFaceList& faces, Istream& is)
+			{
+				return autoPtr<block>(new blockType(dict, index, vertices, edges, faces, is));
+			}
+
+			addRemovableIstreamConstructorToTable(const word& lookup = blockType::typeName) : lookup_(lookup)
+			{
+				constructIstreamConstructorTables();
+				IstreamConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableIstreamConstructorToTable()
+			{
+				if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from components with Istream
-		block
+		FoamFvMesh_EXPORT block
 		(
 			const dictionary& dict,
 			const label index,
@@ -123,10 +180,10 @@ namespace tnbLib
 		);
 
 		//- Construct from a block definition
-		block(const blockDescriptor&);
+		FoamFvMesh_EXPORT block(const blockDescriptor&);
 
 		//- Disallow default bitwise copy construction
-		block(const block&) = delete;
+		FoamFvMesh_EXPORT block(const block&) = delete;
 
 		//- Clone
 		autoPtr<block> clone() const
@@ -136,7 +193,7 @@ namespace tnbLib
 		}
 
 		//- New function which constructs and returns pointer to a block
-		static autoPtr<block> New
+		static FoamFvMesh_EXPORT autoPtr<block> New
 		(
 			const dictionary& dict,
 			const label index,
@@ -193,7 +250,7 @@ namespace tnbLib
 		inline const pointField& points() const;
 
 		//- Return the cells for filling the block
-		List<FixedList<label, 8>> cells() const;
+		FoamFvMesh_EXPORT List<FixedList<label, 8>> cells() const;
 
 		//- Return the boundary patch faces for the block
 		inline const FixedList<List<FixedList<label, 4>>, 6>&
@@ -203,12 +260,12 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const block&) = delete;
+		FoamFvMesh_EXPORT void operator=(const block&) = delete;
 
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const block&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const block&);
 	};
 
 

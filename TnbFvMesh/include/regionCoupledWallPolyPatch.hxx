@@ -59,34 +59,38 @@ namespace tnbLib
 	protected:
 
 		//- Initialise the calculation of the patch geometry
-		virtual void initGeometry(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void initGeometry(PstreamBuffers&);
 
 		//- Calculate the patch geometry
-		virtual void calcGeometry(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void calcGeometry(PstreamBuffers&);
 
 		//- Initialise the patches for moving points
-		virtual void initMovePoints(PstreamBuffers&, const pointField&);
+		FoamFvMesh_EXPORT virtual void initMovePoints(PstreamBuffers&, const pointField&);
 
 		//- Correct patches after moving points
-		virtual void movePoints(PstreamBuffers&, const pointField&);
+		FoamFvMesh_EXPORT virtual void movePoints(PstreamBuffers&, const pointField&);
 
 		//- Initialise the update of the patch topology
-		virtual void initUpdateMesh(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void initUpdateMesh(PstreamBuffers&);
 
 		//- Update of the patch topology
-		virtual void updateMesh(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void updateMesh(PstreamBuffers&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("regionCoupledWall");
+		/*TypeName("regionCoupledWall");*/
+		static const char* typeName_() { return "regionCoupledWall"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		regionCoupledWallPolyPatch
+		FoamFvMesh_EXPORT regionCoupledWallPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -98,7 +102,7 @@ namespace tnbLib
 
 
 		//- Construct from dictionary
-		regionCoupledWallPolyPatch
+		FoamFvMesh_EXPORT regionCoupledWallPolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -108,7 +112,7 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		regionCoupledWallPolyPatch
+		FoamFvMesh_EXPORT regionCoupledWallPolyPatch
 		(
 			const regionCoupledWallPolyPatch&,
 			const polyBoundaryMesh&
@@ -116,7 +120,7 @@ namespace tnbLib
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		regionCoupledWallPolyPatch
+		FoamFvMesh_EXPORT regionCoupledWallPolyPatch
 		(
 			const regionCoupledWallPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -126,7 +130,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		regionCoupledWallPolyPatch
+		FoamFvMesh_EXPORT regionCoupledWallPolyPatch
 		(
 			const regionCoupledWallPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -195,7 +199,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~regionCoupledWallPolyPatch();
+		FoamFvMesh_EXPORT virtual ~regionCoupledWallPolyPatch();
 
 
 		// Member Functions
@@ -207,7 +211,7 @@ namespace tnbLib
 		}
 
 		//- Write the polyPatch data as a dictionary
-		virtual void write(Ostream&) const;
+		FoamFvMesh_EXPORT virtual void write(Ostream&) const;
 	};
 
 

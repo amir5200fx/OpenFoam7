@@ -1,3 +1,4 @@
+#define FoamNamedEnum_EXPORT_DEFINE
 #include <coordSet.hxx>
 
 // * * * * * * * * * * * * * Static Member Data  * * * * * * * * * * * * * * //

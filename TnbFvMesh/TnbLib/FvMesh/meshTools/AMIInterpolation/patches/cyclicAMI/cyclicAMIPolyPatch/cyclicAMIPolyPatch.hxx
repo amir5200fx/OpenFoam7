@@ -340,7 +340,7 @@ namespace tnbLib
 		inline const vector& separationVector() const;
 
 		//- Transform patch-based positions from nbr side to this side
-		virtual void transformPosition(pointField&) const;
+		FoamFvMesh_EXPORT virtual void transformPosition(pointField&) const;
 
 		//- Transform a patch-based position from nbr side to this side
 		FoamFvMesh_EXPORT virtual void transformPosition

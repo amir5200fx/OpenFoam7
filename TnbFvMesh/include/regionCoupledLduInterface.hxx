@@ -55,7 +55,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("regionCoupledLduInterface");
+		/*TypeName("regionCoupledLduInterface");*/
+		static const char* typeName_() { return "regionCoupledLduInterface"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -66,7 +70,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~regionCoupledLduInterface();
+		FoamFvMesh_EXPORT virtual ~regionCoupledLduInterface();
 
 
 		// Member Functions
@@ -74,19 +78,19 @@ namespace tnbLib
 			// Access
 
 				//- Return neighbour
-		virtual label neighbPatchID() const = 0;
+		FoamFvMesh_EXPORT virtual label neighbPatchID() const = 0;
 
 		//- Is it owner?
-		virtual bool owner() const = 0;
+		FoamFvMesh_EXPORT virtual bool owner() const = 0;
 
 		//- Return neighb regionCoupledLduInterface
-		virtual const regionCoupledLduInterface& neighbPatch() const = 0;
+		FoamFvMesh_EXPORT virtual const regionCoupledLduInterface& neighbPatch() const = 0;
 
 		//- Return AMI
 		// virtual const AMIInterpolation& AMI() const = 0;
 
 		//- Return nbrMesh
-		virtual const polyMesh& nbrMesh() const = 0;
+		FoamFvMesh_EXPORT virtual const polyMesh& nbrMesh() const = 0;
 
 
 	};

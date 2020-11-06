@@ -1,3 +1,4 @@
+#define FoamNamedEnum_EXPORT_DEFINE
 #include <cellToFace.hxx>
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //

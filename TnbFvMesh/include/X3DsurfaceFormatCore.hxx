@@ -57,10 +57,10 @@ namespace tnbLib
 			// Protected Member Functions
 
 			//- Write file header
-			static void writeHeader(Ostream&);
+			static FoamFvMesh_EXPORT void writeHeader(Ostream&);
 
 			//- Write appearance node
-			static void writeAppearance(Ostream&);
+			static FoamFvMesh_EXPORT void writeAppearance(Ostream&);
 
 		};
 

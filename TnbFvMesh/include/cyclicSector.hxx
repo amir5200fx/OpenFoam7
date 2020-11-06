@@ -57,16 +57,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("cyclicSector");
+			//TypeName("cyclicSector");
+			static const char* typeName_() { return "cyclicSector"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
 				//- Construct from dictionary
-			cyclicSector(const dictionary& dict);
+			FoamFvMesh_EXPORT cyclicSector(const dictionary& dict);
 
 
 			//- Destructor
-			virtual ~cyclicSector();
+			FoamFvMesh_EXPORT virtual ~cyclicSector();
 		};
 
 

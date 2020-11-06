@@ -139,7 +139,11 @@ namespace tnbLib
 		typedef Face FaceType;
 
 		//- Runtime type information
-		TypeName("UnsortedMeshedSurface");
+		/*TypeName("UnsortedMeshedSurface");*/
+		static const char* typeName_() { return "UnsortedMeshedSurface"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Static

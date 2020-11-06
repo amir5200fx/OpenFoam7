@@ -64,7 +64,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		lineDivide
+		FoamFvMesh_EXPORT lineDivide
 		(
 			const blockEdge&,
 			const label ndiv,
@@ -75,10 +75,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Return the points
-		const pointField& points() const;
+		FoamFvMesh_EXPORT const pointField& points() const;
 
 		//- Return the list of lambda values
-		const scalarList& lambdaDivisions() const;
+		FoamFvMesh_EXPORT const scalarList& lambdaDivisions() const;
 	};
 
 

@@ -83,20 +83,20 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from surface. Holds reference to surface!
-		explicit triSurfaceRegionSearch(const triSurface&);
+		FoamFvMesh_EXPORT explicit triSurfaceRegionSearch(const triSurface&);
 
 		//- Construct from surface and dictionary. Holds reference to surface!
-		triSurfaceRegionSearch(const triSurface&, const dictionary& dict);
+		FoamFvMesh_EXPORT triSurfaceRegionSearch(const triSurface&, const dictionary& dict);
 
 		//- Disallow default bitwise copy construction
-		triSurfaceRegionSearch(const triSurfaceRegionSearch&) = delete;
+		FoamFvMesh_EXPORT triSurfaceRegionSearch(const triSurfaceRegionSearch&) = delete;
 
 
 		//- Destructor
-		~triSurfaceRegionSearch();
+		FoamFvMesh_EXPORT ~triSurfaceRegionSearch();
 
 		//- Clear storage
-		void clearOut();
+		FoamFvMesh_EXPORT void clearOut();
 
 
 		// Member Functions
@@ -106,14 +106,14 @@ namespace tnbLib
 				//- Demand driven construction of octree for each region.
 				//  Currently creates a tree for each region; could optimise
 				//  by only constructing trees when they are in regionIndices
-		const PtrList<treeType>& treeByRegion() const;
+		FoamFvMesh_EXPORT const PtrList<treeType>& treeByRegion() const;
 
 		// Query
 
 			//- Find the nearest point on the surface out of the regions
 			//  supplied in the list regionIndices. Ignores regions that are
 			//  not specified
-		void findNearest
+		FoamFvMesh_EXPORT void findNearest
 		(
 			const pointField& samples,
 			const scalarField& nearestDistSqr,
@@ -125,7 +125,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const triSurfaceRegionSearch&) = delete;
+		FoamFvMesh_EXPORT void operator=(const triSurfaceRegionSearch&) = delete;
 	};
 
 

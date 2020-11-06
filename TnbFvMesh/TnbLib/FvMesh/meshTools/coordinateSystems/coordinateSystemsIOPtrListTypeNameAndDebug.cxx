@@ -1,3 +1,5 @@
+#define FoamIOPtrList_EXPORT_DEFINE
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <coordinateSystems.hxx>
 
 #include <IOPtrList.hxx>

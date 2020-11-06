@@ -59,8 +59,8 @@ namespace tnbLib
 
 	class pointEdgePoint;
 
-	Istream& operator>>(Istream&, pointEdgePoint&);
-	Ostream& operator<<(Ostream&, const pointEdgePoint&);
+	FoamFvMesh_EXPORT Istream& operator>>(Istream&, pointEdgePoint&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const pointEdgePoint&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -228,8 +228,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const pointEdgePoint&);
-		friend Istream& operator>>(Istream&, pointEdgePoint&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const pointEdgePoint&);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream&, pointEdgePoint&);
 	};
 
 

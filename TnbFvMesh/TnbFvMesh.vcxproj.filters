@@ -996,9 +996,6 @@
     <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\MeshWave\FaceCellWave.hxx">
       <Filter>TnbLib\FvMesh\meshTools\algorithms\MeshWave</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\MeshWave\MeshWave.hxx">
-      <Filter>TnbLib\FvMesh\meshTools\algorithms\MeshWave</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation\AMIInterpolation.hxx">
       <Filter>TnbLib\FvMesh\meshTools\AMIInterpolation\AMIInterpolation</Filter>
     </ClInclude>
@@ -2007,6 +2004,9 @@
     <ClInclude Include="TnbLib\FvMesh\surfMesh\surfaceFormats\nas\NASsurfaceFormatI.hxx">
       <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\nas</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\MeshWave\MeshWave.hxx">
+      <Filter>TnbLib\FvMesh\meshTools\algorithms\MeshWave</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.cxx">
@@ -2891,9 +2891,6 @@
     <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLsurfaceFormatRunTime.cxx">
       <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\stl</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLsurfaceFormatASCII.cxx">
-      <Filter>Generated Files\surfMesh\surfaceFormats\stl</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\tri\TRIsurfaceFormatCore.cxx">
       <Filter>TnbLib\FvMesh\surfMesh\surfaceFormats\tri</Filter>
     </ClCompile>
@@ -3017,7 +3014,10 @@
     <ClCompile Include="TnbLib\FvMesh\meshTools\sets\faceSources\cellToFace\cellToFaceNamedEnum.cxx">
       <Filter>TnbLib\FvMesh\meshTools\sets\faceSources\cellToFace</Filter>
     </ClCompile>
-    <ClCompile Include="readSTLASCII.cxx">
+    <ClCompile Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLsurfaceFormatASCII.cxx">
+      <Filter>Generated Files\surfMesh\surfaceFormats\stl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\STL\readSTLASCII.cxx">
       <Filter>Generated Files\triSurface\triSurface\interfaces\STL</Filter>
     </ClCompile>
   </ItemGroup>

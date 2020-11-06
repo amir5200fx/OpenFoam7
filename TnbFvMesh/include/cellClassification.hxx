@@ -154,17 +154,17 @@ namespace tnbLib
 		// Private Static Functions
 
 			//- Count number of occurrences of elem in list
-		static label count(const labelList& elems, const label elem);
+		static FoamFvMesh_EXPORT label count(const labelList& elems, const label elem);
 
 		// Private Member Functions
 
 			//- Mark all faces intersected by or intersecting surface
-		boolList markFaces(const triSurfaceSearch&) const;
+		FoamFvMesh_EXPORT boolList markFaces(const triSurfaceSearch&) const;
 
 		//- Divide cells into cut/inside/outside by using MeshWave from cut
 		//  faces. No check is done on whether outsidePts are in different
 		//  domains.
-		void markCells
+		FoamFvMesh_EXPORT void markCells
 		(
 			const meshSearch& queryMesh,
 			const boolList& piercedFace,
@@ -173,7 +173,7 @@ namespace tnbLib
 
 		//- Use cell status to classify points as being internal to meshType,
 		//  internal to non-meshType or on border of both.
-		void classifyPoints
+		FoamFvMesh_EXPORT void classifyPoints
 		(
 			const label meshType,
 			const labelList& cellType,
@@ -181,7 +181,7 @@ namespace tnbLib
 		) const;
 
 		//- Return true if cell uses only points with status=mixed
-		bool usesMixedPointsOnly
+		FoamFvMesh_EXPORT bool usesMixedPointsOnly
 		(
 			const List<pointStatus>&,
 			const label celli
@@ -189,17 +189,20 @@ namespace tnbLib
 
 		//- Get faces (and its 'owner') in between cells of differing type
 		// (meshType and non-meshType).
-		void getMeshOutside(const label meshType, faceList&, labelList&) const;
+		FoamFvMesh_EXPORT void getMeshOutside(const label meshType, faceList&, labelList&) const;
 
 	public:
 
 		// Static Data Members
-		ClassName("cellClassification");
+		//ClassName("cellClassification");
+		static const char* typeName_() { return "cellClassification"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct from mesh and surface and point(s) on outside
-		cellClassification
+		FoamFvMesh_EXPORT cellClassification
 		(
 			const polyMesh& mesh,
 			const meshSearch& meshQuery,
@@ -209,10 +212,10 @@ namespace tnbLib
 
 		//- Construct from mesh and type for every cell.
 		//  Used to be able to reuse filling routines below.
-		cellClassification(const polyMesh& mesh, const labelList& cellType);
+		FoamFvMesh_EXPORT cellClassification(const polyMesh& mesh, const labelList& cellType);
 
 		//- Copy constructor
-		cellClassification(const cellClassification&);
+		FoamFvMesh_EXPORT cellClassification(const cellClassification&);
 
 
 		// Member Functions
@@ -222,7 +225,7 @@ namespace tnbLib
 			return mesh_;
 		}
 
-		label trimCutCells
+		FoamFvMesh_EXPORT label trimCutCells
 		(
 			const label nLayers,
 			const label meshType,
@@ -230,13 +233,13 @@ namespace tnbLib
 		);
 
 		//- Sets vertex neighbours of meshType cells to fillType
-		label growSurface(const label meshType, const label fillType);
+		FoamFvMesh_EXPORT label growSurface(const label meshType, const label fillType);
 
 		//- Find hanging cells (cells with all points on outside) and set their
 		//  type to fillType.
 		//  Iterate until nothing changed. Returns total number of cells
 		//  changed (in all iterations)
-		label fillHangingCells
+		FoamFvMesh_EXPORT label fillHangingCells
 		(
 			const label meshType,
 			const label fillType,
@@ -245,7 +248,7 @@ namespace tnbLib
 
 		//- Find regionEdges and fill one neighbour. Iterate until nothing
 		//  changes. Returns total number of cells changed.
-		label fillRegionEdges
+		FoamFvMesh_EXPORT label fillRegionEdges
 		(
 			const label meshType,
 			const label fillType,
@@ -254,7 +257,7 @@ namespace tnbLib
 
 		//- Find regionPoints and fill all neighbours. Iterate until nothing
 		//  changes. Returns total number of cells changed.
-		label fillRegionPoints
+		FoamFvMesh_EXPORT label fillRegionPoints
 		(
 			const label meshType,
 			const label fillType,
@@ -262,12 +265,12 @@ namespace tnbLib
 		);
 
 		//- Write statistics on cell types to Ostream
-		void writeStats(Ostream& os) const;
+		FoamFvMesh_EXPORT void writeStats(Ostream& os) const;
 
 
 		// Member Operators
 
-		void operator=(const cellClassification&);
+		FoamFvMesh_EXPORT void operator=(const cellClassification&);
 
 	};
 

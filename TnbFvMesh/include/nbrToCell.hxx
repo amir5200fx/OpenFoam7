@@ -56,7 +56,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- Number of internal faces on cell
 		label minNbrs_;
@@ -64,32 +64,36 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("nbrToCell");
+		/*TypeName("nbrToCell");*/
+		static const char* typeName_() { return "nbrToCell"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		nbrToCell
+		FoamFvMesh_EXPORT nbrToCell
 		(
 			const polyMesh& mesh,
 			const label minNbrs
 		);
 
 		//- Construct from dictionary
-		nbrToCell
+		FoamFvMesh_EXPORT nbrToCell
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		nbrToCell
+		FoamFvMesh_EXPORT nbrToCell
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -97,7 +101,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~nbrToCell();
+		FoamFvMesh_EXPORT virtual ~nbrToCell();
 
 
 		// Member Functions
@@ -107,7 +111,7 @@ namespace tnbLib
 			return CELLSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

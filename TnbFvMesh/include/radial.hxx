@@ -58,21 +58,25 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("radial");
+			//TypeName("radial");
+			static const char* typeName_() { return "radial"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
 				//- Construct from dictionary
-			radial(const dictionary& dict);
+			FoamFvMesh_EXPORT radial(const dictionary& dict);
 
 
 			//-Destructor
-			virtual ~radial();
+			FoamFvMesh_EXPORT virtual ~radial();
 
 
 			// Member Operators
 
-			point operator()
+			FoamFvMesh_EXPORT point operator()
 				(
 					const point& surfacePoint,
 					const vector& surfaceNormal,

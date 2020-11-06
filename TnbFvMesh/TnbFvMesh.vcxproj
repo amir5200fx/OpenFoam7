@@ -550,7 +550,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\FvMesh\triSurface\triSurface\triSurface.hxx" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="readSTLASCII.cxx" />
     <ClCompile Include="TnbLib\FvMesh\fileFormats\coordSet\coordSet.cxx" />
     <ClCompile Include="TnbLib\FvMesh\fileFormats\coordSet\coordSetNamedEnum.cxx">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">FoamFvMesh_Template_EXPORT_DEFINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -944,6 +943,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\OFF\writeOFF.cxx" />
     <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\SMESH\writeSMESH.cxx" />
     <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\STL\readSTL.cxx" />
+    <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\STL\readSTLASCII.cxx" />
     <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\STL\readSTLBINARY.cxx" />
     <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\STL\writeSTL.cxx" />
     <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\TRI\readTRI.cxx" />
@@ -961,18 +961,18 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <None Include="TnbLib\FvMesh\meshTools\sets\faceSources\normalToFace\normalToFace.cxx" />
     <CustomBuild Include="TnbLib\FvMesh\surfMesh\surfaceFormats\stl\STLsurfaceFormatASCII.L">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">win_flex -c++ --wincompat -o %(Filename).cxx %(Identity)</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">win_flex -c++ --wincompat -o %(Filename).cxx %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">win_flex -c++ --wincompat -P%(Filename)  -o %(Filename).cxx %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">win_flex -c++ --wincompat -P%(Filename)  -o %(Filename).cxx %(Identity)</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).cxx</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">%(Filename).cxx</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">win_flex -c++ --wincompat -o %(Filename).cxx %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">win_flex -c++ --wincompat -P%(Filename)  -o %(Filename).cxx %(Identity)</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).cxx</Outputs>
     </CustomBuild>
     <CustomBuild Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\STL\readSTLASCII.L">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">win_flex -c++ --wincompat -o %(Filename).cxx %(Identity)</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">win_flex -c++ --wincompat -o %(Filename).cxx %(Identity)</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">win_flex -c++ --wincompat -o %(Filename).cxx %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">win_flex -c++ --wincompat -P%(Filename) -o %(Filename).cxx %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">win_flex -c++ --wincompat -P%(Filename) -o %(Filename).cxx %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">win_flex -c++ --wincompat -P%(Filename) -o %(Filename).cxx %(Identity)</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).cxx</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">%(Filename).cxx</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).cxx</Outputs>

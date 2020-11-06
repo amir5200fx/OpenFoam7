@@ -54,32 +54,36 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("surfaceRegistry");
+		/*TypeName("surfaceRegistry");*/
+		static const char* typeName_() { return "surfaceRegistry"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- The prefix to local: %surfaces
-		static const word prefix;
+		static FoamFvMesh_EXPORT const word prefix;
 
 		//- The default surface name: %default
-		static word defaultName;
+		static FoamFvMesh_EXPORT word defaultName;
 
 
 		// Constructors
 
 			//- Construct for the given objectRegistry and named surface
-		surfaceRegistry(const objectRegistry&, const word& surfName = "");
+		FoamFvMesh_EXPORT surfaceRegistry(const objectRegistry&, const word& surfName = "");
 
 		//- Disallow default bitwise copy construction
-		surfaceRegistry(const surfaceRegistry&) = delete;
+		FoamFvMesh_EXPORT surfaceRegistry(const surfaceRegistry&) = delete;
 
 
 		//- Destructor
-		virtual ~surfaceRegistry();
+		FoamFvMesh_EXPORT virtual ~surfaceRegistry();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const surfaceRegistry&) = delete;
+		FoamFvMesh_EXPORT void operator=(const surfaceRegistry&) = delete;
 	};
 
 

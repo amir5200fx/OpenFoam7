@@ -65,13 +65,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("project");
+			//TypeName("project");
+			static const char* typeName_() { return "project"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Istream setting pointsList
-			projectVertex
+			FoamFvMesh_EXPORT projectVertex
 			(
 				const dictionary&,
 				const label index,
@@ -80,7 +84,7 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			projectVertex(const projectVertex&) = delete;
+			FoamFvMesh_EXPORT projectVertex(const projectVertex&) = delete;
 
 
 			//- Destructor
@@ -91,13 +95,13 @@ namespace tnbLib
 			// Member Functions
 
 				//- Project the given points onto the surface
-			virtual operator point() const;
+			FoamFvMesh_EXPORT virtual operator point() const;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const projectVertex&) = delete;
+			FoamFvMesh_EXPORT void operator=(const projectVertex&) = delete;
 		};
 
 

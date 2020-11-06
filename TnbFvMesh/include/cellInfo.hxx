@@ -54,8 +54,8 @@ namespace tnbLib
 
 	class cellInfo;
 
-	Istream& operator>>(Istream&, cellInfo&);
-	Ostream& operator<<(Ostream&, const cellInfo&);
+	FoamFvMesh_EXPORT Istream& operator>>(Istream&, cellInfo&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const cellInfo&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -203,8 +203,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const cellInfo&);
-		friend Istream& operator>>(Istream&, cellInfo&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const cellInfo&);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream&, cellInfo&);
 	};
 
 

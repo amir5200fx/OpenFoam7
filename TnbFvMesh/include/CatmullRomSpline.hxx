@@ -83,34 +83,34 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		CatmullRomSpline
+		FoamFvMesh_EXPORT CatmullRomSpline
 		(
 			const pointField& knots,
 			const bool notImplementedClosed = false
 		);
 
 		//- Disallow default bitwise copy construction
-		CatmullRomSpline(const CatmullRomSpline&) = delete;
+		FoamFvMesh_EXPORT CatmullRomSpline(const CatmullRomSpline&) = delete;
 
 
 		// Member Functions
 
 			//- Return the point position corresponding to the curve parameter
 			//  0 <= lambda <= 1
-		point position(const scalar lambda) const;
+		FoamFvMesh_EXPORT point position(const scalar lambda) const;
 
 		//- Return the point position corresponding to the local parameter
 		//  0 <= lambda <= 1 on the given segment
-		point position(const label segment, const scalar lambda) const;
+		FoamFvMesh_EXPORT point position(const label segment, const scalar lambda) const;
 
 		//- Return the length of the curve
-		scalar length() const;
+		FoamFvMesh_EXPORT scalar length() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const CatmullRomSpline&) = delete;
+		FoamFvMesh_EXPORT void operator=(const CatmullRomSpline&) = delete;
 	};
 
 

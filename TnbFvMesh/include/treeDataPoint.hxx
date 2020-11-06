@@ -78,9 +78,9 @@ namespace tnbLib
 
 		public:
 
-			findNearestOp(const indexedOctree<treeDataPoint>& tree);
+			FoamFvMesh_EXPORT findNearestOp(const indexedOctree<treeDataPoint>& tree);
 
-			void operator()
+			FoamFvMesh_EXPORT void operator()
 				(
 					const labelUList& indices,
 					const point& sample,
@@ -90,7 +90,7 @@ namespace tnbLib
 					point& nearestPoint
 					) const;
 
-			void operator()
+			FoamFvMesh_EXPORT void operator()
 				(
 					const labelUList& indices,
 					const linePointRef& ln,
@@ -107,11 +107,11 @@ namespace tnbLib
 		{
 		public:
 
-			findIntersectOp(const indexedOctree<treeDataPoint>& tree);
+			FoamFvMesh_EXPORT findIntersectOp(const indexedOctree<treeDataPoint>& tree);
 
 			//- Calculate intersection of triangle with ray. Sets result
 			//  accordingly
-			bool operator()
+			FoamFvMesh_EXPORT bool operator()
 				(
 					const label index,
 					const point& start,
@@ -122,16 +122,19 @@ namespace tnbLib
 
 
 		// Declare name of the class and its debug switch
-		ClassName("treeDataPoint");
+		/*ClassName("treeDataPoint");*/
+		static const char* typeName_() { return "treeDataPoint"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from pointField. Holds reference!
-		treeDataPoint(const pointField&);
+		FoamFvMesh_EXPORT treeDataPoint(const pointField&);
 
 		//- Construct from subset of pointField. Holds reference!
-		treeDataPoint(const pointField&, const labelList&);
+		FoamFvMesh_EXPORT treeDataPoint(const pointField&, const labelList&);
 
 
 		// Member Functions
@@ -165,28 +168,28 @@ namespace tnbLib
 
 		//- Get representative point cloud for all shapes inside
 		//  (one point per shape)
-		pointField shapePoints() const;
+		FoamFvMesh_EXPORT pointField shapePoints() const;
 
 
 		// Search
 
 			//- Get type (inside,outside,mixed,unknown) of point w.r.t. surface.
 			//  Only makes sense for closed surfaces.
-		volumeType getVolumeType
+		FoamFvMesh_EXPORT volumeType getVolumeType
 		(
 			const indexedOctree<treeDataPoint>&,
 			const point&
 		) const;
 
 		//- Does (bb of) shape at index overlap bb
-		bool overlaps
+		FoamFvMesh_EXPORT bool overlaps
 		(
 			const label index,
 			const treeBoundBox& sampleBb
 		) const;
 
 		//- Does shape at index overlap the sphere
-		bool overlaps
+		FoamFvMesh_EXPORT bool overlaps
 		(
 			const label index,
 			const point& centre,

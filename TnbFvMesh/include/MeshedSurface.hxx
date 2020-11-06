@@ -152,7 +152,10 @@ namespace tnbLib
 		typedef Face FaceType;
 
 		//- Runtime type information
-		ClassName("MeshedSurface");
+		/*ClassName("MeshedSurface");*/
+		static const char* typeName_() { return "MeshedSurface"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Static

@@ -88,7 +88,10 @@ namespace tnbLib
 		// Static
 
 			//- Runtime type information
-		ClassName("MeshedSurfaceProxy");
+		/*ClassName("MeshedSurfaceProxy");*/
+		static const char* typeName_() { return "MeshedSurfaceProxy"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 		//- The file format types that can be written via MeshedSurfaceProxy
 		static wordHashSet writeTypes();
@@ -115,7 +118,7 @@ namespace tnbLib
 
 		// Member Function Selectors
 
-		declareMemberFunctionSelectionTable
+		/*declareMemberFunctionSelectionTable
 		(
 			void,
 			MeshedSurfaceProxy,
@@ -126,7 +129,27 @@ namespace tnbLib
 				const MeshedSurfaceProxy<Face>& surf
 				),
 				(name, surf)
-		);
+		);*/
+
+		typedef void (*writefileExtensionMemberFunctionPtr)(const fileName& name, const MeshedSurfaceProxy<Face>& surf);
+		typedef HashTable<writefileExtensionMemberFunctionPtr, word, string::hash> writefileExtensionMemberFunctionTable;
+		static FoamFvMesh_EXPORT writefileExtensionMemberFunctionTable* writefileExtensionMemberFunctionTablePtr_;
+
+		template <class MeshedSurfaceProxyType>
+		class addwritefileExtensionMemberFunctionToTable
+		{
+		public:
+			addwritefileExtensionMemberFunctionToTable(const word& lookup = MeshedSurfaceProxyType::typeName)
+			{
+				constructwritefileExtensionMemberFunctionTables();
+				writefileExtensionMemberFunctionTablePtr_->insert(lookup, MeshedSurfaceProxyType::write);
+			}
+
+			~addwritefileExtensionMemberFunctionToTable() { destroywritefileExtensionMemberFunctionTables(); }
+		};
+
+		static FoamFvMesh_EXPORT void constructwritefileExtensionMemberFunctionTables();
+		static FoamFvMesh_EXPORT void destroywritefileExtensionMemberFunctionTables();
 
 		//- Write to file
 		static void write(const fileName&, const MeshedSurfaceProxy<Face>&);

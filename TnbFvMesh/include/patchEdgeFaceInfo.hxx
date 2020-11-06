@@ -58,8 +58,8 @@ namespace tnbLib
 
 	class patchEdgeFaceInfo;
 
-	Istream& operator>>(Istream&, patchEdgeFaceInfo&);
-	Ostream& operator<<(Ostream&, const patchEdgeFaceInfo&);
+	FoamFvMesh_EXPORT Istream& operator>>(Istream&, patchEdgeFaceInfo&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const patchEdgeFaceInfo&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -192,8 +192,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const patchEdgeFaceInfo&);
-		friend Istream& operator>>(Istream&, patchEdgeFaceInfo&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const patchEdgeFaceInfo&);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream&, patchEdgeFaceInfo&);
 	};
 
 
