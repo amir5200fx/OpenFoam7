@@ -47,6 +47,16 @@ SourceFiles
 #include <lduInterfaceFieldPtrsList.hxx>
 #include <LduInterfaceFieldPtrsListTemplate.hxx>
 
+#ifdef FoamBase_EXPORT_DEFINE
+#define FoamGeometricField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamGeometricField_EXPORT_DEFINE
+#define FoamGeometricField_EXPORT __declspec(dllexport)
+#else
+#define FoamGeometricField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -288,9 +298,9 @@ namespace tnbLib
 
 		//- Runtime type information
 		//TypeName("GeometricField");
-		static const char* typeName_() { return "GeometricField"; } 
-		static FoamBase_EXPORT const ::tnbLib::word typeName; 
-		static FoamBase_EXPORT int debug; 
+		static const char* typeName_() { return "GeometricField"; }
+		static FoamGeometricField_EXPORT const ::tnbLib::word typeName;
+		static FoamGeometricField_EXPORT int debug;
 		virtual const word& type() const { return typeName; };
 
 

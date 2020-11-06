@@ -5211,6 +5211,9 @@
     <ClInclude Include="TnbLib\Base\module\includeModule.hxx">
       <Filter>TnbLib\Base\module</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\Base\db\IOstreams\Pstreams\PstreamHelperI.hxx">
+      <Filter>TnbLib\Base\db\IOstreams\Pstreams</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\Base\primitives\zero\zero.cxx">

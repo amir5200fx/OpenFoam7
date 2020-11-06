@@ -39,6 +39,16 @@ SourceFiles
 #include <PtrList.hxx>
 #include <regIOobject.hxx>
 
+#ifdef FoamBase_EXPORT_DEFINE
+#define FoamIOPtrList_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamIOPtrList_EXPORT_DEFINE
+#define FoamIOPtrList_EXPORT __declspec(dllexport)
+#else
+#define FoamIOPtrList_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -60,8 +70,8 @@ namespace tnbLib
 		//- Runtime type information
 		//TypeName("PtrList");
 		static const char* typeName_() { return "PtrList"; }
-		static Foam_EXPORT const ::tnbLib::word typeName;
-		static Foam_EXPORT int debug;
+		static FoamIOPtrList_EXPORT const ::tnbLib::word typeName;
+		static FoamIOPtrList_EXPORT int debug;
 		virtual const word& type() const { return typeName; };
 
 

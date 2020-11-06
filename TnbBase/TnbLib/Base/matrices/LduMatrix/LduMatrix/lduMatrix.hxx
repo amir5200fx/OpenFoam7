@@ -72,8 +72,8 @@ namespace tnbLib
 
 	class lduMatrix;
 
-	Ostream& operator<<(Ostream&, const lduMatrix&);
-	Ostream& operator<<(Ostream&, const InfoProxy<lduMatrix>&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const lduMatrix&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<lduMatrix>&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -162,11 +162,11 @@ namespace tnbLib
 						)
 			);*/
 
-			typedef autoPtr<solver> (*symMatrixConstructorPtr)(const word& fieldName, const lduMatrix& matrix,
-			                                                   const FieldField<Field, scalar>& interfaceBouCoeffs,
-			                                                   const FieldField<Field, scalar>& interfaceIntCoeffs,
-			                                                   const lduInterfaceFieldPtrsList& interfaces,
-			                                                   const dictionary& solverControls);
+			typedef autoPtr<solver>(*symMatrixConstructorPtr)(const word& fieldName, const lduMatrix& matrix,
+				const FieldField<Field, scalar>& interfaceBouCoeffs,
+				const FieldField<Field, scalar>& interfaceIntCoeffs,
+				const lduInterfaceFieldPtrsList& interfaces,
+				const dictionary& solverControls);
 			typedef HashTable<symMatrixConstructorPtr, word, string::hash> symMatrixConstructorTable;
 			static FoamBase_EXPORT symMatrixConstructorTable* symMatrixConstructorTablePtr_;
 			static FoamBase_EXPORT void constructsymMatrixConstructorTables();
@@ -177,12 +177,12 @@ namespace tnbLib
 			{
 			public:
 				static autoPtr<solver> New(const word& fieldName, const lduMatrix& matrix,
-				                           const FieldField<Field, scalar>& interfaceBouCoeffs,
-				                           const FieldField<Field, scalar>& interfaceIntCoeffs,
-				                           const lduInterfaceFieldPtrsList& interfaces, const dictionary& solverControls)
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces, const dictionary& solverControls)
 				{
 					return autoPtr<solver>(new solverType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces,
-					                                      solverControls));
+						solverControls));
 				}
 
 				addsymMatrixConstructorToTable(const word& lookup = solverType::typeName)
@@ -204,12 +204,12 @@ namespace tnbLib
 				const word& lookup_;
 			public:
 				static autoPtr<solver> New(const word& fieldName, const lduMatrix& matrix,
-				                           const FieldField<Field, scalar>& interfaceBouCoeffs,
-				                           const FieldField<Field, scalar>& interfaceIntCoeffs,
-				                           const lduInterfaceFieldPtrsList& interfaces, const dictionary& solverControls)
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces, const dictionary& solverControls)
 				{
 					return autoPtr<solver>(new solverType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces,
-					                                      solverControls));
+						solverControls));
 				}
 
 				addRemovablesymMatrixConstructorToTable(const word& lookup = solverType::typeName) : lookup_(lookup)
@@ -247,11 +247,11 @@ namespace tnbLib
 						)
 			);*/
 
-			typedef autoPtr<solver> (*asymMatrixConstructorPtr)(const word& fieldName, const lduMatrix& matrix,
-			                                                    const FieldField<Field, scalar>& interfaceBouCoeffs,
-			                                                    const FieldField<Field, scalar>& interfaceIntCoeffs,
-			                                                    const lduInterfaceFieldPtrsList& interfaces,
-			                                                    const dictionary& solverControls);
+			typedef autoPtr<solver>(*asymMatrixConstructorPtr)(const word& fieldName, const lduMatrix& matrix,
+				const FieldField<Field, scalar>& interfaceBouCoeffs,
+				const FieldField<Field, scalar>& interfaceIntCoeffs,
+				const lduInterfaceFieldPtrsList& interfaces,
+				const dictionary& solverControls);
 			typedef HashTable<asymMatrixConstructorPtr, word, string::hash> asymMatrixConstructorTable;
 			static FoamBase_EXPORT asymMatrixConstructorTable* asymMatrixConstructorTablePtr_;
 			static FoamBase_EXPORT void constructasymMatrixConstructorTables();
@@ -262,12 +262,12 @@ namespace tnbLib
 			{
 			public:
 				static autoPtr<solver> New(const word& fieldName, const lduMatrix& matrix,
-				                           const FieldField<Field, scalar>& interfaceBouCoeffs,
-				                           const FieldField<Field, scalar>& interfaceIntCoeffs,
-				                           const lduInterfaceFieldPtrsList& interfaces, const dictionary& solverControls)
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces, const dictionary& solverControls)
 				{
 					return autoPtr<solver>(new solverType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces,
-					                                      solverControls));
+						solverControls));
 				}
 
 				addasymMatrixConstructorToTable(const word& lookup = solverType::typeName)
@@ -289,12 +289,12 @@ namespace tnbLib
 				const word& lookup_;
 			public:
 				static autoPtr<solver> New(const word& fieldName, const lduMatrix& matrix,
-				                           const FieldField<Field, scalar>& interfaceBouCoeffs,
-				                           const FieldField<Field, scalar>& interfaceIntCoeffs,
-				                           const lduInterfaceFieldPtrsList& interfaces, const dictionary& solverControls)
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces, const dictionary& solverControls)
 				{
 					return autoPtr<solver>(new solverType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces,
-					                                      solverControls));
+						solverControls));
 				}
 
 				addRemovableasymMatrixConstructorToTable(const word& lookup = solverType::typeName) : lookup_(lookup)
@@ -440,10 +440,10 @@ namespace tnbLib
 						)
 			);*/
 
-			typedef autoPtr<smoother> (*symMatrixConstructorPtr)(const word& fieldName, const lduMatrix& matrix,
-			                                                     const FieldField<Field, scalar>& interfaceBouCoeffs,
-			                                                     const FieldField<Field, scalar>& interfaceIntCoeffs,
-			                                                     const lduInterfaceFieldPtrsList& interfaces);
+			typedef autoPtr<smoother>(*symMatrixConstructorPtr)(const word& fieldName, const lduMatrix& matrix,
+				const FieldField<Field, scalar>& interfaceBouCoeffs,
+				const FieldField<Field, scalar>& interfaceIntCoeffs,
+				const lduInterfaceFieldPtrsList& interfaces);
 			typedef HashTable<symMatrixConstructorPtr, word, string::hash> symMatrixConstructorTable;
 			static FoamBase_EXPORT symMatrixConstructorTable* symMatrixConstructorTablePtr_;
 			static FoamBase_EXPORT void constructsymMatrixConstructorTables();
@@ -454,9 +454,9 @@ namespace tnbLib
 			{
 			public:
 				static autoPtr<smoother> New(const word& fieldName, const lduMatrix& matrix,
-				                             const FieldField<Field, scalar>& interfaceBouCoeffs,
-				                             const FieldField<Field, scalar>& interfaceIntCoeffs,
-				                             const lduInterfaceFieldPtrsList& interfaces)
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces)
 				{
 					return autoPtr<smoother>(new smootherType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces));
 				}
@@ -480,9 +480,9 @@ namespace tnbLib
 				const word& lookup_;
 			public:
 				static autoPtr<smoother> New(const word& fieldName, const lduMatrix& matrix,
-				                             const FieldField<Field, scalar>& interfaceBouCoeffs,
-				                             const FieldField<Field, scalar>& interfaceIntCoeffs,
-				                             const lduInterfaceFieldPtrsList& interfaces)
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces)
 				{
 					return autoPtr<smoother>(new smootherType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces));
 				}
@@ -520,10 +520,10 @@ namespace tnbLib
 						)
 			);*/
 
-			typedef autoPtr<smoother> (*asymMatrixConstructorPtr)(const word& fieldName, const lduMatrix& matrix,
-			                                                      const FieldField<Field, scalar>& interfaceBouCoeffs,
-			                                                      const FieldField<Field, scalar>& interfaceIntCoeffs,
-			                                                      const lduInterfaceFieldPtrsList& interfaces);
+			typedef autoPtr<smoother>(*asymMatrixConstructorPtr)(const word& fieldName, const lduMatrix& matrix,
+				const FieldField<Field, scalar>& interfaceBouCoeffs,
+				const FieldField<Field, scalar>& interfaceIntCoeffs,
+				const lduInterfaceFieldPtrsList& interfaces);
 			typedef HashTable<asymMatrixConstructorPtr, word, string::hash> asymMatrixConstructorTable;
 			static FoamBase_EXPORT asymMatrixConstructorTable* asymMatrixConstructorTablePtr_;
 			static FoamBase_EXPORT void constructasymMatrixConstructorTables();
@@ -534,9 +534,9 @@ namespace tnbLib
 			{
 			public:
 				static autoPtr<smoother> New(const word& fieldName, const lduMatrix& matrix,
-				                             const FieldField<Field, scalar>& interfaceBouCoeffs,
-				                             const FieldField<Field, scalar>& interfaceIntCoeffs,
-				                             const lduInterfaceFieldPtrsList& interfaces)
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces)
 				{
 					return autoPtr<smoother>(new smootherType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces));
 				}
@@ -560,9 +560,9 @@ namespace tnbLib
 				const word& lookup_;
 			public:
 				static autoPtr<smoother> New(const word& fieldName, const lduMatrix& matrix,
-				                             const FieldField<Field, scalar>& interfaceBouCoeffs,
-				                             const FieldField<Field, scalar>& interfaceIntCoeffs,
-				                             const lduInterfaceFieldPtrsList& interfaces)
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces)
 				{
 					return autoPtr<smoother>(new smootherType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces));
 				}
@@ -686,7 +686,7 @@ namespace tnbLib
 					(sol, solverControls)
 			);*/
 
-			typedef autoPtr<preconditioner> (*symMatrixConstructorPtr)(const solver& sol, const dictionary& solverControls);
+			typedef autoPtr<preconditioner>(*symMatrixConstructorPtr)(const solver& sol, const dictionary& solverControls);
 			typedef HashTable<symMatrixConstructorPtr, word, string::hash> symMatrixConstructorTable;
 			static FoamBase_EXPORT symMatrixConstructorTable* symMatrixConstructorTablePtr_;
 			static FoamBase_EXPORT void constructsymMatrixConstructorTables();
@@ -748,7 +748,7 @@ namespace tnbLib
 					(sol, solverControls)
 			);*/
 
-			typedef autoPtr<preconditioner> (*asymMatrixConstructorPtr)(const solver& sol, const dictionary& solverControls);
+			typedef autoPtr<preconditioner>(*asymMatrixConstructorPtr)(const solver& sol, const dictionary& solverControls);
 			typedef HashTable<asymMatrixConstructorPtr, word, string::hash> asymMatrixConstructorTable;
 			static FoamBase_EXPORT asymMatrixConstructorTable* asymMatrixConstructorTablePtr_;
 			static FoamBase_EXPORT void constructasymMatrixConstructorTables();
@@ -859,7 +859,7 @@ namespace tnbLib
 
 			// Declare name of the class and its debug switch
 		//ClassName("lduMatrix");
-		static const char* typeName_() { return "lduMatrix"; } 
+		static const char* typeName_() { return "lduMatrix"; }
 		static FoamBase_EXPORT const ::tnbLib::word typeName;
 		static FoamBase_EXPORT int debug;
 
@@ -1042,7 +1042,7 @@ namespace tnbLib
 		template<class Type>
 		tmp<Field<Type>> H(const tmp<Field<Type>>&) const;
 
-		tmp<scalarField> H1() const;
+		FoamBase_EXPORT tmp<scalarField> H1() const;
 
 		template<class Type>
 		tmp<Field<Type>> faceH(const Field<Type>&) const;
@@ -1076,8 +1076,8 @@ namespace tnbLib
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const lduMatrix&);
-		friend Ostream& operator<<(Ostream&, const InfoProxy<lduMatrix>&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const lduMatrix&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<lduMatrix>&);
 	};
 
 

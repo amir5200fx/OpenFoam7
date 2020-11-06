@@ -270,6 +270,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClInclude Include="TnbLib\Base\db\IOstreams\Pstreams\gatherScatterI.hxx" />
     <ClInclude Include="TnbLib\Base\db\IOstreams\Pstreams\gatherScatterListI.hxx" />
     <ClInclude Include="TnbLib\Base\db\IOstreams\Pstreams\PstreamHelper.hxx" />
+    <ClInclude Include="TnbLib\Base\db\IOstreams\Pstreams\PstreamHelperI.hxx" />
     <ClInclude Include="TnbLib\Base\db\IOstreams\Sstreams\ReadHexI.hxx" />
     <ClInclude Include="TnbLib\Base\db\IOstreams\token\token_Imp.hxx" />
     <ClInclude Include="TnbLib\Base\db\objectRegistry\objectRegistryI.hxx" />

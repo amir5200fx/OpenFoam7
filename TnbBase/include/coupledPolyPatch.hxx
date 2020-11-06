@@ -66,7 +66,7 @@ namespace tnbLib
 								NOORDERING          // unspecified, no automatic ordering
 		};
 
-		static const NamedEnum<transformType, 5> transformTypeNames;
+		static FoamBase_EXPORT const NamedEnum<transformType, 5> transformTypeNames;
 
 
 	private:

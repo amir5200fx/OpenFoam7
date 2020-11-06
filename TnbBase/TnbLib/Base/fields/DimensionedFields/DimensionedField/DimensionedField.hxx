@@ -43,6 +43,16 @@ SourceFiles
 #include <Field.hxx>
 #include <dimensionedType.hxx>
 
+#ifdef FoamBase_EXPORT_DEFINE
+#define FoamDimensionedField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDimensionedField_EXPORT_DEFINE
+#define FoamDimensionedField_EXPORT __declspec(dllexport)
+#else
+#define FoamDimensionedField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -111,8 +121,8 @@ namespace tnbLib
 		//- Runtime type information
 		//TypeName("DimensionedField");
 		static const char* typeName_() { return "DimensionedField"; }
-		static Foam_EXPORT const ::tnbLib::word typeName;
-		static Foam_EXPORT int debug;
+		static FoamDimensionedField_EXPORT const ::tnbLib::word typeName;
+		static FoamDimensionedField_EXPORT int debug;
 		virtual const word& type() const { return typeName; };
 
 

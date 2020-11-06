@@ -117,7 +117,7 @@ namespace tnbLib
 		virtual const word& type() const { return typeName; };
 
 		//- Debug switch to disallow the use of genericPointPatchField
-		static int disallowGenericPointPatchField;
+		static FoamBase_EXPORT int disallowGenericPointPatchField;
 
 
 		// Declare run-time constructor selection tables
@@ -134,8 +134,8 @@ namespace tnbLib
 				(p, iF)
 		);*/
 
-		typedef autoPtr<pointPatchField> (*pointPatchConstructorPtr)(const pointPatch& p,
-		                                                             const DimensionedField<Type, pointMesh>& iF);
+		typedef autoPtr<pointPatchField>(*pointPatchConstructorPtr)(const pointPatch& p,
+			const DimensionedField<Type, pointMesh>& iF);
 		typedef HashTable<pointPatchConstructorPtr, word, string::hash> pointPatchConstructorTable;
 		static FoamBase_EXPORT pointPatchConstructorTable* pointPatchConstructorTablePtr_;
 		static FoamBase_EXPORT void constructpointPatchConstructorTables();
@@ -199,9 +199,9 @@ namespace tnbLib
 				(dynamic_cast<const pointPatchFieldType&>(ptf), p, iF, m)
 		);*/
 
-		typedef autoPtr<pointPatchField> (*patchMapperConstructorPtr)(const pointPatchField<Type>& ptf, const pointPatch& p,
-		                                                              const DimensionedField<Type, pointMesh>& iF,
-		                                                              const pointPatchFieldMapper& m);
+		typedef autoPtr<pointPatchField>(*patchMapperConstructorPtr)(const pointPatchField<Type>& ptf, const pointPatch& p,
+			const DimensionedField<Type, pointMesh>& iF,
+			const pointPatchFieldMapper& m);
 		typedef HashTable<patchMapperConstructorPtr, word, string::hash> patchMapperConstructorTable;
 		static FoamBase_EXPORT patchMapperConstructorTable* patchMapperConstructorTablePtr_;
 		static FoamBase_EXPORT void constructpatchMapperConstructorTables();
@@ -212,7 +212,7 @@ namespace tnbLib
 		{
 		public:
 			static autoPtr<pointPatchField> New(const pointPatchField<Type>& ptf, const pointPatch& p,
-			                                    const DimensionedField<Type, pointMesh>& iF, const pointPatchFieldMapper& m)
+				const DimensionedField<Type, pointMesh>& iF, const pointPatchFieldMapper& m)
 			{
 				return autoPtr<pointPatchField>(new pointPatchFieldType(dynamic_cast<const pointPatchFieldType&>(ptf), p, iF, m));
 			}
@@ -236,7 +236,7 @@ namespace tnbLib
 			const word& lookup_;
 		public:
 			static autoPtr<pointPatchField> New(const pointPatchField<Type>& ptf, const pointPatch& p,
-			                                    const DimensionedField<Type, pointMesh>& iF, const pointPatchFieldMapper& m)
+				const DimensionedField<Type, pointMesh>& iF, const pointPatchFieldMapper& m)
 			{
 				return autoPtr<pointPatchField>(new pointPatchFieldType(dynamic_cast<const pointPatchFieldType&>(ptf), p, iF, m));
 			}
@@ -266,9 +266,9 @@ namespace tnbLib
 				(p, iF, dict)
 		);*/
 
-		typedef autoPtr<pointPatchField> (*dictionaryConstructorPtr)(const pointPatch& p,
-		                                                             const DimensionedField<Type, pointMesh>& iF,
-		                                                             const dictionary& dict);
+		typedef autoPtr<pointPatchField>(*dictionaryConstructorPtr)(const pointPatch& p,
+			const DimensionedField<Type, pointMesh>& iF,
+			const dictionary& dict);
 		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
 		static FoamBase_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
 		static FoamBase_EXPORT void constructdictionaryConstructorTables();
@@ -279,7 +279,7 @@ namespace tnbLib
 		{
 		public:
 			static autoPtr<pointPatchField> New(const pointPatch& p, const DimensionedField<Type, pointMesh>& iF,
-			                                    const dictionary& dict)
+				const dictionary& dict)
 			{
 				return autoPtr<pointPatchField>(new pointPatchFieldType(p, iF, dict));
 			}
@@ -303,7 +303,7 @@ namespace tnbLib
 			const word& lookup_;
 		public:
 			static autoPtr<pointPatchField> New(const pointPatch& p, const DimensionedField<Type, pointMesh>& iF,
-			                                    const dictionary& dict)
+				const dictionary& dict)
 			{
 				return autoPtr<pointPatchField>(new pointPatchFieldType(p, iF, dict));
 			}

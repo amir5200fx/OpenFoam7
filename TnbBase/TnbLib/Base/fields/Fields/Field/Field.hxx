@@ -104,7 +104,7 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static FoamBase_EXPORT const char* const typeName;
+		static const char* const typeName;
 
 
 		// Static Member Functions
