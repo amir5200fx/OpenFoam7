@@ -77,6 +77,16 @@ SourceFiles
 #include <Random.hxx>
 #include <fixedValueFvPatchFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamTurbulentInletFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamTurbulentInletFvPatchField_EXPORT_DEFINE
+#define FoamTurbulentInletFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamTurbulentInletFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -112,7 +122,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("turbulentInlet");
+		/*TypeName("turbulentInlet");*/
+		static const char* typeName_() { return "turbulentInlet"; }
+		static FoamTurbulentInletFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulentInletFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -46,6 +46,16 @@ SourceFiles
 
 #include <surfaceInterpolationScheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamFixedBlended_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFixedBlended_EXPORT_DEFINE
+#define FoamFixedBlended_EXPORT __declspec(dllexport)
+#else
+#define FoamFixedBlended_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -76,7 +86,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("fixedBlended");
+		/*TypeName("fixedBlended");*/
+		static const char* typeName_() { return "fixedBlended"; }
+		static FoamFixedBlended_EXPORT const ::tnbLib::word typeName;
+		static FoamFixedBlended_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

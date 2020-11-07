@@ -44,6 +44,16 @@ SourceFiles
 #include <typeInfo.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamLaplacianScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLaplacianScheme_EXPORT_DEFINE
+#define FoamLaplacianScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamLaplacianScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -97,14 +107,64 @@ namespace tnbLib
 
 			// Declare run-time constructor selection tables
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				tmp,
 				laplacianScheme,
 				Istream,
 				(const fvMesh& mesh, Istream& schemeData),
 				(mesh, schemeData)
-			);
+			);*/
+
+			typedef tmp<laplacianScheme> (*IstreamConstructorPtr)(const fvMesh& mesh, Istream& schemeData);
+			typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
+			static FoamLaplacianScheme_EXPORT IstreamConstructorTable* IstreamConstructorTablePtr_;
+			static FoamLaplacianScheme_EXPORT void constructIstreamConstructorTables();
+			static FoamLaplacianScheme_EXPORT void destroyIstreamConstructorTables();
+
+			template <class laplacianSchemeType>
+			class addIstreamConstructorToTable
+			{
+			public:
+				static tmp<laplacianScheme> New(const fvMesh& mesh, Istream& schemeData)
+				{
+					return tmp<laplacianScheme>(new laplacianSchemeType(mesh, schemeData));
+				}
+
+				addIstreamConstructorToTable(const word& lookup = laplacianSchemeType::typeName)
+				{
+					constructIstreamConstructorTables();
+					if (!IstreamConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "laplacianScheme" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
+			};
+
+			template <class laplacianSchemeType>
+			class addRemovableIstreamConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static tmp<laplacianScheme> New(const fvMesh& mesh, Istream& schemeData)
+				{
+					return tmp<laplacianScheme>(new laplacianSchemeType(mesh, schemeData));
+				}
+
+				addRemovableIstreamConstructorToTable(const word& lookup = laplacianSchemeType::typeName) : lookup_(lookup)
+				{
+					constructIstreamConstructorTables();
+					IstreamConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovableIstreamConstructorToTable()
+				{
+					if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors

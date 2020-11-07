@@ -62,23 +62,23 @@ namespace tnbLib
 
 		// Private Member Functions
 
-			//- Do all calculations
-		void calculate();
+		//- Do all calculations
+		FoamFiniteVolume_EXPORT void calculate();
 
 
 	public:
 
 		// Constructors
 
-			//- Construct from components
-		nearWallDist(const fvMesh& mesh);
+		//- Construct from components
+		FoamFiniteVolume_EXPORT nearWallDist(const fvMesh& mesh);
 
 		//- Disallow default bitwise copy construction
-		nearWallDist(const nearWallDist&) = delete;
+		FoamFiniteVolume_EXPORT nearWallDist(const nearWallDist&) = delete;
 
 
 		//- Destructor
-		virtual ~nearWallDist();
+		FoamFiniteVolume_EXPORT virtual ~nearWallDist();
 
 
 		// Member Functions
@@ -89,13 +89,13 @@ namespace tnbLib
 		}
 
 		//- Correct for mesh geom/topo changes
-		virtual void correct();
+		FoamFiniteVolume_EXPORT virtual void correct();
 
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const nearWallDist&) = delete;
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const nearWallDist&) = delete;
 	};
 
 

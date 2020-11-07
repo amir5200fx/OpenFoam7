@@ -38,6 +38,16 @@ SourceFiles
 
 #include <d2dt2Scheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamSteadyStateD2dt2Scheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSteadyStateD2dt2Scheme_EXPORT_DEFINE
+#define FoamSteadyStateD2dt2Scheme_EXPORT __declspec(dllexport)
+#else
+#define FoamSteadyStateD2dt2Scheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -60,7 +70,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("steadyState");
+			/*TypeName("steadyState");*/
+			static const char* typeName_() { return "steadyState"; }
+			static FoamSteadyStateD2dt2Scheme_EXPORT const ::tnbLib::word typeName;
+			static FoamSteadyStateD2dt2Scheme_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

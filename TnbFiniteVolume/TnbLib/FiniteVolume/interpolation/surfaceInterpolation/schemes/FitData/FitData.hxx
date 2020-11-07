@@ -173,9 +173,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <FitData.cxx>
-#endif
+//#ifdef NoRepository
+//#include <FitData.cxx>
+//#endif
+
+#include <FitDataI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

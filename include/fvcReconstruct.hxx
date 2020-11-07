@@ -71,8 +71,8 @@ namespace tnbLib
 				const tmp<GeometricField<Type, fvsPatchField, surfaceMesh>>&
 			);
 
-		tmp<volScalarField> reconstructMag(const surfaceScalarField&);
-		tmp<volScalarField> reconstructMag(const tmp<surfaceScalarField>&);
+		FoamFiniteVolume_EXPORT tmp<volScalarField> reconstructMag(const surfaceScalarField&);
+		FoamFiniteVolume_EXPORT tmp<volScalarField> reconstructMag(const tmp<surfaceScalarField>&);
 	}
 
 

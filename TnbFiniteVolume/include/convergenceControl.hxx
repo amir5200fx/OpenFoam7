@@ -57,7 +57,7 @@ namespace tnbLib
 		//- Classes
 
 			//- Residual data structure
-		struct residualData
+		struct FoamFiniteVolume_EXPORT residualData
 		{
 			wordRe name;
 			scalar absTol;
@@ -68,11 +68,11 @@ namespace tnbLib
 
 			//- Get the list of names of the fields
 			//  for which residual data is available
-		static DynamicList<word> getFieldNames(const fvMesh& mesh);
+		static FoamFiniteVolume_EXPORT DynamicList<word> getFieldNames(const fvMesh& mesh);
 
 		//- Get the initial residuals for the first and the i-th solves in this
 		//  time-step
-		static void getInitialResiduals
+		static FoamFiniteVolume_EXPORT void getInitialResiduals
 		(
 			const fvMesh& mesh,
 			const word& fieldName,
@@ -128,20 +128,24 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Run-time type information
-		TypeName("convergenceControl");
+		//TypeName("convergenceControl");
+		static const char* typeName_() { return "convergenceControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from a solution control
-		convergenceControl(const solutionControl& control);
+		FoamFiniteVolume_EXPORT convergenceControl(const solutionControl& control);
 
 		//- Disallow default bitwise copy construction
-		convergenceControl(const convergenceControl&) = delete;
+		FoamFiniteVolume_EXPORT convergenceControl(const convergenceControl&) = delete;
 
 
 		//- Destructor
-		virtual ~convergenceControl();
+		FoamFiniteVolume_EXPORT virtual ~convergenceControl();
 
 
 		// Member Functions
@@ -149,22 +153,22 @@ namespace tnbLib
 			// Evolution
 
 				//- Return true if residual controls are present
-		virtual bool hasResidualControls() const = 0;
+		FoamFiniteVolume_EXPORT virtual bool hasResidualControls() const = 0;
 
 		//- Return true if all convergence checks are satisfied
-		virtual bool criteriaSatisfied() const = 0;
+		FoamFiniteVolume_EXPORT virtual bool criteriaSatisfied() const = 0;
 
 		//- Flag to indicate whether convergance has been reached
-		bool converged();
+		FoamFiniteVolume_EXPORT bool converged();
 
 		//- End the run if convergance has been reached
-		bool endIfConverged(Time& time);
+		FoamFiniteVolume_EXPORT bool endIfConverged(Time& time);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const convergenceControl&) = delete;
+		FoamFiniteVolume_EXPORT void operator=(const convergenceControl&) = delete;
 	};
 
 

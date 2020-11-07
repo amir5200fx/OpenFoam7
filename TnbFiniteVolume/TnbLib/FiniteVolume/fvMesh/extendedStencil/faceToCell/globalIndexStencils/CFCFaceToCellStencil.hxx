@@ -54,12 +54,12 @@ namespace tnbLib
 
 			//- Calculates per face the neighbour data (= faces of cell).
 			//  Leaves out the face itself since this is already in stencil.
-		void calcFaceBoundaryData(labelListList& neiGlobal) const;
+		FoamFiniteVolume_EXPORT void calcFaceBoundaryData(labelListList& neiGlobal) const;
 
 		//- Calculates per cell the neighbour data
 		//  (= cell or boundary in global numbering).
 		//  First element is always cell itself!
-		void calcCellStencil(labelListList& globalCellFaces) const;
+		FoamFiniteVolume_EXPORT void calcCellStencil(labelListList& globalCellFaces) const;
 
 
 	public:
@@ -67,7 +67,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mesh
-		explicit CFCFaceToCellStencil(const polyMesh&);
+		FoamFiniteVolume_EXPORT explicit CFCFaceToCellStencil(const polyMesh&);
 	};
 
 

@@ -56,7 +56,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(mappedPolyPatch::typeName_());
+		/*TypeName(mappedPolyPatch::typeName_());*/
+		static const char* typeName_() { return mappedPolyPatch::typeName_(); }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

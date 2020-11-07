@@ -62,7 +62,7 @@ namespace tnbLib
 
 		// Protected data
 
-			//- The pimple loop
+		//- The pimple loop
 		const pimpleLoop& loop_;
 
 
@@ -70,15 +70,19 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("solidNoLoopControl");
+		//- Run-time type information
+		//TypeName("solidNoLoopControl");
+		static const char* typeName_() { return "solidNoLoopControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from a mesh, the name of the algorithm, and a reference
-			//  to the pimple loop
-		solidNoLoopControl
+		//- Construct from a mesh, the name of the algorithm, and a reference
+		//  to the pimple loop
+		FoamFiniteVolume_EXPORT solidNoLoopControl
 		(
 			fvMesh& mesh,
 			const word& algorithmName,
@@ -87,20 +91,20 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~solidNoLoopControl();
+		FoamFiniteVolume_EXPORT virtual ~solidNoLoopControl();
 
 
 		// Member Functions
 
-			// IO
+		// IO
 
-				//- Read controls
-		virtual bool read();
+		//- Read controls
+		FoamFiniteVolume_EXPORT virtual bool read();
 
 		// Access
 
-			//- Flag to indicate whether in final state
-		virtual bool isFinal() const;
+		//- Flag to indicate whether in final state
+		FoamFiniteVolume_EXPORT virtual bool isFinal() const;
 	};
 
 

@@ -40,6 +40,16 @@ SourceFiles
 #include <linear.hxx>
 #include <gaussGrad.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCubic_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCubic_EXPORT_DEFINE
+#define FoamCubic_EXPORT __declspec(dllexport)
+#else
+#define FoamCubic_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -58,7 +68,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cubic");
+		/*TypeName("cubic");*/
+		static const char* typeName_() { return "cubic"; }
+		static FoamCubic_EXPORT const ::tnbLib::word typeName;
+		static FoamCubic_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

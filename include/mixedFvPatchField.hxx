@@ -71,6 +71,16 @@ SourceFiles
 
 #include <fvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamMixedFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMixedFvPatchField_EXPORT_DEFINE
+#define FoamMixedFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamMixedFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -100,7 +110,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("mixed");
+		//TypeName("mixed");
+		static const char* typeName_() { return "mixed"; }
+		static FoamMixedFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamMixedFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

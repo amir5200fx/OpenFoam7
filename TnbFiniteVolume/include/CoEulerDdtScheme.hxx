@@ -45,6 +45,16 @@ SourceFiles
 
 #include <ddtScheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCoEulerDdtScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCoEulerDdtScheme_EXPORT_DEFINE
+#define FoamCoEulerDdtScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamCoEulerDdtScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -89,7 +99,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("CoEuler");
+			/*TypeName("CoEuler");*/
+			static const char* typeName_() { return "CoEuler"; }
+			static FoamCoEulerDdtScheme_EXPORT const ::tnbLib::word typeName;
+			static FoamCoEulerDdtScheme_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

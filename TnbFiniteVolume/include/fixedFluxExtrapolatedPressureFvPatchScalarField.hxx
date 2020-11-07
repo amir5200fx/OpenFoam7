@@ -68,20 +68,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("fixedFluxExtrapolatedPressure");
+		//TypeName("fixedFluxExtrapolatedPressure");
+		static const char* typeName_() { return "fixedFluxExtrapolatedPressure"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		fixedFluxExtrapolatedPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT fixedFluxExtrapolatedPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		fixedFluxExtrapolatedPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT fixedFluxExtrapolatedPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -90,7 +94,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		//  fixedFluxExtrapolatedPressureFvPatchScalarField onto a new patch
-		fixedFluxExtrapolatedPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT fixedFluxExtrapolatedPressureFvPatchScalarField
 		(
 			const fixedFluxExtrapolatedPressureFvPatchScalarField&,
 			const fvPatch&,
@@ -99,7 +103,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		fixedFluxExtrapolatedPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT fixedFluxExtrapolatedPressureFvPatchScalarField
 		(
 			const fixedFluxExtrapolatedPressureFvPatchScalarField&
 		);
@@ -114,7 +118,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		fixedFluxExtrapolatedPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT fixedFluxExtrapolatedPressureFvPatchScalarField
 		(
 			const fixedFluxExtrapolatedPressureFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&

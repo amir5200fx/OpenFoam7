@@ -39,6 +39,16 @@ SourceFiles
 #include <surfaceInterpolationScheme.hxx>
 #include <HashTable.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamMultivariateSurfaceInterpolationScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMultivariateSurfaceInterpolationScheme_EXPORT_DEFINE
+#define FoamMultivariateSurfaceInterpolationScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamMultivariateSurfaceInterpolationScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -92,7 +102,7 @@ namespace tnbLib
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			tmp,
 			multivariateSurfaceInterpolationScheme,
@@ -104,7 +114,64 @@ namespace tnbLib
 				Istream& is
 				),
 				(mesh, fields, faceFlux, is)
-		);
+		);*/
+
+		typedef tmp<multivariateSurfaceInterpolationScheme> (*IstreamConstructorPtr)(
+			const fvMesh& mesh, const fieldTable& fields, const surfaceScalarField& faceFlux, Istream& is);
+		typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
+		static FoamMultivariateSurfaceInterpolationScheme_EXPORT IstreamConstructorTable* IstreamConstructorTablePtr_;
+		static FoamMultivariateSurfaceInterpolationScheme_EXPORT void constructIstreamConstructorTables();
+		static FoamMultivariateSurfaceInterpolationScheme_EXPORT void destroyIstreamConstructorTables();
+
+		template <class multivariateSurfaceInterpolationSchemeType>
+		class addIstreamConstructorToTable
+		{
+		public:
+			static tmp<multivariateSurfaceInterpolationScheme> New(const fvMesh& mesh, const fieldTable& fields,
+			                                                       const surfaceScalarField& faceFlux, Istream& is)
+			{
+				return tmp<multivariateSurfaceInterpolationScheme>(
+					new multivariateSurfaceInterpolationSchemeType(mesh, fields, faceFlux, is));
+			}
+
+			addIstreamConstructorToTable(const word& lookup = multivariateSurfaceInterpolationSchemeType::typeName)
+			{
+				constructIstreamConstructorTables();
+				if (!IstreamConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"multivariateSurfaceInterpolationScheme" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
+		};
+
+		template <class multivariateSurfaceInterpolationSchemeType>
+		class addRemovableIstreamConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static tmp<multivariateSurfaceInterpolationScheme> New(const fvMesh& mesh, const fieldTable& fields,
+			                                                       const surfaceScalarField& faceFlux, Istream& is)
+			{
+				return tmp<multivariateSurfaceInterpolationScheme>(
+					new multivariateSurfaceInterpolationSchemeType(mesh, fields, faceFlux, is));
+			}
+
+			addRemovableIstreamConstructorToTable(
+				const word& lookup = multivariateSurfaceInterpolationSchemeType::typeName) : lookup_(lookup)
+			{
+				constructIstreamConstructorTables();
+				IstreamConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableIstreamConstructorToTable()
+			{
+				if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

@@ -57,7 +57,7 @@ namespace tnbLib
 
 		// Protected data
 
-			//- Maximum number of non-orthogonal correctors
+		//- Maximum number of non-orthogonal correctors
 		label nCorrNonOrth_;
 
 		//- Current non-orthogonal corrector index
@@ -68,31 +68,35 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("nonOrthogonalSolutionControl");
+		//- Run-time type information
+		//TypeName("nonOrthogonalSolutionControl");
+		static const char* typeName_() { return "nonOrthogonalSolutionControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from a mesh and the name of the algorithm
-		nonOrthogonalSolutionControl(fvMesh& mesh, const word& algorithmName);
+		//- Construct from a mesh and the name of the algorithm
+		FoamFiniteVolume_EXPORT nonOrthogonalSolutionControl(fvMesh& mesh, const word& algorithmName);
 
 
 		//- Destructor
-		virtual ~nonOrthogonalSolutionControl();
+		FoamFiniteVolume_EXPORT virtual ~nonOrthogonalSolutionControl();
 
 
 		// Member Functions
 
-			// IO
+		// IO
 
-				//- Read controls
-		virtual bool read();
+		//- Read controls
+		FoamFiniteVolume_EXPORT virtual bool read();
 
 
 		// Access
 
-			//- Maximum number of non-orthogonal correctors
+		//- Maximum number of non-orthogonal correctors
 		inline label nCorrNonOrth() const;
 
 		//- Flat to indicate any non-orthogonal iteration
@@ -107,8 +111,8 @@ namespace tnbLib
 
 		// Evolution
 
-			//- Non-orthogonal corrector loop
-		bool correctNonOrthogonal();
+		//- Non-orthogonal corrector loop
+		FoamFiniteVolume_EXPORT bool correctNonOrthogonal();
 	};
 
 

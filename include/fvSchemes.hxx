@@ -96,41 +96,41 @@ namespace tnbLib
 	public:
 
 		//- Debug switch
-		static int debug;
+		static FoamFiniteVolume_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct for objectRegistry
-		fvSchemes(const objectRegistry& obr);
+		FoamFiniteVolume_EXPORT fvSchemes(const objectRegistry& obr);
 
 		//- Disallow default bitwise copy construction
-		fvSchemes(const fvSchemes&) = delete;
+		FoamFiniteVolume_EXPORT fvSchemes(const fvSchemes&) = delete;
 
 
 		// Member Functions
 
 			// Access
 
-		const dictionary& schemesDict() const;
+		FoamFiniteVolume_EXPORT const dictionary& schemesDict() const;
 
-		ITstream& ddtScheme(const word& name) const;
+		FoamFiniteVolume_EXPORT ITstream& ddtScheme(const word& name) const;
 
-		ITstream& d2dt2Scheme(const word& name) const;
+		FoamFiniteVolume_EXPORT ITstream& d2dt2Scheme(const word& name) const;
 
-		ITstream& interpolationScheme(const word& name) const;
+		FoamFiniteVolume_EXPORT ITstream& interpolationScheme(const word& name) const;
 
-		ITstream& divScheme(const word& name) const;
+		FoamFiniteVolume_EXPORT ITstream& divScheme(const word& name) const;
 
-		ITstream& gradScheme(const word& name) const;
+		FoamFiniteVolume_EXPORT ITstream& gradScheme(const word& name) const;
 
-		ITstream& snGradScheme(const word& name) const;
+		FoamFiniteVolume_EXPORT ITstream& snGradScheme(const word& name) const;
 
-		ITstream& laplacianScheme(const word& name) const;
+		FoamFiniteVolume_EXPORT ITstream& laplacianScheme(const word& name) const;
 
-		void setFluxRequired(const word& name) const;
+		FoamFiniteVolume_EXPORT void setFluxRequired(const word& name) const;
 
-		bool fluxRequired(const word& name) const;
+		FoamFiniteVolume_EXPORT bool fluxRequired(const word& name) const;
 
 		//- Return true if the default ddtScheme is steadyState
 		bool steady() const
@@ -148,13 +148,13 @@ namespace tnbLib
 		// Read
 
 			//- Read the fvSchemes
-		bool read();
+		FoamFiniteVolume_EXPORT bool read();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const fvSchemes&) = delete;
+		FoamFiniteVolume_EXPORT void operator=(const fvSchemes&) = delete;
 	};
 
 

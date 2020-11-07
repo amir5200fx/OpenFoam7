@@ -89,7 +89,7 @@ namespace tnbLib
 		{}
 
 		//- Disallow default bitwise copy construction
-		fvMeshMapper(const fvMeshMapper&) = delete;
+		FoamFiniteVolume_EXPORT fvMeshMapper(const fvMeshMapper&) = delete;
 
 
 		// Member Functions
@@ -128,8 +128,8 @@ namespace tnbLib
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const fvMeshMapper&) = delete;
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const fvMeshMapper&) = delete;
 	};
 
 

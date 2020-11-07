@@ -39,6 +39,16 @@ SourceFiles
 
 #include <fvsPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamFixedValueFvsPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFixedValueFvsPatchField_EXPORT_DEFINE
+#define FoamFixedValueFvsPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamFixedValueFvsPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -57,7 +67,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("fixedValue");
+		/*TypeName("fixedValue");*/
+		static const char* typeName_() { return "fixedValue"; }
+		static FoamFixedValueFvsPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamFixedValueFvsPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

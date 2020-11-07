@@ -40,6 +40,16 @@ SourceFiles
 #include <surfaceInterpolationScheme.hxx>
 #include <limitedSurfaceInterpolationScheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamLimitWith_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLimitWith_EXPORT_DEFINE
+#define FoamLimitWith_EXPORT __declspec(dllexport)
+#else
+#define FoamLimitWith_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -66,7 +76,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("limitWith");
+		/*TypeName("limitWith");*/
+		static const char* typeName_() { return "limitWith"; }
+		static FoamLimitWith_EXPORT const ::tnbLib::word typeName;
+		static FoamLimitWith_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

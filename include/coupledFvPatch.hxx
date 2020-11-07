@@ -74,7 +74,11 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName(coupledPolyPatch::typeName_());
+		/*TypeName(coupledPolyPatch::typeName_());*/
+		static const char* typeName_() { return coupledPolyPatch::typeName_(); }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -88,7 +92,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~coupledFvPatch();
+		FoamFiniteVolume_EXPORT virtual ~coupledFvPatch();
 
 
 		// Member Functions
@@ -102,13 +106,13 @@ namespace tnbLib
 		}
 
 		//- Are the cyclic planes parallel.
-		virtual bool parallel() const = 0;
+		FoamFiniteVolume_EXPORT virtual bool parallel() const = 0;
 
 		//- Return face transformation tensor.
-		virtual const tensorField& forwardT() const = 0;
+		FoamFiniteVolume_EXPORT virtual const tensorField& forwardT() const = 0;
 
 		//- Return neighbour-cell transformation tensor.
-		virtual const tensorField& reverseT() const = 0;
+		FoamFiniteVolume_EXPORT virtual const tensorField& reverseT() const = 0;
 
 		//- Return faceCell addressing
 		virtual const labelUList& faceCells() const
@@ -117,14 +121,14 @@ namespace tnbLib
 		}
 
 		//- Return delta (P to N) vectors across coupled patch
-		virtual tmp<vectorField> delta() const = 0;
+		FoamFiniteVolume_EXPORT virtual tmp<vectorField> delta() const = 0;
 
 
 		// Interface transfer functions
 
 			//- Return the values of the given internal data adjacent to
 			//  the interface as a field
-		virtual tmp<labelField> interfaceInternalField
+		FoamFiniteVolume_EXPORT virtual tmp<labelField> interfaceInternalField
 		(
 			const labelUList& internalData
 		) const = 0;
@@ -141,7 +145,7 @@ namespace tnbLib
 		{}
 
 		//- Return neighbour field
-		virtual tmp<labelField> internalFieldTransfer
+		FoamFiniteVolume_EXPORT virtual tmp<labelField> internalFieldTransfer
 		(
 			const Pstream::commsTypes commsType,
 			const labelUList& iF

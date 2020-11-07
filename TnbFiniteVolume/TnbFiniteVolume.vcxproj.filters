@@ -3489,6 +3489,15 @@
     <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFvPatchField\timeVaryingMappedFvPatchFieldI.hxx">
       <Filter>TnbLib\FiniteVolume\fields\fvPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFvPatchField</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\extendedCellToFaceStencilI.hxx">
+      <Filter>TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\PhiScheme\PhiSchemeI.hxx">
+      <Filter>TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\PhiScheme</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\FitData\FitDataI.hxx">
+      <Filter>TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\FitData</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\basic\basicSymmetry\basicSymmetryFvPatchScalarField.cxx">
@@ -4406,9 +4415,6 @@
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad\LeastSquaresGradsTemplate.cxx">
       <Filter>TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad\unweightedLeastSquaresVectors.cxx">
-      <Filter>TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\limitedGradSchemes\cellLimitedGrad\cellLimitedGrads.cxx">
       <Filter>TnbLib\FiniteVolume\finiteVolume\gradSchemes\limitedGradSchemes\cellLimitedGrad</Filter>
     </ClCompile>
@@ -4601,6 +4607,9 @@
     <ClCompile Include="TnbLib\FiniteVolume\cfdTools\general\CorrectPhi\correctUphiBCs.cxx">
       <Filter>TnbLib\FiniteVolume\cfdTools\general\CorrectPhi</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\FiniteVolume\interpolation\volPointInterpolation\volPointInterpolation.cxx">
+      <Filter>TnbLib\FiniteVolume\interpolation\volPointInterpolation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="TnbLib\FiniteVolume\cfdTools\general\include\alphaControls.lxx">
@@ -4655,20 +4664,8 @@
       <Filter>TnbLib\FiniteVolume\cfdTools\general\include</Filter>
     </None>
     <None Include="cpp.hint" />
-    <None Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\extendedCellToFaceStencilTemplates.cxx">
-      <Filter>TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace</Filter>
-    </None>
-    <None Include="TnbLib\FiniteVolume\interpolation\volPointInterpolation\volPointInterpolation.cxx">
-      <Filter>TnbLib\FiniteVolume\interpolation\volPointInterpolation</Filter>
-    </None>
-    <None Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\PhiScheme\PhiScheme.cxx">
-      <Filter>TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\PhiScheme</Filter>
-    </None>
     <None Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\CentredFitScheme\CentredFitData.cxx">
       <Filter>TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\CentredFitScheme</Filter>
-    </None>
-    <None Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\FitData\FitData.cxx">
-      <Filter>TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\FitData</Filter>
     </None>
     <None Include="TnbLib\FiniteVolume\cfdTools\incompressible\CourantNo.lxx">
       <Filter>TnbLib\FiniteVolume\cfdTools\incompressible</Filter>

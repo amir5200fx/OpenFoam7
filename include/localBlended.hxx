@@ -40,6 +40,16 @@ SourceFiles
 #include <surfaceInterpolationScheme.hxx>
 #include <blendedSchemeBase.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamLocalBlended_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLocalBlended_EXPORT_DEFINE
+#define FoamLocalBlended_EXPORT __declspec(dllexport)
+#else
+#define FoamLocalBlended_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -67,7 +77,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("localBlended");
+		/*TypeName("localBlended");*/
+		static const char* typeName_() { return "localBlended"; }
+		static FoamLocalBlended_EXPORT const ::tnbLib::word typeName;
+		static FoamLocalBlended_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

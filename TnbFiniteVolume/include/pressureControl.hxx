@@ -79,7 +79,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from the simple/pimple sub-dictionary
-		pressureControl
+		FoamFiniteVolume_EXPORT pressureControl
 		(
 			const volScalarField& p,
 			const volScalarField& rho,
@@ -97,7 +97,7 @@ namespace tnbLib
 		inline scalar refValue() const;
 
 		//- Limit the pressure if necessary and return true if so
-		bool limit(volScalarField& p) const;
+		FoamFiniteVolume_EXPORT bool limit(volScalarField& p) const;
 	};
 
 

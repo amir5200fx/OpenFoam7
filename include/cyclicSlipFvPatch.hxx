@@ -56,12 +56,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(cyclicSlipPolyPatch::typeName_());
+		/*TypeName(cyclicSlipPolyPatch::typeName_());*/
+		static const char* typeName_() { return cyclicSlipPolyPatch::typeName_(); }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from polyPatch
+		//- Construct from polyPatch
 		cyclicSlipFvPatch(const polyPatch& patch, const fvBoundaryMesh& bm)
 			:
 			cyclicFvPatch(patch, bm)

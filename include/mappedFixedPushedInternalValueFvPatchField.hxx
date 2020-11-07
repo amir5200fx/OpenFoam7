@@ -69,6 +69,16 @@ SourceFiles
 
 #include <mappedFixedValueFvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamMappedFixedPushedInternalValueFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMappedFixedPushedInternalValueFvPatchField_EXPORT_DEFINE
+#define FoamMappedFixedPushedInternalValueFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamMappedFixedPushedInternalValueFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -87,12 +97,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("mappedFixedPushedInternalValue");
+		//TypeName("mappedFixedPushedInternalValue");
+		static const char* typeName_() { return "mappedFixedPushedInternalValue"; }
+		static FoamMappedFixedPushedInternalValueFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamMappedFixedPushedInternalValueFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from patch and internal field
+		//- Construct from patch and internal field
 		mappedFixedPushedInternalValueFvPatchField
 		(
 			const fvPatch&,

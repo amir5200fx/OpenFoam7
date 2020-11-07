@@ -123,11 +123,15 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("DarcyForchheimer");
+			//TypeName("DarcyForchheimer");
+			static const char* typeName_() { return "DarcyForchheimer"; }
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+			static FoamFiniteVolume_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
-			DarcyForchheimer
+			FoamFiniteVolume_EXPORT DarcyForchheimer
 			(
 				const word& name,
 				const word& modelType,
@@ -137,20 +141,20 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			DarcyForchheimer(const DarcyForchheimer&) = delete;
+			FoamFiniteVolume_EXPORT DarcyForchheimer(const DarcyForchheimer&) = delete;
 
 
 			//- Destructor
-			virtual ~DarcyForchheimer();
+			FoamFiniteVolume_EXPORT virtual ~DarcyForchheimer();
 
 
 			// Member Functions
 
 				//- Transform the model data wrt mesh changes
-			virtual void calcTransformModelData();
+			FoamFiniteVolume_EXPORT virtual void calcTransformModelData();
 
 			//- Calculate the porosity force
-			virtual void calcForce
+			FoamFiniteVolume_EXPORT virtual void calcForce
 			(
 				const volVectorField& U,
 				const volScalarField& rho,
@@ -159,10 +163,10 @@ namespace tnbLib
 			) const;
 
 			//- Add resistance
-			virtual void correct(fvVectorMatrix& UEqn) const;
+			FoamFiniteVolume_EXPORT virtual void correct(fvVectorMatrix& UEqn) const;
 
 			//- Add resistance
-			virtual void correct
+			FoamFiniteVolume_EXPORT virtual void correct
 			(
 				fvVectorMatrix& UEqn,
 				const volScalarField& rho,
@@ -170,7 +174,7 @@ namespace tnbLib
 			) const;
 
 			//- Add resistance
-			virtual void correct
+			FoamFiniteVolume_EXPORT virtual void correct
 			(
 				const fvVectorMatrix& UEqn,
 				volTensorField& AU
@@ -180,13 +184,13 @@ namespace tnbLib
 			// I-O
 
 				//- Write
-			bool writeData(Ostream& os) const;
+			FoamFiniteVolume_EXPORT bool writeData(Ostream& os) const;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const DarcyForchheimer&) = delete;
+			FoamFiniteVolume_EXPORT void operator=(const DarcyForchheimer&) = delete;
 		};
 
 

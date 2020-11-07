@@ -304,6 +304,7 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <processorFvPatchFieldI.hxx>
+#include <processorFvPatchScalarField.hxx>  // added by amir
 
 //#ifdef NoRepository
 //#include <processorFvPatchField.cxx>

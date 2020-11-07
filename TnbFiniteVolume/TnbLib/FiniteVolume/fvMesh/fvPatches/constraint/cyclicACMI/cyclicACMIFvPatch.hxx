@@ -63,13 +63,17 @@ namespace tnbLib
 		// Protected Member functions
 
 			//- Make patch weighting factors
-		virtual void makeWeights(scalarField&) const;
+		FoamFiniteVolume_EXPORT virtual void makeWeights(scalarField&) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName(cyclicACMIPolyPatch::typeName_());
+		/*TypeName(cyclicACMIPolyPatch::typeName_());*/
+		static const char* typeName_() { return cyclicACMIPolyPatch::typeName_(); }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

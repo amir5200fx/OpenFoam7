@@ -40,6 +40,16 @@ SourceFiles
 #include <ddtScheme.hxx>
 #include <fvMesh.hxx>  // added by amir
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamBackwardDdtScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamBackwardDdtScheme_EXPORT_DEFINE
+#define FoamBackwardDdtScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamBackwardDdtScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -76,7 +86,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("backward");
+			/*TypeName("backward");*/
+			static const char* typeName_() { return "backward"; }
+			static FoamBackwardDdtScheme_EXPORT const ::tnbLib::word typeName;
+			static FoamBackwardDdtScheme_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

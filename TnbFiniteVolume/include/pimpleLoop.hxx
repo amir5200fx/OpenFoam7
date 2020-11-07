@@ -56,7 +56,7 @@ namespace tnbLib
 
 		// Protected data
 
-			//- Reference to the solution control
+		//- Reference to the solution control
 		const solutionControl& control_;
 
 		//- Maximum number of pimple correctors
@@ -71,7 +71,7 @@ namespace tnbLib
 
 		// Protected Member Functions
 
-			//- Read controls
+		//- Read controls
 		virtual bool read();
 
 
@@ -80,17 +80,21 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Run-time type information
-		TypeName("pimpleLoop");
+		//TypeName("pimpleLoop");
+		static const char* typeName_() { return "pimpleLoop"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from a solution control
-		pimpleLoop(const solutionControl& control);
+		FoamFiniteVolume_EXPORT pimpleLoop(const solutionControl& control);
 
 
 		//- Destructor
-		virtual ~pimpleLoop();
+		FoamFiniteVolume_EXPORT virtual ~pimpleLoop();
 
 
 		// Member Functions
@@ -113,7 +117,7 @@ namespace tnbLib
 		// Evolution
 
 			//- Pimple loop
-		bool loop(correctorConvergenceControl& convergence);
+		FoamFiniteVolume_EXPORT bool loop(correctorConvergenceControl& convergence);
 	};
 
 

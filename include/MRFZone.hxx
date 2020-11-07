@@ -112,7 +112,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Divide faces in frame according to patch
-		void setMRFFaces();
+		FoamFiniteVolume_EXPORT void setMRFFaces();
 
 		//- Make the given absolute mass/vol flux relative within the MRF region
 		template<class RhoFieldType>
@@ -151,13 +151,16 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("MRFZone");
+		//ClassName("MRFZone");
+		static const char* typeName_() { return "MRFZone"; } 
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName; 
+		static FoamFiniteVolume_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from fvMesh
-		MRFZone
+		FoamFiniteVolume_EXPORT MRFZone
 		(
 			const word& name,
 			const fvMesh& mesh,
@@ -166,7 +169,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		MRFZone(const MRFZone&) = delete;
+		FoamFiniteVolume_EXPORT MRFZone(const MRFZone&) = delete;
 
 		//- Return clone
 		autoPtr<MRFZone> clone() const
@@ -185,17 +188,17 @@ namespace tnbLib
 		inline bool active() const;
 
 		//- Return the current Omega vector
-		vector Omega() const;
+		FoamFiniteVolume_EXPORT vector Omega() const;
 
 		//- Update the mesh corresponding to given map
-		void updateMesh(const mapPolyMesh& mpm)
+		FoamFiniteVolume_EXPORT void updateMesh(const mapPolyMesh& mpm)
 		{
 			// Only updates face addressing
 			setMRFFaces();
 		}
 
 		//- Add the Coriolis force contribution to the acceleration field
-		void addCoriolis
+		FoamFiniteVolume_EXPORT void addCoriolis
 		(
 			const volVectorField& U,
 			volVectorField& ddtU
@@ -203,7 +206,7 @@ namespace tnbLib
 
 		//- Add the Coriolis force contribution to the momentum equation
 		//  Adds to the lhs of the equation; optionally add to rhs
-		void addCoriolis
+		FoamFiniteVolume_EXPORT void addCoriolis
 		(
 			fvVectorMatrix& UEqn,
 			const bool rhs = false
@@ -211,7 +214,7 @@ namespace tnbLib
 
 		//- Add the Coriolis force contribution to the momentum equation
 		//  Adds to the lhs of the equation; optionally add to rhs
-		void addCoriolis
+		FoamFiniteVolume_EXPORT void addCoriolis
 		(
 			const volScalarField& rho,
 			fvVectorMatrix& UEqn,
@@ -219,63 +222,63 @@ namespace tnbLib
 		) const;
 
 		//- Make the given absolute velocity relative within the MRF region
-		void makeRelative(volVectorField& U) const;
+		FoamFiniteVolume_EXPORT void makeRelative(volVectorField& U) const;
 
 		//- Make the given absolute flux relative within the MRF region
-		void makeRelative(surfaceScalarField& phi) const;
+		FoamFiniteVolume_EXPORT void makeRelative(surfaceScalarField& phi) const;
 
 		//- Make the given absolute boundary flux relative
 		//  within the MRF region
-		void makeRelative(FieldField<fvsPatchField, scalar>& phi) const;
+		FoamFiniteVolume_EXPORT void makeRelative(FieldField<fvsPatchField, scalar>& phi) const;
 
 		//- Make the given absolute patch flux relative
 		//  within the MRF region
-		void makeRelative(Field<scalar>& phi, const label patchi) const;
+		FoamFiniteVolume_EXPORT void makeRelative(Field<scalar>& phi, const label patchi) const;
 
 		//- Make the given absolute mass-flux relative within the MRF region
-		void makeRelative
+		FoamFiniteVolume_EXPORT void makeRelative
 		(
 			const surfaceScalarField& rho,
 			surfaceScalarField& phi
 		) const;
 
 		//- Make the given relative velocity absolute within the MRF region
-		void makeAbsolute(volVectorField& U) const;
+		FoamFiniteVolume_EXPORT void makeAbsolute(volVectorField& U) const;
 
 		//- Make the given relative flux absolute within the MRF region
-		void makeAbsolute(surfaceScalarField& phi) const;
+		FoamFiniteVolume_EXPORT void makeAbsolute(surfaceScalarField& phi) const;
 
 		//- Make the given relative mass-flux absolute within the MRF region
-		void makeAbsolute
+		FoamFiniteVolume_EXPORT void makeAbsolute
 		(
 			const surfaceScalarField& rho,
 			surfaceScalarField& phi
 		) const;
 
 		//- Correct the boundary velocity for the rotation of the MRF region
-		void correctBoundaryVelocity(volVectorField& U) const;
+		FoamFiniteVolume_EXPORT void correctBoundaryVelocity(volVectorField& U) const;
 
 		//- Zero the MRF region of the given field
 		template<class Type>
 		void zero(GeometricField<Type, fvsPatchField, surfaceMesh>& phi) const;
 
 		//- Update MRFZone faces if the mesh topology changes
-		void update();
+		FoamFiniteVolume_EXPORT void update();
 
 
 		// I-O
 
 			//- Write
-		void writeData(Ostream& os) const;
+		FoamFiniteVolume_EXPORT void writeData(Ostream& os) const;
 
 		//- Read MRF dictionary
-		bool read(const dictionary& dict);
+		FoamFiniteVolume_EXPORT bool read(const dictionary& dict);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const MRFZone&) = delete;
+		FoamFiniteVolume_EXPORT void operator=(const MRFZone&) = delete;
 	};
 
 

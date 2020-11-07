@@ -39,6 +39,16 @@ SourceFiles
 #include <fvsPatchField.hxx>
 #include <emptyFvPatch.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamEmptyFvsPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamEmptyFvsPatchField_EXPORT_DEFINE
+#define FoamEmptyFvsPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamEmptyFvsPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -57,7 +67,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(emptyFvPatch::typeName_());
+		/*TypeName(emptyFvPatch::typeName_());*/
+		static const char* typeName_() { return emptyFvPatch::typeName_(); }
+		static FoamEmptyFvsPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamEmptyFvsPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

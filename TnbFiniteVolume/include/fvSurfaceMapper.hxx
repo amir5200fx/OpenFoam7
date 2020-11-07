@@ -86,29 +86,29 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate addressing
-		void calcAddressing() const;
+		FoamFiniteVolume_EXPORT void calcAddressing() const;
 
 		//- Clear out local storage
-		void clearOut();
+		FoamFiniteVolume_EXPORT void clearOut();
 
 
 	public:
 
 		// Constructors
 
-			//- Construct from components
-		fvSurfaceMapper
+		//- Construct from components
+		FoamFiniteVolume_EXPORT fvSurfaceMapper
 		(
 			const fvMesh& mesh,
 			const faceMapper& fMapper
 		);
 
 		//- Disallow default bitwise copy construction
-		fvSurfaceMapper(const fvSurfaceMapper&) = delete;
+		FoamFiniteVolume_EXPORT fvSurfaceMapper(const fvSurfaceMapper&) = delete;
 
 
 		//- Destructor
-		virtual ~fvSurfaceMapper();
+		FoamFiniteVolume_EXPORT virtual ~fvSurfaceMapper();
 
 
 		// Member Functions
@@ -132,13 +132,13 @@ namespace tnbLib
 		}
 
 		//- Return direct addressing
-		virtual const labelUList& directAddressing() const;
+		FoamFiniteVolume_EXPORT virtual const labelUList& directAddressing() const;
 
 		//- Return interpolated addressing
-		virtual const labelListList& addressing() const;
+		FoamFiniteVolume_EXPORT virtual const labelListList& addressing() const;
 
 		//- Return interpolaion weights
-		virtual const scalarListList& weights() const;
+		FoamFiniteVolume_EXPORT virtual const scalarListList& weights() const;
 
 		//- Are there any inserted faces
 		virtual bool insertedObjects() const
@@ -147,7 +147,7 @@ namespace tnbLib
 		}
 
 		//- Return list of inserted faces
-		virtual const labelList& insertedObjectLabels() const;
+		FoamFiniteVolume_EXPORT virtual const labelList& insertedObjectLabels() const;
 
 		//- Return flux flip map
 		const labelHashSet& flipFaceFlux() const
@@ -158,8 +158,8 @@ namespace tnbLib
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const fvSurfaceMapper&) = delete;
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const fvSurfaceMapper&) = delete;
 	};
 
 

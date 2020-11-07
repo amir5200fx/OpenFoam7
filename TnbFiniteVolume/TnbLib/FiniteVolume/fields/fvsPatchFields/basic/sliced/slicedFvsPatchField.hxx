@@ -44,6 +44,16 @@ SourceFiles
 
 #include <fvsPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamSlicedFvsPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSlicedFvsPatchField_EXPORT_DEFINE
+#define FoamSlicedFvsPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamSlicedFvsPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -62,7 +72,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("sliced");
+		/*TypeName("sliced");*/
+		static const char* typeName_() { return "sliced"; }
+		static FoamSlicedFvsPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamSlicedFvsPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

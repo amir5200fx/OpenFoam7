@@ -61,13 +61,13 @@ namespace tnbLib
 		{}
 
 		//- Disallow default bitwise copy construction
-		fvSolution(const fvSolution&) = delete;
+		FoamFiniteVolume_EXPORT fvSolution(const fvSolution&) = delete;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const fvSolution&);
+		FoamFiniteVolume_EXPORT void operator=(const fvSolution&);
 	};
 
 

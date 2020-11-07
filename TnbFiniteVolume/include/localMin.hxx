@@ -45,6 +45,16 @@ SourceFiles
 
 #include <Time.hxx>  // added by amir
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamLocalMin_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLocalMin_EXPORT_DEFINE
+#define FoamLocalMin_EXPORT __declspec(dllexport)
+#else
+#define FoamLocalMin_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -63,7 +73,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("localMin");
+		/*TypeName("localMin");*/
+		static const char* typeName_() { return "localMin"; }
+		static FoamLocalMin_EXPORT const ::tnbLib::word typeName;
+		static FoamLocalMin_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

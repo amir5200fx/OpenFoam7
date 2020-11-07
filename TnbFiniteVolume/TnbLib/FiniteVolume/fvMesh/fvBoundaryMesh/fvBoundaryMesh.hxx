@@ -64,13 +64,13 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Add fvPatches corresponding to the given polyBoundaryMesh
-		void addPatches(const polyBoundaryMesh&);
+		FoamFiniteVolume_EXPORT void addPatches(const polyBoundaryMesh&);
 
 
 	protected:
 
 		//- Update boundary based on new polyBoundaryMesh
-		void readUpdate(const polyBoundaryMesh&);
+		FoamFiniteVolume_EXPORT void readUpdate(const polyBoundaryMesh&);
 
 
 	public:
@@ -81,13 +81,13 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct with zero size
-		fvBoundaryMesh(const fvMesh&);
+		FoamFiniteVolume_EXPORT fvBoundaryMesh(const fvMesh&);
 
 		//- Construct from polyBoundaryMesh
-		fvBoundaryMesh(const fvMesh&, const polyBoundaryMesh&);
+		FoamFiniteVolume_EXPORT fvBoundaryMesh(const fvMesh&, const polyBoundaryMesh&);
 
 		//- Disallow default bitwise copy construction
-		fvBoundaryMesh(const fvBoundaryMesh&);
+		FoamFiniteVolume_EXPORT fvBoundaryMesh(const fvBoundaryMesh&);
 
 
 		// Member Functions
@@ -102,23 +102,23 @@ namespace tnbLib
 
 		//- Return a list of pointers for each patch
 		//  with only those pointing to interfaces being set
-		lduInterfacePtrsList interfaces() const;
+		FoamFiniteVolume_EXPORT lduInterfacePtrsList interfaces() const;
 
 		//- Find patch index given a name
-		label findPatchID(const word& patchName) const;
+		FoamFiniteVolume_EXPORT label findPatchID(const word& patchName) const;
 
 		//- Find patch indices given a name
-		labelList findIndices(const keyType&, const bool useGroups) const;
+		FoamFiniteVolume_EXPORT labelList findIndices(const keyType&, const bool useGroups) const;
 
 
 		//- Correct patches after moving points
-		void movePoints();
+		FoamFiniteVolume_EXPORT void movePoints();
 
 		//- Reorders patches. Ordering does not have to be done in
 		//  ascending or descending order. Reordering has to be unique.
 		//  (is shuffle). If validBoundary call needs to be parallel
 		//  sync
-		void shuffle(const labelUList& newToOld, const bool validBoundary);
+		FoamFiniteVolume_EXPORT void shuffle(const labelUList& newToOld, const bool validBoundary);
 
 
 		// Member Operators
@@ -127,16 +127,16 @@ namespace tnbLib
 		using fvPatchList::operator[];
 
 		//- Return const reference to fvPatch by name.
-		const fvPatch& operator[](const word&) const;
+		FoamFiniteVolume_EXPORT const fvPatch& operator[](const word&) const;
 
 		//- Return reference to fvPatch by name.
-		fvPatch& operator[](const word&);
+		FoamFiniteVolume_EXPORT fvPatch& operator[](const word&);
 
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const fvBoundaryMesh&);
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const fvBoundaryMesh&);
 	};
 
 

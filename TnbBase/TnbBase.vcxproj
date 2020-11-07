@@ -1392,6 +1392,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClCompile Include="main.cxx" />
     <ClCompile Include="TnbLib\Base\containers\Lists\PackedList\PackedBoolList.cxx" />
     <ClCompile Include="TnbLib\Base\db\IOstreams\Pstreams\PstreamHelper.cxx" />
+    <ClCompile Include="TnbLib\Base\fields\Fields\symmTransformField\symmTransformField.cxx" />
     <ClCompile Include="TnbLib\Base\global\global.cxx" />
     <None Include="TnbLib\Base\global\new.cxx" />
     <ClCompile Include="TnbLib\Base\primitives\functions\Function1\Function1\Function1.cxx" />

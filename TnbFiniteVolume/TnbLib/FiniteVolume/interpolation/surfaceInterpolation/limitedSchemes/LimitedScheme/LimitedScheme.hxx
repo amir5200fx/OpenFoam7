@@ -151,14 +151,7 @@ namespace tnbLib
 
 // Add the patch constructor functions to the hash tables
 
-#define makeLimitedSurfaceInterpolationTypeScheme\
-(                                                                              \
-    SS,                                                                        \
-    LIMITER,                                                                   \
-    NVDTVD,                                                                    \
-    LIMFUNC,                                                                   \
-    TYPE                                                                       \
-)                                                                              \
+#define makeLimitedSurfaceInterpolationTypeScheme(SS, LIMITER, NVDTVD, LIMFUNC, TYPE)  \
                                                                                \
 typedef LimitedScheme<TYPE, LIMITER<NVDTVD>, limitFuncs::LIMFUNC>              \
     LimitedScheme##TYPE##LIMITER##NVDTVD##LIMFUNC##_;                          \
@@ -186,14 +179,7 @@ limitedSurfaceInterpolationScheme<TYPE>::addMeshFluxConstructorToTable         \
                                                                                \
 makeLimitedSurfaceInterpolationTypeScheme(SS,LIMITER,NVDTVD,magSqr,scalar)     \
 makeLimitedSurfaceInterpolationTypeScheme(SS,LIMITER,NVDTVD,magSqr,vector)     \
-makeLimitedSurfaceInterpolationTypeScheme                                      \
-(                                                                              \
-    SS,                                                                        \
-    LIMITER,                                                                   \
-    NVDTVD,                                                                    \
-    magSqr,                                                                    \
-    sphericalTensor                                                            \
-)                                                                              \
+makeLimitedSurfaceInterpolationTypeScheme(SS, LIMITER, NVDTVD, magSqr, sphericalTensor)\
 makeLimitedSurfaceInterpolationTypeScheme(SS,LIMITER,NVDTVD,magSqr,symmTensor)\
 makeLimitedSurfaceInterpolationTypeScheme(SS,LIMITER,NVDTVD,magSqr,tensor)
 
@@ -202,20 +188,11 @@ makeLimitedSurfaceInterpolationTypeScheme(SS,LIMITER,NVDTVD,magSqr,tensor)
 makeLimitedSurfaceInterpolationTypeScheme(SS,LIMITER,NVDVTVDV,null,vector)
 
 
-#define makeLLimitedSurfaceInterpolationTypeScheme\
-(                                                                              \
-    SS,                                                                        \
-    LLIMITER,                                                                  \
-    LIMITER,                                                                   \
-    NVDTVD,                                                                    \
-    LIMFUNC,                                                                   \
-    TYPE                                                                       \
-)                                                                              \
+#define makeLLimitedSurfaceInterpolationTypeScheme(SS, LLIMITER, LIMITER, NVDTVD, LIMFUNC, TYPE) \
                                                                                \
 typedef LimitedScheme<TYPE, LLIMITER<LIMITER<NVDTVD>>, limitFuncs::LIMFUNC>    \
     LimitedScheme##TYPE##LLIMITER##LIMITER##NVDTVD##LIMFUNC##_;                \
-defineTemplateTypeNameAndDebugWithName                                         \
-    (LimitedScheme##TYPE##LLIMITER##LIMITER##NVDTVD##LIMFUNC##_, #SS, 0);      \
+defineTemplateTypeNameAndDebugWithName(LimitedScheme##TYPE##LLIMITER##LIMITER##NVDTVD##LIMFUNC##_, #SS, 0); \
                                                                                \
 surfaceInterpolationScheme<TYPE>::addMeshConstructorToTable                    \
 <LimitedScheme<TYPE, LLIMITER<LIMITER<NVDTVD>>, limitFuncs::LIMFUNC>>          \

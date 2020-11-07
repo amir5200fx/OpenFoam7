@@ -98,20 +98,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pressureDirectedInletVelocity");
+		/*TypeName("pressureDirectedInletVelocity");*/
+		static const char* typeName_() { return "pressureDirectedInletVelocity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from patch and internal field
-		pressureDirectedInletVelocityFvPatchVectorField
+		//- Construct from patch and internal field
+		FoamFiniteVolume_EXPORT pressureDirectedInletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		pressureDirectedInletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureDirectedInletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -121,7 +125,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  pressureDirectedInletVelocityFvPatchVectorField
 		//  onto a new patch
-		pressureDirectedInletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureDirectedInletVelocityFvPatchVectorField
 		(
 			const pressureDirectedInletVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -130,7 +134,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		pressureDirectedInletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureDirectedInletVelocityFvPatchVectorField
 		(
 			const pressureDirectedInletVelocityFvPatchVectorField&
 		);
@@ -145,7 +149,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		pressureDirectedInletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureDirectedInletVelocityFvPatchVectorField
 		(
 			const pressureDirectedInletVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -170,9 +174,9 @@ namespace tnbLib
 
 		// Member Functions
 
-			// Attributes
+		// Attributes
 
-				//- Return true: this patch field is altered by assignment
+		//- Return true: this patch field is altered by assignment
 		virtual bool assignable() const
 		{
 			return true;
@@ -180,7 +184,7 @@ namespace tnbLib
 
 		// Access
 
-			//- Return the name of rho
+		//- Return the name of rho
 		const word& rhoName() const
 		{
 			return rhoName_;
@@ -207,25 +211,25 @@ namespace tnbLib
 
 		// Mapping functions
 
-			//- Map (and resize as needed) from self given a mapping object
-			//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		//- Map (and resize as needed) from self given a mapping object
+		//  Used to update fields following mesh topology change
+		FoamFiniteVolume_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchVectorField&, const labelList&);
+		FoamFiniteVolume_EXPORT virtual void rmap(const fvPatchVectorField&, const labelList&);
 
 
 		//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 
 
 		// Member Operators
 
-		virtual void operator=(const fvPatchField<vector>& pvf);
+		FoamFiniteVolume_EXPORT virtual void operator=(const fvPatchField<vector>& pvf);
 	};
 
 

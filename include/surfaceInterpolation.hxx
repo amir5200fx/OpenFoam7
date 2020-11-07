@@ -78,61 +78,64 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Construct central-differencing weighting factors
-		void makeWeights() const;
+		FoamFiniteVolume_EXPORT void makeWeights() const;
 
 		//- Construct face-gradient difference factors
-		void makeDeltaCoeffs() const;
+		FoamFiniteVolume_EXPORT void makeDeltaCoeffs() const;
 
 		//- Construct face-gradient difference factors
-		void makeNonOrthDeltaCoeffs() const;
+		FoamFiniteVolume_EXPORT void makeNonOrthDeltaCoeffs() const;
 
 		//- Construct non-orthogonality correction vectors
-		void makeNonOrthCorrectionVectors() const;
+		FoamFiniteVolume_EXPORT void makeNonOrthCorrectionVectors() const;
 
 
 	protected:
 
 		// Protected Member Functions
 
-			// Storage management
+		// Storage management
 
-				//- Clear all geometry and addressing
-		void clearOut();
+		//- Clear all geometry and addressing
+		FoamFiniteVolume_EXPORT void clearOut();
 
 
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("surfaceInterpolation");
+		/*ClassName("surfaceInterpolation");*/
+		static const char* typeName_() { return "surfaceInterpolation"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct given an fvMesh
-		explicit surfaceInterpolation(const fvMesh&);
+		FoamFiniteVolume_EXPORT explicit surfaceInterpolation(const fvMesh&);
 
 
 		//- Destructor
-		~surfaceInterpolation();
+		FoamFiniteVolume_EXPORT ~surfaceInterpolation();
 
 
 		// Member Functions
 
-			//- Return reference to linear difference weighting factors
-		const surfaceScalarField& weights() const;
+		//- Return reference to linear difference weighting factors
+		FoamFiniteVolume_EXPORT const surfaceScalarField& weights() const;
 
 		//- Return reference to cell-centre difference coefficients
-		const surfaceScalarField& deltaCoeffs() const;
+		FoamFiniteVolume_EXPORT const surfaceScalarField& deltaCoeffs() const;
 
 		//- Return reference to non-orthogonal cell-centre difference
 		//  coefficients
-		const surfaceScalarField& nonOrthDeltaCoeffs() const;
+		FoamFiniteVolume_EXPORT const surfaceScalarField& nonOrthDeltaCoeffs() const;
 
 		//- Return reference to non-orthogonality correction vectors
-		const surfaceVectorField& nonOrthCorrectionVectors() const;
+		FoamFiniteVolume_EXPORT const surfaceVectorField& nonOrthCorrectionVectors() const;
 
 		//- Do what is necessary if the mesh has moved
-		bool movePoints();
+		FoamFiniteVolume_EXPORT bool movePoints();
 	};
 
 

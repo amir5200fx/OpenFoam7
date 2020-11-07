@@ -56,7 +56,7 @@ namespace tnbLib
 	public:
 
 		//- Residual correction data structure
-		struct corrResidualData
+		struct FoamFiniteVolume_EXPORT corrResidualData
 		{
 			wordRe name;
 			scalar absTol;
@@ -69,13 +69,13 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Disallow default bitwise copy construction
-		correctorConvergenceControl
+		FoamFiniteVolume_EXPORT correctorConvergenceControl
 		(
 			const correctorConvergenceControl&
 		) = delete;
 
 		//- Disallow default bitwise assignment
-		void operator=(const correctorConvergenceControl&) = delete;
+		FoamFiniteVolume_EXPORT void operator=(const correctorConvergenceControl&) = delete;
 
 
 	protected:
@@ -93,7 +93,7 @@ namespace tnbLib
 
 			//- Get the number of solves that have happened for this variable in
 			//  this time-step
-		static void getNSolves
+		static FoamFiniteVolume_EXPORT void getNSolves
 		(
 			const fvMesh& mesh,
 			const word& fieldName,
@@ -118,14 +118,18 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("correctorConvergenceControl");
+		//- Run-time type information
+		//TypeName("correctorConvergenceControl");
+		static const char* typeName_() { return "correctorConvergenceControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from a solution control and the loop name
-		correctorConvergenceControl
+		FoamFiniteVolume_EXPORT correctorConvergenceControl
 		(
 			const solutionControl& control,
 			const word& loopName
@@ -133,7 +137,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~correctorConvergenceControl();
+		FoamFiniteVolume_EXPORT virtual ~correctorConvergenceControl();
 
 
 		// Member Functions
@@ -141,16 +145,16 @@ namespace tnbLib
 			// Evolution
 
 				//- Return true if corrector residual controls are present
-		virtual bool hasCorrResidualControls() const = 0;
+		FoamFiniteVolume_EXPORT virtual bool hasCorrResidualControls() const = 0;
 
 		//- Return true if all correction convergence checks are satisfied
-		virtual bool corrCriteriaSatisfied() const = 0;
+		FoamFiniteVolume_EXPORT virtual bool corrCriteriaSatisfied() const = 0;
 
 		//- Reset the solve index in the correction residual control data
-		virtual void resetCorrSolveIndex() = 0;
+		FoamFiniteVolume_EXPORT virtual void resetCorrSolveIndex() = 0;
 
 		//- Update the solve index in the correction residual control data
-		virtual void updateCorrSolveIndex() = 0;
+		FoamFiniteVolume_EXPORT virtual void updateCorrSolveIndex() = 0;
 	};
 
 

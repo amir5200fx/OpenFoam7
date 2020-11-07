@@ -88,14 +88,18 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("meshWave");
+			/*TypeName("meshWave");*/
+			static const char* typeName_() { return "meshWave"; }
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+			static FoamFiniteVolume_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from coefficients dictionary, mesh
 				//  and fixed-value patch set
-			meshWave
+			FoamFiniteVolume_EXPORT meshWave
 			(
 				const dictionary& dict,
 				const fvMesh& mesh,
@@ -106,7 +110,7 @@ namespace tnbLib
 			//  whether or not to correct wall.
 			//  Calculate for all cells. correctWalls : correct wall (face&point)
 			//  cells for correct distance, searching neighbours.
-			meshWave
+			FoamFiniteVolume_EXPORT meshWave
 			(
 				const fvMesh& mesh,
 				const labelHashSet& patchIDs,
@@ -114,7 +118,7 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			meshWave(const meshWave&) = delete;
+			FoamFiniteVolume_EXPORT meshWave(const meshWave&) = delete;
 
 
 			// Member Functions
@@ -125,16 +129,16 @@ namespace tnbLib
 			}
 
 			//- Correct the given distance-to-patch field
-			virtual bool correct(volScalarField& y);
+			FoamFiniteVolume_EXPORT virtual bool correct(volScalarField& y);
 
 			//- Correct the given distance-to-patch and normal-to-patch fields
-			virtual bool correct(volScalarField& y, volVectorField& n);
+			FoamFiniteVolume_EXPORT virtual bool correct(volScalarField& y, volVectorField& n);
 
 
 			// Member Operators
 
-				//- Disallow default bitwise assignment
-			void operator=(const meshWave&) = delete;
+			//- Disallow default bitwise assignment
+			FoamFiniteVolume_EXPORT void operator=(const meshWave&) = delete;
 		};
 
 

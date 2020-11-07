@@ -37,6 +37,16 @@ Description
 
 #include <interpolation.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamInterpolationCellPatchConstrained_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamInterpolationCellPatchConstrained_EXPORT_DEFINE
+#define FoamInterpolationCellPatchConstrained_EXPORT __declspec(dllexport)
+#else
+#define FoamInterpolationCellPatchConstrained_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -57,7 +67,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cellPatchConstrained");
+		/*TypeName("cellPatchConstrained");*/
+		static const char* typeName_() { return "cellPatchConstrained"; }
+		static FoamInterpolationCellPatchConstrained_EXPORT const ::tnbLib::word typeName;
+		static FoamInterpolationCellPatchConstrained_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

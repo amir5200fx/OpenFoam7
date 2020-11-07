@@ -62,13 +62,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(emptyPolyPatch::typeName_());
+		/*TypeName(emptyPolyPatch::typeName_());*/
+		static const char* typeName_() { return emptyPolyPatch::typeName_(); }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from polyPatch
-		emptyFvPatch(const polyPatch& patch, const fvBoundaryMesh& bm);
+		FoamFiniteVolume_EXPORT emptyFvPatch(const polyPatch& patch, const fvBoundaryMesh& bm);
 
 
 		// Member Functions
@@ -81,7 +85,7 @@ namespace tnbLib
 		}
 
 		//- Return faceCells
-		virtual const labelUList& faceCells() const;
+		FoamFiniteVolume_EXPORT virtual const labelUList& faceCells() const;
 	};
 
 

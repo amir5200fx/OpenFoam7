@@ -39,6 +39,16 @@ SourceFiles
 
 #include <snGradScheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamUncorrectedSnGrad_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamUncorrectedSnGrad_EXPORT_DEFINE
+#define FoamUncorrectedSnGrad_EXPORT __declspec(dllexport)
+#else
+#define FoamUncorrectedSnGrad_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -61,7 +71,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("uncorrected");
+			/*TypeName("uncorrected");*/
+			static const char* typeName_() { return "uncorrected"; }
+			static FoamUncorrectedSnGrad_EXPORT const ::tnbLib::word typeName;
+			static FoamUncorrectedSnGrad_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

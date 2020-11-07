@@ -41,6 +41,16 @@ SourceFiles
 #include <surfaceInterpolationScheme.hxx>
 #include <volFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamReverseLinear_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamReverseLinear_EXPORT_DEFINE
+#define FoamReverseLinear_EXPORT __declspec(dllexport)
+#else
+#define FoamReverseLinear_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -58,7 +68,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("reverseLinear");
+		/*TypeName("reverseLinear");*/
+		static const char* typeName_() { return "reverseLinear"; }
+		static FoamReverseLinear_EXPORT const ::tnbLib::word typeName;
+		static FoamReverseLinear_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

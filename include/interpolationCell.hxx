@@ -35,6 +35,16 @@ Description
 
 #include <interpolation.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamInterpolationCell_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamInterpolationCell_EXPORT_DEFINE
+#define FoamInterpolationCell_EXPORT __declspec(dllexport)
+#else
+#define FoamInterpolationCell_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -55,7 +65,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cell");
+		/*TypeName("cell");*/
+		static const char* typeName_() { return "cell"; }
+		static const ::tnbLib::word typeName;
+		static int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

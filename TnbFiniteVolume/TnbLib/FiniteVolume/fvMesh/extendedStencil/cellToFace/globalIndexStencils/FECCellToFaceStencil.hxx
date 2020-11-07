@@ -55,7 +55,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculates per edge the neighbour data (= edgeCells)
-		void calcEdgeBoundaryData
+		FoamFiniteVolume_EXPORT void calcEdgeBoundaryData
 		(
 			const boolList& isValidBFace,
 			const labelList& boundaryEdges,
@@ -64,7 +64,7 @@ namespace tnbLib
 
 		//- Calculates per face the edge connected data
 		//  (= cell or boundary in global numbering).
-		void calcFaceStencil(labelListList& faceStencil) const;
+		FoamFiniteVolume_EXPORT void calcFaceStencil(labelListList& faceStencil) const;
 
 
 	public:
@@ -72,7 +72,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from all cells and boundary faces
-		explicit FECCellToFaceStencil(const polyMesh&);
+		FoamFiniteVolume_EXPORT explicit FECCellToFaceStencil(const polyMesh&);
 
 	};
 

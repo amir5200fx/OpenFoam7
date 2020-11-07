@@ -48,7 +48,7 @@ namespace tnbLib
 	//- If the field fieldRef needs referencing find the reference cell nearest
 	//  (in index) to the given cell looked-up for field, but which is not on a
 	//  cyclic, symmetry or processor patch and return true, otherwise return false.
-	bool setRefCell
+	FoamFiniteVolume_EXPORT bool setRefCell
 	(
 		const volScalarField& field,
 		const volScalarField& fieldRef,
@@ -61,7 +61,7 @@ namespace tnbLib
 	//- If the field needs referencing find the reference cell nearest
 	//  (in index) to the given cell looked-up for field, but which is not on a
 	//  cyclic, symmetry or processor patch and return true, otherwise return false.
-	bool setRefCell
+	FoamFiniteVolume_EXPORT bool setRefCell
 	(
 		const volScalarField& field,
 		const dictionary& dict,
@@ -71,7 +71,7 @@ namespace tnbLib
 	);
 
 	//- Return the current value of field in the reference cell
-	scalar getRefCellValue
+	FoamFiniteVolume_EXPORT scalar getRefCellValue
 	(
 		const volScalarField& field,
 		const label refCelli

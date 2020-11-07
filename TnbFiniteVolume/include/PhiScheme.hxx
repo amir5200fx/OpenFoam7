@@ -48,6 +48,16 @@ SourceFiles
 
 #include <limitedSurfaceInterpolationScheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamPhiScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPhiScheme_EXPORT_DEFINE
+#define FoamPhiScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamPhiScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -67,7 +77,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("PhiScheme");
+		/*TypeName("PhiScheme");*/
+		static const char* typeName_() { return "PhiScheme"; }
+		static FoamPhiScheme_EXPORT const ::tnbLib::word typeName;
+		static FoamPhiScheme_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -156,9 +170,11 @@ limitedSurfaceInterpolationScheme<TYPE>::addMeshFluxConstructorToTable         \
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <PhiScheme.cxx>
-#endif
+//#ifdef NoRepository
+//#include <PhiScheme.cxx>
+//#endif
+
+#include <PhiSchemeI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

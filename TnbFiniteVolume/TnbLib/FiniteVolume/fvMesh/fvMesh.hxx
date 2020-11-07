@@ -134,29 +134,29 @@ namespace tnbLib
 			// Storage management
 
 				//- Clear geometry but not the old-time cell volumes
-		void clearGeomNotOldVol();
+		FoamFiniteVolume_EXPORT void clearGeomNotOldVol();
 
 		//- Clear geometry like clearGeomNotOldVol but recreate any
 		//  geometric demand-driven data that was set
-		void updateGeomNotOldVol();
+		FoamFiniteVolume_EXPORT void updateGeomNotOldVol();
 
 		//- Clear geometry
-		void clearGeom();
+		FoamFiniteVolume_EXPORT void clearGeom();
 
 		//- Clear addressing
-		void clearAddressing(const bool isMeshUpdate = false);
+		FoamFiniteVolume_EXPORT void clearAddressing(const bool isMeshUpdate = false);
 
 		//- Preserve old volume(s)
-		void storeOldVol(const scalarField&);
+		FoamFiniteVolume_EXPORT void storeOldVol(const scalarField&);
 
 
 		// Make geometric data
 
-		void makeSf() const;
-		void makeMagSf() const;
+		FoamFiniteVolume_EXPORT void makeSf() const;
+		FoamFiniteVolume_EXPORT void makeMagSf() const;
 
-		void makeC() const;
-		void makeCf() const;
+		FoamFiniteVolume_EXPORT void makeC() const;
+		FoamFiniteVolume_EXPORT void makeCf() const;
 
 
 	public:
@@ -168,16 +168,19 @@ namespace tnbLib
 
 
 		// Declare name of the class and its debug switch
-		ClassName("fvMesh");
+		/*ClassName("fvMesh");*/
+		static const char* typeName_() { return "fvMesh"; } 
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName; 
+		static FoamFiniteVolume_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from IOobject
-		explicit fvMesh(const IOobject& io);
+		FoamFiniteVolume_EXPORT explicit fvMesh(const IOobject& io);
 
 		//- Construct from cellShapes with boundary.
-		fvMesh
+		FoamFiniteVolume_EXPORT fvMesh
 		(
 			const IOobject& io,
 			pointField&& points,
@@ -192,7 +195,7 @@ namespace tnbLib
 
 		//- Construct from components without boundary.
 		//  Boundary is added using addFvPatches() member function
-		fvMesh
+		FoamFiniteVolume_EXPORT fvMesh
 		(
 			const IOobject& io,
 			pointField&& points,
@@ -204,7 +207,7 @@ namespace tnbLib
 
 		//- Construct without boundary from cells rather than owner/neighbour.
 		//  Boundary is added using addPatches() member function
-		fvMesh
+		FoamFiniteVolume_EXPORT fvMesh
 		(
 			const IOobject& io,
 			pointField&& points,
@@ -214,19 +217,19 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		fvMesh(const fvMesh&);
+		FoamFiniteVolume_EXPORT fvMesh(const fvMesh&);
 
 
 		//- Destructor
-		virtual ~fvMesh();
+		FoamFiniteVolume_EXPORT virtual ~fvMesh();
 
 
 		// Member Functions
 
-			// Helpers
+		// Helpers
 
-				//- Add boundary patches. Constructor helper
-		void addFvPatches
+		//- Add boundary patches. Constructor helper
+		FoamFiniteVolume_EXPORT void addFvPatches
 		(
 			const List<polyPatch*>&,
 			const bool validBoundary = true
@@ -234,7 +237,7 @@ namespace tnbLib
 
 		//- Update the mesh based on the mesh files saved in time
 		//  directories
-		virtual readUpdateState readUpdate();
+		FoamFiniteVolume_EXPORT virtual readUpdateState readUpdate();
 
 
 		// Access
@@ -260,10 +263,10 @@ namespace tnbLib
 		}
 
 		//- Return reference to boundary mesh
-		const fvBoundaryMesh& boundary() const;
+		FoamFiniteVolume_EXPORT const fvBoundaryMesh& boundary() const;
 
 		//- Return ldu addressing
-		virtual const lduAddressing& lduAddr() const;
+		FoamFiniteVolume_EXPORT virtual const lduAddressing& lduAddr() const;
 
 		//- Return a list of pointers for each patch
 		//  with only those pointing to interfaces being set
@@ -291,37 +294,37 @@ namespace tnbLib
 		}
 
 		//- Return cell volumes
-		const DimensionedField<scalar, volMesh>& V() const;
+		FoamFiniteVolume_EXPORT const DimensionedField<scalar, volMesh>& V() const;
 
 		//- Return old-time cell volumes
-		const DimensionedField<scalar, volMesh>& V0() const;
+		FoamFiniteVolume_EXPORT const DimensionedField<scalar, volMesh>& V0() const;
 
 		//- Return old-old-time cell volumes
-		const DimensionedField<scalar, volMesh>& V00() const;
+		FoamFiniteVolume_EXPORT const DimensionedField<scalar, volMesh>& V00() const;
 
 		//- Return sub-cycle cell volumes
-		tmp<DimensionedField<scalar, volMesh>> Vsc() const;
+		FoamFiniteVolume_EXPORT tmp<DimensionedField<scalar, volMesh>> Vsc() const;
 
 		//- Return sub-cycl old-time cell volumes
-		tmp<DimensionedField<scalar, volMesh>> Vsc0() const;
+		FoamFiniteVolume_EXPORT tmp<DimensionedField<scalar, volMesh>> Vsc0() const;
 
 		//- Return cell face area vectors
-		const surfaceVectorField& Sf() const;
+		FoamFiniteVolume_EXPORT const surfaceVectorField& Sf() const;
 
 		//- Return cell face area magnitudes
-		const surfaceScalarField& magSf() const;
+		FoamFiniteVolume_EXPORT const surfaceScalarField& magSf() const;
 
 		//- Return cell face motion fluxes
-		const surfaceScalarField& phi() const;
+		FoamFiniteVolume_EXPORT const surfaceScalarField& phi() const;
 
 		//- Return cell centres as volVectorField
-		const volVectorField& C() const;
+		FoamFiniteVolume_EXPORT const volVectorField& C() const;
 
 		//- Return face centres as surfaceVectorField
-		const surfaceVectorField& Cf() const;
+		FoamFiniteVolume_EXPORT const surfaceVectorField& Cf() const;
 
 		//- Return face deltas as surfaceVectorField
-		tmp<surfaceVectorField> delta() const;
+		FoamFiniteVolume_EXPORT tmp<surfaceVectorField> delta() const;
 
 		//- Return a labelType of valid component indicators
 		//  1 : valid (solved)
@@ -333,20 +336,20 @@ namespace tnbLib
 		// Edit
 
 			//- Clear all geometry and addressing
-		void clearOut();
+		FoamFiniteVolume_EXPORT void clearOut();
 
 		//- Update mesh corresponding to the given map
-		virtual void updateMesh(const mapPolyMesh& mpm);
+		FoamFiniteVolume_EXPORT virtual void updateMesh(const mapPolyMesh& mpm);
 
 		//- Move points, returns volumes swept by faces in motion
-		virtual tmp<scalarField> movePoints(const pointField&);
+		FoamFiniteVolume_EXPORT virtual tmp<scalarField> movePoints(const pointField&);
 
 		//- Map all fields in time using given map.
-		virtual void mapFields(const mapPolyMesh& mpm);
+		FoamFiniteVolume_EXPORT virtual void mapFields(const mapPolyMesh& mpm);
 
 		//- Add/insert single patch. If validBoundary the new situation
 		//  is consistent across processors.
-		virtual void addPatch
+		FoamFiniteVolume_EXPORT virtual void addPatch
 		(
 			const label insertPatchi,
 			const polyPatch& patch,
@@ -357,7 +360,7 @@ namespace tnbLib
 
 		//- Reorder and trim existing patches. If validBoundary the new
 		//  situation is consistent across processors
-		virtual void reorderPatches
+		FoamFiniteVolume_EXPORT virtual void reorderPatches
 		(
 			const labelUList& newToOld,
 			const bool validBoundary
@@ -365,19 +368,19 @@ namespace tnbLib
 
 		//- Remove boundary patches. Warning: fvPatchFields hold ref to
 		//  these fvPatches.
-		void removeFvBoundary();
+		FoamFiniteVolume_EXPORT void removeFvBoundary();
 
 		//- Return cell face motion fluxes
-		surfaceScalarField& setPhi();
+		FoamFiniteVolume_EXPORT surfaceScalarField& setPhi();
 
 		//- Return old-time cell volumes
-		DimensionedField<scalar, volMesh>& setV0();
+		FoamFiniteVolume_EXPORT DimensionedField<scalar, volMesh>& setV0();
 
 
 		// Write
 
 			//- Write the underlying polyMesh and other data
-		virtual bool writeObject
+		FoamFiniteVolume_EXPORT virtual bool writeObject
 		(
 			IOstream::streamFormat fmt,
 			IOstream::versionNumber ver,
@@ -386,21 +389,21 @@ namespace tnbLib
 		) const;
 
 		//- Write mesh using IO settings from time
-		virtual bool write(const bool write = true) const;
+		FoamFiniteVolume_EXPORT virtual bool write(const bool write = true) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const fvMesh&);
+		FoamFiniteVolume_EXPORT void operator=(const fvMesh&);
 
-		bool operator!=(const fvMesh&) const;
-		bool operator==(const fvMesh&) const;
+		FoamFiniteVolume_EXPORT bool operator!=(const fvMesh&) const;
+		FoamFiniteVolume_EXPORT bool operator==(const fvMesh&) const;
 	};
 
 
 	template<>
-	typename pTraits<sphericalTensor>::labelType
+	FoamFiniteVolume_EXPORT typename pTraits<sphericalTensor>::labelType
 		fvMesh::validComponents<sphericalTensor>() const;
 
 

@@ -100,20 +100,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("inletOutletTotalTemperature");
+		//TypeName("inletOutletTotalTemperature");
+		static const char* typeName_() { return "inletOutletTotalTemperature"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		inletOutletTotalTemperatureFvPatchScalarField
+		FoamFiniteVolume_EXPORT inletOutletTotalTemperatureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		inletOutletTotalTemperatureFvPatchScalarField
+		FoamFiniteVolume_EXPORT inletOutletTotalTemperatureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -122,7 +126,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		//  inletOutletTotalTemperatureFvPatchScalarField onto a new patch
-		inletOutletTotalTemperatureFvPatchScalarField
+		FoamFiniteVolume_EXPORT inletOutletTotalTemperatureFvPatchScalarField
 		(
 			const inletOutletTotalTemperatureFvPatchScalarField&,
 			const fvPatch&,
@@ -131,7 +135,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		inletOutletTotalTemperatureFvPatchScalarField
+		FoamFiniteVolume_EXPORT inletOutletTotalTemperatureFvPatchScalarField
 		(
 			const inletOutletTotalTemperatureFvPatchScalarField&
 		);
@@ -146,7 +150,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		inletOutletTotalTemperatureFvPatchScalarField
+		FoamFiniteVolume_EXPORT inletOutletTotalTemperatureFvPatchScalarField
 		(
 			const inletOutletTotalTemperatureFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -186,21 +190,21 @@ namespace tnbLib
 
 			//- Map (and resize as needed) from self given a mapping object
 			//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		FoamFiniteVolume_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchScalarField&, const labelList&);
+		FoamFiniteVolume_EXPORT virtual void rmap(const fvPatchScalarField&, const labelList&);
 
 
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

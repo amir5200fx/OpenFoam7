@@ -79,6 +79,16 @@ SourceFiles
 
 #include <advectiveFvPatchFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamWaveTransmissiveFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamWaveTransmissiveFvPatchField_EXPORT_DEFINE
+#define FoamWaveTransmissiveFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamWaveTransmissiveFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -106,7 +116,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("waveTransmissive");
+		/*TypeName("waveTransmissive");*/
+		static const char* typeName_() { return "waveTransmissive"; }
+		static FoamWaveTransmissiveFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamWaveTransmissiveFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -173,9 +187,9 @@ namespace tnbLib
 
 		// Member Functions
 
-			// Access
+		// Access
 
-				//- Return the heat capacity ratio
+		//- Return the heat capacity ratio
 		scalar gamma() const
 		{
 			return gamma_;
@@ -190,7 +204,7 @@ namespace tnbLib
 
 		// Evaluation functions
 
-			//- Calculate and return the advection speed at the boundary
+		//- Calculate and return the advection speed at the boundary
 		virtual tmp<scalarField> advectionSpeed() const;
 
 

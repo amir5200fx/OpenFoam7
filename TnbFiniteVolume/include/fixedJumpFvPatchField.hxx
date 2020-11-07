@@ -67,6 +67,16 @@ SourceFiles
 
 #include <jumpCyclicFvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamFixedJumpFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFixedJumpFvPatchField_EXPORT_DEFINE
+#define FoamFixedJumpFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamFixedJumpFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -93,7 +103,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("fixedJump");
+		//TypeName("fixedJump");
+		static const char* typeName_() { return "fixedJump"; }
+		static FoamFixedJumpFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamFixedJumpFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 

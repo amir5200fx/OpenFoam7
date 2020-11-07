@@ -48,7 +48,7 @@ namespace tnbLib
 	//- Adjust the balance of fluxes to obey continuity.
 	//  For cases which do not have a pressure boundary.
 	//  Return true if the domain is closed.
-	bool adjustPhi
+	FoamFiniteVolume_EXPORT bool adjustPhi
 	(
 		surfaceScalarField& phi,
 		const volVectorField& U,

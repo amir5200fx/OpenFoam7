@@ -87,16 +87,16 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Construct addressing over all boundary faces
-		void calcBoundaryAddressing();
+		FoamFiniteVolume_EXPORT void calcBoundaryAddressing();
 
 		//- Make weights for internal and coupled-only boundarypoints
-		void makeInternalWeights(scalarField& sumWeights);
+		FoamFiniteVolume_EXPORT void makeInternalWeights(scalarField& sumWeights);
 
 		//- Make weights for points on uncoupled patches
-		void makeBoundaryWeights(scalarField& sumWeights);
+		FoamFiniteVolume_EXPORT void makeBoundaryWeights(scalarField& sumWeights);
 
 		//- Construct all point weighting factors
-		void makeWeights();
+		FoamFiniteVolume_EXPORT void makeWeights();
 
 		//- Helper: push master point data to collocated points
 		template<class Type>
@@ -121,20 +121,23 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("volPointInterpolation");
+		/*ClassName("volPointInterpolation");*/
+		static const char* typeName_() { return "volPointInterpolation"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Constructor given fvMesh and pointMesh.
-		explicit volPointInterpolation(const fvMesh&);
+		FoamFiniteVolume_EXPORT explicit volPointInterpolation(const fvMesh&);
 
 		//- Disallow default bitwise copy construction
-		volPointInterpolation(const volPointInterpolation&) = delete;
+		FoamFiniteVolume_EXPORT volPointInterpolation(const volPointInterpolation&) = delete;
 
 
 		//- Destructor
-		~volPointInterpolation();
+		FoamFiniteVolume_EXPORT ~volPointInterpolation();
 
 
 		// Member Functions
@@ -142,16 +145,16 @@ namespace tnbLib
 			// Edit
 
 				//- Update mesh topology using the morph engine
-		void updateMesh(const mapPolyMesh&);
+		FoamFiniteVolume_EXPORT void updateMesh(const mapPolyMesh&);
 
 		//- Correct weighting factors for moving mesh.
-		bool movePoints();
+		FoamFiniteVolume_EXPORT bool movePoints();
 
 
 		// Interpolation functions
 
-			//- Interpolate volField using inverse distance weighting
-			//  returning pointField
+		//- Interpolate volField using inverse distance weighting
+		//  returning pointField
 		template<class Type>
 		tmp<GeometricField<Type, pointPatchField, pointMesh>> interpolate
 		(
@@ -191,8 +194,8 @@ namespace tnbLib
 
 		// Low level
 
-			//- Interpolate internal field from volField to pointField
-			//  using inverse distance weighting
+		//- Interpolate internal field from volField to pointField
+		//  using inverse distance weighting
 		template<class Type>
 		void interpolateInternalField
 		(
@@ -242,7 +245,7 @@ namespace tnbLib
 
 			//- Interpolate from volField to pointField
 			//  using inverse distance weighting
-		void interpolateDisplacement
+		FoamFiniteVolume_EXPORT void interpolateDisplacement
 		(
 			const volVectorField&,
 			pointVectorField&
@@ -251,8 +254,8 @@ namespace tnbLib
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const volPointInterpolation&) = delete;
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const volPointInterpolation&) = delete;
 	};
 
 

@@ -55,6 +55,16 @@ SourceFiles
 #include <cyclicLduInterfaceField.hxx>
 #include <cyclicFvPatch.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCyclicFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCyclicFvPatchField_EXPORT_DEFINE
+#define FoamCyclicFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamCyclicFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -79,7 +89,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(cyclicFvPatch::typeName_());
+		//TypeName(cyclicFvPatch::typeName_());
+		static const char* typeName_() { return cyclicFvPatch::typeName_(); }
+		static FoamCyclicFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamCyclicFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

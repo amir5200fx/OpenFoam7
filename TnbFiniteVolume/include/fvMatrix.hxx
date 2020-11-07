@@ -50,6 +50,16 @@ SourceFiles
 #include <zero.hxx>
 #include <className.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamFvMatrix_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFvMatrix_EXPORT_DEFINE
+#define FoamFvMatrix_EXPORT __declspec(dllexport)
+#else
+#define FoamFvMatrix_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -248,7 +258,10 @@ namespace tnbLib
 		};
 
 
-		ClassName("fvMatrix");
+		/*ClassName("fvMatrix");*/
+		static const char* typeName_() { return "fvMatrix"; } 
+		static FoamFvMatrix_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMatrix_EXPORT int debug;
 
 
 		// Constructors

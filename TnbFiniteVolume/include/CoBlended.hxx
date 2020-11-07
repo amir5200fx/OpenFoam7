@@ -67,6 +67,16 @@ SourceFiles
 #include <blendedSchemeBase.hxx>
 #include <surfaceInterpolate.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCoBlended_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCoBlended_EXPORT_DEFINE
+#define FoamCoBlended_EXPORT __declspec(dllexport)
+#else
+#define FoamCoBlended_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -103,7 +113,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("CoBlended");
+		/*TypeName("CoBlended");*/
+		static const char* typeName_() { return "CoBlended"; }
+		static FoamCoBlended_EXPORT const ::tnbLib::word typeName;
+		static FoamCoBlended_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

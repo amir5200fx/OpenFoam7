@@ -56,7 +56,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculates per point the neighbour data (= pointCells)
-		void calcPointBoundaryData
+		FoamFiniteVolume_EXPORT void calcPointBoundaryData
 		(
 			const boolList& isValidBFace,
 			const labelList& boundaryPoints,
@@ -66,7 +66,7 @@ namespace tnbLib
 		//- Calculates per cell the neighbour data
 		//  (= cell or boundary in global numbering).
 		//  First element is always cell itself!
-		void calcCellStencil(labelListList& globalCellCells) const;
+		FoamFiniteVolume_EXPORT void calcCellStencil(labelListList& globalCellCells) const;
 
 
 	public:
@@ -74,7 +74,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from all cells and boundary faces
-		explicit CPCCellToCellStencil(const polyMesh&);
+		FoamFiniteVolume_EXPORT explicit CPCCellToCellStencil(const polyMesh&);
 
 	};
 

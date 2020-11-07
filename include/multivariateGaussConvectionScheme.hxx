@@ -38,6 +38,16 @@ SourceFiles
 
 #include <convectionScheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamMultivariateGaussConvectionScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMultivariateGaussConvectionScheme_EXPORT_DEFINE
+#define FoamMultivariateGaussConvectionScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamMultivariateGaussConvectionScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -65,7 +75,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("Gauss");
+			/*TypeName("Gauss");*/
+			static const char* typeName_() { return "Gauss"; }
+			static FoamMultivariateGaussConvectionScheme_EXPORT const ::tnbLib::word typeName;
+			static FoamMultivariateGaussConvectionScheme_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

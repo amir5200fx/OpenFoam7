@@ -56,7 +56,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Create IO object if dictionary is present
-		IOobject createIOobject(const fvMesh& mesh) const;
+		FoamFiniteVolume_EXPORT IOobject createIOobject(const fvMesh& mesh) const;
 
 
 	public:
@@ -64,10 +64,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mesh
-		IOporosityModelList(const fvMesh& mesh);
+		FoamFiniteVolume_EXPORT IOporosityModelList(const fvMesh& mesh);
 
 		//- Disallow default bitwise copy construction
-		IOporosityModelList(const IOporosityModelList&) = delete;
+		FoamFiniteVolume_EXPORT IOporosityModelList(const IOporosityModelList&) = delete;
 
 		//- Destructor
 		virtual ~IOporosityModelList()
@@ -77,13 +77,13 @@ namespace tnbLib
 		// Member Functions
 
 			//- Read dictionary
-		virtual bool read();
+		FoamFiniteVolume_EXPORT virtual bool read();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const IOporosityModelList&) = delete;
+		FoamFiniteVolume_EXPORT void operator=(const IOporosityModelList&) = delete;
 	};
 
 

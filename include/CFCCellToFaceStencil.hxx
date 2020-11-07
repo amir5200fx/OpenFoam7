@@ -56,7 +56,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mesh
-		explicit CFCCellToFaceStencil(const polyMesh&);
+		FoamFiniteVolume_EXPORT explicit CFCCellToFaceStencil(const polyMesh&);
 	};
 
 

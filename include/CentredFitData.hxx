@@ -38,6 +38,16 @@ SourceFiles
 
 #include <FitData.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCentredFitData_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCentredFitData_EXPORT_DEFINE
+#define FoamCentredFitData_EXPORT __declspec(dllexport)
+#else
+#define FoamCentredFitData_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -75,8 +85,11 @@ namespace tnbLib
 
 	public:
 
-		TypeName("CentredFitData");
-
+		/*TypeName("CentredFitData");*/
+		static const char* typeName_() { return "CentredFitData"; }
+		static FoamCentredFitData_EXPORT const ::tnbLib::word typeName;
+		static FoamCentredFitData_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 

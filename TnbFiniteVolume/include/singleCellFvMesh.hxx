@@ -76,7 +76,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate agglomerated mesh
-		void agglomerateMesh(const fvMesh&, const labelListList&);
+		FoamFiniteVolume_EXPORT void agglomerateMesh(const fvMesh&, const labelListList&);
 
 
 	public:
@@ -146,12 +146,12 @@ namespace tnbLib
 
 		// Constructors
 
-			//- Construct from fvMesh and no agglomeration
-		singleCellFvMesh(const IOobject& io, const fvMesh&);
+		//- Construct from fvMesh and no agglomeration
+		FoamFiniteVolume_EXPORT singleCellFvMesh(const IOobject& io, const fvMesh&);
 
 		//- Construct from fvMesh and agglomeration of boundary faces.
 		//  agglomeration is per patch, per patch face index the agglomeration
-		//  the face goes into.
+		FoamFiniteVolume_EXPORT //  the face goes into.
 		singleCellFvMesh
 		(
 			const IOobject& io,
@@ -160,10 +160,10 @@ namespace tnbLib
 		);
 
 		//- Read from IOobject
-		singleCellFvMesh(const IOobject& io);
+		FoamFiniteVolume_EXPORT singleCellFvMesh(const IOobject& io);
 
 		//- Disallow default bitwise copy construction
-		singleCellFvMesh(const singleCellFvMesh&) = delete;
+		FoamFiniteVolume_EXPORT singleCellFvMesh(const singleCellFvMesh&) = delete;
 
 
 		// Member Functions
@@ -210,8 +210,8 @@ namespace tnbLib
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const singleCellFvMesh&) = delete;
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const singleCellFvMesh&) = delete;
 	};
 
 

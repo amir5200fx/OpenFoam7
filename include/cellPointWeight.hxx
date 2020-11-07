@@ -70,14 +70,14 @@ namespace tnbLib
 
 		// Protected Member Functions
 
-		void findTetrahedron
+		FoamFiniteVolume_EXPORT void findTetrahedron
 		(
 			const polyMesh& mesh,
 			const vector& position,
 			const label celli
 		);
 
-		void findTriangle
+		FoamFiniteVolume_EXPORT void findTriangle
 		(
 			const polyMesh& mesh,
 			const vector& position,
@@ -88,17 +88,17 @@ namespace tnbLib
 	public:
 
 		//- Debug switch
-		static int debug;
+		static FoamFiniteVolume_EXPORT int debug;
 
 		//- Tolerance used in calculating barycentric co-ordinates
 		//  (applied to normalised values)
-		static scalar tol;
+		static FoamFiniteVolume_EXPORT scalar tol;
 
 
 		// Constructors
 
-			//- Construct from components
-		cellPointWeight
+		//- Construct from components
+		FoamFiniteVolume_EXPORT cellPointWeight
 		(
 			const polyMesh& mesh,
 			const vector& position,
@@ -109,7 +109,7 @@ namespace tnbLib
 
 		// Member Functions
 
-			//- Cell index
+		//- Cell index
 		inline label cell() const
 		{
 			return celli_;

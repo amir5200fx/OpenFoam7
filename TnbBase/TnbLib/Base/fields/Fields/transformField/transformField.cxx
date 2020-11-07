@@ -95,5 +95,51 @@ tnbLib::tmp<tnbLib::vectorField> tnbLib::transformPoints
 	return tranf;
 }
 
+#include <transformField.hxx>
+#include <tensorField.hxx> 
+
+namespace tnbLib
+{
+	template<>
+	tmp<Field<symmTensor>> transformFieldMask<symmTensor>
+		(
+			const tensorField& tf
+			)
+	{
+		return symm(tf);
+	}
+
+	template<>
+	tmp<Field<symmTensor>> transformFieldMask<symmTensor>
+		(
+			const tmp<tensorField>& ttf
+			)
+	{
+		tmp<Field<symmTensor>> ret = transformFieldMask<symmTensor>(ttf());
+		ttf.clear();
+		return ret;
+	}
+
+	template<>
+	tmp<Field<sphericalTensor>> transformFieldMask<sphericalTensor>
+		(
+			const tensorField& tf
+			)
+	{
+		return sph(tf);
+	}
+
+	template<>
+	tmp<Field<sphericalTensor>> transformFieldMask<sphericalTensor>
+		(
+			const tmp<tensorField>& ttf
+			)
+	{
+		tmp<Field<sphericalTensor>> ret =
+			transformFieldMask<sphericalTensor>(ttf());
+		ttf.clear();
+		return ret;
+	}
+}
 
 // ************************************************************************* //

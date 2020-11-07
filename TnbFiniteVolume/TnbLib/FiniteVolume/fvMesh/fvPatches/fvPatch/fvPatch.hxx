@@ -76,13 +76,13 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Make patch weighting factors
-		virtual void makeWeights(scalarField&) const;
+		FoamFiniteVolume_EXPORT virtual void makeWeights(scalarField&) const;
 
 		//- Initialise the patches for moving points
-		virtual void initMovePoints();
+		FoamFiniteVolume_EXPORT virtual void initMovePoints();
 
 		//- Correct patches after moving points
-		virtual void movePoints();
+		FoamFiniteVolume_EXPORT virtual void movePoints();
 
 
 	public:
@@ -93,34 +93,88 @@ namespace tnbLib
 		friend class surfaceInterpolation;
 
 		//- Runtime type information
-		TypeName(polyPatch::typeName_());
+		/*TypeName(polyPatch::typeName_());*/
+		static const char* typeName_() { return polyPatch::typeName_(); }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			fvPatch,
 			polyPatch,
 			(const polyPatch& patch, const fvBoundaryMesh& bm),
 			(patch, bm)
-		);
+		);*/
+
+		typedef autoPtr<fvPatch> (*polyPatchConstructorPtr)(const polyPatch& patch, const fvBoundaryMesh& bm);
+		typedef HashTable<polyPatchConstructorPtr, word, string::hash> polyPatchConstructorTable;
+		static FoamFiniteVolume_EXPORT polyPatchConstructorTable* polyPatchConstructorTablePtr_;
+		static FoamFiniteVolume_EXPORT void constructpolyPatchConstructorTables();
+		static FoamFiniteVolume_EXPORT void destroypolyPatchConstructorTables();
+
+		template <class fvPatchType>
+		class addpolyPatchConstructorToTable
+		{
+		public:
+			static autoPtr<fvPatch> New(const polyPatch& patch, const fvBoundaryMesh& bm)
+			{
+				return autoPtr<fvPatch>(new fvPatchType(patch, bm));
+			}
+
+			addpolyPatchConstructorToTable(const word& lookup = fvPatchType::typeName)
+			{
+				constructpolyPatchConstructorTables();
+				if (!polyPatchConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "fvPatch" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addpolyPatchConstructorToTable() { destroypolyPatchConstructorTables(); }
+		};
+
+		template <class fvPatchType>
+		class addRemovablepolyPatchConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<fvPatch> New(const polyPatch& patch, const fvBoundaryMesh& bm)
+			{
+				return autoPtr<fvPatch>(new fvPatchType(patch, bm));
+			}
+
+			addRemovablepolyPatchConstructorToTable(const word& lookup = fvPatchType::typeName) : lookup_(lookup)
+			{
+				constructpolyPatchConstructorTables();
+				polyPatchConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablepolyPatchConstructorToTable()
+			{
+				if (polyPatchConstructorTablePtr_) { polyPatchConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from polyPatch and fvBoundaryMesh
-		fvPatch(const polyPatch&, const fvBoundaryMesh&);
+		FoamFiniteVolume_EXPORT fvPatch(const polyPatch&, const fvBoundaryMesh&);
 
 		//- Disallow default bitwise copy construction
-		fvPatch(const fvPatch&);
+		FoamFiniteVolume_EXPORT fvPatch(const fvPatch&);
 
 
 		// Selectors
 
-			//- Return a pointer to a new patch created on freestore from polyPatch
-		static autoPtr<fvPatch> New
+		//- Return a pointer to a new patch created on freestore from polyPatch
+		static FoamFiniteVolume_EXPORT autoPtr<fvPatch> New
 		(
 			const polyPatch&,
 			const fvBoundaryMesh&
@@ -128,14 +182,14 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~fvPatch();
+		FoamFiniteVolume_EXPORT virtual ~fvPatch();
 
 
 		// Member Functions
 
 		// Access
 
-				//- Return the polyPatch
+		//- Return the polyPatch
 		const polyPatch& patch() const
 		{
 			return polyPatch_;
@@ -166,10 +220,10 @@ namespace tnbLib
 		}
 
 		//- Return true if the given type is a constraint type
-		static bool constraintType(const word& pt);
+		static FoamFiniteVolume_EXPORT bool constraintType(const word& pt);
 
 		//- Return a list of all the constraint patch types
-		static wordList constraintTypes();
+		static FoamFiniteVolume_EXPORT wordList constraintTypes();
 
 		//- Return the index of this patch in the fvBoundaryMesh
 		label index() const
@@ -191,46 +245,46 @@ namespace tnbLib
 		}
 
 		//- Return faceCells
-		virtual const labelUList& faceCells() const;
+		FoamFiniteVolume_EXPORT virtual const labelUList& faceCells() const;
 
 
 		// Access functions for geometrical data
 
 			//- Return face centres
-		const vectorField& Cf() const;
+		FoamFiniteVolume_EXPORT const vectorField& Cf() const;
 
 		//- Return neighbour cell centres
-		tmp<vectorField> Cn() const;
+		FoamFiniteVolume_EXPORT tmp<vectorField> Cn() const;
 
 		//- Return face area vectors
-		const vectorField& Sf() const;
+		FoamFiniteVolume_EXPORT const vectorField& Sf() const;
 
 		//- Return face area magnitudes
-		const scalarField& magSf() const;
+		FoamFiniteVolume_EXPORT const scalarField& magSf() const;
 
 		//- Return face normals
-		tmp<vectorField> nf() const;
+		FoamFiniteVolume_EXPORT tmp<vectorField> nf() const;
 
 		//- Return cell-centre to face-centre vector
 		//  except for coupled patches for which the cell-centre
 		//  to coupled-cell-centre vector is returned
-		virtual tmp<vectorField> delta() const;
+		FoamFiniteVolume_EXPORT virtual tmp<vectorField> delta() const;
 
 
 		// Access functions for demand driven data
 
-			//- Return patch weighting factors
-		const scalarField& weights() const;
+		//- Return patch weighting factors
+		FoamFiniteVolume_EXPORT const scalarField& weights() const;
 
 		//- Return the face - cell distance coeffient
 		//  except for coupled patches for which the cell-centre
 		//  to coupled-cell-centre distance coeffient is returned
-		const scalarField& deltaCoeffs() const;
+		FoamFiniteVolume_EXPORT const scalarField& deltaCoeffs() const;
 
 
 		// Evaluation functions
 
-			//- Return given internal field next to patch as patch field
+		//- Return given internal field next to patch as patch field
 		template<class Type>
 		tmp<Field<Type>> patchInternalField(const UList<Type>&) const;
 
@@ -268,8 +322,8 @@ namespace tnbLib
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const fvPatch&);
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const fvPatch&);
 	};
 
 

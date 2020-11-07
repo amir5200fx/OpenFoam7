@@ -81,7 +81,7 @@ namespace tnbLib
 		// Static Data Members
 
 			//- cut-off value for y+
-		static scalar yPlusCutOff;
+		static FoamFiniteVolume_EXPORT scalar yPlusCutOff;
 
 
 		// Constructors

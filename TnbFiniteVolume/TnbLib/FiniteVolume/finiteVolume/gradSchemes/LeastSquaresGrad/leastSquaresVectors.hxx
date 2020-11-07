@@ -40,6 +40,16 @@ SourceFiles
 #include <fvMesh.hxx>
 #include <surfaceFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamLeastSquaresVectors_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLeastSquaresVectors_EXPORT_DEFINE
+#define FoamLeastSquaresVectors_EXPORT __declspec(dllexport)
+#else
+#define FoamLeastSquaresVectors_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -69,7 +79,11 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		TypeName("leastSquaresVectors");
+		/*TypeName("leastSquaresVectors");*/
+		static const char* typeName_() { return "leastSquaresVectors"; }
+		static FoamLeastSquaresVectors_EXPORT const ::tnbLib::word typeName;
+		static FoamLeastSquaresVectors_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

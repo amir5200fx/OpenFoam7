@@ -57,7 +57,7 @@ namespace tnbLib
 
 		// Protected data
 
-			//- Maximum number of piso correctors
+		//- Maximum number of piso correctors
 		label nCorrPiso_;
 
 		//- Current piso corrector
@@ -68,18 +68,22 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("pisoControl");
+		//- Run-time type information
+		//TypeName("pisoControl");
+		static const char* typeName_() { return "pisoControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from a mesh and the name of the algorithm
-		pisoControl(fvMesh& mesh, const word& algorithmName = "PISO");
+		FoamFiniteVolume_EXPORT pisoControl(fvMesh& mesh, const word& algorithmName = "PISO");
 
 
 		//- Destructor
-		virtual ~pisoControl();
+		FoamFiniteVolume_EXPORT virtual ~pisoControl();
 
 
 		// Member Functions
@@ -87,12 +91,12 @@ namespace tnbLib
 			// IO
 
 				//- Read controls
-		virtual bool read();
+		FoamFiniteVolume_EXPORT virtual bool read();
 
 
 		// Access
 
-			//- Maximum number of piso correctors
+		//- Maximum number of piso correctors
 		inline label nCorrPiso() const;
 
 		//- Flat to indicate any piso iteration
@@ -115,13 +119,13 @@ namespace tnbLib
 		// Evolution
 
 			//- Piso loop
-		bool correct();
+		FoamFiniteVolume_EXPORT bool correct();
 
 		//- Time run loop
-		bool run(Time& time);
+		FoamFiniteVolume_EXPORT bool run(Time& time);
 
 		//- Time loop loop
-		bool loop(Time& time);
+		FoamFiniteVolume_EXPORT bool loop(Time& time);
 	};
 
 

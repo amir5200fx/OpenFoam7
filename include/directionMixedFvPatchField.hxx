@@ -38,6 +38,16 @@ SourceFiles
 
 #include <transformFvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamDirectionMixedFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDirectionMixedFvPatchField_EXPORT_DEFINE
+#define FoamDirectionMixedFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamDirectionMixedFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -67,7 +77,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("directionMixed");
+		//TypeName("directionMixed");
+		static const char* typeName_() { return "directionMixed"; }
+		static FoamDirectionMixedFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamDirectionMixedFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

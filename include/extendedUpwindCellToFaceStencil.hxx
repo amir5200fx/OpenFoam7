@@ -80,7 +80,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Find most 'opposite' faces of cell
-		void selectOppositeFaces
+		FoamFiniteVolume_EXPORT void selectOppositeFaces
 		(
 			const boolList& nonEmptyFace,
 			const scalar minOpposedness,
@@ -90,7 +90,7 @@ namespace tnbLib
 		) const;
 
 		//- Transport (centred) face stencil to 'opposite' face.
-		void transportStencil
+		FoamFiniteVolume_EXPORT void transportStencil
 		(
 			const boolList& nonEmptyFace,
 			const labelListList& faceStencil,
@@ -105,7 +105,7 @@ namespace tnbLib
 		) const;
 
 		//- Transport (centred) face stencil to 'opposite' faces.
-		void transportStencils
+		FoamFiniteVolume_EXPORT void transportStencils
 		(
 			const labelListList& faceStencil,
 			const scalar minOpposedness,
@@ -118,10 +118,10 @@ namespace tnbLib
 
 		// Constructors
 
-			//- Construct from mesh and uncompacted centred face stencil.
-			//  Transports facestencil to create owner and neighbour versions.
-			//  pureUpwind to remove any remaining downwind cells.
-		extendedUpwindCellToFaceStencil
+		//- Construct from mesh and uncompacted centred face stencil.
+		//  Transports facestencil to create owner and neighbour versions.
+		//  pureUpwind to remove any remaining downwind cells.
+		FoamFiniteVolume_EXPORT extendedUpwindCellToFaceStencil
 		(
 			const cellToFaceStencil&,
 			const bool pureUpwind,
@@ -130,13 +130,13 @@ namespace tnbLib
 
 		//- Construct from mesh and uncompacted centred face stencil. Splits
 		//  stencil into owner and neighbour (so always pure upwind)
-		extendedUpwindCellToFaceStencil
+		FoamFiniteVolume_EXPORT extendedUpwindCellToFaceStencil
 		(
 			const cellToFaceStencil&
 		);
 
 		//- Disallow default bitwise copy construction
-		extendedUpwindCellToFaceStencil
+		FoamFiniteVolume_EXPORT extendedUpwindCellToFaceStencil
 		(
 			const extendedUpwindCellToFaceStencil&
 		) = delete;
@@ -186,8 +186,8 @@ namespace tnbLib
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const extendedUpwindCellToFaceStencil&) = delete;
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const extendedUpwindCellToFaceStencil&) = delete;
 	};
 
 

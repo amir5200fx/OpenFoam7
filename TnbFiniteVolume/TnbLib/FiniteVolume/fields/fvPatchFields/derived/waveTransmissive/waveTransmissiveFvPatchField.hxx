@@ -79,6 +79,16 @@ SourceFiles
 
 #include <advectiveFvPatchFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamWaveTransmissiveFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamWaveTransmissiveFvPatchField_EXPORT_DEFINE
+#define FoamWaveTransmissiveFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamWaveTransmissiveFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -108,22 +118,22 @@ namespace tnbLib
 		//- Runtime type information
 		/*TypeName("waveTransmissive");*/
 		static const char* typeName_() { return "waveTransmissive"; }
-		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
-		static FoamFiniteVolume_EXPORT int debug;
+		static FoamWaveTransmissiveFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamWaveTransmissiveFvPatchField_EXPORT int debug;
 		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		FoamFiniteVolume_EXPORT waveTransmissiveFvPatchField
+		waveTransmissiveFvPatchField
 		(
 			const fvPatch&,
 			const DimensionedField<Type, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		FoamFiniteVolume_EXPORT waveTransmissiveFvPatchField
+		waveTransmissiveFvPatchField
 		(
 			const fvPatch&,
 			const DimensionedField<Type, volMesh>&,
@@ -132,7 +142,7 @@ namespace tnbLib
 
 		//- Construct by mapping given waveTransmissiveFvPatchField
 		//  onto a new patch
-		FoamFiniteVolume_EXPORT waveTransmissiveFvPatchField
+		waveTransmissiveFvPatchField
 		(
 			const waveTransmissiveFvPatchField<Type>&,
 			const fvPatch&,
@@ -141,7 +151,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		FoamFiniteVolume_EXPORT waveTransmissiveFvPatchField
+		waveTransmissiveFvPatchField
 		(
 			const waveTransmissiveFvPatchField&
 		);
@@ -156,7 +166,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		FoamFiniteVolume_EXPORT waveTransmissiveFvPatchField
+		waveTransmissiveFvPatchField
 		(
 			const waveTransmissiveFvPatchField&,
 			const DimensionedField<Type, volMesh>&
@@ -195,11 +205,11 @@ namespace tnbLib
 		// Evaluation functions
 
 		//- Calculate and return the advection speed at the boundary
-		FoamFiniteVolume_EXPORT virtual tmp<scalarField> advectionSpeed() const;
+		virtual tmp<scalarField> advectionSpeed() const;
 
 
 		//- Write
-		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
+		virtual void write(Ostream&) const;
 	};
 
 

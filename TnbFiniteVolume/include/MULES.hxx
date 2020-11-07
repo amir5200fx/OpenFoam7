@@ -190,12 +190,12 @@ namespace tnbLib
 				const bool returnCorr
 			);
 
-		void limitSum(UPtrList<scalarField>& phiPsiCorrs);
+		FoamFiniteVolume_EXPORT void limitSum(UPtrList<scalarField>& phiPsiCorrs);
 
 		template<class SurfaceScalarFieldList>
 		void limitSum(SurfaceScalarFieldList& phiPsiCorrs);
 
-		void limitSum
+		FoamFiniteVolume_EXPORT void limitSum
 		(
 			const UPtrList<const scalarField>& alphas,
 			UPtrList<scalarField>& phiPsiCorrs,

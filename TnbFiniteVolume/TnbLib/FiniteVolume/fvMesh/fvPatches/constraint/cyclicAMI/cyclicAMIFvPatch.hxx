@@ -65,19 +65,23 @@ namespace tnbLib
 		// Protected Member functions
 
 			//- Return the patch-normal component of the deltas
-		tmp<scalarField> deltan() const;
+		FoamFiniteVolume_EXPORT tmp<scalarField> deltan() const;
 
 		//- Return the neighbour patch-normal component of the deltas
-		tmp<scalarField> nbrDeltan() const;
+		FoamFiniteVolume_EXPORT tmp<scalarField> nbrDeltan() const;
 
 		//- Make patch weighting factors
-		virtual void makeWeights(scalarField&) const;
+		FoamFiniteVolume_EXPORT virtual void makeWeights(scalarField&) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName(cyclicAMIPolyPatch::typeName_());
+		/*TypeName(cyclicAMIPolyPatch::typeName_());*/
+		static const char* typeName_() { return cyclicAMIPolyPatch::typeName_(); }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -169,10 +173,10 @@ namespace tnbLib
 		//- Return true if this patch is coupled. This is equivalent
 		//  to the coupledPolyPatch::coupled() if parallel running or
 		//  both sides present, false otherwise
-		virtual bool coupled() const;
+		FoamFiniteVolume_EXPORT virtual bool coupled() const;
 
 		//- Return delta (P to N) vectors across coupled patch
-		virtual tmp<vectorField> delta() const;
+		FoamFiniteVolume_EXPORT virtual tmp<vectorField> delta() const;
 
 		template<class Type>
 		tmp<Field<Type>> interpolate
@@ -199,13 +203,13 @@ namespace tnbLib
 
 			//- Return the values of the given internal data adjacent to
 			//  the interface as a field
-		virtual tmp<labelField> interfaceInternalField
+		FoamFiniteVolume_EXPORT virtual tmp<labelField> interfaceInternalField
 		(
 			const labelUList& internalData
 		) const;
 
 		//- Return neighbour field
-		virtual tmp<labelField> internalFieldTransfer
+		FoamFiniteVolume_EXPORT virtual tmp<labelField> internalFieldTransfer
 		(
 			const Pstream::commsTypes commsType,
 			const labelUList& internalData

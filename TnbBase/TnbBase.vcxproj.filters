@@ -6819,6 +6819,9 @@
     <ClCompile Include="TnbLib\Base\primitives\functions\Function1\Function1\Function1.cxx">
       <Filter>TnbLib\Base\primitives\functions\Function1\Function1</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\Base\fields\Fields\symmTransformField\symmTransformField.cxx">
+      <Filter>TnbLib\Base\fields\Fields\symmTransformField</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

@@ -99,12 +99,16 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("option");
+			//TypeName("option");
+			static const char* typeName_() { return "option"; }
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+			static FoamFiniteVolume_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Declare run-time constructor selection table
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				option,
@@ -116,13 +120,64 @@ namespace tnbLib
 					const fvMesh& mesh
 					),
 					(name, modelType, dict, mesh)
-			);
+			);*/
+
+			typedef autoPtr<option> (*dictionaryConstructorPtr)(const word& name, const word& modelType, const dictionary& dict,
+			                                                    const fvMesh& mesh);
+			typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+			static FoamFiniteVolume_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+			static FoamFiniteVolume_EXPORT void constructdictionaryConstructorTables();
+			static FoamFiniteVolume_EXPORT void destroydictionaryConstructorTables();
+
+			template <class optionType>
+			class adddictionaryConstructorToTable
+			{
+			public:
+				static autoPtr<option> New(const word& name, const word& modelType, const dictionary& dict, const fvMesh& mesh)
+				{
+					return autoPtr<option>(new optionType(name, modelType, dict, mesh));
+				}
+
+				adddictionaryConstructorToTable(const word& lookup = optionType::typeName)
+				{
+					constructdictionaryConstructorTables();
+					if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "option" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+			};
+
+			template <class optionType>
+			class addRemovabledictionaryConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<option> New(const word& name, const word& modelType, const dictionary& dict, const fvMesh& mesh)
+				{
+					return autoPtr<option>(new optionType(name, modelType, dict, mesh));
+				}
+
+				addRemovabledictionaryConstructorToTable(const word& lookup = optionType::typeName) : lookup_(lookup)
+				{
+					constructdictionaryConstructorTables();
+					dictionaryConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovabledictionaryConstructorToTable()
+				{
+					if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors
 
 				//- Construct from components
-			option
+			FoamFiniteVolume_EXPORT option
 			(
 				const word& name,
 				const word& modelType,
@@ -174,7 +229,7 @@ namespace tnbLib
 			// Selectors
 
 				//- Return a reference to the selected fvOption model
-			static autoPtr<option> New
+			static FoamFiniteVolume_EXPORT autoPtr<option> New
 			(
 				const word& name,
 				const dictionary& dict,
@@ -183,7 +238,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~option();
+			virtual FoamFiniteVolume_EXPORT ~option();
 
 
 			// Member Functions
@@ -215,44 +270,44 @@ namespace tnbLib
 			// Checks
 
 				//- Is the source active?
-			virtual bool isActive();
+			FoamFiniteVolume_EXPORT virtual bool isActive();
 
 			//- Return index of field name if found in fieldNames list
-			virtual label applyToField(const word& fieldName) const;
+			FoamFiniteVolume_EXPORT virtual label applyToField(const word& fieldName) const;
 
 			//- Check that the source has been applied
-			virtual void checkApplied() const;
+			FoamFiniteVolume_EXPORT virtual void checkApplied() const;
 
 
 			// Evaluation
 
 				// Explicit and implicit sources
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				fvMatrix<scalar>& eqn,
 				const label fieldi
 			);
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				fvMatrix<vector>& eqn,
 				const label fieldi
 			);
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				fvMatrix<symmTensor>& eqn,
 				const label fieldi
 			);
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				fvMatrix<sphericalTensor>& eqn,
 				const label fieldi
 			);
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				fvMatrix<tensor>& eqn,
 				const label fieldi
@@ -261,35 +316,35 @@ namespace tnbLib
 
 			// Explicit and implicit sources for compressible equations
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				const volScalarField& rho,
 				fvMatrix<scalar>& eqn,
 				const label fieldi
 			);
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				const volScalarField& rho,
 				fvMatrix<vector>& eqn,
 				const label fieldi
 			);
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				const volScalarField& rho,
 				fvMatrix<symmTensor>& eqn,
 				const label fieldi
 			);
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				const volScalarField& rho,
 				fvMatrix<sphericalTensor>& eqn,
 				const label fieldi
 			);
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				const volScalarField& rho,
 				fvMatrix<tensor>& eqn,
@@ -299,7 +354,7 @@ namespace tnbLib
 
 			// Explicit and implicit sources for phase equations
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				const volScalarField& alpha,
 				const volScalarField& rho,
@@ -307,7 +362,7 @@ namespace tnbLib
 				const label fieldi
 			);
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				const volScalarField& alpha,
 				const volScalarField& rho,
@@ -315,7 +370,7 @@ namespace tnbLib
 				const label fieldi
 			);
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				const volScalarField& alpha,
 				const volScalarField& rho,
@@ -323,7 +378,7 @@ namespace tnbLib
 				const label fieldi
 			);
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				const volScalarField& alpha,
 				const volScalarField& rho,
@@ -331,7 +386,7 @@ namespace tnbLib
 				const label fieldi
 			);
 
-			virtual void addSup
+			FoamFiniteVolume_EXPORT virtual void addSup
 			(
 				const volScalarField& alpha,
 				const volScalarField& rho,
@@ -342,31 +397,31 @@ namespace tnbLib
 
 			// Constraints
 
-			virtual void constrain
+			FoamFiniteVolume_EXPORT virtual void constrain
 			(
 				fvMatrix<scalar>& eqn,
 				const label fieldi
 			);
 
-			virtual void constrain
+			FoamFiniteVolume_EXPORT virtual void constrain
 			(
 				fvMatrix<vector>& eqn,
 				const label fieldi
 			);
 
-			virtual void constrain
+			FoamFiniteVolume_EXPORT virtual void constrain
 			(
 				fvMatrix<sphericalTensor>& eqn,
 				const label fieldi
 			);
 
-			virtual void constrain
+			FoamFiniteVolume_EXPORT virtual void constrain
 			(
 				fvMatrix<symmTensor>& eqn,
 				const label fieldi
 			);
 
-			virtual void constrain
+			FoamFiniteVolume_EXPORT virtual void constrain
 			(
 				fvMatrix<tensor>& eqn,
 				const label fieldi
@@ -375,26 +430,26 @@ namespace tnbLib
 
 			// Correction
 
-			virtual void correct(volScalarField& field);
-			virtual void correct(volVectorField& field);
-			virtual void correct(volSphericalTensorField& field);
-			virtual void correct(volSymmTensorField& field);
-			virtual void correct(volTensorField& field);
+			FoamFiniteVolume_EXPORT virtual void correct(volScalarField& field);
+			FoamFiniteVolume_EXPORT virtual void correct(volVectorField& field);
+			FoamFiniteVolume_EXPORT virtual void correct(volSphericalTensorField& field);
+			FoamFiniteVolume_EXPORT virtual void correct(volSymmTensorField& field);
+			FoamFiniteVolume_EXPORT virtual void correct(volTensorField& field);
 
 
 			// IO
 
 				//- Write the source header information
-			virtual void writeHeader(Ostream&) const;
+			FoamFiniteVolume_EXPORT virtual void writeHeader(Ostream&) const;
 
 			//- Write the source footer information
-			virtual void writeFooter(Ostream&) const;
+			FoamFiniteVolume_EXPORT virtual void writeFooter(Ostream&) const;
 
 			//- Write the source properties
-			virtual void writeData(Ostream&) const;
+			FoamFiniteVolume_EXPORT virtual void writeData(Ostream&) const;
 
 			//- Read source dictionary
-			virtual bool read(const dictionary& dict);
+			FoamFiniteVolume_EXPORT virtual bool read(const dictionary& dict);
 		};
 
 

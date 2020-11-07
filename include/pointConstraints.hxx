@@ -86,26 +86,29 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Make patch-patch constraints
-		void makePatchPatchAddressing();
+		FoamFiniteVolume_EXPORT void makePatchPatchAddressing();
 
 
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("pointConstraints");
+		/*ClassName("pointConstraints");*/
+		static const char* typeName_() { return "pointConstraints"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName; 
+		static FoamFiniteVolume_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Constructor from pointMesh.
-		explicit pointConstraints(const pointMesh&);
+		FoamFiniteVolume_EXPORT explicit pointConstraints(const pointMesh&);
 
 		//- Disallow default bitwise copy construction
-		pointConstraints(const pointConstraints&) = delete;
+		FoamFiniteVolume_EXPORT pointConstraints(const pointConstraints&) = delete;
 
 
 		//- Destructor
-		~pointConstraints();
+		FoamFiniteVolume_EXPORT ~pointConstraints();
 
 
 		// Member Functions
@@ -133,11 +136,11 @@ namespace tnbLib
 
 		// Edit
 
-			//- Update mesh topology using the morph engine
-		void updateMesh(const mapPolyMesh&);
+		//- Update mesh topology using the morph engine
+		FoamFiniteVolume_EXPORT void updateMesh(const mapPolyMesh&);
 
 		//- Correct weighting factors for moving mesh.
-		bool movePoints();
+		FoamFiniteVolume_EXPORT bool movePoints();
 
 
 		// Interpolation functions
@@ -181,7 +184,7 @@ namespace tnbLib
 		//- Apply boundary conditions (single-patch constraints),
 		//  patch-patch constraints and
 		//  two-D constraints on displacement field
-		void constrainDisplacement
+		FoamFiniteVolume_EXPORT void constrainDisplacement
 		(
 			pointVectorField& displacement,
 			const bool overrideValue = false
@@ -190,18 +193,18 @@ namespace tnbLib
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const pointConstraints&) = delete;
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const pointConstraints&) = delete;
 	};
 
 
 	template<>
-	void pointConstraints::constrainCorners<scalar>
+	FoamFiniteVolume_EXPORT void pointConstraints::constrainCorners<scalar>
 		(
 			GeometricField<scalar, pointPatchField, pointMesh>& pf
 			) const;
 	template<>
-	void pointConstraints::constrainCorners<label>
+	FoamFiniteVolume_EXPORT void pointConstraints::constrainCorners<label>
 		(
 			GeometricField<label, pointPatchField, pointMesh>& pf
 			) const;

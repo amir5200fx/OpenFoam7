@@ -48,6 +48,16 @@ SourceFiles
 #include <fvPatch.hxx>
 #include <DimensionedField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamFvsPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFvsPatchField_EXPORT_DEFINE
+#define FoamFvsPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamFvsPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -98,7 +108,11 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName("fvsPatchField");
+		//TypeName("fvsPatchField");
+		static const char* typeName_() { return "fvsPatchField"; }
+		static FoamFvsPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamFvsPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Debug switch to disallow the use of genericFvsPatchField
 		static int disallowGenericFvsPatchField;
@@ -106,7 +120,7 @@ namespace tnbLib
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			tmp,
 			fvsPatchField,
@@ -143,7 +157,165 @@ namespace tnbLib
 				const dictionary& dict
 				),
 				(p, iF, dict)
-		);
+		);*/
+
+		typedef tmp<fvsPatchField> (*patchConstructorPtr)(const fvPatch& p, const DimensionedField<Type, surfaceMesh>& iF);
+		typedef HashTable<patchConstructorPtr, word, string::hash> patchConstructorTable;
+		static FoamFvsPatchField_EXPORT patchConstructorTable* patchConstructorTablePtr_;
+		static FoamFvsPatchField_EXPORT void constructpatchConstructorTables();
+		static FoamFvsPatchField_EXPORT void destroypatchConstructorTables();
+
+		template <class fvsPatchFieldType>
+		class addpatchConstructorToTable
+		{
+		public:
+			static tmp<fvsPatchField> New(const fvPatch& p, const DimensionedField<Type, surfaceMesh>& iF)
+			{
+				return tmp<fvsPatchField>(new fvsPatchFieldType(p, iF));
+			}
+
+			addpatchConstructorToTable(const word& lookup = fvsPatchFieldType::typeName)
+			{
+				constructpatchConstructorTables();
+				if (!patchConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "fvsPatchField" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addpatchConstructorToTable() { destroypatchConstructorTables(); }
+		};
+
+		template <class fvsPatchFieldType>
+		class addRemovablepatchConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static tmp<fvsPatchField> New(const fvPatch& p, const DimensionedField<Type, surfaceMesh>& iF)
+			{
+				return tmp<fvsPatchField>(new fvsPatchFieldType(p, iF));
+			}
+
+			addRemovablepatchConstructorToTable(const word& lookup = fvsPatchFieldType::typeName) : lookup_(lookup)
+			{
+				constructpatchConstructorTables();
+				patchConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablepatchConstructorToTable()
+			{
+				if (patchConstructorTablePtr_) { patchConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
+
+		typedef tmp<fvsPatchField> (*patchMapperConstructorPtr)(const fvsPatchField<Type>& ptf, const fvPatch& p,
+		                                                        const DimensionedField<Type, surfaceMesh>& iF,
+		                                                        const fvPatchFieldMapper& m);
+		typedef HashTable<patchMapperConstructorPtr, word, string::hash> patchMapperConstructorTable;
+		static FoamFvsPatchField_EXPORT patchMapperConstructorTable* patchMapperConstructorTablePtr_;
+		static FoamFvsPatchField_EXPORT void constructpatchMapperConstructorTables();
+		static FoamFvsPatchField_EXPORT void destroypatchMapperConstructorTables();
+
+		template <class fvsPatchFieldType>
+		class addpatchMapperConstructorToTable
+		{
+		public:
+			static tmp<fvsPatchField> New(const fvsPatchField<Type>& ptf, const fvPatch& p,
+			                              const DimensionedField<Type, surfaceMesh>& iF, const fvPatchFieldMapper& m)
+			{
+				return tmp<fvsPatchField>(new fvsPatchFieldType(dynamic_cast<const fvsPatchFieldType&>(ptf), p, iF, m));
+			}
+
+			addpatchMapperConstructorToTable(const word& lookup = fvsPatchFieldType::typeName)
+			{
+				constructpatchMapperConstructorTables();
+				if (!patchMapperConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "fvsPatchField" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addpatchMapperConstructorToTable() { destroypatchMapperConstructorTables(); }
+		};
+
+		template <class fvsPatchFieldType>
+		class addRemovablepatchMapperConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static tmp<fvsPatchField> New(const fvsPatchField<Type>& ptf, const fvPatch& p,
+			                              const DimensionedField<Type, surfaceMesh>& iF, const fvPatchFieldMapper& m)
+			{
+				return tmp<fvsPatchField>(new fvsPatchFieldType(dynamic_cast<const fvsPatchFieldType&>(ptf), p, iF, m));
+			}
+
+			addRemovablepatchMapperConstructorToTable(const word& lookup = fvsPatchFieldType::typeName) : lookup_(lookup)
+			{
+				constructpatchMapperConstructorTables();
+				patchMapperConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablepatchMapperConstructorToTable()
+			{
+				if (patchMapperConstructorTablePtr_) { patchMapperConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
+
+		typedef tmp<fvsPatchField> (*dictionaryConstructorPtr)(const fvPatch& p,
+		                                                       const DimensionedField<Type, surfaceMesh>& iF,
+		                                                       const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamFvsPatchField_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamFvsPatchField_EXPORT void constructdictionaryConstructorTables();
+		static FoamFvsPatchField_EXPORT void destroydictionaryConstructorTables();
+
+		template <class fvsPatchFieldType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static tmp<fvsPatchField> New(const fvPatch& p, const DimensionedField<Type, surfaceMesh>& iF,
+			                              const dictionary& dict)
+			{
+				return tmp<fvsPatchField>(new fvsPatchFieldType(p, iF, dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = fvsPatchFieldType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "fvsPatchField" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class fvsPatchFieldType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static tmp<fvsPatchField> New(const fvPatch& p, const DimensionedField<Type, surfaceMesh>& iF,
+			                              const dictionary& dict)
+			{
+				return tmp<fvsPatchField>(new fvsPatchFieldType(p, iF, dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = fvsPatchFieldType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

@@ -60,13 +60,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(wedgePolyPatch::typeName_());
+		/*TypeName(wedgePolyPatch::typeName_());*/
+		static const char* typeName_() { return wedgePolyPatch::typeName_(); }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from polyPatch
-		wedgeFvPatch(const polyPatch& patch, const fvBoundaryMesh& bm);
+		FoamFiniteVolume_EXPORT wedgeFvPatch(const polyPatch& patch, const fvBoundaryMesh& bm);
 
 
 		// Member Functions

@@ -42,6 +42,16 @@ SourceFiles
 #include <extendedCentredCellToCellStencil.hxx>
 #include <MeshObject.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamLeastSquaresVectorsStencil_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLeastSquaresVectorsStencil_EXPORT_DEFINE
+#define FoamLeastSquaresVectorsStencil_EXPORT __declspec(dllexport)
+#else
+#define FoamLeastSquaresVectorsStencil_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -76,7 +86,11 @@ namespace tnbLib
 		public:
 
 			// Declare name of the class and its debug switch
-			TypeName("LeastSquaresVectors");
+			/*TypeName("LeastSquaresVectors");*/
+			static const char* typeName_() { return "LeastSquaresVectors"; }
+			static FoamLeastSquaresVectorsStencil_EXPORT const ::tnbLib::word typeName;
+			static FoamLeastSquaresVectorsStencil_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

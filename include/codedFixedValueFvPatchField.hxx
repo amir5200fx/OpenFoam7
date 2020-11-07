@@ -84,6 +84,16 @@ SourceFiles
 #include <fixedValueFvPatchFields.hxx>
 #include <codedBase.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCodedFixedValueFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCodedFixedValueFvPatchField_EXPORT_DEFINE
+#define FoamCodedFixedValueFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamCodedFixedValueFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -150,7 +160,7 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Name of the C code template to be used
+		//- Name of the C code template to be used
 		static const word codeTemplateC;
 
 		//- Name of the H code template to be used
@@ -158,7 +168,11 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName("codedFixedValue");
+		//TypeName("codedFixedValue");
+		static const char* typeName_() { return "codedFixedValue"; }
+		static FoamCodedFixedValueFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamCodedFixedValueFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

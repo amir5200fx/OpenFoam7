@@ -72,7 +72,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("fixedValue");
+		//TypeName("fixedValue");
+		static const char* typeName_() { return "fixedValue"; }
+		static const ::tnbLib::word typeName;
+		static int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

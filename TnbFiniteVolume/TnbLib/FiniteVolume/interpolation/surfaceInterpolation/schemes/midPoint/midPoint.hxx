@@ -39,6 +39,16 @@ SourceFiles
 #include <surfaceInterpolationScheme.hxx>
 #include <volFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamMidPoint_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMidPoint_EXPORT_DEFINE
+#define FoamMidPoint_EXPORT __declspec(dllexport)
+#else
+#define FoamMidPoint_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -57,7 +67,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("midPoint");
+		/*TypeName("midPoint");*/
+		static const char* typeName_() { return "midPoint"; }
+		static FoamMidPoint_EXPORT const ::tnbLib::word typeName;
+		static FoamMidPoint_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -52,18 +52,18 @@ namespace tnbLib
 
 	namespace fvc
 	{
-		tmp<surfaceScalarField> meshPhi
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> meshPhi
 		(
 			const volVectorField& U
 		);
 
-		tmp<surfaceScalarField> meshPhi
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> meshPhi
 		(
 			const dimensionedScalar& rho,
 			const volVectorField& U
 		);
 
-		tmp<surfaceScalarField> meshPhi
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> meshPhi
 		(
 			const volScalarField& rho,
 			const volVectorField& U
@@ -71,14 +71,14 @@ namespace tnbLib
 
 
 		//- Make the given flux relative
-		void makeRelative
+		FoamFiniteVolume_EXPORT void makeRelative
 		(
 			surfaceScalarField& phi,
 			const volVectorField& U
 		);
 
 		//- Make the given flux relative
-		void makeRelative
+		FoamFiniteVolume_EXPORT void makeRelative
 		(
 			surfaceScalarField& phi,
 			const dimensionedScalar& rho,
@@ -86,7 +86,7 @@ namespace tnbLib
 		);
 
 		//- Make the given flux relative
-		void makeRelative
+		FoamFiniteVolume_EXPORT void makeRelative
 		(
 			surfaceScalarField& phi,
 			const volScalarField& rho,
@@ -95,14 +95,14 @@ namespace tnbLib
 
 
 		//- Make the given flux absolute
-		void makeAbsolute
+		FoamFiniteVolume_EXPORT void makeAbsolute
 		(
 			surfaceScalarField& phi,
 			const volVectorField& U
 		);
 
 		//- Make the given flux absolute
-		void makeAbsolute
+		FoamFiniteVolume_EXPORT void makeAbsolute
 		(
 			surfaceScalarField& phi,
 			const dimensionedScalar& rho,
@@ -110,7 +110,7 @@ namespace tnbLib
 		);
 
 		//- Make the given flux absolute
-		void makeAbsolute
+		FoamFiniteVolume_EXPORT void makeAbsolute
 		(
 			surfaceScalarField& phi,
 			const volScalarField& rho,
@@ -119,14 +119,14 @@ namespace tnbLib
 
 
 		//- Return the given absolute flux in relative form
-		tmp<surfaceScalarField> relative
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> relative
 		(
 			const tmp<surfaceScalarField>& tphi,
 			const volVectorField& U
 		);
 
 		//- Return the given absolute flux in relative form
-		tmp<surfaceScalarField> relative
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> relative
 		(
 			const tmp<surfaceScalarField>& tphi,
 			const volScalarField& rho,
@@ -135,28 +135,28 @@ namespace tnbLib
 
 
 		//- Return the given relative flux in absolute form
-		tmp<surfaceScalarField> absolute
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> absolute
 		(
 			const tmp<surfaceScalarField>& tphi,
 			const volVectorField& U
 		);
 
 		//- Return the given relative flux in absolute form
-		tmp<surfaceScalarField> absolute
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> absolute
 		(
 			const tmp<surfaceScalarField>& tphi,
 			const volScalarField& rho,
 			const volVectorField& U
 		);
 
-		void correctUf
+		FoamFiniteVolume_EXPORT void correctUf
 		(
 			autoPtr<surfaceVectorField>& Uf,
 			const volVectorField& U,
 			const surfaceScalarField& phi
 		);
 
-		void correctRhoUf
+		FoamFiniteVolume_EXPORT void correctRhoUf
 		(
 			autoPtr<surfaceVectorField>& rhoUf,
 			const volScalarField& rho,

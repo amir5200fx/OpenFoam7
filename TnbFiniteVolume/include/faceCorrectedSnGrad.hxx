@@ -40,6 +40,16 @@ SourceFiles
 
 #include <surfaceMesh.hxx>  // added by amir
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamFaceCorrectedSnGrad_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFaceCorrectedSnGrad_EXPORT_DEFINE
+#define FoamFaceCorrectedSnGrad_EXPORT __declspec(dllexport)
+#else
+#define FoamFaceCorrectedSnGrad_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -68,7 +78,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("faceCorrected");
+			/*TypeName("faceCorrected");*/
+			static const char* typeName_() { return "faceCorrected"; }
+			static FoamFaceCorrectedSnGrad_EXPORT const ::tnbLib::word typeName;
+			static FoamFaceCorrectedSnGrad_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
@@ -126,14 +140,14 @@ namespace tnbLib
 		// * * * * * * * * Template Member Function Specialisations  * * * * * * * * //
 
 		template<>
-		tmp<surfaceScalarField> faceCorrectedSnGrad<scalar>::correction
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> faceCorrectedSnGrad<scalar>::correction
 		(
 			const volScalarField& vsf
 		) const;
 
 
 		template<>
-		tmp<surfaceVectorField> faceCorrectedSnGrad<vector>::correction
+		FoamFiniteVolume_EXPORT tmp<surfaceVectorField> faceCorrectedSnGrad<vector>::correction
 		(
 			const volVectorField& vvf
 		) const;

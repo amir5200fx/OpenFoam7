@@ -73,7 +73,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Create IO object if dictionary is present
-		IOobject createIOobject(const fvMesh& mesh) const;
+		FoamFiniteVolume_EXPORT IOobject createIOobject(const fvMesh& mesh) const;
 
 
 	public:
@@ -81,10 +81,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mesh
-		IOMRFZoneList(const fvMesh& mesh);
+		FoamFiniteVolume_EXPORT IOMRFZoneList(const fvMesh& mesh);
 
 		//- Disallow default bitwise copy construction
-		IOMRFZoneList(const IOMRFZoneList&) = delete;
+		FoamFiniteVolume_EXPORT IOMRFZoneList(const IOMRFZoneList&) = delete;
 
 
 		//- Destructor
@@ -95,13 +95,13 @@ namespace tnbLib
 		// Member Functions
 
 			//- Read dictionary
-		virtual bool read();
+		FoamFiniteVolume_EXPORT virtual bool read();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const IOMRFZoneList&) = delete;
+		FoamFiniteVolume_EXPORT void operator=(const IOMRFZoneList&) = delete;
 	};
 
 

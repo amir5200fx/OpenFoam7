@@ -785,6 +785,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToCell\MeshObjects\centredCFCCellToCellStencilObject.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToCell\MeshObjects\centredCPCCellToCellStencilObject.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\extendedCellToFaceStencil.hxx" />
+    <ClInclude Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\extendedCellToFaceStencilI.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\extendedCentredCellToFaceStencil.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\extendedUpwindCellToFaceStencil.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\extendedUpwindCellToFaceStencilI.hxx" />
@@ -905,6 +906,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\MUSCL\MUSCL.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\OSPRE\OSPRE.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\PhiScheme\PhiScheme.hxx" />
+    <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\PhiScheme\PhiSchemeI.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\Phi\Phi.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\QUICK\QUICK.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\QUICK\QUICKV.hxx" />
@@ -933,6 +935,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\cubic\cubic.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\downwind\downwind.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\FitData\FitData.hxx" />
+    <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\FitData\FitDataI.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\fixedBlended\fixedBlended.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\harmonic\harmonic.hxx" />
     <ClInclude Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\limiterBlended\limiterBlended.hxx" />
@@ -1197,7 +1200,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad\invDistLeastSquaresVectors.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad\leastSquaresGrads.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad\LeastSquaresGradsTemplate.cxx" />
-    <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad\unweightedLeastSquaresVectors.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\limitedGradSchemes\cellLimitedGrad\cellLimitedGrads.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\limitedGradSchemes\cellMDLimitedGrad\cellMDLimitedGrads.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\limitedGradSchemes\faceLimitedGrad\faceLimitedGrads.cxx" />
@@ -1228,7 +1230,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToCell\MeshObjects\centredCFCCellToCellStencilObject.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToCell\MeshObjects\centredCPCCellToCellStencilObject.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\extendedCellToFaceStencil.cxx" />
-    <None Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\extendedCellToFaceStencilTemplates.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\extendedCentredCellToFaceStencil.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\extendedUpwindCellToFaceStencil.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\globalIndexStencils\CECCellToFaceStencil.cxx" />
@@ -1308,7 +1309,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\Minmod\Minmod.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\MUSCL\MUSCL.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\OSPRE\OSPRE.cxx" />
-    <None Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\PhiScheme\PhiScheme.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\Phi\Phi.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\QUICK\QUICK.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\limitedSchemes\SFCD\SFCD.cxx" />
@@ -1336,7 +1336,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\cubicUpwindFit\cubicUpwindFit.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\cubic\cubic.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\downwind\downwind.cxx" />
-    <None Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\FitData\FitData.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\fixedBlended\fixedBlended.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\harmonic\harmonic.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\limiterBlended\limiterBlended.cxx" />
@@ -1364,7 +1363,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\surfaceInterpolationScheme\surfaceInterpolationSchemes.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\surfaceInterpolation\surfaceInterpolation.cxx" />
     <ClCompile Include="TnbLib\FiniteVolume\interpolation\volPointInterpolation\pointConstraints.cxx" />
-    <None Include="TnbLib\FiniteVolume\interpolation\volPointInterpolation\volPointInterpolation.cxx" />
+    <ClCompile Include="TnbLib\FiniteVolume\interpolation\volPointInterpolation\volPointInterpolation.cxx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TnbBase\TnbBase.vcxproj">

@@ -41,6 +41,16 @@ SourceFiles
 #include <volFields.hxx>
 #include <surfaceFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamDownwind_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDownwind_EXPORT_DEFINE
+#define FoamDownwind_EXPORT __declspec(dllexport)
+#else
+#define FoamDownwind_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -63,7 +73,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("downwind");
+		/*TypeName("downwind");*/
+		static const char* typeName_() { return "downwind"; }
+		static FoamDownwind_EXPORT const ::tnbLib::word typeName;
+		static FoamDownwind_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

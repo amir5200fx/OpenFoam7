@@ -209,14 +209,18 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("advectionDiffusion");
+			/*TypeName("advectionDiffusion");*/
+			static const char* typeName_() { return "advectionDiffusion"; }
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+			static FoamFiniteVolume_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
-				//- Construct from coefficients dictionary, mesh
-				//  and fixed-value patch set
-			advectionDiffusion
+			//- Construct from coefficients dictionary, mesh
+			//  and fixed-value patch set
+			FoamFiniteVolume_EXPORT advectionDiffusion
 			(
 				const dictionary& dict,
 				const fvMesh& mesh,
@@ -224,22 +228,22 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			advectionDiffusion(const advectionDiffusion&) = delete;
+			FoamFiniteVolume_EXPORT advectionDiffusion(const advectionDiffusion&) = delete;
 
 
 			// Member Functions
 
-				//- Correct the given distance-to-patch field
-			virtual bool correct(volScalarField& y);
+			//- Correct the given distance-to-patch field
+			FoamFiniteVolume_EXPORT virtual bool correct(volScalarField& y);
 
 			//- Correct the given distance-to-patch and normal-to-patch fields
-			virtual bool correct(volScalarField& y, volVectorField& n);
+			FoamFiniteVolume_EXPORT virtual bool correct(volScalarField& y, volVectorField& n);
 
 
 			// Member Operators
 
-				//- Disallow default bitwise assignment
-			void operator=(const advectionDiffusion&) = delete;
+			//- Disallow default bitwise assignment
+			FoamFiniteVolume_EXPORT void operator=(const advectionDiffusion&) = delete;
 		};
 
 

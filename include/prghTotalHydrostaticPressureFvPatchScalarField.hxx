@@ -110,20 +110,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("prghTotalHydrostaticPressure");
+		/*TypeName("prghTotalHydrostaticPressure");*/
+		static const char* typeName_() { return "prghTotalHydrostaticPressure"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from patch and internal field
-		prghTotalHydrostaticPressureFvPatchScalarField
+		//- Construct from patch and internal field
+		FoamFiniteVolume_EXPORT prghTotalHydrostaticPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		prghTotalHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT prghTotalHydrostaticPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -132,7 +136,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		//  prghTotalHydrostaticPressureFvPatchScalarField onto a new patch
-		prghTotalHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT prghTotalHydrostaticPressureFvPatchScalarField
 		(
 			const prghTotalHydrostaticPressureFvPatchScalarField&,
 			const fvPatch&,
@@ -141,7 +145,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		prghTotalHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT prghTotalHydrostaticPressureFvPatchScalarField
 		(
 			const prghTotalHydrostaticPressureFvPatchScalarField&
 		);
@@ -156,7 +160,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		prghTotalHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT prghTotalHydrostaticPressureFvPatchScalarField
 		(
 			const prghTotalHydrostaticPressureFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -177,14 +181,14 @@ namespace tnbLib
 
 		// Member Functions
 
-			// Evaluation functions
+		// Evaluation functions
 
-				//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		//- Update the coefficients associated with the patch field
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

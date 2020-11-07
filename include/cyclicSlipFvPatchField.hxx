@@ -52,6 +52,16 @@ SourceFiles
 #include <cyclicFvPatchField.hxx>
 #include <cyclicSlipFvPatch.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCyclicSlipFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCyclicSlipFvPatchField_EXPORT_DEFINE
+#define FoamCyclicSlipFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamCyclicSlipFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -70,7 +80,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(cyclicSlipFvPatch::typeName_());
+		//TypeName(cyclicSlipFvPatch::typeName_());
+		static const char* typeName_() { return cyclicSlipFvPatch::typeName_(); }
+		static FoamCyclicSlipFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamCyclicSlipFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

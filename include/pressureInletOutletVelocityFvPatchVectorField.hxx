@@ -93,20 +93,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pressureInletOutletVelocity");
+		//TypeName("pressureInletOutletVelocity");
+		static const char* typeName_() { return "pressureInletOutletVelocity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		pressureInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureInletOutletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		pressureInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureInletOutletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -115,7 +119,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		//  pressureInletOutletVelocityFvPatchVectorField onto a new patch
-		pressureInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureInletOutletVelocityFvPatchVectorField
 		(
 			const pressureInletOutletVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -124,7 +128,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		pressureInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureInletOutletVelocityFvPatchVectorField
 		(
 			const pressureInletOutletVelocityFvPatchVectorField&
 		);
@@ -139,7 +143,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		pressureInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureInletOutletVelocityFvPatchVectorField
 		(
 			const pressureInletOutletVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -190,30 +194,30 @@ namespace tnbLib
 		}
 
 		//- Reset the tangential velocity
-		void setTangentialVelocity(const vectorField& tangentialVelocity);
+		FoamFiniteVolume_EXPORT void setTangentialVelocity(const vectorField& tangentialVelocity);
 
 
 		// Mapping functions
 
 			//- Map (and resize as needed) from self given a mapping object
 			//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		FoamFiniteVolume_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchVectorField&, const labelList&);
+		FoamFiniteVolume_EXPORT virtual void rmap(const fvPatchVectorField&, const labelList&);
 
 
 		//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 
 
 		// Member Operators
 
-		virtual void operator=(const fvPatchField<vector>& pvf);
+		FoamFiniteVolume_EXPORT virtual void operator=(const fvPatchField<vector>& pvf);
 	};
 
 

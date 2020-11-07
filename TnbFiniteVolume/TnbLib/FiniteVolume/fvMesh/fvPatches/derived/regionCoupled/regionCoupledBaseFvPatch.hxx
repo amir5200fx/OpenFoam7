@@ -85,7 +85,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("regionCoupledBase");
+		/*TypeName("regionCoupledBase");*/
+		static const char* typeName_() { return "regionCoupledBase"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -195,7 +199,7 @@ namespace tnbLib
 
 
 		//- Return faceCell addressing
-		virtual const labelUList& faceCells() const = 0;
+		FoamFiniteVolume_EXPORT virtual const labelUList& faceCells() const = 0;
 
 	};
 

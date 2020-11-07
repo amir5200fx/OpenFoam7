@@ -103,20 +103,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("uniformDensityHydrostaticPressure");
+		/*TypeName("uniformDensityHydrostaticPressure");*/
+		static const char* typeName_() { return "uniformDensityHydrostaticPressure"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		uniformDensityHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT uniformDensityHydrostaticPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		uniformDensityHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT uniformDensityHydrostaticPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -125,7 +129,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		//  uniformDensityHydrostaticPressureFvPatchScalarField onto a new patch
-		uniformDensityHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT uniformDensityHydrostaticPressureFvPatchScalarField
 		(
 			const uniformDensityHydrostaticPressureFvPatchScalarField&,
 			const fvPatch&,
@@ -134,7 +138,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		uniformDensityHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT uniformDensityHydrostaticPressureFvPatchScalarField
 		(
 			const uniformDensityHydrostaticPressureFvPatchScalarField&
 		);
@@ -149,7 +153,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		uniformDensityHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT uniformDensityHydrostaticPressureFvPatchScalarField
 		(
 			const uniformDensityHydrostaticPressureFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -174,9 +178,9 @@ namespace tnbLib
 
 		// Member Functions
 
-			// Access
+		// Access
 
-				//- Return the constant density in the far-field
+		//- Return the constant density in the far-field
 		scalar rho() const
 		{
 			return rho_;
@@ -217,12 +221,12 @@ namespace tnbLib
 
 		// Evaluation functions
 
-			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		//- Update the coefficients associated with the patch field
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 
