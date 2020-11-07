@@ -71,18 +71,22 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("simpleControl");
+		//- Run-time type information
+		//TypeName("simpleControl");
+		static const char* typeName_() { return "simpleControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from a mesh and the name of the algorithm
-		simpleControl(fvMesh& mesh, const word& algorithmName = "SIMPLE");
+		FoamFiniteVolume_EXPORT simpleControl(fvMesh& mesh, const word& algorithmName = "SIMPLE");
 
 
 		//- Destructor
-		virtual ~simpleControl();
+		FoamFiniteVolume_EXPORT virtual ~simpleControl();
 
 
 		// Member Functions
@@ -90,16 +94,16 @@ namespace tnbLib
 			// IO
 
 				//- Read controls
-		virtual bool read();
+		FoamFiniteVolume_EXPORT virtual bool read();
 
 
 		// Evolution
 
-			//- Time run loop
-		bool run(Time& time);
+		//- Time run loop
+		FoamFiniteVolume_EXPORT bool run(Time& time);
 
 		//- Time loop loop
-		bool loop(Time& time);
+		FoamFiniteVolume_EXPORT bool loop(Time& time);
 	};
 
 

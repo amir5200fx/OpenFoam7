@@ -68,9 +68,9 @@ namespace tnbLib
 	private:
 
 		//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
-		static const NamedEnum<cellAction, 2> cellActionNames_;
+		static FoamFvMesh_EXPORT const NamedEnum<cellAction, 2> cellActionNames_;
 
 		//- Name of set to use
 		word setName_;
@@ -82,18 +82,22 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Depending on face to cell option add to or delete from cellSet.
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("cellToFace");
+		/*TypeName("cellToFace");*/
+		static const char* typeName_() { return "cellToFace"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		cellToFace
+		FoamFvMesh_EXPORT cellToFace
 		(
 			const polyMesh& mesh,
 			const word& setName,
@@ -101,14 +105,14 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		cellToFace
+		FoamFvMesh_EXPORT cellToFace
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		cellToFace
+		FoamFvMesh_EXPORT cellToFace
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -116,7 +120,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~cellToFace();
+		FoamFvMesh_EXPORT virtual ~cellToFace();
 
 
 		// Member Functions
@@ -126,7 +130,7 @@ namespace tnbLib
 			return FACESETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

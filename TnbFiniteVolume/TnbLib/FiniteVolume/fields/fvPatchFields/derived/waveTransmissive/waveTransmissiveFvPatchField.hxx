@@ -106,20 +106,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("waveTransmissive");
+		/*TypeName("waveTransmissive");*/
+		static const char* typeName_() { return "waveTransmissive"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		waveTransmissiveFvPatchField
+		FoamFiniteVolume_EXPORT waveTransmissiveFvPatchField
 		(
 			const fvPatch&,
 			const DimensionedField<Type, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		waveTransmissiveFvPatchField
+		FoamFiniteVolume_EXPORT waveTransmissiveFvPatchField
 		(
 			const fvPatch&,
 			const DimensionedField<Type, volMesh>&,
@@ -128,7 +132,7 @@ namespace tnbLib
 
 		//- Construct by mapping given waveTransmissiveFvPatchField
 		//  onto a new patch
-		waveTransmissiveFvPatchField
+		FoamFiniteVolume_EXPORT waveTransmissiveFvPatchField
 		(
 			const waveTransmissiveFvPatchField<Type>&,
 			const fvPatch&,
@@ -137,7 +141,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		waveTransmissiveFvPatchField
+		FoamFiniteVolume_EXPORT waveTransmissiveFvPatchField
 		(
 			const waveTransmissiveFvPatchField&
 		);
@@ -152,7 +156,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		waveTransmissiveFvPatchField
+		FoamFiniteVolume_EXPORT waveTransmissiveFvPatchField
 		(
 			const waveTransmissiveFvPatchField&,
 			const DimensionedField<Type, volMesh>&
@@ -173,9 +177,9 @@ namespace tnbLib
 
 		// Member Functions
 
-			// Access
+		// Access
 
-				//- Return the heat capacity ratio
+		//- Return the heat capacity ratio
 		scalar gamma() const
 		{
 			return gamma_;
@@ -190,12 +194,12 @@ namespace tnbLib
 
 		// Evaluation functions
 
-			//- Calculate and return the advection speed at the boundary
-		virtual tmp<scalarField> advectionSpeed() const;
+		//- Calculate and return the advection speed at the boundary
+		FoamFiniteVolume_EXPORT virtual tmp<scalarField> advectionSpeed() const;
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

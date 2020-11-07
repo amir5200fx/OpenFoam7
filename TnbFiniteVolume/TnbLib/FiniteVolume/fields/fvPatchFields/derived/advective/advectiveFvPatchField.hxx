@@ -79,6 +79,16 @@ SourceFiles
 
 #include <mixedFvPatchFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamAdvectiveFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamAdvectiveFvPatchField_EXPORT_DEFINE
+#define FoamAdvectiveFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamAdvectiveFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -114,7 +124,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("advective");
+		//TypeName("advective");
+		static const char* typeName_() { return "advective"; }
+		static FoamAdvectiveFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamAdvectiveFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

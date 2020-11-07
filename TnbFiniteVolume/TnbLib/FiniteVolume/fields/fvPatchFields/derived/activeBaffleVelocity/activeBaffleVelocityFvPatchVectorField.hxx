@@ -147,20 +147,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("activeBaffleVelocity");
+		//TypeName("activeBaffleVelocity");
+		static const char* typeName_() { return "activeBaffleVelocity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		activeBaffleVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT activeBaffleVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		activeBaffleVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT activeBaffleVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -169,7 +173,7 @@ namespace tnbLib
 
 		//- Construct by mapping given activeBaffleVelocityFvPatchVectorField
 		//  onto a new patch
-		activeBaffleVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT activeBaffleVelocityFvPatchVectorField
 		(
 			const activeBaffleVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -178,7 +182,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		activeBaffleVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT activeBaffleVelocityFvPatchVectorField
 		(
 			const activeBaffleVelocityFvPatchVectorField&
 		);
@@ -193,7 +197,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		activeBaffleVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT activeBaffleVelocityFvPatchVectorField
 		(
 			const activeBaffleVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -217,17 +221,17 @@ namespace tnbLib
 			// Mapping functions
 
 				//- Map (and resize as needed) from self given a mapping object
-		virtual void autoMap(const fvPatchFieldMapper&);
+		FoamFiniteVolume_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
-		virtual void rmap(const fvPatchVectorField&, const labelList&);
+		FoamFiniteVolume_EXPORT virtual void rmap(const fvPatchVectorField&, const labelList&);
 
 
 		//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

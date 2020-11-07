@@ -68,6 +68,16 @@ SourceFiles
 #include <outletInletFvPatchFields.hxx>
 #include <Function1.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamFixedMeanOutletInletFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFixedMeanOutletInletFvPatchField_EXPORT_DEFINE
+#define FoamFixedMeanOutletInletFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamFixedMeanOutletInletFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -84,14 +94,18 @@ namespace tnbLib
 	{
 		// Private Data
 
-			//- MeanValue value the field is adjusted to maintain
+		//- MeanValue value the field is adjusted to maintain
 		autoPtr<Function1<Type>> meanValue_;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("fixedMeanOutletInlet");
+		//TypeName("fixedMeanOutletInlet");
+		static const char* typeName_() { return "fixedMeanOutletInlet"; }
+		static FoamFixedMeanOutletInletFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamFixedMeanOutletInletFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

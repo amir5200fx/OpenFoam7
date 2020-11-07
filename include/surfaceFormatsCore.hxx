@@ -76,7 +76,7 @@ namespace tnbLib
 			}
 
 			//- Read non-comment line
-			static string getLineNoComment(IFstream&);
+			static FoamFvMesh_EXPORT string getLineNoComment(IFstream&);
 
 
 		public:
@@ -85,12 +85,12 @@ namespace tnbLib
 
 				//- The file extension corresponding to 'native' surface format
 				//  Normally "ofs" (mnemonic: OF = OpenFOAM, S = Surface)
-			static word nativeExt;
+			static FoamFvMesh_EXPORT word nativeExt;
 
 
 			// Static Member Functions
 
-			static bool checkSupport
+			static FoamFvMesh_EXPORT bool checkSupport
 			(
 				const wordHashSet& available,
 				const word& ext,
@@ -100,25 +100,25 @@ namespace tnbLib
 
 			//- Return the local file name (within time directory)
 			//  NEEDS FIXING
-			static fileName localMeshFileName(const word& surfName = "");
+			static FoamFvMesh_EXPORT fileName localMeshFileName(const word& surfName = "");
 
 			//- Find instance with surfName
 			//  NEEDS FIXING
-			static fileName findMeshInstance(const Time&, const word& surfName = "");
+			static FoamFvMesh_EXPORT fileName findMeshInstance(const Time&, const word& surfName = "");
 
 			//- Find mesh file with surfName
 			//  NEEDS FIXING
-			static fileName findMeshFile(const Time&, const word& surfName = "");
+			static FoamFvMesh_EXPORT fileName findMeshFile(const Time&, const word& surfName = "");
 
 
 			// Constructors
 
 				//- Construct null
-			surfaceFormatsCore();
+			FoamFvMesh_EXPORT surfaceFormatsCore();
 
 
 			//- Destructor
-			virtual ~surfaceFormatsCore();
+			FoamFvMesh_EXPORT virtual ~surfaceFormatsCore();
 		};
 
 

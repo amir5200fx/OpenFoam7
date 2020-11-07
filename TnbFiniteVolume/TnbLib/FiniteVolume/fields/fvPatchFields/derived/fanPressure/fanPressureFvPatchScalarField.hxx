@@ -101,7 +101,7 @@ namespace tnbLib
 		};
 
 		//- Fan flow directions names
-		static const NamedEnum<fanFlowDirection, 2> fanFlowDirectionNames_;
+		static FoamFiniteVolume_EXPORT const NamedEnum<fanFlowDirection, 2> fanFlowDirectionNames_;
 
 
 	private:
@@ -118,20 +118,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("fanPressure");
+		//TypeName("fanPressure");
+		static const char* typeName_() { return "fanPressure"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		fanPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT fanPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		fanPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT fanPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -141,7 +145,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  fanPressureFvPatchScalarField
 		//  onto a new patch
-		fanPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT fanPressureFvPatchScalarField
 		(
 			const fanPressureFvPatchScalarField&,
 			const fvPatch&,
@@ -150,7 +154,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		fanPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT fanPressureFvPatchScalarField
 		(
 			const fanPressureFvPatchScalarField&
 		);
@@ -165,7 +169,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		fanPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT fanPressureFvPatchScalarField
 		(
 			const fanPressureFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -191,10 +195,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <fixedValueFvPatchFields.hxx>
 
 #include <volFields.hxx>

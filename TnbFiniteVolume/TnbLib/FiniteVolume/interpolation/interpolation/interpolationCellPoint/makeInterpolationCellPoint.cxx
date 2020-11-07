@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <interpolationCellPoint.hxx>
 
 #include <volMesh.hxx>  // added by amir

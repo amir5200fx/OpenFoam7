@@ -55,20 +55,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cyclicACMI");
+		//TypeName("cyclicACMI");
+		static const char* typeName_() { return "cyclicACMI"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from GAMG interface and fine level interface field
-		cyclicACMIGAMGInterfaceField
+		FoamFvMesh_EXPORT cyclicACMIGAMGInterfaceField
 		(
 			const GAMGInterface& GAMGCp,
 			const lduInterfaceField& fineInterfaceField
 		);
 
 		//- Construct from GAMG interface and fine level interface field
-		cyclicACMIGAMGInterfaceField
+		FoamFvMesh_EXPORT cyclicACMIGAMGInterfaceField
 		(
 			const GAMGInterface& GAMGCp,
 			const bool doTransform,
@@ -77,7 +81,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~cyclicACMIGAMGInterfaceField();
+		FoamFvMesh_EXPORT virtual ~cyclicACMIGAMGInterfaceField();
 	};
 
 

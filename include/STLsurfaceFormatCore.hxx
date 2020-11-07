@@ -75,13 +75,13 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Determine the file type
-			static int detectBINARY(const fileName&);
+			static FoamFvMesh_EXPORT int detectBINARY(const fileName&);
 
 			//- Read ASCII
-			bool readASCII(istream&, const off_t);
+			FoamFvMesh_EXPORT bool readASCII(istream&, const off_t);
 
 			//- Read BINARY
-			bool readBINARY(istream&, const off_t);
+			FoamFvMesh_EXPORT bool readBINARY(istream&, const off_t);
 
 
 		public:
@@ -95,20 +95,20 @@ namespace tnbLib
 			// Static Member Functions
 
 				//- Write "STL binary file" and number of triangles to stream
-			static void writeHeaderBINARY(ostream&, unsigned int);
+			static FoamFvMesh_EXPORT void writeHeaderBINARY(ostream&, unsigned int);
 
 
 			// Constructors
 
 				//- Read from file, filling in the information
-			STLsurfaceFormatCore(const fileName&);
+			FoamFvMesh_EXPORT STLsurfaceFormatCore(const fileName&);
 
 			//- Disallow default bitwise copy construction
-			STLsurfaceFormatCore(const STLsurfaceFormatCore&) = delete;
+			FoamFvMesh_EXPORT STLsurfaceFormatCore(const STLsurfaceFormatCore&) = delete;
 
 
 			//- Destructor
-			~STLsurfaceFormatCore();
+			FoamFvMesh_EXPORT ~STLsurfaceFormatCore();
 
 
 			// Member Functions
@@ -157,7 +157,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const STLsurfaceFormatCore&) = delete;
+			FoamFvMesh_EXPORT void operator=(const STLsurfaceFormatCore&) = delete;
 		};
 
 

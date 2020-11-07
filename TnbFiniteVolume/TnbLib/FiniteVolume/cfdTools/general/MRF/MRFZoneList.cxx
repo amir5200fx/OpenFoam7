@@ -404,7 +404,7 @@ void tnbLib::MRFZoneList::update()
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamFiniteVolume_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	Ostream& os,
 	const MRFZoneList& models

@@ -55,7 +55,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cyclicRepeatAMILduInterfaceField");
+		//TypeName("cyclicRepeatAMILduInterfaceField");
+		static const char* typeName_() { return "cyclicRepeatAMILduInterfaceField"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -66,7 +70,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~cyclicRepeatAMILduInterfaceField();
+		FoamFvMesh_EXPORT virtual ~cyclicRepeatAMILduInterfaceField();
 	};
 
 

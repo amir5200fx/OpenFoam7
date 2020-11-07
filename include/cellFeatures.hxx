@@ -84,9 +84,9 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		bool faceAlignedEdge(const label, const label) const;
+		FoamFvMesh_EXPORT bool faceAlignedEdge(const label, const label) const;
 
-		label nextEdge
+		FoamFvMesh_EXPORT label nextEdge
 		(
 			const Map<label>& toSuperFace,
 			const label superFacei,
@@ -94,16 +94,16 @@ namespace tnbLib
 			const label thisVertI
 		) const;
 
-		bool isCellFeatureEdge(const scalar, const label) const;
+		FoamFvMesh_EXPORT bool isCellFeatureEdge(const scalar, const label) const;
 
-		void walkSuperFace
+		FoamFvMesh_EXPORT void walkSuperFace
 		(
 			const label facei,
 			const label superFacei,
 			Map<label>& toSuperFace
 		) const;
 
-		void calcSuperFaces() const;
+		FoamFvMesh_EXPORT void calcSuperFaces() const;
 
 
 	public:
@@ -111,7 +111,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from cell in mesh
-		cellFeatures
+		FoamFvMesh_EXPORT cellFeatures
 		(
 			const primitiveMesh&,
 			const scalar minCos,    // angle to use for feature recognition.
@@ -119,11 +119,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		cellFeatures(const cellFeatures&) = delete;
+		FoamFvMesh_EXPORT cellFeatures(const cellFeatures&) = delete;
 
 
 		//- Destructor
-		~cellFeatures();
+		FoamFvMesh_EXPORT ~cellFeatures();
 
 
 		// Member Functions
@@ -167,17 +167,17 @@ namespace tnbLib
 		//- Are two edges connected at feature point?
 		//  Is local to face since point might be seen as feature point
 		//  from one face but not from another.
-		bool isFeaturePoint(const label edge0, const label edge1) const;
+		FoamFvMesh_EXPORT bool isFeaturePoint(const label edge0, const label edge1) const;
 
 		//- Is vertexI on facei used by two edges that form feature
 		//  point
-		bool isFeatureVertex(const label facei, const label vertI) const;
+		FoamFvMesh_EXPORT bool isFeatureVertex(const label facei, const label vertI) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const cellFeatures&) = delete;
+		FoamFvMesh_EXPORT void operator=(const cellFeatures&) = delete;
 	};
 
 

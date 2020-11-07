@@ -68,7 +68,7 @@ namespace tnbLib
 
 			//- Construct from fine level interface,
 			//  local and neighbour restrict addressing
-		regionCoupledBaseGAMGInterface
+		FoamFvMesh_EXPORT regionCoupledBaseGAMGInterface
 		(
 			const label index,
 			const lduInterfacePtrsList& coarseInterfaces,
@@ -80,14 +80,14 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		regionCoupledBaseGAMGInterface
+		FoamFvMesh_EXPORT regionCoupledBaseGAMGInterface
 		(
 			const regionCoupledBaseGAMGInterface&
 		) = delete;
 
 
 		//- Destructor
-		virtual ~regionCoupledBaseGAMGInterface();
+		FoamFvMesh_EXPORT virtual ~regionCoupledBaseGAMGInterface();
 
 
 		// Member Functions
@@ -95,7 +95,7 @@ namespace tnbLib
 			// Interface transfer functions
 
 				//- Transfer and return internal field adjacent to the interface
-		virtual tmp<labelField> internalFieldTransfer
+		FoamFvMesh_EXPORT virtual tmp<labelField> internalFieldTransfer
 		(
 			const Pstream::commsTypes commsType,
 			const labelUList& iF
@@ -155,7 +155,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const regionCoupledBaseGAMGInterface&) = delete;
+		FoamFvMesh_EXPORT void operator=(const regionCoupledBaseGAMGInterface&) = delete;
 	};
 
 

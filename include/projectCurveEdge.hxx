@@ -65,13 +65,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("projectCurve");
+		//TypeName("projectCurve");
+		static const char* typeName_() { return "projectCurve"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from Istream setting pointsList
-		projectCurveEdge
+		FoamFvMesh_EXPORT projectCurveEdge
 		(
 			const dictionary& dict,
 			const label index,
@@ -81,7 +85,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		projectCurveEdge(const projectCurveEdge&) = delete;
+		FoamFvMesh_EXPORT projectCurveEdge(const projectCurveEdge&) = delete;
 
 
 		//- Destructor
@@ -93,7 +97,7 @@ namespace tnbLib
 
 			//- Return the point positions corresponding to the curve parameters
 			//  0 <= lambda <= 1
-		virtual point position(const scalar) const
+		FoamFvMesh_EXPORT virtual point position(const scalar) const
 		{
 			NotImplemented;
 			return point::max;
@@ -101,7 +105,7 @@ namespace tnbLib
 
 		//- Return the point positions corresponding to the curve parameters
 		//  0 <= lambda <= 1
-		virtual tmp<pointField> position(const scalarList&) const;
+		FoamFvMesh_EXPORT virtual tmp<pointField> position(const scalarList&) const;
 
 		//- Return the length of the curve
 		virtual scalar length() const
@@ -114,7 +118,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const projectCurveEdge&) = delete;
+		FoamFvMesh_EXPORT void operator=(const projectCurveEdge&) = delete;
 	};
 
 

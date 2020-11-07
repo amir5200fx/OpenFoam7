@@ -44,6 +44,7 @@ SourceFiles
 
 #include <volFieldsFwd.hxx>
 #include <surfaceFieldsFwd.hxx>
+#include <includeModule.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -53,7 +54,7 @@ namespace tnbLib
 
 	//- If the mesh is moving correct the velocity BCs on the moving walls to
 	//  ensure the corrected fluxes and velocity are consistent
-	void correctUphiBCs
+	FoamFiniteVolume_EXPORT void correctUphiBCs
 	(
 		volVectorField& U,
 		surfaceScalarField& phi,
@@ -62,7 +63,7 @@ namespace tnbLib
 
 	//- If the mesh is moving correct the velocity BCs on the moving walls to
 	//  ensure the corrected fluxes and velocity are consistent
-	void correctUphiBCs
+	FoamFiniteVolume_EXPORT void correctUphiBCs
 	(
 		const volScalarField& rho,
 		volVectorField& U,

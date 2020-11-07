@@ -55,7 +55,18 @@ namespace tnbLib
 						Class PatchEdgeFaceWaveName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(PatchEdgeFaceWave);
+	//TemplateName(PatchEdgeFaceWave);
+	class PatchEdgeFaceWaveName
+	{
+	public:
+		PatchEdgeFaceWaveName()
+		{
+		}
+
+		static const char* typeName_() { return "PatchEdgeFaceWave"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\
@@ -77,11 +88,11 @@ namespace tnbLib
 			  //- Relative tolerance. Stop propagation if relative changes
 			  //  less than this tolerance (responsibility for checking this is
 			  //  up to Type implementation)
-		static scalar propagationTol_;
+		static FoamFvMesh_EXPORT scalar propagationTol_;
 
 		//- Used as default trackdata value to satisfy default template
 		//  argument.
-		static label dummyTrackData_;
+		static FoamFvMesh_EXPORT label dummyTrackData_;
 
 
 		// Private Data

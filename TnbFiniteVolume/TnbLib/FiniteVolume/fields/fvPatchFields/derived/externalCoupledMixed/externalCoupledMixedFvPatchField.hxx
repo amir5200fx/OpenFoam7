@@ -121,6 +121,16 @@ SourceFiles
 
 #include <GeometricField.hxx>  // added by amir
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamExternalCoupledMixedFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamExternalCoupledMixedFvPatchField_EXPORT_DEFINE
+#define FoamExternalCoupledMixedFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamExternalCoupledMixedFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -228,7 +238,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("externalCoupled");
+		//TypeName("externalCoupled");
+		static const char* typeName_() { return "externalCoupled"; }
+		static FoamExternalCoupledMixedFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamExternalCoupledMixedFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Name of lock file
 		static word lockName;

@@ -10,6 +10,8 @@
 #include <FvMesh_Module.hxx>
 #endif // FoamFvMesh_EXPORT_DEFINE
 
-
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#include <FiniteVolume_Module.hxx>
+#endif // FoamFiniteVolume_EXPORT_DEFINE
 
 #endif // !_includeModule_Header

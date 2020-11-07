@@ -64,7 +64,7 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Read non-comment line
-			static string getLineNoComment(IFstream&);
+			static FoamFvMesh_EXPORT string getLineNoComment(IFstream&);
 
 		public:
 
@@ -72,11 +72,11 @@ namespace tnbLib
 
 				//- The file extension corresponding to 'native' edge format
 				//  Normally "eMesh" (edge-mesh)
-			static word nativeExt;
+			static FoamFvMesh_EXPORT word nativeExt;
 
 			// Static Member Functions
 
-			static bool checkSupport
+			static FoamFvMesh_EXPORT bool checkSupport
 			(
 				const wordHashSet& available,
 				const word& ext,
@@ -104,11 +104,11 @@ namespace tnbLib
 		 // Constructors
 
 			 //- Construct null
-			edgeMeshFormatsCore();
+			FoamFvMesh_EXPORT edgeMeshFormatsCore();
 
 
 			//- Destructor
-			virtual ~edgeMeshFormatsCore();
+			FoamFvMesh_EXPORT virtual ~edgeMeshFormatsCore();
 
 		};
 

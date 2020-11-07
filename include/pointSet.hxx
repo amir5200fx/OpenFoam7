@@ -56,17 +56,21 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pointSet");
+		/*TypeName("pointSet");*/
+		static const char* typeName_() { return "pointSet"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 
 			//- Construct from IOobject
-		pointSet(const IOobject& obj);
+		FoamFvMesh_EXPORT pointSet(const IOobject& obj);
 
 		//- Construct from objectRegistry and name
-		pointSet
+		FoamFvMesh_EXPORT pointSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -75,7 +79,7 @@ namespace tnbLib
 		);
 
 		//- Construct from additional size of labelHashSet
-		pointSet
+		FoamFvMesh_EXPORT pointSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -84,7 +88,7 @@ namespace tnbLib
 		);
 
 		//- Construct from additional labelHashSet
-		pointSet
+		FoamFvMesh_EXPORT pointSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -93,7 +97,7 @@ namespace tnbLib
 		);
 
 		//- Construct from additional labelHashSet
-		pointSet
+		FoamFvMesh_EXPORT pointSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -103,25 +107,25 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~pointSet();
+		FoamFvMesh_EXPORT virtual ~pointSet();
 
 
 		// Member Functions
 
 			//- Sync set across coupled patches. Adds coupled points to set.
-		virtual void sync(const polyMesh& mesh);
+		FoamFvMesh_EXPORT virtual void sync(const polyMesh& mesh);
 
 		//- Return max index+1.
-		virtual label maxSize(const polyMesh& mesh) const;
+		FoamFvMesh_EXPORT virtual label maxSize(const polyMesh& mesh) const;
 
 		//- Update any stored data for new labels
-		virtual void updateMesh(const mapPolyMesh& morphMap);
+		FoamFvMesh_EXPORT virtual void updateMesh(const mapPolyMesh& morphMap);
 
 		//- Update any stored data for new labels
 		// virtual void updateMesh(const polyTopoChange& meshMod);
 
 		//- Write maxLen items with label and coordinates.
-		virtual void writeDebug
+		FoamFvMesh_EXPORT virtual void writeDebug
 		(
 			Ostream& os,
 			const primitiveMesh&,

@@ -76,6 +76,16 @@ SourceFiles
 #include <fixedValueFvPatchFields.hxx>
 #include <interpolation.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamMappedFieldFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMappedFieldFvPatchField_EXPORT_DEFINE
+#define FoamMappedFieldFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamMappedFieldFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -96,12 +106,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("mappedField");
+		//TypeName("mappedField");
+		static const char* typeName_() { return "mappedField"; }
+		static FoamMappedFieldFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamMappedFieldFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from patch and internal field
+		//- Construct from patch and internal field
 		mappedFieldFvPatchField
 		(
 			const fvPatch&,

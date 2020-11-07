@@ -54,8 +54,8 @@ namespace tnbLib
 
 	class pointTopoDistanceData;
 
-	Istream& operator>>(Istream&, pointTopoDistanceData&);
-	Ostream& operator<<(Ostream&, const pointTopoDistanceData&);
+	FoamFvMesh_EXPORT Istream& operator>>(Istream&, pointTopoDistanceData&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const pointTopoDistanceData&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -209,8 +209,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const pointTopoDistanceData&);
-		friend Istream& operator>>(Istream&, pointTopoDistanceData&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const pointTopoDistanceData&);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream&, pointTopoDistanceData&);
 	};
 
 

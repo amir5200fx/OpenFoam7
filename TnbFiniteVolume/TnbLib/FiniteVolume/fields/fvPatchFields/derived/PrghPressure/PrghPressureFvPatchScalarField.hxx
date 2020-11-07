@@ -53,6 +53,16 @@ SourceFiles
 
 #include <fvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamPrghPressureFvPatchScalarField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPrghPressureFvPatchScalarField_EXPORT_DEFINE
+#define FoamPrghPressureFvPatchScalarField_EXPORT __declspec(dllexport)
+#else
+#define FoamPrghPressureFvPatchScalarField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -71,7 +81,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("PrghPressure");
+		/*TypeName("PrghPressure");*/
+		static const char* typeName_() { return "PrghPressure"; }
+		static FoamPrghPressureFvPatchScalarField_EXPORT const ::tnbLib::word typeName;
+		static FoamPrghPressureFvPatchScalarField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

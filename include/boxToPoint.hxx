@@ -56,7 +56,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- Bounding box.
 		treeBoundBoxList bbs_;
@@ -64,32 +64,36 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("boxToPoint");
+		/*TypeName("boxToPoint");*/
+		static const char* typeName_() { return "boxToPoint"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		boxToPoint
+		FoamFvMesh_EXPORT boxToPoint
 		(
 			const polyMesh& mesh,
 			const treeBoundBoxList& bb
 		);
 
 		//- Construct from dictionary
-		boxToPoint
+		FoamFvMesh_EXPORT boxToPoint
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		boxToPoint
+		FoamFvMesh_EXPORT boxToPoint
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -97,7 +101,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~boxToPoint();
+		FoamFvMesh_EXPORT virtual ~boxToPoint();
 
 
 		// Member Functions
@@ -107,7 +111,7 @@ namespace tnbLib
 			return POINTSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

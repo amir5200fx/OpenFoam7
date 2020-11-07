@@ -53,15 +53,15 @@ SourceFiles
 #include <primitiveFieldsFwd.hxx>
 #include <labelPair.hxx>
 
-#ifdef FoamFvMesh_EXPORT_DEFINE
-#define FoamFaceCellWave_EXPORT __declspec(dllexport)
-#else
-#ifdef FoamFaceCellWave_EXPORT_DEFINE
-#define FoamFaceCellWave_EXPORT __declspec(dllexport)
-#else
-#define FoamFaceCellWave_EXPORT __declspec(dllimport)
-#endif
-#endif
+//#ifdef FoamFvMesh_EXPORT_DEFINE
+//#define FoamFaceCellWave_EXPORT __declspec(dllexport)
+//#else
+//#ifdef FoamFaceCellWave_EXPORT_DEFINE
+//#define FoamFaceCellWave_EXPORT __declspec(dllexport)
+//#else
+//#define FoamFaceCellWave_EXPORT __declspec(dllimport)
+//#endif
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -266,12 +266,12 @@ namespace tnbLib
 
 		// Protected static data
 
-		static FoamFaceCellWave_EXPORT const scalar geomTol_;
-		static FoamFaceCellWave_EXPORT scalar propagationTol_;
+		static const scalar geomTol_;
+		static scalar propagationTol_;
 
 		//- Used as default trackdata value to satisfy default template
 		//  argument.
-		static FoamFaceCellWave_EXPORT int dummyTrackData_;
+		static int dummyTrackData_;
 
 
 	public:

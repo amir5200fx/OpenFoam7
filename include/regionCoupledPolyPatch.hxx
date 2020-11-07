@@ -60,31 +60,35 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Initialise the calculation of the patch geometry
-		virtual void initGeometry(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void initGeometry(PstreamBuffers&);
 
 		//- Initialise the patches for moving points
-		virtual void initMovePoints(PstreamBuffers& pBufs, const pointField&);
+		FoamFvMesh_EXPORT virtual void initMovePoints(PstreamBuffers& pBufs, const pointField&);
 
 		//- Correct patches after moving points
-		virtual void movePoints(PstreamBuffers& pBufs, const pointField&);
+		FoamFvMesh_EXPORT virtual void movePoints(PstreamBuffers& pBufs, const pointField&);
 
 		//- Initialise the update of the patch topology
-		virtual void initUpdateMesh(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void initUpdateMesh(PstreamBuffers&);
 
 		//- Update of the patch topology
-		virtual void updateMesh(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void updateMesh(PstreamBuffers&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("regionCoupled");
+		/*TypeName("regionCoupled");*/
+		static const char* typeName_() { return "regionCoupled"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from (base couped patch) components
-		regionCoupledPolyPatch
+		FoamFvMesh_EXPORT regionCoupledPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -95,7 +99,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		regionCoupledPolyPatch
+		FoamFvMesh_EXPORT regionCoupledPolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -105,7 +109,7 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		regionCoupledPolyPatch
+		FoamFvMesh_EXPORT regionCoupledPolyPatch
 		(
 			const regionCoupledPolyPatch&,
 			const polyBoundaryMesh&
@@ -113,7 +117,7 @@ namespace tnbLib
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		regionCoupledPolyPatch
+		FoamFvMesh_EXPORT regionCoupledPolyPatch
 		(
 			const regionCoupledPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -123,7 +127,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		regionCoupledPolyPatch
+		FoamFvMesh_EXPORT regionCoupledPolyPatch
 		(
 			const regionCoupledPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -187,7 +191,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~regionCoupledPolyPatch();
+		FoamFvMesh_EXPORT virtual ~regionCoupledPolyPatch();
 
 
 		// Member Functions
@@ -209,7 +213,7 @@ namespace tnbLib
 
 
 		//- Write the polyPatch data as a dictionary
-		virtual void write(Ostream&) const;
+		FoamFvMesh_EXPORT virtual void write(Ostream&) const;
 	};
 
 

@@ -1180,6 +1180,9 @@
     <Filter Include="TnbLib\FiniteVolume\cfdTools\general\SRF\SRFModel\rpm">
       <UniqueIdentifier>{fa17a6de-3629-416f-83d3-a503c5ba7cf6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\FiniteVolume\module">
+      <UniqueIdentifier>{f96b897d-3aa8-442c-97d1-df9b84a566da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\basic\basicSymmetry\basicSymmetryFvPatchField.hxx">
@@ -3480,6 +3483,12 @@
     <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedField\mappedPatchFieldBaseI.hxx">
       <Filter>TnbLib\FiniteVolume\fields\fvPatchFields\derived\mappedField</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\module\FiniteVolume_Module.hxx">
+      <Filter>TnbLib\FiniteVolume\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFvPatchField\timeVaryingMappedFvPatchFieldI.hxx">
+      <Filter>TnbLib\FiniteVolume\fields\fvPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFvPatchField</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\FiniteVolume\fields\fvPatchFields\basic\basicSymmetry\basicSymmetryFvPatchScalarField.cxx">
@@ -4397,9 +4406,6 @@
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad\LeastSquaresGradsTemplate.cxx">
       <Filter>TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad\leastSquaresVectors.cxx">
-      <Filter>TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad\unweightedLeastSquaresVectors.cxx">
       <Filter>TnbLib\FiniteVolume\finiteVolume\gradSchemes\LeastSquaresGrad</Filter>
     </ClCompile>
@@ -4649,9 +4655,6 @@
       <Filter>TnbLib\FiniteVolume\cfdTools\general\include</Filter>
     </None>
     <None Include="cpp.hint" />
-    <None Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFvPatchField\timeVaryingMappedFvPatchField.cxx">
-      <Filter>TnbLib\FiniteVolume\fields\fvPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFvPatchField</Filter>
-    </None>
     <None Include="TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace\extendedCellToFaceStencilTemplates.cxx">
       <Filter>TnbLib\FiniteVolume\fvMesh\extendedStencil\cellToFace</Filter>
     </None>
@@ -4666,9 +4669,6 @@
     </None>
     <None Include="TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\FitData\FitData.cxx">
       <Filter>TnbLib\FiniteVolume\interpolation\surfaceInterpolation\schemes\FitData</Filter>
-    </None>
-    <None Include="TnbLib\FiniteVolume\fields\fvPatchFields\derived\fixedInternalValue\fixedInternalValueFvPatchField.cxx-backup">
-      <Filter>TnbLib\FiniteVolume\fields\fvPatchFields\derived\fixedInternalValue</Filter>
     </None>
     <None Include="TnbLib\FiniteVolume\cfdTools\incompressible\CourantNo.lxx">
       <Filter>TnbLib\FiniteVolume\cfdTools\incompressible</Filter>

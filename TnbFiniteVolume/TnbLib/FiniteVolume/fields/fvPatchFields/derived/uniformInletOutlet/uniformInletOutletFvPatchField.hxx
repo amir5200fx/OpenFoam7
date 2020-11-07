@@ -69,6 +69,16 @@ SourceFiles
 #include <mixedFvPatchField.hxx>
 #include <Function1.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamUniformInletOutletFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamUniformInletOutletFvPatchField_EXPORT_DEFINE
+#define FoamUniformInletOutletFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamUniformInletOutletFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -88,7 +98,7 @@ namespace tnbLib
 
 		// Protected data
 
-			//- Name of flux field
+		//- Name of flux field
 		word phiName_;
 
 		//- Value
@@ -98,7 +108,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("uniformInletOutlet");
+		/*TypeName("uniformInletOutlet");*/
+		static const char* typeName_() { return "uniformInletOutlet"; }
+		static FoamUniformInletOutletFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamUniformInletOutletFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

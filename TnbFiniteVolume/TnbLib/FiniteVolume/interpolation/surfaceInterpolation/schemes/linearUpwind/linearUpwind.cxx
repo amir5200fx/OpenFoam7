@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <linearUpwind.hxx>
 
 #include <fvMesh.hxx>

@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <cellCoBlended.hxx>
 
 #include <fvMesh.hxx>

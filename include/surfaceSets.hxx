@@ -122,7 +122,7 @@ namespace tnbLib
 			//- Divide cells into cut,inside and outside
 			//  nCutLayers>0 : remove cutCells (set to type inside) if further
 			//  than nCutLayers away from outside type cell.
-		static void getSurfaceSets
+		static FoamFvMesh_EXPORT void getSurfaceSets
 		(
 			const polyMesh& mesh,
 			const fileName& surfName,
@@ -138,7 +138,7 @@ namespace tnbLib
 		);
 
 		//- Get cells using points on 'outside' only
-		static labelHashSet getHangingCells
+		static FoamFvMesh_EXPORT labelHashSet getHangingCells
 		(
 			const primitiveMesh& mesh,
 			const labelHashSet& internalCells

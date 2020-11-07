@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <filteredLinear3.hxx>
 
 #include <LimitedScheme.hxx>

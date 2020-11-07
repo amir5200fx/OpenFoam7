@@ -56,32 +56,36 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("closedTriSurfaceMesh");
+		/*TypeName("closedTriSurfaceMesh");*/
+		static const char* typeName_() { return "closedTriSurfaceMesh"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from triSurface
-		closedTriSurfaceMesh(const IOobject&, const triSurface&);
+		FoamFvMesh_EXPORT closedTriSurfaceMesh(const IOobject&, const triSurface&);
 
 		//- Construct read.
-		closedTriSurfaceMesh(const IOobject& io);
+		FoamFvMesh_EXPORT closedTriSurfaceMesh(const IOobject& io);
 
 		//- Construct from IO and dictionary (used by searchableSurface).
 		//  Dictionary may contain a 'scale' entry (eg, 0.001: mm -> m)
-		closedTriSurfaceMesh
+		FoamFvMesh_EXPORT closedTriSurfaceMesh
 		(
 			const IOobject& io,
 			const dictionary& dict
 		);
 
 		//- Disallow default bitwise copy construction
-		closedTriSurfaceMesh(const closedTriSurfaceMesh&) = delete;
+		FoamFvMesh_EXPORT closedTriSurfaceMesh(const closedTriSurfaceMesh&) = delete;
 
 
 		// Destructor
 
-		virtual ~closedTriSurfaceMesh();
+		FoamFvMesh_EXPORT virtual ~closedTriSurfaceMesh();
 
 
 		// Member Functions
@@ -97,7 +101,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const closedTriSurfaceMesh&) = delete;
+		FoamFvMesh_EXPORT void operator=(const closedTriSurfaceMesh&) = delete;
 	};
 
 

@@ -34,6 +34,16 @@ Description
 #include <tnbDebug.hxx>
 #include <label.hxx>
 
+#ifdef FoamBase_EXPORT_DEFINE
+#define FoamRegisterDebugSwitch_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamRegisterDebugSwitch_EXPORT_DEFINE
+#define FoamRegisterDebugSwitch_EXPORT __declspec(dllexport)
+#else
+#define FoamRegisterDebugSwitch_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -48,7 +58,7 @@ namespace tnbLib
 	public:
 
 		//- The unique RegisterDebugSwitch object
-		static const RegisterDebugSwitch registerDebugSwitch;
+		static FoamRegisterDebugSwitch_EXPORT const RegisterDebugSwitch registerDebugSwitch;
 
 		RegisterDebugSwitch(const char* name)
 			:

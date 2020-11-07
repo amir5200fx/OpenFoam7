@@ -75,26 +75,30 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("fluidSolutionControl");
+		//- Run-time type information
+		//TypeName("fluidSolutionControl");
+		static const char* typeName_() { return "fluidSolutionControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from a mesh and the name of the algorithm
-		fluidSolutionControl(fvMesh& mesh, const word& algorithmName);
+		//- Construct from a mesh and the name of the algorithm
+		FoamFiniteVolume_EXPORT fluidSolutionControl(fvMesh& mesh, const word& algorithmName);
 
 
 		//- Destructor
-		virtual ~fluidSolutionControl();
+		FoamFiniteVolume_EXPORT virtual ~fluidSolutionControl();
 
 
 		// Member Functions
 
-			// IO
+		// IO
 
-				//- Read controls
-		virtual bool read();
+		//- Read controls
+		FoamFiniteVolume_EXPORT virtual bool read();
 
 		// Access
 

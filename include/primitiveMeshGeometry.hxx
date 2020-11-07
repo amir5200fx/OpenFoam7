@@ -69,7 +69,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Update face areas and centres on selected faces.
-		void updateFaceCentresAndAreas
+		FoamFvMesh_EXPORT void updateFaceCentresAndAreas
 		(
 			const pointField& p,
 			const labelList& changedFaces
@@ -77,7 +77,7 @@ namespace tnbLib
 
 		//- Update cell volumes and centres on selected cells. Requires
 		//  cells and faces to be consistent set.
-		void updateCellCentresAndVols
+		FoamFvMesh_EXPORT void updateCellCentresAndVols
 		(
 			const labelList& changedCells,
 			const labelList& changedFaces
@@ -85,12 +85,15 @@ namespace tnbLib
 
 	public:
 
-		ClassName("primitiveMeshGeometry");
+		/*ClassName("primitiveMeshGeometry");*/
+		static const char* typeName_() { return "primitiveMeshGeometry"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct from mesh
-		primitiveMeshGeometry(const primitiveMesh&);
+		FoamFvMesh_EXPORT primitiveMeshGeometry(const primitiveMesh&);
 
 
 		// Member Functions
@@ -122,24 +125,24 @@ namespace tnbLib
 		// Edit
 
 			//- Take over properties from mesh
-		void correct();
+		FoamFvMesh_EXPORT void correct();
 
 		//- Recalculate on selected faces. Recalculates cell properties
 		//  on owner and neighbour of these cells.
-		void correct
+		FoamFvMesh_EXPORT void correct
 		(
 			const pointField& p,
 			const labelList& changedFaces
 		);
 
 		//- Helper function: get affected cells from faces
-		labelList affectedCells(const labelList& changedFaces) const;
+		FoamFvMesh_EXPORT labelList affectedCells(const labelList& changedFaces) const;
 
 
 		// Checking of selected faces with supplied geometry (mesh only used for
 		// topology). Parallel aware.
 
-		static bool checkFaceDotProduct
+		static FoamFvMesh_EXPORT bool checkFaceDotProduct
 		(
 			const bool report,
 			const scalar orthWarn,
@@ -150,7 +153,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		);
 
-		static bool checkFacePyramids
+		static FoamFvMesh_EXPORT bool checkFacePyramids
 		(
 			const bool report,
 			const scalar minPyrVol,
@@ -161,7 +164,7 @@ namespace tnbLib
 			labelHashSet*
 		);
 
-		static bool checkFaceSkewness
+		static FoamFvMesh_EXPORT bool checkFaceSkewness
 		(
 			const bool report,
 			const scalar internalSkew,
@@ -174,7 +177,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		);
 
-		static bool checkFaceWeights
+		static FoamFvMesh_EXPORT bool checkFaceWeights
 		(
 			const bool report,
 			const scalar warnWeight,
@@ -186,7 +189,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		);
 
-		static bool checkFaceAngles
+		static FoamFvMesh_EXPORT bool checkFaceAngles
 		(
 			const bool report,
 			const scalar maxDeg,
@@ -209,7 +212,7 @@ namespace tnbLib
 		//    labelHashSet* setPtr
 		//);
 
-		static bool checkFaceTwist
+		static FoamFvMesh_EXPORT bool checkFaceTwist
 		(
 			const bool report,
 			const scalar minTwist,
@@ -221,7 +224,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		);
 
-		static bool checkFaceArea
+		static FoamFvMesh_EXPORT bool checkFaceArea
 		(
 			const bool report,
 			const scalar minArea,
@@ -231,7 +234,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		);
 
-		static bool checkCellDeterminant
+		static FoamFvMesh_EXPORT bool checkCellDeterminant
 		(
 			const bool report,
 			const scalar minDet,
@@ -246,7 +249,7 @@ namespace tnbLib
 		// Checking of selected faces with local geometry. Uses above static
 		// functions. Parallel aware.
 
-		bool checkFaceDotProduct
+		FoamFvMesh_EXPORT bool checkFaceDotProduct
 		(
 			const bool report,
 			const scalar orthWarn,
@@ -254,7 +257,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		) const;
 
-		bool checkFacePyramids
+		FoamFvMesh_EXPORT bool checkFacePyramids
 		(
 			const bool report,
 			const scalar minPyrVol,
@@ -263,7 +266,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		) const;
 
-		bool checkFaceSkewness
+		FoamFvMesh_EXPORT bool checkFaceSkewness
 		(
 			const bool report,
 			const scalar internalSkew,
@@ -272,7 +275,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		) const;
 
-		bool checkFaceWeights
+		FoamFvMesh_EXPORT bool checkFaceWeights
 		(
 			const bool report,
 			const scalar warnWeight,
@@ -280,7 +283,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		) const;
 
-		bool checkFaceAngles
+		FoamFvMesh_EXPORT bool checkFaceAngles
 		(
 			const bool report,
 			const scalar maxDeg,
@@ -298,7 +301,7 @@ namespace tnbLib
 		//    labelHashSet* setPtr
 		//) const;
 
-		bool checkFaceTwist
+		FoamFvMesh_EXPORT bool checkFaceTwist
 		(
 			const bool report,
 			const scalar minTwist,
@@ -307,7 +310,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		) const;
 
-		bool checkFaceArea
+		FoamFvMesh_EXPORT bool checkFaceArea
 		(
 			const bool report,
 			const scalar minArea,
@@ -315,7 +318,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		) const;
 
-		bool checkCellDeterminant
+		FoamFvMesh_EXPORT bool checkCellDeterminant
 		(
 			const bool report,
 			const scalar warnDet,

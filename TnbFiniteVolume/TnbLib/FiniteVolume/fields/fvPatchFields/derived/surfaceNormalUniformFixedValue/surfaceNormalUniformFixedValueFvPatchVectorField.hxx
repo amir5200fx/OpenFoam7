@@ -85,20 +85,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("surfaceNormalUniformFixedValue");
+		/*TypeName("surfaceNormalUniformFixedValue");*/
+		static const char* typeName_() { return "surfaceNormalUniformFixedValue"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from patch and internal field
-		surfaceNormalUniformFixedValueFvPatchVectorField
+		//- Construct from patch and internal field
+		FoamFiniteVolume_EXPORT surfaceNormalUniformFixedValueFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		surfaceNormalUniformFixedValueFvPatchVectorField
+		FoamFiniteVolume_EXPORT surfaceNormalUniformFixedValueFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -108,7 +112,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  surfaceNormalUniformFixedValueFvPatchVectorField
 		//  onto a new patch
-		surfaceNormalUniformFixedValueFvPatchVectorField
+		FoamFiniteVolume_EXPORT surfaceNormalUniformFixedValueFvPatchVectorField
 		(
 			const surfaceNormalUniformFixedValueFvPatchVectorField&,
 			const fvPatch&,
@@ -117,7 +121,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		surfaceNormalUniformFixedValueFvPatchVectorField
+		FoamFiniteVolume_EXPORT surfaceNormalUniformFixedValueFvPatchVectorField
 		(
 			const surfaceNormalUniformFixedValueFvPatchVectorField&
 		);
@@ -132,7 +136,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		surfaceNormalUniformFixedValueFvPatchVectorField
+		FoamFiniteVolume_EXPORT surfaceNormalUniformFixedValueFvPatchVectorField
 		(
 			const surfaceNormalUniformFixedValueFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -157,14 +161,14 @@ namespace tnbLib
 
 		// Member Functions
 
-			// Evaluation functions
+		// Evaluation functions
 
-				//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		//- Update the coefficients associated with the patch field
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

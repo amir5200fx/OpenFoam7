@@ -41,12 +41,14 @@ SourceFiles
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <includeModule.hxx>
+
 namespace tnbLib
 {
 
 	class polyMesh;
 
-	bool polyMeshZipUpCells(polyMesh& mesh);
+	FoamFvMesh_EXPORT bool polyMeshZipUpCells(polyMesh& mesh);
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

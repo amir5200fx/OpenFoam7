@@ -1,3 +1,6 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+#define FoamDimensionedField_EXPORT_DEFINE
+#define FoamGeometricField_EXPORT_DEFINE
 #include <volFields.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <fixedJumpAMIFvPatchFields.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>

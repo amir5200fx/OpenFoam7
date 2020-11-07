@@ -69,21 +69,25 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Dummy write for regIOobject
-		virtual bool writeData(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual bool writeData(Ostream&) const;
 
 
 	public:
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("solutionControl");
+		//- Run-time type information
+		//TypeName("solutionControl");
+		static const char* typeName_() { return "solutionControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from the time, the name of the algorithm and a registry
-		solutionControl
+		//- Construct from the time, the name of the algorithm and a registry
+		FoamFiniteVolume_EXPORT solutionControl
 		(
 			const objectRegistry& registry,
 			const Time& time,
@@ -92,7 +96,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~solutionControl();
+		FoamFiniteVolume_EXPORT virtual ~solutionControl();
 
 
 		// Member Functions
@@ -100,7 +104,7 @@ namespace tnbLib
 			// IO
 
 				//- Dummy read
-		virtual bool read();
+		FoamFiniteVolume_EXPORT virtual bool read();
 
 
 		// Access
@@ -115,7 +119,7 @@ namespace tnbLib
 		inline const char* algorithmSpace() const;
 
 		//- Return the dictionary
-		virtual const dictionary& dict() const = 0;
+		FoamFiniteVolume_EXPORT virtual const dictionary& dict() const = 0;
 	};
 
 

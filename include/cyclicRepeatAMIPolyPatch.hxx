@@ -67,19 +67,23 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Reset the AMI interpolator
-		virtual void resetAMI() const;
+		FoamFvMesh_EXPORT virtual void resetAMI() const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("cyclicRepeatAMI");
+		//TypeName("cyclicRepeatAMI");
+		static const char* typeName_() { return "cyclicRepeatAMI"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from (base couped patch) components
-		cyclicRepeatAMIPolyPatch
+		FoamFvMesh_EXPORT cyclicRepeatAMIPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -91,7 +95,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		cyclicRepeatAMIPolyPatch
+		FoamFvMesh_EXPORT cyclicRepeatAMIPolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -101,7 +105,7 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		cyclicRepeatAMIPolyPatch
+		FoamFvMesh_EXPORT cyclicRepeatAMIPolyPatch
 		(
 			const cyclicRepeatAMIPolyPatch&,
 			const polyBoundaryMesh&
@@ -109,7 +113,7 @@ namespace tnbLib
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		cyclicRepeatAMIPolyPatch
+		FoamFvMesh_EXPORT cyclicRepeatAMIPolyPatch
 		(
 			const cyclicRepeatAMIPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -120,7 +124,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		cyclicRepeatAMIPolyPatch
+		FoamFvMesh_EXPORT cyclicRepeatAMIPolyPatch
 		(
 			const cyclicRepeatAMIPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -185,7 +189,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~cyclicRepeatAMIPolyPatch();
+		FoamFvMesh_EXPORT virtual ~cyclicRepeatAMIPolyPatch();
 
 
 		// Member Functions
@@ -193,26 +197,26 @@ namespace tnbLib
 			// Access
 
 				//- Return a reference to the neighbour patch
-		virtual const cyclicRepeatAMIPolyPatch& neighbPatch() const;
+		FoamFvMesh_EXPORT virtual const cyclicRepeatAMIPolyPatch& neighbPatch() const;
 
 		//- Neighbour patch name
 		inline const word& transformPatchName() const;
 
 		//- Neighbour patch ID
-		virtual label transformPatchID() const;
+		FoamFvMesh_EXPORT virtual label transformPatchID() const;
 
 		//- Return a reference to the transform patch
-		virtual const coupledPolyPatch& transformPatch() const;
+		FoamFvMesh_EXPORT virtual const coupledPolyPatch& transformPatch() const;
 
 		//- Return the weights sum for this patch
-		virtual const scalarField& weightsSum() const;
+		FoamFvMesh_EXPORT virtual const scalarField& weightsSum() const;
 
 		//- Return the weights sum for the neighbour patch
-		virtual const scalarField& neighbWeightsSum() const;
+		FoamFvMesh_EXPORT virtual const scalarField& neighbWeightsSum() const;
 
 
 		//- Write the polyPatch data as a dictionary
-		virtual void write(Ostream&) const;
+		FoamFvMesh_EXPORT virtual void write(Ostream&) const;
 	};
 
 

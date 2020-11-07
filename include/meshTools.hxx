@@ -85,7 +85,7 @@ namespace tnbLib
 		// Normal handling
 
 			//- Check if n is in same direction as normals of all faceLabels
-		bool visNormal
+		FoamFvMesh_EXPORT bool visNormal
 		(
 			const vector& n,
 			const vectorField& faceNormals,
@@ -94,16 +94,16 @@ namespace tnbLib
 
 		//- Calculate point normals on a 'box' mesh (all edges aligned with
 		//  coordinate axes)
-		vectorField calcBoxPointNormals(const primitivePatch& pp);
+		FoamFvMesh_EXPORT vectorField calcBoxPointNormals(const primitivePatch& pp);
 
 		//- Normalized edge vector
-		vector normEdgeVec(const primitiveMesh&, const label edgeI);
+		FoamFvMesh_EXPORT vector normEdgeVec(const primitiveMesh&, const label edgeI);
 
 
 		// OBJ writing
 
 			//- Write obj representation of point
-		void writeOBJ
+		FoamFvMesh_EXPORT void writeOBJ
 		(
 			Ostream& os,
 			const point& pt
@@ -111,7 +111,7 @@ namespace tnbLib
 
 		//- Write obj representation of a triad. Requires the location of the
 		//  triad to be supplied
-		void writeOBJ
+		FoamFvMesh_EXPORT void writeOBJ
 		(
 			Ostream& os,
 			const triad& t,
@@ -120,7 +120,7 @@ namespace tnbLib
 
 		//- Write obj representation of a line connecting two points
 		//  Need to keep track of points that have been added. count starts at 0
-		void writeOBJ
+		FoamFvMesh_EXPORT void writeOBJ
 		(
 			Ostream& os,
 			const point& p1,
@@ -129,7 +129,7 @@ namespace tnbLib
 		);
 
 		//- Write obj representation of a point p1 with a vector from p1 to p2
-		void writeOBJ
+		FoamFvMesh_EXPORT void writeOBJ
 		(
 			Ostream& os,
 			const point& p1,
@@ -156,7 +156,7 @@ namespace tnbLib
 		);
 
 		//- Write obj representation of cell subset
-		void writeOBJ
+		FoamFvMesh_EXPORT void writeOBJ
 		(
 			Ostream& os,
 			const cellList&,
@@ -169,7 +169,7 @@ namespace tnbLib
 		// Cell/face/edge walking
 
 			//- Is edge used by cell
-		bool edgeOnCell
+		FoamFvMesh_EXPORT 	bool edgeOnCell
 		(
 			const primitiveMesh&,
 			const label celli,
@@ -177,7 +177,7 @@ namespace tnbLib
 		);
 
 		//- Is edge used by face
-		bool edgeOnFace
+		FoamFvMesh_EXPORT bool edgeOnFace
 		(
 			const primitiveMesh&,
 			const label facei,
@@ -185,7 +185,7 @@ namespace tnbLib
 		);
 
 		//- Is face used by cell
-		bool faceOnCell
+		FoamFvMesh_EXPORT bool faceOnCell
 		(
 			const primitiveMesh&,
 			const label celli,
@@ -193,7 +193,7 @@ namespace tnbLib
 		);
 
 		//- Return edge among candidates that uses the two vertices.
-		label findEdge
+		FoamFvMesh_EXPORT label findEdge
 		(
 			const edgeList& edges,
 			const labelList& candidates,
@@ -202,7 +202,7 @@ namespace tnbLib
 		);
 
 		//- Return edge between two vertices. Returns -1 if no edge.
-		label findEdge
+		FoamFvMesh_EXPORT label findEdge
 		(
 			const primitiveMesh&,
 			const label v0,
@@ -210,7 +210,7 @@ namespace tnbLib
 		);
 
 		//- Return edge shared by two faces. Throws error if no edge found.
-		label getSharedEdge
+		FoamFvMesh_EXPORT label getSharedEdge
 		(
 			const primitiveMesh&,
 			const label f0,
@@ -218,7 +218,7 @@ namespace tnbLib
 		);
 
 		//- Return face shared by two cells. Throws error if none found.
-		label getSharedFace
+		FoamFvMesh_EXPORT label getSharedFace
 		(
 			const primitiveMesh&,
 			const label cell0,
@@ -226,7 +226,7 @@ namespace tnbLib
 		);
 
 		//- Get faces on cell using edgeI. Throws error if no two found.
-		void getEdgeFaces
+		FoamFvMesh_EXPORT void getEdgeFaces
 		(
 			const primitiveMesh&,
 			const label celli,
@@ -237,7 +237,7 @@ namespace tnbLib
 
 		//- Return label of other edge (out of candidates edgeLabels)
 		//  connected to vertex but not edgeI. Throws error if none found.
-		label otherEdge
+		FoamFvMesh_EXPORT label otherEdge
 		(
 			const primitiveMesh&,
 			const labelList& edgeLabels,
@@ -247,7 +247,7 @@ namespace tnbLib
 
 		//- Return face on cell using edgeI but not facei. Throws error
 		//  if none found.
-		label otherFace
+		FoamFvMesh_EXPORT label otherFace
 		(
 			const primitiveMesh&,
 			const label celli,
@@ -257,7 +257,7 @@ namespace tnbLib
 
 		//- Return cell on other side of face. Throws error
 		//  if face not internal.
-		label otherCell
+		FoamFvMesh_EXPORT label otherCell
 		(
 			const primitiveMesh&,
 			const label celli,
@@ -266,7 +266,7 @@ namespace tnbLib
 
 		//- Returns label of edge nEdges away from startEdge (in the direction
 		// of startVertI)
-		label walkFace
+		FoamFvMesh_EXPORT label walkFace
 		(
 			const primitiveMesh&,
 			const label facei,
@@ -279,25 +279,25 @@ namespace tnbLib
 		// Constraints on position
 
 			//- Set the constrained components of position to mesh centre
-		void constrainToMeshCentre
+		FoamFvMesh_EXPORT void constrainToMeshCentre
 		(
 			const polyMesh& mesh,
 			point& pt
 		);
-		void constrainToMeshCentre
+		FoamFvMesh_EXPORT void constrainToMeshCentre
 		(
 			const polyMesh& mesh,
 			pointField& pt
 		);
 
 		//- Set the constrained components of directions/velocity to zero
-		void constrainDirection
+		FoamFvMesh_EXPORT void constrainDirection
 		(
 			const polyMesh& mesh,
 			const Vector<label>& dirs,
 			vector& d
 		);
-		void constrainDirection
+		FoamFvMesh_EXPORT void constrainDirection
 		(
 			const polyMesh& mesh,
 			const Vector<label>& dirs,
@@ -308,7 +308,7 @@ namespace tnbLib
 		// Hex only functionality.
 
 			//- Given edge on hex find other 'parallel', non-connected edges.
-		void getParallelEdges
+		FoamFvMesh_EXPORT void getParallelEdges
 		(
 			const primitiveMesh&,
 			const label celli,
@@ -320,7 +320,7 @@ namespace tnbLib
 
 		//- Given edge on hex find all 'parallel' (i.e. non-connected)
 		//  edges and average direction of them
-		vector edgeToCutDir
+		FoamFvMesh_EXPORT vector edgeToCutDir
 		(
 			const primitiveMesh&,
 			const label celli,
@@ -329,7 +329,7 @@ namespace tnbLib
 
 		//- Reverse of edgeToCutDir: given direction find edge bundle and
 		//  return one of them.
-		label cutDirToEdge
+		FoamFvMesh_EXPORT label cutDirToEdge
 		(
 			const primitiveMesh&,
 			const label celli,

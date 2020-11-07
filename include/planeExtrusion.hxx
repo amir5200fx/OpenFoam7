@@ -58,16 +58,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("plane");
+			//TypeName("plane");
+			static const char* typeName_() { return "plane"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
 				//- Construct from dictionary
-			plane(const dictionary& dict);
+			FoamFvMesh_EXPORT plane(const dictionary& dict);
 
 
 			//- Destructor
-			virtual ~plane();
+			FoamFvMesh_EXPORT virtual ~plane();
 		};
 
 

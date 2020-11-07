@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <SuperBee.hxx>
 
 #include <LimitedScheme.hxx>

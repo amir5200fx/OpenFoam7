@@ -78,8 +78,8 @@ namespace tnbLib
 
 			// Private Member Functions
 
-				//- Apply
-			void apply
+			//- Apply
+			FoamFiniteVolume_EXPORT void apply
 			(
 				scalarField& Udiag,
 				vectorField& Usource,
@@ -89,7 +89,7 @@ namespace tnbLib
 			) const;
 
 			//- Apply
-			void apply
+			FoamFiniteVolume_EXPORT void apply
 			(
 				tensorField& AU,
 				const vectorField& U,
@@ -100,11 +100,15 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("fixedCoeff");
+			//TypeName("fixedCoeff");
+			static const char* typeName_() { return "fixedCoeff"; }
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+			static FoamFiniteVolume_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
-			fixedCoeff
+			FoamFiniteVolume_EXPORT fixedCoeff
 			(
 				const word& name,
 				const word& modelType,
@@ -114,20 +118,20 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			fixedCoeff(const fixedCoeff&) = delete;
+			FoamFiniteVolume_EXPORT fixedCoeff(const fixedCoeff&) = delete;
 
 
 			//- Destructor
-			virtual ~fixedCoeff();
+			FoamFiniteVolume_EXPORT virtual ~fixedCoeff();
 
 
 			// Member Functions
 
 				//- Transform the model data wrt mesh changes
-			virtual void calcTransformModelData();
+			FoamFiniteVolume_EXPORT virtual void calcTransformModelData();
 
 			//- Calculate the porosity force
-			virtual void calcForce
+			FoamFiniteVolume_EXPORT virtual void calcForce
 			(
 				const volVectorField& U,
 				const volScalarField& rho,
@@ -136,10 +140,10 @@ namespace tnbLib
 			) const;
 
 			//- Add resistance
-			virtual void correct(fvVectorMatrix& UEqn) const;
+			FoamFiniteVolume_EXPORT virtual void correct(fvVectorMatrix& UEqn) const;
 
 			//- Add resistance
-			virtual void correct
+			FoamFiniteVolume_EXPORT virtual void correct
 			(
 				fvVectorMatrix& UEqn,
 				const volScalarField& rho,
@@ -147,7 +151,7 @@ namespace tnbLib
 			) const;
 
 			//- Add resistance
-			virtual void correct
+			FoamFiniteVolume_EXPORT virtual void correct
 			(
 				const fvVectorMatrix& UEqn,
 				volTensorField& AU
@@ -156,14 +160,14 @@ namespace tnbLib
 
 			// I-O
 
-				//- Write
-			bool writeData(Ostream& os) const;
+			//- Write
+			FoamFiniteVolume_EXPORT bool writeData(Ostream& os) const;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const fixedCoeff&) = delete;
+			FoamFiniteVolume_EXPORT void operator=(const fixedCoeff&) = delete;
 		};
 
 

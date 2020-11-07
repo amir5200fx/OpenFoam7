@@ -67,21 +67,25 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("singleRegionConvergenceControl");
+		//- Run-time type information
+		//TypeName("singleRegionConvergenceControl");
+		static const char* typeName_() { return "singleRegionConvergenceControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from a solution control
-		singleRegionConvergenceControl
+		FoamFiniteVolume_EXPORT singleRegionConvergenceControl
 		(
 			const singleRegionSolutionControl& control
 		);
 
 
 		//- Destructor
-		virtual ~singleRegionConvergenceControl();
+		FoamFiniteVolume_EXPORT virtual ~singleRegionConvergenceControl();
 
 
 		// Member Functions
@@ -89,19 +93,19 @@ namespace tnbLib
 			// IO
 
 				//- Read residual controls
-		bool readResidualControls();
+		FoamFiniteVolume_EXPORT bool readResidualControls();
 
 		//- Print the residual controls
-		void printResidualControls() const;
+		FoamFiniteVolume_EXPORT void printResidualControls() const;
 
 
 		// Evolution
 
 			//- Return true if residual controls are present
-		virtual bool hasResidualControls() const;
+		FoamFiniteVolume_EXPORT virtual bool hasResidualControls() const;
 
 		//- Return true if all convergence checks are satisfied
-		virtual bool criteriaSatisfied() const;
+		FoamFiniteVolume_EXPORT virtual bool criteriaSatisfied() const;
 	};
 
 

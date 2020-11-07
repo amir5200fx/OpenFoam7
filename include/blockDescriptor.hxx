@@ -75,7 +75,7 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class blockDescriptor;
-	Ostream& operator<<(Ostream&, const blockDescriptor&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const blockDescriptor&);
 
 	/*---------------------------------------------------------------------------*\
 						   Class blockDescriptor Declaration
@@ -116,11 +116,11 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Check block has outward-pointing faces
-		void check(const Istream& is);
+		FoamFvMesh_EXPORT void check(const Istream& is);
 
 		//- Calculate the points and weights for the specified edge.
 		//  Return the number of curved edges
-		label edgePointsWeights
+		FoamFvMesh_EXPORT label edgePointsWeights
 		(
 			pointField(&edgePoints)[12],
 			scalarList(&edgeWeights)[12],
@@ -130,7 +130,7 @@ namespace tnbLib
 			const label dim
 		) const;
 
-		void findCurvedFaces();
+		FoamFvMesh_EXPORT void findCurvedFaces();
 
 
 	public:
@@ -138,7 +138,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components. Optional cellSet/zone name.
-		blockDescriptor
+		FoamFvMesh_EXPORT blockDescriptor
 		(
 			const cellShape&,
 			const pointField& vertices,
@@ -150,7 +150,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		blockDescriptor
+		FoamFvMesh_EXPORT blockDescriptor
 		(
 			const dictionary& dict,
 			const label index,
@@ -232,25 +232,25 @@ namespace tnbLib
 		) const;
 
 		//- Return the list of face-points for all of the faces of the block
-		FixedList<pointField, 6> facePoints(const pointField& points) const;
+		FoamFvMesh_EXPORT FixedList<pointField, 6> facePoints(const pointField& points) const;
 
 		//- Correct the location of the given face-points
 		//  to lie on the faces of the block
-		void correctFacePoints(FixedList<pointField, 6>&) const;
+		FoamFvMesh_EXPORT void correctFacePoints(FixedList<pointField, 6>&) const;
 
 		//- Write block index with dictionary lookup
-		static void write(Ostream&, const label blocki, const dictionary&);
+		static FoamFvMesh_EXPORT void write(Ostream&, const label blocki, const dictionary&);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const blockDescriptor&) = delete;
+		FoamFvMesh_EXPORT void operator=(const blockDescriptor&) = delete;
 
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const blockDescriptor&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const blockDescriptor&);
 	};
 
 

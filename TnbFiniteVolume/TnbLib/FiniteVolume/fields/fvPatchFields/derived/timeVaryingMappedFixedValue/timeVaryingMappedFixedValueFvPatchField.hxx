@@ -104,6 +104,16 @@ SourceFiles
 #include <fixedValueFvPatchFields.hxx>
 #include <timeVaryingMappedFvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamTimeVaryingMappedFixedValueFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamTimeVaryingMappedFixedValueFvPatchField_EXPORT_DEFINE
+#define FoamTimeVaryingMappedFixedValueFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamTimeVaryingMappedFixedValueFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -126,7 +136,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("timeVaryingMappedFixedValue");
+		/*TypeName("timeVaryingMappedFixedValue");*/
+		static const char* typeName_() { return "timeVaryingMappedFixedValue"; }
+		static FoamTimeVaryingMappedFixedValueFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamTimeVaryingMappedFixedValueFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

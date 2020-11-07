@@ -78,59 +78,63 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("coordinateSystems");
+		/*TypeName("coordinateSystems");*/
+		static const char* typeName_() { return "coordinateSystems"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Read construct from IOobject
-		explicit coordinateSystems(const IOobject&);
+		FoamFvMesh_EXPORT explicit coordinateSystems(const IOobject&);
 
 		//- Construct from IOobject and a PtrList
-		coordinateSystems
+		FoamFvMesh_EXPORT coordinateSystems
 		(
 			const IOobject&,
 			const PtrList<coordinateSystem>&
 		);
 
 		//- Construct from IOobject and transferring the PtrList contents
-		coordinateSystems
+		FoamFvMesh_EXPORT coordinateSystems
 		(
 			const IOobject&,
 			PtrList<coordinateSystem>&&
 		);
 
 		//- Disallow default bitwise copy construction
-		coordinateSystems(const coordinateSystems&) = delete;
+		FoamFvMesh_EXPORT coordinateSystems(const coordinateSystems&) = delete;
 
 
 		// Selectors
 
 			//- Return previously registered or read construct from "constant"
-		static const coordinateSystems& New(const objectRegistry&);
+		static FoamFvMesh_EXPORT const coordinateSystems& New(const objectRegistry&);
 
 
 		// Member Functions
 
 			//- Find and return indices for all matches
-		labelList findIndices(const keyType& key) const;
+		FoamFvMesh_EXPORT labelList findIndices(const keyType& key) const;
 
 		//- Find and return index for the first match, return -1 if not found
-		label findIndex(const keyType& key) const;
+		FoamFvMesh_EXPORT label findIndex(const keyType& key) const;
 
 		//- Search for given key
-		bool found(const keyType& key) const;
+		FoamFvMesh_EXPORT bool found(const keyType& key) const;
 
 		//- Return the table of contents (list of all keywords)
-		wordList toc() const;
+		FoamFvMesh_EXPORT wordList toc() const;
 
 		//- Write data
-		bool writeData(Ostream&) const;
+		FoamFvMesh_EXPORT bool writeData(Ostream&) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const coordinateSystems&) = delete;
+		FoamFvMesh_EXPORT void operator=(const coordinateSystems&) = delete;
 	};
 
 

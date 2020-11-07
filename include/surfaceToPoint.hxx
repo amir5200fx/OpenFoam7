@@ -63,7 +63,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- Name of surface file
 		fileName surfName_;
@@ -81,20 +81,24 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Depending on surface add to or delete from pointSet.
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 		//- Check settings at construction time.
-		void checkSettings() const;
+		FoamFvMesh_EXPORT void checkSettings() const;
 
 	public:
 
 		//- Runtime type information
-		TypeName("surfaceToPoint");
+		/*TypeName("surfaceToPoint");*/
+		static const char* typeName_() { return "surfaceToPoint"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		surfaceToPoint
+		FoamFvMesh_EXPORT surfaceToPoint
 		(
 			const polyMesh& mesh,
 			const fileName& surfName,
@@ -104,14 +108,14 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		surfaceToPoint
+		FoamFvMesh_EXPORT surfaceToPoint
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		surfaceToPoint
+		FoamFvMesh_EXPORT surfaceToPoint
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -119,7 +123,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~surfaceToPoint();
+		FoamFvMesh_EXPORT virtual ~surfaceToPoint();
 
 
 		// Member Functions
@@ -129,7 +133,7 @@ namespace tnbLib
 			return POINTSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

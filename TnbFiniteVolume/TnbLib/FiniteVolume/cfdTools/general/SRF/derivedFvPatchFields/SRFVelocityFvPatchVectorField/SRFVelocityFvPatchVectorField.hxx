@@ -104,7 +104,7 @@ namespace tnbLib
 	{
 		// Private Data
 
-			//- Is the supplied inlet value relative to the SRF
+		//- Is the supplied inlet value relative to the SRF
 		Switch relative_;
 
 		//- Inlet value [m/s]
@@ -114,20 +114,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("SRFVelocity");
+		//TypeName("SRFVelocity");
+		static const char* typeName_() { return "SRFVelocity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from patch and internal field
-		SRFVelocityFvPatchVectorField
+		//- Construct from patch and internal field
+		FoamFiniteVolume_EXPORT SRFVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		SRFVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT SRFVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -136,7 +140,7 @@ namespace tnbLib
 
 		//- Construct by mapping given SRFVelocityFvPatchVectorField
 		//  onto a new patch
-		SRFVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT SRFVelocityFvPatchVectorField
 		(
 			const SRFVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -145,7 +149,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		SRFVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT SRFVelocityFvPatchVectorField
 		(
 			const SRFVelocityFvPatchVectorField&
 		);
@@ -160,7 +164,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		SRFVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT SRFVelocityFvPatchVectorField
 		(
 			const SRFVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -194,22 +198,22 @@ namespace tnbLib
 
 			//- Map (and resize as needed) from self given a mapping object
 			//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		FoamFiniteVolume_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchVectorField&, const labelList&);
+		FoamFiniteVolume_EXPORT virtual void rmap(const fvPatchVectorField&, const labelList&);
 
 		// Evaluation functions
 
-			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		//- Update the coefficients associated with the patch field
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 
 		// I-O
 
-			//- Write
-		virtual void write(Ostream&) const;
+		//- Write
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

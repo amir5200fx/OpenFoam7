@@ -50,7 +50,7 @@ namespace tnbLib
 
 	class surfacePatchIOList;
 
-	Ostream& operator<<(Ostream&, const surfacePatchIOList&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const surfacePatchIOList&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -65,40 +65,44 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("surfacePatchIOList");
+		/*TypeName("surfacePatchIOList");*/
+		static const char* typeName_() { return "surfacePatchIOList"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from IOobject
-		explicit surfacePatchIOList(const IOobject& io);
+		FoamFvMesh_EXPORT explicit surfacePatchIOList(const IOobject& io);
 
 		//- Construct from IOobject
-		surfacePatchIOList(const IOobject& io, const surfacePatchList&);
+		FoamFvMesh_EXPORT surfacePatchIOList(const IOobject& io, const surfacePatchList&);
 
 		//- Disallow default bitwise copy construction
-		surfacePatchIOList(const surfacePatchIOList&) = delete;
+		FoamFvMesh_EXPORT surfacePatchIOList(const surfacePatchIOList&) = delete;
 
 
 		//- Destructor
-		~surfacePatchIOList();
+		FoamFvMesh_EXPORT ~surfacePatchIOList();
 
 
 		// Member Functions
 
 			//- writeData member function required by regIOobject
-		bool writeData(Ostream&) const;
+		FoamFvMesh_EXPORT bool writeData(Ostream&) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const surfacePatchIOList&) = delete;
+		FoamFvMesh_EXPORT void operator=(const surfacePatchIOList&) = delete;
 
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const surfacePatchIOList&);
+		FoamFvMesh_EXPORT friend Ostream& operator<<(Ostream&, const surfacePatchIOList&);
 	};
 
 

@@ -1,3 +1,6 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+#define FoamDimensionedField_EXPORT_DEFINE
+#define FoamGeometricField_EXPORT_DEFINE
 #include <surfaceFields.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -33,7 +36,10 @@ namespace tnbLib
 		0
 	);
 
+}
 
+namespace tnbLib
+{
 	defineTemplateTypeNameAndDebug(surfaceScalarField, 0);
 	defineTemplateTypeNameAndDebug(surfaceVectorField, 0);
 	defineTemplateTypeNameAndDebug(surfaceSphericalTensorField, 0);

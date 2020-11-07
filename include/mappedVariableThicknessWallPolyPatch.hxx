@@ -64,13 +64,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("mappedWallVariableThickness");
+		/*TypeName("mappedWallVariableThickness");*/
+		static const char* typeName_() { return "mappedWallVariableThickness"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		mappedVariableThicknessWallPolyPatch
+		FoamFvMesh_EXPORT mappedVariableThicknessWallPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -81,7 +85,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components
-		mappedVariableThicknessWallPolyPatch
+		FoamFvMesh_EXPORT mappedVariableThicknessWallPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -95,7 +99,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components. Uniform offset.
-		mappedVariableThicknessWallPolyPatch
+		FoamFvMesh_EXPORT mappedVariableThicknessWallPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -109,7 +113,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		mappedVariableThicknessWallPolyPatch
+		FoamFvMesh_EXPORT mappedVariableThicknessWallPolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -119,7 +123,7 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		mappedVariableThicknessWallPolyPatch
+		FoamFvMesh_EXPORT mappedVariableThicknessWallPolyPatch
 		(
 			const mappedVariableThicknessWallPolyPatch&,
 			const polyBoundaryMesh&
@@ -127,7 +131,7 @@ namespace tnbLib
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		mappedVariableThicknessWallPolyPatch
+		FoamFvMesh_EXPORT mappedVariableThicknessWallPolyPatch
 		(
 			const mappedVariableThicknessWallPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -137,7 +141,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		mappedVariableThicknessWallPolyPatch
+		FoamFvMesh_EXPORT mappedVariableThicknessWallPolyPatch
 		(
 			const mappedVariableThicknessWallPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -203,7 +207,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~mappedVariableThicknessWallPolyPatch();
+		FoamFvMesh_EXPORT virtual ~mappedVariableThicknessWallPolyPatch();
 
 
 		// Member Functions
@@ -223,7 +227,7 @@ namespace tnbLib
 
 
 		//- Write the polyPatch data as a dictionary
-		void write(Ostream&) const;
+		FoamFvMesh_EXPORT void write(Ostream&) const;
 	};
 
 

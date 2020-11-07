@@ -61,6 +61,16 @@ SourceFiles
 
 #include <fixedValueFvPatchFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamOutletMappedUniformInletFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamOutletMappedUniformInletFvPatchField_EXPORT_DEFINE
+#define FoamOutletMappedUniformInletFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamOutletMappedUniformInletFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -87,7 +97,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("outletMappedUniformInlet");
+		/*TypeName("outletMappedUniformInlet");*/
+		static const char* typeName_() { return "outletMappedUniformInlet"; }
+		static FoamOutletMappedUniformInletFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamOutletMappedUniformInletFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

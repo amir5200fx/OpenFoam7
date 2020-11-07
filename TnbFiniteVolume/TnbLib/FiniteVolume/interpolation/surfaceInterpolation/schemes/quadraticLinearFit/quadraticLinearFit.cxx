@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <CentredFitScheme.hxx>
 #include <quadraticLinearFitPolynomial.hxx>
 #include <centredCFCCellToFaceStencilObject.hxx>

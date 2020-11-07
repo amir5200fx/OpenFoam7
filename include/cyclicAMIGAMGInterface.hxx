@@ -69,14 +69,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cyclicAMI");
-
+		//TypeName("cyclicAMI");
+		static const char* typeName_() { return "cyclicAMI"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from fine level interface,
 			//  local and neighbour restrict addressing
-		cyclicAMIGAMGInterface
+		FoamFvMesh_EXPORT cyclicAMIGAMGInterface
 		(
 			const label index,
 			const lduInterfacePtrsList& coarseInterfaces,
@@ -88,11 +91,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		cyclicAMIGAMGInterface(const cyclicAMIGAMGInterface&) = delete;
+		FoamFvMesh_EXPORT cyclicAMIGAMGInterface(const cyclicAMIGAMGInterface&) = delete;
 
 
 		//- Destructor
-		virtual ~cyclicAMIGAMGInterface();
+		FoamFvMesh_EXPORT virtual ~cyclicAMIGAMGInterface();
 
 
 		// Member Functions
@@ -100,7 +103,7 @@ namespace tnbLib
 			// Interface transfer functions
 
 				//- Transfer and return internal field adjacent to the interface
-		virtual tmp<labelField> internalFieldTransfer
+		FoamFvMesh_EXPORT virtual tmp<labelField> internalFieldTransfer
 		(
 			const Pstream::commsTypes commsType,
 			const labelUList& iF
@@ -169,7 +172,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const cyclicAMIGAMGInterface&) = delete;
+		FoamFvMesh_EXPORT void operator=(const cyclicAMIGAMGInterface&) = delete;
 	};
 
 

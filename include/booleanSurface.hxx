@@ -96,7 +96,7 @@ namespace tnbLib
 
 			//- Check whether subset of faces (from markZones) reaches up to
 			//  the intersection.
-		static void checkIncluded
+		static FoamFvMesh_EXPORT void checkIncluded
 		(
 			const intersectedSurface& surf,
 			const labelList& faceZone,
@@ -104,10 +104,10 @@ namespace tnbLib
 		);
 
 		//- Get label in elems of elem.
-		static label index(const labelList& elems, const label elem);
+		static FoamFvMesh_EXPORT label index(const labelList& elems, const label elem);
 
 		//- Find index of edge e in subset edgeLabels.
-		static label findEdge
+		static FoamFvMesh_EXPORT label findEdge
 		(
 			const edgeList& edges,
 			const labelList& edgeLabels,
@@ -115,7 +115,7 @@ namespace tnbLib
 		);
 
 		//- Get index of face in zoneI whose faceCentre is nearest farAwayPoint
-		static label findNearest
+		static FoamFvMesh_EXPORT label findNearest
 		(
 			const triSurface& surf,
 			const labelList& faceZone,
@@ -124,7 +124,7 @@ namespace tnbLib
 
 		//- Generate combined patchList (returned). Sets patchMap to map from
 		// surf region numbers into combined patchList
-		static geometricSurfacePatchList mergePatches
+		static FoamFvMesh_EXPORT geometricSurfacePatchList mergePatches
 		(
 			const triSurface& surf1,
 			const triSurface& surf2,
@@ -133,7 +133,7 @@ namespace tnbLib
 
 		//- On edgeI, coming from face prevFace, determines visibility/side of
 		// all the other faces using the edge.
-		static void propagateEdgeSide
+		static FoamFvMesh_EXPORT void propagateEdgeSide
 		(
 			const triSurface& surf,
 			const label prevVert0,
@@ -145,7 +145,7 @@ namespace tnbLib
 
 		//- Given in/outside status of face determines status for all
 		//  neighbouring faces.
-		static void propagateSide
+		static FoamFvMesh_EXPORT void propagateSide
 		(
 			const triSurface& surf,
 			const label prevState,
@@ -156,7 +156,10 @@ namespace tnbLib
 
 	public:
 
-		ClassName("booleanSurface");
+		/*ClassName("booleanSurface");*/
+		static const char* typeName_() { return "booleanSurface"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Data types
@@ -175,12 +178,12 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		booleanSurface();
+		FoamFvMesh_EXPORT booleanSurface();
 
 		//- Construct from surfaces and face labels to keep.
 		//  Walks from provided seed faces without crossing intersection line
 		//  to determine faces to keep.
-		booleanSurface
+		FoamFvMesh_EXPORT booleanSurface
 		(
 			const triSurface& surf1,
 			const triSurface& surf2,
@@ -192,7 +195,7 @@ namespace tnbLib
 		//- Construct from surfaces and operation. Surfaces need to be closed
 		//  for this to make any sense since uses inside/outside to determine
 		//  which part of combined surface to include.
-		booleanSurface
+		FoamFvMesh_EXPORT booleanSurface
 		(
 			const triSurface& surf1,
 			const triSurface& surf2,

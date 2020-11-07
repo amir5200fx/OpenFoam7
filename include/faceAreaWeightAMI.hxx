@@ -64,7 +64,7 @@ namespace tnbLib
 			// Marching front
 
 				//- Calculate addressing and weights using temporary storage
-		virtual void calcAddressing
+		FoamFvMesh_EXPORT virtual void calcAddressing
 		(
 			List<DynamicList<label>>& srcAddress,
 			List<DynamicList<scalar>>& srcWeights,
@@ -75,7 +75,7 @@ namespace tnbLib
 		);
 
 		//- Determine overlap contributions for source face srcFacei
-		virtual bool processSourceFace
+		FoamFvMesh_EXPORT virtual bool processSourceFace
 		(
 			const label srcFacei,
 			const label tgtStartFacei,
@@ -88,7 +88,7 @@ namespace tnbLib
 		);
 
 		//- Attempt to re-evaluate source faces that have not been included
-		virtual void restartUncoveredSourceFace
+		FoamFvMesh_EXPORT virtual void restartUncoveredSourceFace
 		(
 			List<DynamicList<label>>& srcAddr,
 			List<DynamicList<scalar>>& srcWght,
@@ -97,7 +97,7 @@ namespace tnbLib
 		);
 
 		//- Set the source and target seed faces
-		virtual void setNextFaces
+		FoamFvMesh_EXPORT virtual void setNextFaces
 		(
 			label& startSeedI,
 			label& srcFacei,
@@ -112,10 +112,10 @@ namespace tnbLib
 		// Evaluation
 
 			//- The minimum weight below which connections are discarded
-		virtual scalar minWeight() const;
+		FoamFvMesh_EXPORT virtual scalar minWeight() const;
 
 		//- Area of intersection between source and target faces
-		virtual scalar interArea
+		FoamFvMesh_EXPORT virtual scalar interArea
 		(
 			const label srcFacei,
 			const label tgtFacei
@@ -125,13 +125,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("faceAreaWeightAMI");
+		//TypeName("faceAreaWeightAMI");
+		static const char* typeName_() { return "faceAreaWeightAMI"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		faceAreaWeightAMI
+		FoamFvMesh_EXPORT faceAreaWeightAMI
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -144,11 +148,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		faceAreaWeightAMI(const faceAreaWeightAMI&) = delete;
+		FoamFvMesh_EXPORT faceAreaWeightAMI(const faceAreaWeightAMI&) = delete;
 
 
 		//- Destructor
-		virtual ~faceAreaWeightAMI();
+		FoamFvMesh_EXPORT virtual ~faceAreaWeightAMI();
 
 
 		// Member Functions
@@ -156,7 +160,7 @@ namespace tnbLib
 			// Manipulation
 
 				//- Update addressing and weights
-		virtual void calculate
+		FoamFvMesh_EXPORT virtual void calculate
 		(
 			labelListList& srcAddress,
 			scalarListList& srcWeights,
@@ -170,7 +174,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const faceAreaWeightAMI&) = delete;
+		FoamFvMesh_EXPORT void operator=(const faceAreaWeightAMI&) = delete;
 	};
 
 

@@ -34,4 +34,6 @@ namespace tnbLib
 	List<T> readListFromIPstream(const int toProcNo, const label bufSize, const int tag, const label comm);
 }
 
+#include <PstreamHelperI.hxx>
+
 #endif // !_gatherScatterHelper_Header

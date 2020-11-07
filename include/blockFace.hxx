@@ -48,7 +48,7 @@ namespace tnbLib
 	class blockDescriptor;
 	class blockFace;
 
-	Ostream& operator<<(Ostream&, const blockFace&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const blockFace&);
 
 	/*---------------------------------------------------------------------------*\
 							 Class blockFace Declaration
@@ -67,12 +67,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("blockFace");
+		//TypeName("blockFace");
+		static const char* typeName_() { return "blockFace"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			blockFace,
@@ -84,16 +88,69 @@ namespace tnbLib
 				Istream& is
 				),
 				(dict, index, geometry, is)
-		);
+		);*/
+
+		typedef autoPtr<blockFace> (*IstreamConstructorPtr)(const dictionary& dict, const label index,
+		                                                    const searchableSurfaces& geometry, Istream& is);
+		typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
+		static FoamFvMesh_EXPORT IstreamConstructorTable* IstreamConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructIstreamConstructorTables();
+		static FoamFvMesh_EXPORT void destroyIstreamConstructorTables();
+
+		template <class blockFaceType>
+		class addIstreamConstructorToTable
+		{
+		public:
+			static autoPtr<blockFace> New(const dictionary& dict, const label index, const searchableSurfaces& geometry,
+			                              Istream& is)
+			{
+				return autoPtr<blockFace>(new blockFaceType(dict, index, geometry, is));
+			}
+
+			addIstreamConstructorToTable(const word& lookup = blockFaceType::typeName)
+			{
+				constructIstreamConstructorTables();
+				if (!IstreamConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "blockFace" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
+		};
+
+		template <class blockFaceType>
+		class addRemovableIstreamConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<blockFace> New(const dictionary& dict, const label index, const searchableSurfaces& geometry,
+			                              Istream& is)
+			{
+				return autoPtr<blockFace>(new blockFaceType(dict, index, geometry, is));
+			}
+
+			addRemovableIstreamConstructorToTable(const word& lookup = blockFaceType::typeName) : lookup_(lookup)
+			{
+				constructIstreamConstructorTables();
+				IstreamConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableIstreamConstructorToTable()
+			{
+				if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from face vertices
-		blockFace(const face& vertices);
+		FoamFvMesh_EXPORT blockFace(const face& vertices);
 
 		//- Construct from Istream
-		blockFace
+		FoamFvMesh_EXPORT blockFace
 		(
 			const dictionary& dict,
 			const label index,
@@ -101,10 +158,10 @@ namespace tnbLib
 		);
 
 		//- Clone function
-		virtual autoPtr<blockFace> clone() const;
+		FoamFvMesh_EXPORT virtual autoPtr<blockFace> clone() const;
 
 		//- New function which constructs and returns pointer to a blockFace
-		static autoPtr<blockFace> New
+		static FoamFvMesh_EXPORT autoPtr<blockFace> New
 		(
 			const dictionary& dict,
 			const label index,
@@ -152,7 +209,7 @@ namespace tnbLib
 		//- Compare with the given block and block face
 		inline bool compare(const face& vertices) const;
 
-		virtual void project
+		FoamFvMesh_EXPORT virtual void project
 		(
 			const blockDescriptor&,
 			const label blockFacei,
@@ -160,12 +217,12 @@ namespace tnbLib
 		) const = 0;
 
 		//- Write face with variable backsubstitution
-		void write(Ostream&, const dictionary&) const;
+		FoamFvMesh_EXPORT void write(Ostream&, const dictionary&) const;
 
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const blockFace&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const blockFace&);
 	};
 
 

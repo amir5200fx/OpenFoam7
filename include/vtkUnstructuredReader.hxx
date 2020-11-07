@@ -81,7 +81,7 @@ namespace tnbLib
 			VTK_ID
 		};
 
-		static const NamedEnum<vtkDataType, 8> vtkDataTypeNames;
+		static FoamFvMesh_EXPORT const NamedEnum<vtkDataType, 8> vtkDataTypeNames;
 
 
 		//- Enumeration defining the vtk dataset types
@@ -92,7 +92,7 @@ namespace tnbLib
 			VTK_VECTORS
 		};
 
-		static const NamedEnum<vtkDataSetType, 3> vtkDataSetTypeNames;
+		static FoamFvMesh_EXPORT const NamedEnum<vtkDataSetType, 3> vtkDataSetTypeNames;
 
 
 		//- Enumeration defining the parse mode - what type of data is being
@@ -106,7 +106,7 @@ namespace tnbLib
 			POINT_DATA
 		};
 
-		static const NamedEnum<parseMode, 5> parseModeNames;
+		static FoamFvMesh_EXPORT const NamedEnum<parseMode, 5> parseModeNames;
 
 
 		//- Enumeration defining the cell types
@@ -190,7 +190,7 @@ namespace tnbLib
 			List<T>& lst
 		) const;
 
-		void warnUnhandledType
+		FoamFvMesh_EXPORT void warnUnhandledType
 		(
 			Istream& inFile,
 			const label type,
@@ -198,7 +198,7 @@ namespace tnbLib
 		) const;
 
 		//- Split cellTypes into cells, faces and lines
-		void extractCells
+		FoamFvMesh_EXPORT void extractCells
 		(
 			Istream& inFile,
 			const labelList& cellTypes,
@@ -206,7 +206,7 @@ namespace tnbLib
 		);
 
 		//- Read single field and stores it on the objectRegistry.
-		void readField
+		FoamFvMesh_EXPORT void readField
 		(
 			ISstream& inFile,
 			objectRegistry& obj,
@@ -217,30 +217,33 @@ namespace tnbLib
 
 		//- Reads fields, stores them on the objectRegistry. Returns a list of
 		//  read fields
-		wordList readFieldArray
+		FoamFvMesh_EXPORT wordList readFieldArray
 		(
 			ISstream& inFile,
 			objectRegistry& obj,
 			const label wantedSize
 		) const;
 
-		objectRegistry& selectRegistry(const parseMode readMode);
+		FoamFvMesh_EXPORT objectRegistry& selectRegistry(const parseMode readMode);
 
-		void read(ISstream& inFile);
+		FoamFvMesh_EXPORT void read(ISstream& inFile);
 
 		//- Dissallow assignment
-		void operator=(const vtkUnstructuredReader&);
+		FoamFvMesh_EXPORT void operator=(const vtkUnstructuredReader&);
 
 
 	public:
 
 		//- Runtime type information
-		ClassName("vtkUnstructuredReader");
+		//ClassName("vtkUnstructuredReader");
+		static const char* typeName_() { return "vtkUnstructuredReader"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct from Istream, read all
-		vtkUnstructuredReader(const objectRegistry& obr, ISstream&);
+		FoamFvMesh_EXPORT vtkUnstructuredReader(const objectRegistry& obr, ISstream&);
 
 		// Member Functions
 

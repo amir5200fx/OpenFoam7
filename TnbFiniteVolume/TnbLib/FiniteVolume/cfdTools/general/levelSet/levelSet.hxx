@@ -87,7 +87,7 @@ namespace tnbLib
 	//- Calculate the volume-fraction that a level set occupies. This gives the
 	//  same result as levelSetAverage if the fields passed to the latter are
 	//  uniformly 0 and 1. The above flag flips the direction.
-	tmp<scalarField> levelSetFraction
+	FoamFiniteVolume_EXPORT tmp<scalarField> levelSetFraction
 	(
 		const fvMesh& mesh,
 		const scalarField& levelC,
@@ -96,7 +96,7 @@ namespace tnbLib
 	);
 
 	//- As the above overload, but on the faces of a patch
-	tmp<scalarField> levelSetFraction
+	FoamFiniteVolume_EXPORT tmp<scalarField> levelSetFraction
 	(
 		const fvPatch& patch,
 		const scalarField& levelF,
@@ -105,7 +105,7 @@ namespace tnbLib
 	);
 
 	//- As the above overload, but both in cells and on patch faces
-	tmp<volScalarField> levelSetFraction
+	FoamFiniteVolume_EXPORT tmp<volScalarField> levelSetFraction
 	(
 		const volScalarField& levelC,
 		const pointScalarField& levelP,

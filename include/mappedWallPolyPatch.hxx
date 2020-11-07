@@ -65,34 +65,38 @@ namespace tnbLib
 	protected:
 
 		//- Initialise the calculation of the patch geometry
-		virtual void initGeometry(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void initGeometry(PstreamBuffers&);
 
 		//- Calculate the patch geometry
-		virtual void calcGeometry(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void calcGeometry(PstreamBuffers&);
 
 		//- Initialise the patches for moving points
-		virtual void initMovePoints(PstreamBuffers&, const pointField&);
+		FoamFvMesh_EXPORT virtual void initMovePoints(PstreamBuffers&, const pointField&);
 
 		//- Correct patches after moving points
-		virtual void movePoints(PstreamBuffers&, const pointField&);
+		FoamFvMesh_EXPORT virtual void movePoints(PstreamBuffers&, const pointField&);
 
 		//- Initialise the update of the patch topology
-		virtual void initUpdateMesh(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void initUpdateMesh(PstreamBuffers&);
 
 		//- Update of the patch topology
-		virtual void updateMesh(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void updateMesh(PstreamBuffers&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("mappedWall");
+		/*TypeName("mappedWall");*/
+		static const char* typeName_() { return "mappedWall"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		mappedWallPolyPatch
+		FoamFvMesh_EXPORT mappedWallPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -103,7 +107,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components
-		mappedWallPolyPatch
+		FoamFvMesh_EXPORT mappedWallPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -117,7 +121,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components. Uniform offset.
-		mappedWallPolyPatch
+		FoamFvMesh_EXPORT mappedWallPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -131,7 +135,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		mappedWallPolyPatch
+		FoamFvMesh_EXPORT mappedWallPolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -141,7 +145,7 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		mappedWallPolyPatch
+		FoamFvMesh_EXPORT mappedWallPolyPatch
 		(
 			const mappedWallPolyPatch&,
 			const polyBoundaryMesh&
@@ -149,7 +153,7 @@ namespace tnbLib
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		mappedWallPolyPatch
+		FoamFvMesh_EXPORT mappedWallPolyPatch
 		(
 			const mappedWallPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -159,7 +163,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		mappedWallPolyPatch
+		FoamFvMesh_EXPORT mappedWallPolyPatch
 		(
 			const mappedWallPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -222,13 +226,13 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~mappedWallPolyPatch();
+		FoamFvMesh_EXPORT virtual ~mappedWallPolyPatch();
 
 
 		// Member Functions
 
 			//- Write the polyPatch data as a dictionary
-		virtual void write(Ostream&) const;
+		FoamFvMesh_EXPORT virtual void write(Ostream&) const;
 	};
 
 
