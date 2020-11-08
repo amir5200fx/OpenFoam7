@@ -56,7 +56,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamDynamicMesh_EXPORT addToUsageTable usage_;
 
 		//- Mesh quality dictionary
 		const dictionary dict_;
@@ -64,25 +64,29 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void combine(topoSet& set, const bool add) const;
+		FoamDynamicMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("badQualityToFace");
+		//TypeName("badQualityToFace");
+		static const char* typeName_() { return "badQualityToFace"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from dictionary
-		badQualityToFace
+		FoamDynamicMesh_EXPORT badQualityToFace
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		badQualityToFace
+		FoamDynamicMesh_EXPORT badQualityToFace
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -90,7 +94,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~badQualityToFace();
+		FoamDynamicMesh_EXPORT virtual ~badQualityToFace();
 
 
 		// Member Functions
@@ -100,7 +104,7 @@ namespace tnbLib
 			return CELLSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamDynamicMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

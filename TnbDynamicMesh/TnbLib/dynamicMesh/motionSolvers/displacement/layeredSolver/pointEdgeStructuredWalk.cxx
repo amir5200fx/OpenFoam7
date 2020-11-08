@@ -2,7 +2,7 @@
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamDynamicMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	tnbLib::Ostream& os,
 	const tnbLib::pointEdgeStructuredWalk& wDist
@@ -13,7 +13,7 @@ tnbLib::Ostream& tnbLib::operator<<
 		<< wDist.dist_ << wDist.data_;
 }
 
-tnbLib::Istream& tnbLib::operator>>
+FoamDynamicMesh_EXPORT tnbLib::Istream& tnbLib::operator>>
 (
 	tnbLib::Istream& is,
 	tnbLib::pointEdgeStructuredWalk& wDist

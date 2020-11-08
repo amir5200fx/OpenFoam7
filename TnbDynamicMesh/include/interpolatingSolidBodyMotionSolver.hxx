@@ -80,33 +80,37 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("interpolatingSolidBody");
+		//TypeName("interpolatingSolidBody");
+		static const char* typeName_() { return "interpolatingSolidBody"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from polyMesh and dictionary
-		interpolatingSolidBodyMotionSolver
+		FoamDynamicMesh_EXPORT interpolatingSolidBodyMotionSolver
 		(
 			const polyMesh&,
 			const dictionary& dict
 		);
 
 		//- Disallow default bitwise copy construction
-		interpolatingSolidBodyMotionSolver
+		FoamDynamicMesh_EXPORT interpolatingSolidBodyMotionSolver
 		(
 			const interpolatingSolidBodyMotionSolver&
 		);
 
 
 		//- Destructor
-		~interpolatingSolidBodyMotionSolver();
+		FoamDynamicMesh_EXPORT ~interpolatingSolidBodyMotionSolver();
 
 
 		// Member Functions
 
 			//- Return point location obtained from the current motion field
-		virtual tmp<pointField> curPoints() const;
+		FoamDynamicMesh_EXPORT virtual tmp<pointField> curPoints() const;
 
 		//- Solve for motion
 		virtual void solve()

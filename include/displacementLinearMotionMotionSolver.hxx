@@ -92,33 +92,37 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("displacementLinearMotion");
+		//TypeName("displacementLinearMotion");
+		static const char* typeName_() { return "displacementLinearMotion"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from polyMesh and dictionary
-		displacementLinearMotionMotionSolver
+		FoamDynamicMesh_EXPORT displacementLinearMotionMotionSolver
 		(
 			const polyMesh&,
 			const dictionary&
 		);
 
 		//- Disallow default bitwise copy construction
-		displacementLinearMotionMotionSolver
+		FoamDynamicMesh_EXPORT displacementLinearMotionMotionSolver
 		(
 			const displacementLinearMotionMotionSolver&
 		);
 
 
 		//- Destructor
-		~displacementLinearMotionMotionSolver();
+		FoamDynamicMesh_EXPORT ~displacementLinearMotionMotionSolver();
 
 
 		// Member Functions
 
 			//- Return point location obtained from the current motion field
-		virtual tmp<pointField> curPoints() const;
+		FoamDynamicMesh_EXPORT virtual tmp<pointField> curPoints() const;
 
 		//- Solve for motion
 		virtual void solve()

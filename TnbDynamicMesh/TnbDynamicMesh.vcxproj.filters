@@ -262,6 +262,9 @@
     <Filter Include="TnbLib\dynamicFvMesh\include">
       <UniqueIdentifier>{ed13cfe9-6f0d-4275-ae8b-9bbb6f4d82e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\dynamicMesh\module">
+      <UniqueIdentifier>{81c77082-8ede-4f28-8773-03892bf696a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.hxx">
@@ -581,6 +584,9 @@
     </ClInclude>
     <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChangeTemplatesI.hxx">
       <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\module\DynamicMesh_Module.hxx">
+      <Filter>TnbLib\dynamicMesh\module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

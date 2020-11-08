@@ -55,8 +55,8 @@ namespace tnbLib
 
 	class externalPointEdgePoint;
 
-	Istream& operator>>(Istream&, externalPointEdgePoint&);
-	Ostream& operator<<(Ostream&, const externalPointEdgePoint&);
+	FoamDynamicMesh_EXPORT Istream& operator>>(Istream&, externalPointEdgePoint&);
+	FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const externalPointEdgePoint&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -242,8 +242,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const externalPointEdgePoint&);
-		friend Istream& operator>>(Istream&, externalPointEdgePoint&);
+		FoamDynamicMesh_EXPORT friend Ostream& operator<<(Ostream&, const externalPointEdgePoint&);
+		FoamDynamicMesh_EXPORT friend Istream& operator>>(Istream&, externalPointEdgePoint&);
 	};
 
 

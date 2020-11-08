@@ -67,10 +67,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Read constructor from IOobject and a polyMesh
-		attachPolyTopoChanger(const IOobject& io, polyMesh&);
+		FoamDynamicMesh_EXPORT attachPolyTopoChanger(const IOobject& io, polyMesh&);
 
 		//- Read constructor for given polyMesh
-		explicit attachPolyTopoChanger(polyMesh&);
+		explicit FoamDynamicMesh_EXPORT attachPolyTopoChanger(polyMesh&);
 
 		//- Disallow default bitwise copy construction
 		attachPolyTopoChanger(const attachPolyTopoChanger&) = delete;
@@ -84,7 +84,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Attach mesh. By default filter out empty patches.
-		void attach(const bool removeEmptyPatches = true);
+		FoamDynamicMesh_EXPORT void attach(const bool removeEmptyPatches = true);
 
 
 		// Member Operators

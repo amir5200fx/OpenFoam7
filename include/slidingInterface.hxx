@@ -86,7 +86,7 @@ namespace tnbLib
 		};
 
 		//- Direction names
-		static const NamedEnum<typeOfMatch, 2> typeOfMatchNames_;
+		static FoamDynamicMesh_EXPORT const NamedEnum<typeOfMatch, 2> typeOfMatchNames_;
 
 	private:
 
@@ -211,103 +211,107 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Clear out
-		void clearOut() const;
+		FoamDynamicMesh_EXPORT void clearOut() const;
 
 
 		//- Check validity of construction data
-		void checkDefinition();
+		FoamDynamicMesh_EXPORT void checkDefinition();
 
 		//- Calculate attached addressing
-		void calcAttachedAddressing() const;
+		FoamDynamicMesh_EXPORT void calcAttachedAddressing() const;
 
 		//- Calculate decoupled zone face-cell addressing
-		void renumberAttachedAddressing(const mapPolyMesh&) const;
+		FoamDynamicMesh_EXPORT void renumberAttachedAddressing(const mapPolyMesh&) const;
 
 		//- Clear attached addressing
-		void clearAttachedAddressing() const;
+		FoamDynamicMesh_EXPORT void clearAttachedAddressing() const;
 
 
 		// Topological changes
 
 			//- Master faceCells
-		const labelList& masterFaceCells() const;
+		FoamDynamicMesh_EXPORT const labelList& masterFaceCells() const;
 
 		//- Slave faceCells
-		const labelList& slaveFaceCells() const;
+		FoamDynamicMesh_EXPORT const labelList& slaveFaceCells() const;
 
 		//- Master stick-out faces
-		const labelList& masterStickOutFaces() const;
+		FoamDynamicMesh_EXPORT const labelList& masterStickOutFaces() const;
 
 		//- Slave stick-out faces
-		const labelList& slaveStickOutFaces() const;
+		FoamDynamicMesh_EXPORT const labelList& slaveStickOutFaces() const;
 
 		//- Retired point map
-		const Map<label>& retiredPointMap() const;
+		FoamDynamicMesh_EXPORT const Map<label>& retiredPointMap() const;
 
 		//- Cut point edge pair map
-		const Map<Pair<edge>>& cutPointEdgePairMap() const;
+		FoamDynamicMesh_EXPORT const Map<Pair<edge>>& cutPointEdgePairMap() const;
 
 		//- Clear addressing
-		void clearAddressing() const;
+		FoamDynamicMesh_EXPORT void clearAddressing() const;
 
 		//- Project slave points and compare with the current projection.
 		//  If the projection has changed, the sliding interface
 		//  changes topologically
-		bool projectPoints() const;
+		FoamDynamicMesh_EXPORT bool projectPoints() const;
 
 		//- Couple sliding interface
-		void coupleInterface(polyTopoChange& ref) const;
+		FoamDynamicMesh_EXPORT void coupleInterface(polyTopoChange& ref) const;
 
 		//- Clear projection
-		void clearPointProjection() const;
+		FoamDynamicMesh_EXPORT void clearPointProjection() const;
 
 		//- Clear old couple
-		void clearCouple(polyTopoChange& ref) const;
+		FoamDynamicMesh_EXPORT void clearCouple(polyTopoChange& ref) const;
 
 		//- Decouple interface (returns it to decoupled state)
 		//  Note: this should not be used in normal operation of the
 		//  sliding mesh, but only to return the mesh to its
 		//  original state
-		void decoupleInterface(polyTopoChange& ref) const;
+		FoamDynamicMesh_EXPORT void decoupleInterface(polyTopoChange& ref) const;
 
 
 		// Static Data Members
 
 			//- Point merge tolerance
-		static const scalar pointMergeTolDefault_;
+		static FoamDynamicMesh_EXPORT const scalar pointMergeTolDefault_;
 
 		//- Edge merge tolerance
-		static const scalar edgeMergeTolDefault_;
+		static FoamDynamicMesh_EXPORT const scalar edgeMergeTolDefault_;
 
 		//- Estimated number of faces an edge goes through
-		static const label nFacesPerSlaveEdgeDefault_;
+		static FoamDynamicMesh_EXPORT const label nFacesPerSlaveEdgeDefault_;
 
 		//- Edge-face interaction escape limit
-		static const label edgeFaceEscapeLimitDefault_;
+		static FoamDynamicMesh_EXPORT const label edgeFaceEscapeLimitDefault_;
 
 		//- Integral match point adjustment tolerance
-		static const scalar integralAdjTolDefault_;
+		static FoamDynamicMesh_EXPORT const scalar integralAdjTolDefault_;
 
 		//- Edge intersection master catch fraction
-		static const scalar edgeMasterCatchFractionDefault_;
+		static FoamDynamicMesh_EXPORT const scalar edgeMasterCatchFractionDefault_;
 
 		//- Edge intersection co-planar tolerance
-		static const scalar edgeCoPlanarTolDefault_;
+		static FoamDynamicMesh_EXPORT const scalar edgeCoPlanarTolDefault_;
 
 		//- Edge end cut-off tolerance
-		static const scalar edgeEndCutoffTolDefault_;
+		static FoamDynamicMesh_EXPORT const scalar edgeEndCutoffTolDefault_;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("slidingInterface");
+		//TypeName("slidingInterface");
+		static const char* typeName_() { return "slidingInterface"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		slidingInterface
+		FoamDynamicMesh_EXPORT slidingInterface
 		(
 			const word& name,
 			const label index,
@@ -325,7 +329,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		slidingInterface
+		FoamDynamicMesh_EXPORT slidingInterface
 		(
 			const word& name,
 			const dictionary& dict,
@@ -338,16 +342,16 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~slidingInterface();
+		FoamDynamicMesh_EXPORT virtual ~slidingInterface();
 
 
 		// Member Functions
 
 			//- Return master face zone ID
-		const faceZoneID& masterFaceZoneID() const;
+		FoamDynamicMesh_EXPORT const faceZoneID& masterFaceZoneID() const;
 
 		//- Return slave face zone ID
-		const faceZoneID& slaveFaceZoneID() const;
+		FoamDynamicMesh_EXPORT const faceZoneID& slaveFaceZoneID() const;
 
 		//- Return true if attached
 		bool attached() const
@@ -356,29 +360,29 @@ namespace tnbLib
 		}
 
 		//- Check for topology change
-		virtual bool changeTopology() const;
+		FoamDynamicMesh_EXPORT virtual bool changeTopology() const;
 
 		//- Insert the layer addition/removal instructions
 		//  into the topological change
-		virtual void setRefinement(polyTopoChange&) const;
+		FoamDynamicMesh_EXPORT virtual void setRefinement(polyTopoChange&) const;
 
 		//- Modify motion points to comply with the topological change
-		virtual void modifyMotionPoints(pointField& motionPoints) const;
+		FoamDynamicMesh_EXPORT virtual void modifyMotionPoints(pointField& motionPoints) const;
 
 		//- Force recalculation of locally stored data on topological change
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 		//- Return projected points for a slave patch
-		const pointField& pointProjection() const;
+		FoamDynamicMesh_EXPORT const pointField& pointProjection() const;
 
 		//- Set the tolerances from the values in a dictionary
-		void setTolerances(const dictionary&, bool report = false);
+		FoamDynamicMesh_EXPORT void setTolerances(const dictionary&, bool report = false);
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamDynamicMesh_EXPORT virtual void write(Ostream&) const;
 
 		//- Write dictionary
-		virtual void writeDict(Ostream&) const;
+		FoamDynamicMesh_EXPORT virtual void writeDict(Ostream&) const;
 
 
 		// Member Operators

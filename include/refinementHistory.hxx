@@ -96,8 +96,8 @@ namespace tnbLib
 
 	class refinementHistory;
 
-	Istream& operator>>(Istream&, refinementHistory&);
-	Ostream& operator<<(Ostream&, const refinementHistory&);
+	FoamDynamicMesh_EXPORT Istream& operator>>(Istream&, refinementHistory&);
+	FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const refinementHistory&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -123,26 +123,26 @@ namespace tnbLib
 			autoPtr<FixedList<label, 8>> addedCellsPtr_;
 
 			//- Construct null (parent = -1)
-			splitCell8();
+			FoamDynamicMesh_EXPORT splitCell8();
 
 			//- Construct from parent
-			splitCell8(const label parent);
+			FoamDynamicMesh_EXPORT splitCell8(const label parent);
 
 			//- Construct from Istream
-			splitCell8(Istream& is);
+			FoamDynamicMesh_EXPORT splitCell8(Istream& is);
 
 			//- Construct as deep copy
-			splitCell8(const splitCell8&);
+			FoamDynamicMesh_EXPORT splitCell8(const splitCell8&);
 
 			//- Copy operator since autoPtr otherwise 'steals' storage.
-			void operator=(const splitCell8& s);
+			FoamDynamicMesh_EXPORT void operator=(const splitCell8& s);
 
-			bool operator==(const splitCell8& s) const;
+			FoamDynamicMesh_EXPORT bool operator==(const splitCell8& s) const;
 
-			bool operator!=(const splitCell8& s) const;
+			FoamDynamicMesh_EXPORT bool operator!=(const splitCell8& s) const;
 
-			friend Istream& operator>>(Istream&, splitCell8&);
-			friend Ostream& operator<<(Ostream&, const splitCell8&);
+			FoamDynamicMesh_EXPORT friend Istream& operator>>(Istream&, splitCell8&);
+			FoamDynamicMesh_EXPORT friend Ostream& operator<<(Ostream&, const splitCell8&);
 		};
 
 

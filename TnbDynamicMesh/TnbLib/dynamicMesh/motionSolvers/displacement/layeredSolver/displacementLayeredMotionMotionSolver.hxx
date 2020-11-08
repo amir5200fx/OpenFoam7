@@ -78,14 +78,14 @@ namespace tnbLib
 	{
 		// Private Member Functions
 
-		void calcZoneMask
+		FoamDynamicMesh_EXPORT void calcZoneMask
 		(
 			const label cellZoneI,
 			PackedBoolList& isZonePoint,
 			PackedBoolList& isZoneEdge
 		) const;
 
-		void walkStructured
+		FoamDynamicMesh_EXPORT void walkStructured
 		(
 			const label cellZoneI,
 			const PackedBoolList& isZonePoint,
@@ -96,7 +96,7 @@ namespace tnbLib
 			vectorField& data
 		) const;
 
-		tmp<vectorField> faceZoneEvaluate
+		FoamDynamicMesh_EXPORT tmp<vectorField> faceZoneEvaluate
 		(
 			const faceZone& fz,
 			const labelList& meshPoints,
@@ -105,7 +105,7 @@ namespace tnbLib
 			const label patchi
 		) const;
 
-		void cellZoneSolve
+		FoamDynamicMesh_EXPORT void cellZoneSolve
 		(
 			const label cellZoneI,
 			const dictionary& zoneDict
@@ -115,39 +115,43 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("displacementLayeredMotion");
+		//TypeName("displacementLayeredMotion");
+		static const char* typeName_() { return "displacementLayeredMotion"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from polyMesh and dictionary
-		displacementLayeredMotionMotionSolver
+		FoamDynamicMesh_EXPORT displacementLayeredMotionMotionSolver
 		(
 			const polyMesh&,
 			const dictionary&
 		);
 
 		//- Disallow default bitwise copy construction
-		displacementLayeredMotionMotionSolver
+		FoamDynamicMesh_EXPORT displacementLayeredMotionMotionSolver
 		(
 			const displacementLayeredMotionMotionSolver&
 		);
 
 
 		//- Destructor
-		~displacementLayeredMotionMotionSolver();
+		FoamDynamicMesh_EXPORT ~displacementLayeredMotionMotionSolver();
 
 
 		// Member Functions
 
 			//- Return point location obtained from the current motion field
-		virtual tmp<pointField> curPoints() const;
+		FoamDynamicMesh_EXPORT virtual tmp<pointField> curPoints() const;
 
 		//- Solve for motion
-		virtual void solve();
+		FoamDynamicMesh_EXPORT virtual void solve();
 
 		//- Update topology
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 
 		// Member Operators

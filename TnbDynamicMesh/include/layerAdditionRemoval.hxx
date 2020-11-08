@@ -90,62 +90,66 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Check validity of construction data
-		void checkDefinition();
+		FoamDynamicMesh_EXPORT void checkDefinition();
 
 
 		// Topological changes
 
 			//- Check for valid layer
-		bool validCollapse() const;
+		FoamDynamicMesh_EXPORT bool validCollapse() const;
 
 		//- Set layer pairing.  Return true if a valid layer exists
-		bool setLayerPairing() const;
+		FoamDynamicMesh_EXPORT bool setLayerPairing() const;
 
 		//- Return points pairing in a layer (not automatic!)
-		const labelList& pointsPairing() const;
+		FoamDynamicMesh_EXPORT const labelList& pointsPairing() const;
 
 		//- Return faces pairing in a layer (not automatic!)
-		const labelList& facesPairing() const;
+		FoamDynamicMesh_EXPORT const labelList& facesPairing() const;
 
 		//- Calculate the offset to the next layer
-		tmp<vectorField> extrusionDir() const;
+		FoamDynamicMesh_EXPORT tmp<vectorField> extrusionDir() const;
 
 		//- Add a layer of cells
-		void addCellLayer(polyTopoChange&) const;
+		FoamDynamicMesh_EXPORT void addCellLayer(polyTopoChange&) const;
 
 		//- Remove a layer of cells
-		void removeCellLayer(polyTopoChange&) const;
+		FoamDynamicMesh_EXPORT void removeCellLayer(polyTopoChange&) const;
 
 		//- Clear addressing
-		void clearAddressing() const;
+		FoamDynamicMesh_EXPORT void clearAddressing() const;
 
 
 		// Helpers
 
 			//- Optionally read old thickness
-		static scalar readOldThickness(const dictionary&);
+		static FoamDynamicMesh_EXPORT scalar readOldThickness(const dictionary&);
 
 
 		// Static Data Members
 
 			//- Thickness insertion fraction for the pre-motion
-		static const scalar addDelta_;
+		static FoamDynamicMesh_EXPORT const scalar addDelta_;
 
 		//- Thickness removal fraction for the cell collapse
 		//  Note: the cell will be collapsed to this relative
 		//  thickness before the layer is removed.
-		static const scalar removeDelta_;
+		static FoamDynamicMesh_EXPORT const scalar removeDelta_;
 
 	public:
 
 		//- Runtime type information
-		TypeName("layerAdditionRemoval");
+		//TypeName("layerAdditionRemoval");
+		static const char* typeName_() { return "layerAdditionRemoval"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		layerAdditionRemoval
+		FoamDynamicMesh_EXPORT layerAdditionRemoval
 		(
 			const word& name,
 			const label index,
@@ -157,7 +161,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		layerAdditionRemoval
+		FoamDynamicMesh_EXPORT layerAdditionRemoval
 		(
 			const word& name,
 			const dictionary& dict,
@@ -170,23 +174,23 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~layerAdditionRemoval();
+		FoamDynamicMesh_EXPORT virtual ~layerAdditionRemoval();
 
 
 		// Member Functions
 
 			//- Check for topology change
-		virtual bool changeTopology() const;
+		FoamDynamicMesh_EXPORT virtual bool changeTopology() const;
 
 		//- Insert the layer addition/removal instructions
 		//  into the topological change
-		virtual void setRefinement(polyTopoChange&) const;
+		FoamDynamicMesh_EXPORT virtual void setRefinement(polyTopoChange&) const;
 
 		//- Modify motion points to comply with the topological change
-		virtual void modifyMotionPoints(pointField& motionPoints) const;
+		FoamDynamicMesh_EXPORT virtual void modifyMotionPoints(pointField& motionPoints) const;
 
 		//- Force recalculation of locally stored data on topological change
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 
 		// Edit
@@ -198,7 +202,7 @@ namespace tnbLib
 		}
 
 		//- Set min layer thickness which triggers removal
-		void setMinLayerThickness(const scalar t) const;
+		FoamDynamicMesh_EXPORT void setMinLayerThickness(const scalar t) const;
 
 		//- Return max layer thickness which triggers removal
 		scalar maxLayerThickness() const
@@ -207,14 +211,14 @@ namespace tnbLib
 		}
 
 		//- Set max layer thickness which triggers removal
-		void setMaxLayerThickness(const scalar t) const;
+		FoamDynamicMesh_EXPORT void setMaxLayerThickness(const scalar t) const;
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamDynamicMesh_EXPORT virtual void write(Ostream&) const;
 
 		//- Write dictionary
-		virtual void writeDict(Ostream&) const;
+		FoamDynamicMesh_EXPORT virtual void writeDict(Ostream&) const;
 
 
 		// Member Operators

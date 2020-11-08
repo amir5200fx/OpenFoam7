@@ -72,7 +72,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Decrease count of elements of f
-		static void uncount
+		static FoamDynamicMesh_EXPORT void uncount
 		(
 			const labelList& f,
 			labelList& nUsage
@@ -82,13 +82,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("removeCells");
+		//ClassName("removeCells");
+		static const char* typeName_() { return "removeCells"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh. syncPar: do parallel synchronization.
-		removeCells(const polyMesh& mesh, const bool syncPar = true);
+		FoamDynamicMesh_EXPORT removeCells(const polyMesh& mesh, const bool syncPar = true);
 
 
 		// Member Functions
@@ -100,12 +103,12 @@ namespace tnbLib
 				//  - internal faces that become boundary faces
 				//  - coupled faces that become uncoupled (since one of the sides
 				//    gets deleted)
-		labelList getExposedFaces(const labelList& cellsToRemove) const;
+		FoamDynamicMesh_EXPORT labelList getExposedFaces(const labelList& cellsToRemove) const;
 
 		//- Play commands into polyTopoChange to remove cells.
 		//  patchIDs is for every element in facesToExpose (see above) the
 		//  patch it has to go into. This cannot be a coupled patch!
-		void setRefinement
+		FoamDynamicMesh_EXPORT void setRefinement
 		(
 			const labelList& cellsToRemove,
 			const labelList& facesToExpose,

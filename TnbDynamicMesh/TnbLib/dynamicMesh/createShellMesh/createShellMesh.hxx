@@ -83,7 +83,7 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		static void syncEdges
+		static FoamDynamicMesh_EXPORT void syncEdges
 		(
 			const globalMeshData&,
 			const labelList&,
@@ -100,13 +100,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("createShellMesh");
+		//ClassName("createShellMesh");
+		static const char* typeName_() { return "createShellMesh"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh.
-		createShellMesh
+		FoamDynamicMesh_EXPORT createShellMesh
 		(
 			const primitiveFacePatch& patch,
 			const faceList& pointRegions,
@@ -169,7 +172,7 @@ namespace tnbLib
 			//  across processors.
 			//  pointLocalRegions : compact.
 			//  localToGlobalRegion : local to global region.
-		static void calcPointRegions
+		static FoamDynamicMesh_EXPORT void calcPointRegions
 		(
 			const globalMeshData& globalData,
 			const primitiveFacePatch& patch,
@@ -181,7 +184,7 @@ namespace tnbLib
 		);
 
 		//- Play commands into polyTopoChange to create layer mesh.
-		void setRefinement
+		FoamDynamicMesh_EXPORT void setRefinement
 		(
 			const pointField& firstLayerThickness,
 			const scalar expansionRatio,
@@ -196,7 +199,7 @@ namespace tnbLib
 		// Member Operators
 
 				//- Update any locally stored mesh information.
-		void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT void updateMesh(const mapPolyMesh&);
 	};
 
 

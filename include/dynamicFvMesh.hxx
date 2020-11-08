@@ -61,25 +61,80 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Return the dynamicMeshDict IOobject
-		static IOobject dynamicMeshDictIOobject(const IOobject& io);
+		static FoamDynamicMesh_EXPORT IOobject dynamicMeshDictIOobject(const IOobject& io);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("dynamicFvMesh");
+		//TypeName("dynamicFvMesh");
+		static const char* typeName_() { return "dynamicFvMesh"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			dynamicFvMesh,
 			IOobject,
 			(const IOobject& io),
 			(io)
-		);
+		);*/
+
+		typedef autoPtr<dynamicFvMesh> (*IOobjectConstructorPtr)(const IOobject& io);
+		typedef HashTable<IOobjectConstructorPtr, word, string::hash> IOobjectConstructorTable;
+		static FoamDynamicMesh_EXPORT IOobjectConstructorTable* IOobjectConstructorTablePtr_;
+		static FoamDynamicMesh_EXPORT void constructIOobjectConstructorTables();
+		static FoamDynamicMesh_EXPORT void destroyIOobjectConstructorTables();
+
+		template <class dynamicFvMeshType>
+		class addIOobjectConstructorToTable
+		{
+		public:
+			static autoPtr<dynamicFvMesh> New(const IOobject& io)
+			{
+				return autoPtr<dynamicFvMesh>(new dynamicFvMeshType(io));
+			}
+
+			addIOobjectConstructorToTable(const word& lookup = dynamicFvMeshType::typeName)
+			{
+				constructIOobjectConstructorTables();
+				if (!IOobjectConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "dynamicFvMesh" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addIOobjectConstructorToTable() { destroyIOobjectConstructorTables(); }
+		};
+
+		template <class dynamicFvMeshType>
+		class addRemovableIOobjectConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<dynamicFvMesh> New(const IOobject& io)
+			{
+				return autoPtr<dynamicFvMesh>(new dynamicFvMeshType(io));
+			}
+
+			addRemovableIOobjectConstructorToTable(const word& lookup = dynamicFvMeshType::typeName) : lookup_(lookup)
+			{
+				constructIOobjectConstructorTables();
+				IOobjectConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableIOobjectConstructorToTable()
+			{
+				if (IOobjectConstructorTablePtr_) { IOobjectConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		//- Helper class to update the velocity boundary conditions
@@ -96,7 +151,7 @@ namespace tnbLib
 
 			// Constructors
 
-			velocityMotionCorrection
+			FoamDynamicMesh_EXPORT velocityMotionCorrection
 			(
 				const dynamicFvMesh& mesh,
 				const dictionary& dict
@@ -112,11 +167,11 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from objectRegistry, and read/write options
-		explicit dynamicFvMesh(const IOobject& io);
+		explicit FoamDynamicMesh_EXPORT dynamicFvMesh(const IOobject& io);
 
 		//- Construct from components without boundary.
 		//  Boundary is added using addFvPatches() member function
-		dynamicFvMesh
+		FoamDynamicMesh_EXPORT dynamicFvMesh
 		(
 			const IOobject& io,
 			pointField&& points,
@@ -128,7 +183,7 @@ namespace tnbLib
 
 		//- Construct without boundary from cells rather than owner/neighbour.
 		//  Boundary is added using addPatches() member function
-		dynamicFvMesh
+		FoamDynamicMesh_EXPORT dynamicFvMesh
 		(
 			const IOobject& io,
 			pointField&& points,
@@ -146,11 +201,11 @@ namespace tnbLib
 			//- Select, construct and return the dynamicFvMesh
 			//  If the constant/dynamicMeshDict does not exist
 			//  a staticFvMesh is returned
-		static autoPtr<dynamicFvMesh> New(const IOobject& io);
+		static FoamDynamicMesh_EXPORT autoPtr<dynamicFvMesh> New(const IOobject& io);
 
 
 		//- Destructor
-		virtual ~dynamicFvMesh();
+		FoamDynamicMesh_EXPORT virtual ~dynamicFvMesh();
 
 
 		// Member Functions

@@ -54,8 +54,8 @@ namespace tnbLib
 
 	class pointEdgeCollapse;
 
-	Istream& operator>>(Istream&, pointEdgeCollapse&);
-	Ostream& operator<<(Ostream&, const pointEdgeCollapse&);
+	FoamDynamicMesh_EXPORT Istream& operator>>(Istream&, pointEdgeCollapse&);
+	FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const pointEdgeCollapse&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -215,8 +215,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const pointEdgeCollapse&);
-		friend Istream& operator>>(Istream&, pointEdgeCollapse&);
+		FoamDynamicMesh_EXPORT friend Ostream& operator<<(Ostream&, const pointEdgeCollapse&);
+		FoamDynamicMesh_EXPORT friend Istream& operator>>(Istream&, pointEdgeCollapse&);
 	};
 
 

@@ -90,7 +90,11 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Runtime type information
-		TypeName("addFace");
+		//TypeName("addFace");
+		static const char* typeName_() { return "addFace"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

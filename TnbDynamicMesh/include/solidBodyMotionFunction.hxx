@@ -72,25 +72,82 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("solidBodyMotionFunction");
+		//TypeName("solidBodyMotionFunction");
+		static const char* typeName_() { return "solidBodyMotionFunction"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			solidBodyMotionFunction,
 			dictionary,
 			(const dictionary& SBMFCoeffs, const Time& runTime),
 			(SBMFCoeffs, runTime)
-		);
+		);*/
+
+		typedef autoPtr<solidBodyMotionFunction> (*dictionaryConstructorPtr)(
+			const dictionary& SBMFCoeffs, const Time& runTime);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamDynamicMesh_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamDynamicMesh_EXPORT void constructdictionaryConstructorTables();
+		static FoamDynamicMesh_EXPORT void destroydictionaryConstructorTables();
+
+		template <class solidBodyMotionFunctionType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<solidBodyMotionFunction> New(const dictionary& SBMFCoeffs, const Time& runTime)
+			{
+				return autoPtr<solidBodyMotionFunction>(new solidBodyMotionFunctionType(SBMFCoeffs, runTime));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = solidBodyMotionFunctionType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"solidBodyMotionFunction" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class solidBodyMotionFunctionType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<solidBodyMotionFunction> New(const dictionary& SBMFCoeffs, const Time& runTime)
+			{
+				return autoPtr<solidBodyMotionFunction>(new solidBodyMotionFunctionType(SBMFCoeffs, runTime));
+			}
+
+			addRemovabledictionaryConstructorToTable(
+				const word& lookup = solidBodyMotionFunctionType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from the SBMFCoeffs dictionary and Time
-		solidBodyMotionFunction
+		FoamDynamicMesh_EXPORT solidBodyMotionFunction
 		(
 			const dictionary& SBMFCoeffs,
 			const Time& runTime
@@ -106,7 +163,7 @@ namespace tnbLib
 		// Selectors
 
 			//- Select constructed from the SBMFCoeffs dictionary and Time
-		static autoPtr<solidBodyMotionFunction> New
+		static FoamDynamicMesh_EXPORT autoPtr<solidBodyMotionFunction> New
 		(
 			const dictionary& SBMFCoeffs,
 			const Time& runTime
@@ -114,7 +171,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~solidBodyMotionFunction();
+		FoamDynamicMesh_EXPORT virtual ~solidBodyMotionFunction();
 
 
 		// Member Functions
@@ -126,7 +183,7 @@ namespace tnbLib
 		virtual bool read(const dictionary& SBMFCoeffs) = 0;
 
 		//- Write in dictionary format
-		virtual void writeData(Ostream&) const;
+		virtual FoamDynamicMesh_EXPORT void writeData(Ostream&) const;
 
 
 		// Member Operators

@@ -70,7 +70,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mesh and set of patches
-		pointPatchDist
+		FoamDynamicMesh_EXPORT pointPatchDist
 		(
 			const pointMesh& pMesh,
 			const labelHashSet& patchIDs,
@@ -82,7 +82,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~pointPatchDist();
+		FoamDynamicMesh_EXPORT virtual ~pointPatchDist();
 
 
 		// Member Functions
@@ -98,7 +98,7 @@ namespace tnbLib
 		}
 
 		//- Correct for mesh geom/topo changes
-		void correct();
+		FoamDynamicMesh_EXPORT void correct();
 
 
 		// Member Operators

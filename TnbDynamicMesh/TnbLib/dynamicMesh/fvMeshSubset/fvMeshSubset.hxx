@@ -101,16 +101,16 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Check if subset has been performed
-		bool checkCellSubset() const;
+		FoamDynamicMesh_EXPORT bool checkCellSubset() const;
 
 		//- Mark points in Map
-		static void markPoints(const labelList&, Map<label>&);
+		static FoamDynamicMesh_EXPORT void markPoints(const labelList&, Map<label>&);
 
 		//- Mark points (with 0) in labelList
-		static void markPoints(const labelList&, labelList&);
+		static FoamDynamicMesh_EXPORT void markPoints(const labelList&, labelList&);
 
 		//- Adapt nCellsUsingFace for coupled faces becoming 'uncoupled'.
-		void doCoupledPatches
+		FoamDynamicMesh_EXPORT void doCoupledPatches
 		(
 			const bool syncPar,
 			Map<label>& facesToSubset,
@@ -118,7 +118,7 @@ namespace tnbLib
 		) const;
 
 		//- Subset of subset
-		static labelList subset
+		static FoamDynamicMesh_EXPORT labelList subset
 		(
 			const label nElems,
 			const labelList& selectedElements,
@@ -126,10 +126,10 @@ namespace tnbLib
 		);
 
 		//- Create zones for submesh
-		void subsetZones();
+		FoamDynamicMesh_EXPORT void subsetZones();
 
 		//- Helper: extract cells-to-remove from cells-to-keep
-		labelList getCellsToRemove
+		FoamDynamicMesh_EXPORT labelList getCellsToRemove
 		(
 			const labelList& region,
 			const label currentRegion
@@ -141,7 +141,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct given a mesh to subset
-		explicit fvMeshSubset(const fvMesh&);
+		explicit FoamDynamicMesh_EXPORT fvMeshSubset(const fvMesh&);
 
 		//- Disallow default bitwise copy construction
 		fvMeshSubset(const fvMeshSubset&) = delete;
@@ -155,7 +155,7 @@ namespace tnbLib
 				//  internal faces (patchID==-1) or use supplied patch.
 				//  Does not handle coupled patches correctly if only one side
 				//  gets deleted.
-		void setCellSubset
+		FoamDynamicMesh_EXPORT void setCellSubset
 		(
 			const labelHashSet& globalCellMap,
 			const label patchID = -1,
@@ -167,7 +167,7 @@ namespace tnbLib
 		//  internal faces (patchID==-1) or use supplied patch.
 		//  Handles coupled patches by if necessary making coupled patch
 		//  face part of patchID (so uncoupled)
-		void setLargeCellSubset
+		FoamDynamicMesh_EXPORT void setLargeCellSubset
 		(
 			const labelList& region,
 			const label currentRegion,
@@ -176,7 +176,7 @@ namespace tnbLib
 		);
 
 		//- setLargeCellSubset but with labelHashSet.
-		void setLargeCellSubset
+		FoamDynamicMesh_EXPORT void setLargeCellSubset
 		(
 			const labelHashSet& globalCellMap,
 			const label patchID = -1,
@@ -191,7 +191,7 @@ namespace tnbLib
 			//  - internal faces that become boundary faces
 			//  - coupled faces that become uncoupled (since one of the
 			//    sides gets deleted)
-		labelList getExposedFaces
+		FoamDynamicMesh_EXPORT labelList getExposedFaces
 		(
 			const labelList& region,
 			const label currentRegion,
@@ -200,7 +200,7 @@ namespace tnbLib
 
 		//- For every exposed face (from above getExposedFaces)
 		//  used supplied (existing!) patch
-		void setLargeCellSubset
+		FoamDynamicMesh_EXPORT void setLargeCellSubset
 		(
 			const labelList& region,
 			const label currentRegion,
@@ -219,27 +219,27 @@ namespace tnbLib
 		}
 
 		//- Have subMesh?
-		bool hasSubMesh() const;
+		FoamDynamicMesh_EXPORT bool hasSubMesh() const;
 
 		//- Return reference to subset mesh
-		const fvMesh& subMesh() const;
+		FoamDynamicMesh_EXPORT const fvMesh& subMesh() const;
 
-		fvMesh& subMesh();
+		FoamDynamicMesh_EXPORT fvMesh& subMesh();
 
 		//- Return point map
-		const labelList& pointMap() const;
+		FoamDynamicMesh_EXPORT const labelList& pointMap() const;
 
 		//- Return face map
-		const labelList& faceMap() const;
+		FoamDynamicMesh_EXPORT const labelList& faceMap() const;
 
 		//- Return face map with sign to encode flipped faces
-		const labelList& faceFlipMap() const;
+		FoamDynamicMesh_EXPORT const labelList& faceFlipMap() const;
 
 		//- Return cell map
-		const labelList& cellMap() const;
+		FoamDynamicMesh_EXPORT const labelList& cellMap() const;
 
 		//- Return patch map
-		const labelList& patchMap() const;
+		FoamDynamicMesh_EXPORT const labelList& patchMap() const;
 
 
 		// Field mapping

@@ -2,7 +2,7 @@
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamDynamicMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	tnbLib::Ostream& os,
 	const tnbLib::pointEdgeCollapse& wDist
@@ -14,7 +14,7 @@ tnbLib::Ostream& tnbLib::operator<<
 		<< wDist.collapsePriority_;
 }
 
-tnbLib::Istream& tnbLib::operator>>
+FoamDynamicMesh_EXPORT tnbLib::Istream& tnbLib::operator>>
 (
 	tnbLib::Istream& is,
 	tnbLib::pointEdgeCollapse& wDist

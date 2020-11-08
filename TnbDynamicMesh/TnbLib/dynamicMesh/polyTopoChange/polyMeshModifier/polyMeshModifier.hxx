@@ -61,7 +61,7 @@ namespace tnbLib
 
 	class polyMeshModifier;
 
-	Ostream& operator<<(Ostream&, const polyMeshModifier&);
+	FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const polyMeshModifier&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -90,12 +90,16 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Runtime type information
-		TypeName("meshModifier");
+		//TypeName("meshModifier");
+		static const char* typeName_() { return "meshModifier"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			polyMeshModifier,
@@ -107,13 +111,68 @@ namespace tnbLib
 				const polyTopoChanger& mme
 				),
 				(name, dict, index, mme)
-		);
+		);*/
+
+		typedef autoPtr<polyMeshModifier> (*dictionaryConstructorPtr)(const word& name, const dictionary& dict,
+		                                                              const label index, const polyTopoChanger& mme);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamDynamicMesh_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamDynamicMesh_EXPORT void constructdictionaryConstructorTables();
+		static FoamDynamicMesh_EXPORT void destroydictionaryConstructorTables();
+
+		template <class polyMeshModifierType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<polyMeshModifier> New(const word& name, const dictionary& dict, const label index,
+			                                     const polyTopoChanger& mme)
+			{
+				return autoPtr<polyMeshModifier>(new polyMeshModifierType(name, dict, index, mme));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = polyMeshModifierType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "polyMeshModifier" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class polyMeshModifierType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<polyMeshModifier> New(const word& name, const dictionary& dict, const label index,
+			                                     const polyTopoChanger& mme)
+			{
+				return autoPtr<polyMeshModifier>(new polyMeshModifierType(name, dict, index, mme));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = polyMeshModifierType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from components
-		polyMeshModifier
+		FoamDynamicMesh_EXPORT polyMeshModifier
 		(
 			const word& name,
 			const label index,
@@ -128,7 +187,7 @@ namespace tnbLib
 		// Selectors
 
 			//- Select constructed from dictionary
-		static autoPtr<polyMeshModifier> New
+		static FoamDynamicMesh_EXPORT autoPtr<polyMeshModifier> New
 		(
 			const word& name,
 			const dictionary& dict,
@@ -138,7 +197,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~polyMeshModifier();
+		FoamDynamicMesh_EXPORT virtual ~polyMeshModifier();
 
 
 		// Member Functions
@@ -156,7 +215,7 @@ namespace tnbLib
 		}
 
 		//- Return reference to morph engine
-		const polyTopoChanger& topoChanger() const;
+		FoamDynamicMesh_EXPORT const polyTopoChanger& topoChanger() const;
 
 		//- Check for topology change
 		virtual bool changeTopology() const = 0;
@@ -206,7 +265,7 @@ namespace tnbLib
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const polyMeshModifier&);
+		FoamDynamicMesh_EXPORT friend Ostream& operator<<(Ostream&, const polyMeshModifier&);
 	};
 
 

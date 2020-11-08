@@ -97,26 +97,30 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("dynamicInterpolatedFvMesh");
+		//TypeName("dynamicInterpolatedFvMesh");
+		static const char* typeName_() { return "dynamicInterpolatedFvMesh"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from IOobject
-		dynamicInterpolatedFvMesh(const IOobject& io);
+		FoamDynamicMesh_EXPORT dynamicInterpolatedFvMesh(const IOobject& io);
 
 		//- Disallow default bitwise copy construction
-		dynamicInterpolatedFvMesh(const dynamicInterpolatedFvMesh&) = delete;
+		FoamDynamicMesh_EXPORT dynamicInterpolatedFvMesh(const dynamicInterpolatedFvMesh&) = delete;
 
 
 		//- Destructor
-		~dynamicInterpolatedFvMesh();
+		FoamDynamicMesh_EXPORT ~dynamicInterpolatedFvMesh();
 
 
 		// Member Functions
 
 			//- Update the mesh for both mesh motion and topology change
-		virtual bool update();
+		FoamDynamicMesh_EXPORT virtual bool update();
 
 
 		// Member Operators

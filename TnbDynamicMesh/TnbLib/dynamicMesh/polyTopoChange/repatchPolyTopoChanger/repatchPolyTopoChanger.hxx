@@ -72,7 +72,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct for given mesh
-		explicit repatchPolyTopoChanger(polyMesh& mesh);
+		explicit FoamDynamicMesh_EXPORT repatchPolyTopoChanger(polyMesh& mesh);
 
 		//- Disallow default bitwise copy construction
 		repatchPolyTopoChanger(const repatchPolyTopoChanger&) = delete;
@@ -86,18 +86,18 @@ namespace tnbLib
 		// Member Functions
 
 			//- Change patches.
-		void changePatches(const List<polyPatch*>& patches);
+		FoamDynamicMesh_EXPORT void changePatches(const List<polyPatch*>& patches);
 
 		//- Change patch ID for a boundary face. Note: patchID should be in new
 		//  numbering.
-		void changePatchID
+		FoamDynamicMesh_EXPORT void changePatchID
 		(
 			const label faceID,
 			const label patchID
 		);
 
 		//- Set zone ID for a face
-		void setFaceZone
+		FoamDynamicMesh_EXPORT void setFaceZone
 		(
 			const label faceID,
 			const label zoneID,
@@ -105,14 +105,14 @@ namespace tnbLib
 		);
 
 		//- Change anchor point (zero'th point of face) for a boundary face.
-		void changeAnchorPoint
+		FoamDynamicMesh_EXPORT void changeAnchorPoint
 		(
 			const label faceID,
 			const label fp
 		);
 
 		//- Re-patch the mesh
-		void repatch();
+		FoamDynamicMesh_EXPORT void repatch();
 
 
 		// Member Operators

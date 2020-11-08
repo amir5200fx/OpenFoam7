@@ -83,7 +83,7 @@ namespace tnbLib
 
 			//- Change the vertices of the face whilst keeping everything else
 			//  (patch, zone) the same.
-		void modifyFace
+		FoamDynamicMesh_EXPORT void modifyFace
 		(
 			const label facei,
 			const face&,
@@ -94,13 +94,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("removePoints");
+		//ClassName("removePoints");
+		static const char* typeName_() { return "removePoints"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh
-		removePoints(const polyMesh& mesh, const bool undoable = false);
+		FoamDynamicMesh_EXPORT removePoints(const polyMesh& mesh, const bool undoable = false);
 
 		//- Disallow default bitwise copy construction
 		removePoints(const removePoints&) = delete;
@@ -128,7 +131,7 @@ namespace tnbLib
 			//  - is used by only two edges
 			//  - these two edges are sufficiently in line (cos > minCos)
 			//  - all processors agree that point can be deleted.
-		label countPointUsage
+		FoamDynamicMesh_EXPORT label countPointUsage
 		(
 			const scalar minCos,
 			boolList& pointCanBeDeleted
@@ -141,16 +144,16 @@ namespace tnbLib
 			//  Does no check for whether resulting face is legal.
 			//  Since pointCanBeDeleted is synced all coupled faces should
 			//  decide the same.
-		void setRefinement(const boolList&, polyTopoChange&);
+		FoamDynamicMesh_EXPORT void setRefinement(const boolList&, polyTopoChange&);
 
 		//- Force recalculation of locally stored data on topological change
-		void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT void updateMesh(const mapPolyMesh&);
 
 		//- Given set of faces to restore calculates a consistent set of
 		//  saved faces (indices into savedFaces_) and saved vertices
 		//  (indices into savedPoints_) to restore. The undoFaces have to
 		//  be synced.
-		void getUnrefimentSet
+		FoamDynamicMesh_EXPORT void getUnrefimentSet
 		(
 			const labelList& undoFaces,
 			labelList& localFaces,
@@ -158,7 +161,7 @@ namespace tnbLib
 		) const;
 
 		//- Restore selected faces and vertices.
-		void setUnrefinement
+		FoamDynamicMesh_EXPORT void setUnrefinement
 		(
 			const labelList& localFaces,
 			const labelList& localPoints,

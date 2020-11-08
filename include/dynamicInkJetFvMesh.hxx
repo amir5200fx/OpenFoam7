@@ -77,26 +77,30 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("dynamicInkJetFvMesh");
+		//TypeName("dynamicInkJetFvMesh");
+		static const char* typeName_() { return "dynamicInkJetFvMesh"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from IOobject
-		dynamicInkJetFvMesh(const IOobject& io);
+		FoamDynamicMesh_EXPORT dynamicInkJetFvMesh(const IOobject& io);
 
 		//- Disallow default bitwise copy construction
-		dynamicInkJetFvMesh(const dynamicInkJetFvMesh&) = delete;
+		FoamDynamicMesh_EXPORT dynamicInkJetFvMesh(const dynamicInkJetFvMesh&) = delete;
 
 
 		//- Destructor
-		~dynamicInkJetFvMesh();
+		FoamDynamicMesh_EXPORT ~dynamicInkJetFvMesh();
 
 
 		// Member Functions
 
 			//- Update the mesh for both mesh motion and topology change
-		virtual bool update();
+		FoamDynamicMesh_EXPORT virtual bool update();
 
 
 		// Member Operators

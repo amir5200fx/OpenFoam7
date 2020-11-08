@@ -1,3 +1,5 @@
+#define FoamNamedEnum_EXPORT_DEFINE
+
 #include <slidingInterface.hxx>
 
 #include <polyTopoChanger.hxx>

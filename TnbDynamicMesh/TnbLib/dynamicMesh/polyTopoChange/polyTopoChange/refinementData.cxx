@@ -5,7 +5,7 @@
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamDynamicMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	tnbLib::Ostream& os,
 	const tnbLib::refinementData& wDist
@@ -30,7 +30,7 @@ tnbLib::Ostream& tnbLib::operator<<
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(tnbLib::Istream& is, tnbLib::refinementData& wDist)
+FoamDynamicMesh_EXPORT tnbLib::Istream& tnbLib::operator>>(tnbLib::Istream& is, tnbLib::refinementData& wDist)
 {
 	if (is.format() == IOstream::ASCII)
 	{

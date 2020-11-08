@@ -71,24 +71,28 @@ namespace tnbLib
 
 		//- Tolerance used for distance comparison (fraction of minimum edge
 		//  length)
-		static const scalar tol_;
+		static FoamDynamicMesh_EXPORT const scalar tol_;
 
 		// Private Member Functions
 
 			//- Calculate face centres on patch
-		static pointField calcFaceCentres(const indirectPrimitivePatch&);
+		static FoamDynamicMesh_EXPORT pointField calcFaceCentres(const indirectPrimitivePatch&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("perfectInterface");
+		//TypeName("perfectInterface");
+		static const char* typeName_() { return "perfectInterface"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		perfectInterface
+		FoamDynamicMesh_EXPORT perfectInterface
 		(
 			const word& name,
 			const label index,
@@ -99,7 +103,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		perfectInterface
+		FoamDynamicMesh_EXPORT perfectInterface
 		(
 			const word& name,
 			const dictionary& dict,
@@ -112,23 +116,23 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~perfectInterface();
+		FoamDynamicMesh_EXPORT virtual ~perfectInterface();
 
 
 		// Member Functions
 
 			//- Check for topology change
-		virtual bool changeTopology() const;
+		FoamDynamicMesh_EXPORT virtual bool changeTopology() const;
 
 		//- Insert the layer addition/removal instructions
 		//  into the topological change
-		virtual void setRefinement(polyTopoChange&) const;
+		FoamDynamicMesh_EXPORT virtual void setRefinement(polyTopoChange&) const;
 
 		//- Insert the layer addition/removal instructions
 		//  into the topological change. Uses only mesh, not any of the
 		//  patch and zone indices. Bit of a workaround - used in extruding
 		//  a mesh.
-		virtual void setRefinement
+		FoamDynamicMesh_EXPORT virtual void setRefinement
 		(
 			const indirectPrimitivePatch& pp0,
 			const indirectPrimitivePatch& pp1,
@@ -136,16 +140,16 @@ namespace tnbLib
 		) const;
 
 		//- Modify motion points to comply with the topological change
-		virtual void modifyMotionPoints(pointField& motionPoints) const;
+		FoamDynamicMesh_EXPORT virtual void modifyMotionPoints(pointField& motionPoints) const;
 
 		//- Force recalculation of locally stored data on topological change
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamDynamicMesh_EXPORT virtual void write(Ostream&) const;
 
 		//- Write dictionary
-		virtual void writeDict(Ostream&) const;
+		FoamDynamicMesh_EXPORT virtual void writeDict(Ostream&) const;
 
 
 		// Member Operators

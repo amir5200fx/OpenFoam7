@@ -85,7 +85,7 @@ namespace tnbLib
 		// Static Functions
 
 			//- Insert labelList into labelHashSet. Optional excluded element.
-		static void insert
+		static FoamDynamicMesh_EXPORT void insert
 		(
 			const labelList& elems,
 			const label excludeElem,
@@ -93,7 +93,7 @@ namespace tnbLib
 		);
 
 		//- Find edge amongst candidate edges.
-		static label findEdge
+		static FoamDynamicMesh_EXPORT label findEdge
 		(
 			const edgeList& edges,
 			const labelList& edgeLabels,
@@ -105,7 +105,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Replace vertices in face
-		void filterFace
+		FoamDynamicMesh_EXPORT void filterFace
 		(
 			const Map<labelList>& splitEdges,
 			const label facei,
@@ -116,13 +116,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("faceCollapser");
+		//ClassName("faceCollapser");
+		static const char* typeName_() { return "faceCollapser"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh.
-		faceCollapser(const polyMesh& mesh);
+		FoamDynamicMesh_EXPORT faceCollapser(const polyMesh& mesh);
 
 		//- Disallow default bitwise copy construction
 		faceCollapser(const faceCollapser&) = delete;
@@ -134,7 +137,7 @@ namespace tnbLib
 
 				//- Collapse faces along endpoints. Play commands into
 				//  polyTopoChange to create mesh.
-		void setRefinement
+		FoamDynamicMesh_EXPORT void setRefinement
 		(
 			const labelList& faceLabels,
 			const labelList& fpA,

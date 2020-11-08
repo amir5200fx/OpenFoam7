@@ -66,7 +66,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Index of patch in allPatches. Add if nonexisting.
-		static label patchIndex
+		static FoamDynamicMesh_EXPORT label patchIndex
 		(
 			const polyPatch&,
 			DynamicList<word>& allPatchNames,
@@ -74,9 +74,9 @@ namespace tnbLib
 		);
 
 		//- Index of zone in all zones
-		static label zoneIndex(const word&, DynamicList<word>&);
+		static FoamDynamicMesh_EXPORT label zoneIndex(const word&, DynamicList<word>&);
 
-		static void mergePatchNames
+		static FoamDynamicMesh_EXPORT void mergePatchNames
 		(
 			const polyBoundaryMesh& patches0,
 			const polyBoundaryMesh& patches1,
@@ -89,11 +89,11 @@ namespace tnbLib
 		);
 
 		//- Get starts of patches
-		static labelList getPatchStarts(const polyBoundaryMesh&);
+		static FoamDynamicMesh_EXPORT labelList getPatchStarts(const polyBoundaryMesh&);
 		//- Get sizes of patches
-		static labelList getPatchSizes(const polyBoundaryMesh&);
+		static FoamDynamicMesh_EXPORT labelList getPatchSizes(const polyBoundaryMesh&);
 
-		static List<polyPatch*> combinePatches
+		static FoamDynamicMesh_EXPORT List<polyPatch*> combinePatches
 		(
 			const polyMesh& mesh0,
 			const polyMesh& mesh1,
@@ -110,7 +110,7 @@ namespace tnbLib
 
 		//- Determine order for internalFaces to be upper-triangular.
 		//  Does not change order of external faces.
-		static labelList getFaceOrder
+		static FoamDynamicMesh_EXPORT labelList getFaceOrder
 		(
 			const cellList& cells,
 			const label nInternalFaces,
@@ -120,7 +120,7 @@ namespace tnbLib
 
 		//- Extends face f with split points. cutEdgeToPoints gives for every
 		// edge the points introduced in between the endpoints.
-		static void insertVertices
+		static FoamDynamicMesh_EXPORT void insertVertices
 		(
 			const edgeLookup& cutEdgeToPoints,
 			const Map<label>& meshToMaster,
@@ -132,7 +132,7 @@ namespace tnbLib
 		);
 
 		//- Merges primitives of two meshes.
-		static void mergePrimitives
+		static FoamDynamicMesh_EXPORT void mergePrimitives
 		(
 			const polyMesh& mesh0,
 			const polyMesh& mesh1,
@@ -159,7 +159,7 @@ namespace tnbLib
 		);
 
 		//- Merge point zones
-		static void mergePointZones
+		static FoamDynamicMesh_EXPORT void mergePointZones
 		(
 			const label nAllPoints,
 
@@ -174,7 +174,7 @@ namespace tnbLib
 		);
 
 		//- Merge face zones
-		static void mergeFaceZones
+		static FoamDynamicMesh_EXPORT void mergeFaceZones
 		(
 			const labelList& allOwner,
 
@@ -191,7 +191,7 @@ namespace tnbLib
 		);
 
 		//- Merge cell zones
-		static void mergeCellZones
+		static FoamDynamicMesh_EXPORT void mergeCellZones
 		(
 			const label nAllCells,
 
@@ -205,7 +205,7 @@ namespace tnbLib
 		);
 
 		//- Merge point/face/cell zone information
-		static void mergeZones
+		static FoamDynamicMesh_EXPORT void mergeZones
 		(
 			const label nAllPoints,
 			const labelList& allOwner,
@@ -231,7 +231,7 @@ namespace tnbLib
 		);
 
 		//- Create new zones and add to new mesh.
-		static void addZones
+		static FoamDynamicMesh_EXPORT void addZones
 		(
 			const DynamicList<word>& pointZoneNames,
 			const List<DynamicList<label>>& pzPoints,
@@ -253,7 +253,7 @@ namespace tnbLib
 
 
 			//- Add two polyMeshes. Returns new polyMesh and map construct.
-		static autoPtr<polyMesh> add
+		static FoamDynamicMesh_EXPORT autoPtr<polyMesh> add
 		(
 			const IOobject& io,
 			const polyMesh& mesh0,
@@ -263,7 +263,7 @@ namespace tnbLib
 		);
 
 		//- Inplace add mesh to polyMesh. Returns map construct.
-		static autoPtr<mapAddedPolyMesh> add
+		static FoamDynamicMesh_EXPORT autoPtr<mapAddedPolyMesh> add
 		(
 			polyMesh& mesh0,
 			const polyMesh& mesh1,
@@ -279,7 +279,7 @@ namespace tnbLib
 			//    (since uses mesh.globalData)
 			//  - returns Map from point to master point (all in mesh point
 			//    labels) for any sets of points that need to be merged.
-		static Map<label> findSharedPoints
+		static FoamDynamicMesh_EXPORT Map<label> findSharedPoints
 		(
 			const polyMesh&,
 			const scalar mergeTol
@@ -290,7 +290,7 @@ namespace tnbLib
 		//  - Gets map from point to destination point
 		//  - Removes all points that don't map to themselves
 		//  - Modifies all faces that use the points to be removed.
-		static void mergePoints
+		static FoamDynamicMesh_EXPORT void mergePoints
 		(
 			const polyMesh&,
 			const Map<label>& pointToMaster,

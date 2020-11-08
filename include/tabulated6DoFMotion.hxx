@@ -80,20 +80,24 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("tabulated6DoFMotion");
+			//TypeName("tabulated6DoFMotion");
+			static const char* typeName_() { return "tabulated6DoFMotion"; }
+			static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamDynamicMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			tabulated6DoFMotion
+			FoamDynamicMesh_EXPORT tabulated6DoFMotion
 			(
 				const dictionary& SBMFCoeffs,
 				const Time& runTime
 			);
 
 			//- Disallow default bitwise copy construction
-			tabulated6DoFMotion(const tabulated6DoFMotion&);
+			FoamDynamicMesh_EXPORT tabulated6DoFMotion(const tabulated6DoFMotion&);
 
 
 			//- Construct and return a clone
@@ -111,16 +115,16 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~tabulated6DoFMotion();
+			FoamDynamicMesh_EXPORT virtual ~tabulated6DoFMotion();
 
 
 			// Member Functions
 
 				//- Return the solid-body motion transformation septernion
-			virtual septernion transformation() const;
+			FoamDynamicMesh_EXPORT virtual septernion transformation() const;
 
 			//- Update properties from given dictionary
-			virtual bool read(const dictionary& SBMFCoeffs);
+			FoamDynamicMesh_EXPORT virtual bool read(const dictionary& SBMFCoeffs);
 
 
 			// Member Operators

@@ -171,7 +171,7 @@ bool tnbLib::refinementHistory::splitCell8::operator!=(const splitCell8& s) cons
 
 // * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, refinementHistory::splitCell8& sc)
+FoamDynamicMesh_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, refinementHistory::splitCell8& sc)
 {
 	labelList addedCells;
 
@@ -190,7 +190,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, refinementHistory::splitCell8& 
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamDynamicMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	Ostream& os,
 	const refinementHistory::splitCell8& sc

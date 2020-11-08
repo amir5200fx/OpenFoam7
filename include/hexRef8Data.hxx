@@ -78,10 +78,10 @@ namespace tnbLib
 
 			//- Construct read. Has special provision for only some processors
 			//  having the files so can be used in redistribution.
-		hexRef8Data(const IOobject& io);
+		FoamDynamicMesh_EXPORT hexRef8Data(const IOobject& io);
 
 		//- Construct as subset
-		hexRef8Data
+		FoamDynamicMesh_EXPORT hexRef8Data
 		(
 			const IOobject& io,
 			const hexRef8Data&,
@@ -90,7 +90,7 @@ namespace tnbLib
 		);
 
 		//- Construct from multiple hexRef8Data
-		hexRef8Data
+		FoamDynamicMesh_EXPORT hexRef8Data
 		(
 			const IOobject& io,
 			const UPtrList<const labelList>& cellMaps,
@@ -103,23 +103,23 @@ namespace tnbLib
 
 
 		//- Destructor
-		~hexRef8Data();
+		FoamDynamicMesh_EXPORT ~hexRef8Data();
 
 
 		// Member Functions
 
 			//- Parallel synchronise. This enforces valid objects on all processors
 			//  (even if they don't have a mesh). Used by redistributePar.
-		void sync(const IOobject& io);
+		FoamDynamicMesh_EXPORT void sync(const IOobject& io);
 
 		//- In-place update for topology changes
-		void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT void updateMesh(const mapPolyMesh&);
 
 		//- In-place distribute
-		void distribute(const mapDistributePolyMesh&);
+		FoamDynamicMesh_EXPORT void distribute(const mapDistributePolyMesh&);
 
 		//- Write
-		bool write() const;
+		FoamDynamicMesh_EXPORT bool write() const;
 
 
 		// Member Operators

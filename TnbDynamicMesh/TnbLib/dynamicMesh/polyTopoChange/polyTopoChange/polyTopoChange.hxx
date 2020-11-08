@@ -211,18 +211,18 @@ namespace tnbLib
 		static void renumberKey(const labelList& map, Map<T>&);
 
 		//- Renumber elements of container according to map
-		static void renumber(const labelList&, labelHashSet&);
+		static FoamDynamicMesh_EXPORT void renumber(const labelList&, labelHashSet&);
 		//- Special handling of reverse maps which have <-1 in them
-		static void renumberReverseMap(const labelList&, DynamicList<label>&);
+		static FoamDynamicMesh_EXPORT void renumberReverseMap(const labelList&, DynamicList<label>&);
 
 		//- Renumber & compact elements of list according to map
-		static void renumberCompact(const labelList&, labelList&);
+		static FoamDynamicMesh_EXPORT void renumberCompact(const labelList&, labelList&);
 
 		//- Get all set elements as a labelHashSet
-		static labelHashSet getSetIndices(const PackedBoolList&);
+		static FoamDynamicMesh_EXPORT labelHashSet getSetIndices(const PackedBoolList&);
 
 		//- Count number of added and removed quantities from maps.
-		static void countMap
+		static FoamDynamicMesh_EXPORT void countMap
 		(
 			const labelList& map,
 			const labelList& reverseMap,
@@ -233,11 +233,11 @@ namespace tnbLib
 		);
 
 		//- Print some stats about mesh
-		static void writeMeshStats(const polyMesh& mesh, Ostream&);
+		static FoamDynamicMesh_EXPORT void writeMeshStats(const polyMesh& mesh, Ostream&);
 
 		//- Calculate object maps. Requires reverseMap to have destination
 		//  to be marked with <-1.
-		static void getMergeSets
+		static FoamDynamicMesh_EXPORT void getMergeSets
 		(
 			const labelList& reverseCellMap,
 			const labelList& cellMap,
@@ -245,13 +245,13 @@ namespace tnbLib
 		);
 
 		//- Are all face vertices valid
-		bool hasValidPoints(const face&) const;
+		FoamDynamicMesh_EXPORT bool hasValidPoints(const face&) const;
 
 		//- Return face points
-		pointField facePoints(const face& f) const;
+		FoamDynamicMesh_EXPORT pointField facePoints(const face& f) const;
 
 		//- Check inputs to modFace or addFace
-		void checkFace
+		FoamDynamicMesh_EXPORT void checkFace
 		(
 			const face&,
 			const label facei,
@@ -262,7 +262,7 @@ namespace tnbLib
 		) const;
 
 		//- Construct cells (in packed storage)
-		void makeCells
+		FoamDynamicMesh_EXPORT void makeCells
 		(
 			const label nActiveFaces,
 			labelList& cellFaces,
@@ -270,21 +270,21 @@ namespace tnbLib
 		) const;
 
 		//- Construct cellCells (in packed storage)
-		void makeCellCells
+		FoamDynamicMesh_EXPORT void makeCellCells
 		(
 			const label nActiveFaces,
 			CompactListList<label, labelList>& cellCells
 		) const;
 
 		//- Cell ordering (bandCompression). Returns number of remaining cells.
-		label getCellOrder
+		FoamDynamicMesh_EXPORT label getCellOrder
 		(
 			const CompactListList<label, labelList>&,
 			labelList&
 		) const;
 
 		//- Do upper-triangular ordering and patch ordering.
-		void getFaceOrder
+		FoamDynamicMesh_EXPORT void getFaceOrder
 		(
 			const label nActiveFaces,
 			const labelList& cellFaces,
@@ -296,7 +296,7 @@ namespace tnbLib
 		) const;
 
 		//- Compact and reorder faces according to map
-		void reorderCompactFaces
+		FoamDynamicMesh_EXPORT void reorderCompactFaces
 		(
 			const label newSize,
 			const labelList& oldToNew
@@ -307,7 +307,7 @@ namespace tnbLib
 		//  orderCells=true),
 		//  point ordering (sorted into internal and boundary points,
 		//  orderPoints=true)
-		void compact
+		FoamDynamicMesh_EXPORT void compact
 		(
 			const bool orderCells,
 			const bool orderPoints,
@@ -317,7 +317,7 @@ namespace tnbLib
 		);
 
 		//- Select either internal or external faces out of faceLabels
-		static labelList selectFaces
+		static FoamDynamicMesh_EXPORT labelList selectFaces
 		(
 			const primitiveMesh&,
 			const labelList& faceLabels,
@@ -325,14 +325,14 @@ namespace tnbLib
 		);
 
 		//- Calculate mapping for patchpoints only
-		void calcPatchPointMap
+		FoamDynamicMesh_EXPORT void calcPatchPointMap
 		(
 			const List<Map<label>>&,
 			const polyBoundaryMesh&,
 			labelListList&
 		) const;
 
-		void calcFaceInflationMaps
+		FoamDynamicMesh_EXPORT void calcFaceInflationMaps
 		(
 			const polyMesh&,
 			List<objectMap>&,
@@ -340,7 +340,7 @@ namespace tnbLib
 			List<objectMap>&
 		) const;
 
-		void calcCellInflationMaps
+		FoamDynamicMesh_EXPORT void calcCellInflationMaps
 		(
 			const polyMesh&,
 			List<objectMap>&,
@@ -349,7 +349,7 @@ namespace tnbLib
 			List<objectMap>&
 		) const;
 
-		void resetZones
+		FoamDynamicMesh_EXPORT void resetZones
 		(
 			const polyMesh&,        // mesh to get existing info from
 			polyMesh&,              // mesh to change zones on
@@ -358,7 +358,7 @@ namespace tnbLib
 			labelListList&
 		) const;
 
-		void calcFaceZonePointMap
+		FoamDynamicMesh_EXPORT void calcFaceZonePointMap
 		(
 			const polyMesh&,
 			const List<Map<label>>&,
@@ -369,7 +369,7 @@ namespace tnbLib
 		// Coupling
 
 			//- Do all coupled patch face reordering
-		void reorderCoupledFaces
+		FoamDynamicMesh_EXPORT void reorderCoupledFaces
 		(
 			const bool syncParallel,
 			const polyBoundaryMesh&,
@@ -378,7 +378,7 @@ namespace tnbLib
 			const pointField& points
 		);
 
-		void compactAndReorder
+		FoamDynamicMesh_EXPORT void compactAndReorder
 		(
 			const polyMesh&,
 			const bool syncParallel,
@@ -405,7 +405,10 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("polyTopoChange");
+		//ClassName("polyTopoChange");
+		static const char* typeName_() { return "polyTopoChange"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 
@@ -413,10 +416,10 @@ namespace tnbLib
 
 			//- Construct without mesh. Either specify nPatches or use
 			//  setNumPatches before trying to make a mesh (makeMesh, changeMesh)
-		polyTopoChange(const label nPatches, const bool strict = true);
+		FoamDynamicMesh_EXPORT polyTopoChange(const label nPatches, const bool strict = true);
 
 		//- Construct from mesh. Adds all points/face/cells from mesh.
-		polyTopoChange(const polyMesh& mesh, const bool strict = true);
+		FoamDynamicMesh_EXPORT polyTopoChange(const polyMesh& mesh, const bool strict = true);
 
 
 		// Member Functions
@@ -462,11 +465,11 @@ namespace tnbLib
 		// Edit
 
 			//- Clear all storage
-		void clear();
+		FoamDynamicMesh_EXPORT void clear();
 
 		//- Add all points/faces/cells of mesh. Additional offset for patch
 		//  or zone ids.
-		void addMesh
+		FoamDynamicMesh_EXPORT void addMesh
 		(
 			const polyMesh&,
 			const labelList& patchMap,
@@ -477,7 +480,7 @@ namespace tnbLib
 
 		//- Explicitly pre-size the dynamic storage for expected mesh
 		//  size for if construct-without-mesh
-		void setCapacity
+		FoamDynamicMesh_EXPORT void setCapacity
 		(
 			const label nPoints,
 			const label nFaces,
@@ -485,16 +488,16 @@ namespace tnbLib
 		);
 
 		//- Move all points. Incompatible with other topology changes.
-		void movePoints(const pointField& newPoints);
+		FoamDynamicMesh_EXPORT void movePoints(const pointField& newPoints);
 
 		//- For compatibility with polyTopoChange: set topological action.
-		label setAction(const topoAction& action);
+		FoamDynamicMesh_EXPORT label setAction(const topoAction& action);
 
 		//- Add point. Return new point label.
 		//  Notes:
 		//  - masterPointID can be < 0 (appended points)
 		//  - inCell = false: add retired point (to end of point list)
-		label addPoint
+		FoamDynamicMesh_EXPORT label addPoint
 		(
 			const point&,
 			const label masterPointID,
@@ -505,7 +508,7 @@ namespace tnbLib
 		//- Modify coordinate.
 		//  Notes:
 		//  - inCell = false: add retired point (to end of point list)
-		void modifyPoint
+		FoamDynamicMesh_EXPORT void modifyPoint
 		(
 			const label,
 			const point&,
@@ -519,7 +522,7 @@ namespace tnbLib
 			//  Notes:
 			//  - masterPointID can be < 0 (appended points)
 			//  - inCell = false: add retired point (to end of point list)
-		label addPoint
+		FoamDynamicMesh_EXPORT label addPoint
 		(
 			const point& newPosition,
 			const point& oldPosition,
@@ -530,7 +533,7 @@ namespace tnbLib
 		//- Modify coordinate.
 		//  Notes:
 		//  - inCell = false: add retired point (to end of point list)
-		void modifyPoint
+		FoamDynamicMesh_EXPORT void modifyPoint
 		(
 			const label pointi,
 			const point& newPosition,
@@ -539,11 +542,11 @@ namespace tnbLib
 		);
 
 		//- Remove/merge point.
-		void removePoint(const label, const label);
+		FoamDynamicMesh_EXPORT void removePoint(const label, const label);
 
 		//- Add face to cells. Return new face label.
 		//  own,nei<0, zoneID>=0 : add inactive face (to end of face list)
-		label addFace
+		FoamDynamicMesh_EXPORT label addFace
 		(
 			const face& f,
 			const label own,
@@ -558,7 +561,7 @@ namespace tnbLib
 		);
 
 		//- Modify vertices or cell of face.
-		void modifyFace
+		FoamDynamicMesh_EXPORT void modifyFace
 		(
 			const face& f,
 			const label facei,
@@ -571,10 +574,10 @@ namespace tnbLib
 		);
 
 		//- Remove/merge face.
-		void removeFace(const label, const label);
+		FoamDynamicMesh_EXPORT void removeFace(const label, const label);
 
 		//- Add cell. Return new cell label.
-		label addCell
+		FoamDynamicMesh_EXPORT label addCell
 		(
 			const label masterPointID,
 			const label masterEdgeID,
@@ -584,10 +587,10 @@ namespace tnbLib
 		);
 
 		//- Modify zone of cell
-		void modifyCell(const label, const label zoneID);
+		FoamDynamicMesh_EXPORT void modifyCell(const label, const label zoneID);
 
 		//- Remove/merge cell.
-		void removeCell(const label, const label);
+		FoamDynamicMesh_EXPORT void removeCell(const label, const label);
 
 		//- Explicitly set the number of patches if construct-without-mesh
 		//  used.
@@ -608,7 +611,7 @@ namespace tnbLib
 			//  followed by boundary points. This is not fully consistent
 			//  with upper-triangular ordering of points and edges so
 			//  is only done when explicitly asked for.
-		autoPtr<mapPolyMesh> changeMesh
+		FoamDynamicMesh_EXPORT autoPtr<mapPolyMesh> changeMesh
 		(
 			polyMesh& mesh,
 			const bool inflate,
@@ -618,7 +621,7 @@ namespace tnbLib
 		);
 
 		//- Create new mesh with old mesh patches
-		autoPtr<mapPolyMesh> makeMesh
+		FoamDynamicMesh_EXPORT autoPtr<mapPolyMesh> makeMesh
 		(
 			autoPtr<fvMesh>& newMesh,
 			const IOobject& io,

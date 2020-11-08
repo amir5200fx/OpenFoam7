@@ -76,19 +76,23 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Return the component corresponding to the given component name
-		direction cmpt(const word& cmptName) const;
+		FoamDynamicMesh_EXPORT direction cmpt(const word& cmptName) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("componentVelocityMotionSolver");
+		//TypeName("componentVelocityMotionSolver");
+		static const char* typeName_() { return "componentVelocityMotionSolver"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from mesh and dictionary
-		componentVelocityMotionSolver
+		FoamDynamicMesh_EXPORT componentVelocityMotionSolver
 		(
 			const polyMesh&,
 			const dictionary&,
@@ -96,14 +100,14 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		componentVelocityMotionSolver
+		FoamDynamicMesh_EXPORT componentVelocityMotionSolver
 		(
 			const componentVelocityMotionSolver&
 		);
 
 
 		//- Destructor
-		virtual ~componentVelocityMotionSolver();
+		FoamDynamicMesh_EXPORT virtual ~componentVelocityMotionSolver();
 
 
 		// Member Functions
@@ -116,10 +120,10 @@ namespace tnbLib
 		}
 
 		//- Update local data for geometry changes
-		virtual void movePoints(const pointField&);
+		FoamDynamicMesh_EXPORT virtual void movePoints(const pointField&);
 
 		//-  Update local data for topology changes
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 
 		// Member Operators
