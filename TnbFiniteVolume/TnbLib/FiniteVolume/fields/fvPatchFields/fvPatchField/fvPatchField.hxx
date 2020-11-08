@@ -134,7 +134,7 @@ namespace tnbLib
 		virtual const word& type() const { return typeName; };
 
 		//- Debug switch to disallow the use of genericFvPatchField
-		static int disallowGenericFvPatchField;
+		static FoamFvPatchField_EXPORT int disallowGenericFvPatchField;
 
 
 		// Declare run-time constructor selection tables
