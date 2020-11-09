@@ -156,8 +156,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, tetIndices&);
-		friend Ostream& operator<<(Ostream&, const tetIndices&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, tetIndices&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const tetIndices&);
 	};
 
 
