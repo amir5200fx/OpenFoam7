@@ -58,6 +58,9 @@
     <Filter Include="TnbLib\ODE\ODESolvers\ODESolver">
       <UniqueIdentifier>{6140f080-33c5-48b5-8522-2c414f231897}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\ODE\module">
+      <UniqueIdentifier>{5ea8de0f-5e42-4294-91d6-36520dc5e755}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\ODE\ODESystem\ODESystem.hxx">
@@ -110,6 +113,9 @@
     </ClInclude>
     <ClInclude Include="TnbLib\ODE\ODESolvers\Trapezoid\Trapezoid.hxx">
       <Filter>TnbLib\ODE\ODESolvers\Trapezoid</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\ODE\module\ODE_Module.hxx">
+      <Filter>TnbLib\ODE\module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

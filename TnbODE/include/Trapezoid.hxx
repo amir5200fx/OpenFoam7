@@ -61,13 +61,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("Trapezoid");
+		//TypeName("Trapezoid");
+		static const char* typeName_() { return "Trapezoid"; }
+		static FoamODE_EXPORT const ::tnbLib::word typeName;
+		static FoamODE_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from ODESystem
-		Trapezoid(const ODESystem& ode, const dictionary& dict);
+		FoamODE_EXPORT Trapezoid(const ODESystem& ode, const dictionary& dict);
 
 
 		//- Destructor
@@ -81,10 +85,10 @@ namespace tnbLib
 		using ODESolver::solve;
 
 		//- Resize the ODE solver
-		virtual bool resize();
+		FoamODE_EXPORT virtual bool resize();
 
 		//- Solve a single step dx and return the error
-		virtual scalar solve
+		FoamODE_EXPORT virtual scalar solve
 		(
 			const scalar x0,
 			const scalarField& y0,
@@ -94,7 +98,7 @@ namespace tnbLib
 		) const;
 
 		//- Solve the ODE system and the update the state
-		virtual void solve
+		FoamODE_EXPORT virtual void solve
 		(
 			scalar& x,
 			scalarField& y,

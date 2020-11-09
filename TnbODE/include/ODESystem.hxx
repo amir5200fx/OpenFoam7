@@ -65,10 +65,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Return the number of equations in the system
-		virtual label nEqns() const = 0;
+		FoamODE_EXPORT virtual label nEqns() const = 0;
 
 		//- Calculate the derivatives in dydx
-		virtual void derivatives
+		FoamODE_EXPORT virtual void derivatives
 		(
 			const scalar x,
 			const scalarField& y,
@@ -77,7 +77,7 @@ namespace tnbLib
 
 		//- Calculate the Jacobian of the system
 		//  Need by the stiff-system solvers
-		virtual void jacobian
+		FoamODE_EXPORT virtual void jacobian
 		(
 			const scalar x,
 			const scalarField& y,

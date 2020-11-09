@@ -53,19 +53,19 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -107,9 +107,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\ODE\ODESolvers\adaptiveSolver;$(ProjectDir)TnbLib\ODE\ODESolvers\Euler;$(ProjectDir)TnbLib\ODE\ODESolvers\EulerSI;$(ProjectDir)TnbLib\ODE\ODESolvers\ODESolver;$(ProjectDir)TnbLib\ODE\ODESolvers\RKCK45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKDP45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKF45;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas23;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas34;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock12;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock23;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock34;$(ProjectDir)TnbLib\ODE\ODESolvers\seulex;$(ProjectDir)TnbLib\ODE\ODESolvers\SIBS;$(ProjectDir)TnbLib\ODE\ODESolvers\Trapezoid;$(ProjectDir)TnbLib\ODE\ODESystem;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\ODE\ODESolvers\adaptiveSolver;$(ProjectDir)TnbLib\ODE\ODESolvers\Euler;$(ProjectDir)TnbLib\ODE\ODESolvers\EulerSI;$(ProjectDir)TnbLib\ODE\ODESolvers\ODESolver;$(ProjectDir)TnbLib\ODE\ODESolvers\RKCK45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKDP45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKF45;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas23;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas34;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock12;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock23;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock34;$(ProjectDir)TnbLib\ODE\ODESolvers\seulex;$(ProjectDir)TnbLib\ODE\ODESolvers\SIBS;$(ProjectDir)TnbLib\ODE\ODESolvers\Trapezoid;$(ProjectDir)TnbLib\ODE\ODESystem;$(ProjectDir)TnbLib\ODE\module;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamODE_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,9 +129,11 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\ODE\ODESolvers\adaptiveSolver;$(ProjectDir)TnbLib\ODE\ODESolvers\Euler;$(ProjectDir)TnbLib\ODE\ODESolvers\EulerSI;$(ProjectDir)TnbLib\ODE\ODESolvers\ODESolver;$(ProjectDir)TnbLib\ODE\ODESolvers\RKCK45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKDP45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKF45;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas23;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas34;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock12;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock23;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock34;$(ProjectDir)TnbLib\ODE\ODESolvers\seulex;$(ProjectDir)TnbLib\ODE\ODESolvers\SIBS;$(ProjectDir)TnbLib\ODE\ODESolvers\Trapezoid;$(ProjectDir)TnbLib\ODE\ODESystem;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\ODE\ODESolvers\adaptiveSolver;$(ProjectDir)TnbLib\ODE\ODESolvers\Euler;$(ProjectDir)TnbLib\ODE\ODESolvers\EulerSI;$(ProjectDir)TnbLib\ODE\ODESolvers\ODESolver;$(ProjectDir)TnbLib\ODE\ODESolvers\RKCK45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKDP45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKF45;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas23;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas34;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock12;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock23;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock34;$(ProjectDir)TnbLib\ODE\ODESolvers\seulex;$(ProjectDir)TnbLib\ODE\ODESolvers\SIBS;$(ProjectDir)TnbLib\ODE\ODESolvers\Trapezoid;$(ProjectDir)TnbLib\ODE\ODESystem;$(ProjectDir)TnbLib\ODE\module;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamODE_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -184,9 +188,11 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\ODE\ODESolvers\adaptiveSolver;$(ProjectDir)TnbLib\ODE\ODESolvers\Euler;$(ProjectDir)TnbLib\ODE\ODESolvers\EulerSI;$(ProjectDir)TnbLib\ODE\ODESolvers\ODESolver;$(ProjectDir)TnbLib\ODE\ODESolvers\RKCK45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKDP45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKF45;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas23;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas34;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock12;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock23;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock34;$(ProjectDir)TnbLib\ODE\ODESolvers\seulex;$(ProjectDir)TnbLib\ODE\ODESolvers\SIBS;$(ProjectDir)TnbLib\ODE\ODESolvers\Trapezoid;$(ProjectDir)TnbLib\ODE\ODESystem;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\ODE\ODESolvers\adaptiveSolver;$(ProjectDir)TnbLib\ODE\ODESolvers\Euler;$(ProjectDir)TnbLib\ODE\ODESolvers\EulerSI;$(ProjectDir)TnbLib\ODE\ODESolvers\ODESolver;$(ProjectDir)TnbLib\ODE\ODESolvers\RKCK45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKDP45;$(ProjectDir)TnbLib\ODE\ODESolvers\RKF45;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas23;$(ProjectDir)TnbLib\ODE\ODESolvers\rodas34;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock12;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock23;$(ProjectDir)TnbLib\ODE\ODESolvers\Rosenbrock34;$(ProjectDir)TnbLib\ODE\ODESolvers\seulex;$(ProjectDir)TnbLib\ODE\ODESolvers\SIBS;$(ProjectDir)TnbLib\ODE\ODESolvers\Trapezoid;$(ProjectDir)TnbLib\ODE\ODESystem;$(ProjectDir)TnbLib\ODE\module;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamODE_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -195,6 +201,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="TnbLib\ODE\module\ODE_Module.hxx" />
     <ClInclude Include="TnbLib\ODE\ODESolvers\adaptiveSolver\adaptiveSolver.hxx" />
     <ClInclude Include="TnbLib\ODE\ODESolvers\EulerSI\EulerSI.hxx" />
     <ClInclude Include="TnbLib\ODE\ODESolvers\Euler\Euler.hxx" />
@@ -233,6 +240,11 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\ODE\ODESolvers\SIBS\SIMPR.cxx" />
     <ClCompile Include="TnbLib\ODE\ODESolvers\Trapezoid\Trapezoid.cxx" />
     <ClCompile Include="TnbLib\ODE\ODESystem\ODESystem.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TnbBase\TnbBase.vcxproj">
+      <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
