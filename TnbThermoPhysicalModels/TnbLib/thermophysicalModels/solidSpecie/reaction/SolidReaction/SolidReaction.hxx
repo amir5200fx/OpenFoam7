@@ -41,6 +41,16 @@ SourceFiles
 #include <speciesTable.hxx>
 #include <Reaction.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamSolidReaction_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSolidReaction_EXPORT_DEFINE
+#define FoamSolidReaction_EXPORT __declspec(dllexport)
+#else
+#define FoamSolidReaction_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -90,7 +100,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("SolidReaction");
+		//TypeName("SolidReaction");
+		static const char* typeName_() { return "SolidReaction"; }
+		static FoamSolidReaction_EXPORT const ::tnbLib::word typeName;
+		static FoamSolidReaction_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

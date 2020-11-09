@@ -691,6 +691,9 @@
     <Filter Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\chemPointISAT">
       <UniqueIdentifier>{dabe4087-0d10-4d27-8c79-8cb4a0a60757}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\thermophysicalModels\module">
+      <UniqueIdentifier>{b7e1fe80-3a97-491d-8e29-a654673b9d86}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\thermophysicalModels\basic\basicThermo\basicThermo.hxx">
@@ -1769,6 +1772,15 @@
     </ClInclude>
     <ClInclude Include="TnbLib\thermophysicalModels\specie\thermo\thermo\thermo_Imp.hxx">
       <Filter>TnbLib\thermophysicalModels\specie\thermo\thermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\module\ThermophysicalModels_Module.hxx">
+      <Filter>TnbLib\thermophysicalModels\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\functionObjects\specieReactionRates\specieReactionRatesI.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\functionObjects\specieReactionRates</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader\chemkinReaderI.hxx">
+      <Filter>TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

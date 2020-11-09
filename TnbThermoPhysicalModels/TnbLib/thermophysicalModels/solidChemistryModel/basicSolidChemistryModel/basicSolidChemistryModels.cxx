@@ -30,6 +30,8 @@ Description
 
 \*---------------------------------------------------------------------------*/
 
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <makeSolidChemistryModel.hxx>
 
 #include <pyrolysisChemistryModel.hxx>

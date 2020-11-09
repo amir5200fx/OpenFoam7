@@ -29,6 +29,8 @@ Description
 
 \*---------------------------------------------------------------------------*/
 
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <makeChemistryModel.hxx>
 
 #include <psiReactionThermo.hxx>

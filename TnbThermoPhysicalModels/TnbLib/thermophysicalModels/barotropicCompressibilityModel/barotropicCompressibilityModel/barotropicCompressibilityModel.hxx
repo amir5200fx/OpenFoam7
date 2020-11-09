@@ -75,12 +75,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("barotropicCompressibilityModel");
+		//TypeName("barotropicCompressibilityModel");
+		static const char* typeName_() { return "barotropicCompressibilityModel"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			barotropicCompressibilityModel,
@@ -91,13 +95,70 @@ namespace tnbLib
 				const word& psiName
 				),
 				(compressibilityProperties, gamma, psiName)
-		);
+		);*/
+
+		typedef autoPtr<barotropicCompressibilityModel> (*dictionaryConstructorPtr)(
+			const dictionary& compressibilityProperties, const volScalarField& gamma, const word& psiName);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamThermophysicalModels_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructdictionaryConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroydictionaryConstructorTables();
+
+		template <class barotropicCompressibilityModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<barotropicCompressibilityModel> New(const dictionary& compressibilityProperties,
+			                                                   const volScalarField& gamma, const word& psiName)
+			{
+				return autoPtr<barotropicCompressibilityModel>(
+					new barotropicCompressibilityModelType(compressibilityProperties, gamma, psiName));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = barotropicCompressibilityModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"barotropicCompressibilityModel" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class barotropicCompressibilityModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<barotropicCompressibilityModel> New(const dictionary& compressibilityProperties,
+			                                                   const volScalarField& gamma, const word& psiName)
+			{
+				return autoPtr<barotropicCompressibilityModel>(
+					new barotropicCompressibilityModelType(compressibilityProperties, gamma, psiName));
+			}
+
+			addRemovabledictionaryConstructorToTable(
+				const word& lookup = barotropicCompressibilityModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from components
-		barotropicCompressibilityModel
+		FoamThermophysicalModels_EXPORT barotropicCompressibilityModel
 		(
 			const dictionary& compressibilityProperties,
 			const volScalarField& gamma,
@@ -105,13 +166,13 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		barotropicCompressibilityModel(const barotropicCompressibilityModel&);
+		FoamThermophysicalModels_EXPORT barotropicCompressibilityModel(const barotropicCompressibilityModel&);
 
 
 		// Selectors
 
 			//- Return a reference to the selected compressibility model
-		static autoPtr<barotropicCompressibilityModel> New
+		static FoamThermophysicalModels_EXPORT autoPtr<barotropicCompressibilityModel> New
 		(
 			const dictionary& compressibilityProperties,
 			const volScalarField& gamma,
@@ -139,16 +200,16 @@ namespace tnbLib
 		}
 
 		//- Correct the compressibility
-		virtual void correct() = 0;
+		FoamThermophysicalModels_EXPORT virtual void correct() = 0;
 
 		//- Read compressibilityProperties dictionary
-		virtual bool read(const dictionary& compressibilityProperties) = 0;
+		FoamThermophysicalModels_EXPORT virtual bool read(const dictionary& compressibilityProperties) = 0;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const barotropicCompressibilityModel&) = delete;
+		FoamThermophysicalModels_EXPORT void operator=(const barotropicCompressibilityModel&) = delete;
 	};
 
 

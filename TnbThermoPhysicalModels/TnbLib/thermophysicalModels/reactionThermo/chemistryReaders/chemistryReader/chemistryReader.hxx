@@ -42,6 +42,16 @@ SourceFiles
 #include <ReactionList.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamchemistryReader_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamchemistryReader_EXPORT_DEFINE
+#define FoamchemistryReader_EXPORT __declspec(dllexport)
+#else
+#define FoamchemistryReader_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -60,7 +70,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("chemistryReader");
+		//TypeName("chemistryReader");
+		static const char* typeName_() { return "chemistryReader"; }
+		static FoamchemistryReader_EXPORT const ::tnbLib::word typeName;
+		static FoamchemistryReader_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- The type of thermo package the reader was instantiated for
 		typedef ThermoType thermoType;
@@ -78,7 +92,7 @@ namespace tnbLib
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			chemistryReader,
@@ -88,7 +102,60 @@ namespace tnbLib
 				speciesTable& species
 				),
 				(thermoDict, species)
-		);
+		);*/
+
+		typedef autoPtr<chemistryReader> (*dictionaryConstructorPtr)(const dictionary& thermoDict,
+		                                                             speciesTable& species);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamchemistryReader_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamchemistryReader_EXPORT void constructdictionaryConstructorTables();
+		static FoamchemistryReader_EXPORT void destroydictionaryConstructorTables();
+
+		template <class chemistryReaderType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<chemistryReader> New(const dictionary& thermoDict, speciesTable& species)
+			{
+				return autoPtr<chemistryReader>(new chemistryReaderType(thermoDict, species));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = chemistryReaderType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "chemistryReader" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class chemistryReaderType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<chemistryReader> New(const dictionary& thermoDict, speciesTable& species)
+			{
+				return autoPtr<chemistryReader>(new chemistryReaderType(thermoDict, species));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = chemistryReaderType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Selectors

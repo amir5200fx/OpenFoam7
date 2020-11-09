@@ -72,6 +72,16 @@ SourceFiles
 
 #include <specieElement.hxx>  // added by amir
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamTDACChemistryModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamTDACChemistryModel_EXPORT_DEFINE
+#define FoamTDACChemistryModel_EXPORT __declspec(dllexport)
+#else
+#define FoamTDACChemistryModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -144,7 +154,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("TDAC");
+		//TypeName("TDAC");
+		static const char* typeName_() { return "TDAC"; }
+		static FoamTDACChemistryModel_EXPORT const ::tnbLib::word typeName;
+		static FoamTDACChemistryModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

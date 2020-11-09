@@ -23,6 +23,8 @@ License
 
 \*---------------------------------------------------------------------------*/
 
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <makeThermo.hxx>
 #include <psiThermo.hxx>
 

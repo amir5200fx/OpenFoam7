@@ -257,7 +257,7 @@ void tnbLib::liquidProperties::write(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Ostream Operator  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const liquidProperties& l)
+FoamThermophysicalModels_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const liquidProperties& l)
 {
 	l.writeData(os);
 	return os;

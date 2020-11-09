@@ -77,7 +77,11 @@ namespace tnbLib
 	public:
 
 		//- Run time type information
-		TypeName("basicMultiComponentMixture");
+		//TypeName("basicMultiComponentMixture");
+		static const char* typeName_() { return "basicMultiComponentMixture"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		//- The base class of the mixture
@@ -87,7 +91,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from dictionary, species names, mesh and phase name
-		basicMultiComponentMixture
+		FoamThermophysicalModels_EXPORT basicMultiComponentMixture
 		(
 			const dictionary&,
 			const wordList& specieNames,

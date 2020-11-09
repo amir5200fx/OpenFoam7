@@ -83,16 +83,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("SLGThermo");
+		//TypeName("SLGThermo");
+		static const char* typeName_() { return "SLGThermo"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from mesh
-		SLGThermo(const fvMesh& mesh, fluidThermo& thermo);
+		FoamThermophysicalModels_EXPORT SLGThermo(const fvMesh& mesh, fluidThermo& thermo);
 
 
 		//- Destructor
-		virtual ~SLGThermo();
+		FoamThermophysicalModels_EXPORT virtual ~SLGThermo();
 
 
 		// Member Functions
@@ -100,36 +104,36 @@ namespace tnbLib
 			// Access
 
 				//- Return reference to the thermo database
-		const fluidThermo& thermo() const;
+		FoamThermophysicalModels_EXPORT const fluidThermo& thermo() const;
 
 		//- Return reference to the gaseous components
-		const basicSpecieMixture& carrier() const;
+		FoamThermophysicalModels_EXPORT const basicSpecieMixture& carrier() const;
 
 		//- Return reference to the global (additional) liquids
-		const liquidMixtureProperties& liquids() const;
+		FoamThermophysicalModels_EXPORT const liquidMixtureProperties& liquids() const;
 
 		//- Return reference to the global (additional) solids
-		const solidMixtureProperties& solids() const;
+		FoamThermophysicalModels_EXPORT const solidMixtureProperties& solids() const;
 
 
 		// Index retrieval
 
 			//- Index of carrier component
-		label carrierId
+		FoamThermophysicalModels_EXPORT label carrierId
 		(
 			const word& cmptName,
 			bool allowNotFound = false
 		) const;
 
 		//- Index of liquid component
-		label liquidId
+		FoamThermophysicalModels_EXPORT label liquidId
 		(
 			const word& cmptName,
 			bool allowNotFound = false
 		) const;
 
 		//- Index of solid component
-		label solidId
+		FoamThermophysicalModels_EXPORT label solidId
 		(
 			const word& cmptName,
 			bool allowNotFound = false
@@ -139,13 +143,13 @@ namespace tnbLib
 		// Checks
 
 			//- Thermo database has multi-component carrier flag
-		bool hasMultiComponentCarrier() const;
+		FoamThermophysicalModels_EXPORT bool hasMultiComponentCarrier() const;
 
 		//- Thermo database has liquid components flag
-		bool hasLiquids() const;
+		FoamThermophysicalModels_EXPORT bool hasLiquids() const;
 
 		//- Thermo database has solid components flag
-		bool hasSolids() const;
+		FoamThermophysicalModels_EXPORT bool hasSolids() const;
 
 
 		// IO

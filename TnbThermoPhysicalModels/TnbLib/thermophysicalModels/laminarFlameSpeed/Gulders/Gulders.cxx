@@ -48,7 +48,7 @@ tnbLib::laminarFlameSpeedModels::Gulders::~Gulders()
 
 // * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
 
-inline tnbLib::scalar tnbLib::laminarFlameSpeedModels::Gulders::SuRef
+tnbLib::scalar tnbLib::laminarFlameSpeedModels::Gulders::SuRef
 (
 	scalar phi
 ) const
@@ -64,7 +64,7 @@ inline tnbLib::scalar tnbLib::laminarFlameSpeedModels::Gulders::SuRef
 }
 
 
-inline tnbLib::scalar tnbLib::laminarFlameSpeedModels::Gulders::Su0pTphi
+tnbLib::scalar tnbLib::laminarFlameSpeedModels::Gulders::Su0pTphi
 (
 	scalar p,
 	scalar Tu,
