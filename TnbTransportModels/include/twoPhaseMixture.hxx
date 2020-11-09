@@ -65,7 +65,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		twoPhaseMixture
+		FoamTransportModels_EXPORT twoPhaseMixture
 		(
 			const fvMesh& mesh,
 			const dictionary& dict

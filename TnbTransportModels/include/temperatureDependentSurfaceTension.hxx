@@ -91,13 +91,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("temperatureDependent");
+			//TypeName("temperatureDependent");
+			static const char* typeName_() { return "temperatureDependent"; }
+			static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+			static FoamTransportModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from dictionary and mesh
-			temperatureDependent
+			FoamTransportModels_EXPORT temperatureDependent
 			(
 				const dictionary& dict,
 				const fvMesh& mesh
@@ -105,19 +109,19 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~temperatureDependent();
+			FoamTransportModels_EXPORT virtual ~temperatureDependent();
 
 
 			// Member Functions
 
 				//- Surface tension coefficient
-			virtual tmp<volScalarField> sigma() const;
+			FoamTransportModels_EXPORT virtual tmp<volScalarField> sigma() const;
 
 			//- Update surface tension coefficient from given dictionary
-			virtual bool readDict(const dictionary& dict);
+			FoamTransportModels_EXPORT virtual bool readDict(const dictionary& dict);
 
 			//- Write in dictionary format
-			virtual bool writeData(Ostream& os) const;
+			FoamTransportModels_EXPORT virtual bool writeData(Ostream& os) const;
 		};
 
 

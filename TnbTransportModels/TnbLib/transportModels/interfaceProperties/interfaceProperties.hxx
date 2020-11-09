@@ -81,26 +81,26 @@ namespace tnbLib
 			//- Correction for the boundary condition on the unit normal nHat on
 			//  walls to produce the correct contact dynamic angle
 			//  calculated from the component of U parallel to the wall
-		void correctContactAngle
+		FoamTransportModels_EXPORT void correctContactAngle
 		(
 			surfaceVectorField::Boundary& nHat,
 			const surfaceVectorField::Boundary& gradAlphaf
 		) const;
 
 		//- Re-calculate the interface curvature
-		void calculateK();
+		FoamTransportModels_EXPORT void calculateK();
 
 
 	public:
 
 		//- Conversion factor for degrees into radians
-		static const scalar convertToRad;
+		static FoamTransportModels_EXPORT const scalar convertToRad;
 
 
 		// Constructors
 
 			//- Construct from volume fraction field gamma and IOdictionary
-		interfaceProperties
+		FoamTransportModels_EXPORT interfaceProperties
 		(
 			const volScalarField& alpha1,
 			const volVectorField& U,
@@ -108,7 +108,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		interfaceProperties(const interfaceProperties&) = delete;
+		FoamTransportModels_EXPORT interfaceProperties(const interfaceProperties&) = delete;
 
 
 		// Member Functions
@@ -128,24 +128,24 @@ namespace tnbLib
 			return nHatf_;
 		}
 
-		tmp<volScalarField> sigmaK() const;
+		FoamTransportModels_EXPORT tmp<volScalarField> sigmaK() const;
 
-		tmp<surfaceScalarField> surfaceTensionForce() const;
+		FoamTransportModels_EXPORT tmp<surfaceScalarField> surfaceTensionForce() const;
 
 		//- Indicator of the proximity of the interface
 		//  Field values are 1 near and 0 away for the interface.
-		tmp<volScalarField> nearInterface() const;
+		FoamTransportModels_EXPORT tmp<volScalarField> nearInterface() const;
 
-		void correct();
+		FoamTransportModels_EXPORT void correct();
 
 		//- Read transportProperties dictionary
-		bool read();
+		FoamTransportModels_EXPORT bool read();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const interfaceProperties&) = delete;
+		FoamTransportModels_EXPORT void operator=(const interfaceProperties&) = delete;
 	};
 
 

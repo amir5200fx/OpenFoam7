@@ -79,7 +79,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("alphaContactAngle");
+		//TypeName("alphaContactAngle");
+		static const char* typeName_() { return "alphaContactAngle"; }
+		static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+		static FoamTransportModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Alpha limit options
 		enum limitControls
@@ -90,20 +94,20 @@ namespace tnbLib
 			lcAlpha
 		};
 
-		static const NamedEnum<limitControls, 4> limitControlNames_;
+		static FoamTransportModels_EXPORT const NamedEnum<limitControls, 4> limitControlNames_;
 		limitControls limit_;
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		alphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT alphaContactAngleFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		alphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT alphaContactAngleFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -112,7 +116,7 @@ namespace tnbLib
 
 		//- Construct by mapping given alphaContactAngleFvPatchScalarField
 		//  onto a new patch
-		alphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT alphaContactAngleFvPatchScalarField
 		(
 			const alphaContactAngleFvPatchScalarField&,
 			const fvPatch&,
@@ -121,13 +125,13 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		alphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT alphaContactAngleFvPatchScalarField
 		(
 			const alphaContactAngleFvPatchScalarField&
 		);
 
 		//- Copy constructor setting internal field reference
-		alphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT alphaContactAngleFvPatchScalarField
 		(
 			const alphaContactAngleFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -137,20 +141,20 @@ namespace tnbLib
 		// Member Functions
 
 			//- Return the contact angle
-		virtual tmp<scalarField> theta
+		FoamTransportModels_EXPORT virtual tmp<scalarField> theta
 		(
 			const fvPatchVectorField& Up,
 			const fvsPatchVectorField& nHat
 		) const = 0;
 
 		//- Evaluate the patch field
-		virtual void evaluate
+		FoamTransportModels_EXPORT virtual void evaluate
 		(
 			const Pstream::commsTypes commsType = Pstream::commsTypes::blocking
 		);
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamTransportModels_EXPORT virtual void write(Ostream&) const;
 	};
 
 

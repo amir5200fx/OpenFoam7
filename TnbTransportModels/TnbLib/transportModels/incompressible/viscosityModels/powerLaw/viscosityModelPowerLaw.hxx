@@ -70,19 +70,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Calculate and return the laminar viscosity
-			tmp<volScalarField> calcNu() const;
+			FoamTransportModels_EXPORT tmp<volScalarField> calcNu() const;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("powerLaw");
+			//TypeName("powerLaw");
+			static const char* typeName_() { return "powerLaw"; }
+			static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+			static FoamTransportModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			powerLaw
+			FoamTransportModels_EXPORT powerLaw
 			(
 				const word& name,
 				const dictionary& viscosityProperties,
@@ -117,7 +121,7 @@ namespace tnbLib
 			}
 
 			//- Read transportProperties dictionary
-			virtual bool read(const dictionary& viscosityProperties);
+			FoamTransportModels_EXPORT virtual bool read(const dictionary& viscosityProperties);
 		};
 
 

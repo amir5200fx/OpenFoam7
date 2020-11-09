@@ -1,3 +1,6 @@
+#define FoamPhiScheme_EXPORT_DEFINE
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <interfaceCompression.hxx>
 
 #include <PhiScheme.hxx>

@@ -97,12 +97,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("surfaceTensionModel");
+		//TypeName("surfaceTensionModel");
+		static const char* typeName_() { return "surfaceTensionModel"; }
+		static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+		static FoamTransportModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare runtime construction
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			surfaceTensionModel,
@@ -112,28 +116,80 @@ namespace tnbLib
 				const fvMesh& mesh
 				),
 				(dict, mesh)
-		);
+		);*/
+
+		typedef autoPtr<surfaceTensionModel> (*dictionaryConstructorPtr)(const dictionary& dict, const fvMesh& mesh);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamTransportModels_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamTransportModels_EXPORT void constructdictionaryConstructorTables();
+		static FoamTransportModels_EXPORT void destroydictionaryConstructorTables();
+
+		template <class surfaceTensionModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<surfaceTensionModel> New(const dictionary& dict, const fvMesh& mesh)
+			{
+				return autoPtr<surfaceTensionModel>(new surfaceTensionModelType(dict, mesh));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = surfaceTensionModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "surfaceTensionModel"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class surfaceTensionModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<surfaceTensionModel> New(const dictionary& dict, const fvMesh& mesh)
+			{
+				return autoPtr<surfaceTensionModel>(new surfaceTensionModelType(dict, mesh));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = surfaceTensionModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Static Data Members
 
 			//- Surface tension coefficient dimensions
-		static const dimensionSet dimSigma;
+		static FoamTransportModels_EXPORT const dimensionSet dimSigma;
 
 
 		// Constructors
 
 			// Construct from mesh
-		surfaceTensionModel(const fvMesh& mesh);
+		FoamTransportModels_EXPORT surfaceTensionModel(const fvMesh& mesh);
 
 
 		//- Destructor
-		virtual ~surfaceTensionModel();
+		FoamTransportModels_EXPORT virtual ~surfaceTensionModel();
 
 
 		// Selectors
 
-		static autoPtr<surfaceTensionModel> New
+		static FoamTransportModels_EXPORT autoPtr<surfaceTensionModel> New
 		(
 			const dictionary& dict,
 			const fvMesh& mesh
@@ -143,13 +199,13 @@ namespace tnbLib
 		// Member Functions
 
 			//- Surface tension coefficient
-		virtual tmp<volScalarField> sigma() const = 0;
+		FoamTransportModels_EXPORT virtual tmp<volScalarField> sigma() const = 0;
 
 		//- Update surface tension coefficient from given dictionary
-		virtual bool readDict(const dictionary& dict) = 0;
+		FoamTransportModels_EXPORT virtual bool readDict(const dictionary& dict) = 0;
 
 		//- Write in dictionary format
-		virtual bool writeData(Ostream& os) const = 0;
+		FoamTransportModels_EXPORT virtual bool writeData(Ostream& os) const = 0;
 	};
 
 
