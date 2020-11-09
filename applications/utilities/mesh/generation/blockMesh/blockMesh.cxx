@@ -48,6 +48,8 @@ Usage
 
 \*---------------------------------------------------------------------------*/
 
+#include <DynamicMesh_Module.hxx>
+
 #include <Time.hxx>
 #include <IOdictionary.hxx>
 #include <IOPtrList.hxx>
@@ -73,7 +75,6 @@ using namespace tnbLib;
 
 int main(int argc, char *argv[])
 {
-	cout << "helloooooo" << std::endl;
 	argList::noParallel();
 	argList::addBoolOption
 	(
@@ -135,8 +136,6 @@ int main(int argc, char *argv[])
 	// Search for the appropriate blockMesh dictionary....
 
 	fileName dictPath;
-	cout << "injaaaaaaaaaaaaaa1" << std::endl;
-	system("pause");
 	// Check if the dictionary is specified on the command-line
 	if (args.optionFound("dict"))
 	{
@@ -168,8 +167,7 @@ int main(int argc, char *argv[])
 	{
 		dictPath = runTime.system() / regionPath / dictName;
 	}
-	cout << "injaaaaaaaaaaaaaa2" << std::endl;
-	system("pause");
+
 	if (!args.optionFound("noClean"))
 	{
 		fileName polyMeshPath
@@ -202,8 +200,7 @@ int main(int argc, char *argv[])
 		IOobject::NO_WRITE,
 		false
 	);
-	cout << "injaaaaaaaaaaaaaa3" << std::endl;
-	system("pause");
+
 	if (!meshDictIO.typeHeaderOk<IOdictionary>(true))
 	{
 		FatalErrorInFunction
@@ -216,16 +213,14 @@ int main(int argc, char *argv[])
 		<< meshDictIO.objectPath() << endl;
 
 	IOdictionary meshDict(meshDictIO);
-	cout << "injaaaaaaaaaaaaaa4" << std::endl;
+
 	auto keys = meshDict.keys();
 	for (int i = 0; i < keys.size(); i++)
 	{
 		std::cout << keys[i] << std::endl;
 	}
-	system("pause");
+
 	blockMesh blocks(meshDict, regionName);
-	cout << "injaaaaaaaaaaaaaa5" << std::endl;
-	system("pause");
 
 	if (args.optionFound("blockTopology"))
 	{
@@ -455,7 +450,6 @@ int main(int argc, char *argv[])
 	}
 
 	Info << "\nEnd\n" << endl;
-	system("pause");
 	return 0;
 }
 
