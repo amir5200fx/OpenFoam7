@@ -872,6 +872,18 @@
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addPatchCellLayer.cxx">
       <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\addCellLayer.cxx">
+      <Filter>TnbLib\dynamicMesh\layerAdditionRemoval</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\removeCellLayer.cxx">
+      <Filter>TnbLib\dynamicMesh\layerAdditionRemoval</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\setLayerPairing.cxx">
+      <Filter>TnbLib\dynamicMesh\layerAdditionRemoval</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\layerAdditionRemovalNamedEnum.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

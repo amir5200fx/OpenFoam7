@@ -218,16 +218,16 @@ namespace tnbLib
 		FoamDynamicMesh_EXPORT const polyTopoChanger& topoChanger() const;
 
 		//- Check for topology change
-		virtual bool changeTopology() const = 0;
+		FoamDynamicMesh_EXPORT virtual bool changeTopology() const = 0;
 
 		//- Insert the topological change instructions
-		virtual void setRefinement(polyTopoChange&) const = 0;
+		FoamDynamicMesh_EXPORT virtual void setRefinement(polyTopoChange&) const = 0;
 
 		//- Modify motion points to comply with the topological change
-		virtual void modifyMotionPoints(pointField& motionPoints) const = 0;
+		FoamDynamicMesh_EXPORT virtual void modifyMotionPoints(pointField& motionPoints) const = 0;
 
 		//- Force recalculation of locally stored data on topological change
-		virtual void updateMesh(const mapPolyMesh&) = 0;
+		FoamDynamicMesh_EXPORT virtual void updateMesh(const mapPolyMesh&) = 0;
 
 
 		// Activation and deactivation
@@ -251,16 +251,16 @@ namespace tnbLib
 
 
 		//- Write
-		virtual void write(Ostream&) const = 0;
+		FoamDynamicMesh_EXPORT virtual void write(Ostream&) const = 0;
 
 		//- Write dictionary
-		virtual void writeDict(Ostream&) const = 0;
+		FoamDynamicMesh_EXPORT virtual void writeDict(Ostream&) const = 0;
 
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const polyMeshModifier&) = delete;
+		//- Disallow default bitwise assignment
+		FoamDynamicMesh_EXPORT void operator=(const polyMeshModifier&) = delete;
 
 
 		// Ostream Operator

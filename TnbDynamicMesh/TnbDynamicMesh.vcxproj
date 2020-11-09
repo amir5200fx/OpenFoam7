@@ -301,7 +301,10 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClCompile Include="TnbLib\dynamicMesh\fvMeshDistribute\fvMeshDistribute.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\fvMeshSubset\fvMeshSubset.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\fvMeshTools\fvMeshTools.cxx" />
+    <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\addCellLayer.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\layerAdditionRemoval.cxx" />
+    <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\removeCellLayer.cxx" />
+    <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\setLayerPairing.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\badQualityToCell\badQualityToCell.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\motionSmoother\badQualityToFace\badQualityToFace.cxx" />
@@ -374,6 +377,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch\enrichedPatchMasterPoints.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch\enrichedPatchPointMap.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\enrichedPatch\enrichedPatchPointPoints.cxx" />
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\layerAdditionRemovalNamedEnum.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\slidingInterface.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\slidingInterfaceAttachedAddressing.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\slidingInterfaceClearCouple.cxx" />

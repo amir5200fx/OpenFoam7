@@ -1,4 +1,4 @@
-#define FoamNamedEnum_EXPORT_DEFINE
+//#define FoamNamedEnum_EXPORT_DEFINE
 
 #include <slidingInterface.hxx>
 
@@ -16,31 +16,31 @@
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
-namespace tnbLib
-{
-	defineTypeNameAndDebug(slidingInterface, 0);
-	addToRunTimeSelectionTable
-	(
-		polyMeshModifier,
-		slidingInterface,
-		dictionary
-	);
-
-	template<>
-	const char* tnbLib::NamedEnum
-		<
-		tnbLib::slidingInterface::typeOfMatch,
-		2
-		>::names[] =
-	{
-		"integral",
-		"partial"
-	};
-}
-
-
-const tnbLib::NamedEnum<tnbLib::slidingInterface::typeOfMatch, 2>
-tnbLib::slidingInterface::typeOfMatchNames_;
+//namespace tnbLib
+//{
+//	defineTypeNameAndDebug(slidingInterface, 0);
+//	addToRunTimeSelectionTable
+//	(
+//		polyMeshModifier,
+//		slidingInterface,
+//		dictionary
+//	);
+//
+//	template<>
+//	const char* tnbLib::NamedEnum
+//		<
+//		tnbLib::slidingInterface::typeOfMatch,
+//		2
+//		>::names[] =
+//	{
+//		"integral",
+//		"partial"
+//	};
+//}
+//
+//
+//const tnbLib::NamedEnum<tnbLib::slidingInterface::typeOfMatch, 2>
+//tnbLib::slidingInterface::typeOfMatchNames_;
 
 
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
