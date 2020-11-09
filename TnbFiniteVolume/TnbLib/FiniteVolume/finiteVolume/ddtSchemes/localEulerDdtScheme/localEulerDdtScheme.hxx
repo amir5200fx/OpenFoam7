@@ -78,13 +78,13 @@ namespace tnbLib
 		public:
 
 			//- Name of the reciprocal local time-step field
-			static word rDeltaTName;
+			static FoamFiniteVolume_EXPORT word rDeltaTName;
 
 			//- Name of the reciprocal local face time-step field
-			static word rDeltaTfName;
+			static FoamFiniteVolume_EXPORT word rDeltaTfName;
 
 			//- Name of the reciprocal local sub-cycling time-step field
-			static word rSubDeltaTName;
+			static FoamFiniteVolume_EXPORT word rSubDeltaTName;
 
 
 			// Constructors
@@ -96,19 +96,19 @@ namespace tnbLib
 			// Member Functions
 
 				//- Return true if LTS is enabled
-			static bool enabled(const fvMesh& mesh);
+			static FoamFiniteVolume_EXPORT bool enabled(const fvMesh& mesh);
 
 			//- Return the reciprocal of the local time-step
 			//  looked-up from the objectRegistry
-			static const volScalarField& localRDeltaT(const fvMesh& mesh);
+			static FoamFiniteVolume_EXPORT const volScalarField& localRDeltaT(const fvMesh& mesh);
 
 			//- Return the reciprocal of the local face time-step
 			//  looked-up from the objectRegistry
-			static const surfaceScalarField& localRDeltaTf(const fvMesh& mesh);
+			static FoamFiniteVolume_EXPORT const surfaceScalarField& localRDeltaTf(const fvMesh& mesh);
 
 			//- Calculate and return the reciprocal of the local sub-cycling
 			//  time-step
-			static tmp<volScalarField> localRSubDeltaT
+			static FoamFiniteVolume_EXPORT tmp<volScalarField> localRSubDeltaT
 			(
 				const fvMesh& mesh,
 				const label nAlphaSubCycles
@@ -276,21 +276,21 @@ namespace tnbLib
 
 
 		template<>
-		tmp<surfaceScalarField> localEulerDdtScheme<scalar>::fvcDdtUfCorr
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> localEulerDdtScheme<scalar>::fvcDdtUfCorr
 		(
 			const GeometricField<scalar, fvPatchField, volMesh>& U,
 			const GeometricField<scalar, fvsPatchField, surfaceMesh>& Uf
 		);
 
 		template<>
-		tmp<surfaceScalarField> localEulerDdtScheme<scalar>::fvcDdtPhiCorr
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> localEulerDdtScheme<scalar>::fvcDdtPhiCorr
 		(
 			const volScalarField& U,
 			const surfaceScalarField& phi
 		);
 
 		template<>
-		tmp<surfaceScalarField> localEulerDdtScheme<scalar>::fvcDdtUfCorr
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> localEulerDdtScheme<scalar>::fvcDdtUfCorr
 		(
 			const volScalarField& rho,
 			const volScalarField& U,
@@ -298,7 +298,7 @@ namespace tnbLib
 		);
 
 		template<>
-		tmp<surfaceScalarField> localEulerDdtScheme<scalar>::fvcDdtPhiCorr
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> localEulerDdtScheme<scalar>::fvcDdtPhiCorr
 		(
 			const volScalarField& rho,
 			const volScalarField& U,

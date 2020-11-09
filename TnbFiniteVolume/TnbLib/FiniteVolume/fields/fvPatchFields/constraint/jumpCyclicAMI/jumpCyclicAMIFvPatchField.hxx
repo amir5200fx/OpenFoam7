@@ -162,7 +162,7 @@ namespace tnbLib
 
 	//- Update result field based on interface functionality
 	template<>
-	void jumpCyclicAMIFvPatchField<scalar>::updateInterfaceMatrix
+	FoamFiniteVolume_EXPORT void jumpCyclicAMIFvPatchField<scalar>::updateInterfaceMatrix
 	(
 		scalarField& result,
 		const scalarField& psiInternal,

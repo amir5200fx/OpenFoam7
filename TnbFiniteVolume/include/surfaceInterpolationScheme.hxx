@@ -380,7 +380,7 @@ namespace tnbLib
 
 
 	template<>
-	tmp
+	FoamFiniteVolume_EXPORT tmp
 		<
 		GeometricField
 		<
