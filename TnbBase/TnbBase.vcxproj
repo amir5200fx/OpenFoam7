@@ -81,6 +81,8 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableLanguageExtensions>false</DisableLanguageExtensions>
       <EnableModules>false</EnableModules>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -106,6 +108,8 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
       <LanguageStandard>stdcpp17</LanguageStandard>
       <DisableLanguageExtensions>false</DisableLanguageExtensions>
       <EnableModules>false</EnableModules>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,6 +132,8 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NoRepository;FoamBase_EXPORT_DEFINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

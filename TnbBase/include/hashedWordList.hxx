@@ -68,7 +68,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Rebuild the hash of indices
-		void rehash();
+		FoamBase_EXPORT void rehash();
 
 	public:
 
@@ -138,8 +138,8 @@ namespace tnbLib
 
 		// Istream operators
 
-		friend Istream& operator>>(Istream&, hashedWordList&);
-		friend Ostream& operator<<(Ostream&, const hashedWordList&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, hashedWordList&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const hashedWordList&);
 	};
 
 
