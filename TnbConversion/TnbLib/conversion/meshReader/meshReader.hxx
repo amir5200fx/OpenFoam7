@@ -174,15 +174,15 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate pointCells
-		void calcPointCells() const;
+		FoamConversion_EXPORT void calcPointCells() const;
 
-		const labelListList& pointCells() const;
+		FoamConversion_EXPORT const labelListList& pointCells() const;
 
 		//- Make polyhedral cells and global faces if the mesh is polyhedral
-		void createPolyCells();
+		FoamConversion_EXPORT void createPolyCells();
 
 		//- Add in boundary face
-		void addPolyBoundaryFace
+		FoamConversion_EXPORT void addPolyBoundaryFace
 		(
 			const label cellId,
 			const label cellFaceId,
@@ -190,33 +190,33 @@ namespace tnbLib
 		);
 
 		//- Add in boundary face
-		void addPolyBoundaryFace
+		FoamConversion_EXPORT void addPolyBoundaryFace
 		(
 			const cellFaceIdentifier& identifier,
 			const label nCreatedFaces
 		);
 
 		//- Add cellZones based on cellTable Id
-		void addCellZones(polyMesh&) const;
+		FoamConversion_EXPORT void addCellZones(polyMesh&) const;
 
 		//- Add faceZones based on monitoring boundary conditions
-		void addFaceZones(polyMesh&) const;
+		FoamConversion_EXPORT void addFaceZones(polyMesh&) const;
 
 		//- Make polyhedral boundary from shape boundary
 		// (adds more faces to the face list)
-		void createPolyBoundary();
+		FoamConversion_EXPORT void createPolyBoundary();
 
 		//- Add polyhedral boundary
-		List<polyPatch*> polyBoundaryPatches(const polyMesh&);
+		FoamConversion_EXPORT List<polyPatch*> polyBoundaryPatches(const polyMesh&);
 
 		//- Clear extra storage before creation of the mesh to remove
 		//  a memory peak
-		void clearExtraStorage();
+		FoamConversion_EXPORT void clearExtraStorage();
 
-		void writeInterfaces(const objectRegistry&) const;
+		FoamConversion_EXPORT void writeInterfaces(const objectRegistry&) const;
 
 		//- Write List<label> in constant/polyMesh
-		void writeMeshLabelList
+		FoamConversion_EXPORT void writeMeshLabelList
 		(
 			const objectRegistry& registry,
 			const word& propertyName,
@@ -236,11 +236,11 @@ namespace tnbLib
 		// Protected member data
 
 			//- Pointers to cell shape models
-		static const cellModel* unknownModel;
-		static const cellModel* tetModel;
-		static const cellModel* pyrModel;
-		static const cellModel* prismModel;
-		static const cellModel* hexModel;
+		static FoamConversion_EXPORT const cellModel* unknownModel;
+		static FoamConversion_EXPORT const cellModel* tetModel;
+		static FoamConversion_EXPORT const cellModel* pyrModel;
+		static FoamConversion_EXPORT const cellModel* prismModel;
+		static FoamConversion_EXPORT const cellModel* hexModel;
 
 		//- Referenced filename
 		fileName geometryFile_;
@@ -283,7 +283,7 @@ namespace tnbLib
 		// Protected member functions
 
 			//- Subclasses are required to supply this information
-		virtual bool readGeometry(const scalar scaleFactor = 1.0) = 0;
+		FoamConversion_EXPORT virtual bool readGeometry(const scalar scaleFactor = 1.0) = 0;
 
 
 	public:
@@ -291,32 +291,32 @@ namespace tnbLib
 		// Static Members
 
 			//- Warn about repeated names
-		static void warnDuplicates(const word& context, const wordList&);
+		static FoamConversion_EXPORT void warnDuplicates(const word& context, const wordList&);
 
 
 		// Constructors
 
 			//- Construct from fileName
-		meshReader(const fileName&, const scalar scaleFactor = 1.0);
+		FoamConversion_EXPORT meshReader(const fileName&, const scalar scaleFactor = 1.0);
 
 		//- Disallow default bitwise copy construction
-		meshReader(const meshReader&) = delete;
+		FoamConversion_EXPORT meshReader(const meshReader&) = delete;
 
 
 		//- Destructor
-		virtual ~meshReader();
+		FoamConversion_EXPORT virtual ~meshReader();
 
 
 		// Member Functions
 
 			//- Create and return polyMesh
-		virtual autoPtr<polyMesh> mesh(const objectRegistry&);
+		FoamConversion_EXPORT virtual autoPtr<polyMesh> mesh(const objectRegistry&);
 
 		//- Write auxiliary information
-		void writeAux(const objectRegistry&) const;
+		FoamConversion_EXPORT void writeAux(const objectRegistry&) const;
 
 		//- Write mesh
-		void writeMesh
+		FoamConversion_EXPORT void writeMesh
 		(
 			const polyMesh&,
 			IOstream::streamFormat fmt = IOstream::BINARY
@@ -326,7 +326,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const meshReader&) = delete;
+		FoamConversion_EXPORT void operator=(const meshReader&) = delete;
 	};
 
 

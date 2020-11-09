@@ -58,20 +58,69 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("surfaceWriter");
+		//TypeName("surfaceWriter");
+		static const char* typeName_() { return "surfaceWriter"; }
+		static FoamConversion_EXPORT const ::tnbLib::word typeName;
+		static FoamConversion_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			surfaceWriter,
 			word,
 			(),
 			()
-		);
+		);*/
 
-		declareRunTimeSelectionTable
+		typedef autoPtr<surfaceWriter> (*wordConstructorPtr)();
+		typedef HashTable<wordConstructorPtr, word, string::hash> wordConstructorTable;
+		static FoamConversion_EXPORT wordConstructorTable* wordConstructorTablePtr_;
+		static FoamConversion_EXPORT void constructwordConstructorTables();
+		static FoamConversion_EXPORT void destroywordConstructorTables();
+
+		template <class surfaceWriterType>
+		class addwordConstructorToTable
+		{
+		public:
+			static autoPtr<surfaceWriter> New() { return autoPtr<surfaceWriter>(new surfaceWriterType()); }
+
+			addwordConstructorToTable(const word& lookup = surfaceWriterType::typeName)
+			{
+				constructwordConstructorTables();
+				if (!wordConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "surfaceWriter" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addwordConstructorToTable() { destroywordConstructorTables(); }
+		};
+
+		template <class surfaceWriterType>
+		class addRemovablewordConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<surfaceWriter> New() { return autoPtr<surfaceWriter>(new surfaceWriterType()); }
+
+			addRemovablewordConstructorToTable(const word& lookup = surfaceWriterType::typeName) : lookup_(lookup)
+			{
+				constructwordConstructorTables();
+				wordConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablewordConstructorToTable()
+			{
+				if (wordConstructorTablePtr_) { wordConstructorTablePtr_->erase(lookup_); }
+			}
+		};
+
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			surfaceWriter,
@@ -80,17 +129,68 @@ namespace tnbLib
 				const dictionary& optDict
 				),
 				(optDict)
-		);
+		);*/
+
+		typedef autoPtr<surfaceWriter> (*wordDictConstructorPtr)(const dictionary& optDict);
+		typedef HashTable<wordDictConstructorPtr, word, string::hash> wordDictConstructorTable;
+		static FoamConversion_EXPORT wordDictConstructorTable* wordDictConstructorTablePtr_;
+		static FoamConversion_EXPORT void constructwordDictConstructorTables();
+		static FoamConversion_EXPORT void destroywordDictConstructorTables();
+
+		template <class surfaceWriterType>
+		class addwordDictConstructorToTable
+		{
+		public:
+			static autoPtr<surfaceWriter> New(const dictionary& optDict)
+			{
+				return autoPtr<surfaceWriter>(new surfaceWriterType(optDict));
+			}
+
+			addwordDictConstructorToTable(const word& lookup = surfaceWriterType::typeName)
+			{
+				constructwordDictConstructorTables();
+				if (!wordDictConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "surfaceWriter" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addwordDictConstructorToTable() { destroywordDictConstructorTables(); }
+		};
+
+		template <class surfaceWriterType>
+		class addRemovablewordDictConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<surfaceWriter> New(const dictionary& optDict)
+			{
+				return autoPtr<surfaceWriter>(new surfaceWriterType(optDict));
+			}
+
+			addRemovablewordDictConstructorToTable(const word& lookup = surfaceWriterType::typeName) : lookup_(lookup)
+			{
+				constructwordDictConstructorTables();
+				wordDictConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablewordDictConstructorToTable()
+			{
+				if (wordDictConstructorTablePtr_) { wordDictConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Selectors
 
 			//- Return a reference to the selected surfaceWriter
-		static autoPtr<surfaceWriter> New(const word& writeType);
+		static FoamConversion_EXPORT autoPtr<surfaceWriter> New(const word& writeType);
 
 		//- Return a reference to the selected surfaceWriter
 		//  Select with extra write option
-		static autoPtr<surfaceWriter> New
+		static FoamConversion_EXPORT autoPtr<surfaceWriter> New
 		(
 			const word& writeType,
 			const dictionary& writeOptions
@@ -100,11 +200,11 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		surfaceWriter();
+		FoamConversion_EXPORT surfaceWriter();
 
 
 		//- Destructor
-		virtual ~surfaceWriter();
+		FoamConversion_EXPORT virtual ~surfaceWriter();
 
 
 		// Member Functions
@@ -117,7 +217,7 @@ namespace tnbLib
 		}
 
 		//- Write single surface geometry to file.
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,      // <case>/surface/TIME
 			const fileName& surfaceName,    // name of surface
@@ -128,7 +228,7 @@ namespace tnbLib
 
 		//- Write scalarField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,      // <case>/surface/TIME
 			const fileName& surfaceName,    // name of surface
@@ -142,7 +242,7 @@ namespace tnbLib
 
 		//- Write vectorField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,      // <case>/surface/TIME
 			const fileName& surfaceName,    // name of surface
@@ -156,7 +256,7 @@ namespace tnbLib
 
 		//- Write sphericalTensorField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,      // <case>/surface/TIME
 			const fileName& surfaceName,    // name of surface
@@ -170,7 +270,7 @@ namespace tnbLib
 
 		//- Write symmTensorField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,      // <case>/surface/TIME
 			const fileName& surfaceName,    // name of surface
@@ -184,7 +284,7 @@ namespace tnbLib
 
 		//- Write tensorField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,      // <case>/surface/TIME
 			const fileName& surfaceName,    // name of surface

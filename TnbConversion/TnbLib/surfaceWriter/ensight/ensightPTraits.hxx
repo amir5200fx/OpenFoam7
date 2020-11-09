@@ -36,6 +36,16 @@ Description
 #include <pTraits.hxx>
 #include <fieldTypes.hxx>
 
+#ifdef FoamConversion_EXPORT_DEFINE
+#define FoamensightPTraits_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamensightPTraits_EXPORT_DEFINE
+#define FoamensightPTraits_EXPORT __declspec(dllexport)
+#else
+#define FoamensightPTraits_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -52,7 +62,7 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
+		static FoamensightPTraits_EXPORT const char* const typeName;
 
 	};
 
@@ -62,7 +72,7 @@ namespace tnbLib
 	{
 	public:
 
-		static const char* const typeName;
+		static FoamConversion_EXPORT const char* const typeName;
 	};
 
 	template<>
@@ -70,7 +80,7 @@ namespace tnbLib
 	{
 	public:
 
-		static const char* const typeName;
+		static FoamConversion_EXPORT const char* const typeName;
 	};
 
 	template<>
@@ -78,7 +88,7 @@ namespace tnbLib
 	{
 	public:
 
-		static const char* const typeName;
+		static FoamConversion_EXPORT const char* const typeName;
 	};
 
 	template<>
@@ -86,7 +96,7 @@ namespace tnbLib
 	{
 	public:
 
-		static const char* const typeName;
+		static FoamConversion_EXPORT const char* const typeName;
 	};
 
 	template<>
@@ -94,7 +104,7 @@ namespace tnbLib
 	{
 	public:
 
-		static const char* const typeName;
+		static FoamConversion_EXPORT const char* const typeName;
 	};
 
 

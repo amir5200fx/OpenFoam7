@@ -69,7 +69,7 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		static labelList getFaceOrder
+		static FoamConversion_EXPORT labelList getFaceOrder
 		(
 			const labelList& faceOwner,
 			const labelList& faceNeighbour,
@@ -77,7 +77,7 @@ namespace tnbLib
 			label& nInternalFaces
 		);
 
-		static void getPointEdges
+		static FoamConversion_EXPORT void getPointEdges
 		(
 			const primitivePatch& patch,
 			const label facei,
@@ -86,7 +86,7 @@ namespace tnbLib
 			label& e1
 		);
 
-		static labelList collectPatchSideFace
+		static FoamConversion_EXPORT labelList collectPatchSideFace
 		(
 			const polyPatch& patch,
 			const label patchToDualOffset,
@@ -97,7 +97,7 @@ namespace tnbLib
 			label& edgeI
 		);
 
-		static void collectPatchInternalFace
+		static FoamConversion_EXPORT void collectPatchInternalFace
 		(
 			const polyPatch& patch,
 			const label patchToDualOffset,
@@ -110,7 +110,7 @@ namespace tnbLib
 			labelList& featEdgeIndices2
 		);
 
-		static void splitFace
+		static FoamConversion_EXPORT void splitFace
 		(
 			const polyPatch& patch,
 			const labelList& pointToDualPoint,
@@ -125,7 +125,7 @@ namespace tnbLib
 			DynamicList<label>& dualRegion
 		);
 
-		static void dualPatch
+		static FoamConversion_EXPORT void dualPatch
 		(
 			const polyPatch& patch,
 			const label patchToDualOffset,
@@ -140,7 +140,7 @@ namespace tnbLib
 			DynamicList<label>& dualRegion
 		);
 
-		void calcDual
+		FoamConversion_EXPORT void calcDual
 		(
 			const polyMesh& mesh,
 			const labelList& featureEdges,
@@ -151,18 +151,21 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("polyDualMesh");
+		//ClassName("polyDualMesh");
+		static const char* typeName_() { return "polyDualMesh"; }
+		static FoamConversion_EXPORT const ::tnbLib::word typeName;
+		static FoamConversion_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from IOobject
-		polyDualMesh(const IOobject&);
+		FoamConversion_EXPORT polyDualMesh(const IOobject&);
 
 		//- Construct from polyMesh and list of edges and points to represent.
 		//  Feature edge and point labels are in local addressing of a patch
 		//  over all boundary faces.
-		polyDualMesh
+		FoamConversion_EXPORT polyDualMesh
 		(
 			const polyMesh&,
 			const labelList& featureEdges,
@@ -171,18 +174,18 @@ namespace tnbLib
 
 		//- Construct from polyMesh and feature edge angle. Uses calcFeatures
 		//  below to determine feature edges and points.
-		polyDualMesh
+		FoamConversion_EXPORT polyDualMesh
 		(
 			const polyMesh&,
 			const scalar featureCos
 		);
 
 		//- Disallow default bitwise copy construction
-		polyDualMesh(const polyDualMesh&) = delete;
+		FoamConversion_EXPORT polyDualMesh(const polyDualMesh&) = delete;
 
 		//- Helper function to create feature edges and points based on
 		//  feature angle and patches.
-		static void calcFeatures
+		static FoamConversion_EXPORT void calcFeatures
 		(
 			const polyMesh&,
 			const scalar featureCos,
@@ -192,7 +195,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~polyDualMesh();
+		FoamConversion_EXPORT ~polyDualMesh();
 
 
 		// Member Functions
@@ -215,7 +218,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const polyDualMesh&) = delete;
+		FoamConversion_EXPORT void operator=(const polyDualMesh&) = delete;
 	};
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

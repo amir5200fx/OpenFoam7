@@ -260,7 +260,7 @@ void tnbLib::ensightPart::writeVectorField
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamConversion_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	Ostream& os,
 	const ensightPart& part
@@ -271,7 +271,7 @@ tnbLib::Ostream& tnbLib::operator<<
 }
 
 
-tnbLib::ensightGeoFile& tnbLib::operator<<
+FoamConversion_EXPORT tnbLib::ensightGeoFile& tnbLib::operator<<
 (
 	ensightGeoFile& os,
 	const ensightPart& part

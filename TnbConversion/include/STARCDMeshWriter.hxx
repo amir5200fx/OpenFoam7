@@ -60,26 +60,26 @@ namespace tnbLib
 		{
 			// Private Data
 
-			static const char* defaultBoundaryName;
+			static FoamConversion_EXPORT const char* defaultBoundaryName;
 
 
 			// Private Member Functions
 
 				//- Pro-STAR 4+ header format
-			static void writeHeader(Ostream&, const char* filetype);
+			static FoamConversion_EXPORT void writeHeader(Ostream&, const char* filetype);
 
 			//- Write points
-			void writePoints(const fileName& baseName) const;
+			FoamConversion_EXPORT void writePoints(const fileName& baseName) const;
 
 			//- Write cells
-			void writeCells(const fileName& baseName) const;
+			FoamConversion_EXPORT void writeCells(const fileName& baseName) const;
 
 			//- Write boundary
-			void writeBoundary(const fileName& baseName) const;
+			FoamConversion_EXPORT void writeBoundary(const fileName& baseName) const;
 
-			void getCellTable();
+			FoamConversion_EXPORT void getCellTable();
 
-			label findDefaultBoundary() const;
+			FoamConversion_EXPORT label findDefaultBoundary() const;
 
 
 		public:
@@ -87,24 +87,24 @@ namespace tnbLib
 			// Static Data Members
 
 				//- Face addressing from OpenFOAM faces -> pro-STAR faces
-			static const label foamToStarFaceAddr[4][6];
+			static FoamConversion_EXPORT const label foamToStarFaceAddr[4][6];
 
 
 			// Constructors
 
 				//- Open a file for writing
-			STARCD
+			FoamConversion_EXPORT STARCD
 			(
 				const polyMesh&,
 				const scalar scaleFactor = 1.0
 			);
 
 			//- Disallow default bitwise copy construction
-			STARCD(const STARCD&) = delete;
+			FoamConversion_EXPORT STARCD(const STARCD&) = delete;
 
 
 			//- Destructor
-			virtual ~STARCD();
+			FoamConversion_EXPORT virtual ~STARCD();
 
 
 			// Member Functions
@@ -112,13 +112,13 @@ namespace tnbLib
 				// Edit
 
 					//- Remove STAR-CD files for the baseName
-			void rmFiles(const fileName& baseName) const;
+			FoamConversion_EXPORT void rmFiles(const fileName& baseName) const;
 
 
 			// Write
 
 				//- Write volume mesh
-			virtual bool write
+			FoamConversion_EXPORT virtual bool write
 			(
 				const fileName& meshName = fileName::null
 			) const;
@@ -127,7 +127,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const STARCD&) = delete;
+			FoamConversion_EXPORT void operator=(const STARCD&) = delete;
 		};
 
 
