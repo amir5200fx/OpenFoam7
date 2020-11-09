@@ -72,7 +72,7 @@ namespace tnbLib
 		mutable scalarSquareMatrix a_;
 		mutable labelList pivotIndices_;
 
-		static const scalar
+		static FoamODE_EXPORT const scalar
 			a21,
 			c21,
 			b1, b2,
@@ -85,13 +85,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("Rosenbrock12");
+		//TypeName("Rosenbrock12");
+		static const char* typeName_() { return "Rosenbrock12"; }
+		static FoamODE_EXPORT const ::tnbLib::word typeName;
+		static FoamODE_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from ODESystem
-		Rosenbrock12(const ODESystem& ode, const dictionary& dict);
+		//- Construct from ODESystem
+		FoamODE_EXPORT Rosenbrock12(const ODESystem& ode, const dictionary& dict);
 
 
 		//- Destructor
@@ -105,10 +109,10 @@ namespace tnbLib
 		using ODESolver::solve;
 
 		//- Resize the ODE solver
-		virtual bool resize();
+		FoamODE_EXPORT virtual bool resize();
 
 		//- Solve a single step dx and return the error
-		virtual scalar solve
+		FoamODE_EXPORT virtual scalar solve
 		(
 			const scalar x0,
 			const scalarField& y0,
@@ -118,7 +122,7 @@ namespace tnbLib
 		) const;
 
 		//- Solve the ODE system and the update the state
-		virtual void solve
+		FoamODE_EXPORT virtual void solve
 		(
 			scalar& x,
 			scalarField& y,

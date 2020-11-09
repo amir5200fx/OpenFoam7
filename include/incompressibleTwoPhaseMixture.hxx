@@ -75,18 +75,22 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Calculate and return the laminar viscosity
-		void calcNu();
+		FoamTransportModels_EXPORT void calcNu();
 
 
 	public:
 
-		TypeName("incompressibleTwoPhaseMixture");
+		//TypeName("incompressibleTwoPhaseMixture");
+		static const char* typeName_() { return "incompressibleTwoPhaseMixture"; }
+		static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+		static FoamTransportModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		incompressibleTwoPhaseMixture
+		FoamTransportModels_EXPORT incompressibleTwoPhaseMixture
 		(
 			const volVectorField& U,
 			const surfaceScalarField& phi
@@ -131,10 +135,10 @@ namespace tnbLib
 		}
 
 		//- Return the dynamic laminar viscosity
-		tmp<volScalarField> mu() const;
+		FoamTransportModels_EXPORT tmp<volScalarField> mu() const;
 
 		//- Return the face-interpolated dynamic laminar viscosity
-		tmp<surfaceScalarField> muf() const;
+		FoamTransportModels_EXPORT tmp<surfaceScalarField> muf() const;
 
 		//- Return the kinematic laminar viscosity
 		virtual tmp<volScalarField> nu() const
@@ -149,7 +153,7 @@ namespace tnbLib
 		}
 
 		//- Return the face-interpolated kinematic laminar viscosity
-		tmp<surfaceScalarField> nuf() const;
+		FoamTransportModels_EXPORT tmp<surfaceScalarField> nuf() const;
 
 		//- Correct the laminar viscosity
 		virtual void correct()
@@ -158,7 +162,7 @@ namespace tnbLib
 		}
 
 		//- Read base transportProperties dictionary
-		virtual bool read();
+		FoamTransportModels_EXPORT virtual bool read();
 	};
 
 

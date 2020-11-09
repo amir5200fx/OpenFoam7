@@ -79,7 +79,7 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Return the nomalized scalar error
-		scalar normalizeError
+		FoamODE_EXPORT scalar normalizeError
 		(
 			const scalarField& y0,
 			const scalarField& y,
@@ -92,7 +92,11 @@ namespace tnbLib
 		friend class ODESystem;
 
 		//- Runtime type information
-		TypeName("ODESolver");
+		//TypeName("ODESolver");
+		static const char* typeName_() { return "ODESolver"; }
+		static FoamODE_EXPORT const ::tnbLib::word typeName;
+		static FoamODE_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		class stepState
 		{
@@ -121,23 +125,74 @@ namespace tnbLib
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			ODESolver,
 			dictionary,
 			(const ODESystem& ode, const dictionary& dict),
 			(ode, dict)
-		);
+		);*/
+
+		typedef autoPtr<ODESolver> (*dictionaryConstructorPtr)(const ODESystem& ode, const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamODE_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamODE_EXPORT void constructdictionaryConstructorTables();
+		static FoamODE_EXPORT void destroydictionaryConstructorTables();
+
+		template <class ODESolverType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<ODESolver> New(const ODESystem& ode, const dictionary& dict)
+			{
+				return autoPtr<ODESolver>(new ODESolverType(ode, dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = ODESolverType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "ODESolver" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class ODESolverType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<ODESolver> New(const ODESystem& ode, const dictionary& dict)
+			{
+				return autoPtr<ODESolver>(new ODESolverType(ode, dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = ODESolverType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct for given ODESystem
-		ODESolver(const ODESystem& ode, const dictionary& dict);
+		FoamODE_EXPORT ODESolver(const ODESystem& ode, const dictionary& dict);
 
 		//- Construct for given ODESystem specifying tolerances
-		ODESolver
+		FoamODE_EXPORT ODESolver
 		(
 			const ODESystem& ode,
 			const scalarField& absTol,
@@ -145,13 +200,13 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		ODESolver(const ODESolver&) = delete;
+		FoamODE_EXPORT ODESolver(const ODESolver&) = delete;
 
 
 		// Selectors
 
 			//- Select null constructed
-		static autoPtr<ODESolver> New
+		static FoamODE_EXPORT autoPtr<ODESolver> New
 		(
 			const ODESystem& ode,
 			const dictionary& dict
@@ -189,7 +244,7 @@ namespace tnbLib
 		//  adjusting the step as necessary to provide a solution within
 		//  the specified tolerance.
 		//  Update the state and return an estimate for the next step in dxTry
-		virtual void solve
+		FoamODE_EXPORT virtual void solve
 		(
 			scalar& x,
 			scalarField& y,
@@ -200,7 +255,7 @@ namespace tnbLib
 		//  adjusting the step as necessary to provide a solution within
 		//  the specified tolerance.
 		//  Update the state and return an estimate for the next step in dxTry
-		virtual void solve
+		FoamODE_EXPORT virtual void solve
 		(
 			scalar& x,
 			scalarField& y,
@@ -209,7 +264,7 @@ namespace tnbLib
 
 		//- Solve the ODE system from xStart to xEnd, update the state
 		//  and return an estimate for the next step in dxTry
-		virtual void solve
+		FoamODE_EXPORT virtual void solve
 		(
 			const scalar xStart,
 			const scalar xEnd,
@@ -221,7 +276,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const ODESolver&) = delete;
+		FoamODE_EXPORT void operator=(const ODESolver&) = delete;
 	};
 
 

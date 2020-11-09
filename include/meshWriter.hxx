@@ -113,11 +113,11 @@ namespace tnbLib
 		labelList cellTableId_;
 
 		//- Pointers to cell shape models
-		static const cellModel* unknownModel;
-		static const cellModel* tetModel;
-		static const cellModel* pyrModel;
-		static const cellModel* prismModel;
-		static const cellModel* hexModel;
+		static FoamConversion_EXPORT const cellModel* unknownModel;
+		static FoamConversion_EXPORT const cellModel* tetModel;
+		static FoamConversion_EXPORT const cellModel* pyrModel;
+		static FoamConversion_EXPORT const cellModel* prismModel;
+		static FoamConversion_EXPORT const cellModel* hexModel;
 
 
 	public:
@@ -125,23 +125,23 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Specify a default mesh name
-		static string defaultMeshName;
+		static FoamConversion_EXPORT string defaultMeshName;
 
 		// Constructors
 
 			//- Create a writer object
-		meshWriter
+		FoamConversion_EXPORT meshWriter
 		(
 			const polyMesh&,
 			const scalar scaleFactor = 1.0
 		);
 
 		//- Disallow default bitwise copy construction
-		meshWriter(const meshWriter&) = delete;
+		FoamConversion_EXPORT meshWriter(const meshWriter&) = delete;
 
 
 		//- Destructor
-		virtual ~meshWriter();
+		FoamConversion_EXPORT virtual ~meshWriter();
 
 
 		// Member Functions
@@ -172,7 +172,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const meshWriter&) = delete;
+		FoamConversion_EXPORT void operator=(const meshWriter&) = delete;
 	};
 
 

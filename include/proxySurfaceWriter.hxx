@@ -61,17 +61,21 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("proxy");
+		//TypeName("proxy");
+		static const char* typeName_() { return "proxy"; }
+		static FoamConversion_EXPORT const ::tnbLib::word typeName;
+		static FoamConversion_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct for a given extension
-		proxySurfaceWriter(const word& ext);
+		FoamConversion_EXPORT proxySurfaceWriter(const word& ext);
 
 
 		//- Destructor
-		virtual ~proxySurfaceWriter();
+		FoamConversion_EXPORT virtual ~proxySurfaceWriter();
 
 
 		// Member Functions
@@ -86,7 +90,7 @@ namespace tnbLib
 
 
 		//- Write single surface geometry to file.
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,
 			const fileName& surfaceName,

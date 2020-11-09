@@ -53,16 +53,16 @@ namespace tnbLib
 		// Private Data
 
 			//- Allow undef in results
-		static bool allowUndef_;
+		static FoamConversion_EXPORT bool allowUndef_;
 
 		//- Value to represent undef in results
-		static scalar undefValue_;
+		static FoamConversion_EXPORT scalar undefValue_;
 
 		//- The '*' mask appropriate for subDir
-		static string mask_;
+		static FoamConversion_EXPORT string mask_;
 
 		//- The printf format for zero-padded subdirectory numbers
-		static string dirFmt_;
+		static FoamConversion_EXPORT string dirFmt_;
 
 
 	public:
@@ -70,47 +70,47 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from pathname
-		ensightFile
+		FoamConversion_EXPORT ensightFile
 		(
 			const fileName& pathname,
 			IOstream::streamFormat format = IOstream::BINARY
 		);
 
 		//- Disallow default bitwise copy construction
-		ensightFile(const ensightFile&);
+		FoamConversion_EXPORT ensightFile(const ensightFile&);
 
 
 		//- Destructor
-		~ensightFile();
+		FoamConversion_EXPORT ~ensightFile();
 
 
 		// Access
 
 			//- Return setting for whether 'undef' values are allowed in results
-		static bool allowUndef();
+		static FoamConversion_EXPORT bool allowUndef();
 
 		//- The '*' mask appropriate for subDir
-		static string mask();
+		static FoamConversion_EXPORT string mask();
 
 		//- Consistent zero-padded numbers for subdirectories
-		static string subDir(const label);
+		static FoamConversion_EXPORT string subDir(const label);
 
 		//- Set width of subDir and mask. Default width is 8 digits.
 		//  Max width is 31 digits.
-		static void subDirWidth(const label);
+		static FoamConversion_EXPORT void subDirWidth(const label);
 
 		//- Return current width of subDir and mask.
-		static label subDirWidth();
+		static FoamConversion_EXPORT label subDirWidth();
 
 
 		// Edit
 
-		static bool allowUndef(bool);
+		static FoamConversion_EXPORT bool allowUndef(bool);
 
 		//- Assign the value to represent undef in the results
 		//  Returns the previous value
 		//  NB: do not use values larger than floatScalarvGreat
-		static scalar undefValue(const scalar);
+		static FoamConversion_EXPORT scalar undefValue(const scalar);
 
 
 		// Output
@@ -119,40 +119,40 @@ namespace tnbLib
 		using Ostream::write;
 
 		//- Binary write
-		virtual Ostream& write(const char* buf, std::streamsize count);
+		FoamConversion_EXPORT virtual Ostream& write(const char* buf, std::streamsize count);
 
 		//- Write element keyword with trailing newline, optionally with undef
-		virtual Ostream& writeKeyword(const string& key);
+		FoamConversion_EXPORT virtual Ostream& writeKeyword(const string& key);
 
 		//- Write "C Binary" for binary files (eg, geometry/measured)
-		Ostream& writeBinaryHeader();
+		FoamConversion_EXPORT Ostream& writeBinaryHeader();
 
 		//- Write undef value
-		Ostream& writeUndef();
+		FoamConversion_EXPORT Ostream& writeUndef();
 
 		//- Write C-string as "%80s" or as binary
-		Ostream& write(const char* value);
+		FoamConversion_EXPORT Ostream& write(const char* value);
 
 		//- Write string as "%80s" or as binary
-		Ostream& write(const string& value);
+		FoamConversion_EXPORT Ostream& write(const string& value);
 
 		//- Write integer as "%10d" or as binary
-		Ostream& write(const label value);
+		FoamConversion_EXPORT Ostream& write(const label value);
 
 		//- Write integer with specified width or as binary
-		Ostream& write(const label value, const label fieldWidth);
+		FoamConversion_EXPORT Ostream& write(const label value, const label fieldWidth);
 
 		//- Write float as "%12.5e" or as binary
-		Ostream& write(const scalar value);
+		FoamConversion_EXPORT Ostream& write(const scalar value);
 
 		//- Add carriage return to ascii stream
-		void newline();
+		FoamConversion_EXPORT void newline();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const ensightFile&) = delete;
+		FoamConversion_EXPORT void operator=(const ensightFile&) = delete;
 	};
 
 

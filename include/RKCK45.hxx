@@ -69,7 +69,7 @@ namespace tnbLib
 		// Private Data
 
 			//- RKCK Constants
-		static const scalar
+		static FoamODE_EXPORT const scalar
 			c2, c3, c4, c5, c6,
 			a21, a31, a32, a41, a42, a43, a51, a52, a53, a54,
 			a61, a62, a63, a64, a65,
@@ -91,13 +91,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("RKCK45");
+		//TypeName("RKCK45");
+		static const char* typeName_() { return "RKCK45"; }
+		static FoamODE_EXPORT const ::tnbLib::word typeName;
+		static FoamODE_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from ODESystem
-		RKCK45(const ODESystem& ode, const dictionary& dict);
+		FoamODE_EXPORT RKCK45(const ODESystem& ode, const dictionary& dict);
 
 
 		//- Destructor
@@ -111,10 +115,10 @@ namespace tnbLib
 		using ODESolver::solve;
 
 		//- Resize the ODE solver
-		virtual bool resize();
+		FoamODE_EXPORT virtual bool resize();
 
 		//- Solve a single step dx and return the error
-		virtual scalar solve
+		FoamODE_EXPORT virtual scalar solve
 		(
 			const scalar x0,
 			const scalarField& y0,
@@ -124,7 +128,7 @@ namespace tnbLib
 		) const;
 
 		//- Solve the ODE system and the update the state
-		virtual void solve
+		FoamODE_EXPORT virtual void solve
 		(
 			scalar& x,
 			scalarField& y,

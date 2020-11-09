@@ -55,20 +55,20 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Classify the cell types, set elemLists.
-		void classify
+		FoamConversion_EXPORT void classify
 		(
 			const polyMesh&,
 			const labelUList& idLabels = labelUList::null()
 		);
 
 		//- Track points used
-		virtual localPoints calcLocalPoints() const;
+		FoamConversion_EXPORT virtual localPoints calcLocalPoints() const;
 
 		//- Track the points used
 		// virtual void makeLocalPointMap();
 
 		//- Element connectivity
-		virtual void writeConnectivity
+		FoamConversion_EXPORT virtual void writeConnectivity
 		(
 			ensightGeoFile&,
 			const word& key,
@@ -92,9 +92,9 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const polyMesh* const polyMeshNullPtr_;
+		static FoamConversion_EXPORT const polyMesh* const polyMeshNullPtr_;
 
-		static const List<word> elemTypes_;
+		static FoamConversion_EXPORT const List<word> elemTypes_;
 
 
 		// Protected data
@@ -106,18 +106,22 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("ensightCells");
+		//TypeName("ensightCells");
+		static const char* typeName_() { return "ensightCells"; }
+		static FoamConversion_EXPORT const ::tnbLib::word typeName;
+		static FoamConversion_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct empty part with number and description
-		ensightPartCells(label partNumber, const string& partDescription);
+		FoamConversion_EXPORT ensightPartCells(label partNumber, const string& partDescription);
 
 		//- Construct from polyMesh without zones
-		ensightPartCells(label partNumber, const polyMesh&);
+		FoamConversion_EXPORT ensightPartCells(label partNumber, const polyMesh&);
 
 		//- Construct from polyMesh and list of (non-zoned) cells
-		ensightPartCells
+		FoamConversion_EXPORT ensightPartCells
 		(
 			label partNumber,
 			const polyMesh&,
@@ -125,7 +129,7 @@ namespace tnbLib
 		);
 
 		//- Construct from polyMesh and cellZone
-		ensightPartCells
+		FoamConversion_EXPORT ensightPartCells
 		(
 			label partNumber,
 			const polyMesh&,
@@ -133,13 +137,13 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		ensightPartCells(const ensightPartCells&);
+		FoamConversion_EXPORT ensightPartCells(const ensightPartCells&);
 
 		//- Reconstruct part characteristics (eg, element types) from Istream
 		//  A part reconstructed in this manner can be used when writing fields,
 		//  but cannot be used to write a new geometry
 		//  \sa tnbLib::ensightPart::reconstruct
-		ensightPartCells(Istream&);
+		FoamConversion_EXPORT ensightPartCells(Istream&);
 
 		//- Reconstruct part characteristics on freestore from Istream
 		static autoPtr<ensightPartCells> New(Istream& is)
@@ -149,13 +153,13 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~ensightPartCells();
+		FoamConversion_EXPORT virtual ~ensightPartCells();
 
 
 		// Member Functions
 
 			//- Write geometry
-		virtual void writeGeometry(ensightGeoFile&) const;
+		FoamConversion_EXPORT virtual void writeGeometry(ensightGeoFile&) const;
 
 		//- Static listing of the element types
 		virtual const List<word>& elementTypes() const
@@ -167,7 +171,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const ensightPartCells&) = delete;
+		FoamConversion_EXPORT void operator=(const ensightPartCells&) = delete;
 	};
 
 

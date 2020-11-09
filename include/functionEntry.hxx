@@ -153,8 +153,6 @@ namespace tnbLib
 		public:
 			addexecuteprimitiveEntryIstreamMemberFunctionToTable(const word& lookup = functionEntryType::typeName)
 			{
-				std::cout << "typename = " << lookup << std::endl;
-				system("pause");
 				constructexecuteprimitiveEntryIstreamMemberFunctionTables();
 				executeprimitiveEntryIstreamMemberFunctionTablePtr_->insert(lookup, functionEntryType::execute);
 			}

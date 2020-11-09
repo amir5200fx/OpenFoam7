@@ -6,7 +6,7 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2013-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,70 +26,99 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::integrationSchemes::Euler
+	tnbLib::Euler
 
 Description
-	Euler-implicit integration scheme.
+	Euler ODE solver of order (0)1.
 
+	The method calculates the new state from:
 	\f[
-		\Delta \phi = (A - B \phi^n) \frac{\Delta t}{1 + B \Delta t}
+		y_{n+1} = y_n + \delta_x f
 	\f]
+	The error is estimated directly from the change in the solution,
+	i.e. the difference between the 0th and 1st order solutions:
+	\f[
+		err_{n+1} = y_{n+1} - y_n
+	\f]
+
+SourceFiles
+	Euler.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <integrationScheme.hxx>
+#include <ODESolver.hxx>
+#include <adaptiveSolver.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace integrationSchemes
+
+	/*---------------------------------------------------------------------------*\
+							   Class Euler Declaration
+	\*---------------------------------------------------------------------------*/
+
+	class Euler
+		:
+		public ODESolver,
+		public adaptiveSolver
 	{
+		// Private Data
 
-		/*---------------------------------------------------------------------------*\
-								   Class Euler Declaration
-		\*---------------------------------------------------------------------------*/
-
-		class Euler
-			:
-			public integrationScheme
-		{
-		public:
-
-			//- Runtime type information
-			TypeName("Euler");
+		mutable scalarField err_;
 
 
-			// Constructors
+	public:
 
-				//- Construct
-			Euler();
-
-			//- Construct and return clone
-			virtual autoPtr<integrationScheme> clone() const
-			{
-				return autoPtr<integrationScheme>(new Euler(*this));
-			}
+		//- Runtime type information
+		//TypeName("Euler");
+		static const char* typeName_() { return "Euler"; }
+		static FoamODE_EXPORT const ::tnbLib::word typeName;
+		static FoamODE_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
-			//- Destructor
-			virtual ~Euler();
+		// Constructors
+
+			//- Construct from ODESystem
+		FoamODE_EXPORT Euler(const ODESystem& ode, const dictionary& dict);
 
 
-			// Member Functions
-
-				//- Return the integration effective time step
-			virtual scalar dtEff(const scalar dt, const scalar Beta) const;
-
-			//- Return the integral of the effective time step (using an Euler
-			//  integration method)
-			virtual scalar sumDtEff(const scalar dt, const scalar Beta) const;
-		};
+		//- Destructor
+		virtual ~Euler()
+		{}
 
 
-		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+		// Member Functions
 
-	} // End namespace integrationSchemes
+			//- Inherit solve from ODESolver
+		using ODESolver::solve;
+
+		//- Resize the ODE solver
+		FoamODE_EXPORT virtual bool resize();
+
+		//- Solve a single step dx and return the error
+		FoamODE_EXPORT virtual scalar solve
+		(
+			const scalar x0,
+			const scalarField& y0,
+			const scalarField& dydx0,
+			const scalar dx,
+			scalarField& y
+		) const;
+
+		//- Solve the ODE system and the update the state
+		FoamODE_EXPORT virtual void solve
+		(
+			scalar& x,
+			scalarField& y,
+			scalar& dxTry
+		) const;
+	};
+
+
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
