@@ -426,7 +426,7 @@ namespace tnbLib
 	// Global functions
 
 	//- Find the longest edge on a face. Face point labels index into pts.
-	label longestEdge(const face& f, const pointField& pts);
+	FoamBase_EXPORT label longestEdge(const face& f, const pointField& pts);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

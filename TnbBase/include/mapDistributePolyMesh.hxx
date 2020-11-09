@@ -295,10 +295,10 @@ namespace tnbLib
 		// IOstream Operators
 
 			//- Read dictionary from Istream
-		friend Istream& operator>>(Istream&, mapDistributePolyMesh&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, mapDistributePolyMesh&);
 
 		//- Write dictionary to Ostream
-		friend Ostream& operator<<(Ostream&, const mapDistributePolyMesh&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const mapDistributePolyMesh&);
 	};
 
 

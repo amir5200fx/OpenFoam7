@@ -1,11 +1,11 @@
 #pragma once
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-template<class Type>
-const tnbLib::word& tnbLib::pointPatchField<Type>::calculatedType()
-{
-	return calculatedPointPatchField<Type>::typeName;
-}
+//template<class Type>
+//const tnbLib::word& tnbLib::pointPatchField<Type>::calculatedType()
+//{
+//	return calculatedPointPatchField<Type>::typeName;
+//}
 
 
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //

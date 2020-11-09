@@ -1,6 +1,13 @@
 #pragma once
 #include <pointMesh.hxx>
 #include <dictionary.hxx>
+#include <calculatedPointPatchField.hxx>
+
+template<class Type>
+const tnbLib::word& tnbLib::pointPatchField<Type>::calculatedType()
+{
+	return calculatedPointPatchField<Type>::typeName;
+}
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
