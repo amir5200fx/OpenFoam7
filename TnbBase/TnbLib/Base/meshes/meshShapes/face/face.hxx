@@ -318,7 +318,7 @@ namespace tnbLib
 		//  -  0: edge not found on the face
 		//  - +1: forward (counter-clockwise) on the face
 		//  - -1: reverse (clockwise) on the face
-		int edgeDirection(const edge&) const;
+		FoamBase_EXPORT int edgeDirection(const edge&) const;
 
 		// Face splitting utilities
 

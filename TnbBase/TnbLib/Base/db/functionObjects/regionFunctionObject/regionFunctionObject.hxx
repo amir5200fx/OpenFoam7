@@ -98,7 +98,13 @@ namespace tnbLib
 			);
 
 			//- Write field if present in objectRegistry
-			FoamBase_EXPORT bool writeObject(const word& fieldName);
+			FoamBase_EXPORT bool writeObject(const word& fieldName)
+			{
+				NotImplemented;
+
+				return false;
+			}// Commented by Amin
+			
 
 			//- Clear field from the objectRegistry if present
 			FoamBase_EXPORT bool clearObject(const word& fieldName);
