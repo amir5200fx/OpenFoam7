@@ -56,10 +56,10 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Construct region mesh and fields
-			void constructMeshObjects();
+			FoamLagrangian_EXPORT void constructMeshObjects();
 
 			//- Initialise the region
-			void initialise();
+			FoamLagrangian_EXPORT void initialise();
 
 
 		protected:
@@ -84,22 +84,26 @@ namespace tnbLib
 			// Protected member functions
 
 				//- Read control parameters from dictionary
-			virtual bool read();
+			FoamLagrangian_EXPORT virtual bool read();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("regionModel");
+			//TypeName("regionModel");
+			static const char* typeName_() { return "regionModel"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct null
-			singleLayerRegion(const fvMesh& mesh, const word& regionType);
+			FoamLagrangian_EXPORT singleLayerRegion(const fvMesh& mesh, const word& regionType);
 
 			//- Construct from mesh, region type and name
-			singleLayerRegion
+			FoamLagrangian_EXPORT singleLayerRegion
 			(
 				const fvMesh& mesh,
 				const word& regionType,
@@ -108,11 +112,11 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			singleLayerRegion(const singleLayerRegion&) = delete;
+			FoamLagrangian_EXPORT singleLayerRegion(const singleLayerRegion&) = delete;
 
 
 			//- Destructor
-			virtual ~singleLayerRegion();
+			FoamLagrangian_EXPORT virtual ~singleLayerRegion();
 
 
 			// Member Functions
@@ -122,17 +126,17 @@ namespace tnbLib
 					// Region geometry
 
 						//- Return the patch normal vectors
-			virtual const volVectorField& nHat() const;
+			FoamLagrangian_EXPORT virtual const volVectorField& nHat() const;
 
 			//- Return the face area magnitudes / [m^2]
-			virtual const volScalarField& magSf() const;
+			FoamLagrangian_EXPORT virtual const volScalarField& magSf() const;
 
 
 			// Addressing
 
 				//- Return the list of patch IDs opposite to internally
 				//  coupled patches
-			virtual const labelList& passivePatchIDs() const;
+			FoamLagrangian_EXPORT virtual const labelList& passivePatchIDs() const;
 
 
 			// Patch type information
@@ -152,7 +156,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const singleLayerRegion&) = delete;
+			FoamLagrangian_EXPORT void operator=(const singleLayerRegion&) = delete;
 		};
 
 

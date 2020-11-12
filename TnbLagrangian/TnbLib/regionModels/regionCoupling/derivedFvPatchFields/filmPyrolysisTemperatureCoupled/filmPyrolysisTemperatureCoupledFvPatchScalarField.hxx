@@ -88,20 +88,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("filmPyrolysisTemperatureCoupled");
+		//TypeName("filmPyrolysisTemperatureCoupled");
+		static const char* typeName_() { return "filmPyrolysisTemperatureCoupled"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		filmPyrolysisTemperatureCoupledFvPatchScalarField
+		FoamLagrangian_EXPORT filmPyrolysisTemperatureCoupledFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		filmPyrolysisTemperatureCoupledFvPatchScalarField
+		FoamLagrangian_EXPORT filmPyrolysisTemperatureCoupledFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -110,7 +114,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		//  filmPyrolysisTemperatureCoupledFvPatchScalarField onto a new patch
-		filmPyrolysisTemperatureCoupledFvPatchScalarField
+		FoamLagrangian_EXPORT filmPyrolysisTemperatureCoupledFvPatchScalarField
 		(
 			const filmPyrolysisTemperatureCoupledFvPatchScalarField&,
 			const fvPatch&,
@@ -119,7 +123,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		filmPyrolysisTemperatureCoupledFvPatchScalarField
+		FoamLagrangian_EXPORT filmPyrolysisTemperatureCoupledFvPatchScalarField
 		(
 			const filmPyrolysisTemperatureCoupledFvPatchScalarField&
 		);
@@ -134,7 +138,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		filmPyrolysisTemperatureCoupledFvPatchScalarField
+		FoamLagrangian_EXPORT filmPyrolysisTemperatureCoupledFvPatchScalarField
 		(
 			const filmPyrolysisTemperatureCoupledFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -183,10 +187,10 @@ namespace tnbLib
 
 
 		//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamLagrangian_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamLagrangian_EXPORT virtual void write(Ostream&) const;
 	};
 
 

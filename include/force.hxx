@@ -61,12 +61,16 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("force");
+				//TypeName("force");
+				static const char* typeName_() { return "force"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Declare runtime constructor selection table
 
-				declareRunTimeSelectionTable
+				/*declareRunTimeSelectionTable
 				(
 					autoPtr,
 					force,
@@ -76,15 +80,67 @@ namespace tnbLib
 						const dictionary& dict
 						),
 						(film, dict)
-				);
+				);*/
+
+				typedef autoPtr<force> (*dictionaryConstructorPtr
+				)(surfaceFilmRegionModel& film, const dictionary& dict);
+				typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+				static FoamLagrangian_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+				static FoamLagrangian_EXPORT void constructdictionaryConstructorTables();
+				static FoamLagrangian_EXPORT void destroydictionaryConstructorTables();
+
+				template <class forceType>
+				class adddictionaryConstructorToTable
+				{
+				public:
+					static autoPtr<force> New(surfaceFilmRegionModel& film, const dictionary& dict)
+					{
+						return autoPtr<force>(new forceType(film, dict));
+					}
+
+					adddictionaryConstructorToTable(const word& lookup = forceType::typeName)
+					{
+						constructdictionaryConstructorTables();
+						if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+						{
+							std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "force" <<
+								std::endl;
+							error::safePrintStack(std::cerr);
+						}
+					}
+
+					~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+				};
+
+				template <class forceType>
+				class addRemovabledictionaryConstructorToTable
+				{
+					const word& lookup_;
+				public:
+					static autoPtr<force> New(surfaceFilmRegionModel& film, const dictionary& dict)
+					{
+						return autoPtr<force>(new forceType(film, dict));
+					}
+
+					addRemovabledictionaryConstructorToTable(const word& lookup = forceType::typeName) : lookup_(lookup)
+					{
+						constructdictionaryConstructorTables();
+						dictionaryConstructorTablePtr_->set(lookup, New);
+					}
+
+					~addRemovabledictionaryConstructorToTable()
+					{
+						if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+					}
+				};
 
 				// Constructors
 
 					//- Construct null
-				force(surfaceFilmRegionModel& film);
+				FoamLagrangian_EXPORT force(surfaceFilmRegionModel& film);
 
 				//- Construct from type name, dictionary and surface film model
-				force
+				FoamLagrangian_EXPORT force
 				(
 					const word& modelType,
 					surfaceFilmRegionModel& film,
@@ -92,13 +148,13 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				force(const force&) = delete;
+				FoamLagrangian_EXPORT force(const force&) = delete;
 
 
 				// Selectors
 
 					//- Return a reference to the selected force model
-				static autoPtr<force> New
+				static FoamLagrangian_EXPORT autoPtr<force> New
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict,
@@ -107,7 +163,7 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~force();
+				FoamLagrangian_EXPORT virtual ~force();
 
 
 				// Member Functions
@@ -115,13 +171,13 @@ namespace tnbLib
 					// Evolution
 
 						//- Correct
-				virtual tmp<fvVectorMatrix> correct(volVectorField& U) = 0;
+				FoamLagrangian_EXPORT virtual tmp<fvVectorMatrix> correct(volVectorField& U) = 0;
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const force&) = delete;
+				FoamLagrangian_EXPORT void operator=(const force&) = delete;
 			};
 
 

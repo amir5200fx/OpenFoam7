@@ -87,18 +87,18 @@ namespace tnbLib
 
 			// Solution parameters
 
-			static scalar maxExp_;
-			static scalar tolerance_;
-			static label maxIters_;
+			static FoamTurbulence_EXPORT scalar maxExp_;
+			static FoamTurbulence_EXPORT scalar tolerance_;
+			static FoamTurbulence_EXPORT label maxIters_;
 
 
 			// Private Member Functions
 
 				//- `P' function
-			scalar Psmooth(const scalar Prat) const;
+			FoamTurbulence_EXPORT scalar Psmooth(const scalar Prat) const;
 
 			//- Calculate y+ at the edge of the thermal laminar sublayer
-			scalar yPlusTherm
+			FoamTurbulence_EXPORT scalar yPlusTherm
 			(
 				const nutWallFunctionFvPatchScalarField& nutw,
 				const scalar P,
@@ -109,20 +109,24 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("compressible::alphatJayatillekeWallFunction");
+			//TypeName("compressible::alphatJayatillekeWallFunction");
+			static const char* typeName_() { return "compressible::alphatJayatillekeWallFunction"; }
+			static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+			static FoamTurbulence_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from patch and internal field
-			alphatJayatillekeWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT alphatJayatillekeWallFunctionFvPatchScalarField
 			(
 				const fvPatch&,
 				const DimensionedField<scalar, volMesh>&
 			);
 
 			//- Construct from patch, internal field and dictionary
-			alphatJayatillekeWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT alphatJayatillekeWallFunctionFvPatchScalarField
 			(
 				const fvPatch&,
 				const DimensionedField<scalar, volMesh>&,
@@ -132,7 +136,7 @@ namespace tnbLib
 			//- Construct by mapping given an
 			//  alphatJayatillekeWallFunctionFvPatchScalarField
 			//  onto a new patch
-			alphatJayatillekeWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT alphatJayatillekeWallFunctionFvPatchScalarField
 			(
 				const alphatJayatillekeWallFunctionFvPatchScalarField&,
 				const fvPatch&,
@@ -141,7 +145,7 @@ namespace tnbLib
 			);
 
 			//- Copy constructor
-			alphatJayatillekeWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT alphatJayatillekeWallFunctionFvPatchScalarField
 			(
 				const alphatJayatillekeWallFunctionFvPatchScalarField&
 			);
@@ -156,7 +160,7 @@ namespace tnbLib
 			}
 
 			//- Copy constructor setting internal field reference
-			alphatJayatillekeWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT alphatJayatillekeWallFunctionFvPatchScalarField
 			(
 				const alphatJayatillekeWallFunctionFvPatchScalarField&,
 				const DimensionedField<scalar, volMesh>&
@@ -184,13 +188,13 @@ namespace tnbLib
 				// Evaluation functions
 
 					//- Update the coefficients associated with the patch field
-			virtual void updateCoeffs();
+			FoamTurbulence_EXPORT virtual void updateCoeffs();
 
 
 			// I-O
 
 				//- Write
-			void write(Ostream&) const;
+			FoamTurbulence_EXPORT void write(Ostream&) const;
 		};
 
 

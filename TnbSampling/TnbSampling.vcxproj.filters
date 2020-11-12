@@ -115,6 +115,9 @@
     <Filter Include="TnbLib\sampling\sampledSurface\sampledCuttingPlane">
       <UniqueIdentifier>{d51fe566-f30b-4a44-ad1e-86151f44ea95}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\sampling\module">
+      <UniqueIdentifier>{1b0b7862-ece2-4910-a631-bcc18fc63324}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\sampling\cuttingPlane\cuttingPlane.hxx">
@@ -308,6 +311,9 @@
     </ClInclude>
     <ClInclude Include="TnbLib\sampling\sampledSurface\thresholdCellFaces\sampledThresholdCellFacesI.hxx">
       <Filter>TnbLib\sampling\sampledSurface\thresholdCellFaces</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sampling\module\Sampling_Module.hxx">
+      <Filter>TnbLib\sampling\module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

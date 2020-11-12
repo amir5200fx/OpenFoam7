@@ -42,6 +42,16 @@ Description
 
 #include <ParticleForce.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamSchillerNaumannDragForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSchillerNaumannDragForce_EXPORT_DEFINE
+#define FoamSchillerNaumannDragForce_EXPORT __declspec(dllexport)
+#else
+#define FoamSchillerNaumannDragForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -65,7 +75,11 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName("SchillerNaumannDrag");
+		//TypeName("SchillerNaumannDrag");
+		static const char* typeName_() { return "SchillerNaumannDrag"; }
+		static FoamSchillerNaumannDragForce_EXPORT const ::tnbLib::word typeName;
+		static FoamSchillerNaumannDragForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

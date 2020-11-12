@@ -101,11 +101,15 @@ namespace tnbLib
 		public:
 
 			//- Run-time type information
-			TypeName("fieldValue");
+			//TypeName("fieldValue");
+			static const char* typeName_() { return "fieldValue"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Declare runtime constructor selection table
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				fieldValue,
@@ -116,13 +120,66 @@ namespace tnbLib
 					const dictionary& dict
 					),
 					(name, obr, dict)
-			);
+			);*/
+
+			typedef autoPtr<fieldValue> (*dictionaryConstructorPtr)(const word& name, const objectRegistry& obr,
+			                                                        const dictionary& dict);
+			typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+			static FoamFunctionObjects_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+			static FoamFunctionObjects_EXPORT void constructdictionaryConstructorTables();
+			static FoamFunctionObjects_EXPORT void destroydictionaryConstructorTables();
+
+			template <class fieldValueType>
+			class adddictionaryConstructorToTable
+			{
+			public:
+				static autoPtr<fieldValue> New(const word& name, const objectRegistry& obr, const dictionary& dict)
+				{
+					return autoPtr<fieldValue>(new fieldValueType(name, obr, dict));
+				}
+
+				adddictionaryConstructorToTable(const word& lookup = fieldValueType::typeName)
+				{
+					constructdictionaryConstructorTables();
+					if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "fieldValue" <<
+							std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+			};
+
+			template <class fieldValueType>
+			class addRemovabledictionaryConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<fieldValue> New(const word& name, const objectRegistry& obr, const dictionary& dict)
+				{
+					return autoPtr<fieldValue>(new fieldValueType(name, obr, dict));
+				}
+
+				addRemovabledictionaryConstructorToTable(const word& lookup = fieldValueType::typeName) : lookup_(
+					lookup)
+				{
+					constructdictionaryConstructorTables();
+					dictionaryConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovabledictionaryConstructorToTable()
+				{
+					if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+				}
+			};
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			fieldValue
+			FoamFunctionObjects_EXPORT fieldValue
 			(
 				const word& name,
 				const Time& runTime,
@@ -131,7 +188,7 @@ namespace tnbLib
 			);
 
 			//- Construct from objectRegistry and dictionary
-			fieldValue
+			FoamFunctionObjects_EXPORT fieldValue
 			(
 				const word& name,
 				const objectRegistry& obr,
@@ -140,7 +197,7 @@ namespace tnbLib
 			);
 
 			//- Return a reference to the selected fieldValue
-			static autoPtr<fieldValue> New
+			static FoamFunctionObjects_EXPORT autoPtr<fieldValue> New
 			(
 				const word& name,
 				const objectRegistry& obr,
@@ -150,7 +207,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~fieldValue();
+			FoamFunctionObjects_EXPORT virtual ~fieldValue();
 
 
 			// Member Functions
@@ -171,13 +228,13 @@ namespace tnbLib
 			inline const dictionary& resultDict() const;
 
 			//- Read from dictionary
-			virtual bool read(const dictionary& dict);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary& dict);
 
 			//- Execute
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 		};
 
 
@@ -193,8 +250,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <fieldValueTemplates.cxx>
+//#include <fieldValueTemplates.cxx>
 #endif
+
+#include <fieldValueTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

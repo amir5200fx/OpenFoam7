@@ -82,18 +82,22 @@ namespace tnbLib
 
 		// Protected member functions
 
-		void scaleEnergy(scalar& e, const scalar r) const;
+		FoamLagrangian_EXPORT void scaleEnergy(scalar& e, const scalar r) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("pairPotential");
+		//TypeName("pairPotential");
+		static const char* typeName_() { return "pairPotential"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			pairPotential,
@@ -103,13 +107,65 @@ namespace tnbLib
 				const dictionary& pairPotentialProperties
 				),
 				(name, pairPotentialProperties)
-		);
+		);*/
+
+		typedef autoPtr<pairPotential> (*dictionaryConstructorPtr)(const word& name,
+		                                                           const dictionary& pairPotentialProperties);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamLagrangian_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamLagrangian_EXPORT void constructdictionaryConstructorTables();
+		static FoamLagrangian_EXPORT void destroydictionaryConstructorTables();
+
+		template <class pairPotentialType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<pairPotential> New(const word& name, const dictionary& pairPotentialProperties)
+			{
+				return autoPtr<pairPotential>(new pairPotentialType(name, pairPotentialProperties));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = pairPotentialType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "pairPotential" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class pairPotentialType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<pairPotential> New(const word& name, const dictionary& pairPotentialProperties)
+			{
+				return autoPtr<pairPotential>(new pairPotentialType(name, pairPotentialProperties));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = pairPotentialType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Selectors
 
 			//- Return a reference to the selected viscosity model
-		static autoPtr<pairPotential> New
+		static FoamLagrangian_EXPORT autoPtr<pairPotential> New
 		(
 			const word& name,
 			const dictionary& pairPotentialProperties
@@ -119,14 +175,14 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		pairPotential
+		FoamLagrangian_EXPORT pairPotential
 		(
 			const word& name,
 			const dictionary& pairPotentialProperties
 		);
 
 		//- Disallow default bitwise copy construction
-		pairPotential(const pairPotential&);
+		FoamLagrangian_EXPORT pairPotential(const pairPotential&);
 
 
 		//- Destructor
@@ -136,7 +192,7 @@ namespace tnbLib
 
 		// Member Functions
 
-		void setLookupTables();
+		FoamLagrangian_EXPORT void setLookupTables();
 
 		inline scalar rMin() const;
 
@@ -146,21 +202,21 @@ namespace tnbLib
 
 		inline scalar rCutSqr() const;
 
-		scalar energy(const scalar r) const;
+		FoamLagrangian_EXPORT scalar energy(const scalar r) const;
 
-		scalar force(const scalar r) const;
+		FoamLagrangian_EXPORT scalar force(const scalar r) const;
 
-		List<Pair<scalar>> energyTable() const;
+		FoamLagrangian_EXPORT List<Pair<scalar>> energyTable() const;
 
-		List<Pair<scalar>> forceTable() const;
+		FoamLagrangian_EXPORT List<Pair<scalar>> forceTable() const;
 
 		inline bool writeTables() const;
 
-		virtual scalar unscaledEnergy(const scalar r) const = 0;
+		FoamLagrangian_EXPORT virtual scalar unscaledEnergy(const scalar r) const = 0;
 
-		scalar scaledEnergy(const scalar r) const;
+		FoamLagrangian_EXPORT scalar scaledEnergy(const scalar r) const;
 
-		scalar energyDerivative
+		FoamLagrangian_EXPORT scalar energyDerivative
 		(
 			const scalar r,
 			const bool scaledEnergyDerivative = true
@@ -171,16 +227,16 @@ namespace tnbLib
 			return pairPotentialProperties_;
 		}
 
-		bool writeEnergyAndForceTables(Ostream& os) const;
+		FoamLagrangian_EXPORT bool writeEnergyAndForceTables(Ostream& os) const;
 
 		//- Read pairPotential dictionary
-		virtual bool read(const dictionary& pairPotentialProperties) = 0;
+		FoamLagrangian_EXPORT virtual bool read(const dictionary& pairPotentialProperties) = 0;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const pairPotential&) = delete;
+		FoamLagrangian_EXPORT void operator=(const pairPotential&) = delete;
 	};
 
 

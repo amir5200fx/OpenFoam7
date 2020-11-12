@@ -144,20 +144,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("externalCoupledTemperature");
+		//TypeName("externalCoupledTemperature");
+		static const char* typeName_() { return "externalCoupledTemperature"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		externalCoupledTemperatureMixedFvPatchScalarField
+		FoamTurbulence_EXPORT externalCoupledTemperatureMixedFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		externalCoupledTemperatureMixedFvPatchScalarField
+		FoamTurbulence_EXPORT externalCoupledTemperatureMixedFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -166,7 +170,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		//  externalCoupledTemperatureMixedFvPatchScalarField onto a new patch
-		externalCoupledTemperatureMixedFvPatchScalarField
+		FoamTurbulence_EXPORT externalCoupledTemperatureMixedFvPatchScalarField
 		(
 			const externalCoupledTemperatureMixedFvPatchScalarField&,
 			const fvPatch&,
@@ -175,7 +179,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		externalCoupledTemperatureMixedFvPatchScalarField
+		FoamTurbulence_EXPORT externalCoupledTemperatureMixedFvPatchScalarField
 		(
 			const externalCoupledTemperatureMixedFvPatchScalarField&
 		);
@@ -190,7 +194,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		externalCoupledTemperatureMixedFvPatchScalarField
+		FoamTurbulence_EXPORT externalCoupledTemperatureMixedFvPatchScalarField
 		(
 			const externalCoupledTemperatureMixedFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -214,22 +218,22 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~externalCoupledTemperatureMixedFvPatchScalarField();
+		FoamTurbulence_EXPORT virtual ~externalCoupledTemperatureMixedFvPatchScalarField();
 
 
 		// Member Functions
 
 			//- Evaluate the patch field
-		virtual void evaluate
+		FoamTurbulence_EXPORT virtual void evaluate
 		(
 			const Pstream::commsTypes commsType = Pstream::commsTypes::blocking
 		);
 
 		//- Transfer data for external source
-		virtual void transferData(OFstream& os) const;
+		FoamTurbulence_EXPORT virtual void transferData(OFstream& os) const;
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamTurbulence_EXPORT virtual void write(Ostream&) const;
 	};
 
 

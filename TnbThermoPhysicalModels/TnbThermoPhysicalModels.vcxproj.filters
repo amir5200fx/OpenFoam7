@@ -1782,6 +1782,12 @@
     <ClInclude Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader\chemkinReaderI.hxx">
       <Filter>TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\makeChemistryReductionMethods.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\makeChemistryTabulationMethods.hxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\thermophysicalModels\basic\basicThermo\basicThermo.cxx">
@@ -2176,6 +2182,15 @@
     </ClCompile>
     <ClCompile Include="TnbLib\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader\chemkinLexer.cxx">
       <Filter>Generated Files\thermophysicalModels\reactionThermo\chemistryReaders\chemkinReader</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\makeChemistryReductionMethods.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\makeChemistryTabulationMethods.cxx">
+      <Filter>TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\thermophysicalModels\solidChemistryModel\solidChemistrySolver\makeSolidChemistrySolvers.cxx">
+      <Filter>TnbLib\thermophysicalModels\solidChemistryModel\solidChemistrySolver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

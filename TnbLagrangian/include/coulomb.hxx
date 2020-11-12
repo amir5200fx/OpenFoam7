@@ -56,17 +56,21 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("coulomb");
+			//TypeName("coulomb");
+			static const char* typeName_() { return "coulomb"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Static Data Members
 
-			static scalar oneOverFourPiEps0;
+			static FoamLagrangian_EXPORT scalar oneOverFourPiEps0;
 
 			// Constructors
 
 				//- Construct from components
-			coulomb
+			FoamLagrangian_EXPORT coulomb
 			(
 				const word& name,
 				const dictionary& pairPotentialProperties
@@ -80,10 +84,10 @@ namespace tnbLib
 
 			// Member Functions
 
-			scalar unscaledEnergy(const scalar r) const;
+			FoamLagrangian_EXPORT scalar unscaledEnergy(const scalar r) const;
 
 			//- Read dictionary
-			bool read(const dictionary& pairPotentialProperties);
+			FoamLagrangian_EXPORT bool read(const dictionary& pairPotentialProperties);
 		};
 
 

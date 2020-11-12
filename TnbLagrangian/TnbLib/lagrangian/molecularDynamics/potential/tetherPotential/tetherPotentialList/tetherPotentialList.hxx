@@ -65,7 +65,7 @@ namespace tnbLib
 			const label a
 		) const;
 
-		void readTetherPotentialDict
+		FoamLagrangian_EXPORT void readTetherPotentialDict
 		(
 			const List<word>& siteIdList,
 			const dictionary& tetherPotentialDict,
@@ -77,10 +77,10 @@ namespace tnbLib
 
 		// Constructors
 
-		tetherPotentialList();
+		FoamLagrangian_EXPORT tetherPotentialList();
 
 		//- Construct from siteIdList and potential dictionaries
-		tetherPotentialList
+		FoamLagrangian_EXPORT tetherPotentialList
 		(
 			const List<word>& siteIdList,
 			const dictionary& tetherPotentialDict,
@@ -88,16 +88,16 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise assignment
-		void operator=(const tetherPotentialList&) = delete;
+		FoamLagrangian_EXPORT void operator=(const tetherPotentialList&) = delete;
 
 
 		//- Destructor
-		~tetherPotentialList();
+		FoamLagrangian_EXPORT ~tetherPotentialList();
 
 
 		// Member Functions
 
-		void buildPotentials
+		FoamLagrangian_EXPORT void buildPotentials
 		(
 			const List<word>& siteIdList,
 			const dictionary& tetherPotentialDict,
@@ -108,17 +108,17 @@ namespace tnbLib
 
 		inline const List<word>& idMap() const;
 
-		const tetherPotential& tetherPotentialFunction(const label a) const;
+		FoamLagrangian_EXPORT const tetherPotential& tetherPotentialFunction(const label a) const;
 
-		vector force(const label a, const vector rIT) const;
+		FoamLagrangian_EXPORT vector force(const label a, const vector rIT) const;
 
-		scalar energy(const label a, const vector rIT) const;
+		FoamLagrangian_EXPORT scalar energy(const label a, const vector rIT) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise copy construction
-		tetherPotentialList(const tetherPotentialList&) = delete;
+		FoamLagrangian_EXPORT tetherPotentialList(const tetherPotentialList&) = delete;
 	};
 
 

@@ -565,6 +565,8 @@ License
    ------ local definitions
  \* ------------------------------------------------------------------------- */
 
+ #include <FiniteVolume_Module.hxx>
+
 #include <sstream>
 // For EOF only
 #include <cstdio>
@@ -613,8 +615,8 @@ int yyFlexLexer::yywrap()
     return 1;
 }
 
-#line 616 "ansysToFoam.cxx"
-#line 617 "ansysToFoam.cxx"
+#line 618 "ansysToFoam.cxx"
+#line 619 "ansysToFoam.cxx"
 
 #define INITIAL 0
 
@@ -746,11 +748,11 @@ YY_DECL
 		}
 
 	{
-#line 113 "ansysToFoam.L"
+#line 115 "ansysToFoam.L"
 
 
 
-#line 117 "ansysToFoam.L"
+#line 119 "ansysToFoam.L"
     labelList labels(8);
 
 
@@ -759,7 +761,7 @@ YY_DECL
                             ------ Start Lexing ------
  \* ------------------------------------------------------------------------- */
 
-#line 762 "ansysToFoam.cxx"
+#line 764 "ansysToFoam.cxx"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -820,7 +822,7 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 125 "ansysToFoam.L"
+#line 127 "ansysToFoam.L"
 {
         IStringStream nodeStream(YYText());
         char tag, c;
@@ -842,7 +844,7 @@ YY_RULE_SETUP
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 144 "ansysToFoam.L"
+#line 146 "ansysToFoam.L"
 {
         IStringStream elementStream(YYText());
         char tag, c;
@@ -869,7 +871,7 @@ YY_RULE_SETUP
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 168 "ansysToFoam.L"
+#line 170 "ansysToFoam.L"
 {
         IStringStream bfaceStream(YYText());
         char tag, c;
@@ -919,7 +921,7 @@ YY_RULE_SETUP
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
-#line 215 "ansysToFoam.L"
+#line 217 "ansysToFoam.L"
 {
 
         IStringStream elementStream(YYText());
@@ -940,7 +942,7 @@ YY_RULE_SETUP
 case 5:
 /* rule 5 can match eol */
 YY_RULE_SETUP
-#line 233 "ansysToFoam.L"
+#line 235 "ansysToFoam.L"
 {
         IStringStream elementStream(YYText());
         char tag,c;
@@ -958,24 +960,24 @@ YY_RULE_SETUP
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 250 "ansysToFoam.L"
+#line 252 "ansysToFoam.L"
 {}
 	YY_BREAK
 /* ------------------------------------------------------------------------- *\
     ------ On EOF return to previous file, if none exists terminate.
  \* ------------------------------------------------------------------------- */
 case YY_STATE_EOF(INITIAL):
-#line 257 "ansysToFoam.L"
+#line 259 "ansysToFoam.L"
 {
             yyterminate();
     }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 260 "ansysToFoam.L"
+#line 262 "ansysToFoam.L"
 ECHO;
 	YY_BREAK
-#line 978 "ansysToFoam.cxx"
+#line 980 "ansysToFoam.cxx"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1931,7 +1933,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 260 "ansysToFoam.L"
+#line 262 "ansysToFoam.L"
 
 
 

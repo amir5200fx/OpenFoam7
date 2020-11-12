@@ -63,7 +63,7 @@ namespace tnbLib
 
 			//- Find indices of overlapping cells in src and tgt meshes - returns
 			//  true if found a matching pair
-		virtual bool findInitialSeeds
+		FoamSampling_EXPORT virtual bool findInitialSeeds
 		(
 			const labelList& srcCellIDs,
 			const boolList& mapFlag,
@@ -73,7 +73,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculate the mesh-to-mesh addressing and weights
-		virtual void calculateAddressing
+		FoamSampling_EXPORT virtual void calculateAddressing
 		(
 			labelListList& srcToTgtCellAddr,
 			scalarListList& srcToTgtCellWght,
@@ -87,7 +87,7 @@ namespace tnbLib
 		);
 
 		//- Find the nearest cell on mesh2 for cell1 on mesh1
-		virtual void findNearestCell
+		FoamSampling_EXPORT virtual void findNearestCell
 		(
 			const polyMesh& mesh1,
 			const polyMesh& mesh2,
@@ -96,7 +96,7 @@ namespace tnbLib
 		) const;
 
 		//- Set the next cells for the marching front algorithm
-		virtual void setNextNearestCells
+		FoamSampling_EXPORT virtual void setNextNearestCells
 		(
 			label& startSeedI,
 			label& srcCelli,
@@ -106,7 +106,7 @@ namespace tnbLib
 		) const;
 
 		//- Find a source cell mapped to target cell tgtCelli
-		virtual label findMappedSrcCell
+		FoamSampling_EXPORT virtual label findMappedSrcCell
 		(
 			const label tgtCelli,
 			const List<DynamicList<label>>& tgtToSrc
@@ -116,19 +116,23 @@ namespace tnbLib
 	public:
 
 		//- Run-time type information
-		TypeName("mapNearest");
+		//TypeName("mapNearest");
+		static const char* typeName_() { return "mapNearest"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from source and target meshes
-		mapNearestMethod(const polyMesh& src, const polyMesh& tgt);
+		FoamSampling_EXPORT mapNearestMethod(const polyMesh& src, const polyMesh& tgt);
 
 		//- Disallow default bitwise copy construction
-		mapNearestMethod(const mapNearestMethod&) = delete;
+		FoamSampling_EXPORT mapNearestMethod(const mapNearestMethod&) = delete;
 
 
 		//- Destructor
-		virtual ~mapNearestMethod();
+		FoamSampling_EXPORT virtual ~mapNearestMethod();
 
 
 		// Member Functions
@@ -136,7 +140,7 @@ namespace tnbLib
 			// Evaluate
 
 				//- Calculate addressing and weights
-		virtual void calculate
+		FoamSampling_EXPORT virtual void calculate
 		(
 			labelListList& srcToTgtAddr,
 			scalarListList& srcToTgtWght,
@@ -148,7 +152,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const mapNearestMethod&) = delete;
+		FoamSampling_EXPORT void operator=(const mapNearestMethod&) = delete;
 	};
 
 

@@ -232,7 +232,7 @@ void tnbLib::molecule::writeFields(const Cloud<molecule>& mC)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const molecule& mol)
+FoamLagrangian_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const molecule& mol)
 {
 	if (os.format() == IOstream::ASCII)
 	{

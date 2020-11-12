@@ -112,45 +112,45 @@ namespace tnbLib
 			{
 				// Private Member Functions
 
-				tmp<volScalarField> fv(const volScalarField& Ret) const;
+				FoamTurbulence_EXPORT tmp<volScalarField> fv(const volScalarField& Ret) const;
 
-				tmp<volScalarField> fINT() const;
+				FoamTurbulence_EXPORT tmp<volScalarField> fINT() const;
 
-				tmp<volScalarField> fSS(const volScalarField& omega) const;
+				FoamTurbulence_EXPORT tmp<volScalarField> fSS(const volScalarField& omega) const;
 
-				tmp<volScalarField> Cmu(const volScalarField& S) const;
+				FoamTurbulence_EXPORT tmp<volScalarField> Cmu(const volScalarField& S) const;
 
-				tmp<volScalarField> BetaTS(const volScalarField& Rew) const;
+				FoamTurbulence_EXPORT tmp<volScalarField> BetaTS(const volScalarField& Rew) const;
 
-				tmp<volScalarField> fTaul
+				FoamTurbulence_EXPORT tmp<volScalarField> fTaul
 				(
 					const volScalarField& lambdaEff,
 					const volScalarField& ktL,
 					const volScalarField& omega
 				) const;
 
-				tmp<volScalarField> alphaT
+				FoamTurbulence_EXPORT tmp<volScalarField> alphaT
 				(
 					const volScalarField& lambdaEff,
 					const volScalarField& fv,
 					const volScalarField& ktS
 				) const;
 
-				tmp<volScalarField> fOmega
+				FoamTurbulence_EXPORT tmp<volScalarField> fOmega
 				(
 					const volScalarField& lambdaEff,
 					const volScalarField& lambdaT
 				) const;
 
-				tmp<volScalarField> phiBP(const volScalarField& omega) const;
+				FoamTurbulence_EXPORT tmp<volScalarField> phiBP(const volScalarField& omega) const;
 
-				tmp<volScalarField> phiNAT
+				FoamTurbulence_EXPORT tmp<volScalarField> phiNAT
 				(
 					const volScalarField& ReOmega,
 					const volScalarField& fNatCrit
 				) const;
 
-				tmp<volScalarField> D(const volScalarField& k) const;
+				FoamTurbulence_EXPORT tmp<volScalarField> D(const volScalarField& k) const;
 
 
 			protected:
@@ -203,19 +203,23 @@ namespace tnbLib
 
 				// Protected Member Functions
 
-				virtual void correctNut();
+				FoamTurbulence_EXPORT virtual void correctNut();
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("kkLOmega");
+				//TypeName("kkLOmega");
+				static const char* typeName_() { return "kkLOmega"; }
+				static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+				static FoamTurbulence_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				kkLOmega
+				FoamTurbulence_EXPORT kkLOmega
 				(
 					const geometricOneField& alpha,
 					const geometricOneField& rho,
@@ -236,7 +240,7 @@ namespace tnbLib
 				// Member Functions
 
 					//- Read RASProperties dictionary
-				virtual bool read();
+				FoamTurbulence_EXPORT virtual bool read();
 
 				//- Return the effective diffusivity for k
 				tmp<volScalarField> DkEff(const volScalarField& alphaT) const
@@ -295,10 +299,10 @@ namespace tnbLib
 
 				//- Validate the turbulence fields after construction
 				//  Update turbulence viscosity and other derived fields as requires
-				virtual void validate();
+				FoamTurbulence_EXPORT virtual void validate();
 
 				//- Solve the turbulence equations and correct the turbulence viscosity
-				virtual void correct();
+				FoamTurbulence_EXPORT virtual void correct();
 			};
 
 

@@ -115,20 +115,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("waveDisplacement");
+		//TypeName("waveDisplacement");
+		static const char* typeName_() { return "waveDisplacement"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		waveDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT waveDisplacementPointPatchVectorField
 		(
 			const pointPatch&,
 			const DimensionedField<vector, pointMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		waveDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT waveDisplacementPointPatchVectorField
 		(
 			const pointPatch&,
 			const DimensionedField<vector, pointMesh>&,
@@ -136,7 +140,7 @@ namespace tnbLib
 		);
 
 		//- Construct by mapping given patchField<vector> onto a new patch
-		waveDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT waveDisplacementPointPatchVectorField
 		(
 			const waveDisplacementPointPatchVectorField&,
 			const pointPatch&,
@@ -157,7 +161,7 @@ namespace tnbLib
 		}
 
 		//- Construct as copy setting internal field reference
-		waveDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT waveDisplacementPointPatchVectorField
 		(
 			const waveDisplacementPointPatchVectorField&,
 			const DimensionedField<vector, pointMesh>&
@@ -185,11 +189,11 @@ namespace tnbLib
 			// Evaluation functions
 
 				//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFvMotionSolver_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFvMotionSolver_EXPORT virtual void write(Ostream&) const;
 	};
 
 

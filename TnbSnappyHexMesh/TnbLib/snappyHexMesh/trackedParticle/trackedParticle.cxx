@@ -261,7 +261,7 @@ void tnbLib::trackedParticle::correctAfterParallelTransfer
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const trackedParticle& p)
+FoamSnappyHexMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const trackedParticle& p)
 {
 	if (os.format() == IOstream::ASCII)
 	{

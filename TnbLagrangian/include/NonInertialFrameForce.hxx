@@ -39,6 +39,16 @@ SourceFiles
 
 #include <ParticleForce.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamNonInertialFrameForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNonInertialFrameForce_EXPORT_DEFINE
+#define FoamNonInertialFrameForce_EXPORT __declspec(dllexport)
+#else
+#define FoamNonInertialFrameForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -85,7 +95,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("nonInertialFrame");
+		//TypeName("nonInertialFrame");
+		static const char* typeName_() { return "nonInertialFrame"; }
+		static FoamNonInertialFrameForce_EXPORT const ::tnbLib::word typeName;
+		static FoamNonInertialFrameForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

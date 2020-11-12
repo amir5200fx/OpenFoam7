@@ -153,7 +153,7 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Output verbosity
-		static bool verbose_;
+		static FoamSampling_EXPORT bool verbose_;
 
 
 		// Private Data
@@ -204,17 +204,17 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Clear old field groups
-		void clearFieldGroups();
+		FoamSampling_EXPORT void clearFieldGroups();
 
 		//- Append fieldName to the appropriate group
-		label appendFieldGroup(const word& fieldName, const word& fieldType);
+		FoamSampling_EXPORT label appendFieldGroup(const word& fieldName, const word& fieldType);
 
 		//- Classify field types, returns the number of fields
-		label classifyFields();
+		FoamSampling_EXPORT label classifyFields();
 
 		//- Combine points from all processors. Sort by curveDist and produce
 		//  index list. Valid result only on master processor.
-		void combineSampledSets
+		FoamSampling_EXPORT void combineSampledSets
 		(
 			PtrList<coordSet>& masterSampledSets,
 			labelListList& indexSets
@@ -247,13 +247,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("sets");
+		//TypeName("sets");
+		static const char* typeName_() { return "sets"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from Time and dictionary
-		sampledSets
+		FoamSampling_EXPORT sampledSets
 		(
 			const word& name,
 			const Time& time,
@@ -262,7 +266,7 @@ namespace tnbLib
 
 		//- Construct for given objectRegistry and dictionary
 		//  allow the possibility to load fields from files
-		sampledSets
+		FoamSampling_EXPORT sampledSets
 		(
 			const word& name,
 			const objectRegistry&,
@@ -271,44 +275,44 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		sampledSets(const sampledSets&) = delete;
+		FoamSampling_EXPORT sampledSets(const sampledSets&) = delete;
 
 
 		//- Destructor
-		virtual ~sampledSets();
+		FoamSampling_EXPORT virtual ~sampledSets();
 
 
 		// Member Functions
 
 			//- Set verbosity level
-		void verbose(const bool verbosity = true);
+		FoamSampling_EXPORT void verbose(const bool verbosity = true);
 
 		//- Read the sampledSets
-		virtual bool read(const dictionary&);
+		FoamSampling_EXPORT virtual bool read(const dictionary&);
 
 		//- Execute, currently does nothing
-		virtual bool execute();
+		FoamSampling_EXPORT virtual bool execute();
 
 		//- Sample and write
-		virtual bool write();
+		FoamSampling_EXPORT virtual bool write();
 
 		//- Correct for mesh changes
-		void correct();
+		FoamSampling_EXPORT void correct();
 
 		//- Update for changes of mesh
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamSampling_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 		//- Update for mesh point-motion
-		virtual void movePoints(const polyMesh&);
+		FoamSampling_EXPORT virtual void movePoints(const polyMesh&);
 
 		//- Update for changes of mesh due to readUpdate
-		virtual void readUpdate(const polyMesh::readUpdateState state);
+		FoamSampling_EXPORT virtual void readUpdate(const polyMesh::readUpdateState state);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const sampledSets&) = delete;
+		FoamSampling_EXPORT void operator=(const sampledSets&) = delete;
 	};
 
 

@@ -57,7 +57,7 @@ namespace tnbLib
 		{
 		public:
 
-			static const word intensityPrefix;
+			static FoamRadiationModels_EXPORT const word intensityPrefix;
 
 
 		private:
@@ -110,7 +110,7 @@ namespace tnbLib
 			PtrList<volScalarField> ILambda_;
 
 			//- Global ray id - incremented in constructor
-			static label rayId;
+			static FoamRadiationModels_EXPORT label rayId;
 
 			//- My ray Id
 			label myRayId_;
@@ -121,7 +121,7 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct form components
-			radiativeIntensityRay
+			FoamRadiationModels_EXPORT radiativeIntensityRay
 			(
 				const fvDOM& dom,
 				const fvMesh& mesh,
@@ -136,11 +136,11 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			radiativeIntensityRay(const radiativeIntensityRay&) = delete;
+			FoamRadiationModels_EXPORT radiativeIntensityRay(const radiativeIntensityRay&) = delete;
 
 
 			//- Destructor
-			~radiativeIntensityRay();
+			FoamRadiationModels_EXPORT ~radiativeIntensityRay();
 
 
 			// Member Functions
@@ -148,10 +148,10 @@ namespace tnbLib
 				// Edit
 
 					//- Update radiative intensity on i direction
-			scalar correct();
+			FoamRadiationModels_EXPORT scalar correct();
 
 			//- Initialise the ray in i direction
-			void init
+			FoamRadiationModels_EXPORT void init
 			(
 				const scalar phi,
 				const scalar theta,
@@ -161,7 +161,7 @@ namespace tnbLib
 			);
 
 			//- Add radiative intensities from all the bands
-			void addIntensity();
+			FoamRadiationModels_EXPORT void addIntensity();
 
 
 			// Access
@@ -212,7 +212,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const radiativeIntensityRay&) = delete;
+			FoamRadiationModels_EXPORT void operator=(const radiativeIntensityRay&) = delete;
 		};
 
 

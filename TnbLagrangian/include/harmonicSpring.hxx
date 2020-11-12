@@ -63,13 +63,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("harmonicSpring");
+			//TypeName("harmonicSpring");
+			static const char* typeName_() { return "harmonicSpring"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			harmonicSpring
+			FoamLagrangian_EXPORT harmonicSpring
 			(
 				const word& name,
 				const dictionary& tetherPotentialProperties
@@ -83,12 +87,12 @@ namespace tnbLib
 
 			// Member Functions
 
-			scalar energy(const vector r) const;
+			FoamLagrangian_EXPORT scalar energy(const vector r) const;
 
-			vector force(const vector r) const;
+			FoamLagrangian_EXPORT vector force(const vector r) const;
 
 			//- Read dictionary
-			bool read(const dictionary& tetherPotentialProperties);
+			FoamLagrangian_EXPORT bool read(const dictionary& tetherPotentialProperties);
 		};
 
 

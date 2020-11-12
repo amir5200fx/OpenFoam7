@@ -38,6 +38,16 @@ Description
 #include <tmp.hxx>  // added by amir
 #include <volFieldsFwd.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamDispersionRASModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDispersionRASModel_EXPORT_DEFINE
+#define FoamDispersionRASModel_EXPORT __declspec(dllexport)
+#else
+#define FoamDispersionRASModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -83,7 +93,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("dispersionRASModel");
+		//TypeName("dispersionRASModel");
+		static const char* typeName_() { return "dispersionRASModel"; }
+		static FoamDispersionRASModel_EXPORT const ::tnbLib::word typeName;
+		static FoamDispersionRASModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

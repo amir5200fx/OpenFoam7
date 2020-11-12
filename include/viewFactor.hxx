@@ -111,10 +111,10 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Initialise
-			void initialise();
+			FoamRadiationModels_EXPORT void initialise();
 
 			//- Insert view factors into main matrix
-			void insertMatrixElements
+			FoamRadiationModels_EXPORT void insertMatrixElements
 			(
 				const globalIndex& index,
 				const label fromProci,
@@ -127,23 +127,27 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("viewFactor");
+			//TypeName("viewFactor");
+			static const char* typeName_() { return "viewFactor"; }
+			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+			static FoamRadiationModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			viewFactor(const volScalarField& T);
+			FoamRadiationModels_EXPORT viewFactor(const volScalarField& T);
 
 			//- Construct from components
-			viewFactor(const dictionary& dict, const volScalarField& T);
+			FoamRadiationModels_EXPORT viewFactor(const dictionary& dict, const volScalarField& T);
 
 			//- Disallow default bitwise copy construction
-			viewFactor(const viewFactor&) = delete;
+			FoamRadiationModels_EXPORT viewFactor(const viewFactor&) = delete;
 
 
 			//- Destructor
-			virtual ~viewFactor();
+			FoamRadiationModels_EXPORT virtual ~viewFactor();
 
 
 			// Member Functions
@@ -151,16 +155,16 @@ namespace tnbLib
 				// Edit
 
 					//- Solve system of equation(s)
-			void calculate();
+			FoamRadiationModels_EXPORT void calculate();
 
 			//- Read radiation properties dictionary
-			bool read();
+			FoamRadiationModels_EXPORT bool read();
 
 			//- Source term component (for power of T^4)
-			virtual tmp<volScalarField> Rp() const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField> Rp() const;
 
 			//- Source term component (constant)
-			virtual tmp<volScalarField::Internal> Ru() const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField::Internal> Ru() const;
 
 
 			// Access
@@ -172,7 +176,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const viewFactor&) = delete;
+			FoamRadiationModels_EXPORT void operator=(const viewFactor&) = delete;
 		};
 
 

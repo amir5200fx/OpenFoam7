@@ -82,7 +82,7 @@ namespace tnbLib
 			tmp<GeoFieldType> calcFieldType() const;
 
 			//- Subtract the list of fields and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
@@ -91,13 +91,17 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("subtract");
+			//TypeName("subtract");
+			static const char* typeName_() { return "subtract"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			subtract
+			FoamFunctionObjects_EXPORT subtract
 			(
 				const word& name,
 				const Time& runTime,
@@ -106,7 +110,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~subtract();
+			FoamFunctionObjects_EXPORT virtual ~subtract();
 		};
 
 
@@ -118,8 +122,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <subtractTemplates.cxx>
+//#include <subtractTemplates.cxx>
 #endif
+
+#include <subtractTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -47,7 +47,7 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	void makeGraph
+	FoamSampling_EXPORT void makeGraph
 	(
 		const scalarField& x,
 		const volScalarField& vsf,
@@ -55,7 +55,7 @@ namespace tnbLib
 	);
 
 
-	void makeGraph
+	FoamSampling_EXPORT void makeGraph
 	(
 		const scalarField& x,
 		const volScalarField& vsf,
@@ -64,7 +64,7 @@ namespace tnbLib
 	);
 
 
-	void makeGraph
+	FoamSampling_EXPORT void makeGraph
 	(
 		const scalarField& x,
 		const scalarField& sf,

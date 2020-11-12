@@ -45,6 +45,16 @@ SourceFiles
 
 #include <demandDrivenEntry.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamCollidingParcel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCollidingParcel_EXPORT_DEFINE
+#define FoamCollidingParcel_EXPORT __declspec(dllexport)
+#else
+#define FoamCollidingParcel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -149,10 +159,14 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Runtime type information
-		TypeName("CollidingParcel");
+		//TypeName("CollidingParcel");
+		static const char* typeName_() { return "CollidingParcel"; }
+		static FoamCollidingParcel_EXPORT const ::tnbLib::word typeName;
+		static FoamCollidingParcel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- String representation of properties
-		AddToPropertyList
+		/*AddToPropertyList
 		(
 			ParcelType,
 			" (fx fy fz)"
@@ -165,7 +179,18 @@ namespace tnbLib
 			+ " collisionRecordsWallAccessed"
 			+ " collisionRecordsWallPRel"
 			+ " (collisionRecordsWallData)"
-		);
+		);*/
+		
+		static string propertyList_;
+
+		static string propertyList()
+		{
+			return ParcelType::propertyList() + " (fx fy fz)" + " (angularMomentumx angularMomentumy angularMomentumz)"
+				+ " (torquex torquey torquez)" + " collisionRecordsPairAccessed" +
+				" collisionRecordsPairOrigProcOfOther" + " collisionRecordsPairOrigIdOfOther" +
+				" (collisionRecordsPairData)" + " collisionRecordsWallAccessed" + " collisionRecordsWallPRel" +
+				" (collisionRecordsWallData)";
+		};
 
 
 		// Constructors
@@ -342,7 +367,7 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <CollidingParcel.cxx>
+//#include <CollidingParcel.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

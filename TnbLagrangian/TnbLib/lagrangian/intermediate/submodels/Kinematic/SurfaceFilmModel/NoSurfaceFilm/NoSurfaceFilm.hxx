@@ -38,6 +38,16 @@ SourceFiles
 
 #include <SurfaceFilmModelTemplate.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamNoSurfaceFilm_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNoSurfaceFilm_EXPORT_DEFINE
+#define FoamNoSurfaceFilm_EXPORT __declspec(dllexport)
+#else
+#define FoamNoSurfaceFilm_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -65,7 +75,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamNoSurfaceFilm_EXPORT const ::tnbLib::word typeName;
+		static FoamNoSurfaceFilm_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

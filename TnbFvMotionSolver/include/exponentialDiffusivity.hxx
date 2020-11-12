@@ -61,35 +61,39 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("exponential");
+		//TypeName("exponential");
+		static const char* typeName_() { return "exponential"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct for the given fvMesh and data Istream
-		exponentialDiffusivity(const fvMesh& mesh, Istream& mdData);
+		FoamFvMotionSolver_EXPORT exponentialDiffusivity(const fvMesh& mesh, Istream& mdData);
 
 		//- Disallow default bitwise copy construction
-		exponentialDiffusivity(const exponentialDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT exponentialDiffusivity(const exponentialDiffusivity&) = delete;
 
 
 		//- Destructor
-		virtual ~exponentialDiffusivity();
+		FoamFvMotionSolver_EXPORT virtual ~exponentialDiffusivity();
 
 
 		// Member Functions
 
 			//- Correct the motion diffusivity
-		virtual void correct();
+		FoamFvMotionSolver_EXPORT virtual void correct();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const exponentialDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT void operator=(const exponentialDiffusivity&) = delete;
 
 		//- Return diffusivity field
-		virtual tmp<surfaceScalarField> operator()() const;
+		FoamFvMotionSolver_EXPORT virtual tmp<surfaceScalarField> operator()() const;
 	};
 
 

@@ -41,6 +41,16 @@ SourceFiles
 #include <autoPtr.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamBinaryCollisionModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamBinaryCollisionModel_EXPORT_DEFINE
+#define FoamBinaryCollisionModel_EXPORT __declspec(dllexport)
+#else
+#define FoamBinaryCollisionModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -68,10 +78,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("BinaryCollisionModel");
+		//TypeName("BinaryCollisionModel");
+		static const char* typeName_() { return "BinaryCollisionModel"; }
+		static FoamBinaryCollisionModel_EXPORT const ::tnbLib::word typeName;
+		static FoamBinaryCollisionModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			BinaryCollisionModel,
@@ -81,12 +95,64 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<BinaryCollisionModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamBinaryCollisionModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamBinaryCollisionModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamBinaryCollisionModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class BinaryCollisionModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<BinaryCollisionModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<BinaryCollisionModel>(new BinaryCollisionModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = BinaryCollisionModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"BinaryCollisionModel" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class BinaryCollisionModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<BinaryCollisionModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<BinaryCollisionModel>(new BinaryCollisionModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = BinaryCollisionModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors
 
-			//- Construct null from owner
+		//- Construct null from owner
 		BinaryCollisionModel(CloudType& owner);
 
 		//- Construct from components

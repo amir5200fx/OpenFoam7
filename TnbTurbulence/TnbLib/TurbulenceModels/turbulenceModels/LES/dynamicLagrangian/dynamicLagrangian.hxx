@@ -48,6 +48,16 @@ SourceFiles
 
 #include <fvc.hxx>  // added by amir
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamdynamicLagrangian_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamdynamicLagrangian_EXPORT_DEFINE
+#define FoamdynamicLagrangian_EXPORT __declspec(dllexport)
+#else
+#define FoamdynamicLagrangian_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -96,7 +106,11 @@ namespace tnbLib
 			typedef typename BasicTurbulenceModel::transportModel transportModel;
 
 			//- Runtime type information
-			TypeName("dynamicLagrangian");
+			//TypeName("dynamicLagrangian");
+			static const char* typeName_() { return "dynamicLagrangian"; }
+			static FoamdynamicLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamdynamicLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

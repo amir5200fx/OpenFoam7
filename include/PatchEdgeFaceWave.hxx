@@ -88,11 +88,11 @@ namespace tnbLib
 			  //- Relative tolerance. Stop propagation if relative changes
 			  //  less than this tolerance (responsibility for checking this is
 			  //  up to Type implementation)
-		static FoamFvMesh_EXPORT scalar propagationTol_;
+		static scalar propagationTol_;
 
 		//- Used as default trackdata value to satisfy default template
 		//  argument.
-		static FoamFvMesh_EXPORT label dummyTrackData_;
+		static label dummyTrackData_;
 
 
 		// Private Data

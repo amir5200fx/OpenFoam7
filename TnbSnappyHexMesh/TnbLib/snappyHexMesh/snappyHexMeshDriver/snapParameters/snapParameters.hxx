@@ -79,10 +79,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from dictionary
-		snapParameters(const dictionary& dict);
+		FoamSnappyHexMesh_EXPORT snapParameters(const dictionary& dict);
 
 		//- Disallow default bitwise copy construction
-		snapParameters(const snapParameters&) = delete;
+		FoamSnappyHexMesh_EXPORT snapParameters(const snapParameters&) = delete;
 
 
 		// Member Functions
@@ -147,7 +147,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const snapParameters&) = delete;
+		FoamSnappyHexMesh_EXPORT void operator=(const snapParameters&) = delete;
 	};
 
 

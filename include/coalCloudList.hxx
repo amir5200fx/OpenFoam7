@@ -52,7 +52,7 @@ namespace tnbLib
 
 		// Constructor
 
-		coalCloudList
+		FoamLagrangian_EXPORT coalCloudList
 		(
 			const volScalarField& rho,
 			const volVectorField& U,
@@ -66,7 +66,7 @@ namespace tnbLib
 			// Evolution
 
 				//- Evolve the cloud collection
-		void evolve();
+		FoamLagrangian_EXPORT void evolve();
 
 
 		// Source terms

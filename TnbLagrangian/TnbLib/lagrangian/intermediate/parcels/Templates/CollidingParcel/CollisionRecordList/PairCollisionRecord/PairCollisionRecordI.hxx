@@ -121,3 +121,146 @@ inline bool tnbLib::operator!=
 
 
 // ************************************************************************* //
+
+// IO.cxx
+#include <IOstreams.hxx>
+
+// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+template<class Type>
+tnbLib::PairCollisionRecord<Type>::PairCollisionRecord(Istream& is)
+	:
+	origProcOfOther_(readLabel(is)),
+	origIdOfOther_(readLabel(is)),
+	data_(is)
+{
+	// Check state of Istream
+	is.check
+	(
+		"tnbLib::PairCollisionRecord<Type>::PairCollisionRecord(tnbLib::Istream&)"
+	);
+}
+
+
+// * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
+
+template<class Type>
+tnbLib::Istream& tnbLib::operator>>(Istream& is, PairCollisionRecord<Type>& pCR)
+{
+	is >> pCR.origProcOfOther_ >> pCR.origIdOfOther_ >> pCR.data_;
+
+	// Check state of Istream
+	is.check
+	(
+		"tnbLib::Istream&"
+		"tnbLib::operator>>(tnbLib::Istream&, tnbLib::PairCollisionRecord<Type>&)"
+	);
+
+	return is;
+}
+
+
+template<class Type>
+tnbLib::Ostream& tnbLib::operator<<
+(
+	Ostream& os,
+	const PairCollisionRecord<Type>& pCR
+	)
+{
+	os << pCR.origProcOfOther_
+		<< token::SPACE << pCR.origIdOfOther_
+		<< token::SPACE << pCR.data_;
+
+	// Check state of Ostream
+	os.check
+	(
+		"tnbLib::Ostream& tnbLib::operator<<(tnbLib::Ostream&, "
+		"const tnbLib::PairCollisionRecord<Type>&)"
+	);
+
+	return os;
+}
+
+
+// ************************************************************************* //
+// .cxx
+// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+template<class Type>
+tnbLib::PairCollisionRecord<Type>::PairCollisionRecord()
+	:
+	origProcOfOther_(0),
+	origIdOfOther_(-1),
+	data_(Zero)
+{}
+
+
+template<class Type>
+tnbLib::PairCollisionRecord<Type>::PairCollisionRecord
+(
+	bool accessed,
+	label origProcOfOther,
+	label origIdOfOther,
+	const Type& data
+)
+	:
+	origProcOfOther_(origProcOfOther + 1),
+	origIdOfOther_(origIdOfOther),
+	data_(data)
+{
+	// Default assignment to origProcOfOther_ assumes accessed is true
+
+	if (!accessed)
+	{
+		setUnaccessed();
+	}
+}
+
+
+template<class Type>
+tnbLib::PairCollisionRecord<Type>::PairCollisionRecord
+(
+	const PairCollisionRecord<Type>& pCR
+)
+	:
+	origProcOfOther_(pCR.origProcOfOther_),
+	origIdOfOther_(pCR.origIdOfOther_),
+	data_(pCR.data_)
+{}
+
+
+// * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
+
+template<class Type>
+tnbLib::PairCollisionRecord<Type>::~PairCollisionRecord()
+{}
+
+
+// * * * * * * * * * * * * * * Member Operators  * * * * * * * * * * * * * * //
+
+template<class Type>
+void tnbLib::PairCollisionRecord<Type>::operator=
+(
+	const PairCollisionRecord<Type>& rhs
+	)
+{
+	// Check for assignment to self
+	if (this == &rhs)
+	{
+		FatalErrorInFunction
+			<< "Attempted assignment to self"
+			<< abort(FatalError);
+	}
+
+	origProcOfOther_ = rhs.origProcOfOther_;
+	origIdOfOther_ = rhs.origIdOfOther_;
+	data_ = rhs.data_;
+}
+
+
+// * * * * * * * * * * * * * *  IOStream operators * * * * * * * * * * * * * //
+
+//#include <PairCollisionRecordIO.cxx>
+
+
+// ************************************************************************* //

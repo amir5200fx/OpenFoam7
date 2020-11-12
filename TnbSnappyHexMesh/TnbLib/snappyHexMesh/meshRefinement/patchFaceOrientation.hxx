@@ -53,8 +53,8 @@ namespace tnbLib
 
 	class patchFaceOrientation;
 
-	Istream& operator>>(Istream&, patchFaceOrientation&);
-	Ostream& operator<<(Ostream&, const patchFaceOrientation&);
+	FoamSnappyHexMesh_EXPORT Istream& operator>>(Istream&, patchFaceOrientation&);
+	FoamSnappyHexMesh_EXPORT Ostream& operator<<(Ostream&, const patchFaceOrientation&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -158,8 +158,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const patchFaceOrientation&);
-		friend Istream& operator>>(Istream&, patchFaceOrientation&);
+		friend FoamSnappyHexMesh_EXPORT Ostream& operator<<(Ostream&, const patchFaceOrientation&);
+		friend FoamSnappyHexMesh_EXPORT Istream& operator>>(Istream&, patchFaceOrientation&);
 	};
 
 

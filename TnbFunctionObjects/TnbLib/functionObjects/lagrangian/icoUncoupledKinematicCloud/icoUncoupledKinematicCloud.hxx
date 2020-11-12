@@ -122,14 +122,18 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("icoUncoupledKinematicCloud");
+			//TypeName("icoUncoupledKinematicCloud");
+			static const char* typeName_() { return "icoUncoupledKinematicCloud"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct for given objectRegistry and dictionary.
 				//  Allow the possibility to load fields from files
-			icoUncoupledKinematicCloud
+			FoamFunctionObjects_EXPORT icoUncoupledKinematicCloud
 			(
 				const word& name,
 				const Time& runTime,
@@ -137,29 +141,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			icoUncoupledKinematicCloud(const icoUncoupledKinematicCloud&) = delete;
+			FoamFunctionObjects_EXPORT icoUncoupledKinematicCloud(const icoUncoupledKinematicCloud&) = delete;
 
 
 			//- Destructor
-			virtual ~icoUncoupledKinematicCloud();
+			FoamFunctionObjects_EXPORT virtual ~icoUncoupledKinematicCloud();
 
 
 			// Member Functions
 
 				//- Read the controls
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Track the cloud
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the cloud
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator==(const icoUncoupledKinematicCloud&) = delete;
+			FoamFunctionObjects_EXPORT void operator==(const icoUncoupledKinematicCloud&) = delete;
 		};
 
 

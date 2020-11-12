@@ -63,7 +63,7 @@ namespace tnbLib
 				// Private Member Functions
 
 					//- Initialize thermal Baffle
-				void init();
+				FoamLagrangian_EXPORT void init();
 
 
 			protected:
@@ -86,21 +86,25 @@ namespace tnbLib
 				// Protected Member Functions
 
 					//- Read control parameters from IO dictionary
-				virtual bool read();
+				FoamLagrangian_EXPORT virtual bool read();
 
 				//- Read control parameters from dictionary
-				virtual bool read(const dictionary&);
+				FoamLagrangian_EXPORT virtual bool read(const dictionary&);
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("thermalBaffleModel");
+				//TypeName("thermalBaffleModel");
+				static const char* typeName_() { return "thermalBaffleModel"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Declare runtime constructor selection tables
 
-				declareRunTimeSelectionTable
+				/*declareRunTimeSelectionTable
 				(
 					autoPtr,
 					thermalBaffleModel,
@@ -110,9 +114,61 @@ namespace tnbLib
 						const fvMesh& mesh
 						),
 						(modelType, mesh)
-				);
+				);*/
 
-				declareRunTimeSelectionTable
+				typedef autoPtr<thermalBaffleModel> (*meshConstructorPtr)(const word& modelType, const fvMesh& mesh);
+				typedef HashTable<meshConstructorPtr, word, string::hash> meshConstructorTable;
+				static FoamLagrangian_EXPORT meshConstructorTable* meshConstructorTablePtr_;
+				static FoamLagrangian_EXPORT void constructmeshConstructorTables();
+				static FoamLagrangian_EXPORT void destroymeshConstructorTables();
+
+				template <class thermalBaffleModelType>
+				class addmeshConstructorToTable
+				{
+				public:
+					static autoPtr<thermalBaffleModel> New(const word& modelType, const fvMesh& mesh)
+					{
+						return autoPtr<thermalBaffleModel>(new thermalBaffleModelType(modelType, mesh));
+					}
+
+					addmeshConstructorToTable(const word& lookup = thermalBaffleModelType::typeName)
+					{
+						constructmeshConstructorTables();
+						if (!meshConstructorTablePtr_->insert(lookup, New))
+						{
+							std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+								"thermalBaffleModel" << std::endl;
+							error::safePrintStack(std::cerr);
+						}
+					}
+
+					~addmeshConstructorToTable() { destroymeshConstructorTables(); }
+				};
+
+				template <class thermalBaffleModelType>
+				class addRemovablemeshConstructorToTable
+				{
+					const word& lookup_;
+				public:
+					static autoPtr<thermalBaffleModel> New(const word& modelType, const fvMesh& mesh)
+					{
+						return autoPtr<thermalBaffleModel>(new thermalBaffleModelType(modelType, mesh));
+					}
+
+					addRemovablemeshConstructorToTable(const word& lookup = thermalBaffleModelType::typeName) : lookup_(
+						lookup)
+					{
+						constructmeshConstructorTables();
+						meshConstructorTablePtr_->set(lookup, New);
+					}
+
+					~addRemovablemeshConstructorToTable()
+					{
+						if (meshConstructorTablePtr_) { meshConstructorTablePtr_->erase(lookup_); }
+					}
+				};
+
+				/*declareRunTimeSelectionTable
 				(
 					autoPtr,
 					thermalBaffleModel,
@@ -123,19 +179,74 @@ namespace tnbLib
 						const dictionary& dict
 						),
 						(modelType, mesh, dict)
-				);
+				);*/
+
+				typedef autoPtr<thermalBaffleModel> (*dictionaryConstructorPtr)(
+					const word& modelType, const fvMesh& mesh, const dictionary& dict);
+				typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+				static FoamLagrangian_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+				static FoamLagrangian_EXPORT void constructdictionaryConstructorTables();
+				static FoamLagrangian_EXPORT void destroydictionaryConstructorTables();
+
+				template <class thermalBaffleModelType>
+				class adddictionaryConstructorToTable
+				{
+				public:
+					static autoPtr<thermalBaffleModel> New(const word& modelType, const fvMesh& mesh,
+					                                       const dictionary& dict)
+					{
+						return autoPtr<thermalBaffleModel>(new thermalBaffleModelType(modelType, mesh, dict));
+					}
+
+					adddictionaryConstructorToTable(const word& lookup = thermalBaffleModelType::typeName)
+					{
+						constructdictionaryConstructorTables();
+						if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+						{
+							std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+								"thermalBaffleModel" << std::endl;
+							error::safePrintStack(std::cerr);
+						}
+					}
+
+					~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+				};
+
+				template <class thermalBaffleModelType>
+				class addRemovabledictionaryConstructorToTable
+				{
+					const word& lookup_;
+				public:
+					static autoPtr<thermalBaffleModel> New(const word& modelType, const fvMesh& mesh,
+					                                       const dictionary& dict)
+					{
+						return autoPtr<thermalBaffleModel>(new thermalBaffleModelType(modelType, mesh, dict));
+					}
+
+					addRemovabledictionaryConstructorToTable(
+						const word& lookup = thermalBaffleModelType::typeName) : lookup_(lookup)
+					{
+						constructdictionaryConstructorTables();
+						dictionaryConstructorTablePtr_->set(lookup, New);
+					}
+
+					~addRemovabledictionaryConstructorToTable()
+					{
+						if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+					}
+				};
 
 
 				// Constructors
 
 					//- Construct null from mesh
-				thermalBaffleModel(const fvMesh& mesh);
+				FoamLagrangian_EXPORT thermalBaffleModel(const fvMesh& mesh);
 
 				//- Construct from type name and mesh
-				thermalBaffleModel(const word& modelType, const fvMesh& mesh);
+				FoamLagrangian_EXPORT thermalBaffleModel(const word& modelType, const fvMesh& mesh);
 
 				//- Construct from type name and mesh and dict
-				thermalBaffleModel
+				FoamLagrangian_EXPORT thermalBaffleModel
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -143,16 +254,16 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				thermalBaffleModel(const thermalBaffleModel&) = delete;
+				FoamLagrangian_EXPORT thermalBaffleModel(const thermalBaffleModel&) = delete;
 
 
 				// Selectors
 
 					//- Return a reference to the selected model
-				static autoPtr<thermalBaffleModel> New(const fvMesh& mesh);
+				static FoamLagrangian_EXPORT autoPtr<thermalBaffleModel> New(const fvMesh& mesh);
 
 				//- Return a reference to the selected model using dictionary
-				static autoPtr<thermalBaffleModel> New
+				static FoamLagrangian_EXPORT autoPtr<thermalBaffleModel> New
 				(
 					const fvMesh& mesh,
 					const dictionary& dict
@@ -160,7 +271,7 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~thermalBaffleModel();
+				FoamLagrangian_EXPORT virtual ~thermalBaffleModel();
 
 
 				// Member Functions
@@ -168,7 +279,7 @@ namespace tnbLib
 					// Access
 
 						//- Return solid thermo
-				virtual const solidThermo& thermo() const = 0;
+				FoamLagrangian_EXPORT virtual const solidThermo& thermo() const = 0;
 
 				//- Return thickness
 				const scalarField& thickness() const
@@ -198,31 +309,31 @@ namespace tnbLib
 				// Fields
 
 					//- Return density [kg/m^3]
-				virtual const volScalarField& rho() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& rho() const = 0;
 
 				//- Return const temperature [K]
-				virtual const volScalarField& T() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& T() const = 0;
 
 				//- Return specific heat capacity [J/kg/K]
-				virtual const tmp<volScalarField> Cp() const = 0;
+				FoamLagrangian_EXPORT virtual const tmp<volScalarField> Cp() const = 0;
 
 				//- Return the region absorptivity [1/m]
-				virtual const volScalarField& kappaRad() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& kappaRad() const = 0;
 
 				//- Return the region thermal conductivity [W/m/k]
-				virtual const volScalarField& kappa() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& kappa() const = 0;
 
 
 				// Evolution
 
 					//- Pre-evolve region
-				virtual void preEvolveRegion();
+				FoamLagrangian_EXPORT virtual void preEvolveRegion();
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const thermalBaffleModel&) = delete;
+				FoamLagrangian_EXPORT void operator=(const thermalBaffleModel&) = delete;
 			};
 
 

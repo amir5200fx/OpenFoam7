@@ -40,6 +40,16 @@ SourceFiles
 #include <autoPtr.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamTurbulenceModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamTurbulenceModel_EXPORT_DEFINE
+#define FoamTurbulenceModel_EXPORT __declspec(dllexport)
+#else
+#define FoamTurbulenceModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -80,7 +90,7 @@ namespace tnbLib
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeNewSelectionTable
+		/*declareRunTimeNewSelectionTable
 		(
 			autoPtr,
 			TurbulenceModel,
@@ -95,7 +105,76 @@ namespace tnbLib
 				const word& propertiesName
 				),
 				(alpha, rho, U, alphaRhoPhi, phi, transport, propertiesName)
-		);
+		);*/
+
+		typedef autoPtr<TurbulenceModel> (*dictionaryConstructorPtr)(const alphaField& alpha, const rhoField& rho,
+		                                                             const volVectorField& U,
+		                                                             const surfaceScalarField& alphaRhoPhi,
+		                                                             const surfaceScalarField& phi,
+		                                                             const transportModel& transport,
+		                                                             const word& propertiesName);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamTurbulenceModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamTurbulenceModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamTurbulenceModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class TurbulenceModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<TurbulenceModel> NewTurbulenceModel(const alphaField& alpha, const rhoField& rho,
+			                                                   const volVectorField& U,
+			                                                   const surfaceScalarField& alphaRhoPhi,
+			                                                   const surfaceScalarField& phi,
+			                                                   const transportModel& transport,
+			                                                   const word& propertiesName)
+			{
+				return autoPtr<TurbulenceModel>(
+					TurbulenceModelType::New(alpha, rho, U, alphaRhoPhi, phi, transport, propertiesName).ptr());
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = TurbulenceModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, NewTurbulenceModel))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "TurbulenceModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class TurbulenceModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<TurbulenceModel> NewTurbulenceModel(const alphaField& alpha, const rhoField& rho,
+			                                                   const volVectorField& U,
+			                                                   const surfaceScalarField& alphaRhoPhi,
+			                                                   const surfaceScalarField& phi,
+			                                                   const transportModel& transport,
+			                                                   const word& propertiesName)
+			{
+				return autoPtr<TurbulenceModel>(
+					TurbulenceModelType::New(alpha, rho, U, alphaRhoPhi, phi, transport, propertiesName).ptr());
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = TurbulenceModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, NewTurbulenceModel);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

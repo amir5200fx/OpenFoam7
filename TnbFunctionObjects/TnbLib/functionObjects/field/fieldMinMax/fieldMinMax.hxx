@@ -109,7 +109,7 @@ namespace tnbLib
 			// Protected data
 
 				//- Mode type names
-			static const NamedEnum<modeType, 2> modeTypeNames_;
+			static FoamFunctionObjects_EXPORT const NamedEnum<modeType, 2> modeTypeNames_;
 
 			//- Switch to write location of min/max values
 			Switch location_;
@@ -148,19 +148,23 @@ namespace tnbLib
 			);
 
 			//- Output file header information
-			virtual void writeFileHeader(const label i);
+			FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("fieldMinMax");
+			//TypeName("fieldMinMax");
+			static const char* typeName_() { return "fieldMinMax"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			fieldMinMax
+			FoamFunctionObjects_EXPORT fieldMinMax
 			(
 				const word& name,
 				const Time& runTime,
@@ -168,29 +172,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			fieldMinMax(const fieldMinMax&) = delete;
+			FoamFunctionObjects_EXPORT fieldMinMax(const fieldMinMax&) = delete;
 
 
 			//- Destructor
-			virtual ~fieldMinMax();
+			FoamFunctionObjects_EXPORT virtual ~fieldMinMax();
 
 
 			// Member Functions
 
 				//- Read the field min/max data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Execute, currently does nothing
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the fieldMinMax
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const fieldMinMax&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const fieldMinMax&) = delete;
 		};
 
 
@@ -202,8 +206,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <fieldMinMaxTemplates.cxx>
+//#include <fieldMinMaxTemplates.cxx>
 #endif
+
+#include <fieldMinMaxTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -57,13 +57,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("Euler");
+			//TypeName("Euler");
+			static const char* typeName_() { return "Euler"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct
-			Euler();
+			FoamLagrangian_EXPORT Euler();
 
 			//- Construct and return clone
 			virtual autoPtr<integrationScheme> clone() const
@@ -73,17 +77,17 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~Euler();
+			FoamLagrangian_EXPORT virtual ~Euler();
 
 
 			// Member Functions
 
 				//- Return the integration effective time step
-			virtual scalar dtEff(const scalar dt, const scalar Beta) const;
+			FoamLagrangian_EXPORT virtual scalar dtEff(const scalar dt, const scalar Beta) const;
 
 			//- Return the integral of the effective time step (using an Euler
 			//  integration method)
-			virtual scalar sumDtEff(const scalar dt, const scalar Beta) const;
+			FoamLagrangian_EXPORT virtual scalar sumDtEff(const scalar dt, const scalar Beta) const;
 		};
 
 

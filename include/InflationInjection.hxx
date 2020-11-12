@@ -43,6 +43,16 @@ SourceFiles
 #include <distributionModel.hxx>
 #include <Switch.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamInflationInjection_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamInflationInjection_EXPORT_DEFINE
+#define FoamInflationInjection_EXPORT __declspec(dllexport)
+#else
+#define FoamInflationInjection_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -115,7 +125,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("inflationInjection");
+		//TypeName("inflationInjection");
+		static const char* typeName_() { return "inflationInjection"; }
+		static FoamInflationInjection_EXPORT const ::tnbLib::word typeName;
+		static FoamInflationInjection_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

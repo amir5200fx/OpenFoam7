@@ -44,6 +44,16 @@ SourceFiles
 
 #include <point.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamWallModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamWallModel_EXPORT_DEFINE
+#define FoamWallModel_EXPORT __declspec(dllexport)
+#else
+#define FoamWallModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -71,10 +81,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("wallModel");
+		//TypeName("wallModel");
+		static const char* typeName_() { return "wallModel"; }
+		static FoamWallModel_EXPORT const ::tnbLib::word typeName;
+		static FoamWallModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			WallModel,
@@ -84,7 +98,58 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<WallModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamWallModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamWallModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamWallModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class WallModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<WallModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<WallModel>(new WallModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = WallModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "WallModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class WallModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<WallModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<WallModel>(new WallModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = WallModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

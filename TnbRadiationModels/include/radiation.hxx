@@ -73,13 +73,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("radiation");
+			//TypeName("radiation");
+			static const char* typeName_() { return "radiation"; }
+			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+			static FoamRadiationModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from explicit source name and mesh
-			radiation
+			FoamRadiationModels_EXPORT radiation
 			(
 				const word& sourceName,
 				const word& modelType,
@@ -88,7 +92,7 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			radiation(const radiation&) = delete;
+			FoamRadiationModels_EXPORT radiation(const radiation&) = delete;
 
 
 			// Member Functions
@@ -96,7 +100,7 @@ namespace tnbLib
 				// Evaluate
 
 					//- Add explicit contribution to compressible momentum equation
-			virtual void addSup
+			FoamRadiationModels_EXPORT virtual void addSup
 			(
 				const volScalarField& rho,
 				fvMatrix<scalar>& eqn,
@@ -107,13 +111,13 @@ namespace tnbLib
 			// IO
 
 				//- Read source dictionary
-			virtual bool read(const dictionary& dict);
+			FoamRadiationModels_EXPORT virtual bool read(const dictionary& dict);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const radiation&) = delete;
+			FoamRadiationModels_EXPORT void operator=(const radiation&) = delete;
 		};
 
 

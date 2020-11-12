@@ -40,6 +40,7 @@ SourceFiles
 \*---------------------------------------------------------------------------*/
 
 #include <string>
+#include <Base_Module.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -53,8 +54,8 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 	class SHA1;
 	class SHA1Digest;
-	Ostream& operator<<(Ostream&, const SHA1Digest&);
-	Istream& operator>>(Istream&, SHA1Digest&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const SHA1Digest&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, SHA1Digest&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -72,7 +73,7 @@ namespace tnbLib
 		static const unsigned length = 20;
 
 		//- A null digest (ie, all zero)
-		static const SHA1Digest null;
+		static FoamBase_EXPORT const SHA1Digest null;
 
 
 	private:
@@ -83,7 +84,7 @@ namespace tnbLib
 		unsigned char v_[length];
 
 		//- Read hexadecimal value, ignoring leading or intermediate '_'
-		static unsigned char readHexDigit(Istream&);
+		static FoamBase_EXPORT unsigned char readHexDigit(Istream&);
 
 
 	public:
@@ -94,53 +95,53 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct a zero digest
-		SHA1Digest();
+		FoamBase_EXPORT SHA1Digest();
 
 		//- Construct read a digest
-		SHA1Digest(Istream&);
+		FoamBase_EXPORT SHA1Digest(Istream&);
 
 
 		// Member Functions
 
 			//- Reset the digest to zero
-		void clear();
+		FoamBase_EXPORT void clear();
 
 		//- Return true if the digest is empty (ie, all zero).
-		bool empty() const;
+		FoamBase_EXPORT bool empty() const;
 
 		//- Return (40-byte) text representation, optionally with '_' prefix
-		std::string str(const bool prefixed = false) const;
+		FoamBase_EXPORT std::string str(const bool prefixed = false) const;
 
 		//- Write (40-byte) text representation, optionally with '_' prefix
-		Ostream& write(Ostream&, const bool prefixed = false) const;
+		FoamBase_EXPORT Ostream& write(Ostream&, const bool prefixed = false) const;
 
 
 		// Member Operators
 
 			//- Equality operator
-		bool operator==(const SHA1Digest&) const;
+		FoamBase_EXPORT bool operator==(const SHA1Digest&) const;
 
 		//- Compare to (40-byte) text representation (eg, from sha1sum)
 		//  An %empty string is equivalent to
 		//  "0000000000000000000000000000000000000000"
 		//  The hexdigits may optionally start with a '_' prefix
-		bool operator==(const std::string& hexdigits) const;
+		FoamBase_EXPORT bool operator==(const std::string& hexdigits) const;
 
 		//- Compare to (40-byte) text representation (eg, from sha1sum)
 		//  A %null or %empty string is equivalent to
 		//  "0000000000000000000000000000000000000000"
 		//  The hexdigits may optionally start with a '_' prefix
-		bool operator==(const char* hexdigits) const;
+		FoamBase_EXPORT bool operator==(const char* hexdigits) const;
 
 
 		//- Inequality operator
-		bool operator!=(const SHA1Digest&) const;
+		FoamBase_EXPORT bool operator!=(const SHA1Digest&) const;
 
 		//- Inequality operator
-		bool operator!=(const std::string& hexdigits) const;
+		FoamBase_EXPORT bool operator!=(const std::string& hexdigits) const;
 
 		//- Inequality operator
-		bool operator!=(const char* hexdigits) const;
+		FoamBase_EXPORT bool operator!=(const char* hexdigits) const;
 
 
 
@@ -151,10 +152,10 @@ namespace tnbLib
 			//  Since leading and intermediate underscores are skipped, a '_' can
 			//  be prefixed to the text representation to use an unquoted
 			//  SHA1Digest without parsing ambiguities as a number.
-		friend Istream& operator>>(Istream&, SHA1Digest&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, SHA1Digest&);
 
 		//- Write (40-byte) text representation, unquoted and without prefix
-		friend Ostream& operator<<(Ostream&, const SHA1Digest&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const SHA1Digest&);
 	};
 
 

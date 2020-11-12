@@ -39,6 +39,16 @@ SourceFiles
 #include <CloudFunctionObject.hxx>
 #include <volFields.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamVoidFraction_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamVoidFraction_EXPORT_DEFINE
+#define FoamVoidFraction_EXPORT __declspec(dllexport)
+#else
+#define FoamVoidFraction_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -76,7 +86,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("voidFraction");
+		//TypeName("voidFraction");
+		static const char* typeName_() { return "voidFraction"; }
+		static FoamVoidFraction_EXPORT const ::tnbLib::word typeName;
+		static FoamVoidFraction_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

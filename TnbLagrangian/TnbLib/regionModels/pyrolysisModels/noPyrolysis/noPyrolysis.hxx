@@ -63,13 +63,13 @@ namespace tnbLib
 				// Protected member functions
 
 					//- Read control parameters from dictionary
-				virtual bool read();
+				FoamLagrangian_EXPORT virtual bool read();
 
 				//- Read control parameters from dictionary
-				virtual bool read(const dictionary& dict);
+				FoamLagrangian_EXPORT virtual bool read(const dictionary& dict);
 
 				//- Reset solidChemistryModel and solidThermo pointers
-				void constructThermoChemistry();
+				FoamLagrangian_EXPORT void constructThermoChemistry();
 
 				//- Reference to solid thermo
 				autoPtr<solidReactionThermo> solidThermo_;
@@ -84,13 +84,17 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("none");
+				//TypeName("none");
+				static const char* typeName_() { return "none"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from type name and mesh
-				noPyrolysis
+				FoamLagrangian_EXPORT noPyrolysis
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -98,7 +102,7 @@ namespace tnbLib
 				);
 
 				//- Construct from type name and mesh and dict
-				noPyrolysis
+				FoamLagrangian_EXPORT noPyrolysis
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -107,11 +111,11 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				noPyrolysis(const noPyrolysis&) = delete;
+				FoamLagrangian_EXPORT noPyrolysis(const noPyrolysis&) = delete;
 
 
 				//- Destructor
-				virtual ~noPyrolysis();
+				FoamLagrangian_EXPORT virtual ~noPyrolysis();
 
 
 				// Member Functions
@@ -119,37 +123,37 @@ namespace tnbLib
 					// Fields
 
 						//- Return density [kg/m^3]
-				virtual const volScalarField& rho() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& rho() const;
 
 				//- Return const temperature [K]
-				virtual const volScalarField& T() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& T() const;
 
 				//- Return specific heat capacity [J/kg/K]
-				virtual const tmp<volScalarField> Cp() const;
+				FoamLagrangian_EXPORT virtual const tmp<volScalarField> Cp() const;
 
 				//- Return the region absorptivity [1/m]
-				virtual tmp<volScalarField> kappaRad() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> kappaRad() const;
 
 				//- Return the region thermal conductivity [W/m/k]
-				virtual tmp<volScalarField> kappa() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> kappa() const;
 
 				//- Return the total gas mass flux to primary region [kg/m^2/s]
-				virtual const surfaceScalarField& phiGas() const;
+				FoamLagrangian_EXPORT virtual const surfaceScalarField& phiGas() const;
 
 
 				// Evolution
 
 					//- Pre-evolve region
-				virtual void preEvolveRegion();
+				FoamLagrangian_EXPORT virtual void preEvolveRegion();
 
 				//- Evolve the pyrolysis equations
-				virtual void evolveRegion();
+				FoamLagrangian_EXPORT virtual void evolveRegion();
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const noPyrolysis&) = delete;
+				FoamLagrangian_EXPORT void operator=(const noPyrolysis&) = delete;
 			};
 
 

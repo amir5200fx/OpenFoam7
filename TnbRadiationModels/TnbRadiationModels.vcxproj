@@ -53,19 +53,19 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -107,10 +107,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\binary;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMean;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\wideBand;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\fvOptions\radiation;$(ProjectDir)TnbLib\radiationModels\include;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM;$(ProjectDir)TnbLib\radiationModels\radiationModels\noRadiation;$(ProjectDir)TnbLib\radiationModels\radiationModels\opaqueSolid;$(ProjectDir)TnbLib\radiationModels\radiationModels\P1;$(ProjectDir)TnbLib\radiationModels\radiationModels\radiationModel;$(ProjectDir)TnbLib\radiationModels\radiationModels\viewFactor;$(ProjectDir)TnbLib\radiationModels\scatterModels\constantScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\noScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\scatterModel;$(ProjectDir)TnbLib\radiationModels\sootModels\mixtureFraction;$(ProjectDir)TnbLib\radiationModels\sootModels\noSoot;$(ProjectDir)TnbLib\radiationModels\sootModels\sootModel;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\binary;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMean;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\wideBand;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\fvOptions\radiation;$(ProjectDir)TnbLib\radiationModels\include;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM;$(ProjectDir)TnbLib\radiationModels\radiationModels\noRadiation;$(ProjectDir)TnbLib\radiationModels\radiationModels\opaqueSolid;$(ProjectDir)TnbLib\radiationModels\radiationModels\P1;$(ProjectDir)TnbLib\radiationModels\radiationModels\radiationModel;$(ProjectDir)TnbLib\radiationModels\radiationModels\viewFactor;$(ProjectDir)TnbLib\radiationModels\scatterModels\constantScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\noScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\scatterModel;$(ProjectDir)TnbLib\radiationModels\sootModels\mixtureFraction;$(ProjectDir)TnbLib\radiationModels\sootModels\noSoot;$(ProjectDir)TnbLib\radiationModels\sootModels\sootModel;$(ProjectDir)TnbLib\radiationModels\module;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamRadiationModels_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,10 +131,12 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\binary;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMean;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\wideBand;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\fvOptions\radiation;$(ProjectDir)TnbLib\radiationModels\include;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM;$(ProjectDir)TnbLib\radiationModels\radiationModels\noRadiation;$(ProjectDir)TnbLib\radiationModels\radiationModels\opaqueSolid;$(ProjectDir)TnbLib\radiationModels\radiationModels\P1;$(ProjectDir)TnbLib\radiationModels\radiationModels\radiationModel;$(ProjectDir)TnbLib\radiationModels\radiationModels\viewFactor;$(ProjectDir)TnbLib\radiationModels\scatterModels\constantScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\noScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\scatterModel;$(ProjectDir)TnbLib\radiationModels\sootModels\mixtureFraction;$(ProjectDir)TnbLib\radiationModels\sootModels\noSoot;$(ProjectDir)TnbLib\radiationModels\sootModels\sootModel;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\binary;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMean;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\wideBand;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\fvOptions\radiation;$(ProjectDir)TnbLib\radiationModels\include;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM;$(ProjectDir)TnbLib\radiationModels\radiationModels\noRadiation;$(ProjectDir)TnbLib\radiationModels\radiationModels\opaqueSolid;$(ProjectDir)TnbLib\radiationModels\radiationModels\P1;$(ProjectDir)TnbLib\radiationModels\radiationModels\radiationModel;$(ProjectDir)TnbLib\radiationModels\radiationModels\viewFactor;$(ProjectDir)TnbLib\radiationModels\scatterModels\constantScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\noScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\scatterModel;$(ProjectDir)TnbLib\radiationModels\sootModels\mixtureFraction;$(ProjectDir)TnbLib\radiationModels\sootModels\noSoot;$(ProjectDir)TnbLib\radiationModels\sootModels\sootModel;$(ProjectDir)TnbLib\radiationModels\module;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamRadiationModels_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -187,10 +191,12 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\binary;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMean;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\wideBand;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\fvOptions\radiation;$(ProjectDir)TnbLib\radiationModels\include;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM;$(ProjectDir)TnbLib\radiationModels\radiationModels\noRadiation;$(ProjectDir)TnbLib\radiationModels\radiationModels\opaqueSolid;$(ProjectDir)TnbLib\radiationModels\radiationModels\P1;$(ProjectDir)TnbLib\radiationModels\radiationModels\radiationModel;$(ProjectDir)TnbLib\radiationModels\radiationModels\viewFactor;$(ProjectDir)TnbLib\radiationModels\scatterModels\constantScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\noScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\scatterModel;$(ProjectDir)TnbLib\radiationModels\sootModels\mixtureFraction;$(ProjectDir)TnbLib\radiationModels\sootModels\noSoot;$(ProjectDir)TnbLib\radiationModels\sootModels\sootModel;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\absorptionEmissionModel;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\binary;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\constantAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMean;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\greyMeanSolid;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\noAbsorptionEmission;$(ProjectDir)TnbLib\radiationModels\absorptionEmissionModels\wideBand;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\greyDiffusiveViewFactor;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiation;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\MarshakRadiationFixedTemperature;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase;$(ProjectDir)TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation;$(ProjectDir)TnbLib\radiationModels\fvOptions\radiation;$(ProjectDir)TnbLib\radiationModels\include;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM\radiativeIntensityRay;$(ProjectDir)TnbLib\radiationModels\radiationModels\fvDOM;$(ProjectDir)TnbLib\radiationModels\radiationModels\noRadiation;$(ProjectDir)TnbLib\radiationModels\radiationModels\opaqueSolid;$(ProjectDir)TnbLib\radiationModels\radiationModels\P1;$(ProjectDir)TnbLib\radiationModels\radiationModels\radiationModel;$(ProjectDir)TnbLib\radiationModels\radiationModels\viewFactor;$(ProjectDir)TnbLib\radiationModels\scatterModels\constantScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\noScatter;$(ProjectDir)TnbLib\radiationModels\scatterModels\scatterModel;$(ProjectDir)TnbLib\radiationModels\sootModels\mixtureFraction;$(ProjectDir)TnbLib\radiationModels\sootModels\noSoot;$(ProjectDir)TnbLib\radiationModels\sootModels\sootModel;$(ProjectDir)TnbLib\radiationModels\module;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamRadiationModels_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -213,6 +219,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\radiationCoupledBase\radiationCoupledBase.hxx" />
     <ClInclude Include="TnbLib\radiationModels\derivedFvPatchFields\wideBandDiffusiveRadiation\wideBandDiffusiveRadiationMixedFvPatchScalarField.hxx" />
     <ClInclude Include="TnbLib\radiationModels\fvOptions\radiation\radiation.hxx" />
+    <ClInclude Include="TnbLib\radiationModels\module\RadiationModels_Module.hxx" />
     <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs\absorptionCoeffs.hxx" />
     <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\absorptionCoeffs\absorptionCoeffsI.hxx" />
     <ClInclude Include="TnbLib\radiationModels\radiationModels\fvDOM\blackBodyEmission\blackBodyEmission.hxx" />
@@ -273,6 +280,23 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
   <ItemGroup>
     <None Include="TnbLib\radiationModels\include\createIncompressibleRadiationModel.lxx" />
     <None Include="TnbLib\radiationModels\include\createRadiationModel.lxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TnbBase\TnbBase.vcxproj">
+      <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+      <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFvMesh\TnbFvMesh.vcxproj">
+      <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbThermoPhysicalModels\TnbThermoPhysicalModels.vcxproj">
+      <Project>{5396b04c-6e67-4ee2-82f8-e56d26195cf9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbTransportModels\TnbTransportModels.vcxproj">
+      <Project>{ad4b123c-0d2b-4aac-b265-9ec2f0e93568}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

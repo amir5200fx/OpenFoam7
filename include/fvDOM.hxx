@@ -138,32 +138,36 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Initialise
-			void initialise();
+			FoamRadiationModels_EXPORT void initialise();
 
 			//- Update nlack body emission
-			void updateBlackBodyEmission();
+			FoamRadiationModels_EXPORT void updateBlackBodyEmission();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("fvDOM");
+			//TypeName("fvDOM");
+			static const char* typeName_() { return "fvDOM"; }
+			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+			static FoamRadiationModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			fvDOM(const volScalarField& T);
+			FoamRadiationModels_EXPORT fvDOM(const volScalarField& T);
 
 			//- Construct from components
-			fvDOM(const dictionary& dict, const volScalarField& T);
+			FoamRadiationModels_EXPORT fvDOM(const dictionary& dict, const volScalarField& T);
 
 			//- Disallow default bitwise copy construction
-			fvDOM(const fvDOM&) = delete;
+			FoamRadiationModels_EXPORT fvDOM(const fvDOM&) = delete;
 
 
 			//- Destructor
-			virtual ~fvDOM();
+			FoamRadiationModels_EXPORT virtual ~fvDOM();
 
 
 			// Member Functions
@@ -171,17 +175,17 @@ namespace tnbLib
 				// Edit
 
 					//- Solve radiation equation(s)
-			void calculate();
+			FoamRadiationModels_EXPORT void calculate();
 
 			//- Read radiation properties dictionary
-			bool read();
+			FoamRadiationModels_EXPORT bool read();
 
 			//- Update G and calculate total heat flux on boundary
-			void updateG();
+			FoamRadiationModels_EXPORT void updateG();
 
 			//- Set the rayId and lambdaId from by decomposing an intensity
 			//  field name
-			void setRayIdLambdaId
+			FoamRadiationModels_EXPORT void setRayIdLambdaId
 			(
 				const word& name,
 				label& rayId,
@@ -189,10 +193,10 @@ namespace tnbLib
 			) const;
 
 			//- Source term component (for power of T^4)
-			virtual tmp<volScalarField> Rp() const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField> Rp() const;
 
 			//- Source term component (constant)
-			virtual tmp<volScalarField::Internal> Ru() const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField::Internal> Ru() const;
 
 
 			// Access
@@ -247,7 +251,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const fvDOM&) = delete;
+			FoamRadiationModels_EXPORT void operator=(const fvDOM&) = delete;
 		};
 
 

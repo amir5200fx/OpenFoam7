@@ -43,6 +43,9 @@
     <Filter Include="TnbLib\snappyHexMesh\refinementFeatures">
       <UniqueIdentifier>{35750054-de11-4d81-934f-498b186cc2e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\snappyHexMesh\module">
+      <UniqueIdentifier>{8aee7192-3323-471b-906b-4ef72fb38238}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue\zeroFixedValuePointPatchField.cxx">
@@ -126,6 +129,9 @@
     <ClCompile Include="TnbLib\snappyHexMesh\meshRefinement\meshRefinementTemplates.cxx">
       <Filter>TnbLib\snappyHexMesh\meshRefinement</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\displacementMeshMoverMotionSolver.cxx">
+      <Filter>TnbLib\snappyHexMesh\externalDisplacementMeshMover</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue\zeroFixedValuePointPatchField.hxx">
@@ -190,6 +196,18 @@
     </ClInclude>
     <ClInclude Include="TnbLib\snappyHexMesh\trackedParticle\trackedParticle.hxx">
       <Filter>TnbLib\snappyHexMesh\trackedParticle</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\module\SnappyHexMesh_Module.hxx">
+      <Filter>TnbLib\snappyHexMesh\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue\zeroFixedValuePointPatchFieldI.hxx">
+      <Filter>TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\meshRefinement\meshRefinementTemplatesI.hxx">
+      <Filter>TnbLib\snappyHexMesh\meshRefinement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappyLayerDriverTemplates.hxx">
+      <Filter>TnbLib\snappyHexMesh\snappyHexMeshDriver</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

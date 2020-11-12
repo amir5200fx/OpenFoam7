@@ -325,7 +325,7 @@ void tnbLib::sampledSurface::print(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream &os, const sampledSurface& s)
+FoamSampling_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream &os, const sampledSurface& s)
 {
 	s.print(os);
 	os.check("Ostream& operator<<(Ostream&, const sampledSurface&");

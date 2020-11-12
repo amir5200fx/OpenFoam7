@@ -58,7 +58,7 @@ namespace tnbLib
 				// Private Member Functions
 
 					//- Correct the mixture viscosity
-				void correctMu();
+				FoamLagrangian_EXPORT void correctMu();
 
 
 			protected:
@@ -81,13 +81,17 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("waxSolvent");
+				//TypeName("waxSolvent");
+				static const char* typeName_() { return "waxSolvent"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				waxSolventViscosity
+				FoamLagrangian_EXPORT waxSolventViscosity
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict,
@@ -95,17 +99,17 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				waxSolventViscosity(const waxSolventViscosity&) = delete;
+				FoamLagrangian_EXPORT waxSolventViscosity(const waxSolventViscosity&) = delete;
 
 
 				//- Destructor
-				virtual ~waxSolventViscosity();
+				FoamLagrangian_EXPORT virtual ~waxSolventViscosity();
 
 
 				// Member Functions
 
 					//- Correct
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					const volScalarField& p,
 					const volScalarField& T
@@ -115,7 +119,7 @@ namespace tnbLib
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const waxSolventViscosity&) = delete;
+				FoamLagrangian_EXPORT void operator=(const waxSolventViscosity&) = delete;
 			};
 
 

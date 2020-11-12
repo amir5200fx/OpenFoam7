@@ -55,19 +55,23 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("kinematicCloud");
+		//TypeName("kinematicCloud");
+		static const char* typeName_() { return "kinematicCloud"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Null constructor
-		kinematicCloud();
+		FoamLagrangian_EXPORT kinematicCloud();
 
 		//- Disallow default bitwise copy construction
 		kinematicCloud(const kinematicCloud&) = delete;
 
 
 		//- Destructor
-		virtual ~kinematicCloud();
+		FoamLagrangian_EXPORT virtual ~kinematicCloud();
 
 
 		// Member Functions
@@ -75,46 +79,46 @@ namespace tnbLib
 			// Check
 
 				//-  Number of parcels
-		virtual label nParcels() const = 0;
+		FoamLagrangian_EXPORT virtual label nParcels() const = 0;
 
 		//- Total mass in system
-		virtual scalar massInSystem() const = 0;
+		FoamLagrangian_EXPORT virtual scalar massInSystem() const = 0;
 
 		//- Total linear momentum of the system
-		virtual vector linearMomentumOfSystem() const = 0;
+		FoamLagrangian_EXPORT virtual vector linearMomentumOfSystem() const = 0;
 
 		//- Total linear kinetic energy in the system
-		virtual scalar linearKineticEnergyOfSystem() const = 0;
+		FoamLagrangian_EXPORT virtual scalar linearKineticEnergyOfSystem() const = 0;
 
 		//- Mean diameter Dij
-		virtual scalar Dij(const label i, const label j) const = 0;
+		FoamLagrangian_EXPORT virtual scalar Dij(const label i, const label j) const = 0;
 
 		//- Max diameter
-		virtual scalar Dmax() const = 0;
+		FoamLagrangian_EXPORT virtual scalar Dmax() const = 0;
 
 
 		// Fields
 
 			//- Volume swept rate of parcels per cell
-		virtual const tmp<volScalarField> vDotSweep() const = 0;
+		FoamLagrangian_EXPORT virtual const tmp<volScalarField> vDotSweep() const = 0;
 
 		//- Return the particle volume fraction field
 		//  Note: for particles belonging to this cloud only
-		virtual const tmp<volScalarField> theta() const = 0;
+		FoamLagrangian_EXPORT virtual const tmp<volScalarField> theta() const = 0;
 
 		//- Return the particle mass fraction field
 		//  Note: for particles belonging to this cloud only
-		virtual const tmp<volScalarField> alpha() const = 0;
+		FoamLagrangian_EXPORT virtual const tmp<volScalarField> alpha() const = 0;
 
 		//- Return the particle effective density field
 		//  Note: for particles belonging to this cloud only
-		virtual const tmp<volScalarField> rhoEff() const = 0;
+		FoamLagrangian_EXPORT virtual const tmp<volScalarField> rhoEff() const = 0;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const kinematicCloud&) = delete;
+		FoamLagrangian_EXPORT void operator=(const kinematicCloud&) = delete;
 	};
 
 

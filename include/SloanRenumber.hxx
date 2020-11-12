@@ -60,16 +60,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("Sloan");
+		//TypeName("Sloan");
+		static const char* typeName_() { return "Sloan"; }
+		static FoamRenumber_EXPORT const ::tnbLib::word typeName;
+		static FoamRenumber_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given the renumber dictionary
-		SloanRenumber(const dictionary& renumberDict);
+		FoamRenumber_EXPORT SloanRenumber(const dictionary& renumberDict);
 
 		//- Disallow default bitwise copy construction
-		SloanRenumber(const SloanRenumber&) = delete;
+		FoamRenumber_EXPORT SloanRenumber(const SloanRenumber&) = delete;
 
 
 		//- Destructor
@@ -91,7 +95,7 @@ namespace tnbLib
 		//- Return the order in which cells need to be visited, i.e.
 		//  from ordered back to original cell label.
 		//  Use the mesh connectivity (if needed)
-		virtual labelList renumber
+		FoamRenumber_EXPORT virtual labelList renumber
 		(
 			const polyMesh& mesh,
 			const pointField& cc
@@ -101,7 +105,7 @@ namespace tnbLib
 		//  from ordered back to original cell label.
 		//  The connectivity is equal to mesh.cellCells() except
 		//  - the connections are across coupled patches
-		virtual labelList renumber
+		FoamRenumber_EXPORT virtual labelList renumber
 		(
 			const labelListList& cellCells,
 			const pointField& cc
@@ -111,7 +115,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const SloanRenumber&) = delete;
+		FoamRenumber_EXPORT void operator=(const SloanRenumber&) = delete;
 	};
 
 

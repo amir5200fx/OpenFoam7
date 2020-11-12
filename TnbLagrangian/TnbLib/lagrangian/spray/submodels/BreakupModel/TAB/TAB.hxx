@@ -52,6 +52,16 @@ See also
 
 #include <vector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamTAB_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamTAB_EXPORT_DEFINE
+#define FoamTAB_EXPORT __declspec(dllexport)
+#else
+#define FoamTAB_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -93,7 +103,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("TAB");
+		//TypeName("TAB");
+		static const char* typeName_() { return "TAB"; }
+		static FoamTAB_EXPORT const ::tnbLib::word typeName;
+		static FoamTAB_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

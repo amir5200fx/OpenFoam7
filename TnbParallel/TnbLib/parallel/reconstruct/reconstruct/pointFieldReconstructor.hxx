@@ -97,7 +97,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		pointFieldReconstructor
+		FoamParallel_EXPORT pointFieldReconstructor
 		(
 			const pointMesh& mesh,
 			const PtrList<pointMesh>& procMeshes,
@@ -106,7 +106,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		pointFieldReconstructor(const pointFieldReconstructor&) = delete;
+		FoamParallel_EXPORT pointFieldReconstructor(const pointFieldReconstructor&) = delete;
 
 
 		// Member Functions
@@ -134,7 +134,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const pointFieldReconstructor&) = delete;
+		FoamParallel_EXPORT void operator=(const pointFieldReconstructor&) = delete;
 	};
 
 

@@ -53,6 +53,16 @@ SourceFiles
 #include <SurfaceFilmModelTemplate.hxx>
 #include <Random.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamThermoSurfaceFilm_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamThermoSurfaceFilm_EXPORT_DEFINE
+#define FoamThermoSurfaceFilm_EXPORT __declspec(dllexport)
+#else
+#define FoamThermoSurfaceFilm_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -243,7 +253,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("thermoSurfaceFilm");
+		//TypeName("thermoSurfaceFilm");
+		static const char* typeName_() { return "thermoSurfaceFilm"; }
+		static FoamThermoSurfaceFilm_EXPORT const ::tnbLib::word typeName;
+		static FoamThermoSurfaceFilm_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

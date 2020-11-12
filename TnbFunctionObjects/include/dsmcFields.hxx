@@ -64,13 +64,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("dsmcFields");
+			//TypeName("dsmcFields");
+			static const char* typeName_() { return "dsmcFields"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			dsmcFields
+			FoamFunctionObjects_EXPORT dsmcFields
 			(
 				const word& name,
 				const Time& runTime,
@@ -78,29 +82,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			dsmcFields(const dsmcFields&) = delete;
+			FoamFunctionObjects_EXPORT dsmcFields(const dsmcFields&) = delete;
 
 
 			//- Destructor
-			virtual ~dsmcFields();
+			FoamFunctionObjects_EXPORT virtual ~dsmcFields();
 
 
 			// Member Functions
 
 				//- Read the dsmcFields data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Do nothing
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Calculate and write the DSMC fields
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const dsmcFields&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const dsmcFields&) = delete;
 		};
 
 

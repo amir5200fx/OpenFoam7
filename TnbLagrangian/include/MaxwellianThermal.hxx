@@ -37,6 +37,16 @@ Description
 
 #include <WallInteractionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamMaxwellianThermal_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMaxwellianThermal_EXPORT_DEFINE
+#define FoamMaxwellianThermal_EXPORT __declspec(dllexport)
+#else
+#define FoamMaxwellianThermal_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -53,7 +63,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("MaxwellianThermal");
+		//TypeName("MaxwellianThermal");
+		static const char* typeName_() { return "MaxwellianThermal"; }
+		static FoamMaxwellianThermal_EXPORT const ::tnbLib::word typeName;
+		static FoamMaxwellianThermal_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

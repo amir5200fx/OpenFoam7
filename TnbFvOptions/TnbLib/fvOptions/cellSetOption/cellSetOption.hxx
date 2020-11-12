@@ -86,7 +86,7 @@ namespace tnbLib
 			};
 
 			//- Word list of selection mode type names
-			static const NamedEnum<selectionModeType, 4>
+			static FoamFvOptions_EXPORT const NamedEnum<selectionModeType, 4>
 				selectionModeTypeNames_;
 
 
@@ -119,22 +119,26 @@ namespace tnbLib
 			// Protected functions
 
 				//- Set the cellSet or points selection
-			void setSelection(const dictionary& dict);
+			FoamFvOptions_EXPORT void setSelection(const dictionary& dict);
 
 			//- Set the cell set based on the user input selection mode
-			void setCellSet();
+			FoamFvOptions_EXPORT void setCellSet();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("cellSetOption");
+			//TypeName("cellSetOption");
+			static const char* typeName_() { return "cellSetOption"; }
+			static FoamFvOptions_EXPORT const ::tnbLib::word typeName;
+			static FoamFvOptions_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			cellSetOption
+			FoamFvOptions_EXPORT cellSetOption
 			(
 				const word& name,
 				const word& modelType,
@@ -144,7 +148,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~cellSetOption();
+			FoamFvOptions_EXPORT virtual ~cellSetOption();
 
 
 			// Member Functions
@@ -186,13 +190,13 @@ namespace tnbLib
 			// Checks
 
 				//- Is the source active?
-			virtual bool isActive();
+			FoamFvOptions_EXPORT virtual bool isActive();
 
 
 			// IO
 
 				//- Read source dictionary
-			virtual bool read(const dictionary& dict);
+			FoamFvOptions_EXPORT virtual bool read(const dictionary& dict);
 		};
 
 

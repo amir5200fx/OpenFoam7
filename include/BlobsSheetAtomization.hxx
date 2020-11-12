@@ -52,6 +52,16 @@ Description
 #include <vector.hxx>  // added by amir
 #include <Random.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamBlobsSheetAtomization_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamBlobsSheetAtomization_EXPORT_DEFINE
+#define FoamBlobsSheetAtomization_EXPORT __declspec(dllexport)
+#else
+#define FoamBlobsSheetAtomization_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -72,7 +82,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("blobsSheetAtomization");
+		//TypeName("blobsSheetAtomization");
+		static const char* typeName_() { return "blobsSheetAtomization"; }
+		static FoamBlobsSheetAtomization_EXPORT const ::tnbLib::word typeName;
+		static FoamBlobsSheetAtomization_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

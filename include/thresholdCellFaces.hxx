@@ -67,7 +67,7 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void calculate
+		FoamSampling_EXPORT void calculate
 		(
 			const scalarField&,
 			const scalar lowerThreshold,
@@ -78,13 +78,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("thresholdCellFaces");
+		//TypeName("thresholdCellFaces");
+		static const char* typeName_() { return "thresholdCellFaces"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from mesh, field and threshold value
-		thresholdCellFaces
+		FoamSampling_EXPORT thresholdCellFaces
 		(
 			const polyMesh&,
 			const scalarField&,

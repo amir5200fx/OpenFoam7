@@ -99,7 +99,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from surfaces and dictionary
-		refinementSurfaces
+		FoamSnappyHexMesh_EXPORT refinementSurfaces
 		(
 			const searchableSurfaces& allGeometry,
 			const dictionary&,
@@ -107,7 +107,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components
-		refinementSurfaces
+		FoamSnappyHexMesh_EXPORT refinementSurfaces
 		(
 			const searchableSurfaces& allGeometry,
 			const labelList& surfaces,
@@ -122,7 +122,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		refinementSurfaces(const refinementSurfaces&) = delete;
+		FoamSnappyHexMesh_EXPORT refinementSurfaces(const refinementSurfaces&) = delete;
 
 
 		// Member Functions
@@ -213,7 +213,7 @@ namespace tnbLib
 		}
 
 		//- Calculate minLevelFields
-		void setMinLevelFields
+		FoamSnappyHexMesh_EXPORT void setMinLevelFields
 		(
 			const shellSurfaces& shells
 		);
@@ -227,7 +227,7 @@ namespace tnbLib
 		//- Find intersection of edge. Return -1 or first surface
 		//  with higher (than currentLevel) minlevel.
 		//  Return surface number and level.
-		void findHigherIntersection
+		FoamSnappyHexMesh_EXPORT void findHigherIntersection
 		(
 			const pointField& start,
 			const pointField& end,
@@ -238,7 +238,7 @@ namespace tnbLib
 		) const;
 
 		//- Find all intersections of edge. Unsorted order.
-		void findAllHigherIntersections
+		FoamSnappyHexMesh_EXPORT void findAllHigherIntersections
 		(
 			const pointField& start,
 			const pointField& end,
@@ -250,7 +250,7 @@ namespace tnbLib
 		) const;
 
 		//- Find all intersections of edge. Unsorted order.
-		void findAllHigherIntersections
+		FoamSnappyHexMesh_EXPORT void findAllHigherIntersections
 		(
 			const pointField& start,
 			const pointField& end,
@@ -266,7 +266,7 @@ namespace tnbLib
 		//  not indices into surfacesToTest but refinement surface indices.
 		//  Returns surface, region on surface (so not global surface)
 		//  and position on surface.
-		void findNearestIntersection
+		FoamSnappyHexMesh_EXPORT void findNearestIntersection
 		(
 			const labelList& surfacesToTest,
 			const pointField& start,
@@ -281,7 +281,7 @@ namespace tnbLib
 		) const;
 
 		//- findNearestIntersection but also get normals
-		void findNearestIntersection
+		FoamSnappyHexMesh_EXPORT void findNearestIntersection
 		(
 			const labelList& surfacesToTest,
 			const pointField& start,
@@ -299,7 +299,7 @@ namespace tnbLib
 		) const;
 
 		//- Used for debugging only: find intersection of edge.
-		void findAnyIntersection
+		FoamSnappyHexMesh_EXPORT void findAnyIntersection
 		(
 			const pointField& start,
 			const pointField& end,
@@ -308,7 +308,7 @@ namespace tnbLib
 		) const;
 
 		//- Find nearest point on surfaces.
-		void findNearest
+		FoamSnappyHexMesh_EXPORT void findNearest
 		(
 			const labelList& surfacesToTest,
 			const pointField& samples,
@@ -319,7 +319,7 @@ namespace tnbLib
 
 		//- Find nearest point on surfaces. Return surface and region on
 		//  surface (so not global surface)
-		void findNearestRegion
+		FoamSnappyHexMesh_EXPORT void findNearestRegion
 		(
 			const labelList& surfacesToTest,
 			const pointField& samples,
@@ -330,7 +330,7 @@ namespace tnbLib
 
 		//- Find nearest point on surfaces. Return surface, region and
 		//  normal on surface (so not global surface)
-		void findNearestRegion
+		FoamSnappyHexMesh_EXPORT void findNearestRegion
 		(
 			const labelList& surfacesToTest,
 			const pointField& samples,
@@ -343,7 +343,7 @@ namespace tnbLib
 
 		//- Detect if a point is 'inside' (closed) surfaces.
 		//  Returns -1 if not, returns first surface it is.
-		void findInside
+		FoamSnappyHexMesh_EXPORT void findInside
 		(
 			const labelList& surfacesToTest,
 			const pointField& pt,
@@ -354,7 +354,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const refinementSurfaces&) = delete;
+		FoamSnappyHexMesh_EXPORT void operator=(const refinementSurfaces&) = delete;
 	};
 
 

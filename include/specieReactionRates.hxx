@@ -46,6 +46,16 @@ SourceFiles
 #include <volRegion.hxx>
 #include <logFiles.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamspecieReactionRates_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamspecieReactionRates_EXPORT_DEFINE
+#define FoamspecieReactionRates_EXPORT __declspec(dllexport)
+#else
+#define FoamspecieReactionRates_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -78,7 +88,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("specieReactionRates");
+			//TypeName("specieReactionRates");
+			static const char* typeName_() { return "specieReactionRates"; }
+			static FoamspecieReactionRates_EXPORT const ::tnbLib::word typeName;
+			static FoamspecieReactionRates_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
@@ -124,5 +138,7 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include <specieReactionRatesI.hxx>
 
 #endif // !_specieReactionRates_Header

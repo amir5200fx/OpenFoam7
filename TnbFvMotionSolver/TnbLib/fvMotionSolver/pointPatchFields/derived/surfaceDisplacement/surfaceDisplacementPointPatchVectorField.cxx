@@ -1,3 +1,5 @@
+#define FoamNamedEnum_EXPORT_DEFINE
+
 #include <surfaceDisplacementPointPatchVectorField.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>

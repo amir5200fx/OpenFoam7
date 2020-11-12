@@ -42,6 +42,16 @@ SourceFiles
 #include <Switch.hxx>  // added by amir
 #include <dimensionedScalar.hxx>  // added by amir
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamRASModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamRASModel_EXPORT_DEFINE
+#define FoamRASModel_EXPORT __declspec(dllexport)
+#else
+#define FoamRASModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -97,12 +107,16 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName("RAS");
+		//TypeName("RAS");
+		static const char* typeName_() { return "RAS"; }
+		static FoamRASModel_EXPORT const ::tnbLib::word typeName;
+		static FoamRASModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			RASModel,
@@ -117,7 +131,67 @@ namespace tnbLib
 				const word& propertiesName
 				),
 				(alpha, rho, U, alphaRhoPhi, phi, transport, propertiesName)
-		);
+		);*/
+
+		typedef autoPtr<RASModel> (*dictionaryConstructorPtr)(const alphaField& alpha, const rhoField& rho,
+		                                                      const volVectorField& U,
+		                                                      const surfaceScalarField& alphaRhoPhi,
+		                                                      const surfaceScalarField& phi,
+		                                                      const transportModel& transport,
+		                                                      const word& propertiesName);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamRASModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamRASModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamRASModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class RASModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<RASModel> New(const alphaField& alpha, const rhoField& rho, const volVectorField& U,
+			                             const surfaceScalarField& alphaRhoPhi, const surfaceScalarField& phi,
+			                             const transportModel& transport, const word& propertiesName)
+			{
+				return autoPtr<RASModel>(new RASModelType(alpha, rho, U, alphaRhoPhi, phi, transport, propertiesName));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = RASModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "RASModel" << std::
+						endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class RASModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<RASModel> New(const alphaField& alpha, const rhoField& rho, const volVectorField& U,
+			                             const surfaceScalarField& alphaRhoPhi, const surfaceScalarField& phi,
+			                             const transportModel& transport, const word& propertiesName)
+			{
+				return autoPtr<RASModel>(new RASModelType(alpha, rho, U, alphaRhoPhi, phi, transport, propertiesName));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = RASModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

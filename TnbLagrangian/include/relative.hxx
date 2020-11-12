@@ -69,16 +69,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("relative");
+			//TypeName("relative");
+			static const char* typeName_() { return "relative"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			relative(const dictionary& dict);
+			FoamLagrangian_EXPORT relative(const dictionary& dict);
 
 			//- Copy constructor
-			relative(const relative& cl);
+			FoamLagrangian_EXPORT relative(const relative& cl);
 
 			//- Construct and return a clone
 			virtual autoPtr<CorrectionLimitingMethod> clone() const
@@ -91,13 +95,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~relative();
+			FoamLagrangian_EXPORT virtual ~relative();
 
 
 			// Member Functions
 
 				//- Return the limited velocity
-			virtual vector limitedVelocity
+			FoamLagrangian_EXPORT virtual vector limitedVelocity
 			(
 				const vector uP,
 				const vector dU,

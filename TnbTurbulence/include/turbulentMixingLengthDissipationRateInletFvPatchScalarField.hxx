@@ -102,20 +102,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("turbulentMixingLengthDissipationRateInlet");
+		//TypeName("turbulentMixingLengthDissipationRateInlet");
+		static const char* typeName_() { return "turbulentMixingLengthDissipationRateInlet"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		turbulentMixingLengthDissipationRateInletFvPatchScalarField
+		FoamTurbulence_EXPORT turbulentMixingLengthDissipationRateInletFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		turbulentMixingLengthDissipationRateInletFvPatchScalarField
+		FoamTurbulence_EXPORT turbulentMixingLengthDissipationRateInletFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -125,7 +129,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  turbulentMixingLengthDissipationRateInletFvPatchScalarField
 		//  onto a new patch
-		turbulentMixingLengthDissipationRateInletFvPatchScalarField
+		FoamTurbulence_EXPORT turbulentMixingLengthDissipationRateInletFvPatchScalarField
 		(
 			const turbulentMixingLengthDissipationRateInletFvPatchScalarField&,
 			const fvPatch&,
@@ -134,7 +138,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		turbulentMixingLengthDissipationRateInletFvPatchScalarField
+		FoamTurbulence_EXPORT turbulentMixingLengthDissipationRateInletFvPatchScalarField
 		(
 			const turbulentMixingLengthDissipationRateInletFvPatchScalarField&
 		);
@@ -152,7 +156,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		turbulentMixingLengthDissipationRateInletFvPatchScalarField
+		FoamTurbulence_EXPORT turbulentMixingLengthDissipationRateInletFvPatchScalarField
 		(
 			const turbulentMixingLengthDissipationRateInletFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -178,10 +182,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamTurbulence_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamTurbulence_EXPORT virtual void write(Ostream&) const;
 	};
 
 

@@ -48,6 +48,16 @@ SourceFiles
 #include <SpalartAllmarasDES.hxx>
 #include <IDDESDelta.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamSpalartAllmarasIDDES_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSpalartAllmarasIDDES_EXPORT_DEFINE
+#define FoamSpalartAllmarasIDDES_EXPORT __declspec(dllexport)
+#else
+#define FoamSpalartAllmarasIDDES_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -114,7 +124,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("SpalartAllmarasIDDES");
+			//TypeName("SpalartAllmarasIDDES");
+			static const char* typeName_() { return "SpalartAllmarasIDDES"; }
+			static FoamSpalartAllmarasIDDES_EXPORT const ::tnbLib::word typeName;
+			static FoamSpalartAllmarasIDDES_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

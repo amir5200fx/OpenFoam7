@@ -44,7 +44,7 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	void writeCellGraph
+	FoamSampling_EXPORT void writeCellGraph
 	(
 		const volScalarField& vsf,
 		const word& graphFormat

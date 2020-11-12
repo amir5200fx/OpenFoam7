@@ -40,6 +40,16 @@ SourceFiles
 #include <Switch.hxx>
 #include <scalarField.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamchemistryReductionMethod_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamchemistryReductionMethod_EXPORT_DEFINE
+#define FoamchemistryReductionMethod_EXPORT __declspec(dllexport)
+#else
+#define FoamchemistryReductionMethod_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -87,11 +97,15 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("chemistryReductionMethod");
+		//TypeName("chemistryReductionMethod");
+		static const char* typeName_() { return "chemistryReductionMethod"; }
+		static FoamchemistryReductionMethod_EXPORT const ::tnbLib::word typeName;
+		static FoamchemistryReductionMethod_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			chemistryReductionMethod,
@@ -101,7 +115,62 @@ namespace tnbLib
 				TDACChemistryModel<CompType, ThermoType>& chemistry
 				),
 				(dict, chemistry)
-		);
+		);*/
+
+		typedef autoPtr<chemistryReductionMethod> (*dictionaryConstructorPtr)(
+			const IOdictionary& dict, TDACChemistryModel<CompType, ThermoType>& chemistry);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamchemistryReductionMethod_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamchemistryReductionMethod_EXPORT void constructdictionaryConstructorTables();
+		static FoamchemistryReductionMethod_EXPORT void destroydictionaryConstructorTables();
+
+		template <class chemistryReductionMethodType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<chemistryReductionMethod> New(const IOdictionary& dict,
+			                                             TDACChemistryModel<CompType, ThermoType>& chemistry)
+			{
+				return autoPtr<chemistryReductionMethod>(new chemistryReductionMethodType(dict, chemistry));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = chemistryReductionMethodType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"chemistryReductionMethod" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class chemistryReductionMethodType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<chemistryReductionMethod> New(const IOdictionary& dict,
+			                                             TDACChemistryModel<CompType, ThermoType>& chemistry)
+			{
+				return autoPtr<chemistryReductionMethod>(new chemistryReductionMethodType(dict, chemistry));
+			}
+
+			addRemovabledictionaryConstructorToTable(
+				const word& lookup = chemistryReductionMethodType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

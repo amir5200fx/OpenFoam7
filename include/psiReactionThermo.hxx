@@ -58,24 +58,79 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("psiReactionThermo");
+		//TypeName("psiReactionThermo");
+		static const char* typeName_() { return "psiReactionThermo"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		//- Declare run-time constructor selection tables
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			psiReactionThermo,
 			fvMesh,
 			(const fvMesh& mesh, const word& phaseName),
 			(mesh, phaseName)
-		);
+		);*/
+
+		typedef autoPtr<psiReactionThermo> (*fvMeshConstructorPtr)(const fvMesh& mesh, const word& phaseName);
+		typedef HashTable<fvMeshConstructorPtr, word, string::hash> fvMeshConstructorTable;
+		static FoamThermophysicalModels_EXPORT fvMeshConstructorTable* fvMeshConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructfvMeshConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroyfvMeshConstructorTables();
+
+		template <class psiReactionThermoType>
+		class addfvMeshConstructorToTable
+		{
+		public:
+			static autoPtr<psiReactionThermo> New(const fvMesh& mesh, const word& phaseName)
+			{
+				return autoPtr<psiReactionThermo>(new psiReactionThermoType(mesh, phaseName));
+			}
+
+			addfvMeshConstructorToTable(const word& lookup = psiReactionThermoType::typeName)
+			{
+				constructfvMeshConstructorTables();
+				if (!fvMeshConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "psiReactionThermo"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addfvMeshConstructorToTable() { destroyfvMeshConstructorTables(); }
+		};
+
+		template <class psiReactionThermoType>
+		class addRemovablefvMeshConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<psiReactionThermo> New(const fvMesh& mesh, const word& phaseName)
+			{
+				return autoPtr<psiReactionThermo>(new psiReactionThermoType(mesh, phaseName));
+			}
+
+			addRemovablefvMeshConstructorToTable(const word& lookup = psiReactionThermoType::typeName) : lookup_(lookup)
+			{
+				constructfvMeshConstructorTables();
+				fvMeshConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablefvMeshConstructorToTable()
+			{
+				if (fvMeshConstructorTablePtr_) { fvMeshConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from mesh and phase name
-		psiReactionThermo
+		FoamThermophysicalModels_EXPORT psiReactionThermo
 		(
 			const fvMesh&,
 			const word& phaseName
@@ -85,7 +140,7 @@ namespace tnbLib
 		// Selectors
 
 			//- Standard selection based on fvMesh
-		static autoPtr<psiReactionThermo> New
+		static FoamThermophysicalModels_EXPORT autoPtr<psiReactionThermo> New
 		(
 			const fvMesh&,
 			const word& phaseName = word::null
@@ -93,16 +148,16 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~psiReactionThermo();
+		FoamThermophysicalModels_EXPORT virtual ~psiReactionThermo();
 
 
 		// Member Functions
 
 			//- Return the composition of the multi-component mixture
-		virtual basicSpecieMixture& composition() = 0;
+		FoamThermophysicalModels_EXPORT virtual basicSpecieMixture& composition() = 0;
 
 		//- Return the composition of the multi-component mixture
-		virtual const basicSpecieMixture& composition() const = 0;
+		FoamThermophysicalModels_EXPORT virtual const basicSpecieMixture& composition() const = 0;
 	};
 
 

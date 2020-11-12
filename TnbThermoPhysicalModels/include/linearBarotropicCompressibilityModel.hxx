@@ -63,13 +63,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("linear");
+			//TypeName("linear");
+			static const char* typeName_() { return "linear"; }
+			static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+			static FoamThermophysicalModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			linear
+			FoamThermophysicalModels_EXPORT linear
 			(
 				const dictionary& compressibilityProperties,
 				const volScalarField& gamma,
@@ -85,10 +89,10 @@ namespace tnbLib
 			// Member Functions
 
 				//- Correct the linear compressibility
-			void correct();
+			FoamThermophysicalModels_EXPORT void correct();
 
 			//- Read transportProperties dictionary
-			bool read(const dictionary& compressibilityProperties);
+			FoamThermophysicalModels_EXPORT bool read(const dictionary& compressibilityProperties);
 		};
 
 

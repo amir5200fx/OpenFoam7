@@ -89,21 +89,21 @@ namespace tnbLib
 		// Private Data
 
 			//- refineMode names
-		static const NamedEnum<refineMode, 3> refineModeNames_;
+		static FoamSnappyHexMesh_EXPORT const NamedEnum<refineMode, 3> refineModeNames_;
 
 
 		// Private Member Functions
 
 			//- Helper function for initialisation.
-		void setAndCheckLevels
+		FoamSnappyHexMesh_EXPORT void setAndCheckLevels
 		(
 			const label shellI,
 			const List<Tuple2<scalar, label>>&
 		);
 
-		void orient();
+		FoamSnappyHexMesh_EXPORT void orient();
 
-		void findHigherLevel
+		FoamSnappyHexMesh_EXPORT void findHigherLevel
 		(
 			const pointField& pt,
 			const label shellI,
@@ -115,7 +115,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from geometry and dictionary
-		shellSurfaces
+		FoamSnappyHexMesh_EXPORT shellSurfaces
 		(
 			const searchableSurfaces& allGeometry,
 			const dictionary& shellsDict
@@ -141,10 +141,10 @@ namespace tnbLib
 			// Query
 
 				//- Highest shell level
-		label maxLevel() const;
+		FoamSnappyHexMesh_EXPORT label maxLevel() const;
 
 		//- Find shell level higher than ptLevel
-		void findHigherLevel
+		FoamSnappyHexMesh_EXPORT void findHigherLevel
 		(
 			const pointField& pt,
 			const labelList& ptLevel,

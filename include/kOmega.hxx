@@ -59,6 +59,16 @@ SourceFiles
 #include <RASModel.hxx>
 #include <eddyViscosity.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamkOmega_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamkOmega_EXPORT_DEFINE
+#define FoamkOmega_EXPORT __declspec(dllexport)
+#else
+#define FoamkOmega_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -110,7 +120,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("kOmega");
+			//TypeName("kOmega");
+			static const char* typeName_() { return "kOmega"; }
+			static FoamkOmega_EXPORT const ::tnbLib::word typeName;
+			static FoamkOmega_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

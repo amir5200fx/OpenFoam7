@@ -60,12 +60,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("renumberMethod");
+		//TypeName("renumberMethod");
+		static const char* typeName_() { return "renumberMethod"; }
+		static FoamRenumber_EXPORT const ::tnbLib::word typeName;
+		static FoamRenumber_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			renumberMethod,
@@ -74,7 +78,59 @@ namespace tnbLib
 				const dictionary& renumberDict
 				),
 				(renumberDict)
-		);
+		);*/
+
+		typedef autoPtr<renumberMethod> (*dictionaryConstructorPtr)(const dictionary& renumberDict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamRenumber_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamRenumber_EXPORT void constructdictionaryConstructorTables();
+		static FoamRenumber_EXPORT void destroydictionaryConstructorTables();
+
+		template <class renumberMethodType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<renumberMethod> New(const dictionary& renumberDict)
+			{
+				return autoPtr<renumberMethod>(new renumberMethodType(renumberDict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = renumberMethodType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "renumberMethod" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class renumberMethodType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<renumberMethod> New(const dictionary& renumberDict)
+			{
+				return autoPtr<renumberMethod>(new renumberMethodType(renumberDict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = renumberMethodType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors
@@ -86,13 +142,13 @@ namespace tnbLib
 		{}
 
 		//- Disallow default bitwise copy construction
-		renumberMethod(const renumberMethod&) = delete;
+		FoamRenumber_EXPORT renumberMethod(const renumberMethod&) = delete;
 
 
 		// Selectors
 
 			//- Return a reference to the selected renumbering method
-		static autoPtr<renumberMethod> New
+		static FoamRenumber_EXPORT autoPtr<renumberMethod> New
 		(
 			const dictionary& renumberDict
 		);
@@ -117,13 +173,13 @@ namespace tnbLib
 		//- Return the order in which cells need to be visited, i.e.
 		//  from ordered back to original cell label.
 		//  Use the mesh connectivity (if needed)
-		virtual labelList renumber(const polyMesh&, const pointField&) const;
+		FoamRenumber_EXPORT virtual labelList renumber(const polyMesh&, const pointField&) const;
 
 		//- Return the order in which cells need to be visited, i.e.
 		//  from ordered back to original cell label.
 		//  Addressing in losort addressing (= neighbour + offsets into
 		//  neighbour)
-		virtual labelList renumber
+		FoamRenumber_EXPORT virtual labelList renumber
 		(
 			const labelList& cellCells,
 			const labelList& offsets,
@@ -138,7 +194,7 @@ namespace tnbLib
 		//  functionality natively. Coarse cells are local to the processor
 		//  (if in parallel). If you want to have coarse cells spanning
 		//  processors use the globalCellCells instead.
-		virtual labelList renumber
+		FoamRenumber_EXPORT virtual labelList renumber
 		(
 			const polyMesh& mesh,
 			const labelList& cellToRegion,
@@ -149,7 +205,7 @@ namespace tnbLib
 		//  from ordered back to original cell label.
 		//  The connectivity is equal to mesh.cellCells() except
 		//  - the connections are across coupled patches
-		virtual labelList renumber
+		FoamRenumber_EXPORT virtual labelList renumber
 		(
 			const labelListList& cellCells,
 			const pointField& cc
@@ -159,7 +215,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const renumberMethod&) = delete;
+		FoamRenumber_EXPORT void operator=(const renumberMethod&) = delete;
 	};
 
 

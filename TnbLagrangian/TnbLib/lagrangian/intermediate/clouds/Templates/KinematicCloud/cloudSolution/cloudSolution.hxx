@@ -109,32 +109,32 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null from mesh reference
-		cloudSolution(const fvMesh& mesh);
+		FoamLagrangian_EXPORT cloudSolution(const fvMesh& mesh);
 
 		//- Construct from mesh and dictionary
-		cloudSolution(const fvMesh& mesh, const dictionary& dict);
+		FoamLagrangian_EXPORT cloudSolution(const fvMesh& mesh, const dictionary& dict);
 
 		//- Construct copy
-		cloudSolution(const cloudSolution& cs);
+		FoamLagrangian_EXPORT cloudSolution(const cloudSolution& cs);
 
 
 		//- Destructor
-		virtual ~cloudSolution();
+		FoamLagrangian_EXPORT virtual ~cloudSolution();
 
 
 		// Member Functions
 
 			//- Read properties from dictionary
-		void read();
+		FoamLagrangian_EXPORT void read();
 
 
 		// Access
 
 			//- Return relaxation coefficient for field
-		scalar relaxCoeff(const word& fieldName) const;
+		FoamLagrangian_EXPORT scalar relaxCoeff(const word& fieldName) const;
 
 		//- Return semi-implicit flag coefficient for field
-		bool semiImplicit(const word& fieldName) const;
+		FoamLagrangian_EXPORT bool semiImplicit(const word& fieldName) const;
 
 		//- Return reference to the mesh
 		inline const fvMesh& mesh() const;
@@ -194,20 +194,20 @@ namespace tnbLib
 		// Helper functions
 
 			//- Returns true if performing a cloud iteration this calc step
-		bool solveThisStep() const;
+		FoamLagrangian_EXPORT bool solveThisStep() const;
 
 		//- Returns true if possible to evolve the cloud and sets timestep
 		//  parameters
-		bool canEvolve();
+		FoamLagrangian_EXPORT bool canEvolve();
 
 		//- Returns true if writing this step
-		bool output() const;
+		FoamLagrangian_EXPORT bool output() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const cloudSolution&) = delete;
+		FoamLagrangian_EXPORT void operator=(const cloudSolution&) = delete;
 	};
 
 

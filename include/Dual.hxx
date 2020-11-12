@@ -51,6 +51,16 @@ SourceFiles
 #include <pointMesh.hxx>
 #include <tetIndices.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamDual_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDual_EXPORT_DEFINE
+#define FoamDual_EXPORT __declspec(dllexport)
+#else
+#define FoamDual_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -107,7 +117,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("dual");
+			//TypeName("dual");
+			static const char* typeName_() { return "dual"; }
+			static FoamDual_EXPORT const ::tnbLib::word typeName;
+			static FoamDual_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			//- Constructors

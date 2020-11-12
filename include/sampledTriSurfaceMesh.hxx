@@ -111,7 +111,7 @@ namespace tnbLib
 
 			// Private Data
 
-			static const NamedEnum<samplingSource, 3> samplingSourceNames_;
+			static FoamSampling_EXPORT const NamedEnum<samplingSource, 3> samplingSourceNames_;
 
 			//- Surface to sample on
 			const tnbLib::triSurfaceMesh surface_;
@@ -135,7 +135,7 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Get tree of all non-coupled boundary faces
-			const indexedOctree<treeDataFace>& nonCoupledboundaryTree() const;
+			FoamSampling_EXPORT const indexedOctree<treeDataFace>& nonCoupledboundaryTree() const;
 
 			//- Sample field on faces
 			template<class Type>
@@ -149,18 +149,22 @@ namespace tnbLib
 			tmp<Field<Type>>
 				interpolateField(const interpolation<Type>&) const;
 
-			bool update(const meshSearch& meshSearcher);
+			FoamSampling_EXPORT bool update(const meshSearch& meshSearcher);
 
 		public:
 
 			//- Runtime type information
-			TypeName("triSurfaceMesh");
+			//TypeName("triSurfaceMesh");
+			static const char* typeName_() { return "triSurfaceMesh"; }
+			static FoamSampling_EXPORT const ::tnbLib::word typeName;
+			static FoamSampling_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			triSurfaceMesh
+			FoamSampling_EXPORT triSurfaceMesh
 			(
 				const word& name,
 				const polyMesh& mesh,
@@ -169,7 +173,7 @@ namespace tnbLib
 			);
 
 			//- Construct from dictionary
-			triSurfaceMesh
+			FoamSampling_EXPORT triSurfaceMesh
 			(
 				const word& name,
 				const polyMesh& mesh,
@@ -177,7 +181,7 @@ namespace tnbLib
 			);
 
 			//- Construct from triSurface
-			triSurfaceMesh
+			FoamSampling_EXPORT triSurfaceMesh
 			(
 				const word& name,
 				const polyMesh& mesh,
@@ -187,27 +191,27 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~triSurfaceMesh();
+			FoamSampling_EXPORT virtual ~triSurfaceMesh();
 
 
 			// Member Functions
 
 				//- Does the surface need an update?
-			virtual bool needsUpdate() const;
+			FoamSampling_EXPORT virtual bool needsUpdate() const;
 
 			//- Mark the surface as needing an update.
 			//  May also free up unneeded data.
 			//  Return false if surface was already marked as expired.
-			virtual bool expire();
+			FoamSampling_EXPORT virtual bool expire();
 
 			//- Update the surface as required.
 			//  Do nothing (and return false) if no update was needed
-			virtual bool update();
+			FoamSampling_EXPORT virtual bool update();
 
 			//- Update the surface using a bound box to limit the searching.
 			//  For direct use, i.e. not through sample.
 			//  Do nothing (and return false) if no update was needed
-			bool update(const treeBoundBox&);
+			FoamSampling_EXPORT bool update(const treeBoundBox&);
 
 			//- Points of surface
 			virtual const pointField& points() const
@@ -223,69 +227,69 @@ namespace tnbLib
 
 
 			//- Sample field on surface
-			virtual tmp<scalarField> sample
+			FoamSampling_EXPORT virtual tmp<scalarField> sample
 			(
 				const volScalarField&
 			) const;
 
 			//- Sample field on surface
-			virtual tmp<vectorField> sample
+			FoamSampling_EXPORT virtual tmp<vectorField> sample
 			(
 				const volVectorField&
 			) const;
 
 			//- Sample field on surface
-			virtual tmp<sphericalTensorField> sample
+			FoamSampling_EXPORT virtual tmp<sphericalTensorField> sample
 			(
 				const volSphericalTensorField&
 			) const;
 
 			//- Sample field on surface
-			virtual tmp<symmTensorField> sample
+			FoamSampling_EXPORT virtual tmp<symmTensorField> sample
 			(
 				const volSymmTensorField&
 			) const;
 
 			//- Sample field on surface
-			virtual tmp<tensorField> sample
+			FoamSampling_EXPORT virtual tmp<tensorField> sample
 			(
 				const volTensorField&
 			) const;
 
 
 			//- Interpolate field on surface
-			virtual tmp<scalarField> interpolate
+			FoamSampling_EXPORT virtual tmp<scalarField> interpolate
 			(
 				const interpolation<scalar>&
 			) const;
 
 
 			//- Interpolate field on surface
-			virtual tmp<vectorField> interpolate
+			FoamSampling_EXPORT virtual tmp<vectorField> interpolate
 			(
 				const interpolation<vector>&
 			) const;
 
 			//- Interpolate field on surface
-			virtual tmp<sphericalTensorField> interpolate
+			FoamSampling_EXPORT virtual tmp<sphericalTensorField> interpolate
 			(
 				const interpolation<sphericalTensor>&
 			) const;
 
 			//- Interpolate field on surface
-			virtual tmp<symmTensorField> interpolate
+			FoamSampling_EXPORT virtual tmp<symmTensorField> interpolate
 			(
 				const interpolation<symmTensor>&
 			) const;
 
 			//- Interpolate field on surface
-			virtual tmp<tensorField> interpolate
+			FoamSampling_EXPORT virtual tmp<tensorField> interpolate
 			(
 				const interpolation<tensor>&
 			) const;
 
 			//- Write
-			virtual void print(Ostream&) const;
+			FoamSampling_EXPORT virtual void print(Ostream&) const;
 		};
 
 

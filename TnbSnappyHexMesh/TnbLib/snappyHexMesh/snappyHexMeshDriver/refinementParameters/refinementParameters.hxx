@@ -96,10 +96,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from dictionary - new syntax
-		refinementParameters(const dictionary& dict);
+		FoamSnappyHexMesh_EXPORT refinementParameters(const dictionary& dict);
 
 		//- Disallow default bitwise copy construction
-		refinementParameters(const refinementParameters&) = delete;
+		FoamSnappyHexMesh_EXPORT refinementParameters(const refinementParameters&) = delete;
 
 
 		// Member Functions
@@ -177,13 +177,13 @@ namespace tnbLib
 		// Other
 
 			//- Checks that cells are in mesh. Returns cells they are in.
-		labelList findCells(const polyMesh&) const;
+		FoamSnappyHexMesh_EXPORT labelList findCells(const polyMesh&) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const refinementParameters&) = delete;
+		FoamSnappyHexMesh_EXPORT void operator=(const refinementParameters&) = delete;
 	};
 
 

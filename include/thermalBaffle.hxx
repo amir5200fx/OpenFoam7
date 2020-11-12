@@ -61,7 +61,7 @@ namespace tnbLib
 				// Private Member Functions
 
 					//- Initialize thermalBaffle
-				void init();
+				FoamLagrangian_EXPORT void init();
 
 
 			protected:
@@ -101,31 +101,35 @@ namespace tnbLib
 				// Protected member functions
 
 					//- Read control parameters IO dictionary
-				virtual bool read();
+				FoamLagrangian_EXPORT virtual bool read();
 
 				//- Read control parameters from dictionary
-				virtual bool read(const dictionary& dict);
+				FoamLagrangian_EXPORT virtual bool read(const dictionary& dict);
 
 
 				// Equations
 
 					//- Solve energy equation
-				void solveEnergy();
+				FoamLagrangian_EXPORT void solveEnergy();
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("thermalBaffle");
+				//TypeName("thermalBaffle");
+				static const char* typeName_() { return "thermalBaffle"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				thermalBaffle(const word& modelType, const fvMesh& mesh);
+				FoamLagrangian_EXPORT thermalBaffle(const word& modelType, const fvMesh& mesh);
 
 				//- Construct from components and dict
-				thermalBaffle
+				FoamLagrangian_EXPORT thermalBaffle
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -133,11 +137,11 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				thermalBaffle(const thermalBaffle&) = delete;
+				FoamLagrangian_EXPORT thermalBaffle(const thermalBaffle&) = delete;
 
 
 				//- Destructor
-				virtual ~thermalBaffle();
+				FoamLagrangian_EXPORT virtual ~thermalBaffle();
 
 
 				// Member Functions
@@ -145,25 +149,25 @@ namespace tnbLib
 					// Thermo properties
 
 						//- Return const reference to the solidThermo
-				virtual const solidThermo& thermo() const;
+				FoamLagrangian_EXPORT virtual const solidThermo& thermo() const;
 
 
 				// Fields
 
 					//- Return the film specific heat capacity [J/kg/K]
-				virtual const tmp<volScalarField> Cp() const;
+				FoamLagrangian_EXPORT virtual const tmp<volScalarField> Cp() const;
 
 				//- Return solid absortivity [1/m]
-				virtual const volScalarField& kappaRad() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& kappaRad() const;
 
 				//- Return temperature [K]
-				virtual const volScalarField& T() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& T() const;
 
 				//- Return density [Kg/m^3]
-				virtual const volScalarField& rho() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& rho() const;
 
 				//- Return thermal conductivity [W/m/K]
-				virtual const volScalarField& kappa() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& kappa() const;
 
 
 				// Helper functions
@@ -185,22 +189,22 @@ namespace tnbLib
 				// Evolution
 
 					//- Pre-evolve  thermal baffle
-				virtual void preEvolveRegion();
+				FoamLagrangian_EXPORT virtual void preEvolveRegion();
 
 				//- Evolve the thermal baffle
-				virtual void evolveRegion();
+				FoamLagrangian_EXPORT virtual void evolveRegion();
 
 
 				// I-O
 
 					 //- Provide some feedback
-				virtual void info();
+				FoamLagrangian_EXPORT virtual void info();
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const thermalBaffle&) = delete;
+				FoamLagrangian_EXPORT void operator=(const thermalBaffle&) = delete;
 			};
 
 

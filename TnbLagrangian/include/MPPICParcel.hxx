@@ -43,6 +43,16 @@ SourceFiles
 #include <labelFieldIOField.hxx>
 #include <vectorFieldIOField.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamMPPICParcel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMPPICParcel_EXPORT_DEFINE
+#define FoamMPPICParcel_EXPORT __declspec(dllexport)
+#else
+#define FoamMPPICParcel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -171,14 +181,21 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Runtime type information
-		TypeName("MPPICParcel");
+		//TypeName("MPPICParcel");
+		static const char* typeName_() { return "MPPICParcel"; }
+		static FoamMPPICParcel_EXPORT const ::tnbLib::word typeName;
+		static FoamMPPICParcel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- String representation of properties
-		AddToPropertyList
+		/*AddToPropertyList
 		(
 			ParcelType,
 			"(UCorrectx UCorrecty UCorrectz)"
-		);
+		);*/
+		
+		static string propertyList_;
+		static string propertyList() { return ParcelType::propertyList() + "(UCorrectx UCorrecty UCorrectz)"; };
 
 
 		// Constructors
@@ -327,7 +344,7 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <MPPICParcel.cxx>
+//#include <MPPICParcel.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -41,6 +41,16 @@ SourceFiles
 #include <autoPtr.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamPairModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPairModel_EXPORT_DEFINE
+#define FoamPairModel_EXPORT __declspec(dllexport)
+#else
+#define FoamPairModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -68,10 +78,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pairModel");
+		//TypeName("pairModel");
+		static const char* typeName_() { return "pairModel"; }
+		static FoamPairModel_EXPORT const ::tnbLib::word typeName;
+		static FoamPairModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			PairModel,
@@ -81,7 +95,58 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+
+		typedef autoPtr<PairModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamPairModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamPairModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamPairModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class PairModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<PairModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<PairModel>(new PairModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = PairModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "PairModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class PairModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<PairModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<PairModel>(new PairModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = PairModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

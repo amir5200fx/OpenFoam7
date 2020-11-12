@@ -45,6 +45,16 @@ SourceFiles
 
 #include <interpolation.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamReactingParcel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamReactingParcel_EXPORT_DEFINE
+#define FoamReactingParcel_EXPORT __declspec(dllexport)
+#else
+#define FoamReactingParcel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -218,15 +228,22 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Runtime type information
-		TypeName("ReactingParcel");
+		//TypeName("ReactingParcel");
+		static const char* typeName_() { return "ReactingParcel"; }
+		static FoamReactingParcel_EXPORT const ::tnbLib::word typeName;
+		static FoamReactingParcel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- String representation of properties
-		AddToPropertyList
+		/*AddToPropertyList
 		(
 			ParcelType,
 			" mass0"
 			+ " nPhases(Y1..YN)"
-		);
+		);*/
+		
+		static string propertyList_;
+		static string propertyList() { return ParcelType::propertyList() + " mass0" + " nPhases(Y1..YN)"; };
 
 
 		// Constructors
@@ -435,7 +452,7 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <ReactingParcel.cxx>
+//#include <ReactingParcel.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

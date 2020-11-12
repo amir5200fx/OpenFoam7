@@ -38,6 +38,16 @@ Description
 #include <vector.hxx>  // added by amir
 #include <Random.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamNoAtomization_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNoAtomization_EXPORT_DEFINE
+#define FoamNoAtomization_EXPORT __declspec(dllexport)
+#else
+#define FoamNoAtomization_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -54,7 +64,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamNoAtomization_EXPORT const ::tnbLib::word typeName;
+		static FoamNoAtomization_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

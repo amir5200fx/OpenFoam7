@@ -63,12 +63,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("LESdelta");
+		//TypeName("LESdelta");
+		static const char* typeName_() { return "LESdelta"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			LESdelta,
@@ -79,26 +83,78 @@ namespace tnbLib
 				const dictionary& dict
 				),
 				(name, turbulence, dict)
-		);
+		);*/
+
+		typedef autoPtr<LESdelta> (*dictionaryConstructorPtr)(const word& name, const turbulenceModel& turbulence,
+		                                                      const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamTurbulence_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamTurbulence_EXPORT void constructdictionaryConstructorTables();
+		static FoamTurbulence_EXPORT void destroydictionaryConstructorTables();
+
+		template <class LESdeltaType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<LESdelta> New(const word& name, const turbulenceModel& turbulence, const dictionary& dict)
+			{
+				return autoPtr<LESdelta>(new LESdeltaType(name, turbulence, dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = LESdeltaType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "LESdelta" << std::
+						endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class LESdeltaType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<LESdelta> New(const word& name, const turbulenceModel& turbulence, const dictionary& dict)
+			{
+				return autoPtr<LESdelta>(new LESdeltaType(name, turbulence, dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = LESdeltaType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from name, turbulenceModel and dictionary
-		LESdelta
+		FoamTurbulence_EXPORT LESdelta
 		(
 			const word& name,
 			const turbulenceModel& turbulence
 		);
 
 		//- Disallow default bitwise copy construction
-		LESdelta(const LESdelta&) = delete;
+		FoamTurbulence_EXPORT LESdelta(const LESdelta&) = delete;
 
 
 		// Selectors
 
 			//- Return a reference to the selected LES delta
-		static autoPtr<LESdelta> New
+		static FoamTurbulence_EXPORT autoPtr<LESdelta> New
 		(
 			const word& name,
 			const turbulenceModel& turbulence,
@@ -106,7 +162,7 @@ namespace tnbLib
 		);
 
 		//- Return a reference to the selected LES delta
-		static autoPtr<LESdelta> New
+		static FoamTurbulence_EXPORT autoPtr<LESdelta> New
 		(
 			const word& name,
 			const turbulenceModel& turbulence,
@@ -129,15 +185,15 @@ namespace tnbLib
 		}
 
 		//- Read the LESdelta dictionary
-		virtual void read(const dictionary&) = 0;
+		FoamTurbulence_EXPORT virtual void read(const dictionary&) = 0;
 
 		// Correct values
-		virtual void correct() = 0;
+		FoamTurbulence_EXPORT virtual void correct() = 0;
 
 
 		// Member Operators
 
-		void operator=(const LESdelta&) = delete;
+		FoamTurbulence_EXPORT void operator=(const LESdelta&) = delete;
 
 		virtual operator const volScalarField&() const
 		{

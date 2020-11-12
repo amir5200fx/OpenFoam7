@@ -70,21 +70,25 @@ namespace tnbLib
 				// Protected Member Functions
 
 					//- Add to transferred mass
-				void addToTransferredMass(const scalar dMass);
+				FoamLagrangian_EXPORT void addToTransferredMass(const scalar dMass);
 
 				//- Correct
-				void correct();
+				FoamLagrangian_EXPORT void correct();
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("transferModel");
+				//TypeName("transferModel");
+				static const char* typeName_() { return "transferModel"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Declare runtime constructor selection table
 
-				declareRunTimeSelectionTable
+				/*declareRunTimeSelectionTable
 				(
 					autoPtr,
 					transferModel,
@@ -94,16 +98,69 @@ namespace tnbLib
 						const dictionary& dict
 						),
 						(film, dict)
-				);
+				);*/
+
+				typedef autoPtr<transferModel> (*dictionaryConstructorPtr)(
+					surfaceFilmRegionModel& film, const dictionary& dict);
+				typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+				static FoamLagrangian_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+				static FoamLagrangian_EXPORT void constructdictionaryConstructorTables();
+				static FoamLagrangian_EXPORT void destroydictionaryConstructorTables();
+
+				template <class transferModelType>
+				class adddictionaryConstructorToTable
+				{
+				public:
+					static autoPtr<transferModel> New(surfaceFilmRegionModel& film, const dictionary& dict)
+					{
+						return autoPtr<transferModel>(new transferModelType(film, dict));
+					}
+
+					adddictionaryConstructorToTable(const word& lookup = transferModelType::typeName)
+					{
+						constructdictionaryConstructorTables();
+						if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+						{
+							std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+								"transferModel" << std::endl;
+							error::safePrintStack(std::cerr);
+						}
+					}
+
+					~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+				};
+
+				template <class transferModelType>
+				class addRemovabledictionaryConstructorToTable
+				{
+					const word& lookup_;
+				public:
+					static autoPtr<transferModel> New(surfaceFilmRegionModel& film, const dictionary& dict)
+					{
+						return autoPtr<transferModel>(new transferModelType(film, dict));
+					}
+
+					addRemovabledictionaryConstructorToTable(
+						const word& lookup = transferModelType::typeName) : lookup_(lookup)
+					{
+						constructdictionaryConstructorTables();
+						dictionaryConstructorTablePtr_->set(lookup, New);
+					}
+
+					~addRemovabledictionaryConstructorToTable()
+					{
+						if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+					}
+				};
 
 
 				// Constructors
 
 					//- Construct for film
-				transferModel(surfaceFilmRegionModel& film);
+				FoamLagrangian_EXPORT transferModel(surfaceFilmRegionModel& film);
 
 				//- Construct from type name, dictionary and surface film model
-				transferModel
+				FoamLagrangian_EXPORT transferModel
 				(
 					const word& modelType,
 					surfaceFilmRegionModel& film,
@@ -111,13 +168,13 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				transferModel(const transferModel&) = delete;
+				FoamLagrangian_EXPORT transferModel(const transferModel&) = delete;
 
 
 				// Selectors
 
 					//- Return a reference to the selected injection model
-				static autoPtr<transferModel> New
+				static FoamLagrangian_EXPORT autoPtr<transferModel> New
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict,
@@ -126,20 +183,20 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~transferModel();
+				FoamLagrangian_EXPORT virtual ~transferModel();
 
 
 				// Member Functions
 
 					//- Correct kinematic transfers
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					scalarField& availableMass,
 					scalarField& massToTransfer
 				) = 0;
 
 				//- Correct kinematic and thermodynamic transfers
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					scalarField& availableMass,
 					scalarField& massToTransfer,
@@ -147,7 +204,7 @@ namespace tnbLib
 				);
 
 				//- Return the total mass transferred
-				virtual scalar transferredMassTotal() const;
+				FoamLagrangian_EXPORT virtual scalar transferredMassTotal() const;
 
 				//- Accumulate the total mass transferred for the patches into the
 				//  scalarField provided
@@ -158,7 +215,7 @@ namespace tnbLib
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const transferModel&) = delete;
+				FoamLagrangian_EXPORT void operator=(const transferModel&) = delete;
 			};
 
 

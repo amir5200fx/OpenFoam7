@@ -74,20 +74,24 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("fWallFunction");
+			//TypeName("fWallFunction");
+			static const char* typeName_() { return "fWallFunction"; }
+			static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+			static FoamTurbulence_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from patch and internal field
-			fWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT fWallFunctionFvPatchScalarField
 			(
 				const fvPatch&,
 				const DimensionedField<scalar, volMesh>&
 			);
 
 			//- Construct from patch, internal field and dictionary
-			fWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT fWallFunctionFvPatchScalarField
 			(
 				const fvPatch&,
 				const DimensionedField<scalar, volMesh>&,
@@ -96,7 +100,7 @@ namespace tnbLib
 
 			//- Construct by mapping given fWallFunctionFvPatchScalarField
 			//  onto a new patch
-			fWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT fWallFunctionFvPatchScalarField
 			(
 				const fWallFunctionFvPatchScalarField&,
 				const fvPatch&,
@@ -105,7 +109,7 @@ namespace tnbLib
 			);
 
 			//- Copy constructor
-			fWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT fWallFunctionFvPatchScalarField
 			(
 				const fWallFunctionFvPatchScalarField&
 			);
@@ -120,7 +124,7 @@ namespace tnbLib
 			}
 
 			//- Copy constructor setting internal field reference
-			fWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT fWallFunctionFvPatchScalarField
 			(
 				const fWallFunctionFvPatchScalarField&,
 				const DimensionedField<scalar, volMesh>&
@@ -144,7 +148,7 @@ namespace tnbLib
 				// Evaluation functions
 
 					//- Update the coefficients associated with the patch field
-			virtual void updateCoeffs();
+			FoamTurbulence_EXPORT virtual void updateCoeffs();
 		};
 
 

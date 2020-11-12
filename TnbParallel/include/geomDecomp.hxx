@@ -67,21 +67,21 @@ namespace tnbLib
 
 			//- Construct given the decomposition dictionary
 			//  and the derived type name
-		geomDecomp
+		FoamParallel_EXPORT geomDecomp
 		(
 			const dictionary& decompositionDict,
 			const word& derivedType
 		);
 
 		//- Return for every coordinate the wanted processor number.
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const pointField& points,
 			const scalarField& pointWeights
 		) = 0;
 
 		//- Like decompose but with uniform weights on the points
-		virtual labelList decompose(const pointField&) = 0;
+		FoamParallel_EXPORT virtual labelList decompose(const pointField&) = 0;
 
 	};
 

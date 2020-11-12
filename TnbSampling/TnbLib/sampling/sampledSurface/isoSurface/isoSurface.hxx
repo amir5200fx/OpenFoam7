@@ -109,37 +109,37 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		scalar minTetQ
+		FoamSampling_EXPORT scalar minTetQ
 		(
 			const label facei,
 			const label faceBasePtI
 		) const;
 
-		void fixTetBasePtIs();
+		FoamSampling_EXPORT void fixTetBasePtIs();
 
 		//- Does any edge of triangle cross iso value?
-		bool isTriCut
+		FoamSampling_EXPORT bool isTriCut
 		(
 			const triFace& tri,
 			const scalarField& pointValues
 		) const;
 
 		//- Determine whether cell is cut
-		cellCutType calcCutType
+		FoamSampling_EXPORT cellCutType calcCutType
 		(
 			const bool isTet,
 			const label
 		) const;
 
 		//- Determine for all mesh whether cell is cut
-		label calcCutTypes
+		FoamSampling_EXPORT label calcCutTypes
 		(
 			tetMatcher& tet,
 			List<cellCutType>& cellCutTypes
 		);
 
 		//- Generate single point on edge
-		label generatePoint
+		FoamSampling_EXPORT label generatePoint
 		(
 			const label facei,
 			const bool edgeIsDiag,
@@ -152,7 +152,7 @@ namespace tnbLib
 		) const;
 
 		//- Generate triangles from tet
-		void generateTriPoints
+		FoamSampling_EXPORT void generateTriPoints
 		(
 			const label facei,
 			const FixedList<scalar, 4>& s,
@@ -169,7 +169,7 @@ namespace tnbLib
 		) const;
 
 		//- Generate triangles from cell
-		void generateTriPoints
+		FoamSampling_EXPORT void generateTriPoints
 		(
 			const label celli,
 			const bool isTet,
@@ -186,7 +186,7 @@ namespace tnbLib
 
 		// Simplification
 
-		void triangulateOutside
+		FoamSampling_EXPORT void triangulateOutside
 		(
 			const bool filterDiag,
 			const PrimitivePatch<SubList<face>, const pointField&>& pp,
@@ -198,7 +198,7 @@ namespace tnbLib
 			DynamicList<label>& compactCellIDs
 		) const;
 
-		MeshedSurface<face> removeInsidePoints
+		FoamSampling_EXPORT MeshedSurface<face> removeInsidePoints
 		(
 			const bool filterDiag,
 			const MeshedSurface<face>& s,
@@ -213,13 +213,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("isoSurface");
+		//TypeName("isoSurface");
+		static const char* typeName_() { return "isoSurface"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from dictionary
-		isoSurface
+		FoamSampling_EXPORT isoSurface
 		(
 			const polyMesh& mesh,
 			const scalarField& cellValues,

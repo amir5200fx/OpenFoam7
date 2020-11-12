@@ -52,7 +52,7 @@ namespace tnbLib
 	class streamLineParticle;
 	class streamLineParticleCloud;
 
-	Ostream& operator<<(Ostream&, const streamLineParticle&);
+	FoamFunctionObjects_EXPORT Ostream& operator<<(Ostream&, const streamLineParticle&);
 
 	/*---------------------------------------------------------------------------*\
 						 Class streamLineParticle Declaration
@@ -142,7 +142,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Interpolate all quantities; return interpolated velocity.
-		vector interpolateFields
+		FoamFunctionObjects_EXPORT vector interpolateFields
 		(
 			const trackingData&,
 			const point&,
@@ -156,7 +156,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		streamLineParticle
+		FoamFunctionObjects_EXPORT streamLineParticle
 		(
 			const polyMesh& c,
 			const vector& position,
@@ -165,7 +165,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		streamLineParticle
+		FoamFunctionObjects_EXPORT streamLineParticle
 		(
 			const polyMesh& c,
 			Istream& is,
@@ -173,7 +173,7 @@ namespace tnbLib
 		);
 
 		//- Construct copy
-		streamLineParticle(const streamLineParticle& p);
+		FoamFunctionObjects_EXPORT streamLineParticle(const streamLineParticle& p);
 
 		//- Construct and return a clone
 		autoPtr<particle> clone() const
@@ -208,29 +208,29 @@ namespace tnbLib
 			// Tracking
 
 				//- Track all particles to their end point
-		bool move(streamLineParticleCloud&, trackingData&, const scalar);
+		FoamFunctionObjects_EXPORT bool move(streamLineParticleCloud&, trackingData&, const scalar);
 
 		//- Overridable function to handle the particle hitting a patch
 		//  Executed before other patch-hitting functions
-		bool hitPatch(streamLineParticleCloud&, trackingData&);
+		FoamFunctionObjects_EXPORT bool hitPatch(streamLineParticleCloud&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a wedge
-		void hitWedgePatch(streamLineParticleCloud&, trackingData&);
+		FoamFunctionObjects_EXPORT void hitWedgePatch(streamLineParticleCloud&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a
 		//  symmetry plane
-		void hitSymmetryPlanePatch(streamLineParticleCloud&, trackingData&);
+		FoamFunctionObjects_EXPORT void hitSymmetryPlanePatch(streamLineParticleCloud&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a
 		//  symmetry patch
-		void hitSymmetryPatch(streamLineParticleCloud&, trackingData&);
+		FoamFunctionObjects_EXPORT void hitSymmetryPatch(streamLineParticleCloud&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a cyclic
-		void hitCyclicPatch(streamLineParticleCloud&, trackingData&);
+		FoamFunctionObjects_EXPORT void hitCyclicPatch(streamLineParticleCloud&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a
 		//  cyclicAMIPatch
-		void hitCyclicAMIPatch
+		FoamFunctionObjects_EXPORT void hitCyclicAMIPatch
 		(
 			const vector&,
 			const scalar,
@@ -240,7 +240,7 @@ namespace tnbLib
 
 		//- Overridable function to handle the particle hitting a
 		//  cyclicACMIPatch
-		void hitCyclicACMIPatch
+		FoamFunctionObjects_EXPORT void hitCyclicACMIPatch
 		(
 			const vector&,
 			const scalar,
@@ -250,7 +250,7 @@ namespace tnbLib
 
 		//- Overridable function to handle the particle hitting a
 		//  cyclicRepeatAMIPatch
-		void hitCyclicRepeatAMIPatch
+		FoamFunctionObjects_EXPORT void hitCyclicRepeatAMIPatch
 		(
 			const vector&,
 			const scalar,
@@ -260,24 +260,24 @@ namespace tnbLib
 
 		//- Overridable function to handle the particle hitting a
 		//- processorPatch
-		void hitProcessorPatch(streamLineParticleCloud&, trackingData&);
+		FoamFunctionObjects_EXPORT void hitProcessorPatch(streamLineParticleCloud&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a wallPatch
-		void hitWallPatch(streamLineParticleCloud&, trackingData&);
+		FoamFunctionObjects_EXPORT void hitWallPatch(streamLineParticleCloud&, trackingData&);
 
 
 		// I-O
 
 			//- Read
-		static void readFields(Cloud<streamLineParticle>&);
+		static FoamFunctionObjects_EXPORT void readFields(Cloud<streamLineParticle>&);
 
 		//- Write
-		static void writeFields(const Cloud<streamLineParticle>&);
+		static FoamFunctionObjects_EXPORT void writeFields(const Cloud<streamLineParticle>&);
 
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const streamLineParticle&);
+		friend FoamFunctionObjects_EXPORT Ostream& operator<<(Ostream&, const streamLineParticle&);
 	};
 
 

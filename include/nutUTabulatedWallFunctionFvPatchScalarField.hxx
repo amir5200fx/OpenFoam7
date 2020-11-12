@@ -92,29 +92,33 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Calculate the turbulence viscosity
-		virtual tmp<scalarField> nut() const;
+		FoamTurbulence_EXPORT virtual tmp<scalarField> nut() const;
 
 		//- Calculate wall u+ from table
-		virtual tmp<scalarField> calcUPlus(const scalarField& Rey) const;
+		FoamTurbulence_EXPORT virtual tmp<scalarField> calcUPlus(const scalarField& Rey) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("nutTabulatedWallFunction");
+		//TypeName("nutTabulatedWallFunction");
+		static const char* typeName_() { return "nutTabulatedWallFunction"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		nutUTabulatedWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutUTabulatedWallFunctionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		nutUTabulatedWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutUTabulatedWallFunctionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -124,7 +128,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  nutUTabulatedWallFunctionFvPatchScalarField
 		//  onto a new patch
-		nutUTabulatedWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutUTabulatedWallFunctionFvPatchScalarField
 		(
 			const nutUTabulatedWallFunctionFvPatchScalarField&,
 			const fvPatch&,
@@ -133,7 +137,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		nutUTabulatedWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutUTabulatedWallFunctionFvPatchScalarField
 		(
 			const nutUTabulatedWallFunctionFvPatchScalarField&
 		);
@@ -148,7 +152,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		nutUTabulatedWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutUTabulatedWallFunctionFvPatchScalarField
 		(
 			const nutUTabulatedWallFunctionFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -172,13 +176,13 @@ namespace tnbLib
 			// Evaluation functions
 
 				//- Calculate and return the yPlus at the boundary
-		virtual tmp<scalarField> yPlus() const;
+		FoamTurbulence_EXPORT virtual tmp<scalarField> yPlus() const;
 
 
 		// I-O
 
 			//- Write
-		virtual void write(Ostream& os) const;
+		FoamTurbulence_EXPORT virtual void write(Ostream& os) const;
 	};
 
 

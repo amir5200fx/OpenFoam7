@@ -70,17 +70,21 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("binary");
+				//TypeName("binary");
+				static const char* typeName_() { return "binary"; }
+				static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+				static FoamRadiationModels_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				binary(const dictionary& dict, const fvMesh& mesh);
+				FoamRadiationModels_EXPORT binary(const dictionary& dict, const fvMesh& mesh);
 
 
 				//- Destructor
-				virtual ~binary();
+				FoamRadiationModels_EXPORT virtual ~binary();
 
 
 				// Member Functions
@@ -90,28 +94,28 @@ namespace tnbLib
 						// Absorption coefficient
 
 							//- Absorption coefficient for continuous phase
-				virtual tmp<volScalarField> aCont(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT virtual tmp<volScalarField> aCont(const label bandI = 0) const;
 
 				//- Absorption coefficient for dispersed phase
-				virtual tmp<volScalarField> aDisp(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT virtual tmp<volScalarField> aDisp(const label bandI = 0) const;
 
 
 				// Emission coefficient
 
 					//- Emission coefficient for continuous phase
-				virtual tmp<volScalarField> eCont(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT virtual tmp<volScalarField> eCont(const label bandI = 0) const;
 
 				//- Emission coefficient for dispersed phase
-				virtual tmp<volScalarField> eDisp(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT virtual tmp<volScalarField> eDisp(const label bandI = 0) const;
 
 
 				// Emission contribution
 
 					//- Emission contribution for continuous phase
-				virtual tmp<volScalarField> ECont(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT virtual tmp<volScalarField> ECont(const label bandI = 0) const;
 
 				//- Emission contribution for continuous phase
-				virtual tmp<volScalarField> EDisp(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT virtual tmp<volScalarField> EDisp(const label bandI = 0) const;
 			};
 
 

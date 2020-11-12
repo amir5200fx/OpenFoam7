@@ -42,7 +42,7 @@ tnbLib::functionObjects::fieldAverageItem::fieldAverageItem(Istream& is)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::functionObjects::operator>>
+FoamFunctionObjects_EXPORT tnbLib::Istream& tnbLib::functionObjects::operator>>
 (
 	Istream& is,
 	fieldAverageItem& faItem
@@ -79,7 +79,7 @@ tnbLib::Istream& tnbLib::functionObjects::operator>>
 }
 
 
-tnbLib::Ostream& tnbLib::functionObjects::operator<<
+FoamFunctionObjects_EXPORT tnbLib::Ostream& tnbLib::functionObjects::operator<<
 (
 	Ostream& os,
 	const fieldAverageItem& faItem

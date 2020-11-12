@@ -124,6 +124,9 @@
     <Filter Include="TnbLib\fvMotionSolver\fvMotionSolvers\displacement\SBRStress">
       <UniqueIdentifier>{b944baa1-1951-4423-be01-1ef909dac017}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\fvMotionSolver\module">
+      <UniqueIdentifier>{c8ea22e4-e901-43d3-916b-bd9c780b5ceb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolver.hxx">
@@ -234,6 +237,9 @@
     <ClInclude Include="TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue\timeVaryingMappedFixedValuePointPatchFieldI.hxx">
       <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\timeVaryingMappedFixedValue</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\fvMotionSolver\module\FvMotionSolver_Module.hxx">
+      <Filter>TnbLib\fvMotionSolver\module</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\fvMotionSolver\fvMotionSolver.cxx">
@@ -319,6 +325,9 @@
     </ClCompile>
     <ClCompile Include="TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian\velocityLaplacianFvMotionSolver.cxx">
       <Filter>TnbLib\fvMotionSolver\fvMotionSolvers\velocity\laplacian</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement\surfaceSlipDisplacementPointPatchVectorFieldIO.cxx">
+      <Filter>TnbLib\fvMotionSolver\pointPatchFields\derived\surfaceSlipDisplacement</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

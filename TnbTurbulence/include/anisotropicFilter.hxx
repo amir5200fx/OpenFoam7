@@ -68,18 +68,22 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("anisotropic");
+		//TypeName("anisotropic");
+		static const char* typeName_() { return "anisotropic"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		anisotropicFilter(const fvMesh& mesh, scalar widthCoeff);
+		FoamTurbulence_EXPORT anisotropicFilter(const fvMesh& mesh, scalar widthCoeff);
 
 		//- Construct from IOdictionary
-		anisotropicFilter(const fvMesh& mesh, const dictionary&);
+		FoamTurbulence_EXPORT anisotropicFilter(const fvMesh& mesh, const dictionary&);
 
 		//- Disallow default bitwise copy construction
-		anisotropicFilter(const anisotropicFilter&) = delete;
+		FoamTurbulence_EXPORT anisotropicFilter(const anisotropicFilter&) = delete;
 
 
 		//- Destructor
@@ -90,29 +94,29 @@ namespace tnbLib
 		// Member Functions
 
 			//- Read the LESfilter dictionary
-		virtual void read(const dictionary&);
+		FoamTurbulence_EXPORT virtual void read(const dictionary&);
 
 
 		// Member Operators
 
-		void operator=(const anisotropicFilter&) = delete;
+		FoamTurbulence_EXPORT void operator=(const anisotropicFilter&) = delete;
 
-		virtual tmp<volScalarField> operator()
+		FoamTurbulence_EXPORT virtual tmp<volScalarField> operator()
 			(
 				const tmp<volScalarField>&
 				) const;
 
-		virtual tmp<volVectorField> operator()
+		FoamTurbulence_EXPORT virtual tmp<volVectorField> operator()
 			(
 				const tmp<volVectorField>&
 				) const;
 
-		virtual tmp<volSymmTensorField> operator()
+		FoamTurbulence_EXPORT virtual tmp<volSymmTensorField> operator()
 			(
 				const tmp<volSymmTensorField>&
 				) const;
 
-		virtual tmp<volTensorField> operator()
+		FoamTurbulence_EXPORT virtual tmp<volTensorField> operator()
 			(
 				const tmp<volTensorField>&
 				) const;

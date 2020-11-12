@@ -55,7 +55,7 @@ namespace tnbLib
 		// Private member functions
 
 			//- Disallow default bitwise assignment
-		void operator=(const ParticleStressModel&) = delete;
+		FoamLagrangian_EXPORT void operator=(const ParticleStressModel&) = delete;
 
 
 	protected:
@@ -69,49 +69,105 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("particleStressModel");
+		//TypeName("particleStressModel");
+		static const char* typeName_() { return "particleStressModel"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			ParticleStressModel,
 			dictionary,
 			(const dictionary& dict),
 			(dict)
-		);
+		);*/
+		
+		typedef autoPtr<ParticleStressModel> (*dictionaryConstructorPtr)(const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamLagrangian_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamLagrangian_EXPORT void constructdictionaryConstructorTables();
+		static FoamLagrangian_EXPORT void destroydictionaryConstructorTables();
+
+		template <class ParticleStressModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<ParticleStressModel> New(const dictionary& dict)
+			{
+				return autoPtr<ParticleStressModel>(new ParticleStressModelType(dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = ParticleStressModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "ParticleStressModel"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class ParticleStressModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<ParticleStressModel> New(const dictionary& dict)
+			{
+				return autoPtr<ParticleStressModel>(new ParticleStressModelType(dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = ParticleStressModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		//- Constructors
 
 			//- Construct from components
-		ParticleStressModel(const dictionary& dict);
+		FoamLagrangian_EXPORT ParticleStressModel(const dictionary& dict);
 
 		//- Construct a copy
-		ParticleStressModel(const ParticleStressModel& sm);
+		FoamLagrangian_EXPORT ParticleStressModel(const ParticleStressModel& sm);
 
 		//- Construct and return a clone
-		virtual autoPtr<ParticleStressModel> clone() const = 0;
+		FoamLagrangian_EXPORT virtual autoPtr<ParticleStressModel> clone() const = 0;
 
 
 		//- Selector
-		static autoPtr<ParticleStressModel> New
+		static FoamLagrangian_EXPORT autoPtr<ParticleStressModel> New
 		(
 			const dictionary& dict
 		);
 
 
 		//- Destructor
-		virtual ~ParticleStressModel();
+		FoamLagrangian_EXPORT virtual ~ParticleStressModel();
 
 
 		//- Member Functions
 
 			//- Access max volume fraction
-		scalar alphaPacked() const;
+		FoamLagrangian_EXPORT scalar alphaPacked() const;
 
 		//- Collision stress
-		virtual tmp<Field<scalar>> tau
+		FoamLagrangian_EXPORT virtual tmp<Field<scalar>> tau
 		(
 			const Field<scalar>& alpha,
 			const Field<scalar>& rho,
@@ -119,7 +175,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Collision stress derivaive w.r.t. the volume fraction
-		virtual tmp<Field<scalar>> dTaudTheta
+		FoamLagrangian_EXPORT virtual tmp<Field<scalar>> dTaudTheta
 		(
 			const Field<scalar>& alpha,
 			const Field<scalar>& rho,
@@ -127,7 +183,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Collision stress using FieldFields
-		tmp<FieldField<Field, scalar>> tau
+		FoamLagrangian_EXPORT tmp<FieldField<Field, scalar>> tau
 		(
 			const FieldField<Field, scalar>& alpha,
 			const FieldField<Field, scalar>& rho,

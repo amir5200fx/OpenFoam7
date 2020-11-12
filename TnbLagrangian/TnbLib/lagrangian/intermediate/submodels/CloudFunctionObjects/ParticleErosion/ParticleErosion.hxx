@@ -81,6 +81,16 @@ SourceFiles
 #include <CloudFunctionObject.hxx>
 #include <volFields.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamParticleErosion_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamParticleErosion_EXPORT_DEFINE
+#define FoamParticleErosion_EXPORT __declspec(dllexport)
+#else
+#define FoamParticleErosion_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -133,7 +143,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("particleErosion");
+		//TypeName("particleErosion");
+		static const char* typeName_() { return "particleErosion"; }
+		static FoamParticleErosion_EXPORT const ::tnbLib::word typeName;
+		static FoamParticleErosion_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

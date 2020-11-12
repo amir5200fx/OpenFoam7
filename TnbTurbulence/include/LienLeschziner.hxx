@@ -108,21 +108,25 @@ namespace tnbLib
 
 				// Protected Member Functions
 
-				tmp<volScalarField> fMu() const;
-				tmp<volScalarField> f2() const;
-				tmp<volScalarField> E(const volScalarField& f2) const;
+				FoamTurbulence_EXPORT tmp<volScalarField> fMu() const;
+				FoamTurbulence_EXPORT tmp<volScalarField> f2() const;
+				FoamTurbulence_EXPORT tmp<volScalarField> E(const volScalarField& f2) const;
 
-				virtual void correctNut();
+				FoamTurbulence_EXPORT virtual void correctNut();
 
 
 			public:
 
-				TypeName("LienLeschziner");
+				//TypeName("LienLeschziner");
+				static const char* typeName_() { return "LienLeschziner"; }
+				static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+				static FoamTurbulence_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 				// Constructors
 
 					//- Construct from components
-				LienLeschziner
+				FoamTurbulence_EXPORT LienLeschziner
 				(
 					const geometricOneField& alpha,
 					const geometricOneField& rho,
@@ -143,7 +147,7 @@ namespace tnbLib
 				// Member Functions
 
 					//- Read RASProperties dictionary
-				virtual bool read();
+				FoamTurbulence_EXPORT virtual bool read();
 
 				//- Return the effective diffusivity for k
 				tmp<volScalarField> DkEff() const
@@ -178,7 +182,7 @@ namespace tnbLib
 				}
 
 				//- Solve the turbulence equations and correct the turbulence viscosity
-				virtual void correct();
+				FoamTurbulence_EXPORT virtual void correct();
 			};
 
 

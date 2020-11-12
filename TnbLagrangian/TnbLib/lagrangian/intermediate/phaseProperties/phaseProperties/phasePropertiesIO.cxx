@@ -41,7 +41,7 @@ tnbLib::phaseProperties::phaseProperties(Istream& is)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, phaseProperties& pp)
+FoamLagrangian_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, phaseProperties& pp)
 {
 	is.check
 	(
@@ -76,7 +76,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, phaseProperties& pp)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const phaseProperties& pp)
+FoamLagrangian_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const phaseProperties& pp)
 {
 	os.check
 	(

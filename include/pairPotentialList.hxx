@@ -73,7 +73,7 @@ namespace tnbLib
 			const label b
 		) const;
 
-		void readPairPotentialDict
+		FoamLagrangian_EXPORT void readPairPotentialDict
 		(
 			const List<word>& idList,
 			const dictionary& pairPotentialDict,
@@ -85,10 +85,10 @@ namespace tnbLib
 
 		// Constructors
 
-		pairPotentialList();
+		FoamLagrangian_EXPORT pairPotentialList();
 
 		//- Construct from idList and potential dictionaries
-		pairPotentialList
+		FoamLagrangian_EXPORT pairPotentialList
 		(
 			const List<word>& idList,
 			const dictionary& pairPotentialDict,
@@ -96,16 +96,16 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise assignment
-		void operator=(const pairPotentialList&) = delete;
+		FoamLagrangian_EXPORT void operator=(const pairPotentialList&) = delete;
 
 
 		//- Destructor
-		~pairPotentialList();
+		FoamLagrangian_EXPORT ~pairPotentialList();
 
 
 		// Member Functions
 
-		void buildPotentials
+		FoamLagrangian_EXPORT void buildPotentials
 		(
 			const List<word>& idList,
 			const dictionary& pairPotentialDict,
@@ -119,38 +119,38 @@ namespace tnbLib
 
 		inline scalar rCutMaxSqr() const;
 
-		bool rCutMaxSqr(scalar rIJMagSqr) const;
+		FoamLagrangian_EXPORT bool rCutMaxSqr(scalar rIJMagSqr) const;
 
-		const pairPotential& pairPotentialFunction
+		FoamLagrangian_EXPORT const pairPotential& pairPotentialFunction
 		(
 			const label a,
 			const label b
 		) const;
 
 		// Return true if rIJ is within rCut for this pair.
-		bool rCutSqr
+		FoamLagrangian_EXPORT bool rCutSqr
 		(
 			const label a,
 			const label b,
 			const scalar rIJMagSqr
 		) const;
 
-		scalar rMin(const label a, const label b) const;
+		FoamLagrangian_EXPORT scalar rMin(const label a, const label b) const;
 
-		scalar dr(const label a, const label b) const;
+		FoamLagrangian_EXPORT scalar dr(const label a, const label b) const;
 
-		scalar rCutSqr(const label a, const label b) const;
+		FoamLagrangian_EXPORT scalar rCutSqr(const label a, const label b) const;
 
-		scalar rCut(const label a, const label b) const;
+		FoamLagrangian_EXPORT scalar rCut(const label a, const label b) const;
 
-		scalar force
+		FoamLagrangian_EXPORT scalar force
 		(
 			const label a,
 			const label b,
 			const scalar rIJMag
 		) const;
 
-		scalar energy
+		FoamLagrangian_EXPORT scalar energy
 		(
 			const label a,
 			const label b,
@@ -163,7 +163,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise copy construction
-		pairPotentialList(const pairPotentialList&) = delete;
+		FoamLagrangian_EXPORT pairPotentialList(const pairPotentialList&) = delete;
 	};
 
 

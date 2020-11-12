@@ -58,7 +58,7 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Return the true if cells intersect
-		virtual bool intersect
+		FoamSampling_EXPORT virtual bool intersect
 		(
 			const label srcCelli,
 			const label tgtCelli
@@ -66,7 +66,7 @@ namespace tnbLib
 
 		//- Find indices of overlapping cells in src and tgt meshes - returns
 		//  true if found a matching pair
-		virtual bool findInitialSeeds
+		FoamSampling_EXPORT virtual bool findInitialSeeds
 		(
 			const labelList& srcCellIDs,
 			const boolList& mapFlag,
@@ -76,7 +76,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculate the mesh-to-mesh addressing and weights
-		virtual void calculateAddressing
+		FoamSampling_EXPORT virtual void calculateAddressing
 		(
 			labelListList& srcToTgtCellAddr,
 			scalarListList& srcToTgtCellWght,
@@ -90,7 +90,7 @@ namespace tnbLib
 		);
 
 		//- Append to list of src mesh seed indices
-		virtual void appendToDirectSeeds
+		FoamSampling_EXPORT virtual void appendToDirectSeeds
 		(
 			boolList& mapFlag,
 			labelList& srcTgtSeed,
@@ -103,19 +103,23 @@ namespace tnbLib
 	public:
 
 		//- Run-time type information
-		TypeName("direct");
+		//TypeName("direct");
+		static const char* typeName_() { return "direct"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from source and target meshes
-		directMethod(const polyMesh& src, const polyMesh& tgt);
+		FoamSampling_EXPORT directMethod(const polyMesh& src, const polyMesh& tgt);
 
 		//- Disallow default bitwise copy construction
-		directMethod(const directMethod&) = delete;
+		FoamSampling_EXPORT directMethod(const directMethod&) = delete;
 
 
 		//- Destructor
-		virtual ~directMethod();
+		FoamSampling_EXPORT virtual ~directMethod();
 
 
 		// Member Functions
@@ -123,7 +127,7 @@ namespace tnbLib
 			// Evaluate
 
 				//- Calculate addressing and weights
-		virtual void calculate
+		FoamSampling_EXPORT virtual void calculate
 		(
 			labelListList& srcToTgtAddr,
 			scalarListList& srcToTgtWght,
@@ -135,7 +139,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const directMethod&) = delete;
+		FoamSampling_EXPORT void operator=(const directMethod&) = delete;
 	};
 
 

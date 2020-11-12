@@ -70,25 +70,29 @@ namespace tnbLib
 				// Private Member Functions
 
 					//- Initialise
-				void initialise();
+				FoamLagrangian_EXPORT void initialise();
 
 
 			protected:
 
 				//- Return the contact angle field
-				virtual tmp<volScalarField> theta() const = 0;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> theta() const = 0;
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("contactAngle");
+				//TypeName("contactAngle");
+				static const char* typeName_() { return "contactAngle"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				contactAngleForce
+				FoamLagrangian_EXPORT contactAngleForce
 				(
 					const word& typeName,
 					surfaceFilmRegionModel& film,
@@ -96,23 +100,23 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				contactAngleForce(const contactAngleForce&) = delete;
+				FoamLagrangian_EXPORT contactAngleForce(const contactAngleForce&) = delete;
 
 
 				//- Destructor
-				virtual ~contactAngleForce();
+				FoamLagrangian_EXPORT virtual ~contactAngleForce();
 
 
 				// Member Functions
 
 					//- Correct
-				virtual tmp<fvVectorMatrix> correct(volVectorField& U);
+				FoamLagrangian_EXPORT virtual tmp<fvVectorMatrix> correct(volVectorField& U);
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const contactAngleForce&) = delete;
+				FoamLagrangian_EXPORT void operator=(const contactAngleForce&) = delete;
 			};
 
 

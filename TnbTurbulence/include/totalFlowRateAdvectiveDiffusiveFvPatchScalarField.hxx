@@ -69,20 +69,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("totalFlowRateAdvectiveDiffusive");
+		//TypeName("totalFlowRateAdvectiveDiffusive");
+		static const char* typeName_() { return "totalFlowRateAdvectiveDiffusive"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		totalFlowRateAdvectiveDiffusiveFvPatchScalarField
+		FoamTurbulence_EXPORT totalFlowRateAdvectiveDiffusiveFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		totalFlowRateAdvectiveDiffusiveFvPatchScalarField
+		FoamTurbulence_EXPORT totalFlowRateAdvectiveDiffusiveFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -92,7 +96,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  totalFlowRateAdvectiveDiffusiveFvPatchScalarField
 		//  onto a new patch
-		totalFlowRateAdvectiveDiffusiveFvPatchScalarField
+		FoamTurbulence_EXPORT totalFlowRateAdvectiveDiffusiveFvPatchScalarField
 		(
 			const totalFlowRateAdvectiveDiffusiveFvPatchScalarField&,
 			const fvPatch&,
@@ -101,7 +105,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		totalFlowRateAdvectiveDiffusiveFvPatchScalarField
+		FoamTurbulence_EXPORT totalFlowRateAdvectiveDiffusiveFvPatchScalarField
 		(
 			const totalFlowRateAdvectiveDiffusiveFvPatchScalarField&
 		);
@@ -117,7 +121,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		totalFlowRateAdvectiveDiffusiveFvPatchScalarField
+		FoamTurbulence_EXPORT totalFlowRateAdvectiveDiffusiveFvPatchScalarField
 		(
 			const totalFlowRateAdvectiveDiffusiveFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -147,21 +151,21 @@ namespace tnbLib
 
 				//- Map (and resize as needed) from self given a mapping object
 				//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		FoamTurbulence_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchScalarField&, const labelList&);
+		FoamTurbulence_EXPORT virtual void rmap(const fvPatchScalarField&, const labelList&);
 
 
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamTurbulence_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamTurbulence_EXPORT virtual void write(Ostream&) const;
 	};
 
 

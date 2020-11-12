@@ -84,9 +84,9 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Construct as copy (not implemented)
-		basicThermo(const basicThermo&);
+		FoamThermophysicalModels_EXPORT basicThermo(const basicThermo&);
 
-		volScalarField& lookupOrConstruct
+		FoamThermophysicalModels_EXPORT volScalarField& lookupOrConstruct
 		(
 			const fvMesh& mesh,
 			const char* name
@@ -94,41 +94,96 @@ namespace tnbLib
 
 		//- Return the enthalpy/internal energy field boundary types
 		//  by interrogating the temperature field boundary types
-		wordList heBoundaryTypes();
+		FoamThermophysicalModels_EXPORT wordList heBoundaryTypes();
 
 		//- Return the enthalpy/internal energy field boundary base types
 		//  by interrogating the temperature field boundary types
-		wordList heBoundaryBaseTypes();
+		FoamThermophysicalModels_EXPORT wordList heBoundaryBaseTypes();
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("basicThermo");
+		//TypeName("basicThermo");
+		static const char* typeName_() { return "basicThermo"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		//- Declare run-time constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			basicThermo,
 			fvMesh,
 			(const fvMesh& mesh, const word& phaseName),
 			(mesh, phaseName)
-		);
+		);*/
+		
+		typedef autoPtr<basicThermo> (*fvMeshConstructorPtr)(const fvMesh& mesh, const word& phaseName);
+		typedef HashTable<fvMeshConstructorPtr, word, string::hash> fvMeshConstructorTable;
+		static FoamThermophysicalModels_EXPORT fvMeshConstructorTable* fvMeshConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructfvMeshConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroyfvMeshConstructorTables();
+
+		template <class basicThermoType>
+		class addfvMeshConstructorToTable
+		{
+		public:
+			static autoPtr<basicThermo> New(const fvMesh& mesh, const word& phaseName)
+			{
+				return autoPtr<basicThermo>(new basicThermoType(mesh, phaseName));
+			}
+
+			addfvMeshConstructorToTable(const word& lookup = basicThermoType::typeName)
+			{
+				constructfvMeshConstructorTables();
+				if (!fvMeshConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "basicThermo" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addfvMeshConstructorToTable() { destroyfvMeshConstructorTables(); }
+		};
+
+		template <class basicThermoType>
+		class addRemovablefvMeshConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<basicThermo> New(const fvMesh& mesh, const word& phaseName)
+			{
+				return autoPtr<basicThermo>(new basicThermoType(mesh, phaseName));
+			}
+
+			addRemovablefvMeshConstructorToTable(const word& lookup = basicThermoType::typeName) : lookup_(lookup)
+			{
+				constructfvMeshConstructorTables();
+				fvMeshConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablefvMeshConstructorToTable()
+			{
+				if (fvMeshConstructorTablePtr_) { fvMeshConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from mesh and phase name
-		basicThermo
+		FoamThermophysicalModels_EXPORT basicThermo
 		(
 			const fvMesh&,
 			const word& phaseName
 		);
 
 		//- Construct from mesh, dictionary and phase name
-		basicThermo
+		FoamThermophysicalModels_EXPORT basicThermo
 		(
 			const fvMesh&,
 			const dictionary&,
@@ -175,7 +230,7 @@ namespace tnbLib
 		);
 
 		//- Specialisation of the Generic New for basicThermo
-		static autoPtr<basicThermo> New
+		static FoamThermophysicalModels_EXPORT autoPtr<basicThermo> New
 		(
 			const fvMesh&,
 			const word& phaseName = word::null
@@ -183,12 +238,12 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~basicThermo();
+		FoamThermophysicalModels_EXPORT virtual ~basicThermo();
 
 
 		// Member Functions
 
-		static const word dictName;
+		static FoamThermophysicalModels_EXPORT const word dictName;
 
 		static word phasePropertyName
 		(
@@ -204,11 +259,11 @@ namespace tnbLib
 			return basicThermo::phasePropertyName(name, phaseName_);
 		}
 
-		static const basicThermo& lookupThermo(const fvPatchScalarField& pf);
+		static FoamThermophysicalModels_EXPORT const basicThermo& lookupThermo(const fvPatchScalarField& pf);
 
 		//- Check that the thermodynamics package is consistent
 		//  with energy forms supported by the application
-		void validate
+		FoamThermophysicalModels_EXPORT void validate
 		(
 			const string& app,
 			const word&
@@ -216,7 +271,7 @@ namespace tnbLib
 
 		//- Check that the thermodynamics package is consistent
 		//  with energy forms supported by the application
-		void validate
+		FoamThermophysicalModels_EXPORT void validate
 		(
 			const string& app,
 			const word&,
@@ -225,7 +280,7 @@ namespace tnbLib
 
 		//- Check that the thermodynamics package is consistent
 		//  with energy forms supported by the application
-		void validate
+		FoamThermophysicalModels_EXPORT void validate
 		(
 			const string& app,
 			const word&,
@@ -235,7 +290,7 @@ namespace tnbLib
 
 		//- Check that the thermodynamics package is consistent
 		//  with energy forms supported by the application
-		void validate
+		FoamThermophysicalModels_EXPORT void validate
 		(
 			const string& app,
 			const word&,
@@ -245,25 +300,25 @@ namespace tnbLib
 		) const;
 
 		//- Split name of thermo package into a list of the components names
-		static wordList splitThermoName
+		static FoamThermophysicalModels_EXPORT wordList splitThermoName
 		(
 			const word& thermoName,
 			const int nCmpt
 		);
 
 		//- Update properties
-		virtual void correct() = 0;
+		FoamThermophysicalModels_EXPORT virtual void correct() = 0;
 
 		//- Return the name of the thermo physics
-		virtual word thermoName() const = 0;
+		FoamThermophysicalModels_EXPORT virtual word thermoName() const = 0;
 
 		//- Return true if the equation of state is incompressible
 		//  i.e. rho != f(p)
-		virtual bool incompressible() const = 0;
+		FoamThermophysicalModels_EXPORT virtual bool incompressible() const = 0;
 
 		//- Return true if the equation of state is isochoric
 		//  i.e. rho = const
-		virtual bool isochoric() const = 0;
+		FoamThermophysicalModels_EXPORT virtual bool isochoric() const = 0;
 
 		//- Should the dpdt term be included in the enthalpy equation
 		Switch dpdt() const
@@ -276,34 +331,34 @@ namespace tnbLib
 
 			//- Pressure [Pa]
 			//  Non-const access allowed for transport equations
-		virtual volScalarField& p();
+		FoamThermophysicalModels_EXPORT virtual volScalarField& p();
 
 		//- Pressure [Pa]
-		virtual const volScalarField& p() const;
+		FoamThermophysicalModels_EXPORT virtual const volScalarField& p() const;
 
 		//- Density [kg/m^3]
-		virtual tmp<volScalarField> rho() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> rho() const = 0;
 
 		//- Density for patch [kg/m^3]
-		virtual tmp<scalarField> rho(const label patchi) const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> rho(const label patchi) const = 0;
 
 		//- Enthalpy/Internal energy [J/kg]
 		//  Non-const access allowed for transport equations
-		virtual volScalarField& he() = 0;
+		FoamThermophysicalModels_EXPORT virtual volScalarField& he() = 0;
 
 		//- Enthalpy/Internal energy [J/kg]
-		virtual const volScalarField& he() const = 0;
+		FoamThermophysicalModels_EXPORT virtual const volScalarField& he() const = 0;
 
 		//- Enthalpy/Internal energy
 		//  for given pressure and temperature [J/kg]
-		virtual tmp<volScalarField> he
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> he
 		(
 			const volScalarField& p,
 			const volScalarField& T
 		) const = 0;
 
 		//- Enthalpy/Internal energy for cell-set [J/kg]
-		virtual tmp<scalarField> he
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> he
 		(
 			const scalarField& p,
 			const scalarField& T,
@@ -311,7 +366,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Enthalpy/Internal energy for patch [J/kg]
-		virtual tmp<scalarField> he
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> he
 		(
 			const scalarField& p,
 			const scalarField& T,
@@ -319,10 +374,10 @@ namespace tnbLib
 		) const = 0;
 
 		//- Chemical enthalpy [J/kg]
-		virtual tmp<volScalarField> hc() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> hc() const = 0;
 
 		//- Temperature from enthalpy/internal energy for cell-set
-		virtual tmp<scalarField> THE
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> THE
 		(
 			const scalarField& h,
 			const scalarField& p,
@@ -331,7 +386,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Temperature from enthalpy/internal energy for patch
-		virtual tmp<scalarField> THE
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> THE
 		(
 			const scalarField& h,
 			const scalarField& p,
@@ -343,17 +398,17 @@ namespace tnbLib
 		// Fields derived from thermodynamic state variables
 
 			//- Temperature [K]
-		virtual const volScalarField& T() const;
+		FoamThermophysicalModels_EXPORT virtual const volScalarField& T() const;
 
 		//- Temperature [K]
 		//  Non-const access allowed for transport equations
-		virtual volScalarField& T();
+		FoamThermophysicalModels_EXPORT virtual volScalarField& T();
 
 		//- Heat capacity at constant pressure [J/kg/K]
-		virtual tmp<volScalarField> Cp() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> Cp() const = 0;
 
 		//- Heat capacity at constant pressure for patch [J/kg/K]
-		virtual tmp<scalarField> Cp
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> Cp
 		(
 			const scalarField& p,
 			const scalarField& T,
@@ -361,10 +416,10 @@ namespace tnbLib
 		) const = 0;
 
 		//- Heat capacity at constant volume [J/kg/K]
-		virtual tmp<volScalarField> Cv() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> Cv() const = 0;
 
 		//- Heat capacity at constant volume for patch [J/kg/K]
-		virtual tmp<scalarField> Cv
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> Cv
 		(
 			const scalarField& p,
 			const scalarField& T,
@@ -372,10 +427,10 @@ namespace tnbLib
 		) const = 0;
 
 		//- Gamma = Cp/Cv []
-		virtual tmp<volScalarField> gamma() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> gamma() const = 0;
 
 		//- Gamma = Cp/Cv for patch []
-		virtual tmp<scalarField> gamma
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> gamma
 		(
 			const scalarField& p,
 			const scalarField& T,
@@ -383,10 +438,10 @@ namespace tnbLib
 		) const = 0;
 
 		//- Heat capacity at constant pressure/volume [J/kg/K]
-		virtual tmp<volScalarField> Cpv() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> Cpv() const = 0;
 
 		//- Heat capacity at constant pressure/volume for patch [J/kg/K]
-		virtual tmp<scalarField> Cpv
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> Cpv
 		(
 			const scalarField& p,
 			const scalarField& T,
@@ -394,10 +449,10 @@ namespace tnbLib
 		) const = 0;
 
 		//- Heat capacity ratio []
-		virtual tmp<volScalarField> CpByCpv() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> CpByCpv() const = 0;
 
 		//- Heat capacity ratio for patch []
-		virtual tmp<scalarField> CpByCpv
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> CpByCpv
 		(
 			const scalarField& p,
 			const scalarField& T,
@@ -405,19 +460,19 @@ namespace tnbLib
 		) const = 0;
 
 		//- Molecular weight [kg/kmol]
-		virtual tmp<volScalarField> W() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> W() const = 0;
 
 		//- Molecular weight for patch [kg/kmol]
-		virtual tmp<scalarField> W(const label patchi) const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> W(const label patchi) const = 0;
 
 
 		// Access to transport state variables
 
 			//- Thermal diffusivity for enthalpy of mixture [kg/m/s]
-		virtual const volScalarField& alpha() const;
+		FoamThermophysicalModels_EXPORT virtual const volScalarField& alpha() const;
 
 		//- Thermal diffusivity for enthalpy of mixture for patch [kg/m/s]
-		virtual const scalarField& alpha
+		FoamThermophysicalModels_EXPORT virtual const scalarField& alpha
 		(
 			const label patchi
 		) const;
@@ -426,45 +481,45 @@ namespace tnbLib
 		// Fields derived from transport state variables
 
 			//- Thermal diffusivity for temperature of mixture [W/m/K]
-		virtual tmp<volScalarField> kappa() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> kappa() const = 0;
 
 		//- Thermal diffusivity for temperature of mixture
 		//  for patch [W/m/K]
-		virtual tmp<scalarField> kappa
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> kappa
 		(
 			const label patchi
 		) const = 0;
 
 		//- Thermal diffusivity for energy of mixture [kg/m/s]
-		virtual tmp<volScalarField> alphahe() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> alphahe() const = 0;
 
 		//- Thermal diffusivity for energy of mixture for patch [kg/m/s]
-		virtual tmp<scalarField> alphahe(const label patchi) const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> alphahe(const label patchi) const = 0;
 
 		//- Effective thermal turbulent diffusivity for temperature
 		//  of mixture [W/m/K]
-		virtual tmp<volScalarField> kappaEff
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> kappaEff
 		(
 			const volScalarField&
 		) const = 0;
 
 		//- Effective thermal turbulent diffusivity for temperature
 		//  of mixture for patch [W/m/K]
-		virtual tmp<scalarField> kappaEff
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> kappaEff
 		(
 			const scalarField& alphat,
 			const label patchi
 		) const = 0;
 
 		//- Effective thermal turbulent diffusivity of mixture [kg/m/s]
-		virtual tmp<volScalarField> alphaEff
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> alphaEff
 		(
 			const volScalarField& alphat
 		) const = 0;
 
 		//- Effective thermal turbulent diffusivity of mixture
 		//  for patch [kg/m/s]
-		virtual tmp<scalarField> alphaEff
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> alphaEff
 		(
 			const scalarField& alphat,
 			const label patchi
@@ -472,7 +527,7 @@ namespace tnbLib
 
 
 		//- Read thermophysical properties dictionary
-		virtual bool read();
+		FoamThermophysicalModels_EXPORT virtual bool read();
 	};
 
 

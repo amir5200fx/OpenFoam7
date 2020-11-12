@@ -91,7 +91,7 @@ namespace tnbLib
 
 				//- Samples from start_ to end_. samplingSegments contains segmentNo
 				//  for each sample.
-			void calcSamples
+			FoamSampling_EXPORT void calcSamples
 			(
 				DynamicList<point>& samplingPts,
 				DynamicList<label>& samplingCells,
@@ -101,19 +101,23 @@ namespace tnbLib
 			) const;
 
 			//- Uses calcSamples to obtain samples. Copies them into *this.
-			void genSamples();
+			FoamSampling_EXPORT void genSamples();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("lineUniform");
+			//TypeName("lineUniform");
+			static const char* typeName_() { return "lineUniform"; }
+			static FoamSampling_EXPORT const ::tnbLib::word typeName;
+			static FoamSampling_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from dictionary
-			lineUniform
+			FoamSampling_EXPORT lineUniform
 			(
 				const word& name,
 				const polyMesh& mesh,
@@ -123,7 +127,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~lineUniform();
+			FoamSampling_EXPORT virtual ~lineUniform();
 		};
 
 

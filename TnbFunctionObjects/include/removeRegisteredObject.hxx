@@ -91,13 +91,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("removeRegisteredObject");
+			//TypeName("removeRegisteredObject");
+			static const char* typeName_() { return "removeRegisteredObject"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			removeRegisteredObject
+			FoamFunctionObjects_EXPORT removeRegisteredObject
 			(
 				const word& name,
 				const Time& runTime,
@@ -105,29 +109,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			removeRegisteredObject(const removeRegisteredObject&) = delete;
+			FoamFunctionObjects_EXPORT removeRegisteredObject(const removeRegisteredObject&) = delete;
 
 
 			//- Destructor
-			virtual ~removeRegisteredObject();
+			FoamFunctionObjects_EXPORT virtual ~removeRegisteredObject();
 
 
 			// Member Functions
 
 				//- Read the removeRegisteredObject data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Remove the registered objects
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Do nothing
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const removeRegisteredObject&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const removeRegisteredObject&) = delete;
 		};
 
 

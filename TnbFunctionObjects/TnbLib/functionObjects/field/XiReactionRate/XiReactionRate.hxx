@@ -76,13 +76,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("XiReactionRate");
+			//TypeName("XiReactionRate");
+			static const char* typeName_() { return "XiReactionRate"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			XiReactionRate
+			FoamFunctionObjects_EXPORT XiReactionRate
 			(
 				const word& name,
 				const Time& runTime,
@@ -90,26 +94,26 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			XiReactionRate(const XiReactionRate&) = delete;
+			FoamFunctionObjects_EXPORT XiReactionRate(const XiReactionRate&) = delete;
 
 
 			//- Destructor
-			virtual ~XiReactionRate();
+			FoamFunctionObjects_EXPORT virtual ~XiReactionRate();
 
 
 			// Member Functions
 
 				//- Do nothing
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the cell-centre fields
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const XiReactionRate&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const XiReactionRate&) = delete;
 		};
 
 

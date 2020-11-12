@@ -83,16 +83,20 @@ namespace tnbLib
 		friend class liquidProperties;
 
 		//- Runtime type information
-		TypeName("C2H5OH");
+		//TypeName("C2H5OH");
+		static const char* typeName_() { return "C2H5OH"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct null
-		C2H5OH();
+		FoamThermophysicalModels_EXPORT C2H5OH();
 
 		//- Construct from components
-		C2H5OH
+		FoamThermophysicalModels_EXPORT C2H5OH
 		(
 			const liquidProperties& l,
 			const NSRDSfunc5& density,
@@ -111,7 +115,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		C2H5OH(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT C2H5OH(const dictionary& dict);
 
 		//- Construct and return clone
 		virtual autoPtr<liquidProperties> clone() const
@@ -168,14 +172,14 @@ namespace tnbLib
 		// I-O
 
 			//- Write the function coefficients
-		void writeData(Ostream& os) const;
+		FoamThermophysicalModels_EXPORT void writeData(Ostream& os) const;
 
 		//- Ostream Operator
-		friend Ostream& operator<<(Ostream& os, const C2H5OH& l);
+		friend FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const C2H5OH& l);
 	};
 
 
-	Ostream& operator<<(Ostream& os, const C2H5OH& l);
+	FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const C2H5OH& l);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

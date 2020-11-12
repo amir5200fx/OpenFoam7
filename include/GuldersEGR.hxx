@@ -67,12 +67,12 @@ namespace tnbLib
 
 			// Private Member Functions
 
-			inline scalar SuRef
+			FoamThermophysicalModels_EXPORT inline scalar SuRef
 			(
 				scalar phi
 			) const;
 
-			inline scalar Su0pTphi
+			FoamThermophysicalModels_EXPORT inline scalar Su0pTphi
 			(
 				scalar p,
 				scalar Tu,
@@ -80,14 +80,14 @@ namespace tnbLib
 				scalar Yres
 			) const;
 
-			tmp<volScalarField> Su0pTphi
+			FoamThermophysicalModels_EXPORT tmp<volScalarField> Su0pTphi
 			(
 				const volScalarField& p,
 				const volScalarField& Tu,
 				scalar phi
 			) const;
 
-			tmp<volScalarField> Su0pTphi
+			FoamThermophysicalModels_EXPORT tmp<volScalarField> Su0pTphi
 			(
 				const volScalarField& p,
 				const volScalarField& Tu,
@@ -96,20 +96,24 @@ namespace tnbLib
 			) const;
 
 			//- Construct as copy (not implemented)
-			GuldersEGR(const GuldersEGR&);
+			FoamThermophysicalModels_EXPORT GuldersEGR(const GuldersEGR&);
 
-			void operator=(const GuldersEGR&);
+			FoamThermophysicalModels_EXPORT void operator=(const GuldersEGR&);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("GuldersEGR");
+			//TypeName("GuldersEGR");
+			static const char* typeName_() { return "GuldersEGR"; }
+			static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+			static FoamThermophysicalModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
 				//- Construct from dictionary and psiuReactionThermo
-			GuldersEGR
+			FoamThermophysicalModels_EXPORT GuldersEGR
 			(
 				const dictionary&,
 				const psiuReactionThermo&
@@ -117,13 +121,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~GuldersEGR();
+			FoamThermophysicalModels_EXPORT virtual ~GuldersEGR();
 
 
 			// Member Functions
 
 				//- Return the laminar flame speed [m/s]
-			tmp<volScalarField> operator()() const;
+			FoamThermophysicalModels_EXPORT tmp<volScalarField> operator()() const;
 		};
 
 

@@ -175,13 +175,13 @@ namespace tnbLib
 	// * * * * * * * * * * * Template Specialisations  * * * * * * * * * * * * * //
 
 	template<>
-	tmp<scalarField> transformFvPatchField<scalar>::valueInternalCoeffs
+	FoamFiniteVolume_EXPORT tmp<scalarField> transformFvPatchField<scalar>::valueInternalCoeffs
 	(
 		const tmp<scalarField>&
 	) const;
 
 	template<>
-	tmp<scalarField> transformFvPatchField<scalar>::gradientInternalCoeffs() const;
+	FoamFiniteVolume_EXPORT tmp<scalarField> transformFvPatchField<scalar>::gradientInternalCoeffs() const;
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -54,6 +54,16 @@ SourceFiles
 
 #include <laminarModelTemplate.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamMaxwell_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMaxwell_EXPORT_DEFINE
+#define FoamMaxwell_EXPORT __declspec(dllexport)
+#else
+#define FoamMaxwell_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -105,7 +115,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("Maxwell");
+			//TypeName("Maxwell");
+			static const char* typeName_() { return "Maxwell"; }
+			static FoamMaxwell_EXPORT const ::tnbLib::word typeName;
+			static FoamMaxwell_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

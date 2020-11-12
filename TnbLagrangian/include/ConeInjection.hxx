@@ -145,6 +145,16 @@ SourceFiles
 #include <distributionModel.hxx>
 #include <TimeFunction1.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamConeInjection_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamConeInjection_EXPORT_DEFINE
+#define FoamConeInjection_EXPORT __declspec(dllexport)
+#else
+#define FoamConeInjection_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -257,7 +267,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("coneInjection");
+		//TypeName("coneInjection");
+		static const char* typeName_() { return "coneInjection"; }
+		static FoamConeInjection_EXPORT const ::tnbLib::word typeName;
+		static FoamConeInjection_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

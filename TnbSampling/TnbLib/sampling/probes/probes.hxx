@@ -141,20 +141,20 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Clear old field groups
-		void clearFieldGroups();
+		FoamSampling_EXPORT void clearFieldGroups();
 
 		//- Append fieldName to the appropriate group
-		label appendFieldGroup(const word& fieldName, const word& fieldType);
+		FoamSampling_EXPORT label appendFieldGroup(const word& fieldName, const word& fieldType);
 
 		//- Classify field types, returns the number of fields
-		label classifyFields();
+		FoamSampling_EXPORT label classifyFields();
 
 		//- Find cells and faces containing probes
-		virtual void findElements(const fvMesh&);
+		FoamSampling_EXPORT virtual void findElements(const fvMesh&);
 
 		//- Classify field type and Open/close file streams,
 		//  returns number of fields to sample
-		label prepare();
+		FoamSampling_EXPORT label prepare();
 
 
 	private:
@@ -186,13 +186,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("probes");
+		//TypeName("probes");
+		static const char* typeName_() { return "probes"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from Time and dictionary
-		probes
+		FoamSampling_EXPORT probes
 		(
 			const word& name,
 			const Time& time,
@@ -201,7 +205,7 @@ namespace tnbLib
 
 		//- Construct for given objectRegistry and dictionary.
 		//  Allow the possibility to load fields from files
-		probes
+		FoamSampling_EXPORT probes
 		(
 			const word& name,
 			const objectRegistry& obr,
@@ -210,11 +214,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		probes(const probes&) = delete;
+		FoamSampling_EXPORT probes(const probes&) = delete;
 
 
 		//- Destructor
-		virtual ~probes();
+		FoamSampling_EXPORT virtual ~probes();
 
 
 		// Member Functions
@@ -244,19 +248,19 @@ namespace tnbLib
 		}
 
 		//- Read the probes
-		virtual bool read(const dictionary&);
+		FoamSampling_EXPORT virtual bool read(const dictionary&);
 
 		//- Execute, currently does nothing
-		virtual bool execute();
+		FoamSampling_EXPORT virtual bool execute();
 
 		//- Sample and write
-		virtual bool write();
+		FoamSampling_EXPORT virtual bool write();
 
 		//- Update for changes of mesh
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamSampling_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 		//- Update for changes of mesh
-		virtual void movePoints(const polyMesh&);
+		FoamSampling_EXPORT virtual void movePoints(const polyMesh&);
 
 		//- Update for changes of mesh due to readUpdate
 		virtual void readUpdate(const polyMesh::readUpdateState state)
@@ -288,7 +292,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const probes&) = delete;
+		FoamSampling_EXPORT void operator=(const probes&) = delete;
 	};
 
 

@@ -70,27 +70,31 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("velocityLaplacian");
+		//TypeName("velocityLaplacian");
+		static const char* typeName_() { return "velocityLaplacian"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from polyMesh and dictionary
-		velocityLaplacianFvMotionSolver
+		FoamFvMotionSolver_EXPORT velocityLaplacianFvMotionSolver
 		(
 			const polyMesh&,
 			const dictionary&
 		);
 
 		//- Disallow default bitwise copy construction
-		velocityLaplacianFvMotionSolver
+		FoamFvMotionSolver_EXPORT velocityLaplacianFvMotionSolver
 		(
 			const velocityLaplacianFvMotionSolver&
 		);
 
 
 		//- Destructor
-		~velocityLaplacianFvMotionSolver();
+		FoamFvMotionSolver_EXPORT ~velocityLaplacianFvMotionSolver();
 
 
 		// Member Functions
@@ -108,19 +112,19 @@ namespace tnbLib
 		}
 
 		//- Return point location obtained from the current motion field
-		virtual tmp<pointField> curPoints() const;
+		FoamFvMotionSolver_EXPORT virtual tmp<pointField> curPoints() const;
 
 		//- Solve for motion
-		virtual void solve();
+		FoamFvMotionSolver_EXPORT virtual void solve();
 
 		//- Update topology
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamFvMotionSolver_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const velocityLaplacianFvMotionSolver&) = delete;
+		FoamFvMotionSolver_EXPORT void operator=(const velocityLaplacianFvMotionSolver&) = delete;
 	};
 
 

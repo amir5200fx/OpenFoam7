@@ -58,23 +58,27 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("opaqueSolid");
+			//TypeName("opaqueSolid");
+			static const char* typeName_() { return "opaqueSolid"; }
+			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+			static FoamRadiationModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			opaqueSolid(const volScalarField& T);
+			FoamRadiationModels_EXPORT opaqueSolid(const volScalarField& T);
 
 			//- Construct from components
-			opaqueSolid(const dictionary& dict, const volScalarField& T);
+			FoamRadiationModels_EXPORT opaqueSolid(const dictionary& dict, const volScalarField& T);
 
 			//- Disallow default bitwise copy construction
-			opaqueSolid(const opaqueSolid&) = delete;
+			FoamRadiationModels_EXPORT opaqueSolid(const opaqueSolid&) = delete;
 
 
 			//- Destructor
-			virtual ~opaqueSolid();
+			FoamRadiationModels_EXPORT virtual ~opaqueSolid();
 
 
 			// Member Functions
@@ -83,29 +87,29 @@ namespace tnbLib
 
 					//- Solve radiation equation(s)
 			//- Edited by amir
-			void calculate() override;
+			FoamRadiationModels_EXPORT void calculate() override;
 			//void calculate();
 
 			//- Read radiationProperties dictionary
 			//- Edited by amir
-			bool read() override;
+			FoamRadiationModels_EXPORT bool read() override;
 			//bool read();
 
 			//- Source term component (for power of T^4)
 			//- Edited by amir
-			tmp<volScalarField> Rp() const override;
+			FoamRadiationModels_EXPORT tmp<volScalarField> Rp() const override;
 			//tmp<volScalarField> Rp() const;
 
 			//- Source term component (constant)
 			//- Edited by amir
-			tmp<volScalarField::Internal> Ru() const override;
+			FoamRadiationModels_EXPORT tmp<volScalarField::Internal> Ru() const override;
 			//tmp<volScalarField::Internal> Ru() const;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const opaqueSolid&) = delete;
+			FoamRadiationModels_EXPORT void operator=(const opaqueSolid&) = delete;
 		};
 
 

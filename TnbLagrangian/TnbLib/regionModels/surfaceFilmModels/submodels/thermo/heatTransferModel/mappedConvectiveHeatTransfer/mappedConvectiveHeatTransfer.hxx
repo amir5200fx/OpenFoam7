@@ -71,27 +71,31 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("mappedConvectiveHeatTransfer");
+				//TypeName("mappedConvectiveHeatTransfer");
+				static const char* typeName_() { return "mappedConvectiveHeatTransfer"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model and dictionary
-				mappedConvectiveHeatTransfer
+				FoamLagrangian_EXPORT mappedConvectiveHeatTransfer
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
 				);
 
 				//- Disallow default bitwise copy construction
-				mappedConvectiveHeatTransfer
+				FoamLagrangian_EXPORT mappedConvectiveHeatTransfer
 				(
 					const mappedConvectiveHeatTransfer&
 				) = delete;
 
 
 				//- Destructor
-				virtual ~mappedConvectiveHeatTransfer();
+				FoamLagrangian_EXPORT virtual ~mappedConvectiveHeatTransfer();
 
 
 				// Member Functions
@@ -99,16 +103,16 @@ namespace tnbLib
 					// Evolution
 
 						//- Correct
-				virtual void correct();
+				FoamLagrangian_EXPORT virtual void correct();
 
 				//- Return the heat transfer coefficient [W/m^2/K]
-				virtual tmp<volScalarField> h() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> h() const;
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const mappedConvectiveHeatTransfer&) = delete;
+				FoamLagrangian_EXPORT void operator=(const mappedConvectiveHeatTransfer&) = delete;
 			};
 
 

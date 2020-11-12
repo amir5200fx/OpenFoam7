@@ -93,7 +93,7 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Default angle for faces to be convcave
-		static const scalar defaultConcaveAngle;
+		static FoamSnappyHexMesh_EXPORT const scalar defaultConcaveAngle;
 
 
 		// Private Data
@@ -150,7 +150,7 @@ namespace tnbLib
 
 			//- Calculate expansion ratio from overall size v.s. thickness of
 			//  first layer.
-		scalar layerExpansionRatio
+		FoamSnappyHexMesh_EXPORT scalar layerExpansionRatio
 		(
 			const label n,
 			const scalar totalOverFirst
@@ -162,10 +162,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from dictionary
-		layerParameters(const dictionary& dict, const polyBoundaryMesh&);
+		FoamSnappyHexMesh_EXPORT layerParameters(const dictionary& dict, const polyBoundaryMesh&);
 
 		//- Disallow default bitwise copy construction
-		layerParameters(const layerParameters&) = delete;
+		FoamSnappyHexMesh_EXPORT layerParameters(const layerParameters&) = delete;
 
 
 		// Member Functions
@@ -307,7 +307,7 @@ namespace tnbLib
 
 			//- Determine overall thickness. Uses two of the four parameters
 			//  according to the layerSpecification
-		scalar layerThickness
+		FoamSnappyHexMesh_EXPORT scalar layerThickness
 		(
 			const label nLayers,
 			const scalar firstLayerThickess,
@@ -318,7 +318,7 @@ namespace tnbLib
 
 		//- Determine expansion ratio. Uses two of the four parameters
 		//  according to the layerSpecification
-		scalar layerExpansionRatio
+		FoamSnappyHexMesh_EXPORT scalar layerExpansionRatio
 		(
 			const label nLayers,
 			const scalar firstLayerThickess,
@@ -329,7 +329,7 @@ namespace tnbLib
 
 		//- Determine first layer (near-wall) thickness. Uses two of the
 		//  four parameters according to the layerSpecification
-		scalar firstLayerThickness
+		FoamSnappyHexMesh_EXPORT scalar firstLayerThickness
 		(
 			const label nLayers,
 			const scalar firstLayerThickess,
@@ -340,7 +340,7 @@ namespace tnbLib
 
 		//- Determine ratio of final layer thickness to
 		//  overall layer thickness
-		scalar finalLayerThicknessRatio
+		FoamSnappyHexMesh_EXPORT scalar finalLayerThicknessRatio
 		(
 			const label nLayers,
 			const scalar expansionRatio
@@ -350,7 +350,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const layerParameters&) = delete;
+		FoamSnappyHexMesh_EXPORT void operator=(const layerParameters&) = delete;
 	};
 
 

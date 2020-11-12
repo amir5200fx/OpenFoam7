@@ -52,37 +52,41 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("thermoCloud");
+		//TypeName("thermoCloud");
+		static const char* typeName_() { return "thermoCloud"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Null constructor
-		thermoCloud();
+		FoamLagrangian_EXPORT thermoCloud();
 
 		//- Disallow default bitwise copy construction
-		thermoCloud(const thermoCloud&) = delete;
+		FoamLagrangian_EXPORT thermoCloud(const thermoCloud&) = delete;
 
 
 		//- Destructor
-		virtual ~thermoCloud();
+		FoamLagrangian_EXPORT virtual ~thermoCloud();
 
 
 		// Member Functions
 
 			//- Return tmp equivalent particulate emission
-		virtual tmp<volScalarField> Ep() const = 0;
+		FoamLagrangian_EXPORT virtual tmp<volScalarField> Ep() const = 0;
 
 		//- Return tmp equivalent particulate absorption
-		virtual tmp<volScalarField> ap() const = 0;
+		FoamLagrangian_EXPORT virtual tmp<volScalarField> ap() const = 0;
 
 		//- Return tmp equivalent particulate scattering factor
-		virtual tmp<volScalarField> sigmap() const = 0;
+		FoamLagrangian_EXPORT virtual tmp<volScalarField> sigmap() const = 0;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const thermoCloud&) = delete;
+		FoamLagrangian_EXPORT void operator=(const thermoCloud&) = delete;
 	};
 
 

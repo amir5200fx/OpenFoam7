@@ -35,6 +35,16 @@ Description
 
 #include <InflowBoundaryModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamNoInflow_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNoInflow_EXPORT_DEFINE
+#define FoamNoInflow_EXPORT __declspec(dllexport)
+#else
+#define FoamNoInflow_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -51,7 +61,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamNoInflow_EXPORT const ::tnbLib::word typeName;
+		static FoamNoInflow_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -4,7 +4,7 @@
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const reducedUnits& rU)
+FoamLagrangian_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const reducedUnits& rU)
 {
 	os << nl << "Defined: " << nl
 		<< tab << "refLength = " << rU.refLength() << " m" << nl

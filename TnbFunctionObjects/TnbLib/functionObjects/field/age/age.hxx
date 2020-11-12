@@ -109,19 +109,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- The list of patch types for the age field
-			wordList patchTypes() const;
+			FoamFunctionObjects_EXPORT wordList patchTypes() const;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("age");
+			//TypeName("age");
+			static const char* typeName_() { return "age"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			age
+			FoamFunctionObjects_EXPORT age
 			(
 				const word& name,
 				const Time& runTime,
@@ -130,19 +134,19 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~age();
+			FoamFunctionObjects_EXPORT virtual ~age();
 
 
 			// Member Functions
 
 				//- Read the data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Execute
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 		};
 
 

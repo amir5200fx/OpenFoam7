@@ -73,7 +73,7 @@ namespace tnbLib
 			imCellVolumeWeight
 		};
 
-		static const NamedEnum<interpolationMethod, 3>
+		static FoamSampling_EXPORT const NamedEnum<interpolationMethod, 3>
 			interpolationMethodNames_;
 
 	private:
@@ -153,10 +153,10 @@ namespace tnbLib
 		) const;
 
 		//- Return src cell IDs for the overlap region
-		labelList maskCells(const polyMesh& src, const polyMesh& tgt) const;
+		FoamSampling_EXPORT labelList maskCells(const polyMesh& src, const polyMesh& tgt) const;
 
 		//- Normalise the interpolation weights
-		void normaliseWeights
+		FoamSampling_EXPORT void normaliseWeights
 		(
 			const word& descriptor,
 			const labelListList& addr,
@@ -165,7 +165,7 @@ namespace tnbLib
 
 		//- Calculate the addressing between overlapping regions of src and tgt
 		//  meshes
-		void calcAddressing
+		FoamSampling_EXPORT void calcAddressing
 		(
 			const word& methodName,
 			const polyMesh& src,
@@ -173,13 +173,13 @@ namespace tnbLib
 		);
 
 		//- Calculate - main driver function
-		void calculate(const word& methodName);
+		FoamSampling_EXPORT void calculate(const word& methodName);
 
 		//- Calculate patch overlap
-		void calculatePatchAMIs(const word& amiMethodName);
+		FoamSampling_EXPORT void calculatePatchAMIs(const word& amiMethodName);
 
 		//- Constructor helper
-		void constructNoCuttingPatches
+		FoamSampling_EXPORT void constructNoCuttingPatches
 		(
 			const word& methodName,
 			const word& AMIMethodName,
@@ -187,7 +187,7 @@ namespace tnbLib
 		);
 
 		//- Constructor helper
-		void constructFromCuttingPatches
+		FoamSampling_EXPORT void constructFromCuttingPatches
 		(
 			const word& methodName,
 			const word& AMIMethodName,
@@ -203,14 +203,14 @@ namespace tnbLib
 		// Parallel operations
 
 			//- Determine whether the meshes are split across multiple pocessors
-		label calcDistribution
+		FoamSampling_EXPORT label calcDistribution
 		(
 			const polyMesh& src,
 			const polyMesh& tgt
 		) const;
 
 		//- Determine which processor bounding-boxes overlap
-		label calcOverlappingProcs
+		FoamSampling_EXPORT label calcOverlappingProcs
 		(
 			const List<boundBox>& procBb,
 			const boundBox& bb,
@@ -218,14 +218,14 @@ namespace tnbLib
 		) const;
 
 		//- Calculate the mapping between processors
-		autoPtr<mapDistribute> calcProcMap
+		FoamSampling_EXPORT autoPtr<mapDistribute> calcProcMap
 		(
 			const polyMesh& src,
 			const polyMesh& tgt
 		) const;
 
 		//- Distribute mesh info from 'my' processor to others
-		void distributeCells
+		FoamSampling_EXPORT void distributeCells
 		(
 			const mapDistribute& map,
 			const polyMesh& tgtMesh,
@@ -241,7 +241,7 @@ namespace tnbLib
 		) const;
 
 		//- Collect pieces of tgt mesh from other procssors and restructure
-		void distributeAndMergeCells
+		FoamSampling_EXPORT void distributeAndMergeCells
 		(
 			const mapDistribute& map,
 			const polyMesh& tgt,
@@ -257,12 +257,16 @@ namespace tnbLib
 	public:
 
 		//- Run-time type information
-		TypeName("meshToMesh");
+		//TypeName("meshToMesh");
+		static const char* typeName_() { return "meshToMesh"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from source and target meshes
-		meshToMesh
+		FoamSampling_EXPORT meshToMesh
 		(
 			const polyMesh& src,
 			const polyMesh& tgt,
@@ -271,7 +275,7 @@ namespace tnbLib
 		);
 
 		//- Construct from source and target meshes, generic mapping methods
-		meshToMesh
+		FoamSampling_EXPORT meshToMesh
 		(
 			const polyMesh& src,
 			const polyMesh& tgt,
@@ -281,7 +285,7 @@ namespace tnbLib
 		);
 
 		//- Construct from source and target meshes
-		meshToMesh
+		FoamSampling_EXPORT meshToMesh
 		(
 			const polyMesh& src,
 			const polyMesh& tgt,
@@ -291,7 +295,7 @@ namespace tnbLib
 		);
 
 		//- Construct from source and target meshes, generic mapping methods
-		meshToMesh
+		FoamSampling_EXPORT meshToMesh
 		(
 			const polyMesh& src,
 			const polyMesh& tgt,
@@ -302,11 +306,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		meshToMesh(const meshToMesh&) = delete;
+		FoamSampling_EXPORT meshToMesh(const meshToMesh&) = delete;
 
 
 		//- Destructor
-		virtual ~meshToMesh();
+		FoamSampling_EXPORT virtual ~meshToMesh();
 
 
 		// Member Functions
@@ -335,7 +339,7 @@ namespace tnbLib
 		inline scalar V() const;
 
 		//- Conversion between mesh and patch interpolation methods
-		static AMIInterpolation::interpolationMethod
+		static FoamSampling_EXPORT AMIInterpolation::interpolationMethod
 			interpolationMethodAMI(const interpolationMethod method);
 
 
@@ -540,7 +544,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const meshToMesh&) = delete;
+		FoamSampling_EXPORT void operator=(const meshToMesh&) = delete;
 	};
 
 
@@ -549,7 +553,7 @@ namespace tnbLib
 	// Disable fvPatchField value override after rmap
 
 	template<>
-	void meshToMesh::mapAndOpSrcToTgt
+	FoamSampling_EXPORT void meshToMesh::mapAndOpSrcToTgt
 	(
 		const AMIInterpolation& AMI,
 		const Field<scalar>& srcField,
@@ -557,7 +561,7 @@ namespace tnbLib
 		const plusEqOp<scalar>& cop
 	) const;
 	template<>
-	void meshToMesh::mapAndOpSrcToTgt
+	FoamSampling_EXPORT void meshToMesh::mapAndOpSrcToTgt
 	(
 		const AMIInterpolation& AMI,
 		const Field<vector>& srcField,
@@ -565,7 +569,7 @@ namespace tnbLib
 		const plusEqOp<vector>& cop
 	) const;
 	template<>
-	void meshToMesh::mapAndOpSrcToTgt
+	FoamSampling_EXPORT void meshToMesh::mapAndOpSrcToTgt
 	(
 		const AMIInterpolation& AMI,
 		const Field<sphericalTensor>& srcField,
@@ -573,7 +577,7 @@ namespace tnbLib
 		const plusEqOp<sphericalTensor>& cop
 	) const;
 	template<>
-	void meshToMesh::mapAndOpSrcToTgt
+	FoamSampling_EXPORT void meshToMesh::mapAndOpSrcToTgt
 	(
 		const AMIInterpolation& AMI,
 		const Field<symmTensor>& srcField,
@@ -581,7 +585,7 @@ namespace tnbLib
 		const plusEqOp<symmTensor>& cop
 	) const;
 	template<>
-	void meshToMesh::mapAndOpSrcToTgt
+	FoamSampling_EXPORT void meshToMesh::mapAndOpSrcToTgt
 	(
 		const AMIInterpolation& AMI,
 		const Field<tensor>& srcField,
@@ -591,7 +595,7 @@ namespace tnbLib
 
 
 	template<>
-	void meshToMesh::mapAndOpTgtToSrc
+	FoamSampling_EXPORT void meshToMesh::mapAndOpTgtToSrc
 	(
 		const AMIInterpolation& AMI,
 		Field<scalar>& srcField,
@@ -599,7 +603,7 @@ namespace tnbLib
 		const plusEqOp<scalar>& cop
 	) const;
 	template<>
-	void meshToMesh::mapAndOpTgtToSrc
+	FoamSampling_EXPORT void meshToMesh::mapAndOpTgtToSrc
 	(
 		const AMIInterpolation& AMI,
 		Field<vector>& srcField,
@@ -607,7 +611,7 @@ namespace tnbLib
 		const plusEqOp<vector>& cop
 	) const;
 	template<>
-	void meshToMesh::mapAndOpTgtToSrc
+	FoamSampling_EXPORT void meshToMesh::mapAndOpTgtToSrc
 	(
 		const AMIInterpolation& AMI,
 		Field<sphericalTensor>& srcField,
@@ -615,7 +619,7 @@ namespace tnbLib
 		const plusEqOp<sphericalTensor>& cop
 	) const;
 	template<>
-	void meshToMesh::mapAndOpTgtToSrc
+	FoamSampling_EXPORT void meshToMesh::mapAndOpTgtToSrc
 	(
 		const AMIInterpolation& AMI,
 		Field<symmTensor>& srcField,
@@ -623,7 +627,7 @@ namespace tnbLib
 		const plusEqOp<symmTensor>& cop
 	) const;
 	template<>
-	void meshToMesh::mapAndOpTgtToSrc
+	FoamSampling_EXPORT void meshToMesh::mapAndOpTgtToSrc
 	(
 		const AMIInterpolation& AMI,
 		Field<tensor>& srcField,

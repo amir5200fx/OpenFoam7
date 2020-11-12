@@ -77,7 +77,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Refine all cells pierced by explicit feature edges
-		label featureEdgeRefine
+		FoamSnappyHexMesh_EXPORT label featureEdgeRefine
 		(
 			const refinementParameters& refineParams,
 			const label maxIter,
@@ -85,21 +85,21 @@ namespace tnbLib
 		);
 
 		//- Refine all cells interacting with the surface
-		label surfaceOnlyRefine
+		FoamSnappyHexMesh_EXPORT label surfaceOnlyRefine
 		(
 			const refinementParameters& refineParams,
 			const label maxIter
 		);
 
 		//- Refine all cells in small gaps
-		label gapOnlyRefine
+		FoamSnappyHexMesh_EXPORT label gapOnlyRefine
 		(
 			const refinementParameters& refineParams,
 			const label maxIter
 		);
 
 		//- Refine cells with almost all sides refined
-		label danglingCellRefine
+		FoamSnappyHexMesh_EXPORT label danglingCellRefine
 		(
 			const refinementParameters& refineParams,
 			const label nFaces,
@@ -107,21 +107,21 @@ namespace tnbLib
 		);
 
 		//- Remove all cells within intersected region
-		void removeInsideCells
+		FoamSnappyHexMesh_EXPORT void removeInsideCells
 		(
 			const refinementParameters& refineParams,
 			const label nBufferLayers
 		);
 
 		//- Remove all cells inside/outside shell
-		label shellRefine
+		FoamSnappyHexMesh_EXPORT label shellRefine
 		(
 			const refinementParameters& refineParams,
 			const label maxIter
 		);
 
 		//- Add baffles and remove unreachable cells
-		void baffleAndSplitMesh
+		FoamSnappyHexMesh_EXPORT void baffleAndSplitMesh
 		(
 			const refinementParameters& refineParams,
 			const snapParameters& snapParams,
@@ -130,9 +130,9 @@ namespace tnbLib
 		);
 
 		//- Add zones
-		void zonify(const refinementParameters& refineParams);
+		FoamSnappyHexMesh_EXPORT void zonify(const refinementParameters& refineParams);
 
-		void splitAndMergeBaffles
+		FoamSnappyHexMesh_EXPORT void splitAndMergeBaffles
 		(
 			const refinementParameters& refineParams,
 			const snapParameters& snapParams,
@@ -141,7 +141,7 @@ namespace tnbLib
 		);
 
 		//- Merge refined boundary faces (from exposing coarser cell)
-		void mergePatchFaces
+		FoamSnappyHexMesh_EXPORT void mergePatchFaces
 		(
 			const refinementParameters& refineParams,
 			const dictionary& motionDict
@@ -151,13 +151,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("snappyRefineDriver");
+		//ClassName("snappyRefineDriver");
+		static const char* typeName_() { return "snappyRefineDriver"; }
+		static FoamSnappyHexMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamSnappyHexMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from components
-		snappyRefineDriver
+		FoamSnappyHexMesh_EXPORT snappyRefineDriver
 		(
 			meshRefinement& meshRefiner,
 			decompositionMethod& decomposer,
@@ -167,13 +170,13 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		snappyRefineDriver(const snappyRefineDriver&) = delete;
+		FoamSnappyHexMesh_EXPORT snappyRefineDriver(const snappyRefineDriver&) = delete;
 
 
 		// Member Functions
 
 			//- Do all the refinement
-		void doRefine
+		FoamSnappyHexMesh_EXPORT void doRefine
 		(
 			const dictionary& refineDict,
 			const refinementParameters& refineParams,
@@ -186,7 +189,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const snappyRefineDriver&) = delete;
+		FoamSnappyHexMesh_EXPORT void operator=(const snappyRefineDriver&) = delete;
 	};
 
 

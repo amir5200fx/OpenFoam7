@@ -124,13 +124,17 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("thixotropic");
+				//TypeName("thixotropic");
+				static const char* typeName_() { return "thixotropic"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				thixotropicViscosity
+				FoamLagrangian_EXPORT thixotropicViscosity
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict,
@@ -138,17 +142,17 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				thixotropicViscosity(const thixotropicViscosity&) = delete;
+				FoamLagrangian_EXPORT thixotropicViscosity(const thixotropicViscosity&) = delete;
 
 
 				//- Destructor
-				virtual ~thixotropicViscosity();
+				FoamLagrangian_EXPORT virtual ~thixotropicViscosity();
 
 
 				// Member Functions
 
 					//- Correct
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					const volScalarField& p,
 					const volScalarField& T
@@ -158,7 +162,7 @@ namespace tnbLib
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const thixotropicViscosity&) = delete;
+				FoamLagrangian_EXPORT void operator=(const thixotropicViscosity&) = delete;
 			};
 
 

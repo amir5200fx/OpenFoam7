@@ -60,13 +60,17 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Read neighbour cell distances from dictionary
-		void makeDeltaCoeffs(scalarField& dc) const;
+		FoamLagrangian_EXPORT void makeDeltaCoeffs(scalarField& dc) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName(mappedVariableThicknessWallPolyPatch::typeName_());
+		//TypeName(mappedVariableThicknessWallPolyPatch::typeName_());
+		static const char* typeName_() { return mappedVariableThicknessWallPolyPatch::typeName_(); }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

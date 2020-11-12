@@ -115,6 +115,9 @@
     <Filter Include="TnbLib\radiationModels\fvOptions\radiation">
       <UniqueIdentifier>{e5ffdd42-7fd7-4b4c-b205-6c715e42fb4f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\radiationModels\module">
+      <UniqueIdentifier>{6721c571-e780-429c-88fd-e656a925858b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\radiationModels\radiationModels\radiationModel\radiationModel.hxx">
@@ -221,6 +224,9 @@
     </ClInclude>
     <ClInclude Include="TnbLib\radiationModels\sootModels\mixtureFraction\mixtureFractionI.hxx">
       <Filter>TnbLib\radiationModels\sootModels\mixtureFraction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\radiationModels\module\RadiationModels_Module.hxx">
+      <Filter>TnbLib\radiationModels\module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

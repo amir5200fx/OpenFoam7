@@ -1,3 +1,5 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <thermalBaffle1DFvPatchScalarFields.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>

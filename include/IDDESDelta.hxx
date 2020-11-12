@@ -65,19 +65,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Calculate the delta values
-			void calcDelta();
+			FoamTurbulence_EXPORT void calcDelta();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("IDDESDelta");
+			//TypeName("IDDESDelta");
+			static const char* typeName_() { return "IDDESDelta"; }
+			static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+			static FoamTurbulence_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from name, mesh and IOdictionary
-			IDDESDelta
+			FoamTurbulence_EXPORT IDDESDelta
 			(
 				const word& name,
 				const turbulenceModel& turbulence,
@@ -85,7 +89,7 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			IDDESDelta(const IDDESDelta&) = delete;
+			FoamTurbulence_EXPORT IDDESDelta(const IDDESDelta&) = delete;
 
 
 			// Destructor
@@ -97,7 +101,7 @@ namespace tnbLib
 			// Member Functions
 
 				//- Read the LESdelta dictionary
-			void read(const dictionary&);
+			FoamTurbulence_EXPORT void read(const dictionary&);
 
 			//- Return the hmax delta field
 			const volScalarField& hmax() const
@@ -106,13 +110,13 @@ namespace tnbLib
 			}
 
 			// Correct values
-			void correct();
+			FoamTurbulence_EXPORT void correct();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const IDDESDelta&) = delete;
+			FoamTurbulence_EXPORT void operator=(const IDDESDelta&) = delete;
 		};
 
 

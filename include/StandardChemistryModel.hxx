@@ -45,6 +45,16 @@ SourceFiles
 #include <volFields.hxx>
 #include <simpleMatrix.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamStandardChemistryModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamStandardChemistryModel_EXPORT_DEFINE
+#define FoamStandardChemistryModel_EXPORT __declspec(dllexport)
+#else
+#define FoamStandardChemistryModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -116,7 +126,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("standard");
+		//TypeName("standard");
+		static const char* typeName_() { return "standard"; }
+		static FoamStandardChemistryModel_EXPORT const ::tnbLib::word typeName;
+		static FoamStandardChemistryModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

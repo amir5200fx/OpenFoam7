@@ -78,19 +78,23 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Construct as copy (not implemented)
-		laminarFlameSpeed(const laminarFlameSpeed&);
-		void operator=(const laminarFlameSpeed&);
+		FoamThermophysicalModels_EXPORT laminarFlameSpeed(const laminarFlameSpeed&);
+		FoamThermophysicalModels_EXPORT void operator=(const laminarFlameSpeed&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("laminarFlameSpeed");
+		//TypeName("laminarFlameSpeed");
+		static const char* typeName_() { return "laminarFlameSpeed"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			laminarFlameSpeed,
@@ -100,13 +104,66 @@ namespace tnbLib
 				const psiuReactionThermo& ct
 				),
 				(dict, ct)
-		);
+		);*/
+
+		typedef autoPtr<laminarFlameSpeed> (*dictionaryConstructorPtr)(const dictionary& dict,
+		                                                               const psiuReactionThermo& ct);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamThermophysicalModels_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructdictionaryConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroydictionaryConstructorTables();
+
+		template <class laminarFlameSpeedType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<laminarFlameSpeed> New(const dictionary& dict, const psiuReactionThermo& ct)
+			{
+				return autoPtr<laminarFlameSpeed>(new laminarFlameSpeedType(dict, ct));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = laminarFlameSpeedType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "laminarFlameSpeed"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class laminarFlameSpeedType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<laminarFlameSpeed> New(const dictionary& dict, const psiuReactionThermo& ct)
+			{
+				return autoPtr<laminarFlameSpeed>(new laminarFlameSpeedType(dict, ct));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = laminarFlameSpeedType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from dictionary and psiuReactionThermo
-		laminarFlameSpeed
+		FoamThermophysicalModels_EXPORT laminarFlameSpeed
 		(
 			const dictionary&,
 			const psiuReactionThermo&
@@ -115,20 +172,20 @@ namespace tnbLib
 
 		// Selector
 
-		static autoPtr<laminarFlameSpeed> New
+		static FoamThermophysicalModels_EXPORT autoPtr<laminarFlameSpeed> New
 		(
 			const psiuReactionThermo&
 		);
 
 
 		//- Destructor
-		virtual ~laminarFlameSpeed();
+		FoamThermophysicalModels_EXPORT virtual ~laminarFlameSpeed();
 
 
 		// Member Functions
 
 			//- Return the laminar flame speed [m/s]
-		virtual tmp<volScalarField> operator()() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> operator()() const = 0;
 	};
 
 

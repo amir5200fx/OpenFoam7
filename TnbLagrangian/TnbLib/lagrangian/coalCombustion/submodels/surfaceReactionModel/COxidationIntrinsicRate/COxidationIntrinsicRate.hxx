@@ -39,6 +39,16 @@ Description
 
 #include <SurfaceReactionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamCOxidationIntrinsicRate_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCOxidationIntrinsicRate_EXPORT_DEFINE
+#define FoamCOxidationIntrinsicRate_EXPORT __declspec(dllexport)
+#else
+#define FoamCOxidationIntrinsicRate_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -115,7 +125,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("COxidationIntrinsicRate");
+		//TypeName("COxidationIntrinsicRate");
+		static const char* typeName_() { return "COxidationIntrinsicRate"; }
+		static FoamCOxidationIntrinsicRate_EXPORT const ::tnbLib::word typeName;
+		static FoamCOxidationIntrinsicRate_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

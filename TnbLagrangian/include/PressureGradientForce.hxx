@@ -41,6 +41,16 @@ SourceFiles
 #include <volFields.hxx>
 #include <interpolation.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamPressureGradientForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPressureGradientForce_EXPORT_DEFINE
+#define FoamPressureGradientForce_EXPORT __declspec(dllexport)
+#else
+#define FoamPressureGradientForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -69,7 +79,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pressureGradient");
+		//TypeName("pressureGradient");
+		static const char* typeName_() { return "pressureGradient"; }
+		static FoamPressureGradientForce_EXPORT const ::tnbLib::word typeName;
+		static FoamPressureGradientForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

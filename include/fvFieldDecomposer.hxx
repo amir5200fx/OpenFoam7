@@ -65,7 +65,7 @@ namespace tnbLib
 		{
 			// Private Member Functions
 
-			labelList alignAddressing
+			FoamParallel_EXPORT labelList alignAddressing
 			(
 				const labelUList& addressingSlice,
 				const label addressingOffset
@@ -77,7 +77,7 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct given addressing
-			patchFieldDecomposer
+			FoamParallel_EXPORT patchFieldDecomposer
 			(
 				const labelUList& addressingSlice,
 				const label addressingOffset
@@ -95,7 +95,7 @@ namespace tnbLib
 		{
 			// Private Member Functions
 
-			labelList alignAddressing
+			FoamParallel_EXPORT labelList alignAddressing
 			(
 				const fvMesh& mesh,
 				const labelUList& addressingSlice
@@ -105,7 +105,7 @@ namespace tnbLib
 		public:
 
 			//- Construct given addressing
-			processorVolPatchFieldDecomposer
+			FoamParallel_EXPORT processorVolPatchFieldDecomposer
 			(
 				const fvMesh& mesh,
 				const labelUList& addressingSlice
@@ -156,7 +156,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		fvFieldDecomposer
+		FoamParallel_EXPORT fvFieldDecomposer
 		(
 			const fvMesh& completeMesh,
 			const fvMesh& procMesh,
@@ -166,11 +166,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		fvFieldDecomposer(const fvFieldDecomposer&) = delete;
+		FoamParallel_EXPORT fvFieldDecomposer(const fvFieldDecomposer&) = delete;
 
 
 		//- Destructor
-		~fvFieldDecomposer();
+		FoamParallel_EXPORT ~fvFieldDecomposer();
 
 
 		// Member Functions
@@ -199,7 +199,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const fvFieldDecomposer&) = delete;
+		FoamParallel_EXPORT void operator=(const fvFieldDecomposer&) = delete;
 	};
 
 

@@ -53,19 +53,19 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -104,8 +104,9 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\functionObjects\field\add;$(ProjectDir)TnbLib\functionObjects\field\age;$(ProjectDir)TnbLib\functionObjects\field\blendingFactor;$(ProjectDir)TnbLib\functionObjects\field\components;$(ProjectDir)TnbLib\functionObjects\field\CourantNo;$(ProjectDir)TnbLib\functionObjects\field\ddt;$(ProjectDir)TnbLib\functionObjects\field\div;$(ProjectDir)TnbLib\functionObjects\field\enstrophy;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage\fieldAverageItem;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage;$(ProjectDir)TnbLib\functionObjects\field\fieldCoordinateSystemTransform;$(ProjectDir)TnbLib\functionObjects\field\fieldExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldMinMax;$(ProjectDir)TnbLib\functionObjects\field\fieldsExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValueDelta;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\surfaceFieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\volFieldValue;$(ProjectDir)TnbLib\functionObjects\field\flowType;$(ProjectDir)TnbLib\functionObjects\field\grad;$(ProjectDir)TnbLib\functionObjects\field\histogram;$(ProjectDir)TnbLib\functionObjects\field\interfaceHeight;$(ProjectDir)TnbLib\functionObjects\field\Lambda2;$(ProjectDir)TnbLib\functionObjects\field\_log;$(ProjectDir)TnbLib\functionObjects\field\MachNo;$(ProjectDir)TnbLib\functionObjects\field\mag;$(ProjectDir)TnbLib\functionObjects\field\magSqr;$(ProjectDir)TnbLib\functionObjects\field\nearWallFields;$(ProjectDir)TnbLib\functionObjects\field\PecletNo;$(ProjectDir)TnbLib\functionObjects\field\pressure;$(ProjectDir)TnbLib\functionObjects\field\processorField;$(ProjectDir)TnbLib\functionObjects\field\Q;$(ProjectDir)TnbLib\functionObjects\field\randomise;$(ProjectDir)TnbLib\functionObjects\field\readFields;$(ProjectDir)TnbLib\functionObjects\field\regionSizeDistribution;$(ProjectDir)TnbLib\functionObjects\field\scale;$(ProjectDir)TnbLib\functionObjects\field\streamFunction;$(ProjectDir)TnbLib\functionObjects\field\streamLine;$(ProjectDir)TnbLib\functionObjects\field\subtract;$(ProjectDir)TnbLib\functionObjects\field\surfaceInterpolate;$(ProjectDir)TnbLib\functionObjects\field\turbulenceFields;$(ProjectDir)TnbLib\functionObjects\field\turbulenceIntensity;$(ProjectDir)TnbLib\functionObjects\field\vorticity;$(ProjectDir)TnbLib\functionObjects\field\wallHeatFlux;$(ProjectDir)TnbLib\functionObjects\field\wallHeatTransferCoeff;$(ProjectDir)TnbLib\functionObjects\field\wallShearStress;$(ProjectDir)TnbLib\functionObjects\field\writeCellCentres;$(ProjectDir)TnbLib\functionObjects\field\writeCellVolumes;$(ProjectDir)TnbLib\functionObjects\field\XiReactionRate;$(ProjectDir)TnbLib\functionObjects\field\yPlus;$(ProjectDir)TnbLib\functionObjects\forces\forceCoeffs;$(ProjectDir)TnbLib\functionObjects\forces\forces;$(ProjectDir)TnbLib\functionObjects\lagrangian\cloudInfo;$(ProjectDir)TnbLib\functionObjects\lagrangian\dsmcFields;$(ProjectDir)TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud;$(ProjectDir)TnbLib\functionObjects\solvers\phaseScalarTransport;$(ProjectDir)TnbLib\functionObjects\solvers\scalarTransport;$(ProjectDir)TnbLib\functionObjects\utilities\abort;$(ProjectDir)TnbLib\functionObjects\utilities\codedFunctionObject;$(ProjectDir)TnbLib\functionObjects\utilities\removeRegisteredObject;$(ProjectDir)TnbLib\functionObjects\utilities\residuals;$(ProjectDir)TnbLib\functionObjects\utilities\setTimeStep;$(ProjectDir)TnbLib\functionObjects\utilities\systemCall;$(ProjectDir)TnbLib\functionObjects\utilities\time;$(ProjectDir)TnbLib\functionObjects\utilities\timeActivatedFileUpdate;$(ProjectDir)TnbLib\functionObjects\utilities\writeDictionary;$(ProjectDir)TnbLib\functionObjects\utilities\writeObjects;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbSampling\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\functionObjects\field\add;$(ProjectDir)TnbLib\functionObjects\field\age;$(ProjectDir)TnbLib\functionObjects\field\blendingFactor;$(ProjectDir)TnbLib\functionObjects\field\components;$(ProjectDir)TnbLib\functionObjects\field\CourantNo;$(ProjectDir)TnbLib\functionObjects\field\ddt;$(ProjectDir)TnbLib\functionObjects\field\div;$(ProjectDir)TnbLib\functionObjects\field\enstrophy;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage\fieldAverageItem;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage;$(ProjectDir)TnbLib\functionObjects\field\fieldCoordinateSystemTransform;$(ProjectDir)TnbLib\functionObjects\field\fieldExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldMinMax;$(ProjectDir)TnbLib\functionObjects\field\fieldsExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValueDelta;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\surfaceFieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\volFieldValue;$(ProjectDir)TnbLib\functionObjects\field\flowType;$(ProjectDir)TnbLib\functionObjects\field\grad;$(ProjectDir)TnbLib\functionObjects\field\histogram;$(ProjectDir)TnbLib\functionObjects\field\interfaceHeight;$(ProjectDir)TnbLib\functionObjects\field\Lambda2;$(ProjectDir)TnbLib\functionObjects\field\_log;$(ProjectDir)TnbLib\functionObjects\field\MachNo;$(ProjectDir)TnbLib\functionObjects\field\mag;$(ProjectDir)TnbLib\functionObjects\field\magSqr;$(ProjectDir)TnbLib\functionObjects\field\nearWallFields;$(ProjectDir)TnbLib\functionObjects\field\PecletNo;$(ProjectDir)TnbLib\functionObjects\field\pressure;$(ProjectDir)TnbLib\functionObjects\field\processorField;$(ProjectDir)TnbLib\functionObjects\field\Q;$(ProjectDir)TnbLib\functionObjects\field\randomise;$(ProjectDir)TnbLib\functionObjects\field\readFields;$(ProjectDir)TnbLib\functionObjects\field\regionSizeDistribution;$(ProjectDir)TnbLib\functionObjects\field\scale;$(ProjectDir)TnbLib\functionObjects\field\streamFunction;$(ProjectDir)TnbLib\functionObjects\field\streamLine;$(ProjectDir)TnbLib\functionObjects\field\subtract;$(ProjectDir)TnbLib\functionObjects\field\surfaceInterpolate;$(ProjectDir)TnbLib\functionObjects\field\turbulenceFields;$(ProjectDir)TnbLib\functionObjects\field\turbulenceIntensity;$(ProjectDir)TnbLib\functionObjects\field\vorticity;$(ProjectDir)TnbLib\functionObjects\field\wallHeatFlux;$(ProjectDir)TnbLib\functionObjects\field\wallHeatTransferCoeff;$(ProjectDir)TnbLib\functionObjects\field\wallShearStress;$(ProjectDir)TnbLib\functionObjects\field\writeCellCentres;$(ProjectDir)TnbLib\functionObjects\field\writeCellVolumes;$(ProjectDir)TnbLib\functionObjects\field\XiReactionRate;$(ProjectDir)TnbLib\functionObjects\field\yPlus;$(ProjectDir)TnbLib\functionObjects\forces\forceCoeffs;$(ProjectDir)TnbLib\functionObjects\forces\forces;$(ProjectDir)TnbLib\functionObjects\lagrangian\cloudInfo;$(ProjectDir)TnbLib\functionObjects\lagrangian\dsmcFields;$(ProjectDir)TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud;$(ProjectDir)TnbLib\functionObjects\solvers\phaseScalarTransport;$(ProjectDir)TnbLib\functionObjects\solvers\scalarTransport;$(ProjectDir)TnbLib\functionObjects\utilities\abort;$(ProjectDir)TnbLib\functionObjects\utilities\codedFunctionObject;$(ProjectDir)TnbLib\functionObjects\utilities\removeRegisteredObject;$(ProjectDir)TnbLib\functionObjects\utilities\residuals;$(ProjectDir)TnbLib\functionObjects\utilities\setTimeStep;$(ProjectDir)TnbLib\functionObjects\utilities\systemCall;$(ProjectDir)TnbLib\functionObjects\utilities\time;$(ProjectDir)TnbLib\functionObjects\utilities\timeActivatedFileUpdate;$(ProjectDir)TnbLib\functionObjects\utilities\writeDictionary;$(ProjectDir)TnbLib\functionObjects\utilities\writeObjects;$(ProjectDir)TnbLib\functionObjects\module;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbSampling\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamFunctionObjects_EXPORT_DEFINE;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,8 +142,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\functionObjects\field\add;$(ProjectDir)TnbLib\functionObjects\field\age;$(ProjectDir)TnbLib\functionObjects\field\blendingFactor;$(ProjectDir)TnbLib\functionObjects\field\components;$(ProjectDir)TnbLib\functionObjects\field\CourantNo;$(ProjectDir)TnbLib\functionObjects\field\ddt;$(ProjectDir)TnbLib\functionObjects\field\div;$(ProjectDir)TnbLib\functionObjects\field\enstrophy;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage\fieldAverageItem;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage;$(ProjectDir)TnbLib\functionObjects\field\fieldCoordinateSystemTransform;$(ProjectDir)TnbLib\functionObjects\field\fieldExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldMinMax;$(ProjectDir)TnbLib\functionObjects\field\fieldsExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValueDelta;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\surfaceFieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\volFieldValue;$(ProjectDir)TnbLib\functionObjects\field\flowType;$(ProjectDir)TnbLib\functionObjects\field\grad;$(ProjectDir)TnbLib\functionObjects\field\histogram;$(ProjectDir)TnbLib\functionObjects\field\interfaceHeight;$(ProjectDir)TnbLib\functionObjects\field\Lambda2;$(ProjectDir)TnbLib\functionObjects\field\_log;$(ProjectDir)TnbLib\functionObjects\field\MachNo;$(ProjectDir)TnbLib\functionObjects\field\mag;$(ProjectDir)TnbLib\functionObjects\field\magSqr;$(ProjectDir)TnbLib\functionObjects\field\nearWallFields;$(ProjectDir)TnbLib\functionObjects\field\PecletNo;$(ProjectDir)TnbLib\functionObjects\field\pressure;$(ProjectDir)TnbLib\functionObjects\field\processorField;$(ProjectDir)TnbLib\functionObjects\field\Q;$(ProjectDir)TnbLib\functionObjects\field\randomise;$(ProjectDir)TnbLib\functionObjects\field\readFields;$(ProjectDir)TnbLib\functionObjects\field\regionSizeDistribution;$(ProjectDir)TnbLib\functionObjects\field\scale;$(ProjectDir)TnbLib\functionObjects\field\streamFunction;$(ProjectDir)TnbLib\functionObjects\field\streamLine;$(ProjectDir)TnbLib\functionObjects\field\subtract;$(ProjectDir)TnbLib\functionObjects\field\surfaceInterpolate;$(ProjectDir)TnbLib\functionObjects\field\turbulenceFields;$(ProjectDir)TnbLib\functionObjects\field\turbulenceIntensity;$(ProjectDir)TnbLib\functionObjects\field\vorticity;$(ProjectDir)TnbLib\functionObjects\field\wallHeatFlux;$(ProjectDir)TnbLib\functionObjects\field\wallHeatTransferCoeff;$(ProjectDir)TnbLib\functionObjects\field\wallShearStress;$(ProjectDir)TnbLib\functionObjects\field\writeCellCentres;$(ProjectDir)TnbLib\functionObjects\field\writeCellVolumes;$(ProjectDir)TnbLib\functionObjects\field\XiReactionRate;$(ProjectDir)TnbLib\functionObjects\field\yPlus;$(ProjectDir)TnbLib\functionObjects\forces\forceCoeffs;$(ProjectDir)TnbLib\functionObjects\forces\forces;$(ProjectDir)TnbLib\functionObjects\lagrangian\cloudInfo;$(ProjectDir)TnbLib\functionObjects\lagrangian\dsmcFields;$(ProjectDir)TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud;$(ProjectDir)TnbLib\functionObjects\solvers\phaseScalarTransport;$(ProjectDir)TnbLib\functionObjects\solvers\scalarTransport;$(ProjectDir)TnbLib\functionObjects\utilities\abort;$(ProjectDir)TnbLib\functionObjects\utilities\codedFunctionObject;$(ProjectDir)TnbLib\functionObjects\utilities\removeRegisteredObject;$(ProjectDir)TnbLib\functionObjects\utilities\residuals;$(ProjectDir)TnbLib\functionObjects\utilities\setTimeStep;$(ProjectDir)TnbLib\functionObjects\utilities\systemCall;$(ProjectDir)TnbLib\functionObjects\utilities\time;$(ProjectDir)TnbLib\functionObjects\utilities\timeActivatedFileUpdate;$(ProjectDir)TnbLib\functionObjects\utilities\writeDictionary;$(ProjectDir)TnbLib\functionObjects\utilities\writeObjects;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbSampling\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\functionObjects\field\add;$(ProjectDir)TnbLib\functionObjects\field\age;$(ProjectDir)TnbLib\functionObjects\field\blendingFactor;$(ProjectDir)TnbLib\functionObjects\field\components;$(ProjectDir)TnbLib\functionObjects\field\CourantNo;$(ProjectDir)TnbLib\functionObjects\field\ddt;$(ProjectDir)TnbLib\functionObjects\field\div;$(ProjectDir)TnbLib\functionObjects\field\enstrophy;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage\fieldAverageItem;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage;$(ProjectDir)TnbLib\functionObjects\field\fieldCoordinateSystemTransform;$(ProjectDir)TnbLib\functionObjects\field\fieldExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldMinMax;$(ProjectDir)TnbLib\functionObjects\field\fieldsExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValueDelta;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\surfaceFieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\volFieldValue;$(ProjectDir)TnbLib\functionObjects\field\flowType;$(ProjectDir)TnbLib\functionObjects\field\grad;$(ProjectDir)TnbLib\functionObjects\field\histogram;$(ProjectDir)TnbLib\functionObjects\field\interfaceHeight;$(ProjectDir)TnbLib\functionObjects\field\Lambda2;$(ProjectDir)TnbLib\functionObjects\field\_log;$(ProjectDir)TnbLib\functionObjects\field\MachNo;$(ProjectDir)TnbLib\functionObjects\field\mag;$(ProjectDir)TnbLib\functionObjects\field\magSqr;$(ProjectDir)TnbLib\functionObjects\field\nearWallFields;$(ProjectDir)TnbLib\functionObjects\field\PecletNo;$(ProjectDir)TnbLib\functionObjects\field\pressure;$(ProjectDir)TnbLib\functionObjects\field\processorField;$(ProjectDir)TnbLib\functionObjects\field\Q;$(ProjectDir)TnbLib\functionObjects\field\randomise;$(ProjectDir)TnbLib\functionObjects\field\readFields;$(ProjectDir)TnbLib\functionObjects\field\regionSizeDistribution;$(ProjectDir)TnbLib\functionObjects\field\scale;$(ProjectDir)TnbLib\functionObjects\field\streamFunction;$(ProjectDir)TnbLib\functionObjects\field\streamLine;$(ProjectDir)TnbLib\functionObjects\field\subtract;$(ProjectDir)TnbLib\functionObjects\field\surfaceInterpolate;$(ProjectDir)TnbLib\functionObjects\field\turbulenceFields;$(ProjectDir)TnbLib\functionObjects\field\turbulenceIntensity;$(ProjectDir)TnbLib\functionObjects\field\vorticity;$(ProjectDir)TnbLib\functionObjects\field\wallHeatFlux;$(ProjectDir)TnbLib\functionObjects\field\wallHeatTransferCoeff;$(ProjectDir)TnbLib\functionObjects\field\wallShearStress;$(ProjectDir)TnbLib\functionObjects\field\writeCellCentres;$(ProjectDir)TnbLib\functionObjects\field\writeCellVolumes;$(ProjectDir)TnbLib\functionObjects\field\XiReactionRate;$(ProjectDir)TnbLib\functionObjects\field\yPlus;$(ProjectDir)TnbLib\functionObjects\forces\forceCoeffs;$(ProjectDir)TnbLib\functionObjects\forces\forces;$(ProjectDir)TnbLib\functionObjects\lagrangian\cloudInfo;$(ProjectDir)TnbLib\functionObjects\lagrangian\dsmcFields;$(ProjectDir)TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud;$(ProjectDir)TnbLib\functionObjects\solvers\phaseScalarTransport;$(ProjectDir)TnbLib\functionObjects\solvers\scalarTransport;$(ProjectDir)TnbLib\functionObjects\utilities\abort;$(ProjectDir)TnbLib\functionObjects\utilities\codedFunctionObject;$(ProjectDir)TnbLib\functionObjects\utilities\removeRegisteredObject;$(ProjectDir)TnbLib\functionObjects\utilities\residuals;$(ProjectDir)TnbLib\functionObjects\utilities\setTimeStep;$(ProjectDir)TnbLib\functionObjects\utilities\systemCall;$(ProjectDir)TnbLib\functionObjects\utilities\time;$(ProjectDir)TnbLib\functionObjects\utilities\timeActivatedFileUpdate;$(ProjectDir)TnbLib\functionObjects\utilities\writeDictionary;$(ProjectDir)TnbLib\functionObjects\utilities\writeObjects;$(ProjectDir)TnbLib\functionObjects\module;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbSampling\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamFunctionObjects_EXPORT_DEFINE;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -162,8 +164,9 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\functionObjects\field\add;$(ProjectDir)TnbLib\functionObjects\field\age;$(ProjectDir)TnbLib\functionObjects\field\blendingFactor;$(ProjectDir)TnbLib\functionObjects\field\components;$(ProjectDir)TnbLib\functionObjects\field\CourantNo;$(ProjectDir)TnbLib\functionObjects\field\ddt;$(ProjectDir)TnbLib\functionObjects\field\div;$(ProjectDir)TnbLib\functionObjects\field\enstrophy;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage\fieldAverageItem;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage;$(ProjectDir)TnbLib\functionObjects\field\fieldCoordinateSystemTransform;$(ProjectDir)TnbLib\functionObjects\field\fieldExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldMinMax;$(ProjectDir)TnbLib\functionObjects\field\fieldsExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValueDelta;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\surfaceFieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\volFieldValue;$(ProjectDir)TnbLib\functionObjects\field\flowType;$(ProjectDir)TnbLib\functionObjects\field\grad;$(ProjectDir)TnbLib\functionObjects\field\histogram;$(ProjectDir)TnbLib\functionObjects\field\interfaceHeight;$(ProjectDir)TnbLib\functionObjects\field\Lambda2;$(ProjectDir)TnbLib\functionObjects\field\_log;$(ProjectDir)TnbLib\functionObjects\field\MachNo;$(ProjectDir)TnbLib\functionObjects\field\mag;$(ProjectDir)TnbLib\functionObjects\field\magSqr;$(ProjectDir)TnbLib\functionObjects\field\nearWallFields;$(ProjectDir)TnbLib\functionObjects\field\PecletNo;$(ProjectDir)TnbLib\functionObjects\field\pressure;$(ProjectDir)TnbLib\functionObjects\field\processorField;$(ProjectDir)TnbLib\functionObjects\field\Q;$(ProjectDir)TnbLib\functionObjects\field\randomise;$(ProjectDir)TnbLib\functionObjects\field\readFields;$(ProjectDir)TnbLib\functionObjects\field\regionSizeDistribution;$(ProjectDir)TnbLib\functionObjects\field\scale;$(ProjectDir)TnbLib\functionObjects\field\streamFunction;$(ProjectDir)TnbLib\functionObjects\field\streamLine;$(ProjectDir)TnbLib\functionObjects\field\subtract;$(ProjectDir)TnbLib\functionObjects\field\surfaceInterpolate;$(ProjectDir)TnbLib\functionObjects\field\turbulenceFields;$(ProjectDir)TnbLib\functionObjects\field\turbulenceIntensity;$(ProjectDir)TnbLib\functionObjects\field\vorticity;$(ProjectDir)TnbLib\functionObjects\field\wallHeatFlux;$(ProjectDir)TnbLib\functionObjects\field\wallHeatTransferCoeff;$(ProjectDir)TnbLib\functionObjects\field\wallShearStress;$(ProjectDir)TnbLib\functionObjects\field\writeCellCentres;$(ProjectDir)TnbLib\functionObjects\field\writeCellVolumes;$(ProjectDir)TnbLib\functionObjects\field\XiReactionRate;$(ProjectDir)TnbLib\functionObjects\field\yPlus;$(ProjectDir)TnbLib\functionObjects\forces\forceCoeffs;$(ProjectDir)TnbLib\functionObjects\forces\forces;$(ProjectDir)TnbLib\functionObjects\lagrangian\cloudInfo;$(ProjectDir)TnbLib\functionObjects\lagrangian\dsmcFields;$(ProjectDir)TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud;$(ProjectDir)TnbLib\functionObjects\solvers\phaseScalarTransport;$(ProjectDir)TnbLib\functionObjects\solvers\scalarTransport;$(ProjectDir)TnbLib\functionObjects\utilities\abort;$(ProjectDir)TnbLib\functionObjects\utilities\codedFunctionObject;$(ProjectDir)TnbLib\functionObjects\utilities\removeRegisteredObject;$(ProjectDir)TnbLib\functionObjects\utilities\residuals;$(ProjectDir)TnbLib\functionObjects\utilities\setTimeStep;$(ProjectDir)TnbLib\functionObjects\utilities\systemCall;$(ProjectDir)TnbLib\functionObjects\utilities\time;$(ProjectDir)TnbLib\functionObjects\utilities\timeActivatedFileUpdate;$(ProjectDir)TnbLib\functionObjects\utilities\writeDictionary;$(ProjectDir)TnbLib\functionObjects\utilities\writeObjects;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbSampling\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\functionObjects\field\add;$(ProjectDir)TnbLib\functionObjects\field\age;$(ProjectDir)TnbLib\functionObjects\field\blendingFactor;$(ProjectDir)TnbLib\functionObjects\field\components;$(ProjectDir)TnbLib\functionObjects\field\CourantNo;$(ProjectDir)TnbLib\functionObjects\field\ddt;$(ProjectDir)TnbLib\functionObjects\field\div;$(ProjectDir)TnbLib\functionObjects\field\enstrophy;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage\fieldAverageItem;$(ProjectDir)TnbLib\functionObjects\field\fieldAverage;$(ProjectDir)TnbLib\functionObjects\field\fieldCoordinateSystemTransform;$(ProjectDir)TnbLib\functionObjects\field\fieldExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldMinMax;$(ProjectDir)TnbLib\functionObjects\field\fieldsExpression;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\fieldValueDelta;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\surfaceFieldValue;$(ProjectDir)TnbLib\functionObjects\field\fieldValues\volFieldValue;$(ProjectDir)TnbLib\functionObjects\field\flowType;$(ProjectDir)TnbLib\functionObjects\field\grad;$(ProjectDir)TnbLib\functionObjects\field\histogram;$(ProjectDir)TnbLib\functionObjects\field\interfaceHeight;$(ProjectDir)TnbLib\functionObjects\field\Lambda2;$(ProjectDir)TnbLib\functionObjects\field\_log;$(ProjectDir)TnbLib\functionObjects\field\MachNo;$(ProjectDir)TnbLib\functionObjects\field\mag;$(ProjectDir)TnbLib\functionObjects\field\magSqr;$(ProjectDir)TnbLib\functionObjects\field\nearWallFields;$(ProjectDir)TnbLib\functionObjects\field\PecletNo;$(ProjectDir)TnbLib\functionObjects\field\pressure;$(ProjectDir)TnbLib\functionObjects\field\processorField;$(ProjectDir)TnbLib\functionObjects\field\Q;$(ProjectDir)TnbLib\functionObjects\field\randomise;$(ProjectDir)TnbLib\functionObjects\field\readFields;$(ProjectDir)TnbLib\functionObjects\field\regionSizeDistribution;$(ProjectDir)TnbLib\functionObjects\field\scale;$(ProjectDir)TnbLib\functionObjects\field\streamFunction;$(ProjectDir)TnbLib\functionObjects\field\streamLine;$(ProjectDir)TnbLib\functionObjects\field\subtract;$(ProjectDir)TnbLib\functionObjects\field\surfaceInterpolate;$(ProjectDir)TnbLib\functionObjects\field\turbulenceFields;$(ProjectDir)TnbLib\functionObjects\field\turbulenceIntensity;$(ProjectDir)TnbLib\functionObjects\field\vorticity;$(ProjectDir)TnbLib\functionObjects\field\wallHeatFlux;$(ProjectDir)TnbLib\functionObjects\field\wallHeatTransferCoeff;$(ProjectDir)TnbLib\functionObjects\field\wallShearStress;$(ProjectDir)TnbLib\functionObjects\field\writeCellCentres;$(ProjectDir)TnbLib\functionObjects\field\writeCellVolumes;$(ProjectDir)TnbLib\functionObjects\field\XiReactionRate;$(ProjectDir)TnbLib\functionObjects\field\yPlus;$(ProjectDir)TnbLib\functionObjects\forces\forceCoeffs;$(ProjectDir)TnbLib\functionObjects\forces\forces;$(ProjectDir)TnbLib\functionObjects\lagrangian\cloudInfo;$(ProjectDir)TnbLib\functionObjects\lagrangian\dsmcFields;$(ProjectDir)TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud;$(ProjectDir)TnbLib\functionObjects\solvers\phaseScalarTransport;$(ProjectDir)TnbLib\functionObjects\solvers\scalarTransport;$(ProjectDir)TnbLib\functionObjects\utilities\abort;$(ProjectDir)TnbLib\functionObjects\utilities\codedFunctionObject;$(ProjectDir)TnbLib\functionObjects\utilities\removeRegisteredObject;$(ProjectDir)TnbLib\functionObjects\utilities\residuals;$(ProjectDir)TnbLib\functionObjects\utilities\setTimeStep;$(ProjectDir)TnbLib\functionObjects\utilities\systemCall;$(ProjectDir)TnbLib\functionObjects\utilities\time;$(ProjectDir)TnbLib\functionObjects\utilities\timeActivatedFileUpdate;$(ProjectDir)TnbLib\functionObjects\utilities\writeDictionary;$(ProjectDir)TnbLib\functionObjects\utilities\writeObjects;$(ProjectDir)TnbLib\functionObjects\module;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbSampling\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamFunctionObjects_EXPORT_DEFINE;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -190,50 +193,75 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\functionObjects\field\add\add.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\add\addTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\age\age.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\blendingFactor\blendingFactor.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\blendingFactor\blendingFactorTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\components\components.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\components\componentsTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\CourantNo\CourantNo.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\ddt\ddt.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\ddt\ddtTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\div\div.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\div\divTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\enstrophy\enstrophy.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\fieldAverage\fieldAverage.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\fieldAverage\fieldAverageItem\fieldAverageItem.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldAverage\fieldAverageTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\fieldCoordinateSystemTransform\fieldCoordinateSystemTransform.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldCoordinateSystemTransform\fieldCoordinateSystemTransformTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\fieldExpression\fieldExpression.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldExpression\fieldExpressionTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\fieldMinMax\fieldMinMax.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldMinMax\fieldMinMaxTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\fieldsExpression\fieldsExpression.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldsExpression\fieldsExpressionTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\fieldValues\fieldValueDelta\fieldValueDelta.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\fieldValueDelta\fieldValueDeltaTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\fieldValues\fieldValue\fieldValue.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\fieldValues\fieldValue\fieldValueI.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\fieldValue\fieldValueTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue\surfaceFieldValue.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue\surfaceFieldValueI.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue\surfaceFieldValueTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\fieldValues\volFieldValue\volFieldValue.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\volFieldValue\volFieldValueTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\flowType\flowType.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\grad\grad.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\grad\gradTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\histogram\histogram.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\interfaceHeight\interfaceHeight.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\Lambda2\Lambda2.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\MachNo\MachNo.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\magSqr\magSqr.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\magSqr\magSqrTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\mag\mag.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\mag\magTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\nearWallFields\findCellParticle.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\nearWallFields\nearWallFields.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\nearWallFields\nearWallFieldsTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\PecletNo\PecletNo.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\PecletNo\pressure.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\processorField\processorField.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\Q\Q.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\randomise\randomise.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\randomise\randomiseTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\readFields\readFields.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\readFields\readFieldsTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\regionSizeDistribution\regionSizeDistribution.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\regionSizeDistribution\regionSizeDistributionTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\scale\scale.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\scale\scaleTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\streamFunction\streamFunction.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\streamLine\streamLine.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\streamLine\streamLineParticle.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\streamLine\streamLineParticleCloud.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\subtract\subtract.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\subtract\subtractTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\surfaceInterpolate\surfaceInterpolateFunObj.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\surfaceInterpolate\surfaceInterpolateFunObjTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\turbulenceFields\turbulenceFields.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\turbulenceFields\turbulenceFieldsTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\turbulenceIntensity\turbulenceIntensity.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\vorticity\vorticity.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\wallHeatFlux\wallHeatFlux.hxx" />
@@ -249,12 +277,14 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\functionObjects\lagrangian\cloudInfo\cloudInfo.hxx" />
     <ClInclude Include="TnbLib\functionObjects\lagrangian\dsmcFields\dsmcFields.hxx" />
     <ClInclude Include="TnbLib\functionObjects\lagrangian\icoUncoupledKinematicCloud\icoUncoupledKinematicCloud.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\module\FunctionObjects_Module.hxx" />
     <ClInclude Include="TnbLib\functionObjects\solvers\phaseScalarTransport\phaseScalarTransport.hxx" />
     <ClInclude Include="TnbLib\functionObjects\solvers\scalarTransport\scalarTransport.hxx" />
     <ClInclude Include="TnbLib\functionObjects\utilities\abort\abort.hxx" />
     <ClInclude Include="TnbLib\functionObjects\utilities\codedFunctionObject\codedFunctionObject.hxx" />
     <ClInclude Include="TnbLib\functionObjects\utilities\removeRegisteredObject\removeRegisteredObject.hxx" />
     <ClInclude Include="TnbLib\functionObjects\utilities\residuals\residuals.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\utilities\residuals\residualsTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\utilities\setTimeStep\setTimeStepFunctionObject.hxx" />
     <ClInclude Include="TnbLib\functionObjects\utilities\systemCall\systemCall.hxx" />
     <ClInclude Include="TnbLib\functionObjects\utilities\timeActivatedFileUpdate\timeActivatedFileUpdate.hxx" />
@@ -294,8 +324,10 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\functionObjects\field\fieldValues\fieldValue\fieldValueNew.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\fieldValues\fieldValue\fieldValueTemplates.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue\surfaceFieldValue.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue\surfaceFieldValueIO.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue\surfaceFieldValueTemplates.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\fieldValues\volFieldValue\volFieldValue.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\volFieldValue\volFieldValueIO.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\fieldValues\volFieldValue\volFieldValueTemplates.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\flowType\flowType.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\grad\grad.cxx" />
@@ -326,6 +358,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\functionObjects\field\scale\scaleTemplates.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\streamFunction\streamFunction.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\streamLine\streamLine.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\field\streamLine\streamLineIO.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\streamLine\streamLineParticle.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\streamLine\streamLineParticleCloud.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\subtract\subtract.cxx" />
@@ -362,6 +395,35 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\functionObjects\utilities\time\timeFunctionObject.cxx" />
     <ClCompile Include="TnbLib\functionObjects\utilities\writeDictionary\writeDictionary.cxx" />
     <ClCompile Include="TnbLib\functionObjects\utilities\writeObjects\writeObjects.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TnbBase\TnbBase.vcxproj">
+      <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbConversion\TnbConversion.vcxproj">
+      <Project>{67f2bdf8-7cb4-475c-bc9c-5c7a97635cee}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+      <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFvMesh\TnbFvMesh.vcxproj">
+      <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbLagrangian\TnbLagrangian.vcxproj">
+      <Project>{27928553-74af-4229-b18c-4f7670767702}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbSampling\TnbSampling.vcxproj">
+      <Project>{b0600bfc-62b5-4f92-9e5a-5b25fd93436a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbThermoPhysicalModels\TnbThermoPhysicalModels.vcxproj">
+      <Project>{5396b04c-6e67-4ee2-82f8-e56d26195cf9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbTransportModels\TnbTransportModels.vcxproj">
+      <Project>{ad4b123c-0d2b-4aac-b265-9ec2f0e93568}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbTurbulence\TnbTurbulence.vcxproj">
+      <Project>{c44b171d-747f-4fe0-b6e9-b8c6c88ddc40}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

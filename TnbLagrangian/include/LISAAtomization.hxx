@@ -53,6 +53,16 @@ Description
 #include <Random.hxx>  // added by amir
 #include <vector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamLISAAtomization_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLISAAtomization_EXPORT_DEFINE
+#define FoamLISAAtomization_EXPORT __declspec(dllexport)
+#else
+#define FoamLISAAtomization_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -94,7 +104,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("LISA");
+		//TypeName("LISA");
+		static const char* typeName_() { return "LISA"; }
+		static FoamLISAAtomization_EXPORT const ::tnbLib::word typeName;
+		static FoamLISAAtomization_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

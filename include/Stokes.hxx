@@ -39,6 +39,16 @@ SourceFiles
 #include <laminarModelTemplate.hxx>
 #include <linearViscousStress.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamStokes_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamStokes_EXPORT_DEFINE
+#define FoamStokes_EXPORT __declspec(dllexport)
+#else
+#define FoamStokes_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -64,7 +74,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("Stokes");
+			//TypeName("Stokes");
+			static const char* typeName_() { return "Stokes"; }
+			static FoamStokes_EXPORT const ::tnbLib::word typeName;
+			static FoamStokes_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

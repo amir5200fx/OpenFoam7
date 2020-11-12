@@ -224,29 +224,29 @@ namespace tnbLib
 			}
 
 			//- Create file names for forces and bins
-			wordList createFileNames(const dictionary& dict) const;
+			FoamFunctionObjects_EXPORT wordList createFileNames(const dictionary& dict) const;
 
 			//- Output file header information
-			virtual void writeFileHeader(const label i);
+			FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i);
 
 			//- Initialise the fields
-			void initialise();
+			FoamFunctionObjects_EXPORT void initialise();
 
 			//- Return the effective viscous stress (laminar + turbulent).
-			tmp<volSymmTensorField> devRhoReff() const;
+			FoamFunctionObjects_EXPORT tmp<volSymmTensorField> devRhoReff() const;
 
 			//- Dynamic viscosity field
-			tmp<volScalarField> mu() const;
+			FoamFunctionObjects_EXPORT tmp<volScalarField> mu() const;
 
 			//- Return rho if specified otherwise rhoRef
-			tmp<volScalarField> rho() const;
+			FoamFunctionObjects_EXPORT tmp<volScalarField> rho() const;
 
 			//- Return rhoRef if the pressure field is dynamic, i.e. p/rho
 			//  otherwise return 1
-			scalar rho(const volScalarField& p) const;
+			FoamFunctionObjects_EXPORT scalar rho(const volScalarField& p) const;
 
 			//- Accumulate bin data
-			void applyBins
+			FoamFunctionObjects_EXPORT void applyBins
 			(
 				const vectorField& Md,
 				const vectorField& fN,
@@ -256,22 +256,26 @@ namespace tnbLib
 			);
 
 			//- Helper function to write force data
-			void writeForces();
+			FoamFunctionObjects_EXPORT void writeForces();
 
 			//- Helper function to write bin data
-			void writeBins();
+			FoamFunctionObjects_EXPORT void writeBins();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("forces");
+			//TypeName("forces");
+			static const char* typeName_() { return "forces"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			forces
+			FoamFunctionObjects_EXPORT forces
 			(
 				const word& name,
 				const Time& runTime,
@@ -279,7 +283,7 @@ namespace tnbLib
 			);
 
 			//- Construct from objectRegistry and dictionary
-			forces
+			FoamFunctionObjects_EXPORT forces
 			(
 				const word& name,
 				const objectRegistry& obr,
@@ -287,38 +291,38 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			forces(const forces&) = delete;
+			FoamFunctionObjects_EXPORT forces(const forces&) = delete;
 
 
 			//- Destructor
-			virtual ~forces();
+			FoamFunctionObjects_EXPORT virtual ~forces();
 
 
 			// Member Functions
 
 				//- Read the forces data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate the forces and moments
-			virtual void calcForcesMoment();
+			FoamFunctionObjects_EXPORT virtual void calcForcesMoment();
 
 			//- Return the total force
-			virtual vector forceEff() const;
+			FoamFunctionObjects_EXPORT virtual vector forceEff() const;
 
 			//- Return the total moment
-			virtual vector momentEff() const;
+			FoamFunctionObjects_EXPORT virtual vector momentEff() const;
 
 			//- Execute, currently does nothing
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the forces
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const forces&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const forces&) = delete;
 		};
 
 

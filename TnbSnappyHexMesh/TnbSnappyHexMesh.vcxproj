@@ -27,6 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\displacementMeshMoverMotionSolver.cxx" />
     <ClCompile Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\externalDisplacementMeshMover.cxx" />
     <ClCompile Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\medialAxisMeshMover.cxx" />
     <ClCompile Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue\zeroFixedValuePointPatchField.cxx" />
@@ -60,10 +61,13 @@
     <ClInclude Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\externalDisplacementMeshMover.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\medialAxisMeshMover.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue\zeroFixedValuePointPatchField.hxx" />
+    <ClInclude Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue\zeroFixedValuePointPatchFieldI.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue\zeroFixedValuePointPatchFields.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\meshRefinement\meshRefinement.hxx" />
+    <ClInclude Include="TnbLib\snappyHexMesh\meshRefinement\meshRefinementTemplatesI.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\meshRefinement\patchFaceOrientation.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\meshRefinement\patchFaceOrientationI.hxx" />
+    <ClInclude Include="TnbLib\snappyHexMesh\module\SnappyHexMesh_Module.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\refinementFeatures\refinementFeatures.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\refinementSurfaces\refinementSurfaces.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\refinementSurfaces\surfaceZonesInfo.hxx" />
@@ -74,12 +78,33 @@
     <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\refinementParameters\refinementParameters.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snapParameters\snapParameters.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappyLayerDriver.hxx" />
+    <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappyLayerDriverTemplates.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappyRefineDriver.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\snappyHexMeshDriver\snappySnapDriver.hxx" />
     <ClInclude Include="TnbLib\snappyHexMesh\trackedParticle\trackedParticle.hxx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TnbBase\TnbBase.vcxproj">
+      <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbDynamicMesh\TnbDynamicMesh.vcxproj">
+      <Project>{e3788c5b-0066-49ce-a6f3-4ef1a5660b6d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+      <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFvMesh\TnbFvMesh.vcxproj">
+      <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbLagrangian\TnbLagrangian.vcxproj">
+      <Project>{27928553-74af-4229-b18c-4f7670767702}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbParallel\TnbParallel.vcxproj">
+      <Project>{122fddf5-b397-43f8-bcc5-5c3cdb60cb41}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -108,19 +133,19 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -162,8 +187,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue;$(ProjectDir)TnbLib\snappyHexMesh\externalDisplacementMeshMover;$(ProjectDir)TnbLib\snappyHexMesh\meshRefinement;$(ProjectDir)TnbLib\snappyHexMesh\refinementFeatures;$(ProjectDir)TnbLib\snappyHexMesh\refinementSurfaces;$(ProjectDir)TnbLib\snappyHexMesh\shellSurfaces;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\layerParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\refinementParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\snapParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver;$(ProjectDir)TnbLib\snappyHexMesh\trackedParticle;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbParallel\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue;$(ProjectDir)TnbLib\snappyHexMesh\externalDisplacementMeshMover;$(ProjectDir)TnbLib\snappyHexMesh\meshRefinement;$(ProjectDir)TnbLib\snappyHexMesh\refinementFeatures;$(ProjectDir)TnbLib\snappyHexMesh\refinementSurfaces;$(ProjectDir)TnbLib\snappyHexMesh\shellSurfaces;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\layerParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\refinementParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\snapParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver;$(ProjectDir)TnbLib\snappyHexMesh\trackedParticle;$(ProjectDir)TnbLib\snappyHexMesh\module;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbParallel\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamSnappyHexMesh_EXPORT_DEFINE;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -175,8 +201,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue;$(ProjectDir)TnbLib\snappyHexMesh\externalDisplacementMeshMover;$(ProjectDir)TnbLib\snappyHexMesh\meshRefinement;$(ProjectDir)TnbLib\snappyHexMesh\refinementFeatures;$(ProjectDir)TnbLib\snappyHexMesh\refinementSurfaces;$(ProjectDir)TnbLib\snappyHexMesh\shellSurfaces;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\layerParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\refinementParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\snapParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver;$(ProjectDir)TnbLib\snappyHexMesh\trackedParticle;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbParallel\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue;$(ProjectDir)TnbLib\snappyHexMesh\externalDisplacementMeshMover;$(ProjectDir)TnbLib\snappyHexMesh\meshRefinement;$(ProjectDir)TnbLib\snappyHexMesh\refinementFeatures;$(ProjectDir)TnbLib\snappyHexMesh\refinementSurfaces;$(ProjectDir)TnbLib\snappyHexMesh\shellSurfaces;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\layerParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\refinementParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\snapParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver;$(ProjectDir)TnbLib\snappyHexMesh\trackedParticle;$(ProjectDir)TnbLib\snappyHexMesh\module;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbParallel\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamSnappyHexMesh_EXPORT_DEFINE;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -227,8 +254,9 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue;$(ProjectDir)TnbLib\snappyHexMesh\externalDisplacementMeshMover;$(ProjectDir)TnbLib\snappyHexMesh\meshRefinement;$(ProjectDir)TnbLib\snappyHexMesh\refinementFeatures;$(ProjectDir)TnbLib\snappyHexMesh\refinementSurfaces;$(ProjectDir)TnbLib\snappyHexMesh\shellSurfaces;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\layerParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\refinementParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\snapParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver;$(ProjectDir)TnbLib\snappyHexMesh\trackedParticle;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbParallel\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\snappyHexMesh\externalDisplacementMeshMover\zeroFixedValue;$(ProjectDir)TnbLib\snappyHexMesh\externalDisplacementMeshMover;$(ProjectDir)TnbLib\snappyHexMesh\meshRefinement;$(ProjectDir)TnbLib\snappyHexMesh\refinementFeatures;$(ProjectDir)TnbLib\snappyHexMesh\refinementSurfaces;$(ProjectDir)TnbLib\snappyHexMesh\shellSurfaces;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\layerParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\pointData;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\refinementParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver\snapParameters;$(ProjectDir)TnbLib\snappyHexMesh\snappyHexMeshDriver;$(ProjectDir)TnbLib\snappyHexMesh\trackedParticle;$(ProjectDir)TnbLib\snappyHexMesh\module;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbParallel\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamSnappyHexMesh_EXPORT_DEFINE;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

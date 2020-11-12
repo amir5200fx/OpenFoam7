@@ -52,7 +52,7 @@ namespace tnbLib
 
 	class trackedParticle;
 
-	Ostream& operator<<(Ostream&, const trackedParticle&);
+	FoamSnappyHexMesh_EXPORT Ostream& operator<<(Ostream&, const trackedParticle&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -121,7 +121,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		trackedParticle
+		FoamSnappyHexMesh_EXPORT trackedParticle
 		(
 			const polyMesh& mesh,
 			const barycentric& coordinates,
@@ -137,7 +137,7 @@ namespace tnbLib
 
 		//- Construct from a position and a cell, searching for the rest of the
 		//  required topology
-		trackedParticle
+		FoamSnappyHexMesh_EXPORT trackedParticle
 		(
 			const polyMesh& mesh,
 			const vector& position,
@@ -150,7 +150,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		trackedParticle
+		FoamSnappyHexMesh_EXPORT trackedParticle
 		(
 			const polyMesh& mesh,
 			Istream& is,
@@ -241,28 +241,28 @@ namespace tnbLib
 		// Tracking
 
 			//- Track all particles to their end point
-		bool move(Cloud<trackedParticle>&, trackingData&, const scalar);
+		FoamSnappyHexMesh_EXPORT bool move(Cloud<trackedParticle>&, trackingData&, const scalar);
 
 		//- Overridable function to handle the particle hitting a patch
 		//  Executed before other patch-hitting functions
-		bool hitPatch(Cloud<trackedParticle>&, trackingData&);
+		FoamSnappyHexMesh_EXPORT bool hitPatch(Cloud<trackedParticle>&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a wedge
-		void hitWedgePatch(Cloud<trackedParticle>&, trackingData&);
+		FoamSnappyHexMesh_EXPORT void hitWedgePatch(Cloud<trackedParticle>&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a
 		//  symmetry plane
-		void hitSymmetryPlanePatch(Cloud<trackedParticle>&, trackingData&);
+		FoamSnappyHexMesh_EXPORT void hitSymmetryPlanePatch(Cloud<trackedParticle>&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a
 		//  symmetry patch
-		void hitSymmetryPatch(Cloud<trackedParticle>&, trackingData&);
+		FoamSnappyHexMesh_EXPORT void hitSymmetryPatch(Cloud<trackedParticle>&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a cyclic
-		void hitCyclicPatch(Cloud<trackedParticle>&, trackingData&);
+		FoamSnappyHexMesh_EXPORT void hitCyclicPatch(Cloud<trackedParticle>&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a cyclicAMI
-		void hitCyclicAMIPatch
+		FoamSnappyHexMesh_EXPORT void hitCyclicAMIPatch
 		(
 			const vector&,
 			const scalar,
@@ -271,7 +271,7 @@ namespace tnbLib
 		);
 
 		//- Overridable function to handle the particle hitting a cyclicACMI
-		void hitCyclicACMIPatch
+		FoamSnappyHexMesh_EXPORT void hitCyclicACMIPatch
 		(
 			const vector&,
 			const scalar,
@@ -281,7 +281,7 @@ namespace tnbLib
 
 		//- Overridable function to handle the particle hitting a
 		//  cyclicRepeatAMI
-		void hitCyclicRepeatAMIPatch
+		FoamSnappyHexMesh_EXPORT void hitCyclicRepeatAMIPatch
 		(
 			const vector&,
 			const scalar,
@@ -291,19 +291,19 @@ namespace tnbLib
 
 		//- Overridable function to handle the particle hitting a
 		//- processorPatch
-		void hitProcessorPatch(Cloud<trackedParticle>&, trackingData&);
+		FoamSnappyHexMesh_EXPORT void hitProcessorPatch(Cloud<trackedParticle>&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a wallPatch
-		void hitWallPatch(Cloud<trackedParticle>&, trackingData&);
+		FoamSnappyHexMesh_EXPORT void hitWallPatch(Cloud<trackedParticle>&, trackingData&);
 
 		//- Convert processor patch addressing to the global equivalents
 		//  and set the celli to the face-neighbour
-		void correctAfterParallelTransfer(const label, trackingData&);
+		FoamSnappyHexMesh_EXPORT void correctAfterParallelTransfer(const label, trackingData&);
 
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const trackedParticle&);
+		friend FoamSnappyHexMesh_EXPORT Ostream& operator<<(Ostream&, const trackedParticle&);
 	};
 
 

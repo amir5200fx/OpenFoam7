@@ -1739,7 +1739,7 @@ bool tnbLib::refinementHistory::writeData(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, refinementHistory& rh)
+FoamDynamicMesh_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, refinementHistory& rh)
 {
 	rh.freeSplitCells_.clearStorage();
 
@@ -1752,7 +1752,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, refinementHistory& rh)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const refinementHistory& rh)
+FoamDynamicMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const refinementHistory& rh)
 {
 	const_cast<refinementHistory&>(rh).compact();
 

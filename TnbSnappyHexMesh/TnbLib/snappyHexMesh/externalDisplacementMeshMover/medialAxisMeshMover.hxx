@@ -97,13 +97,13 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Extract fixed-value patchfields
-		static labelList getFixedValueBCs(const pointVectorField&);
+		static FoamSnappyHexMesh_EXPORT labelList getFixedValueBCs(const pointVectorField&);
 
 		//- Extract bc types. Replace fixedValue derivatives with fixedValue
-		wordList getPatchFieldTypes(const pointVectorField& fld);
+		FoamSnappyHexMesh_EXPORT wordList getPatchFieldTypes(const pointVectorField& fld);
 
 		//- Construct patch on selected patches
-		static autoPtr<indirectPrimitivePatch> getPatch
+		static FoamSnappyHexMesh_EXPORT autoPtr<indirectPrimitivePatch> getPatch
 		(
 			const polyMesh&,
 			const labelList&
@@ -113,7 +113,7 @@ namespace tnbLib
 		// Calculation of medial axis information
 
 			//- Smooth normals on patch
-		void smoothPatchNormals
+		FoamSnappyHexMesh_EXPORT void smoothPatchNormals
 		(
 			const label nSmoothDisp,
 			const PackedBoolList& isMasterPoint,
@@ -122,7 +122,7 @@ namespace tnbLib
 		) const;
 
 		//- Smooth normals on interior
-		void smoothNormals
+		FoamSnappyHexMesh_EXPORT void smoothNormals
 		(
 			const label nSmoothDisp,
 			const PackedBoolList& isMasterPoint,
@@ -132,7 +132,7 @@ namespace tnbLib
 		) const;
 
 		//- Is mesh edge on a cusp of displacement
-		bool isMaxEdge
+		FoamSnappyHexMesh_EXPORT bool isMaxEdge
 		(
 			const List<pointData>& pointWallDist,
 			const label edgeI,
@@ -141,13 +141,13 @@ namespace tnbLib
 
 		//- Initialise medial axis. Uses pointDisplacement field only
 		//  for boundary types, not values.
-		void update(const dictionary&);
+		FoamSnappyHexMesh_EXPORT void update(const dictionary&);
 
 
 		// Calculation of mesh movement
 
 			//- Unmark extrusion at given point
-		static bool unmarkExtrusion
+		static FoamSnappyHexMesh_EXPORT bool unmarkExtrusion
 		(
 			const label patchPointi,
 			pointField& patchDisp,
@@ -155,14 +155,14 @@ namespace tnbLib
 		);
 
 		//- Synchronise extrusion
-		void syncPatchDisplacement
+		FoamSnappyHexMesh_EXPORT void syncPatchDisplacement
 		(
 			const scalarField& minThickness,
 			pointField& patchDisp,
 			List<snappyLayerDriver::extrudeMode>& extrudeStatus
 		) const;
 
-		void smoothLambdaMuDisplacement
+		FoamSnappyHexMesh_EXPORT void smoothLambdaMuDisplacement
 		(
 			const label nSmoothDisp,
 			const PackedBoolList& isMasterPoint,
@@ -170,7 +170,7 @@ namespace tnbLib
 			vectorField& displacement
 		) const;
 
-		void minSmoothField
+		FoamSnappyHexMesh_EXPORT void minSmoothField
 		(
 			const label nSmoothDisp,
 			const PackedBoolList& isMasterPoint,
@@ -180,7 +180,7 @@ namespace tnbLib
 		) const;
 
 		//- Stop layer growth at feature edges
-		void handleFeatureAngleLayerTerminations
+		FoamSnappyHexMesh_EXPORT void handleFeatureAngleLayerTerminations
 		(
 			const scalar minCos,
 			const PackedBoolList& isMasterPoint,
@@ -193,7 +193,7 @@ namespace tnbLib
 		//- Find isolated islands (points, edges and faces and layer
 		//  terminations) in the layer mesh and stop any layer growth
 		//  at these points
-		void findIsolatedRegions
+		FoamSnappyHexMesh_EXPORT void findIsolatedRegions
 		(
 			const scalar minCosLayerTermination,
 			const bool detectExtrusionIsland,
@@ -209,7 +209,7 @@ namespace tnbLib
 		//- Calculate desired displacement. Modifies per-patch displacement
 		//  and calculates displacement for whole mesh
 		//  (in pointDisplacement)
-		void calculateDisplacement
+		FoamSnappyHexMesh_EXPORT void calculateDisplacement
 		(
 			const dictionary&,
 			const scalarField& minThickness,
@@ -218,7 +218,7 @@ namespace tnbLib
 		);
 
 		//- Move mesh according to calculated displacement
-		bool shrinkMesh
+		FoamSnappyHexMesh_EXPORT bool shrinkMesh
 		(
 			const dictionary& meshQualityDict,
 			const label nAllowableErrors,
@@ -229,13 +229,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("displacementMedialAxis");
+		//TypeName("displacementMedialAxis");
+		static const char* typeName_() { return "displacementMedialAxis"; }
+		static FoamSnappyHexMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamSnappyHexMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from dictionary and displacement field
-		medialAxisMeshMover
+		FoamSnappyHexMesh_EXPORT medialAxisMeshMover
 		(
 			const dictionary& dict,
 			const List<labelPair>& baffles,
@@ -243,12 +247,12 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		medialAxisMeshMover(const medialAxisMeshMover&) = delete;
+		FoamSnappyHexMesh_EXPORT medialAxisMeshMover(const medialAxisMeshMover&) = delete;
 
 
 		// Destructor
 
-		virtual ~medialAxisMeshMover();
+		FoamSnappyHexMesh_EXPORT virtual ~medialAxisMeshMover();
 
 
 		// Member Functions
@@ -256,7 +260,7 @@ namespace tnbLib
 			//- Move mesh using current pointDisplacement boundary values.
 			//  Return true if successful (errors on checkFaces less than
 			//  allowable). Updates pointDisplacement.
-		virtual bool move
+		FoamSnappyHexMesh_EXPORT virtual bool move
 		(
 			const dictionary&,
 			const label nAllowableErrors,
@@ -264,7 +268,7 @@ namespace tnbLib
 		);
 
 		//- Update local data for geometry changes
-		virtual void movePoints(const pointField&);
+		FoamSnappyHexMesh_EXPORT virtual void movePoints(const pointField&);
 
 		//-  Update local data for topology changes
 		virtual void updateMesh(const mapPolyMesh&)
@@ -276,7 +280,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const medialAxisMeshMover&) = delete;
+		FoamSnappyHexMesh_EXPORT void operator=(const medialAxisMeshMover&) = delete;
 	};
 
 

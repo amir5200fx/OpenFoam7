@@ -56,7 +56,18 @@ namespace tnbLib
 					  Class OppositeFaceCellWaveName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(OppositeFaceCellWave);
+	//TemplateName(OppositeFaceCellWave);
+	class OppositeFaceCellWaveName
+	{
+	public:
+		OppositeFaceCellWaveName()
+		{
+		}
+
+		static const char* typeName_() { return "OppositeFaceCellWave"; }
+		static FoamRenumber_EXPORT const ::tnbLib::word typeName;
+		static FoamRenumber_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\

@@ -107,20 +107,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("filmHeightInletVelocity");
+		//TypeName("filmHeightInletVelocity");
+		static const char* typeName_() { return "filmHeightInletVelocity"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		filmHeightInletVelocityFvPatchVectorField
+		FoamLagrangian_EXPORT filmHeightInletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		filmHeightInletVelocityFvPatchVectorField
+		FoamLagrangian_EXPORT filmHeightInletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -129,7 +133,7 @@ namespace tnbLib
 
 		//- Construct by mapping given filmHeightInletVelocityFvPatchVectorField
 		//  onto a new patch
-		filmHeightInletVelocityFvPatchVectorField
+		FoamLagrangian_EXPORT filmHeightInletVelocityFvPatchVectorField
 		(
 			const filmHeightInletVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -138,7 +142,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		filmHeightInletVelocityFvPatchVectorField
+		FoamLagrangian_EXPORT filmHeightInletVelocityFvPatchVectorField
 		(
 			const filmHeightInletVelocityFvPatchVectorField&
 		);
@@ -153,7 +157,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		filmHeightInletVelocityFvPatchVectorField
+		FoamLagrangian_EXPORT filmHeightInletVelocityFvPatchVectorField
 		(
 			const filmHeightInletVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -223,15 +227,15 @@ namespace tnbLib
 
 
 		//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamLagrangian_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamLagrangian_EXPORT virtual void write(Ostream&) const;
 
 
 		// Member Operators
 
-		virtual void operator=(const fvPatchField<vector>& pvf);
+		FoamLagrangian_EXPORT virtual void operator=(const fvPatchField<vector>& pvf);
 	};
 
 

@@ -61,20 +61,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("fixedShearStress");
+		//TypeName("fixedShearStress");
+		static const char* typeName_() { return "fixedShearStress"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		fixedShearStressFvPatchVectorField
+		FoamTurbulence_EXPORT fixedShearStressFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		fixedShearStressFvPatchVectorField
+		FoamTurbulence_EXPORT fixedShearStressFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -82,7 +86,7 @@ namespace tnbLib
 		);
 
 		//- Construct by mapping given
-		fixedShearStressFvPatchVectorField
+		FoamTurbulence_EXPORT fixedShearStressFvPatchVectorField
 		(
 			const fixedShearStressFvPatchVectorField&,
 			const fvPatch&,
@@ -91,7 +95,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		fixedShearStressFvPatchVectorField
+		FoamTurbulence_EXPORT fixedShearStressFvPatchVectorField
 		(
 			const fixedShearStressFvPatchVectorField&
 		);
@@ -106,7 +110,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		fixedShearStressFvPatchVectorField
+		FoamTurbulence_EXPORT fixedShearStressFvPatchVectorField
 		(
 			const fixedShearStressFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -128,10 +132,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamTurbulence_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamTurbulence_EXPORT virtual void write(Ostream&) const;
 	};
 
 

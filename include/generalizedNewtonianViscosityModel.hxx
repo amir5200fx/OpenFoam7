@@ -72,12 +72,16 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("generalizedNewtonianViscosityModel");
+			//TypeName("generalizedNewtonianViscosityModel");
+			static const char* typeName_() { return "generalizedNewtonianViscosityModel"; }
+			static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+			static FoamTurbulence_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Declare run-time constructor selection table
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				generalizedNewtonianViscosityModel,
@@ -86,13 +90,68 @@ namespace tnbLib
 					const dictionary& viscosityProperties
 					),
 					(viscosityProperties)
-			);
+			);*/
+
+			typedef autoPtr<generalizedNewtonianViscosityModel> (*dictionaryConstructorPtr)(
+				const dictionary& viscosityProperties);
+			typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+			static FoamTurbulence_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+			static FoamTurbulence_EXPORT void constructdictionaryConstructorTables();
+			static FoamTurbulence_EXPORT void destroydictionaryConstructorTables();
+
+			template <class generalizedNewtonianViscosityModelType>
+			class adddictionaryConstructorToTable
+			{
+			public:
+				static autoPtr<generalizedNewtonianViscosityModel> New(const dictionary& viscosityProperties)
+				{
+					return autoPtr<generalizedNewtonianViscosityModel>(
+						new generalizedNewtonianViscosityModelType(viscosityProperties));
+				}
+
+				adddictionaryConstructorToTable(const word& lookup = generalizedNewtonianViscosityModelType::typeName)
+				{
+					constructdictionaryConstructorTables();
+					if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+							"generalizedNewtonianViscosityModel" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+			};
+
+			template <class generalizedNewtonianViscosityModelType>
+			class addRemovabledictionaryConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<generalizedNewtonianViscosityModel> New(const dictionary& viscosityProperties)
+				{
+					return autoPtr<generalizedNewtonianViscosityModel>(
+						new generalizedNewtonianViscosityModelType(viscosityProperties));
+				}
+
+				addRemovabledictionaryConstructorToTable(
+					const word& lookup = generalizedNewtonianViscosityModelType::typeName) : lookup_(lookup)
+				{
+					constructdictionaryConstructorTables();
+					dictionaryConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovabledictionaryConstructorToTable()
+				{
+					if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Selectors
 
 				//- Return a reference to the selected viscosity model
-			static autoPtr<generalizedNewtonianViscosityModel> New
+			static FoamTurbulence_EXPORT autoPtr<generalizedNewtonianViscosityModel> New
 			(
 				const dictionary& viscosityProperties
 			);
@@ -101,13 +160,13 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from components
-			generalizedNewtonianViscosityModel
+			FoamTurbulence_EXPORT generalizedNewtonianViscosityModel
 			(
 				const dictionary& viscosityProperties
 			);
 
 			//- Disallow default bitwise copy construction
-			generalizedNewtonianViscosityModel
+			FoamTurbulence_EXPORT generalizedNewtonianViscosityModel
 			(
 				const generalizedNewtonianViscosityModel&
 			);
@@ -127,20 +186,20 @@ namespace tnbLib
 			}
 
 			//- Return the laminar viscosity
-			virtual tmp<volScalarField> nu
+			FoamTurbulence_EXPORT virtual tmp<volScalarField> nu
 			(
 				const volScalarField& nu0,
 				const volScalarField& strainRate
 			) const = 0;
 
 			//- Read transportProperties dictionary
-			virtual bool read(const dictionary& viscosityProperties) = 0;
+			FoamTurbulence_EXPORT virtual bool read(const dictionary& viscosityProperties) = 0;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const generalizedNewtonianViscosityModel&) = delete;
+			FoamTurbulence_EXPORT void operator=(const generalizedNewtonianViscosityModel&) = delete;
 		};
 
 

@@ -74,7 +74,7 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Helper function to write the dictionary if found at location
-			bool tryDirectory
+			FoamFunctionObjects_EXPORT bool tryDirectory
 			(
 				const label dictI,
 				const word& location,
@@ -85,13 +85,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("writeDictionary");
+			//TypeName("writeDictionary");
+			static const char* typeName_() { return "writeDictionary"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			writeDictionary
+			FoamFunctionObjects_EXPORT writeDictionary
 			(
 				const word& name,
 				const Time& runTime,
@@ -99,29 +103,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			writeDictionary(const writeDictionary&) = delete;
+			FoamFunctionObjects_EXPORT writeDictionary(const writeDictionary&) = delete;
 
 
 			//- Destructor
-			virtual ~writeDictionary();
+			FoamFunctionObjects_EXPORT virtual ~writeDictionary();
 
 
 			// Member Functions
 
 				//- Read the writeDictionary data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Execute, currently does nothing
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the selected dictionaries
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const writeDictionary&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const writeDictionary&) = delete;
 		};
 
 

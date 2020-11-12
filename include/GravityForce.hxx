@@ -39,6 +39,16 @@ SourceFiles
 
 #include <ParticleForce.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamGravityForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamGravityForce_EXPORT_DEFINE
+#define FoamGravityForce_EXPORT __declspec(dllexport)
+#else
+#define FoamGravityForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -64,7 +74,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("gravity");
+		//TypeName("gravity");
+		static const char* typeName_() { return "gravity"; }
+		static FoamGravityForce_EXPORT const ::tnbLib::word typeName;
+		static FoamGravityForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

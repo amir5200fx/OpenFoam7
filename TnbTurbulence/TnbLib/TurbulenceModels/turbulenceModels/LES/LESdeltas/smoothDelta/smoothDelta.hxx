@@ -222,7 +222,7 @@ namespace tnbLib
 			// Private Member Functions
 
 				// Calculate the delta values
-			void calcDelta();
+			FoamTurbulence_EXPORT void calcDelta();
 
 			//- Fill changedFaces (with face labels) and changedFacesInfo
 			//  (with delta).
@@ -237,7 +237,7 @@ namespace tnbLib
 			//  - start from all faces where there is a jump. Since we cannot easily
 			//    determine this across coupled patches (cyclic, processor)
 			//    introduce all faces of these and let FaceCellWave sort it out.
-			void setChangedFaces
+			FoamTurbulence_EXPORT void setChangedFaces
 			(
 				const polyMesh& mesh,
 				const volScalarField& delta,
@@ -249,13 +249,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("smooth");
+			//TypeName("smooth");
+			static const char* typeName_() { return "smooth"; }
+			static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+			static FoamTurbulence_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from name, turbulenceModel and dictionary
-			smoothDelta
+			FoamTurbulence_EXPORT smoothDelta
 			(
 				const word& name,
 				const turbulenceModel& turbulence,
@@ -263,7 +267,7 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			smoothDelta(const smoothDelta&) = delete;
+			FoamTurbulence_EXPORT smoothDelta(const smoothDelta&) = delete;
 
 
 			//- Destructor
@@ -274,16 +278,16 @@ namespace tnbLib
 			// Member Functions
 
 				//- Read the LESdelta dictionary
-			virtual void read(const dictionary&);
+			FoamTurbulence_EXPORT virtual void read(const dictionary&);
 
 			// Correct values
-			virtual void correct();
+			FoamTurbulence_EXPORT virtual void correct();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const smoothDelta&) = delete;
+			FoamTurbulence_EXPORT void operator=(const smoothDelta&) = delete;
 		};
 
 

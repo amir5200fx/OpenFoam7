@@ -40,6 +40,16 @@ SourceFiles
 #include <Switch.hxx>  // added by amir
 #include <dictionary.hxx> // added by amir
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamlaminarModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamlaminarModel_EXPORT_DEFINE
+#define FoamlaminarModel_EXPORT __declspec(dllexport)
+#else
+#define FoamlaminarModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -83,12 +93,16 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName("laminar");
+		//TypeName("laminar");
+		static const char* typeName_() { return "laminar"; }
+		static FoamlaminarModel_EXPORT const ::tnbLib::word typeName;
+		static FoamlaminarModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			laminarModel,
@@ -103,7 +117,69 @@ namespace tnbLib
 				const word& propertiesName
 				),
 				(alpha, rho, U, alphaRhoPhi, phi, transport, propertiesName)
-		);
+		);*/
+
+		typedef autoPtr<laminarModel> (*dictionaryConstructorPtr)(const alphaField& alpha, const rhoField& rho,
+		                                                          const volVectorField& U,
+		                                                          const surfaceScalarField& alphaRhoPhi,
+		                                                          const surfaceScalarField& phi,
+		                                                          const transportModel& transport,
+		                                                          const word& propertiesName);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamlaminarModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamlaminarModel_EXPORT void constructdictionaryConstructorTables();
+		static void destroydictionaryConstructorTables();
+
+		template <class laminarModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<laminarModel> New(const alphaField& alpha, const rhoField& rho, const volVectorField& U,
+			                                 const surfaceScalarField& alphaRhoPhi, const surfaceScalarField& phi,
+			                                 const transportModel& transport, const word& propertiesName)
+			{
+				return autoPtr<laminarModel>(
+					new laminarModelType(alpha, rho, U, alphaRhoPhi, phi, transport, propertiesName));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = laminarModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "laminarModel" << std
+						::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class laminarModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<laminarModel> New(const alphaField& alpha, const rhoField& rho, const volVectorField& U,
+			                                 const surfaceScalarField& alphaRhoPhi, const surfaceScalarField& phi,
+			                                 const transportModel& transport, const word& propertiesName)
+			{
+				return autoPtr<laminarModel>(
+					new laminarModelType(alpha, rho, U, alphaRhoPhi, phi, transport, propertiesName));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = laminarModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

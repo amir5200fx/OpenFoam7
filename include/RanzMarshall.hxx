@@ -35,6 +35,16 @@ Description
 
 #include <HeatTransferModelTemplate.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamRanzMarshall_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamRanzMarshall_EXPORT_DEFINE
+#define FoamRanzMarshall_EXPORT __declspec(dllexport)
+#else
+#define FoamRanzMarshall_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -53,7 +63,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("RanzMarshall");
+		//TypeName("RanzMarshall");
+		static const char* typeName_() { return "RanzMarshall"; }
+		static FoamRanzMarshall_EXPORT const ::tnbLib::word typeName;
+		static FoamRanzMarshall_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

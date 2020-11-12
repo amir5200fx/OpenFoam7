@@ -86,7 +86,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Project mode names
-		static const NamedEnum<projectMode, 3> projectModeNames_;
+		static FoamFvMotionSolver_EXPORT const NamedEnum<projectMode, 3> projectModeNames_;
 
 		//- Names of surfaces
 		const dictionary surfacesDict_;
@@ -110,26 +110,30 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate displacement (w.r.t. points0()) to project onto surface
-		void calcProjection(vectorField& displacement) const;
+		FoamFvMotionSolver_EXPORT void calcProjection(vectorField& displacement) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("surfaceSlipDisplacement");
+		//TypeName("surfaceSlipDisplacement");
+		static const char* typeName_() { return "surfaceSlipDisplacement"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		surfaceSlipDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT surfaceSlipDisplacementPointPatchVectorField
 		(
 			const pointPatch&,
 			const DimensionedField<vector, pointMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		surfaceSlipDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT surfaceSlipDisplacementPointPatchVectorField
 		(
 			const pointPatch&,
 			const DimensionedField<vector, pointMesh>&,
@@ -137,7 +141,7 @@ namespace tnbLib
 		);
 
 		//- Construct by mapping given patchField<vector> onto a new patch
-		surfaceSlipDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT surfaceSlipDisplacementPointPatchVectorField
 		(
 			const surfaceSlipDisplacementPointPatchVectorField&,
 			const pointPatch&,
@@ -146,7 +150,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		surfaceSlipDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT surfaceSlipDisplacementPointPatchVectorField
 		(
 			const surfaceSlipDisplacementPointPatchVectorField&
 		);
@@ -164,7 +168,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		surfaceSlipDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT surfaceSlipDisplacementPointPatchVectorField
 		(
 			const surfaceSlipDisplacementPointPatchVectorField&,
 			const DimensionedField<vector, pointMesh>&
@@ -189,22 +193,22 @@ namespace tnbLib
 		// Member Functions
 
 			//- Surface to follow. Demand loads surfaceNames.
-		const searchableSurfaces& surfaces() const;
+		FoamFvMotionSolver_EXPORT const searchableSurfaces& surfaces() const;
 
 		//- Update the patch field
-		virtual void evaluate
+		FoamFvMotionSolver_EXPORT virtual void evaluate
 		(
 			const Pstream::commsTypes commsType = Pstream::commsTypes::blocking
 		);
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFvMotionSolver_EXPORT virtual void write(Ostream&) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=
+		FoamFvMotionSolver_EXPORT void operator=
 			(
 				const surfaceSlipDisplacementPointPatchVectorField&
 				) = delete;

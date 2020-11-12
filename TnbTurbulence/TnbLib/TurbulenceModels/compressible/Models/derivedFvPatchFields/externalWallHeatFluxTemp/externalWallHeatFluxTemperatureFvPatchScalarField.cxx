@@ -1,3 +1,5 @@
+#define FoamNamedEnum_EXPORT_DEFINE
+
 #include <externalWallHeatFluxTemperatureFvPatchScalarField.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>

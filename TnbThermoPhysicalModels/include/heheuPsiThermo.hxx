@@ -39,6 +39,16 @@ SourceFiles
 #include <heThermo.hxx>
 #include <typeInfo.hxx>  // added by amir
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamheheuPsiThermo_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamheheuPsiThermo_EXPORT_DEFINE
+#define FoamheheuPsiThermo_EXPORT __declspec(dllexport)
+#else
+#define FoamheheuPsiThermo_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -73,7 +83,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("heheuPsiThermo");
+		//TypeName("heheuPsiThermo");
+		static const char* typeName_() { return "heheuPsiThermo"; }
+		static FoamheheuPsiThermo_EXPORT const ::tnbLib::word typeName;
+		static FoamheheuPsiThermo_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

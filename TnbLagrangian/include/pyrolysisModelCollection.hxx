@@ -66,47 +66,51 @@ namespace tnbLib
 			public:
 
 				// Runtime type information
-				TypeName("pyrolysisModelCollection");
+				//TypeName("pyrolysisModelCollection");
+				static const char* typeName_() { return "pyrolysisModelCollection"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from mesh
-				pyrolysisModelCollection(const fvMesh&);
+				FoamLagrangian_EXPORT pyrolysisModelCollection(const fvMesh&);
 
 				//- Disallow default bitwise copy construction
-				pyrolysisModelCollection(const pyrolysisModelCollection&) = delete;
+				FoamLagrangian_EXPORT pyrolysisModelCollection(const pyrolysisModelCollection&) = delete;
 
 
 				//- Destructor
-				virtual ~pyrolysisModelCollection();
+				FoamLagrangian_EXPORT virtual ~pyrolysisModelCollection();
 
 
 				// Member Functions
 
 					//- Pre-evolve regions
-				virtual void preEvolveRegion();
+				FoamLagrangian_EXPORT virtual void preEvolveRegion();
 
 				//- Evolve the pyrolysis equation regions
-				virtual void evolveRegion();
+				FoamLagrangian_EXPORT virtual void evolveRegion();
 
 				//- Evolve regions
-				virtual void evolve();
+				FoamLagrangian_EXPORT virtual void evolve();
 
 				//- Provide some feedback from pyrolysis regions
-				virtual void info();
+				FoamLagrangian_EXPORT virtual void info();
 
 				//- Return max diffusivity allowed in the solid
-				virtual scalar maxDiff() const;
+				FoamLagrangian_EXPORT virtual scalar maxDiff() const;
 
 				//- Mean diffusion number of the solid regions
-				virtual scalar solidRegionDiffNo() const;
+				FoamLagrangian_EXPORT virtual scalar solidRegionDiffNo() const;
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const pyrolysisModelCollection&) = delete;
+				FoamLagrangian_EXPORT void operator=(const pyrolysisModelCollection&) = delete;
 			};
 
 

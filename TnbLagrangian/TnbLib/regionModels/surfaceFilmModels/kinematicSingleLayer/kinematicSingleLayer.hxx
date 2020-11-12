@@ -222,37 +222,37 @@ namespace tnbLib
 				// Protected member functions
 
 					//- Read control parameters from dictionary
-				virtual bool read();
+				FoamLagrangian_EXPORT virtual bool read();
 
 				//- Correct the thermo fields
-				virtual void correctThermoFields();
+				FoamLagrangian_EXPORT virtual void correctThermoFields();
 
 				//- Reset source term fields
-				virtual void resetPrimaryRegionSourceTerms();
+				FoamLagrangian_EXPORT virtual void resetPrimaryRegionSourceTerms();
 
 				//- Transfer thermo fields from the primary region to the film region
-				virtual void transferPrimaryRegionThermoFields();
+				FoamLagrangian_EXPORT virtual void transferPrimaryRegionThermoFields();
 
 				//- Transfer source fields from the primary region to the film region
-				virtual void transferPrimaryRegionSourceFields();
+				FoamLagrangian_EXPORT virtual void transferPrimaryRegionSourceFields();
 
 				//- Explicit pressure source contribution
-				virtual tmp<volScalarField> pu();
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> pu();
 
 				//- Implicit pressure source coefficient
-				virtual tmp<volScalarField> pp();
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> pp();
 
 				//- Correct film coverage field
-				virtual void correctAlpha();
+				FoamLagrangian_EXPORT virtual void correctAlpha();
 
 				//- Update the film sub-models
-				virtual void updateSubmodels();
+				FoamLagrangian_EXPORT virtual void updateSubmodels();
 
 				//- Continuity check
-				virtual void continuityCheck();
+				FoamLagrangian_EXPORT virtual void continuityCheck();
 
 				//- Update film surface velocities
-				virtual void updateSurfaceVelocities();
+				FoamLagrangian_EXPORT virtual void updateSurfaceVelocities();
 
 				//- Constrain a film region master/slave boundaries of a field to a
 				//  given value
@@ -267,17 +267,17 @@ namespace tnbLib
 				// Equations
 
 					//- Solve continuity equation
-				virtual void solveContinuity();
+				FoamLagrangian_EXPORT virtual void solveContinuity();
 
 				//- Solve for film velocity
-				virtual tmp<fvVectorMatrix> solveMomentum
+				FoamLagrangian_EXPORT virtual tmp<fvVectorMatrix> solveMomentum
 				(
 					const volScalarField& pu,
 					const volScalarField& pp
 				);
 
 				//- Solve coupled velocity-thickness equations
-				virtual void solveThickness
+				FoamLagrangian_EXPORT virtual void solveThickness
 				(
 					const volScalarField& pu,
 					const volScalarField& pp,
@@ -288,13 +288,17 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("kinematicSingleLayer");
+				//TypeName("kinematicSingleLayer");
+				static const char* typeName_() { return "kinematicSingleLayer"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				kinematicSingleLayer
+				FoamLagrangian_EXPORT kinematicSingleLayer
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -304,11 +308,11 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				kinematicSingleLayer(const kinematicSingleLayer&) = delete;
+				FoamLagrangian_EXPORT kinematicSingleLayer(const kinematicSingleLayer&) = delete;
 
 
 				//- Destructor
-				virtual ~kinematicSingleLayer();
+				FoamLagrangian_EXPORT virtual ~kinematicSingleLayer();
 
 
 				// Member Functions
@@ -316,7 +320,7 @@ namespace tnbLib
 					// Solution parameters
 
 						//- Courant number evaluation
-				virtual scalar CourantNumber() const;
+				FoamLagrangian_EXPORT virtual scalar CourantNumber() const;
 
 				//- Return the momentum predictor
 				inline const Switch& momentumPredictor() const;
@@ -352,58 +356,58 @@ namespace tnbLib
 				inline const volScalarField& alpha() const;
 
 				//- Return the film velocity [m/s]
-				virtual const volVectorField& U() const;
+				FoamLagrangian_EXPORT virtual const volVectorField& U() const;
 
 				//- Return the film surface velocity [m/s]
-				virtual const volVectorField& Us() const;
+				FoamLagrangian_EXPORT virtual const volVectorField& Us() const;
 
 				//- Return the film wall velocity [m/s]
-				virtual const volVectorField& Uw() const;
+				FoamLagrangian_EXPORT virtual const volVectorField& Uw() const;
 
 				//- Return the film thickness*density (helper field) [kg/m^3]
-				virtual const volScalarField& deltaRho() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& deltaRho() const;
 
 				//- Return the film flux [kg m/s]
-				virtual const surfaceScalarField& phi() const;
+				FoamLagrangian_EXPORT virtual const surfaceScalarField& phi() const;
 
 				//- Return the film density [kg/m^3]
-				virtual const volScalarField& rho() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& rho() const;
 
 				//- Return the film mean temperature [K]
-				virtual const volScalarField& T() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& T() const;
 
 				//- Return the film surface temperature [K]
-				virtual const volScalarField& Ts() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& Ts() const;
 
 				//- Return the film wall temperature [K]
-				virtual const volScalarField& Tw() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& Tw() const;
 
 				//- Return the film surface enthalpy [J/kg]
-				virtual const volScalarField& hs() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& hs() const;
 
 				//- Return the film specific heat capacity [J/kg/K]
-				virtual const volScalarField& Cp() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& Cp() const;
 
 				//- Return the film thermal conductivity [W/m/K]
-				virtual const volScalarField& kappa() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& kappa() const;
 
 
 				// Transfer fields - to the primary region
 
 					//- Return mass transfer source - Eulerian phase only
-				virtual tmp<volScalarField> primaryMassTrans() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> primaryMassTrans() const;
 
 				//- Return the film mass available for transfer to cloud
-				virtual const volScalarField& cloudMassTrans() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& cloudMassTrans() const;
 
 				//- Return the parcel diameters originating from film to cloud
-				virtual const volScalarField& cloudDiameterTrans() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& cloudDiameterTrans() const;
 
 
 				// External helper functions
 
 					//- External hook to add sources to the film
-				virtual void addSources
+				FoamLagrangian_EXPORT virtual void addSources
 				(
 					const label patchi,            // patchi on primary region
 					const label facei,             // facei of patchi
@@ -501,10 +505,10 @@ namespace tnbLib
 				// Evolution
 
 					//- Pre-evolve film hook
-				virtual void preEvolveRegion();
+				FoamLagrangian_EXPORT virtual void preEvolveRegion();
 
 				//- Evolve the film equations
-				virtual void evolveRegion();
+				FoamLagrangian_EXPORT virtual void evolveRegion();
 
 
 				// Source fields
@@ -512,28 +516,28 @@ namespace tnbLib
 					// Mapped into primary region
 
 						//- Return total mass source - Eulerian phase only
-				virtual tmp<volScalarField::Internal> Srho() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField::Internal> Srho() const;
 
 				//- Return mass source for specie i - Eulerian phase only
-				virtual tmp<volScalarField::Internal> Srho
+				FoamLagrangian_EXPORT virtual tmp<volScalarField::Internal> Srho
 				(
 					const label i
 				) const;
 
 				//- Return enthalpy source - Eulerian phase only
-				virtual tmp<volScalarField::Internal> Sh() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField::Internal> Sh() const;
 
 
 				// I-O
 
 					//- Provide some feedback
-				virtual void info();
+				FoamLagrangian_EXPORT virtual void info();
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const kinematicSingleLayer&) = delete;
+				FoamLagrangian_EXPORT void operator=(const kinematicSingleLayer&) = delete;
 			};
 
 

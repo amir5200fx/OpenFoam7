@@ -58,17 +58,21 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("none");
+				//TypeName("none");
+				static const char* typeName_() { return "none"; }
+				static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+				static FoamRadiationModels_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				noSoot(const dictionary& dict, const fvMesh& mesh, const word&);
+				FoamRadiationModels_EXPORT noSoot(const dictionary& dict, const fvMesh& mesh, const word&);
 
 
 				//- Destructor
-				virtual ~noSoot();
+				FoamRadiationModels_EXPORT virtual ~noSoot();
 
 
 				// Member Functions
@@ -76,12 +80,12 @@ namespace tnbLib
 					// Edit
 
 						//- Main update/correction routine
-				void correct();
+				FoamRadiationModels_EXPORT void correct();
 
 				// Access
 
 					//- Return Ysoot
-				const volScalarField& soot() const;
+				FoamRadiationModels_EXPORT const volScalarField& soot() const;
 			};
 
 

@@ -62,20 +62,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("file");
+		//TypeName("file");
+		static const char* typeName_() { return "file"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct for the given fvMesh and data Istream
-		fileDiffusivity(const fvMesh& mesh, Istream& mdData);
+		FoamFvMotionSolver_EXPORT fileDiffusivity(const fvMesh& mesh, Istream& mdData);
 
 		//- Disallow default bitwise copy construction
-		fileDiffusivity(const fileDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT fileDiffusivity(const fileDiffusivity&) = delete;
 
 
 		//- Destructor
-		virtual ~fileDiffusivity();
+		FoamFvMotionSolver_EXPORT virtual ~fileDiffusivity();
 
 
 		// Member Functions
@@ -88,7 +92,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const fileDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT void operator=(const fileDiffusivity&) = delete;
 
 		//- Return diffusivity field
 		virtual tmp<surfaceScalarField> operator()() const

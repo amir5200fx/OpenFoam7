@@ -71,12 +71,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("externalDisplacementMeshMover");
+		//TypeName("externalDisplacementMeshMover");
+		static const char* typeName_() { return "externalDisplacementMeshMover"; }
+		static FoamSnappyHexMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamSnappyHexMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time New selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			externalDisplacementMeshMover,
@@ -87,14 +91,71 @@ namespace tnbLib
 				pointVectorField& pointDisplacement
 				),
 				(dict, baffles, pointDisplacement)
-		);
+		);*/
+
+		typedef autoPtr<externalDisplacementMeshMover> (*dictionaryConstructorPtr)(
+			const dictionary& dict, const List<labelPair>& baffles, pointVectorField& pointDisplacement);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamSnappyHexMesh_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamSnappyHexMesh_EXPORT void constructdictionaryConstructorTables();
+		static FoamSnappyHexMesh_EXPORT void destroydictionaryConstructorTables();
+
+		template <class externalDisplacementMeshMoverType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<externalDisplacementMeshMover> New(const dictionary& dict, const List<labelPair>& baffles,
+			                                                  pointVectorField& pointDisplacement)
+			{
+				return autoPtr<externalDisplacementMeshMover>(
+					new externalDisplacementMeshMoverType(dict, baffles, pointDisplacement));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = externalDisplacementMeshMoverType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"externalDisplacementMeshMover" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class externalDisplacementMeshMoverType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<externalDisplacementMeshMover> New(const dictionary& dict, const List<labelPair>& baffles,
+			                                                  pointVectorField& pointDisplacement)
+			{
+				return autoPtr<externalDisplacementMeshMover>(
+					new externalDisplacementMeshMoverType(dict, baffles, pointDisplacement));
+			}
+
+			addRemovabledictionaryConstructorToTable(
+				const word& lookup = externalDisplacementMeshMoverType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors
 
 			//- Construct from dictionary and displacement field. Dictionary is
 			//  allowed to go out of scope!
-		externalDisplacementMeshMover
+		FoamSnappyHexMesh_EXPORT externalDisplacementMeshMover
 		(
 			const dictionary& dict,
 			const List<labelPair>& baffles,
@@ -102,7 +163,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		externalDisplacementMeshMover
+		FoamSnappyHexMesh_EXPORT externalDisplacementMeshMover
 		(
 			const externalDisplacementMeshMover&
 		);
@@ -111,7 +172,7 @@ namespace tnbLib
 		// Selectors
 
 			//- Return a reference to the selected meshMover model
-		static autoPtr<externalDisplacementMeshMover> New
+		static FoamSnappyHexMesh_EXPORT autoPtr<externalDisplacementMeshMover> New
 		(
 			const word& type,
 			const dictionary& dict,
@@ -121,7 +182,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~externalDisplacementMeshMover();
+		FoamSnappyHexMesh_EXPORT virtual ~externalDisplacementMeshMover();
 
 
 		// Member Functions
@@ -157,7 +218,7 @@ namespace tnbLib
 			//  and current dictionary settings. Return true if successful
 			//  (errors  on checkFaces less than allowable). Updates
 			//  pointDisplacement.
-		virtual bool move
+		FoamSnappyHexMesh_EXPORT virtual bool move
 		(
 			const dictionary&,
 			const label nAllowableErrors,
@@ -165,16 +226,16 @@ namespace tnbLib
 		) = 0;
 
 		//- Update local data for geometry changes
-		virtual void movePoints(const pointField&);
+		FoamSnappyHexMesh_EXPORT virtual void movePoints(const pointField&);
 
 		//-  Update local data for topology changes
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamSnappyHexMesh_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const externalDisplacementMeshMover&) = delete;
+		FoamSnappyHexMesh_EXPORT void operator=(const externalDisplacementMeshMover&) = delete;
 	};
 
 

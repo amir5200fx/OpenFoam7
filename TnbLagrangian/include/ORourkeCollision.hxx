@@ -39,6 +39,16 @@ Description
 
 #include <Switch.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamORourkeCollision_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamORourkeCollision_EXPORT_DEFINE
+#define FoamORourkeCollision_EXPORT __declspec(dllexport)
+#else
+#define FoamORourkeCollision_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -98,7 +108,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("ORourke");
+		//TypeName("ORourke");
+		static const char* typeName_() { return "ORourke"; }
+		static FoamORourkeCollision_EXPORT const ::tnbLib::word typeName;
+		static FoamORourkeCollision_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -1,3 +1,5 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <basicKinematicParcel.hxx>
 
 #include <CloudTemplate.hxx>

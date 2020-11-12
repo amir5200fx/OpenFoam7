@@ -39,6 +39,16 @@ SourceFiles
 
 #include <CompositionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamNoComposition_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNoComposition_EXPORT_DEFINE
+#define FoamNoComposition_EXPORT __declspec(dllexport)
+#else
+#define FoamNoComposition_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -56,7 +66,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamNoComposition_EXPORT const ::tnbLib::word typeName;
+		static FoamNoComposition_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

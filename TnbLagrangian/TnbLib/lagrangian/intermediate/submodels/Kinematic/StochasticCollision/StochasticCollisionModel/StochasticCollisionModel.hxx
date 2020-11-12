@@ -42,40 +42,15 @@ SourceFiles
 #include <runTimeSelectionTables.hxx>
 #include <CloudSubModelBase.hxx>
 
-/*---------------------------------------------------------------------------*\
-  =========                 |
-  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
-   \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
-	 \\/     M anipulation  |
--------------------------------------------------------------------------------
-License
-	This file is part of OpenFOAM.
-
-	OpenFOAM is free software: you can redistribute it and/or modify it
-	under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.
-
-	OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
-	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-	FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
-	for more details.
-
-	You should have received a copy of the GNU General Public License
-	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
-
-Class
-	tnbLib::StochasticCollisionModel
-
-Description
-	Templated stochastic collision model class
-
-SourceFiles
-	StochasticCollisionModel.C
-	StochasticCollisionModelNew.C
-
-\*---------------------------------------------------------------------------*/
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamStochasticCollisionModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamStochasticCollisionModel_EXPORT_DEFINE
+#define FoamStochasticCollisionModel_EXPORT __declspec(dllexport)
+#else
+#define FoamStochasticCollisionModel_EXPORT __declspec(dllimport)
+#endif
+#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -104,10 +79,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("collisionModel");
+		//TypeName("collisionModel");
+		static const char* typeName_() { return "collisionModel"; }
+		static FoamStochasticCollisionModel_EXPORT const ::tnbLib::word typeName;
+		static FoamStochasticCollisionModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			StochasticCollisionModel,
@@ -117,7 +96,59 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<StochasticCollisionModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamStochasticCollisionModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamStochasticCollisionModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamStochasticCollisionModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class StochasticCollisionModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<StochasticCollisionModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<StochasticCollisionModel>(new StochasticCollisionModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = StochasticCollisionModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"StochasticCollisionModel" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class StochasticCollisionModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<StochasticCollisionModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<StochasticCollisionModel>(new StochasticCollisionModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(
+				const word& lookup = StochasticCollisionModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

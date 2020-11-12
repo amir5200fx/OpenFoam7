@@ -64,30 +64,30 @@ namespace tnbLib
 		scalar V_;
 
 		//- Tolerance used in volume overlap calculations
-		static scalar tolerance_;
+		static FoamSampling_EXPORT scalar tolerance_;
 
 
 		// Protected Member Functions
 
 			//- Return src cell IDs for the overlap region
-		labelList maskCells() const;
+		FoamSampling_EXPORT labelList maskCells() const;
 
 		//- Return the true if cells intersect
-		virtual bool intersect
+		FoamSampling_EXPORT virtual bool intersect
 		(
 			const label srcCelli,
 			const label tgtCelli
 		) const;
 
 		//- Return the intersection volume between two cells
-		virtual scalar interVol
+		FoamSampling_EXPORT virtual scalar interVol
 		(
 			const label srcCelli,
 			const label tgtCelli
 		) const;
 
 		//- Append target cell neihgbour cells to cellIDs list
-		virtual void appendNbrCells
+		FoamSampling_EXPORT virtual void appendNbrCells
 		(
 			const label tgtCelli,
 			const polyMesh& mesh,
@@ -95,7 +95,7 @@ namespace tnbLib
 			DynamicList<label>& nbrTgtCellIDs
 		) const;
 
-		virtual bool initialise
+		FoamSampling_EXPORT virtual bool initialise
 		(
 			labelListList& srcToTgtAddr,
 			scalarListList& srcToTgtWght,
@@ -107,10 +107,14 @@ namespace tnbLib
 	public:
 
 		//- Run-time type information
-		TypeName("meshToMeshMethod");
+		//TypeName("meshToMeshMethod");
+		static const char* typeName_() { return "meshToMeshMethod"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			meshToMeshMethod,
@@ -120,19 +124,71 @@ namespace tnbLib
 				const polyMesh& tgt
 				),
 				(src, tgt)
-		);
+		);*/
+		
+		typedef autoPtr<meshToMeshMethod> (*componentsConstructorPtr)(const polyMesh& src, const polyMesh& tgt);
+		typedef HashTable<componentsConstructorPtr, word, string::hash> componentsConstructorTable;
+		static FoamSampling_EXPORT componentsConstructorTable* componentsConstructorTablePtr_;
+		static FoamSampling_EXPORT void constructcomponentsConstructorTables();
+		static FoamSampling_EXPORT void destroycomponentsConstructorTables();
+
+		template <class meshToMeshMethodType>
+		class addcomponentsConstructorToTable
+		{
+		public:
+			static autoPtr<meshToMeshMethod> New(const polyMesh& src, const polyMesh& tgt)
+			{
+				return autoPtr<meshToMeshMethod>(new meshToMeshMethodType(src, tgt));
+			}
+
+			addcomponentsConstructorToTable(const word& lookup = meshToMeshMethodType::typeName)
+			{
+				constructcomponentsConstructorTables();
+				if (!componentsConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "meshToMeshMethod" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addcomponentsConstructorToTable() { destroycomponentsConstructorTables(); }
+		};
+
+		template <class meshToMeshMethodType>
+		class addRemovablecomponentsConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<meshToMeshMethod> New(const polyMesh& src, const polyMesh& tgt)
+			{
+				return autoPtr<meshToMeshMethod>(new meshToMeshMethodType(src, tgt));
+			}
+
+			addRemovablecomponentsConstructorToTable(const word& lookup = meshToMeshMethodType::typeName) : lookup_(
+				lookup)
+			{
+				constructcomponentsConstructorTables();
+				componentsConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablecomponentsConstructorToTable()
+			{
+				if (componentsConstructorTablePtr_) { componentsConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 		// Constructors
 
 			//- Construct from source and target meshes
-		meshToMeshMethod(const polyMesh& src, const polyMesh& tgt);
+		FoamSampling_EXPORT meshToMeshMethod(const polyMesh& src, const polyMesh& tgt);
 
 		//- Disallow default bitwise copy construction
-		meshToMeshMethod(const meshToMeshMethod&) = delete;
+		FoamSampling_EXPORT meshToMeshMethod(const meshToMeshMethod&) = delete;
 
 
 		//- Selector
-		static autoPtr<meshToMeshMethod> New
+		static FoamSampling_EXPORT autoPtr<meshToMeshMethod> New
 		(
 			const word& methodName,
 			const polyMesh& src,
@@ -141,7 +197,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~meshToMeshMethod();
+		FoamSampling_EXPORT virtual ~meshToMeshMethod();
 
 
 		// Member Functions
@@ -149,7 +205,7 @@ namespace tnbLib
 			// Evaluate
 
 				//- Calculate addressing and weights
-		virtual void calculate
+		FoamSampling_EXPORT virtual void calculate
 		(
 			labelListList& srcToTgtAddr,
 			scalarListList& srcToTgtWght,
@@ -173,7 +229,7 @@ namespace tnbLib
 		// Check
 
 			//- Write the connectivity (debugging)
-		void writeConnectivity
+		FoamSampling_EXPORT void writeConnectivity
 		(
 			const polyMesh& mesh1,
 			const polyMesh& mesh2,
@@ -184,7 +240,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const meshToMeshMethod&) = delete;
+		FoamSampling_EXPORT void operator=(const meshToMeshMethod&) = delete;
 	};
 
 

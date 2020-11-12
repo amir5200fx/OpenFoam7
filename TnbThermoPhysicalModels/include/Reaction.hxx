@@ -47,6 +47,16 @@ SourceFiles
 #include <typeInfo.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamReaction_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamReaction_EXPORT_DEFINE
+#define FoamReaction_EXPORT __declspec(dllexport)
+#else
+#define FoamReaction_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -113,12 +123,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("Reaction");
+		//TypeName("Reaction");
+		static const char* typeName_() { return "Reaction"; }
+		static FoamReaction_EXPORT const ::tnbLib::word typeName;
+		static FoamReaction_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			Reaction,
@@ -129,7 +143,62 @@ namespace tnbLib
 				const dictionary& dict
 				),
 				(species, thermoDatabase, dict)
-		);
+		);*/
+
+		typedef autoPtr<Reaction> (*dictionaryConstructorPtr)(const speciesTable& species,
+		                                                      const HashPtrTable<ReactionThermo>& thermoDatabase,
+		                                                      const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamReaction_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamReaction_EXPORT void constructdictionaryConstructorTables();
+		static FoamReaction_EXPORT void destroydictionaryConstructorTables();
+
+		template <class ReactionType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<Reaction> New(const speciesTable& species,
+			                             const HashPtrTable<ReactionThermo>& thermoDatabase, const dictionary& dict)
+			{
+				return autoPtr<Reaction>(new ReactionType(species, thermoDatabase, dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = ReactionType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "Reaction" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class ReactionType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<Reaction> New(const speciesTable& species,
+			                             const HashPtrTable<ReactionThermo>& thermoDatabase, const dictionary& dict)
+			{
+				return autoPtr<Reaction>(new ReactionType(species, thermoDatabase, dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = ReactionType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

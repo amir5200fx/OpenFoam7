@@ -37,6 +37,16 @@ Description
 
 #include <DispersionRASModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamGradientDispersionRAS_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamGradientDispersionRAS_EXPORT_DEFINE
+#define FoamGradientDispersionRAS_EXPORT __declspec(dllexport)
+#else
+#define FoamGradientDispersionRAS_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -67,7 +77,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("gradientDispersionRAS");
+		//TypeName("gradientDispersionRAS");
+		static const char* typeName_() { return "gradientDispersionRAS"; }
+		static FoamGradientDispersionRAS_EXPORT const ::tnbLib::word typeName;
+		static FoamGradientDispersionRAS_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

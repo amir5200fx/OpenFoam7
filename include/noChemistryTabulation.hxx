@@ -34,6 +34,16 @@ Description
 
 #include <chemistryTabulationMethod.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamnoChemistryTabulationMethod_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamnoChemistryTabulationMethod_EXPORT_DEFINE
+#define FoamnoChemistryTabulationMethod_EXPORT __declspec(dllexport)
+#else
+#define FoamnoChemistryTabulationMethod_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 namespace tnbLib
 {
 	namespace chemistryTabulationMethods
@@ -51,7 +61,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("none");
+			//TypeName("none");
+			static const char* typeName_() { return "none"; }
+			static FoamnoChemistryTabulationMethod_EXPORT const ::tnbLib::word typeName;
+			static FoamnoChemistryTabulationMethod_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 

@@ -81,13 +81,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("patchInternalField");
+			//TypeName("patchInternalField");
+			static const char* typeName_() { return "patchInternalField"; }
+			static FoamSampling_EXPORT const ::tnbLib::word typeName;
+			static FoamSampling_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from dictionary
-			patchInternalField
+			FoamSampling_EXPORT patchInternalField
 			(
 				const word& name,
 				const polyMesh& mesh,
@@ -96,7 +100,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~patchInternalField();
+			FoamSampling_EXPORT virtual ~patchInternalField();
 
 
 			// Member Functions
@@ -104,31 +108,31 @@ namespace tnbLib
 				// Sample
 
 					//- Sample field on surface
-			virtual tmp<scalarField> sample
+			FoamSampling_EXPORT virtual tmp<scalarField> sample
 			(
 				const volScalarField&
 			) const;
 
 			//- Sample field on surface
-			virtual tmp<vectorField> sample
+			FoamSampling_EXPORT virtual tmp<vectorField> sample
 			(
 				const volVectorField&
 			) const;
 
 			//- Sample field on surface
-			virtual tmp<sphericalTensorField> sample
+			FoamSampling_EXPORT virtual tmp<sphericalTensorField> sample
 			(
 				const volSphericalTensorField&
 			) const;
 
 			//- Sample field on surface
-			virtual tmp<symmTensorField> sample
+			FoamSampling_EXPORT virtual tmp<symmTensorField> sample
 			(
 				const volSymmTensorField&
 			) const;
 
 			//- Sample field on surface
-			virtual tmp<tensorField> sample
+			FoamSampling_EXPORT virtual tmp<tensorField> sample
 			(
 				const volTensorField&
 			) const;
@@ -137,38 +141,38 @@ namespace tnbLib
 			// Interpolate
 
 				//- Interpolate field on surface
-			virtual tmp<scalarField> interpolate
+			FoamSampling_EXPORT virtual tmp<scalarField> interpolate
 			(
 				const interpolation<scalar>&
 			) const;
 
 			//- Interpolate field on surface
-			virtual tmp<vectorField> interpolate
+			FoamSampling_EXPORT virtual tmp<vectorField> interpolate
 			(
 				const interpolation<vector>&
 			) const;
 
 			//- Interpolate field on surface
-			virtual tmp<sphericalTensorField> interpolate
+			FoamSampling_EXPORT virtual tmp<sphericalTensorField> interpolate
 			(
 				const interpolation<sphericalTensor>&
 			) const;
 
 			//- Interpolate field on surface
-			virtual tmp<symmTensorField> interpolate
+			FoamSampling_EXPORT virtual tmp<symmTensorField> interpolate
 			(
 				const interpolation<symmTensor>&
 			) const;
 
 			//- Interpolate field on surface
-			virtual tmp<tensorField> interpolate
+			FoamSampling_EXPORT virtual tmp<tensorField> interpolate
 			(
 				const interpolation<tensor>&
 			) const;
 
 
 			//- Write
-			virtual void print(Ostream&) const;
+			FoamSampling_EXPORT virtual void print(Ostream&) const;
 		};
 
 

@@ -56,6 +56,16 @@ SourceFiles
 #include <vector.hxx>
 #include <TimeFunction1.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamInjectionModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamInjectionModel_EXPORT_DEFINE
+#define FoamInjectionModel_EXPORT __declspec(dllexport)
+#else
+#define FoamInjectionModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -182,10 +192,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("injectionModel");
+		//TypeName("injectionModel");
+		static const char* typeName_() { return "injectionModel"; }
+		static FoamInjectionModel_EXPORT const ::tnbLib::word typeName;
+		static FoamInjectionModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			InjectionModel,
@@ -196,7 +210,60 @@ namespace tnbLib
 				const word& modelType
 				),
 				(dict, owner, modelType)
-		);
+		);*/
+		
+		typedef autoPtr<InjectionModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner,
+		                                                            const word& modelType);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamInjectionModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamInjectionModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamInjectionModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class InjectionModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<InjectionModel> New(const dictionary& dict, CloudType& owner, const word& modelType)
+			{
+				return autoPtr<InjectionModel>(new InjectionModelType(dict, owner, modelType));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = InjectionModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "InjectionModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class InjectionModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<InjectionModel> New(const dictionary& dict, CloudType& owner, const word& modelType)
+			{
+				return autoPtr<InjectionModel>(new InjectionModelType(dict, owner, modelType));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = InjectionModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

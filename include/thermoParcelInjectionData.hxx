@@ -48,13 +48,13 @@ namespace tnbLib
 
 	// Forward declaration of friend functions
 
-	Ostream& operator<<
+	FoamLagrangian_EXPORT Ostream& operator<<
 		(
 			Ostream&,
 			const thermoParcelInjectionData&
 			);
 
-	Istream& operator>>
+	FoamLagrangian_EXPORT Istream& operator>>
 		(
 			Istream&,
 			thermoParcelInjectionData&
@@ -82,22 +82,26 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("thermoParcelInjectionData");
+		//TypeName("thermoParcelInjectionData");
+		static const char* typeName_() { return "thermoParcelInjectionData"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Null constructor
-		thermoParcelInjectionData();
+		FoamLagrangian_EXPORT thermoParcelInjectionData();
 
 		//- Construct from dictionary
-		thermoParcelInjectionData(const dictionary& dict);
+		FoamLagrangian_EXPORT thermoParcelInjectionData(const dictionary& dict);
 
 		//- Construct from Istream
-		thermoParcelInjectionData(Istream& is);
+		FoamLagrangian_EXPORT thermoParcelInjectionData(Istream& is);
 
 
 		//-Destructor
-		virtual ~thermoParcelInjectionData();
+		FoamLagrangian_EXPORT virtual ~thermoParcelInjectionData();
 
 
 		// Access
@@ -121,14 +125,14 @@ namespace tnbLib
 		// I-O
 
 			//- Ostream operator
-		friend Ostream& operator<<
+		friend FoamLagrangian_EXPORT Ostream& operator<<
 			(
 				Ostream& os,
 				const thermoParcelInjectionData& data
 				);
 
 		//- Istream operator
-		friend Istream& operator>>
+		friend FoamLagrangian_EXPORT Istream& operator>>
 			(
 				Istream& is,
 				thermoParcelInjectionData& data

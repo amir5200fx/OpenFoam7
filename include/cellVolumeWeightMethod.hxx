@@ -59,7 +59,7 @@ namespace tnbLib
 
 			//- Find indices of overlapping cells in src and tgt meshes - returns
 			//  true if found a matching pair
-		bool findInitialSeeds
+		FoamSampling_EXPORT bool findInitialSeeds
 		(
 			const labelList& srcCellIDs,
 			const boolList& mapFlag,
@@ -69,7 +69,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculate the mesh-to-mesh addressing and weights
-		void calculateAddressing
+		FoamSampling_EXPORT void calculateAddressing
 		(
 			labelListList& srcToTgtCellAddr,
 			scalarListList& srcToTgtCellWght,
@@ -83,7 +83,7 @@ namespace tnbLib
 		);
 
 		//- Set the next cells in the advancing front algorithm
-		void setNextCells
+		FoamSampling_EXPORT void setNextCells
 		(
 			label& startSeedI,
 			label& srcCelli,
@@ -98,19 +98,23 @@ namespace tnbLib
 	public:
 
 		//- Run-time type information
-		TypeName("cellVolumeWeight");
+		//TypeName("cellVolumeWeight");
+		static const char* typeName_() { return "cellVolumeWeight"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from source and target meshes
-		cellVolumeWeightMethod(const polyMesh& src, const polyMesh& tgt);
+		FoamSampling_EXPORT cellVolumeWeightMethod(const polyMesh& src, const polyMesh& tgt);
 
 		//- Disallow default bitwise copy construction
-		cellVolumeWeightMethod(const cellVolumeWeightMethod&) = delete;
+		FoamSampling_EXPORT cellVolumeWeightMethod(const cellVolumeWeightMethod&) = delete;
 
 
 		//- Destructor
-		virtual ~cellVolumeWeightMethod();
+		FoamSampling_EXPORT virtual ~cellVolumeWeightMethod();
 
 
 		// Member Functions
@@ -118,7 +122,7 @@ namespace tnbLib
 			// Evaluate
 
 				//- Calculate addressing and weights
-		virtual void calculate
+		FoamSampling_EXPORT virtual void calculate
 		(
 			labelListList& srcToTgtAddr,
 			scalarListList& srcToTgtWght,
@@ -130,7 +134,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const cellVolumeWeightMethod&) = delete;
+		FoamSampling_EXPORT void operator=(const cellVolumeWeightMethod&) = delete;
 	};
 
 

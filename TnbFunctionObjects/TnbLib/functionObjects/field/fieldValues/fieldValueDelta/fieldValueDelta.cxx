@@ -1,6 +1,11 @@
+#define FoamNamedEnum_EXPORT_DEFINE
+
 #include <fieldValueDelta.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>
+
+#include <fvPatchField.hxx> // added by Amin
+#include <fvsPatchField.hxx> // added by Amin
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 

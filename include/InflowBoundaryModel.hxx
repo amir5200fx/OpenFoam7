@@ -42,6 +42,16 @@ SourceFiles
 #include <autoPtr.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamInflowBoundaryModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamInflowBoundaryModel_EXPORT_DEFINE
+#define FoamInflowBoundaryModel_EXPORT __declspec(dllexport)
+#else
+#define FoamInflowBoundaryModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -72,10 +82,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("InflowBoundaryModel");
+		//TypeName("InflowBoundaryModel");
+		static const char* typeName_() { return "InflowBoundaryModel"; }
+		static FoamInflowBoundaryModel_EXPORT const ::tnbLib::word typeName;
+		static FoamInflowBoundaryModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			InflowBoundaryModel,
@@ -85,7 +99,59 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<InflowBoundaryModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamInflowBoundaryModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamInflowBoundaryModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamInflowBoundaryModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class InflowBoundaryModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<InflowBoundaryModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<InflowBoundaryModel>(new InflowBoundaryModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = InflowBoundaryModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "InflowBoundaryModel"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class InflowBoundaryModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<InflowBoundaryModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<InflowBoundaryModel>(new InflowBoundaryModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = InflowBoundaryModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

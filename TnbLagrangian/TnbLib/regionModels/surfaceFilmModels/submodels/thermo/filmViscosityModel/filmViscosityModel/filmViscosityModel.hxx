@@ -69,12 +69,16 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("filmViscosityModel");
+				//TypeName("filmViscosityModel");
+				static const char* typeName_() { return "filmViscosityModel"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Declare runtime constructor selection table
 
-				declareRunTimeSelectionTable
+				/*declareRunTimeSelectionTable
 				(
 					autoPtr,
 					filmViscosityModel,
@@ -85,12 +89,67 @@ namespace tnbLib
 						volScalarField& mu
 						),
 						(film, dict, mu)
-				);
+				);*/
+
+				typedef autoPtr<filmViscosityModel> (*dictionaryConstructorPtr)(
+					surfaceFilmRegionModel& film, const dictionary& dict, volScalarField& mu);
+				typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+				static FoamLagrangian_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+				static FoamLagrangian_EXPORT void constructdictionaryConstructorTables();
+				static FoamLagrangian_EXPORT void destroydictionaryConstructorTables();
+
+				template <class filmViscosityModelType>
+				class adddictionaryConstructorToTable
+				{
+				public:
+					static autoPtr<filmViscosityModel> New(surfaceFilmRegionModel& film, const dictionary& dict,
+					                                       volScalarField& mu)
+					{
+						return autoPtr<filmViscosityModel>(new filmViscosityModelType(film, dict, mu));
+					}
+
+					adddictionaryConstructorToTable(const word& lookup = filmViscosityModelType::typeName)
+					{
+						constructdictionaryConstructorTables();
+						if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+						{
+							std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+								"filmViscosityModel" << std::endl;
+							error::safePrintStack(std::cerr);
+						}
+					}
+
+					~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+				};
+
+				template <class filmViscosityModelType>
+				class addRemovabledictionaryConstructorToTable
+				{
+					const word& lookup_;
+				public:
+					static autoPtr<filmViscosityModel> New(surfaceFilmRegionModel& film, const dictionary& dict,
+					                                       volScalarField& mu)
+					{
+						return autoPtr<filmViscosityModel>(new filmViscosityModelType(film, dict, mu));
+					}
+
+					addRemovabledictionaryConstructorToTable(
+						const word& lookup = filmViscosityModelType::typeName) : lookup_(lookup)
+					{
+						constructdictionaryConstructorTables();
+						dictionaryConstructorTablePtr_->set(lookup, New);
+					}
+
+					~addRemovabledictionaryConstructorToTable()
+					{
+						if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+					}
+				};
 
 				// Constructors
 
 					//- Construct from type name, dictionary and surface film model
-				filmViscosityModel
+				FoamLagrangian_EXPORT filmViscosityModel
 				(
 					const word& modelType,
 					surfaceFilmRegionModel& film,
@@ -99,13 +158,13 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				filmViscosityModel(const filmViscosityModel&) = delete;
+				FoamLagrangian_EXPORT filmViscosityModel(const filmViscosityModel&) = delete;
 
 
 				// Selectors
 
 					//- Return a reference to the selected phase change model
-				static autoPtr<filmViscosityModel> New
+				static FoamLagrangian_EXPORT autoPtr<filmViscosityModel> New
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict,
@@ -114,7 +173,7 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~filmViscosityModel();
+				FoamLagrangian_EXPORT virtual ~filmViscosityModel();
 
 
 				// Member Functions
@@ -122,7 +181,7 @@ namespace tnbLib
 					// Evolution
 
 						//- Correct
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					const volScalarField& p,
 					const volScalarField& T
@@ -132,13 +191,13 @@ namespace tnbLib
 				// I-O
 
 					//- Provide some feedback
-				virtual void info(Ostream& os) const;
+				FoamLagrangian_EXPORT virtual void info(Ostream& os) const;
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const filmViscosityModel&) = delete;
+				FoamLagrangian_EXPORT void operator=(const filmViscosityModel&) = delete;
 			};
 
 

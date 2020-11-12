@@ -1,3 +1,5 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <basicKinematicMPPICParcel.hxx>
 
 #include <CloudTemplate.hxx>

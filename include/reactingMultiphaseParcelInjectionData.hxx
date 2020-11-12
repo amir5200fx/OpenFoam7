@@ -48,13 +48,13 @@ namespace tnbLib
 
 	// Forward declaration of friend functions
 
-	Ostream& operator<<
+	FoamLagrangian_EXPORT Ostream& operator<<
 		(
 			Ostream&,
 			const reactingMultiphaseParcelInjectionData&
 			);
 
-	Istream& operator>>
+	FoamLagrangian_EXPORT Istream& operator>>
 		(
 			Istream&,
 			reactingMultiphaseParcelInjectionData&
@@ -85,22 +85,26 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("reactingMultiphaseParcelInjectionData");
+		//TypeName("reactingMultiphaseParcelInjectionData");
+		static const char* typeName_() { return "reactingMultiphaseParcelInjectionData"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Null constructor
-		reactingMultiphaseParcelInjectionData();
+		FoamLagrangian_EXPORT reactingMultiphaseParcelInjectionData();
 
 		//- Construct from dictionary
-		reactingMultiphaseParcelInjectionData(const dictionary& dict);
+		FoamLagrangian_EXPORT reactingMultiphaseParcelInjectionData(const dictionary& dict);
 
 		//- Construct from Istream
-		reactingMultiphaseParcelInjectionData(Istream& is);
+		FoamLagrangian_EXPORT reactingMultiphaseParcelInjectionData(Istream& is);
 
 
 		//-Destructor
-		virtual ~reactingMultiphaseParcelInjectionData();
+		FoamLagrangian_EXPORT virtual ~reactingMultiphaseParcelInjectionData();
 
 
 		// Access
@@ -130,14 +134,14 @@ namespace tnbLib
 		// I-O
 
 			//- Ostream operator
-		friend Ostream& operator<<
+		friend FoamLagrangian_EXPORT Ostream& operator<<
 			(
 				Ostream& os,
 				const reactingMultiphaseParcelInjectionData& data
 				);
 
 		//- Istream operator
-		friend Istream& operator>>
+		friend FoamLagrangian_EXPORT Istream& operator>>
 			(
 				Istream& is,
 				reactingMultiphaseParcelInjectionData& data

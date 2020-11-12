@@ -259,6 +259,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\EFA\EFAI.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\EFA\SortableListEFA.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\EFA\SortableListEFAI.hxx" />
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\makeChemistryReductionMethods.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\noChemistryReduction\noChemistryReduction.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\noChemistryReduction\noChemistryReductionI.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\PFA\PFA.hxx" />
@@ -274,6 +275,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\chemPointISAT\chemPointISATI.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\ISAT.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\ISAT\ISATI.hxx" />
+    <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\makeChemistryTabulationMethods.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\noChemistryTabulation\noChemistryTabulation.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\noChemistryTabulation\noChemistryTabulationI.hxx" />
     <ClInclude Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\TDACChemistryModel.hxx" />
@@ -598,6 +600,8 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\thermophysicalModels\basic\rhoThermo\rhoThermos.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel\basicChemistryModel.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\BasicChemistryModel\BasicChemistryModels.cxx" />
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\reduction\makeChemistryReductionMethods.cxx" />
+    <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistryModel\TDACChemistryModel\tabulation\makeChemistryTabulationMethods.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\chemistrySolver\chemistrySolver\makeChemistrySolvers.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\chemistryModel\functionObjects\specieReactionRates\specieReactionRates.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\laminarFlameSpeed\constant\constLaminarFlameSpeed.cxx" />
@@ -626,6 +630,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel\basicSolidChemistryModel.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel\basicSolidChemistryModelNew.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\solidChemistryModel\basicSolidChemistryModel\basicSolidChemistryModels.cxx" />
+    <ClCompile Include="TnbLib\thermophysicalModels\solidChemistryModel\solidChemistrySolver\makeSolidChemistrySolvers.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\solidSpecie\reaction\reactions\makeSolidReactions.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\solidThermo\solidReactionThermo\solidReactionThermo.cxx" />
     <ClCompile Include="TnbLib\thermophysicalModels\solidThermo\solidReactionThermo\solidReactionThermos.cxx" />

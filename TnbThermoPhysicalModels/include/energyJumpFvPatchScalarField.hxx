@@ -60,19 +60,23 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("energyJump");
+		//TypeName("energyJump");
+		static const char* typeName_() { return "energyJump"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		energyJumpFvPatchScalarField
+		FoamThermophysicalModels_EXPORT energyJumpFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		energyJumpFvPatchScalarField
+		FoamThermophysicalModels_EXPORT energyJumpFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -81,7 +85,7 @@ namespace tnbLib
 
 		//- Construct by mapping given energyJumpFvPatchScalarField onto a
 		//  new patch
-		energyJumpFvPatchScalarField
+		FoamThermophysicalModels_EXPORT energyJumpFvPatchScalarField
 		(
 			const energyJumpFvPatchScalarField&,
 			const fvPatch&,
@@ -90,7 +94,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		energyJumpFvPatchScalarField
+		FoamThermophysicalModels_EXPORT energyJumpFvPatchScalarField
 		(
 			const energyJumpFvPatchScalarField&
 		);
@@ -105,7 +109,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		energyJumpFvPatchScalarField
+		FoamThermophysicalModels_EXPORT energyJumpFvPatchScalarField
 		(
 			const energyJumpFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -129,11 +133,11 @@ namespace tnbLib
 			// Evaluation functions
 
 				//- Update the coefficients
-		virtual void updateCoeffs();
+		FoamThermophysicalModels_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamThermophysicalModels_EXPORT virtual void write(Ostream&) const;
 	};
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

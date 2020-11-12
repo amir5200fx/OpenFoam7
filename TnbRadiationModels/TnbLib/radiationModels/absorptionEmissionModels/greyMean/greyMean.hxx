@@ -150,13 +150,17 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("greyMean");
+				//TypeName("greyMean");
+				static const char* typeName_() { return "greyMean"; }
+				static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+				static FoamRadiationModels_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				greyMean
+				FoamRadiationModels_EXPORT greyMean
 				(
 					const dictionary& dict,
 					const fvMesh& mesh,
@@ -165,19 +169,19 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~greyMean();
+				FoamRadiationModels_EXPORT virtual ~greyMean();
 
 
 				// Member Functions
 
 					//- Absorption coefficient for continuous phase
-				tmp<volScalarField> aCont(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> aCont(const label bandI = 0) const;
 
 				//- Emission coefficient for continuous phase
-				tmp<volScalarField> eCont(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> eCont(const label bandI = 0) const;
 
 				//- Emission contribution for continuous phase
-				tmp<volScalarField> ECont(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> ECont(const label bandI = 0) const;
 
 				//-
 				inline bool isGrey() const

@@ -53,19 +53,19 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -107,9 +107,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvOptions\cellSetOption;$(ProjectDir)TnbLib\fvOptions\constraints\fixedTemperatureConstraint;$(ProjectDir)TnbLib\fvOptions\constraints\fixedValueConstraint;$(ProjectDir)TnbLib\fvOptions\corrections\limitTemperature;$(ProjectDir)TnbLib\fvOptions\corrections\limitVelocity;$(ProjectDir)TnbLib\fvOptions\interRegionOption;$(ProjectDir)TnbLib\fvOptions\sources\derived\accelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\actuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyEnergy;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping;$(ProjectDir)TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\explicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\phaseLimitStabilization;$(ProjectDir)TnbLib\fvOptions\sources\derived\radialActuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidificationMeltingSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\volumeFractionSource;$(ProjectDir)TnbLib\fvOptions\sources\general\codedSource;$(ProjectDir)TnbLib\fvOptions\sources\general\semiImplicitSource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvOptions\cellSetOption;$(ProjectDir)TnbLib\fvOptions\constraints\fixedTemperatureConstraint;$(ProjectDir)TnbLib\fvOptions\constraints\fixedValueConstraint;$(ProjectDir)TnbLib\fvOptions\corrections\limitTemperature;$(ProjectDir)TnbLib\fvOptions\corrections\limitVelocity;$(ProjectDir)TnbLib\fvOptions\interRegionOption;$(ProjectDir)TnbLib\fvOptions\sources\derived\accelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\actuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyEnergy;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping;$(ProjectDir)TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\explicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\phaseLimitStabilization;$(ProjectDir)TnbLib\fvOptions\sources\derived\radialActuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidificationMeltingSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\volumeFractionSource;$(ProjectDir)TnbLib\fvOptions\sources\general\codedSource;$(ProjectDir)TnbLib\fvOptions\sources\general\semiImplicitSource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer;$(ProjectDir)TnbLib\fvOptions\module;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamFvOptions_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -121,9 +121,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvOptions\cellSetOption;$(ProjectDir)TnbLib\fvOptions\constraints\fixedTemperatureConstraint;$(ProjectDir)TnbLib\fvOptions\constraints\fixedValueConstraint;$(ProjectDir)TnbLib\fvOptions\corrections\limitTemperature;$(ProjectDir)TnbLib\fvOptions\corrections\limitVelocity;$(ProjectDir)TnbLib\fvOptions\interRegionOption;$(ProjectDir)TnbLib\fvOptions\sources\derived\accelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\actuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyEnergy;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping;$(ProjectDir)TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\explicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\phaseLimitStabilization;$(ProjectDir)TnbLib\fvOptions\sources\derived\radialActuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidificationMeltingSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\volumeFractionSource;$(ProjectDir)TnbLib\fvOptions\sources\general\codedSource;$(ProjectDir)TnbLib\fvOptions\sources\general\semiImplicitSource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvOptions\cellSetOption;$(ProjectDir)TnbLib\fvOptions\constraints\fixedTemperatureConstraint;$(ProjectDir)TnbLib\fvOptions\constraints\fixedValueConstraint;$(ProjectDir)TnbLib\fvOptions\corrections\limitTemperature;$(ProjectDir)TnbLib\fvOptions\corrections\limitVelocity;$(ProjectDir)TnbLib\fvOptions\interRegionOption;$(ProjectDir)TnbLib\fvOptions\sources\derived\accelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\actuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyEnergy;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping;$(ProjectDir)TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\explicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\phaseLimitStabilization;$(ProjectDir)TnbLib\fvOptions\sources\derived\radialActuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidificationMeltingSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\volumeFractionSource;$(ProjectDir)TnbLib\fvOptions\sources\general\codedSource;$(ProjectDir)TnbLib\fvOptions\sources\general\semiImplicitSource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer;$(ProjectDir)TnbLib\fvOptions\module;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamFvOptions_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -174,9 +174,9 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvOptions\cellSetOption;$(ProjectDir)TnbLib\fvOptions\constraints\fixedTemperatureConstraint;$(ProjectDir)TnbLib\fvOptions\constraints\fixedValueConstraint;$(ProjectDir)TnbLib\fvOptions\corrections\limitTemperature;$(ProjectDir)TnbLib\fvOptions\corrections\limitVelocity;$(ProjectDir)TnbLib\fvOptions\interRegionOption;$(ProjectDir)TnbLib\fvOptions\sources\derived\accelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\actuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyEnergy;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping;$(ProjectDir)TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\explicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\phaseLimitStabilization;$(ProjectDir)TnbLib\fvOptions\sources\derived\radialActuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidificationMeltingSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\volumeFractionSource;$(ProjectDir)TnbLib\fvOptions\sources\general\codedSource;$(ProjectDir)TnbLib\fvOptions\sources\general\semiImplicitSource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvOptions\cellSetOption;$(ProjectDir)TnbLib\fvOptions\constraints\fixedTemperatureConstraint;$(ProjectDir)TnbLib\fvOptions\constraints\fixedValueConstraint;$(ProjectDir)TnbLib\fvOptions\corrections\limitTemperature;$(ProjectDir)TnbLib\fvOptions\corrections\limitVelocity;$(ProjectDir)TnbLib\fvOptions\interRegionOption;$(ProjectDir)TnbLib\fvOptions\sources\derived\accelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\actuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyEnergy;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping;$(ProjectDir)TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\explicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\phaseLimitStabilization;$(ProjectDir)TnbLib\fvOptions\sources\derived\radialActuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidificationMeltingSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\volumeFractionSource;$(ProjectDir)TnbLib\fvOptions\sources\general\codedSource;$(ProjectDir)TnbLib\fvOptions\sources\general\semiImplicitSource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer;$(ProjectDir)TnbLib\fvOptions\module;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamFvOptions_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -193,6 +193,7 @@
     <ClInclude Include="TnbLib\fvOptions\corrections\limitVelocity\limitVelocity.hxx" />
     <ClInclude Include="TnbLib\fvOptions\interRegionOption\interRegionOption.hxx" />
     <ClInclude Include="TnbLib\fvOptions\interRegionOption\interRegionOptionI.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\module\FvOptions_Module.hxx" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\fvOptions\cellSetOption\cellSetOption.cxx" />
@@ -203,6 +204,20 @@
     <ClCompile Include="TnbLib\fvOptions\corrections\limitTemperature\limitTemperature.cxx" />
     <ClCompile Include="TnbLib\fvOptions\corrections\limitVelocity\limitVelocity.cxx" />
     <ClCompile Include="TnbLib\fvOptions\interRegionOption\interRegionOption.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TnbBase\TnbBase.vcxproj">
+      <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+      <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFvMesh\TnbFvMesh.vcxproj">
+      <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbThermoPhysicalModels\TnbThermoPhysicalModels.vcxproj">
+      <Project>{5396b04c-6e67-4ee2-82f8-e56d26195cf9}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

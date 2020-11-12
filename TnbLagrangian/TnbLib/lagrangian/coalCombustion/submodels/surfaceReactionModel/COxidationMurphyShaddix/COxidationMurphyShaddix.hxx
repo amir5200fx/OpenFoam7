@@ -40,6 +40,16 @@ Description
 
 #include <SurfaceReactionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamCOxidationMurphyShaddix_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCOxidationMurphyShaddix_EXPORT_DEFINE
+#define FoamCOxidationMurphyShaddix_EXPORT __declspec(dllexport)
+#else
+#define FoamCOxidationMurphyShaddix_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -123,7 +133,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("COxidationMurphyShaddix");
+		//TypeName("COxidationMurphyShaddix");
+		static const char* typeName_() { return "COxidationMurphyShaddix"; }
+		static FoamCOxidationMurphyShaddix_EXPORT const ::tnbLib::word typeName;
+		static FoamCOxidationMurphyShaddix_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

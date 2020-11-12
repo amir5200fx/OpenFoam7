@@ -1,3 +1,5 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <Field.hxx>
 #include <fvcGrad.hxx>
 #include <polyMeshTetDecomposition.hxx>

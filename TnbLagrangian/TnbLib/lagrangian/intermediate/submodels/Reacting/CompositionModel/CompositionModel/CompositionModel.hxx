@@ -48,6 +48,16 @@ SourceFiles
 
 #include <phasePropertiesList.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamCompositionModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCompositionModel_EXPORT_DEFINE
+#define FoamCompositionModel_EXPORT __declspec(dllexport)
+#else
+#define FoamCompositionModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -74,10 +84,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("compositionModel");
+		//TypeName("compositionModel");
+		static const char* typeName_() { return "compositionModel"; }
+		static FoamCompositionModel_EXPORT const ::tnbLib::word typeName;
+		static FoamCompositionModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			CompositionModel,
@@ -87,7 +101,59 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<CompositionModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamCompositionModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamCompositionModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamCompositionModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class CompositionModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<CompositionModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<CompositionModel>(new CompositionModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = CompositionModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "CompositionModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class CompositionModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<CompositionModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<CompositionModel>(new CompositionModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = CompositionModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

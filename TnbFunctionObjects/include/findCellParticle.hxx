@@ -51,7 +51,7 @@ namespace tnbLib
 
 	class findCellParticle;
 
-	Ostream& operator<<(Ostream&, const findCellParticle&);
+	FoamFunctionObjects_EXPORT Ostream& operator<<(Ostream&, const findCellParticle&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -117,7 +117,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		findCellParticle
+		FoamFunctionObjects_EXPORT findCellParticle
 		(
 			const polyMesh& mesh,
 			const barycentric& coordinates,
@@ -130,7 +130,7 @@ namespace tnbLib
 
 		//- Construct from a position and a cell, searching for the rest of the
 		//  required topology
-		findCellParticle
+		FoamFunctionObjects_EXPORT findCellParticle
 		(
 			const polyMesh& mesh,
 			const vector& position,
@@ -140,7 +140,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		findCellParticle
+		FoamFunctionObjects_EXPORT findCellParticle
 		(
 			const polyMesh& mesh,
 			Istream& is,
@@ -206,28 +206,28 @@ namespace tnbLib
 		// Tracking
 
 			//- Track all particles to their end point
-		bool move(Cloud<findCellParticle>&, trackingData&, const scalar);
+		FoamFunctionObjects_EXPORT bool move(Cloud<findCellParticle>&, trackingData&, const scalar);
 
 		//- Overridable function to handle the particle hitting a patch
 		//  Executed before other patch-hitting functions
-		bool hitPatch(Cloud<findCellParticle>&, trackingData&);
+		FoamFunctionObjects_EXPORT bool hitPatch(Cloud<findCellParticle>&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a wedge
-		void hitWedgePatch(Cloud<findCellParticle>&, trackingData&);
+		FoamFunctionObjects_EXPORT void hitWedgePatch(Cloud<findCellParticle>&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a
 		//  symmetry plane
-		void hitSymmetryPlanePatch(Cloud<findCellParticle>&, trackingData&);
+		FoamFunctionObjects_EXPORT void hitSymmetryPlanePatch(Cloud<findCellParticle>&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a
 		//  symmetry patch
-		void hitSymmetryPatch(Cloud<findCellParticle>&, trackingData&);
+		FoamFunctionObjects_EXPORT void hitSymmetryPatch(Cloud<findCellParticle>&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a cyclic
-		void hitCyclicPatch(Cloud<findCellParticle>&, trackingData&);
+		FoamFunctionObjects_EXPORT void hitCyclicPatch(Cloud<findCellParticle>&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a cyclicAMI
-		void hitCyclicAMIPatch
+		FoamFunctionObjects_EXPORT void hitCyclicAMIPatch
 		(
 			const vector&,
 			const scalar,
@@ -236,7 +236,7 @@ namespace tnbLib
 		);
 
 		//- Overridable function to handle the particle hitting a cyclicACMI
-		void hitCyclicACMIPatch
+		FoamFunctionObjects_EXPORT void hitCyclicACMIPatch
 		(
 			const vector&,
 			const scalar,
@@ -246,7 +246,7 @@ namespace tnbLib
 
 		//- Overridable function to handle the particle hitting a
 		//cyclicRepeatAMI
-		void hitCyclicRepeatAMIPatch
+		FoamFunctionObjects_EXPORT void hitCyclicRepeatAMIPatch
 		(
 			const vector&,
 			const scalar,
@@ -256,15 +256,15 @@ namespace tnbLib
 
 		//- Overridable function to handle the particle hitting a
 		//- processorPatch
-		void hitProcessorPatch(Cloud<findCellParticle>&, trackingData&);
+		FoamFunctionObjects_EXPORT void hitProcessorPatch(Cloud<findCellParticle>&, trackingData&);
 
 		//- Overridable function to handle the particle hitting a wallPatch
-		void hitWallPatch(Cloud<findCellParticle>&, trackingData&);
+		FoamFunctionObjects_EXPORT void hitWallPatch(Cloud<findCellParticle>&, trackingData&);
 
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const findCellParticle&);
+		friend FoamFunctionObjects_EXPORT Ostream& operator<<(Ostream&, const findCellParticle&);
 	};
 
 

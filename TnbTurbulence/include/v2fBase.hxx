@@ -58,7 +58,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("v2fBase");
+			//TypeName("v2fBase");
+			static const char* typeName_() { return "v2fBase"; }
+			static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+			static FoamTurbulence_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

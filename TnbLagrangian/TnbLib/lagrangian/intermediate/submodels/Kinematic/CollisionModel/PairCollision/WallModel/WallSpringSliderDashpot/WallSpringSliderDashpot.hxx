@@ -39,6 +39,16 @@ Description
 #include <point.hxx>  // added by amir
 #include <vector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamWallSpringSliderDashpot_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamWallSpringSliderDashpot_EXPORT_DEFINE
+#define FoamWallSpringSliderDashpot_EXPORT __declspec(dllexport)
+#else
+#define FoamWallSpringSliderDashpot_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -128,7 +138,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("wallSpringSliderDashpot");
+		//TypeName("wallSpringSliderDashpot");
+		static const char* typeName_() { return "wallSpringSliderDashpot"; }
+		static FoamWallSpringSliderDashpot_EXPORT const ::tnbLib::word typeName;
+		static FoamWallSpringSliderDashpot_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -71,7 +71,7 @@ namespace tnbLib
 				// Private Member Functions
 
 					//- Return boundary types for sensible enthalpy field
-				wordList hsBoundaryTypes();
+				FoamLagrangian_EXPORT wordList hsBoundaryTypes();
 
 
 			protected:
@@ -187,52 +187,56 @@ namespace tnbLib
 				// Protected member functions
 
 					//- Read control parameters from dictionary
-				virtual bool read();
+				FoamLagrangian_EXPORT virtual bool read();
 
 				//- Correct the thermo fields
-				virtual void correctThermoFields();
+				FoamLagrangian_EXPORT virtual void correctThermoFields();
 
 				//- Correct sensible enthalpy for mapped temperature fields
-				virtual void correctHsForMappedT();
+				FoamLagrangian_EXPORT virtual void correctHsForMappedT();
 
 				//- Correct the film surface and wall temperatures
-				virtual void updateSurfaceTemperatures();
+				FoamLagrangian_EXPORT virtual void updateSurfaceTemperatures();
 
 				//- Reset source term fields
-				virtual void resetPrimaryRegionSourceTerms();
+				FoamLagrangian_EXPORT virtual void resetPrimaryRegionSourceTerms();
 
 				//- Transfer thermo fields from the primary region to the film region
-				virtual void transferPrimaryRegionThermoFields();
+				FoamLagrangian_EXPORT virtual void transferPrimaryRegionThermoFields();
 
 				//- Transfer source fields from the primary region to the film region
-				virtual void transferPrimaryRegionSourceFields();
+				FoamLagrangian_EXPORT virtual void transferPrimaryRegionSourceFields();
 
 				//- Correct film coverage field
-				virtual void correctAlpha();
+				FoamLagrangian_EXPORT virtual void correctAlpha();
 
 				//- Update the film sub-models
-				virtual void updateSubmodels();
+				FoamLagrangian_EXPORT virtual void updateSubmodels();
 
 				//- Return the wall/surface heat transfer term for the enthalpy equation
-				virtual tmp<fvScalarMatrix> q(volScalarField& hs) const;
+				FoamLagrangian_EXPORT virtual tmp<fvScalarMatrix> q(volScalarField& hs) const;
 
 
 				// Equations
 
 					//- Solve energy equation
-				virtual void solveEnergy();
+				FoamLagrangian_EXPORT virtual void solveEnergy();
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("thermoSingleLayer");
+				//TypeName("thermoSingleLayer");
+				static const char* typeName_() { return "thermoSingleLayer"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				thermoSingleLayer
+				FoamLagrangian_EXPORT thermoSingleLayer
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -242,11 +246,11 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				thermoSingleLayer(const thermoSingleLayer&) = delete;
+				FoamLagrangian_EXPORT thermoSingleLayer(const thermoSingleLayer&) = delete;
 
 
 				//- Destructor
-				virtual ~thermoSingleLayer();
+				FoamLagrangian_EXPORT virtual ~thermoSingleLayer();
 
 
 				// Member Functions
@@ -260,22 +264,22 @@ namespace tnbLib
 				// Fields
 
 					//- Return the film specific heat capacity [J/kg/K]
-				virtual const volScalarField& Cp() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& Cp() const;
 
 				//- Return the film thermal conductivity [W/m/K]
-				virtual const volScalarField& kappa() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& kappa() const;
 
 				//- Return the film mean temperature [K]
-				virtual const volScalarField& T() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& T() const;
 
 				//- Return the film surface temperature [K]
-				virtual const volScalarField& Ts() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& Ts() const;
 
 				//- Return the film wall temperature [K]
-				virtual const volScalarField& Tw() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& Tw() const;
 
 				//- Return the film sensible enthalpy [J/kg]
-				virtual const volScalarField& hs() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& hs() const;
 
 
 				// Helper functions
@@ -304,7 +308,7 @@ namespace tnbLib
 				// Source fields (read/write access)
 
 				   //- External hook to add sources to the film
-				virtual void addSources
+				FoamLagrangian_EXPORT virtual void addSources
 				(
 					const label patchi,            // patchi on primary region
 					const label facei,             // facei of patchi
@@ -366,10 +370,10 @@ namespace tnbLib
 				// Evolution
 
 					//- Pre-evolve film hook
-				virtual void preEvolveRegion();
+				FoamLagrangian_EXPORT virtual void preEvolveRegion();
 
 				//- Evolve the film equations
-				virtual void evolveRegion();
+				FoamLagrangian_EXPORT virtual void evolveRegion();
 
 
 				// Source fields
@@ -377,28 +381,28 @@ namespace tnbLib
 					// Mapped into primary region
 
 						//- Return total mass source - Eulerian phase only
-				virtual tmp<volScalarField::Internal> Srho() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField::Internal> Srho() const;
 
 				//- Return mass source for specie i - Eulerian phase only
-				virtual tmp<volScalarField::Internal> Srho
+				FoamLagrangian_EXPORT virtual tmp<volScalarField::Internal> Srho
 				(
 					const label i
 				) const;
 
 				//- Return enthalpy source - Eulerian phase only
-				virtual tmp<volScalarField::Internal> Sh() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField::Internal> Sh() const;
 
 
 				// I-O
 
 					 //- Provide some feedback
-				virtual void info();
+				FoamLagrangian_EXPORT virtual void info();
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const thermoSingleLayer&) = delete;
+				FoamLagrangian_EXPORT void operator=(const thermoSingleLayer&) = delete;
 			};
 
 

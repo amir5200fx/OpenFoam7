@@ -61,46 +61,50 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("displacementMeshMover");
+		//TypeName("displacementMeshMover");
+		static const char* typeName_() { return "displacementMeshMover"; }
+		static FoamSnappyHexMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamSnappyHexMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from polyMesh and dictionary
-		displacementMeshMoverMotionSolver(const polyMesh&, const dictionary&);
+		FoamSnappyHexMesh_EXPORT displacementMeshMoverMotionSolver(const polyMesh&, const dictionary&);
 
 		//- Disallow default bitwise copy construction
-		displacementMeshMoverMotionSolver
+		FoamSnappyHexMesh_EXPORT displacementMeshMoverMotionSolver
 		(
 			const displacementMeshMoverMotionSolver&
 		);
 
 
 		//- Destructor
-		~displacementMeshMoverMotionSolver();
+		FoamSnappyHexMesh_EXPORT ~displacementMeshMoverMotionSolver();
 
 
 		// Member Functions
 
-		externalDisplacementMeshMover& meshMover() const;
+		FoamSnappyHexMesh_EXPORT externalDisplacementMeshMover& meshMover() const;
 
 		//- Return point location obtained from the current motion field
-		virtual tmp<pointField> curPoints() const;
+		FoamSnappyHexMesh_EXPORT virtual tmp<pointField> curPoints() const;
 
 		//- Solve for motion
-		virtual void solve();
+		FoamSnappyHexMesh_EXPORT virtual void solve();
 
 		//- Update local data for geometry changes
-		virtual void movePoints(const pointField&);
+		FoamSnappyHexMesh_EXPORT virtual void movePoints(const pointField&);
 
 		//- Update topology
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamSnappyHexMesh_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const displacementMeshMoverMotionSolver&) = delete;
+		FoamSnappyHexMesh_EXPORT void operator=(const displacementMeshMoverMotionSolver&) = delete;
 	};
 
 

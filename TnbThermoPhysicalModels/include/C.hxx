@@ -55,16 +55,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("C");
+		//TypeName("C");
+		static const char* typeName_() { return "C"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct null
-		C();
+		FoamThermophysicalModels_EXPORT C();
 
 		//- Construct from dictionary
-		C(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT C(const dictionary& dict);
 
 		//- Construct and return clone
 		virtual autoPtr<solidProperties> clone() const
@@ -76,14 +80,14 @@ namespace tnbLib
 		// I-O
 
 			//- Write the function coefficients
-		void writeData(Ostream& os) const;
+		FoamThermophysicalModels_EXPORT void writeData(Ostream& os) const;
 
 		//- Ostream Operator
-		friend Ostream& operator<<(Ostream& os, const C& s);
+		friend FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const C& s);
 	};
 
 
-	Ostream& operator<<(Ostream& os, const C& s);
+	FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const C& s);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

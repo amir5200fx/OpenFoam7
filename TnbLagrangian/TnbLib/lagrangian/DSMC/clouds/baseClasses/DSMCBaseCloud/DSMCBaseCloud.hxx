@@ -52,25 +52,29 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("DSMCBaseCloud");
+		//TypeName("DSMCBaseCloud");
+		static const char* typeName_() { return "DSMCBaseCloud"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Null constructor
-		DSMCBaseCloud();
+		FoamLagrangian_EXPORT DSMCBaseCloud();
 
 		//- Disallow default bitwise copy construction
-		DSMCBaseCloud(const DSMCBaseCloud&) = delete;
+		FoamLagrangian_EXPORT DSMCBaseCloud(const DSMCBaseCloud&) = delete;
 
 
 		//- Destructor
-		virtual ~DSMCBaseCloud();
+		FoamLagrangian_EXPORT virtual ~DSMCBaseCloud();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const DSMCBaseCloud&) = delete;
+		FoamLagrangian_EXPORT void operator=(const DSMCBaseCloud&) = delete;
 	};
 
 

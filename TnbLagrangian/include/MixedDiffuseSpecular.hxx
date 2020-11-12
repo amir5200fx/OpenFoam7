@@ -39,6 +39,16 @@ Description
 
 #include <WallInteractionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamMixedDiffuseSpecular_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMixedDiffuseSpecular_EXPORT_DEFINE
+#define FoamMixedDiffuseSpecular_EXPORT __declspec(dllexport)
+#else
+#define FoamMixedDiffuseSpecular_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -61,7 +71,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("MixedDiffuseSpecular");
+		//TypeName("MixedDiffuseSpecular");
+		static const char* typeName_() { return "MixedDiffuseSpecular"; }
+		static FoamMixedDiffuseSpecular_EXPORT const ::tnbLib::word typeName;
+		static FoamMixedDiffuseSpecular_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

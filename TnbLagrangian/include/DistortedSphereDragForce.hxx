@@ -42,6 +42,16 @@ Description
 
 #include <ParticleForce.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamDistortedSphereDragForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDistortedSphereDragForce_EXPORT_DEFINE
+#define FoamDistortedSphereDragForce_EXPORT __declspec(dllexport)
+#else
+#define FoamDistortedSphereDragForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -59,7 +69,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("distortedSphereDrag");
+		//TypeName("distortedSphereDrag");
+		static const char* typeName_() { return "distortedSphereDrag"; }
+		static FoamDistortedSphereDragForce_EXPORT const ::tnbLib::word typeName;
+		static FoamDistortedSphereDragForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

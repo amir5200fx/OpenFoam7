@@ -103,20 +103,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("turbulentMixingLengthFrequencyInlet");
+		//TypeName("turbulentMixingLengthFrequencyInlet");
+		static const char* typeName_() { return "turbulentMixingLengthFrequencyInlet"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		turbulentMixingLengthFrequencyInletFvPatchScalarField
+		FoamTurbulence_EXPORT turbulentMixingLengthFrequencyInletFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		turbulentMixingLengthFrequencyInletFvPatchScalarField
+		FoamTurbulence_EXPORT turbulentMixingLengthFrequencyInletFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -126,7 +130,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  turbulentMixingLengthFrequencyInletFvPatchScalarField
 		//  onto a new patch
-		turbulentMixingLengthFrequencyInletFvPatchScalarField
+		FoamTurbulence_EXPORT turbulentMixingLengthFrequencyInletFvPatchScalarField
 		(
 			const turbulentMixingLengthFrequencyInletFvPatchScalarField&,
 			const fvPatch&,
@@ -135,7 +139,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		turbulentMixingLengthFrequencyInletFvPatchScalarField
+		FoamTurbulence_EXPORT turbulentMixingLengthFrequencyInletFvPatchScalarField
 		(
 			const turbulentMixingLengthFrequencyInletFvPatchScalarField&
 		);
@@ -153,7 +157,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		turbulentMixingLengthFrequencyInletFvPatchScalarField
+		FoamTurbulence_EXPORT turbulentMixingLengthFrequencyInletFvPatchScalarField
 		(
 			const turbulentMixingLengthFrequencyInletFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -179,10 +183,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamTurbulence_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamTurbulence_EXPORT virtual void write(Ostream&) const;
 	};
 
 

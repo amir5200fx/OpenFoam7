@@ -120,7 +120,7 @@ namespace tnbLib
 				R,
 				devRhoReff
 			};
-			static const NamedEnum<compressibleField, 9> compressibleFieldNames_;
+			static FoamFunctionObjects_EXPORT const NamedEnum<compressibleField, 9> compressibleFieldNames_;
 
 			enum class incompressibleField
 			{
@@ -132,7 +132,7 @@ namespace tnbLib
 				R,
 				devReff
 			};
-			static const NamedEnum<incompressibleField, 7> incompressibleFieldNames_;
+			static FoamFunctionObjects_EXPORT const NamedEnum<incompressibleField, 7> incompressibleFieldNames_;
 
 
 		protected:
@@ -149,7 +149,7 @@ namespace tnbLib
 
 			// Protected Member Functions
 
-			static const word& modelName();
+			static FoamFunctionObjects_EXPORT const word& modelName();
 
 			//- Process the turbulence field
 			template<class Type>
@@ -167,13 +167,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("turbulenceFields");
+			//TypeName("turbulenceFields");
+			static const char* typeName_() { return "turbulenceFields"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			turbulenceFields
+			FoamFunctionObjects_EXPORT turbulenceFields
 			(
 				const word& name,
 				const Time& runTime,
@@ -181,30 +185,30 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			turbulenceFields(const turbulenceFields&) = delete;
+			FoamFunctionObjects_EXPORT turbulenceFields(const turbulenceFields&) = delete;
 
 
 			//- Destructor
-			virtual ~turbulenceFields();
+			FoamFunctionObjects_EXPORT virtual ~turbulenceFields();
 
 
 			// Member Functions
 
 				//- Read the controls
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate turbulence fields
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Do nothing.
 			//  The turbulence fields are registered and written automatically
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const turbulenceFields&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const turbulenceFields&) = delete;
 		};
 
 
@@ -216,8 +220,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <turbulenceFieldsTemplates.cxx>
+//#include <turbulenceFieldsTemplates.cxx>
 #endif
+
+#include <turbulenceFieldsTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

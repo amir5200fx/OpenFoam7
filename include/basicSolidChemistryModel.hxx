@@ -70,7 +70,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("basicSolidChemistryModel");
+		//TypeName("basicSolidChemistryModel");
+		static const char* typeName_() { return "basicSolidChemistryModel"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		//- Thermo type
@@ -78,31 +82,83 @@ namespace tnbLib
 
 
 		//- Declare run-time constructor selection tables
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			basicSolidChemistryModel,
 			thermo,
 			(solidReactionThermo& thermo),
 			(thermo)
-		);
+		);*/
+		
+		typedef autoPtr<basicSolidChemistryModel> (*thermoConstructorPtr)(solidReactionThermo& thermo);
+		typedef HashTable<thermoConstructorPtr, word, string::hash> thermoConstructorTable;
+		static FoamThermophysicalModels_EXPORT thermoConstructorTable* thermoConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructthermoConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroythermoConstructorTables();
+
+		template <class basicSolidChemistryModelType>
+		class addthermoConstructorToTable
+		{
+		public:
+			static autoPtr<basicSolidChemistryModel> New(solidReactionThermo& thermo)
+			{
+				return autoPtr<basicSolidChemistryModel>(new basicSolidChemistryModelType(thermo));
+			}
+
+			addthermoConstructorToTable(const word& lookup = basicSolidChemistryModelType::typeName)
+			{
+				constructthermoConstructorTables();
+				if (!thermoConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"basicSolidChemistryModel" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addthermoConstructorToTable() { destroythermoConstructorTables(); }
+		};
+
+		template <class basicSolidChemistryModelType>
+		class addRemovablethermoConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<basicSolidChemistryModel> New(solidReactionThermo& thermo)
+			{
+				return autoPtr<basicSolidChemistryModel>(new basicSolidChemistryModelType(thermo));
+			}
+
+			addRemovablethermoConstructorToTable(const word& lookup = basicSolidChemistryModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructthermoConstructorTables();
+				thermoConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablethermoConstructorToTable()
+			{
+				if (thermoConstructorTablePtr_) { thermoConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from thermo
-		basicSolidChemistryModel(solidReactionThermo& thermo);
+		FoamThermophysicalModels_EXPORT basicSolidChemistryModel(solidReactionThermo& thermo);
 
 		//- Construct as copy (not implemented)
-		basicSolidChemistryModel(const basicSolidChemistryModel&);
+		FoamThermophysicalModels_EXPORT basicSolidChemistryModel(const basicSolidChemistryModel&);
 
 
 		//- Selector
-		static autoPtr<basicSolidChemistryModel> New(solidReactionThermo& thermo);
+		static FoamThermophysicalModels_EXPORT autoPtr<basicSolidChemistryModel> New(solidReactionThermo& thermo);
 
 
 		//- Destructor
-		virtual ~basicSolidChemistryModel();
+		FoamThermophysicalModels_EXPORT virtual ~basicSolidChemistryModel();
 
 
 		// Member Functions
@@ -114,32 +170,32 @@ namespace tnbLib
 		inline const solidReactionThermo& solidThermo() const;
 
 		//- Return total gases mass source term [kg/m^3/s]
-		virtual tmp<volScalarField::Internal> RRg() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField::Internal> RRg() const = 0;
 
 		//- Return total solids mass source term [kg/m^3/s]
-		virtual tmp<volScalarField::Internal> RRs() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField::Internal> RRs() const = 0;
 
 		//- Return chemical source terms for solids [kg/m^3/s]
-		virtual const volScalarField::Internal& RRs
+		FoamThermophysicalModels_EXPORT virtual const volScalarField::Internal& RRs
 		(
 			const label i
 		) const = 0;
 
 		//- Return chemical source terms for gases [kg/m^3/s]
-		virtual const volScalarField::Internal& RRg
+		FoamThermophysicalModels_EXPORT virtual const volScalarField::Internal& RRg
 		(
 			const label i
 		) const = 0;
 
 		//- Returns the reaction rate of the speciei in reactionI
-		virtual tmp<volScalarField::Internal> calculateRR
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField::Internal> calculateRR
 		(
 			const label reactionI,
 			const label speciei
 		) const;
 
 		//- Return sensible enthalpy for gas i [J/Kg]
-		virtual tmp<volScalarField> gasHs
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> gasHs
 		(
 			const volScalarField& p,
 			const volScalarField& T,
@@ -147,28 +203,28 @@ namespace tnbLib
 		) const = 0;
 
 		//- Return specie Table for gases
-		virtual const speciesTable& gasTable() const = 0;
+		FoamThermophysicalModels_EXPORT virtual const speciesTable& gasTable() const = 0;
 
 		//- Set reacting status of cell, celli
-		virtual void setCellReacting(const label celli, const bool active) = 0;
+		FoamThermophysicalModels_EXPORT virtual void setCellReacting(const label celli, const bool active) = 0;
 
 		//- Calculates the reaction rates
-		virtual void calculate() = 0;
+		FoamThermophysicalModels_EXPORT virtual void calculate() = 0;
 
 		//- Return const access to the total source terms
-		virtual const volScalarField::Internal& RR
+		FoamThermophysicalModels_EXPORT virtual const volScalarField::Internal& RR
 		(
 			const label i
 		) const;
 
 		//- Return non-const access to the total source terms
-		virtual volScalarField::Internal& RR(const label i);
+		FoamThermophysicalModels_EXPORT virtual volScalarField::Internal& RR(const label i);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const basicSolidChemistryModel&) = delete;
+		FoamThermophysicalModels_EXPORT void operator=(const basicSolidChemistryModel&) = delete;
 	};
 
 

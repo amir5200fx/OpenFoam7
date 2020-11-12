@@ -56,6 +56,16 @@ SourceFiles
 #include <InjectionModelTemplate.hxx>
 #include <kinematicParcelInjectionDataIOList.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamThermoLookupTableInjection_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamThermoLookupTableInjection_EXPORT_DEFINE
+#define FoamThermoLookupTableInjection_EXPORT __declspec(dllexport)
+#else
+#define FoamThermoLookupTableInjection_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -100,7 +110,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("thermoLookupTableInjection");
+		//TypeName("thermoLookupTableInjection");
+		static const char* typeName_() { return "thermoLookupTableInjection"; }
+		static FoamThermoLookupTableInjection_EXPORT const ::tnbLib::word typeName;
+		static FoamThermoLookupTableInjection_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

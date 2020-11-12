@@ -57,15 +57,19 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("surfaceFilmModel");
+			//TypeName("surfaceFilmModel");
+			static const char* typeName_() { return "surfaceFilmModel"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			//- Reference temperature for enthalpy
-			static const dimensionedScalar Tref;
+			static FoamLagrangian_EXPORT const dimensionedScalar Tref;
 
 
 			// Declare runtime constructor selection table
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				surfaceFilmModel,
@@ -77,21 +81,76 @@ namespace tnbLib
 					const word& regionType
 					),
 					(modelType, mesh, g, regionType)
-			);
+			);*/
+
+			typedef autoPtr<surfaceFilmModel> (*meshConstructorPtr)(const word& modelType, const fvMesh& mesh,
+			                                                        const dimensionedVector& g, const word& regionType);
+			typedef HashTable<meshConstructorPtr, word, string::hash> meshConstructorTable;
+			static FoamLagrangian_EXPORT meshConstructorTable* meshConstructorTablePtr_;
+			static FoamLagrangian_EXPORT void constructmeshConstructorTables();
+			static FoamLagrangian_EXPORT void destroymeshConstructorTables();
+
+			template <class surfaceFilmModelType>
+			class addmeshConstructorToTable
+			{
+			public:
+				static autoPtr<surfaceFilmModel> New(const word& modelType, const fvMesh& mesh,
+				                                     const dimensionedVector& g, const word& regionType)
+				{
+					return autoPtr<surfaceFilmModel>(new surfaceFilmModelType(modelType, mesh, g, regionType));
+				}
+
+				addmeshConstructorToTable(const word& lookup = surfaceFilmModelType::typeName)
+				{
+					constructmeshConstructorTables();
+					if (!meshConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+							"surfaceFilmModel" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addmeshConstructorToTable() { destroymeshConstructorTables(); }
+			};
+
+			template <class surfaceFilmModelType>
+			class addRemovablemeshConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<surfaceFilmModel> New(const word& modelType, const fvMesh& mesh,
+				                                     const dimensionedVector& g, const word& regionType)
+				{
+					return autoPtr<surfaceFilmModel>(new surfaceFilmModelType(modelType, mesh, g, regionType));
+				}
+
+				addRemovablemeshConstructorToTable(const word& lookup = surfaceFilmModelType::typeName) : lookup_(
+					lookup)
+				{
+					constructmeshConstructorTables();
+					meshConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovablemeshConstructorToTable()
+				{
+					if (meshConstructorTablePtr_) { meshConstructorTablePtr_->erase(lookup_); }
+				}
+			};
 
 
 			// Constructors
 
-			surfaceFilmModel();
+			FoamLagrangian_EXPORT surfaceFilmModel();
 
 			//- Disallow default bitwise copy construction
-			surfaceFilmModel(const surfaceFilmModel&) = delete;
+			FoamLagrangian_EXPORT surfaceFilmModel(const surfaceFilmModel&) = delete;
 
 
 			// Selectors
 
 				//- Return a reference to the selected surface film model
-			static autoPtr<surfaceFilmModel> New
+			static FoamLagrangian_EXPORT autoPtr<surfaceFilmModel> New
 			(
 				const fvMesh& mesh,
 				const dimensionedVector& g,
@@ -100,7 +159,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~surfaceFilmModel();
+			FoamLagrangian_EXPORT virtual ~surfaceFilmModel();
 
 
 			// Member Functions
@@ -108,13 +167,13 @@ namespace tnbLib
 				// Solution parameters
 
 					//- Courant number evaluation
-			virtual scalar CourantNumber() const = 0;
+			FoamLagrangian_EXPORT virtual scalar CourantNumber() const = 0;
 
 
 			// Primary region source fields
 
 				//- Return total mass source - Eulerian phase only
-			virtual tmp<volScalarField::Internal> Srho() const = 0;
+			FoamLagrangian_EXPORT virtual tmp<volScalarField::Internal> Srho() const = 0;
 
 			//- Return mass source for specie i - Eulerian phase only
 			virtual tmp<volScalarField::Internal> Srho
@@ -123,19 +182,19 @@ namespace tnbLib
 			) const = 0;
 
 			//- Return enthalpy source - Eulerian phase only
-			virtual tmp<volScalarField::Internal> Sh() const = 0;
+			FoamLagrangian_EXPORT virtual tmp<volScalarField::Internal> Sh() const = 0;
 
 
 			// Evolution
 
 				//- Main driver routing to evolve the region - calls other evolves
-			virtual void evolve() = 0;
+			FoamLagrangian_EXPORT virtual void evolve() = 0;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const surfaceFilmModel&) = delete;
+			FoamLagrangian_EXPORT void operator=(const surfaceFilmModel&) = delete;
 		};
 
 

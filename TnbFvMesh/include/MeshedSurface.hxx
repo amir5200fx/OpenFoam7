@@ -59,6 +59,16 @@ SourceFiles
 #include <memberFunctionSelectionTables.hxx>
 #include <HashSet.hxx>
 
+#ifdef FoamFvMesh_EXPORT_DEFINE
+#define FoamMeshedSurface_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMeshedSurface_EXPORT_DEFINE
+#define FoamMeshedSurface_EXPORT __declspec(dllexport)
+#else
+#define FoamMeshedSurface_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -154,8 +164,8 @@ namespace tnbLib
 		//- Runtime type information
 		/*ClassName("MeshedSurface");*/
 		static const char* typeName_() { return "MeshedSurface"; } 
-		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
-		static FoamFvMesh_EXPORT int debug;
+		static FoamMeshedSurface_EXPORT const ::tnbLib::word typeName;
+		static FoamMeshedSurface_EXPORT int debug;
 
 
 		// Static
@@ -216,10 +226,16 @@ namespace tnbLib
 		MeshedSurface(const surfMesh&);
 
 		//- Construct by transferring the contents from a UnsortedMeshedSurface
-		MeshedSurface(UnsortedMeshedSurface<Face>&&);
+		MeshedSurface(UnsortedMeshedSurface<Face>&&)
+		{
+			NotImplemented;
+		}// Commented by Amin
 
 		//- Construct by transferring the contents from a MeshedSurface
-		MeshedSurface(MeshedSurface<Face>&&);
+		/*MeshedSurface(MeshedSurface<Face>&&)
+		{
+			NotImplemented;
+		}*/// Commented by Amin
 
 		//- Construct from file name (uses extension to determine type)
 		MeshedSurface(const fileName&);
@@ -233,7 +249,7 @@ namespace tnbLib
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			MeshedSurface,
@@ -242,7 +258,59 @@ namespace tnbLib
 				const fileName& name
 				),
 				(name)
-		);
+		);*/
+
+		typedef autoPtr<MeshedSurface> (*fileExtensionConstructorPtr)(const fileName& name);
+		typedef HashTable<fileExtensionConstructorPtr, word, string::hash> fileExtensionConstructorTable;
+		static FoamMeshedSurface_EXPORT fileExtensionConstructorTable* fileExtensionConstructorTablePtr_;
+		static FoamMeshedSurface_EXPORT void constructfileExtensionConstructorTables();
+		static FoamMeshedSurface_EXPORT void destroyfileExtensionConstructorTables();
+
+		template <class MeshedSurfaceType>
+		class addfileExtensionConstructorToTable
+		{
+		public:
+			static autoPtr<MeshedSurface> New(const fileName& name)
+			{
+				return autoPtr<MeshedSurface>(new MeshedSurfaceType(name));
+			}
+
+			addfileExtensionConstructorToTable(const word& lookup = MeshedSurfaceType::typeName)
+			{
+				constructfileExtensionConstructorTables();
+				if (!fileExtensionConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "MeshedSurface" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addfileExtensionConstructorToTable() { destroyfileExtensionConstructorTables(); }
+		};
+
+		template <class MeshedSurfaceType>
+		class addRemovablefileExtensionConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<MeshedSurface> New(const fileName& name)
+			{
+				return autoPtr<MeshedSurface>(new MeshedSurfaceType(name));
+			}
+
+			addRemovablefileExtensionConstructorToTable(const word& lookup = MeshedSurfaceType::typeName) : lookup_(
+				lookup)
+			{
+				constructfileExtensionConstructorTables();
+				fileExtensionConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablefileExtensionConstructorToTable()
+			{
+				if (fileExtensionConstructorTablePtr_) { fileExtensionConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Selectors
@@ -264,7 +332,7 @@ namespace tnbLib
 
 		// Member Function Selectors
 
-		declareMemberFunctionSelectionTable
+		/*declareMemberFunctionSelectionTable
 		(
 			void,
 			UnsortedMeshedSurface,
@@ -275,7 +343,28 @@ namespace tnbLib
 				const MeshedSurface<Face>& surf
 				),
 				(name, surf)
-		);
+		);*/
+
+		typedef void (*writefileExtensionMemberFunctionPtr)(const fileName& name, const MeshedSurface<Face>& surf);
+		typedef HashTable<writefileExtensionMemberFunctionPtr, word, string::hash>
+		writefileExtensionMemberFunctionTable;
+		static FoamMeshedSurface_EXPORT writefileExtensionMemberFunctionTable* writefileExtensionMemberFunctionTablePtr_;
+
+		template <class UnsortedMeshedSurfaceType>
+		class addwritefileExtensionMemberFunctionToTable
+		{
+		public:
+			addwritefileExtensionMemberFunctionToTable(const word& lookup = UnsortedMeshedSurfaceType::typeName)
+			{
+				constructwritefileExtensionMemberFunctionTables();
+				writefileExtensionMemberFunctionTablePtr_->insert(lookup, UnsortedMeshedSurfaceType::write);
+			}
+
+			~addwritefileExtensionMemberFunctionToTable() { destroywritefileExtensionMemberFunctionTables(); }
+		};
+
+		static FoamMeshedSurface_EXPORT void constructwritefileExtensionMemberFunctionTables();
+		static FoamMeshedSurface_EXPORT void destroywritefileExtensionMemberFunctionTables();
 
 		//- Write to file
 		static void write(const fileName&, const MeshedSurface<Face>&);

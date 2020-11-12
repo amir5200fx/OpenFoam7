@@ -69,7 +69,7 @@ namespace tnbLib
 
 			// Protected member functions
 
-			void setResultName
+			FoamFunctionObjects_EXPORT void setResultName
 			(
 				const word& typeName,
 				const wordList& defaultArg = wordList::null()
@@ -89,19 +89,23 @@ namespace tnbLib
 			template<class FOType>
 			bool calcAllTypes(FOType& fo);
 
-			virtual bool calc() = 0;
+			FoamFunctionObjects_EXPORT virtual bool calc() = 0;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("fieldsExpression");
+			//TypeName("fieldsExpression");
+			static const char* typeName_() { return "fieldsExpression"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			fieldsExpression
+			FoamFunctionObjects_EXPORT fieldsExpression
 			(
 				const word& name,
 				const Time& runTime,
@@ -111,32 +115,32 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			fieldsExpression(const fieldsExpression&) = delete;
+			FoamFunctionObjects_EXPORT fieldsExpression(const fieldsExpression&) = delete;
 
 
 			//- Destructor
-			virtual ~fieldsExpression();
+			FoamFunctionObjects_EXPORT virtual ~fieldsExpression();
 
 
 			// Member Functions
 
 				//- Read the fieldsExpression data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate the result fields
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the result fields
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 			//- Clear the result fields from the objectRegistry
-			virtual bool clear();
+			FoamFunctionObjects_EXPORT virtual bool clear();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const fieldsExpression&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const fieldsExpression&) = delete;
 		};
 
 
@@ -148,8 +152,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <fieldsExpressionTemplates.cxx>
+//#include <fieldsExpressionTemplates.cxx>
 #endif
+
+#include <fieldsExpressionTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

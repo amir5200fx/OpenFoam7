@@ -55,6 +55,16 @@ Description
 
 #include <vector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamReitzDiwakar_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamReitzDiwakar_EXPORT_DEFINE
+#define FoamReitzDiwakar_EXPORT __declspec(dllexport)
+#else
+#define FoamReitzDiwakar_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -79,7 +89,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("ReitzDiwakar");
+		//TypeName("ReitzDiwakar");
+		static const char* typeName_() { return "ReitzDiwakar"; }
+		static FoamReitzDiwakar_EXPORT const ::tnbLib::word typeName;
+		static FoamReitzDiwakar_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

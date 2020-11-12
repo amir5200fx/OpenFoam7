@@ -69,16 +69,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("exponential");
+			//TypeName("exponential");
+			static const char* typeName_() { return "exponential"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			//- Constructors
 
 				//- Construct from components
-			exponential(const dictionary& dict);
+			FoamLagrangian_EXPORT exponential(const dictionary& dict);
 
 			//- Construct copy
-			exponential(const exponential& hc);
+			FoamLagrangian_EXPORT exponential(const exponential& hc);
 
 			//- Clone
 			virtual autoPtr<ParticleStressModel> clone() const
@@ -91,13 +95,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~exponential();
+			FoamLagrangian_EXPORT virtual ~exponential();
 
 
 			//- Member Functions
 
 				//- Collision stress
-			tmp<Field<scalar>> tau
+			FoamLagrangian_EXPORT tmp<Field<scalar>> tau
 			(
 				const Field<scalar>& alpha,
 				const Field<scalar>& rho,
@@ -105,7 +109,7 @@ namespace tnbLib
 			) const;
 
 			//- Collision stress derivaive w.r.t. the volume fraction
-			tmp<Field<scalar>> dTaudTheta
+			FoamLagrangian_EXPORT tmp<Field<scalar>> dTaudTheta
 			(
 				const Field<scalar>& alpha,
 				const Field<scalar>& rho,

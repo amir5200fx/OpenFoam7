@@ -65,19 +65,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Calculate the Q field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("Q");
+			//TypeName("Q");
+			static const char* typeName_() { return "Q"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			Q
+			FoamFunctionObjects_EXPORT Q
 			(
 				const word& name,
 				const Time& runTime,
@@ -86,7 +90,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~Q();
+			FoamFunctionObjects_EXPORT virtual ~Q();
 		};
 
 

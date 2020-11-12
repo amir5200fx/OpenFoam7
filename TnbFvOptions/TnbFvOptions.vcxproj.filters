@@ -112,6 +112,9 @@
     <Filter Include="TnbLib\fvOptions\sources\general\semiImplicitSource">
       <UniqueIdentifier>{1bf86b23-5a42-417c-bc60-327ccaacad6f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\fvOptions\module">
+      <UniqueIdentifier>{2acba557-acc5-4c33-b83f-d864f768b824}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\fvOptions\cellSetOption\cellSetOption.hxx">
@@ -137,6 +140,9 @@
     </ClInclude>
     <ClInclude Include="TnbLib\fvOptions\interRegionOption\interRegionOptionI.hxx">
       <Filter>TnbLib\fvOptions\interRegionOption</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\module\FvOptions_Module.hxx">
+      <Filter>TnbLib\fvOptions\module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

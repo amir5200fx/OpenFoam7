@@ -70,13 +70,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("setTimeStep");
+			//TypeName("setTimeStep");
+			static const char* typeName_() { return "setTimeStep"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			setTimeStepFunctionObject
+			FoamFunctionObjects_EXPORT setTimeStepFunctionObject
 			(
 				const word& name,
 				const Time& runTime,
@@ -84,39 +88,39 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			setTimeStepFunctionObject(const setTimeStepFunctionObject&) = delete;
+			FoamFunctionObjects_EXPORT setTimeStepFunctionObject(const setTimeStepFunctionObject&) = delete;
 
 
 			// Destructor
-			virtual ~setTimeStepFunctionObject();
+			FoamFunctionObjects_EXPORT virtual ~setTimeStepFunctionObject();
 
 
 			// Member Functions
 
 				//- Return time database
-			const Time& time() const;
+			FoamFunctionObjects_EXPORT const Time& time() const;
 
 			//- Override the time-step value
-			virtual bool setTimeStep();
+			FoamFunctionObjects_EXPORT virtual bool setTimeStep();
 
 			//- Read and set the function object if its data have changed
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Called at each ++ or += of the time-loop.
 			//  postProcess overrides the usual executeControl behaviour and
 			//  forces execution (used in post-processing mode)
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Called at each ++ or += of the time-loop.
 			//  postProcess overrides the usual writeControl behaviour and
 			//  forces writing always (used in post-processing mode)
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const setTimeStepFunctionObject&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const setTimeStepFunctionObject&) = delete;
 		};
 
 

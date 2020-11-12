@@ -97,6 +97,16 @@ SourceFiles
 #include <IOdictionary.hxx>  // added by amir
 #include <chemistryReductionMethod.hxx>  // added by amir
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamDAC_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDAC_EXPORT_DEFINE
+#define FoamDAC_EXPORT __declspec(dllexport)
+#else
+#define FoamDAC_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -133,7 +143,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("DAC");
+			//TypeName("DAC");
+			static const char* typeName_() { return "DAC"; }
+			static FoamDAC_EXPORT const ::tnbLib::word typeName;
+			static FoamDAC_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

@@ -41,6 +41,16 @@ SourceFiles
 #include <IOdictionary.hxx>  // added by amir
 #include <scalarField.hxx>  // added by amir
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamPFA_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPFA_EXPORT_DEFINE
+#define FoamPFA_EXPORT __declspec(dllexport)
+#else
+#define FoamPFA_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -70,7 +80,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("PFA");
+			//TypeName("PFA");
+			static const char* typeName_() { return "PFA"; }
+			static FoamPFA_EXPORT const ::tnbLib::word typeName;
+			static FoamPFA_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

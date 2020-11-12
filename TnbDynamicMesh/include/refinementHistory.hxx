@@ -166,36 +166,36 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Debug write
-		static void writeEntry
+		static FoamDynamicMesh_EXPORT void writeEntry
 		(
 			const List<splitCell8>&,
 			const splitCell8&
 		);
 		//- Debug write
-		static void writeDebug
+		static FoamDynamicMesh_EXPORT void writeDebug
 		(
 			const labelList&,
 			const List<splitCell8>&
 		);
 
 		//- Check consistency of structure, i.e. indices into splitCells_.
-		void checkIndices() const;
+		FoamDynamicMesh_EXPORT void checkIndices() const;
 
 		//- Allocate a splitCell. Return index in splitCells_.
-		label allocateSplitCell(const label parent, const label i);
+		FoamDynamicMesh_EXPORT label allocateSplitCell(const label parent, const label i);
 
 		//- Free a splitCell.
-		void freeSplitCell(const label index);
+		FoamDynamicMesh_EXPORT void freeSplitCell(const label index);
 
 		//- Mark entry in splitCells. Recursively mark its parent and subs.
-		void markSplit
+		FoamDynamicMesh_EXPORT void markSplit
 		(
 			const label,
 			labelList& oldToNew,
 			DynamicList<splitCell8>&
 		) const;
 
-		void countProc
+		FoamDynamicMesh_EXPORT void countProc
 		(
 			const label index,
 			const label newProcNo,
@@ -206,26 +206,30 @@ namespace tnbLib
 		// For distribution:
 
 			//- Mark index and all its descendants
-		void mark(const label, const label, labelList&) const;
+		FoamDynamicMesh_EXPORT void mark(const label, const label, labelList&) const;
 
 		//- Mark cells according to top parent. Return number of clusters
 		//  (set of cells originating from same parent)
-		label markCommonCells(labelList& cellToCluster) const;
+		FoamDynamicMesh_EXPORT label markCommonCells(labelList& cellToCluster) const;
 
 	public:
 
 		// Declare name of the class and its debug switch
-		TypeName("refinementHistory");
+		//TypeName("refinementHistory");
+		static const char* typeName_() { return "refinementHistory"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct (read) given an IOobject. If global number of visible
 			//  cells > 0 becomes active
-		refinementHistory(const IOobject&);
+		FoamDynamicMesh_EXPORT refinementHistory(const IOobject&);
 
 		//- Construct (read) or construct from components
-		refinementHistory
+		FoamDynamicMesh_EXPORT refinementHistory
 		(
 			const IOobject&,
 			const List<splitCell8>& splitCells,
@@ -236,11 +240,11 @@ namespace tnbLib
 		//- Construct (read) or construct from initial number of cells
 		//  (all visible). If global number of visible
 		//  cells > 0 becomes active
-		refinementHistory(const IOobject&, const label nCells);
+		FoamDynamicMesh_EXPORT refinementHistory(const IOobject&, const label nCells);
 
 		//- Construct (read) or construct from initial number of cells
 		//  (all visible) and active flag
-		refinementHistory
+		FoamDynamicMesh_EXPORT refinementHistory
 		(
 			const IOobject&,
 			const label nCells,
@@ -248,11 +252,11 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		refinementHistory(const IOobject&, const refinementHistory&);
+		FoamDynamicMesh_EXPORT refinementHistory(const IOobject&, const refinementHistory&);
 
 		//- Construct from multiple refinement histories. If global number of
 		//  visible cells > 0 becomes active
-		refinementHistory
+		FoamDynamicMesh_EXPORT refinementHistory
 		(
 			const IOobject&,
 			const UPtrList<const labelList>& cellMaps,
@@ -261,7 +265,7 @@ namespace tnbLib
 
 		//- Construct from Istream. If global number of
 		//  visible cells > 0 becomes active
-		refinementHistory(const IOobject&, Istream&);
+		FoamDynamicMesh_EXPORT refinementHistory(const IOobject&, Istream&);
 
 
 		// Member Functions
@@ -313,21 +317,21 @@ namespace tnbLib
 		}
 
 		//- Store splitting of cell into 8
-		void storeSplit
+		FoamDynamicMesh_EXPORT void storeSplit
 		(
 			const label celli,
 			const labelList& addedCells
 		);
 
 		//- Store combining 8 cells into master
-		void combineCells
+		FoamDynamicMesh_EXPORT void combineCells
 		(
 			const label masterCelli,
 			const labelList& combinedCells
 		);
 
 		//- Low level clone
-		autoPtr<refinementHistory> clone
+		FoamDynamicMesh_EXPORT autoPtr<refinementHistory> clone
 		(
 			const IOobject& io,
 			const labelList& decomposition,
@@ -338,17 +342,17 @@ namespace tnbLib
 		) const;
 
 		//- Create clone from subset
-		autoPtr<refinementHistory> clone
+		FoamDynamicMesh_EXPORT autoPtr<refinementHistory> clone
 		(
 			const IOobject& io,
 			const labelList& cellMap
 		) const;
 
 		//- Update numbering for mesh changes
-		void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT void updateMesh(const mapPolyMesh&);
 
 		//- Update numbering for subsetting
-		void subset
+		FoamDynamicMesh_EXPORT void subset
 		(
 			const labelList& pointMap,
 			const labelList& faceMap,
@@ -358,34 +362,34 @@ namespace tnbLib
 		//- Update local numbering for mesh redistribution.
 		//  Can only distribute clusters sent across in one go; cannot
 		//  handle parts recombined in multiple passes.
-		void distribute(const mapDistributePolyMesh&);
+		FoamDynamicMesh_EXPORT void distribute(const mapDistributePolyMesh&);
 
 
 		//- Compact splitCells_. Removes all freeSplitCells_ elements.
-		void compact();
+		FoamDynamicMesh_EXPORT void compact();
 
 		//- Extend/shrink storage. additional visibleCells_ elements get
 		//  set to -1.
-		void resize(const label nCells);
+		FoamDynamicMesh_EXPORT void resize(const label nCells);
 
 		//- Debug write
-		void writeDebug() const;
+		FoamDynamicMesh_EXPORT void writeDebug() const;
 
 
 		//- Read object. If global number of visible cells > 0 becomes active
-		virtual bool read();
+		FoamDynamicMesh_EXPORT virtual bool read();
 
 		//- ReadData function required for regIOobject read operation. Note:
 		//  does not do a reduction - does not set active_ flag
-		virtual bool readData(Istream&);
+		FoamDynamicMesh_EXPORT virtual bool readData(Istream&);
 
 		//- WriteData function required for regIOobject write operation
-		virtual bool writeData(Ostream&) const;
+		FoamDynamicMesh_EXPORT virtual bool writeData(Ostream&) const;
 
 		// Helpers for decompositionConstraint
 
 			//- Add my decomposition constraints
-		void add
+		FoamDynamicMesh_EXPORT void add
 		(
 			boolList& blockedFace,
 			PtrList<labelList>& specifiedProcessorFaces,
@@ -394,7 +398,7 @@ namespace tnbLib
 		) const;
 
 		//- Apply any additional post-decomposition constraints
-		void apply
+		FoamDynamicMesh_EXPORT void apply
 		(
 			const boolList& blockedFace,
 			const PtrList<labelList>& specifiedProcessorFaces,
@@ -408,14 +412,14 @@ namespace tnbLib
 
 			//- Istream operator. Note: does not do a reduction - does not set
 			//  active_ flag
-		friend Istream& operator>>(Istream&, refinementHistory&);
+		friend FoamDynamicMesh_EXPORT Istream& operator>>(Istream&, refinementHistory&);
 
-		friend Ostream& operator<<(Ostream&, const refinementHistory&);
+		friend FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const refinementHistory&);
 	};
 
 
-	Istream& operator>>(Istream&, refinementHistory::splitCell8&);
-	Ostream& operator<<(Ostream&, const refinementHistory::splitCell8&);
+	FoamDynamicMesh_EXPORT Istream& operator>>(Istream&, refinementHistory::splitCell8&);
+	FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const refinementHistory::splitCell8&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

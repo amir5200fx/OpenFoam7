@@ -56,7 +56,7 @@ namespace tnbLib
 		// Private member functions
 
 			//- Disallow default bitwise assignment
-		void operator=(const TimeScaleModel&) = delete;
+		FoamLagrangian_EXPORT void operator=(const TimeScaleModel&) = delete;
 
 
 	protected:
@@ -73,17 +73,73 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("timeScaleModel");
+		//TypeName("timeScaleModel");
+		static const char* typeName_() { return "timeScaleModel"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			TimeScaleModel,
 			dictionary,
 			(const dictionary& dict),
 			(dict)
-		);
+		);*/
+		
+		typedef autoPtr<TimeScaleModel> (*dictionaryConstructorPtr)(const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamLagrangian_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamLagrangian_EXPORT void constructdictionaryConstructorTables();
+		static FoamLagrangian_EXPORT void destroydictionaryConstructorTables();
+
+		template <class TimeScaleModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<TimeScaleModel> New(const dictionary& dict)
+			{
+				return autoPtr<TimeScaleModel>(new TimeScaleModelType(dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = TimeScaleModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "TimeScaleModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class TimeScaleModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<TimeScaleModel> New(const dictionary& dict)
+			{
+				return autoPtr<TimeScaleModel>(new TimeScaleModelType(dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = TimeScaleModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		//- Constructors

@@ -73,10 +73,10 @@ namespace tnbLib
 			// Constructors
 
 				//- Null constructor
-			regionModelFunctionObjectList(regionModel& region);
+			FoamLagrangian_EXPORT regionModelFunctionObjectList(regionModel& region);
 
 			//- Construct from mesh
-			regionModelFunctionObjectList
+			FoamLagrangian_EXPORT regionModelFunctionObjectList
 			(
 				regionModel& region,
 				const dictionary& dict,
@@ -84,14 +84,14 @@ namespace tnbLib
 			);
 
 			//- Construct copy
-			regionModelFunctionObjectList
+			FoamLagrangian_EXPORT regionModelFunctionObjectList
 			(
 				const regionModelFunctionObjectList& rmfol
 			);
 
 
 			//- Destructor
-			virtual ~regionModelFunctionObjectList();
+			FoamLagrangian_EXPORT virtual ~regionModelFunctionObjectList();
 
 
 			// Member Functions
@@ -111,10 +111,10 @@ namespace tnbLib
 			// Evaluation
 
 				//- Pre-evolve hook
-			virtual void preEvolveRegion();
+			FoamLagrangian_EXPORT virtual void preEvolveRegion();
 
 			//- Post-evolve hook
-			virtual void postEvolveRegion();
+			FoamLagrangian_EXPORT virtual void postEvolveRegion();
 		};
 
 

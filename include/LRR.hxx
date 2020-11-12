@@ -84,6 +84,16 @@ SourceFiles
 #include <RASModel.hxx>
 #include <ReynoldsStress.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamLRR_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLRR_EXPORT_DEFINE
+#define FoamLRR_EXPORT __declspec(dllexport)
+#else
+#define FoamLRR_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -145,7 +155,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("LRR");
+			//TypeName("LRR");
+			static const char* typeName_() { return "LRR"; }
+			static FoamLRR_EXPORT const ::tnbLib::word typeName;
+			static FoamLRR_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

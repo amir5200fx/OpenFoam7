@@ -65,20 +65,24 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("preserveFaceZones");
+			//TypeName("preserveFaceZones");
+			static const char* typeName_() { return "preserveFaceZones"; }
+			static FoamParallel_EXPORT const ::tnbLib::word typeName;
+			static FoamParallel_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct with generic dictionary with optional entry for type
-			preserveFaceZonesConstraint
+			FoamParallel_EXPORT preserveFaceZonesConstraint
 			(
 				const dictionary& constraintsDict,
 				const word& type
 			);
 
 			//- Construct from components
-			preserveFaceZonesConstraint(const wordReList& zones);
+			FoamParallel_EXPORT preserveFaceZonesConstraint(const wordReList& zones);
 
 
 			//- Destructor
@@ -89,7 +93,7 @@ namespace tnbLib
 			// Member Functions
 
 				//- Add my constraints to list of constraints
-			virtual void add
+			FoamParallel_EXPORT virtual void add
 			(
 				const polyMesh& mesh,
 				boolList& blockedFace,
@@ -99,7 +103,7 @@ namespace tnbLib
 			) const;
 
 			//- Apply any additional post-decomposition constraints
-			virtual void apply
+			FoamParallel_EXPORT virtual void apply
 			(
 				const polyMesh& mesh,
 				const boolList& blockedFace,

@@ -104,9 +104,9 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void calcAddressing();
+		FoamSampling_EXPORT void calcAddressing();
 
-		void cellAddresses
+		FoamSampling_EXPORT void cellAddresses
 		(
 			labelList& cells,
 			const pointField& points,
@@ -115,29 +115,32 @@ namespace tnbLib
 			const indexedOctree<treeDataCell>& oc
 		) const;
 
-		void calculateInverseDistanceWeights() const;
+		FoamSampling_EXPORT void calculateInverseDistanceWeights() const;
 
-		void calculateInverseVolumeWeights() const;
+		FoamSampling_EXPORT void calculateInverseVolumeWeights() const;
 
-		void calculateCellToCellAddressing() const;
+		FoamSampling_EXPORT void calculateCellToCellAddressing() const;
 
-		const scalarListList& inverseDistanceWeights() const;
+		FoamSampling_EXPORT const scalarListList& inverseDistanceWeights() const;
 
-		const scalarListList& inverseVolumeWeights() const;
+		FoamSampling_EXPORT const scalarListList& inverseVolumeWeights() const;
 
-		const labelListList& cellToCellAddressing() const;
+		FoamSampling_EXPORT const labelListList& cellToCellAddressing() const;
 
 
 		// Private static data members
 
 			//- Direct hit tolerance
-		static const scalar directHitTol;
+		static FoamSampling_EXPORT const scalar directHitTol;
 
 
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("meshToMesh0");
+		//ClassName("meshToMesh0");
+		static const char* typeName_() { return "meshToMesh0"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
 
 
 		//- Enumeration specifying required accuracy
@@ -155,7 +158,7 @@ namespace tnbLib
 			//- Construct from the two meshes, the patch name map for the patches
 			//  to be interpolated and the names of the toMesh-patches which
 			//  cut the fromMesh
-		meshToMesh0
+		FoamSampling_EXPORT meshToMesh0
 		(
 			const fvMesh& fromMesh,
 			const fvMesh& toMesh,
@@ -165,7 +168,7 @@ namespace tnbLib
 
 		//- Construct from the two meshes assuming there is an exact mapping
 		//  between the patches
-		meshToMesh0
+		FoamSampling_EXPORT meshToMesh0
 		(
 			const fvMesh& fromMesh,
 			const fvMesh& toMesh
@@ -173,7 +176,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~meshToMesh0();
+		FoamSampling_EXPORT ~meshToMesh0();
 
 
 		//- Patch-field interpolation class

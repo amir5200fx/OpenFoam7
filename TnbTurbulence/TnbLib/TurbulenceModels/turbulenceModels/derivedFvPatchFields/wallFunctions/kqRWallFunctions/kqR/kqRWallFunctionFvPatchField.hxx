@@ -54,6 +54,16 @@ SourceFiles
 
 #include <zeroGradientFvPatchField.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamkqRWallFunctionFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamkqRWallFunctionFvPatchField_EXPORT_DEFINE
+#define FoamkqRWallFunctionFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamkqRWallFunctionFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -72,7 +82,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("kqRWallFunction");
+		//TypeName("kqRWallFunction");
+		static const char* typeName_() { return "kqRWallFunction"; }
+		static FoamkqRWallFunctionFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamkqRWallFunctionFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

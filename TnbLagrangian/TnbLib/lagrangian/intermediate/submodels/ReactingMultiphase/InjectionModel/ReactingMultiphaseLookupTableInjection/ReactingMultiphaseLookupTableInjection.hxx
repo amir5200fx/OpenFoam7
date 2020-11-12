@@ -60,6 +60,16 @@ SourceFiles
 #include <InjectionModelTemplate.hxx>
 #include <reactingMultiphaseParcelInjectionDataIOList.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamReactingMultiphaseLookupTableInjection_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamReactingMultiphaseLookupTableInjection_EXPORT_DEFINE
+#define FoamReactingMultiphaseLookupTableInjection_EXPORT __declspec(dllexport)
+#else
+#define FoamReactingMultiphaseLookupTableInjection_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -104,7 +114,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("reactingMultiphaseLookupTableInjection");
+		//TypeName("reactingMultiphaseLookupTableInjection");
+		static const char* typeName_() { return "reactingMultiphaseLookupTableInjection"; }
+		static FoamReactingMultiphaseLookupTableInjection_EXPORT const ::tnbLib::word typeName;
+		static FoamReactingMultiphaseLookupTableInjection_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

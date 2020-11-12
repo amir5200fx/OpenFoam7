@@ -88,6 +88,16 @@ SourceFiles
 
 #include <kOmegaSST.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamkOmegaSSTLM_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamkOmegaSSTLM_EXPORT_DEFINE
+#define FoamkOmegaSSTLM_EXPORT __declspec(dllexport)
+#else
+#define FoamkOmegaSSTLM_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -207,7 +217,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("kOmegaSSTLM");
+			//TypeName("kOmegaSSTLM");
+			static const char* typeName_() { return "kOmegaSSTLM"; }
+			static FoamkOmegaSSTLM_EXPORT const ::tnbLib::word typeName;
+			static FoamkOmegaSSTLM_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

@@ -68,7 +68,7 @@ namespace tnbLib
 			NONE
 		};
 
-		static const NamedEnum<areaSelectionAlgo, 4> areaSelectionAlgoNames;
+		static FoamSnappyHexMesh_EXPORT const NamedEnum<areaSelectionAlgo, 4> areaSelectionAlgoNames;
 
 		//- What to do with faceZone faces
 		enum faceZoneType
@@ -78,7 +78,7 @@ namespace tnbLib
 			BOUNDARY
 		};
 
-		static const NamedEnum<faceZoneType, 3> faceZoneTypeNames;
+		static FoamSnappyHexMesh_EXPORT const NamedEnum<faceZoneType, 3> faceZoneTypeNames;
 
 
 	private:
@@ -109,14 +109,14 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from surfaces and dictionary
-		surfaceZonesInfo
+		FoamSnappyHexMesh_EXPORT surfaceZonesInfo
 		(
 			const searchableSurface& surface,
 			const dictionary& surfacesDict
 		);
 
 		//- Construct from components
-		surfaceZonesInfo
+		FoamSnappyHexMesh_EXPORT surfaceZonesInfo
 		(
 			const word& faceZoneNames,
 			const word& cellZoneNames,
@@ -126,7 +126,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		surfaceZonesInfo(const surfaceZonesInfo&);
+		FoamSnappyHexMesh_EXPORT surfaceZonesInfo(const surfaceZonesInfo&);
 
 		//- Return clone
 		autoPtr<surfaceZonesInfo> clone() const
@@ -174,20 +174,20 @@ namespace tnbLib
 		// Query
 
 			//- Get indices of unnamed surfaces (surfaces without faceZoneName)
-		static labelList getUnnamedSurfaces
+		static FoamSnappyHexMesh_EXPORT labelList getUnnamedSurfaces
 		(
 			const PtrList<surfaceZonesInfo>& surfList
 		);
 
 		//- Get indices of named surfaces (surfaces with faceZoneName)
-		static labelList getNamedSurfaces
+		static FoamSnappyHexMesh_EXPORT labelList getNamedSurfaces
 		(
 			const PtrList<surfaceZonesInfo>& surfList
 		);
 
 		//- Get indices of surfaces with a cellZone that are closed and
 		//  have 'inside' or 'outside' selection.
-		static labelList getClosedNamedSurfaces
+		static FoamSnappyHexMesh_EXPORT labelList getClosedNamedSurfaces
 		(
 			const PtrList<surfaceZonesInfo>& surfList,
 			const searchableSurfaces& allGeometry,
@@ -195,7 +195,7 @@ namespace tnbLib
 		);
 
 		//- Get indices of surfaces with a cellZone that are unclosed
-		static labelList getUnclosedNamedSurfaces
+		static FoamSnappyHexMesh_EXPORT labelList getUnclosedNamedSurfaces
 		(
 			const PtrList<surfaceZonesInfo>& surfList,
 			const searchableSurfaces& allGeometry,
@@ -203,7 +203,7 @@ namespace tnbLib
 		);
 
 		//- Get indices of surfaces with a cellZone that are closed.
-		static labelList getAllClosedNamedSurfaces
+		static FoamSnappyHexMesh_EXPORT labelList getAllClosedNamedSurfaces
 		(
 			const PtrList<surfaceZonesInfo>& surfList,
 			const searchableSurfaces& allGeometry,
@@ -212,19 +212,19 @@ namespace tnbLib
 
 		//- Get indices of surfaces with a cellZone that have 'insidePoint'
 		//  section.
-		static labelList getInsidePointNamedSurfaces
+		static FoamSnappyHexMesh_EXPORT labelList getInsidePointNamedSurfaces
 		(
 			const PtrList<surfaceZonesInfo>& surfList
 		);
 
-		static labelList addCellZonesToMesh
+		static FoamSnappyHexMesh_EXPORT labelList addCellZonesToMesh
 		(
 			const PtrList<surfaceZonesInfo>& surfList,
 			const labelList& namedSurfaces,
 			polyMesh& mesh
 		);
 
-		static labelList addFaceZonesToMesh
+		static FoamSnappyHexMesh_EXPORT labelList addFaceZonesToMesh
 		(
 			const PtrList<surfaceZonesInfo>& surfList,
 			const labelList& namedSurfaces,
@@ -235,7 +235,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const surfaceZonesInfo&) = delete;
+		FoamSnappyHexMesh_EXPORT void operator=(const surfaceZonesInfo&) = delete;
 	};
 
 

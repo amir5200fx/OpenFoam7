@@ -74,7 +74,7 @@ namespace tnbLib
 
 				//- Calculates (geometric) shared points
 				//  Requires PackedList to be sized and initialised
-		static label getCollocatedPoints
+		static FoamSnappyHexMesh_EXPORT label getCollocatedPoints
 		(
 			const scalar tol,
 			const pointField&,
@@ -83,24 +83,24 @@ namespace tnbLib
 
 		//- Calculate displacement per patch point to smooth out patch.
 		//  Quite complicated in determining which points to move where.
-		static pointField smoothPatchDisplacement
+		static FoamSnappyHexMesh_EXPORT pointField smoothPatchDisplacement
 		(
 			const motionSmoother&,
 			const List<labelPair>&
 		);
 
 		//- Check that face zones are synced
-		void checkCoupledFaceZones() const;
+		FoamSnappyHexMesh_EXPORT void checkCoupledFaceZones() const;
 
 		//- Per edge distance to patch
-		static tmp<scalarField> edgePatchDist
+		static FoamSnappyHexMesh_EXPORT tmp<scalarField> edgePatchDist
 		(
 			const pointMesh&,
 			const indirectPrimitivePatch&
 		);
 
 		//- Write displacement as .obj file.
-		static void dumpMove
+		static FoamSnappyHexMesh_EXPORT void dumpMove
 		(
 			const fileName&,
 			const pointField&,
@@ -108,14 +108,14 @@ namespace tnbLib
 		);
 
 		//- Check displacement is outwards pointing
-		static bool outwardsDisplacement
+		static FoamSnappyHexMesh_EXPORT bool outwardsDisplacement
 		(
 			const indirectPrimitivePatch&,
 			const vectorField&
 		);
 
 		//- Detect warpage
-		void detectWarpedFaces
+		FoamSnappyHexMesh_EXPORT void detectWarpedFaces
 		(
 			const scalar featureCos,
 			const indirectPrimitivePatch& pp,
@@ -127,7 +127,7 @@ namespace tnbLib
 		// Feature line snapping
 
 			//- Is point on two feature edges that make a largish angle?
-		bool isFeaturePoint
+		FoamSnappyHexMesh_EXPORT bool isFeaturePoint
 		(
 			const scalar featureCos,
 			const indirectPrimitivePatch& pp,
@@ -135,7 +135,7 @@ namespace tnbLib
 			const label pointi
 		) const;
 
-		void smoothAndConstrain
+		FoamSnappyHexMesh_EXPORT void smoothAndConstrain
 		(
 			const PackedBoolList& isMasterEdge,
 			const indirectPrimitivePatch& pp,
@@ -144,7 +144,7 @@ namespace tnbLib
 			vectorField& disp
 		) const;
 
-		void calcNearest
+		FoamSnappyHexMesh_EXPORT void calcNearest
 		(
 			const label iter,
 			const indirectPrimitivePatch& pp,
@@ -153,7 +153,7 @@ namespace tnbLib
 			vectorField& pointRotation
 		) const;
 
-		void calcNearestFace
+		FoamSnappyHexMesh_EXPORT void calcNearestFace
 		(
 			const label iter,
 			const indirectPrimitivePatch& pp,
@@ -169,7 +169,7 @@ namespace tnbLib
 		//  - faceSurfaceNormal
 		//  - faceDisp
 		//  - faceCentres&faceNormal
-		void calcNearestFacePointProperties
+		FoamSnappyHexMesh_EXPORT void calcNearestFacePointProperties
 		(
 			const label iter,
 			const indirectPrimitivePatch& pp,
@@ -188,7 +188,7 @@ namespace tnbLib
 		//  edge. Calculates if the point has a different number of
 		//  faces on either side of the feature and if so attracts the
 		//  point to that non-dominant plane.
-		void correctAttraction
+		FoamSnappyHexMesh_EXPORT void correctAttraction
 		(
 			const DynamicList<point>& surfacePoints,
 			const DynamicList<label>& surfaceCounts,
@@ -201,7 +201,7 @@ namespace tnbLib
 
 		//- For any reverse (so from feature back to mesh) attraction:
 		//  add attraction if diagonal points on face attracted
-		void stringFeatureEdges
+		FoamSnappyHexMesh_EXPORT void stringFeatureEdges
 		(
 			const label iter,
 			const scalar featureCos,
@@ -219,7 +219,7 @@ namespace tnbLib
 		//- Remove constraints of points next to multi-patch points
 		//  to give a bit more freedom of the mesh to conform to the
 		//  multi-patch points. Bit dodgy for simple cases.
-		void releasePointsNextToMultiPatch
+		FoamSnappyHexMesh_EXPORT void releasePointsNextToMultiPatch
 		(
 			const label iter,
 			const scalar featureCos,
@@ -239,7 +239,7 @@ namespace tnbLib
 
 		//- Detect any diagonal attraction. Returns indices in face
 		//  or (-1, -1) if none
-		labelPair findDiagonalAttraction
+		FoamSnappyHexMesh_EXPORT labelPair findDiagonalAttraction
 		(
 			const indirectPrimitivePatch& pp,
 			const vectorField& patchAttraction,
@@ -249,7 +249,7 @@ namespace tnbLib
 
 		//- Avoid attraction across face diagonal since would
 		//  cause face squeeze
-		void avoidDiagonalAttraction
+		FoamSnappyHexMesh_EXPORT void avoidDiagonalAttraction
 		(
 			const label iter,
 			const scalar featureCos,
@@ -259,7 +259,7 @@ namespace tnbLib
 		) const;
 
 		//- Return hit if on multiple points
-		pointIndexHit findMultiPatchPoint
+		FoamSnappyHexMesh_EXPORT pointIndexHit findMultiPatchPoint
 		(
 			const point& pt,
 			const labelList& patchIDs,
@@ -274,7 +274,7 @@ namespace tnbLib
 		//                      edge is also a region edge)
 		//  - true , index=1  : multiple patches on same normals plane
 		//                      i.e. flat region edge
-		pointIndexHit findMultiPatchPoint
+		FoamSnappyHexMesh_EXPORT pointIndexHit findMultiPatchPoint
 		(
 			const point& pt,
 			const labelList& pfPatchID,
@@ -283,7 +283,7 @@ namespace tnbLib
 		) const;
 
 		//- Return index of similar normal
-		label findNormal
+		FoamSnappyHexMesh_EXPORT label findNormal
 		(
 			const scalar featureCos,
 			const vector& faceSurfaceNormal,
@@ -292,7 +292,7 @@ namespace tnbLib
 
 		//- Determine attraction and constraints for single point
 		//  using sampled surrounding of the point
-		void featureAttractionUsingReconstruction
+		FoamSnappyHexMesh_EXPORT void featureAttractionUsingReconstruction
 		(
 			const label iter,
 			const scalar featureCos,
@@ -317,7 +317,7 @@ namespace tnbLib
 
 		//- Determine attraction and constraints for all points
 		//  using sampled surrounding of the point
-		void featureAttractionUsingReconstruction
+		FoamSnappyHexMesh_EXPORT void featureAttractionUsingReconstruction
 		(
 			const label iter,
 			const bool avoidSnapProblems,
@@ -337,7 +337,7 @@ namespace tnbLib
 
 		//- Determine geometric features and attraction to equivalent
 		//  surface features
-		void determineFeatures
+		FoamSnappyHexMesh_EXPORT void determineFeatures
 		(
 			const label iter,
 			const scalar featureCos,
@@ -363,7 +363,7 @@ namespace tnbLib
 
 		//- Determine features originating from bafles and
 		//  and add attraction to equivalent surface features
-		void determineBaffleFeatures
+		FoamSnappyHexMesh_EXPORT void determineBaffleFeatures
 		(
 			const label iter,
 			const scalar featureCos,
@@ -382,7 +382,7 @@ namespace tnbLib
 			List<pointConstraint>& patchConstraints
 		) const;
 
-		void reverseAttractMeshPoints
+		FoamSnappyHexMesh_EXPORT void reverseAttractMeshPoints
 		(
 			const label iter,
 
@@ -407,7 +407,7 @@ namespace tnbLib
 		//- Find point on nearest feature edge (within searchDist).
 		//  Return point and feature
 		//  and store feature-edge to mesh-point and vice versa
-		Tuple2<label, pointIndexHit> findNearFeatureEdge
+		FoamSnappyHexMesh_EXPORT Tuple2<label, pointIndexHit> findNearFeatureEdge
 		(
 			const bool isRegionEdge,
 
@@ -428,7 +428,7 @@ namespace tnbLib
 		//  If another mesh point already referring to this feature
 		//  point and further away, reset that one to a near feature
 		//  edge (using findNearFeatureEdge above)
-		Tuple2<label, pointIndexHit> findNearFeaturePoint
+		FoamSnappyHexMesh_EXPORT Tuple2<label, pointIndexHit> findNearFeaturePoint
 		(
 			const bool isRegionEdge,
 
@@ -448,7 +448,7 @@ namespace tnbLib
 			List<pointConstraint>& patchConstraints
 		) const;
 
-		void featureAttractionUsingFeatureEdges
+		FoamSnappyHexMesh_EXPORT void featureAttractionUsingFeatureEdges
 		(
 			const label iter,
 			const bool avoidSnapProblems,
@@ -467,7 +467,7 @@ namespace tnbLib
 			List<pointConstraint>& patchConstraints
 		) const;
 
-		void preventFaceSqueeze
+		FoamSnappyHexMesh_EXPORT void preventFaceSqueeze
 		(
 			const label iter,
 			const scalar featureCos,
@@ -482,7 +482,7 @@ namespace tnbLib
 		//  displacement to nearest surface in nearestDisp
 		//  and calculates new displacement taking into account
 		//  features
-		vectorField calcNearestSurfaceFeature
+		FoamSnappyHexMesh_EXPORT vectorField calcNearestSurfaceFeature
 		(
 			const snapParameters& snapParams,
 			const bool avoidSnapProblems,
@@ -500,13 +500,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("snappySnapDriver");
+		//ClassName("snappySnapDriver");
+		static const char* typeName_() { return "snappySnapDriver"; }
+		static FoamSnappyHexMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamSnappyHexMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from components
-		snappySnapDriver
+		FoamSnappyHexMesh_EXPORT snappySnapDriver
 		(
 			meshRefinement& meshRefiner,
 			const labelList& globalToMasterPatch,
@@ -514,7 +517,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		snappySnapDriver(const snappySnapDriver&) = delete;
+		FoamSnappyHexMesh_EXPORT snappySnapDriver(const snappySnapDriver&) = delete;
 
 
 		// Member Functions
@@ -522,10 +525,10 @@ namespace tnbLib
 			// Snapping
 
 				//- Merge baffles.
-		autoPtr<mapPolyMesh> mergeZoneBaffles(const List<labelPair>&);
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> mergeZoneBaffles(const List<labelPair>&);
 
 		//- Calculate edge length per patch point.
-		static scalarField calcSnapDistance
+		static FoamSnappyHexMesh_EXPORT scalarField calcSnapDistance
 		(
 			const fvMesh& mesh,
 			const snapParameters& snapParams,
@@ -534,7 +537,7 @@ namespace tnbLib
 
 		//- Smooth the mesh (patch and internal) to increase visibility
 		//  of surface points (on castellated mesh) w.r.t. surface.
-		static void preSmoothPatch
+		static FoamSnappyHexMesh_EXPORT void preSmoothPatch
 		(
 			const meshRefinement& meshRefiner,
 			const snapParameters& snapParams,
@@ -544,7 +547,7 @@ namespace tnbLib
 		);
 
 		//- Get points both on patch and facezone.
-		static labelList getZoneSurfacePoints
+		static FoamSnappyHexMesh_EXPORT labelList getZoneSurfacePoints
 		(
 			const fvMesh& mesh,
 			const indirectPrimitivePatch&,
@@ -552,14 +555,14 @@ namespace tnbLib
 		);
 
 		//- Helper: calculate average cell centre per point
-		static tmp<pointField> avgCellCentres
+		static FoamSnappyHexMesh_EXPORT tmp<pointField> avgCellCentres
 		(
 			const fvMesh& mesh,
 			const indirectPrimitivePatch&
 		);
 
 		//- Per patch point override displacement if in gap situation
-		void detectNearSurfaces
+		FoamSnappyHexMesh_EXPORT void detectNearSurfaces
 		(
 			const scalar planarCos,
 			const indirectPrimitivePatch&,
@@ -571,7 +574,7 @@ namespace tnbLib
 		//- Per patch point calculate point on nearest surface. Set as
 		//  boundary conditions of motionSmoother displacement field. Return
 		//  displacement of patch points.
-		static vectorField calcNearestSurface
+		static FoamSnappyHexMesh_EXPORT vectorField calcNearestSurface
 		(
 			const meshRefinement& meshRefiner,
 			const scalarField& snapDist,
@@ -581,7 +584,7 @@ namespace tnbLib
 		);
 
 		//- Smooth the displacement field to the internal.
-		void smoothDisplacement
+		FoamSnappyHexMesh_EXPORT void smoothDisplacement
 		(
 			const snapParameters& snapParams,
 			motionSmoother&
@@ -590,7 +593,7 @@ namespace tnbLib
 		//- Do the hard work: move the mesh according to displacement,
 		//  locally relax the displacement. Return true if ended up with
 		//  correct mesh, false if not.
-		bool scaleMesh
+		FoamSnappyHexMesh_EXPORT bool scaleMesh
 		(
 			const snapParameters& snapParams,
 			const label nInitErrors,
@@ -602,14 +605,14 @@ namespace tnbLib
 		//  - calculate face-wise snap distance as max of point-wise
 		//  - calculate face-wise nearest surface point
 		//  - repatch face according to patch for surface point.
-		autoPtr<mapPolyMesh> repatchToSurface
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> repatchToSurface
 		(
 			const snapParameters& snapParams,
 			const labelList& adaptPatchIDs,
 			const labelList& preserveFaces
 		);
 
-		void doSnap
+		FoamSnappyHexMesh_EXPORT void doSnap
 		(
 			const dictionary& snapDict,
 			const dictionary& motionDict,
@@ -622,7 +625,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const snappySnapDriver&) = delete;
+		FoamSnappyHexMesh_EXPORT void operator=(const snappySnapDriver&) = delete;
 	};
 
 

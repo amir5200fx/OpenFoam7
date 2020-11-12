@@ -53,7 +53,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Call Metis with options from dictionary.
-		label decompose
+		FoamParallel_EXPORT label decompose
 		(
 			const List<label>& adjncy,
 			const List<label>& xadj,
@@ -65,16 +65,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("metis");
+		//TypeName("metis");
+		static const char* typeName_() { return "metis"; }
+		static FoamParallel_EXPORT const ::tnbLib::word typeName;
+		static FoamParallel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given the decomposition dictionary
-		metisDecomp(const dictionary&);
+		FoamParallel_EXPORT metisDecomp(const dictionary&);
 
 		//- Disallow default bitwise copy construction
-		metisDecomp(const metisDecomp&) = delete;
+		FoamParallel_EXPORT metisDecomp(const metisDecomp&) = delete;
 
 
 		//- Destructor
@@ -98,7 +102,7 @@ namespace tnbLib
 		//  Weights get normalised so the minimum value is 1 before truncation
 		//  to an integer so the weights should be multiples of the minimum
 		//  value. The overall sum of weights might otherwise overflow.
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const polyMesh& mesh,
 			const pointField& points,
@@ -110,7 +114,7 @@ namespace tnbLib
 		//  location. Can be overridden by decomposers that provide this
 		//  functionality natively.
 		//  See note on weights above.
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const polyMesh& mesh,
 			const labelList& agglom,
@@ -126,7 +130,7 @@ namespace tnbLib
 		//    processors)
 		//  - the connections are across coupled patches
 		//  See note on weights above.
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const labelListList& globalCellCells,
 			const pointField& cc,
@@ -137,7 +141,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const metisDecomp&) = delete;
+		FoamParallel_EXPORT void operator=(const metisDecomp&) = delete;
 	};
 
 

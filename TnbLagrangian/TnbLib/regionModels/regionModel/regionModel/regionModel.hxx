@@ -63,16 +63,16 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Disallow default bitwise copy construction
-			regionModel(const regionModel&) = delete;
+			FoamLagrangian_EXPORT regionModel(const regionModel&) = delete;
 
 			//- Disallow default bitwise assignment
-			void operator=(const regionModel&) = delete;
+			FoamLagrangian_EXPORT void operator=(const regionModel&) = delete;
 
 			//- Construct region mesh and fields
-			void constructMeshObjects();
+			FoamLagrangian_EXPORT void constructMeshObjects();
 
 			//- Initialise the region
-			void initialise();
+			FoamLagrangian_EXPORT void initialise();
 
 
 		protected:
@@ -132,13 +132,13 @@ namespace tnbLib
 			// Protected member functions
 
 				//- Read control parameters from dictionary
-			virtual bool read();
+			FoamLagrangian_EXPORT virtual bool read();
 
 			//- Read control parameters from dictionary
-			virtual bool read(const dictionary& dict);
+			FoamLagrangian_EXPORT virtual bool read(const dictionary& dict);
 
 			//- Create or return a new inter-region AMI object
-			virtual const AMIInterpolation& interRegionAMI
+			FoamLagrangian_EXPORT virtual const AMIInterpolation& interRegionAMI
 			(
 				const regionModel& nbrRegion,
 				const label regionPatchi,
@@ -150,16 +150,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("regionModel");
+			//TypeName("regionModel");
+			static const char* typeName_() { return "regionModel"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct null
-			regionModel(const fvMesh& mesh, const word& regionType);
+			FoamLagrangian_EXPORT regionModel(const fvMesh& mesh, const word& regionType);
 
 			//- Construct from mesh, region type and name
-			regionModel
+			FoamLagrangian_EXPORT regionModel
 			(
 				const fvMesh& mesh,
 				const word& regionType,
@@ -168,7 +172,7 @@ namespace tnbLib
 			);
 
 			//- Construct from mesh and name and dict
-			regionModel
+			FoamLagrangian_EXPORT regionModel
 			(
 				const fvMesh& mesh,
 				const word& regionType,
@@ -179,7 +183,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~regionModel();
+			FoamLagrangian_EXPORT virtual ~regionModel();
 
 
 			// Member Functions
@@ -246,7 +250,7 @@ namespace tnbLib
 
 				//- Return the coupled patch ID paired with coupled patch
 				//  regionPatchi
-			label nbrCoupledPatchID
+			FoamLagrangian_EXPORT label nbrCoupledPatchID
 			(
 				const regionModel& nbrRegion,
 				const label regionPatchi
@@ -322,22 +326,22 @@ namespace tnbLib
 			// Evolution
 
 				//- Main driver routing to evolve the region - calls other evolves
-			virtual void evolve();
+			FoamLagrangian_EXPORT virtual void evolve();
 
 			//- Pre-evolve region
-			virtual void preEvolveRegion();
+			FoamLagrangian_EXPORT virtual void preEvolveRegion();
 
 			//- Evolve the region
-			virtual void evolveRegion();
+			FoamLagrangian_EXPORT virtual void evolveRegion();
 
 			//- Post-evolve region
-			virtual void postEvolveRegion();
+			FoamLagrangian_EXPORT virtual void postEvolveRegion();
 
 
 			// I-O
 
 				//- Provide some feedback
-			virtual void info();
+			FoamLagrangian_EXPORT virtual void info();
 		};
 
 

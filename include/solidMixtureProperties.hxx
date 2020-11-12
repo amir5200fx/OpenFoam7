@@ -82,10 +82,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from dictionary
-		solidMixtureProperties(const dictionary&);
+		FoamThermophysicalModels_EXPORT solidMixtureProperties(const dictionary&);
 
 		//- Construct copy
-		solidMixtureProperties(const solidMixtureProperties& lm);
+		FoamThermophysicalModels_EXPORT solidMixtureProperties(const solidMixtureProperties& lm);
 
 		//- Construct and return a clone
 		virtual autoPtr<solidMixtureProperties> clone() const
@@ -105,7 +105,7 @@ namespace tnbLib
 		// Selectors
 
 			//- Select construct from dictionary
-		static autoPtr<solidMixtureProperties> New(const dictionary&);
+		static FoamThermophysicalModels_EXPORT autoPtr<solidMixtureProperties> New(const dictionary&);
 
 
 		// Member Functions
@@ -130,11 +130,11 @@ namespace tnbLib
 
 		//- Calculate the mixture density [kg/m^3] as a function of
 		//  mass fractions
-		scalar rho(const scalarField& Y) const;
+		FoamThermophysicalModels_EXPORT scalar rho(const scalarField& Y) const;
 
 		//- Calculate the mixture heat capacity [J/kg/K] as a function of
 		//  mass fractions
-		scalar Cp(const scalarField& Y) const;
+		FoamThermophysicalModels_EXPORT scalar Cp(const scalarField& Y) const;
 	};
 
 

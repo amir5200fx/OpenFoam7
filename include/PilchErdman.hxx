@@ -63,6 +63,16 @@ Description
 
 #include <vector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamPilchErdman_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPilchErdman_EXPORT_DEFINE
+#define FoamPilchErdman_EXPORT __declspec(dllexport)
+#else
+#define FoamPilchErdman_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -85,7 +95,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("PilchErdman");
+		//TypeName("PilchErdman");
+		static const char* typeName_() { return "PilchErdman"; }
+		static FoamPilchErdman_EXPORT const ::tnbLib::word typeName;
+		static FoamPilchErdman_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

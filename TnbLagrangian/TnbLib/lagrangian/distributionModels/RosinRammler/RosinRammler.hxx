@@ -77,16 +77,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("RosinRammler");
+			//TypeName("RosinRammler");
+			static const char* typeName_() { return "RosinRammler"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			RosinRammler(const dictionary& dict, Random& rndGen);
+			FoamLagrangian_EXPORT RosinRammler(const dictionary& dict, Random& rndGen);
 
 			//- Construct copy
-			RosinRammler(const RosinRammler& p);
+			FoamLagrangian_EXPORT RosinRammler(const RosinRammler& p);
 
 			//- Construct and return a clone
 			virtual autoPtr<distributionModel> clone() const
@@ -96,22 +100,22 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~RosinRammler();
+			FoamLagrangian_EXPORT virtual ~RosinRammler();
 
 
 			// Member Functions
 
 				//- Sample the distributionModel
-			virtual scalar sample() const;
+			FoamLagrangian_EXPORT virtual scalar sample() const;
 
 			//- Return the minimum value
-			virtual scalar minValue() const;
+			FoamLagrangian_EXPORT virtual scalar minValue() const;
 
 			//- Return the maximum value
-			virtual scalar maxValue() const;
+			FoamLagrangian_EXPORT virtual scalar maxValue() const;
 
 			//- Return the mean value
-			virtual scalar meanValue() const;
+			FoamLagrangian_EXPORT virtual scalar meanValue() const;
 		};
 
 

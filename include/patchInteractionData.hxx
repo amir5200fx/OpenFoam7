@@ -47,13 +47,13 @@ namespace tnbLib
 	class patchInteractionData;
 
 	// Forward declaration of friend functions
-	Ostream& operator<<
+	FoamLagrangian_EXPORT Ostream& operator<<
 		(
 			Ostream& os,
 			const patchInteractionData& pid
 			);  //- added by amir
 
-	Istream& operator>>
+	FoamLagrangian_EXPORT Istream& operator>>
 		(
 			Istream& is,
 			patchInteractionData& pid
@@ -82,7 +82,7 @@ namespace tnbLib
 		// Constructor
 
 			//- Construct null
-		patchInteractionData();
+		FoamLagrangian_EXPORT patchInteractionData();
 
 
 		// Member Functions
@@ -90,31 +90,31 @@ namespace tnbLib
 			// Access
 
 				//- Return const access to the interaction type name
-		const word& interactionTypeName() const;
+		FoamLagrangian_EXPORT const word& interactionTypeName() const;
 
 		//- Return const access to the patch name
-		const word& patchName() const;
+		FoamLagrangian_EXPORT const word& patchName() const;
 
 		//- Return const access to the elasticity coefficient
-		scalar e() const;
+		FoamLagrangian_EXPORT scalar e() const;
 
 		//- Return const access to the restitution coefficient
-		scalar mu() const;
+		FoamLagrangian_EXPORT scalar mu() const;
 
 
-		bool operator==(const patchInteractionData&) const;  //- added by amir
-		bool operator!=(const patchInteractionData&) const;  //- added by amir
+		FoamLagrangian_EXPORT bool operator==(const patchInteractionData&) const;  //- added by amir
+		FoamLagrangian_EXPORT bool operator!=(const patchInteractionData&) const;  //- added by amir
 
 		// I-O
 
-		friend Ostream& operator<<
+		friend FoamLagrangian_EXPORT Ostream& operator<<
 			(
 				Ostream& os,
 				const patchInteractionData& pid
 				);  //- added by amir
 
 			//- Istream operator
-		friend Istream& operator>>
+		friend FoamLagrangian_EXPORT Istream& operator>>
 			(
 				Istream& is,
 				patchInteractionData& pid

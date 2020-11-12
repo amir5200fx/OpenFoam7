@@ -61,16 +61,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("fixedValue");
+			//TypeName("fixedValue");
+			static const char* typeName_() { return "fixedValue"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			fixedValue(const dictionary& dict, Random& rndGen);
+			FoamLagrangian_EXPORT fixedValue(const dictionary& dict, Random& rndGen);
 
 			//- Construct copy
-			fixedValue(const fixedValue& p);
+			FoamLagrangian_EXPORT fixedValue(const fixedValue& p);
 
 			//- Construct and return a clone
 			virtual autoPtr<distributionModel> clone() const
@@ -80,22 +84,22 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~fixedValue();
+			FoamLagrangian_EXPORT virtual ~fixedValue();
 
 
 			// Member Functions
 
 				//- Sample the distributionModel
-			virtual scalar sample() const;
+			FoamLagrangian_EXPORT virtual scalar sample() const;
 
 			//- Return the minimum value
-			virtual scalar minValue() const;
+			FoamLagrangian_EXPORT virtual scalar minValue() const;
 
 			//- Return the maximum value
-			virtual scalar maxValue() const;
+			FoamLagrangian_EXPORT virtual scalar maxValue() const;
 
 			//- Return the mean value
-			virtual scalar meanValue() const;
+			FoamLagrangian_EXPORT virtual scalar meanValue() const;
 		};
 
 

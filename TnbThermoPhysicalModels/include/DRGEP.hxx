@@ -106,6 +106,16 @@ SourceFiles
 
 #include <chemistryReductionMethod.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamDRGEP_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDRGEP_EXPORT_DEFINE
+#define FoamDRGEP_EXPORT __declspec(dllexport)
+#else
+#define FoamDRGEP_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -133,7 +143,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("DRGEP");
+			//TypeName("DRGEP");
+			static const char* typeName_() { return "DRGEP"; }
+			static FoamDRGEP_EXPORT const ::tnbLib::word typeName;
+			static FoamDRGEP_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

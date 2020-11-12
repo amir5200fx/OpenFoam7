@@ -92,34 +92,83 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("integrationScheme");
+		//TypeName("integrationScheme");
+		static const char* typeName_() { return "integrationScheme"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		//- Declare runtime constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			integrationScheme,
 			word,
 			(),
 			()
-		);
+		);*/
+
+		typedef autoPtr<integrationScheme> (*wordConstructorPtr)();
+		typedef HashTable<wordConstructorPtr, word, string::hash> wordConstructorTable;
+		static FoamLagrangian_EXPORT wordConstructorTable* wordConstructorTablePtr_;
+		static FoamLagrangian_EXPORT void constructwordConstructorTables();
+		static FoamLagrangian_EXPORT void destroywordConstructorTables();
+
+		template <class integrationSchemeType>
+		class addwordConstructorToTable
+		{
+		public:
+			static autoPtr<integrationScheme> New() { return autoPtr<integrationScheme>(new integrationSchemeType()); }
+
+			addwordConstructorToTable(const word& lookup = integrationSchemeType::typeName)
+			{
+				constructwordConstructorTables();
+				if (!wordConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "integrationScheme"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addwordConstructorToTable() { destroywordConstructorTables(); }
+		};
+
+		template <class integrationSchemeType>
+		class addRemovablewordConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<integrationScheme> New() { return autoPtr<integrationScheme>(new integrationSchemeType()); }
+
+			addRemovablewordConstructorToTable(const word& lookup = integrationSchemeType::typeName) : lookup_(lookup)
+			{
+				constructwordConstructorTables();
+				wordConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablewordConstructorToTable()
+			{
+				if (wordConstructorTablePtr_) { wordConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct
-		integrationScheme();
+		FoamLagrangian_EXPORT integrationScheme();
 
 		//- Construct and return clone
-		virtual autoPtr<integrationScheme> clone() const = 0;
+		FoamLagrangian_EXPORT virtual autoPtr<integrationScheme> clone() const = 0;
 
 
 		// Selectors
 
 			//- Select an integration scheme
-		static autoPtr<integrationScheme> New
+		static FoamLagrangian_EXPORT autoPtr<integrationScheme> New
 		(
 			const word& phiName,
 			const dictionary& dict
@@ -127,7 +176,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~integrationScheme();
+		FoamLagrangian_EXPORT virtual ~integrationScheme();
 
 
 		// Member Functions
@@ -165,10 +214,10 @@ namespace tnbLib
 		) const;
 
 		//- Return the integration effective time step
-		virtual scalar dtEff(const scalar dt, const scalar Beta) const = 0;
+		FoamLagrangian_EXPORT virtual scalar dtEff(const scalar dt, const scalar Beta) const = 0;
 
 		//- Return the integral of the effective time step
-		virtual scalar sumDtEff(const scalar dt, const scalar Beta) const = 0;
+		FoamLagrangian_EXPORT virtual scalar sumDtEff(const scalar dt, const scalar Beta) const = 0;
 	};
 
 

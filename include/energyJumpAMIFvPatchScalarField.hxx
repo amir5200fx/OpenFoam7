@@ -62,19 +62,23 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("energyJumpAMI");
+		//TypeName("energyJumpAMI");
+		static const char* typeName_() { return "energyJumpAMI"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		energyJumpAMIFvPatchScalarField
+		FoamThermophysicalModels_EXPORT energyJumpAMIFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		energyJumpAMIFvPatchScalarField
+		FoamThermophysicalModels_EXPORT energyJumpAMIFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -83,7 +87,7 @@ namespace tnbLib
 
 		//- Construct by mapping given energyJumpAMIFvPatchScalarField onto a
 		//  new patch
-		energyJumpAMIFvPatchScalarField
+		FoamThermophysicalModels_EXPORT energyJumpAMIFvPatchScalarField
 		(
 			const energyJumpAMIFvPatchScalarField&,
 			const fvPatch&,
@@ -92,7 +96,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		energyJumpAMIFvPatchScalarField
+		FoamThermophysicalModels_EXPORT energyJumpAMIFvPatchScalarField
 		(
 			const energyJumpAMIFvPatchScalarField&
 		);
@@ -107,7 +111,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		energyJumpAMIFvPatchScalarField
+		FoamThermophysicalModels_EXPORT energyJumpAMIFvPatchScalarField
 		(
 			const energyJumpAMIFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -131,11 +135,11 @@ namespace tnbLib
 			// Evaluation functions
 
 				//- Update the coefficients
-		virtual void updateCoeffs();
+		FoamThermophysicalModels_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamThermophysicalModels_EXPORT virtual void write(Ostream&) const;
 	};
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

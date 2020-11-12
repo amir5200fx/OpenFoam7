@@ -118,13 +118,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("patchProbes");
+		//TypeName("patchProbes");
+		static const char* typeName_() { return "patchProbes"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from Time and dictionary
-		patchProbes
+		FoamSampling_EXPORT patchProbes
 		(
 			const word& name,
 			const Time& time,
@@ -133,7 +137,7 @@ namespace tnbLib
 
 		//- Construct for given objectRegistry and dictionary.
 		//  Allow the possibility to load fields from files
-		patchProbes
+		FoamSampling_EXPORT patchProbes
 		(
 			const word& name,
 			const objectRegistry&,
@@ -142,29 +146,29 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		patchProbes(const patchProbes&) = delete;
+		FoamSampling_EXPORT patchProbes(const patchProbes&) = delete;
 
 
 		//- Destructor
-		virtual ~patchProbes();
+		FoamSampling_EXPORT virtual ~patchProbes();
 
 
 		// Member Functions
 
 			//- Sample and write
-		virtual bool write();
+		FoamSampling_EXPORT virtual bool write();
 
 		//- Read
-		virtual bool read(const dictionary&);
+		FoamSampling_EXPORT virtual bool read(const dictionary&);
 
 		//- Find elements containing patchProbes
-		virtual void findElements(const fvMesh&);
+		FoamSampling_EXPORT virtual void findElements(const fvMesh&);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const patchProbes&) = delete;
+		FoamSampling_EXPORT void operator=(const patchProbes&) = delete;
 	};
 
 

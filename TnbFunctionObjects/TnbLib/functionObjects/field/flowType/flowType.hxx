@@ -71,19 +71,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Calculate the flowType field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("flowType");
+			//TypeName("flowType");
+			static const char* typeName_() { return "flowType"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			flowType
+			FoamFunctionObjects_EXPORT flowType
 			(
 				const word& name,
 				const Time& runTime,
@@ -92,7 +96,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~flowType();
+			FoamFunctionObjects_EXPORT virtual ~flowType();
 		};
 
 

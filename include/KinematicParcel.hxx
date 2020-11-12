@@ -55,6 +55,16 @@ SourceFiles
 
 // #include "ParticleForceList.H" // TODO
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamKinematicParcel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamKinematicParcel_EXPORT_DEFINE
+#define FoamKinematicParcel_EXPORT __declspec(dllexport)
+#else
+#define FoamKinematicParcel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -320,10 +330,14 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Runtime type information
-		TypeName("KinematicParcel");
+		//TypeName("KinematicParcel");
+		static const char* typeName_() { return "KinematicParcel"; }
+		static FoamKinematicParcel_EXPORT const ::tnbLib::word typeName;
+		static FoamKinematicParcel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- String representation of properties
-		AddToPropertyList
+		/*AddToPropertyList
 		(
 			ParcelType,
 			" active"
@@ -336,7 +350,15 @@ namespace tnbLib
 			+ " age"
 			+ " tTurb"
 			+ " (UTurbx UTurby UTurbz)"
-		);
+		);*/
+		
+		static string propertyList_;
+
+		static string propertyList()
+		{
+			return ParcelType::propertyList() + " active" + " typeId" + " nParticle" + " d" + " dTarget " +
+				" (Ux Uy Uz)" + " rho" + " age" + " tTurb" + " (UTurbx UTurby UTurbz)";
+		};
 
 
 		// Constructors
@@ -676,7 +698,7 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <KinematicParcel.cxx>
+//#include <KinematicParcel.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

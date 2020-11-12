@@ -40,6 +40,16 @@ SourceFiles
 
 #include <slipFvPatchField.hxx>
 
+#ifdef FoamFvMotionSolver_EXPORT_DEFINE
+#define FoamsurfaceSlipDisplacementFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamsurfaceSlipDisplacementFvPatchField_EXPORT_DEFINE
+#define FoamsurfaceSlipDisplacementFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamsurfaceSlipDisplacementFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -58,7 +68,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("surfaceSlipDisplacement");
+		//TypeName("surfaceSlipDisplacement");
+		static const char* typeName_() { return "surfaceSlipDisplacement"; }
+		static FoamsurfaceSlipDisplacementFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamsurfaceSlipDisplacementFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

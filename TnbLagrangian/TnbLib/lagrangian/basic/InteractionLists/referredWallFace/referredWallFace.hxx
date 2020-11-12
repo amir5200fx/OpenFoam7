@@ -52,8 +52,8 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class referredWallFace;
-	Istream& operator>>(Istream&, referredWallFace&);
-	Ostream& operator<<(Ostream&, const referredWallFace&);
+	FoamLagrangian_EXPORT Istream& operator>>(Istream&, referredWallFace&);
+	FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const referredWallFace&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -78,10 +78,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		referredWallFace();
+		FoamLagrangian_EXPORT referredWallFace();
 
 		//- Construct from components
-		referredWallFace
+		FoamLagrangian_EXPORT referredWallFace
 		(
 			const face& f,
 			const pointField& pts,
@@ -90,7 +90,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~referredWallFace();
+		FoamLagrangian_EXPORT ~referredWallFace();
 
 
 		// Member Functions
@@ -112,13 +112,13 @@ namespace tnbLib
 
 		// Member Operators
 
-		bool operator==(const referredWallFace&) const;
-		bool operator!=(const referredWallFace&) const;
+		FoamLagrangian_EXPORT bool operator==(const referredWallFace&) const;
+		FoamLagrangian_EXPORT bool operator!=(const referredWallFace&) const;
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, referredWallFace&);
-		friend Ostream& operator<<(Ostream&, const referredWallFace&);
+		friend FoamLagrangian_EXPORT Istream& operator>>(Istream&, referredWallFace&);
+		friend FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const referredWallFace&);
 	};
 
 

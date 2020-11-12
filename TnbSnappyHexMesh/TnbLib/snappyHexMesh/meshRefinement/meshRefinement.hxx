@@ -96,7 +96,7 @@ namespace tnbLib
 			IOLAYERINFO
 		};
 
-		static const NamedEnum<IOdebugType, 5> IOdebugTypeNames;
+		static FoamSnappyHexMesh_EXPORT const NamedEnum<IOdebugType, 5> IOdebugTypeNames;
 		enum debugType
 		{
 			MESH = 1 << IOMESH,
@@ -112,7 +112,7 @@ namespace tnbLib
 			IOOUTPUTLAYERINFO
 		};
 
-		static const NamedEnum<IOoutputType, 1> IOoutputTypeNames;
+		static FoamSnappyHexMesh_EXPORT const NamedEnum<IOoutputType, 1> IOoutputTypeNames;
 		enum outputType
 		{
 			OUTPUTLAYERINFO = 1 << IOOUTPUTLAYERINFO
@@ -128,7 +128,7 @@ namespace tnbLib
 			IOWRITELAYERFIELDS
 		};
 
-		static const NamedEnum<IOwriteType, 5> IOwriteTypeNames;
+		static FoamSnappyHexMesh_EXPORT const NamedEnum<IOwriteType, 5> IOwriteTypeNames;
 		enum writeType
 		{
 			WRITEMESH = 1 << IOWRITEMESH,
@@ -152,10 +152,10 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Control of writing level
-		static writeType writeLevel_;
+		static FoamSnappyHexMesh_EXPORT writeType writeLevel_;
 
 		//- Control of output/log level
-		static outputType outputLevel_;
+		static FoamSnappyHexMesh_EXPORT outputType outputLevel_;
 
 
 		// Private Data
@@ -199,24 +199,24 @@ namespace tnbLib
 
 			//- Find out which faces have changed given cells (old mesh labels)
 			//  that were marked for refinement.
-		static labelList getChangedFaces
+		static FoamSnappyHexMesh_EXPORT labelList getChangedFaces
 		(
 			const mapPolyMesh&,
 			const labelList& oldCellsToRefine
 		);
 
 		//- Calculate coupled boundary end vector and refinement level
-		void calcNeighbourData
+		FoamSnappyHexMesh_EXPORT void calcNeighbourData
 		(
 			labelList& neiLevel,
 			pointField& neiCc
 		) const;
 
 		//- Find any intersection of surface. Store in surfaceIndex_.
-		void updateIntersections(const labelList& changedFaces);
+		FoamSnappyHexMesh_EXPORT void updateIntersections(const labelList& changedFaces);
 
 		//- Remove cells. Put exposedFaces into exposedPatchIDs.
-		autoPtr<mapPolyMesh> doRemoveCells
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> doRemoveCells
 		(
 			const labelList& cellsToRemove,
 			const labelList& exposedFaces,
@@ -227,10 +227,10 @@ namespace tnbLib
 		// Get cells which are inside any closed surface. Note that
 		// all closed surfaces
 		// will have already been oriented to have keepPoint outside.
-		labelList getInsideCells(const word&) const;
+		FoamSnappyHexMesh_EXPORT labelList getInsideCells(const word&) const;
 
 		// Do all to remove inside cells
-		autoPtr<mapPolyMesh> removeInsideCells
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> removeInsideCells
 		(
 			const string& msg,
 			const label exposedPatchi
@@ -242,7 +242,7 @@ namespace tnbLib
 			//- Mark cell for refinement (if not already marked). Return false
 			// if refinelimit hit. Keeps running count (in nRefine) of cells
 			// marked for refinement
-		static bool markForRefine
+		static FoamSnappyHexMesh_EXPORT bool markForRefine
 		(
 			const label markValue,
 			const label nAllowRefine,
@@ -252,7 +252,7 @@ namespace tnbLib
 
 		//- Mark every cell with level of feature passing through it
 		//  (or -1 if not passed through). Uses tracking.
-		void markFeatureCellLevel
+		FoamSnappyHexMesh_EXPORT void markFeatureCellLevel
 		(
 			const pointField& keepPoints,
 			labelList& maxFeatureLevel
@@ -260,7 +260,7 @@ namespace tnbLib
 
 		//- Calculate list of cells to refine based on intersection of
 		//  features.
-		label markFeatureRefinement
+		FoamSnappyHexMesh_EXPORT label markFeatureRefinement
 		(
 			const pointField& keepPoints,
 			const label nAllowRefine,
@@ -270,7 +270,7 @@ namespace tnbLib
 		) const;
 
 		//- Mark cells for distance-to-feature based refinement.
-		label markInternalDistanceToFeatureRefinement
+		FoamSnappyHexMesh_EXPORT label markInternalDistanceToFeatureRefinement
 		(
 			const label nAllowRefine,
 			labelList& refineCell,
@@ -278,7 +278,7 @@ namespace tnbLib
 		) const;
 
 		//- Mark cells for refinement-shells based refinement.
-		label markInternalRefinement
+		FoamSnappyHexMesh_EXPORT label markInternalRefinement
 		(
 			const label nAllowRefine,
 			labelList& refineCell,
@@ -287,13 +287,13 @@ namespace tnbLib
 
 		//- Collect faces that are intersected and whose neighbours aren't
 		//  yet marked  for refinement.
-		labelList getRefineCandidateFaces
+		FoamSnappyHexMesh_EXPORT labelList getRefineCandidateFaces
 		(
 			const labelList& refineCell
 		) const;
 
 		//- Mark cells for surface intersection based refinement.
-		label markSurfaceRefinement
+		FoamSnappyHexMesh_EXPORT label markSurfaceRefinement
 		(
 			const label nAllowRefine,
 			const labelList& neiLevel,
@@ -303,7 +303,7 @@ namespace tnbLib
 		) const;
 
 		//- Helper: count number of normals1 that are in normals2
-		label countMatches
+		FoamSnappyHexMesh_EXPORT label countMatches
 		(
 			const List<point>& normals1,
 			const List<point>& normals2,
@@ -313,7 +313,7 @@ namespace tnbLib
 		//- Mark cells for surface curvature based refinement. Marks if
 		//  local curvature > curvature or if on different regions
 		//  (markDifferingRegions)
-		label markSurfaceCurvatureRefinement
+		FoamSnappyHexMesh_EXPORT label markSurfaceCurvatureRefinement
 		(
 			const scalar curvature,
 			const label nAllowRefine,
@@ -324,7 +324,7 @@ namespace tnbLib
 		) const;
 
 		//- Mark cell if local a gap topology or
-		bool checkProximity
+		FoamSnappyHexMesh_EXPORT bool checkProximity
 		(
 			const scalar planarCos,
 			const label nAllowRefine,
@@ -344,7 +344,7 @@ namespace tnbLib
 		) const;
 
 		//- Mark cells for surface proximity based refinement.
-		label markProximityRefinement
+		FoamSnappyHexMesh_EXPORT label markProximityRefinement
 		(
 			const scalar curvature,
 			const label nAllowRefine,
@@ -358,7 +358,7 @@ namespace tnbLib
 		// Baffle handling
 
 			//- Get faces to repatch. Returns map from face to patch.
-		Map<labelPair> getZoneBafflePatches
+		FoamSnappyHexMesh_EXPORT Map<labelPair> getZoneBafflePatches
 		(
 			const bool allowBoundary,
 			const labelList& globalToMasterPatch,
@@ -366,7 +366,7 @@ namespace tnbLib
 		) const;
 
 		//- Determine patches for baffles on all intersected unnamed faces
-		void getBafflePatches
+		FoamSnappyHexMesh_EXPORT void getBafflePatches
 		(
 			const labelList& globalToMasterPatch,
 			const labelList& neiLevel,
@@ -378,7 +378,7 @@ namespace tnbLib
 		//- Repatches external face or creates baffle for internal face
 		//  with user specified patches (might be different for both sides).
 		//  Returns label of added face.
-		label createBaffle
+		FoamSnappyHexMesh_EXPORT label createBaffle
 		(
 			const label facei,
 			const label ownPatch,
@@ -390,7 +390,7 @@ namespace tnbLib
 
 			//- Helper function to mark face as being on 'boundary'. Used by
 			//  markFacesOnProblemCells
-		void markBoundaryFace
+		FoamSnappyHexMesh_EXPORT void markBoundaryFace
 		(
 			const label facei,
 			boolList& isBoundaryFace,
@@ -398,7 +398,7 @@ namespace tnbLib
 			boolList& isBoundaryPoint
 		) const;
 
-		void findNearest
+		FoamSnappyHexMesh_EXPORT void findNearest
 		(
 			const labelList& meshFaces,
 			List<pointIndexHit>& nearestInfo,
@@ -407,13 +407,13 @@ namespace tnbLib
 			vectorField& nearestNormal
 		) const;
 
-		Map<label> findEdgeConnectedProblemCells
+		FoamSnappyHexMesh_EXPORT Map<label> findEdgeConnectedProblemCells
 		(
 			const scalarField& perpendicularAngle,
 			const labelList&
 		) const;
 
-		bool isCollapsedFace
+		FoamSnappyHexMesh_EXPORT bool isCollapsedFace
 		(
 			const pointField&,
 			const pointField& neiCc,
@@ -422,7 +422,7 @@ namespace tnbLib
 			const label facei
 		) const;
 
-		bool isCollapsedCell
+		FoamSnappyHexMesh_EXPORT bool isCollapsedCell
 		(
 			const pointField&,
 			const scalar volFraction,
@@ -432,7 +432,7 @@ namespace tnbLib
 		//- Returns list with for every internal face -1 or the patch
 		//  they should be baffled into. If removeEdgeConnectedCells is set
 		//  removes cells based on perpendicularAngle.
-		labelList markFacesOnProblemCells
+		FoamSnappyHexMesh_EXPORT labelList markFacesOnProblemCells
 		(
 			const dictionary& motionDict,
 			const bool removeEdgeConnectedCells,
@@ -443,11 +443,11 @@ namespace tnbLib
 		//- Returns list with for every face the label of the nearest
 		//  patch. Any unreached face (disconnected mesh?) becomes
 		//  adaptPatchIDs[0]
-		labelList nearestPatch(const labelList& adaptPatchIDs) const;
+		FoamSnappyHexMesh_EXPORT labelList nearestPatch(const labelList& adaptPatchIDs) const;
 
 		//- Returns list with for every internal face -1 or the patch
 		//  they should be baffled into.
-		labelList markFacesOnProblemCellsGeometric
+		FoamSnappyHexMesh_EXPORT labelList markFacesOnProblemCellsGeometric
 		(
 			const snapParameters& snapParams,
 			const dictionary& motionDict
@@ -458,7 +458,7 @@ namespace tnbLib
 
 			//- Extract those baffles (duplicate) faces that are on the edge
 			//  of a baffle region. These are candidates for merging.
-		List<labelPair> freeStandingBaffles
+		FoamSnappyHexMesh_EXPORT List<labelPair> freeStandingBaffles
 		(
 			const List<labelPair>&,
 			const scalar freeStandingAngle
@@ -471,7 +471,7 @@ namespace tnbLib
 			//  (uses geometric test for insideness)
 			//  Adapts namedSurfaceIndex so all faces on boundary of cellZone
 			//  have corresponding faceZone.
-		void findCellZoneGeometric
+		FoamSnappyHexMesh_EXPORT void findCellZoneGeometric
 		(
 			const pointField& neiCc,
 			const labelList& closedNamedSurfaces,
@@ -482,7 +482,7 @@ namespace tnbLib
 
 		//- Finds zone per cell for cells inside named surfaces that have
 		//  an inside point specified.
-		void findCellZoneInsideWalk
+		FoamSnappyHexMesh_EXPORT void findCellZoneInsideWalk
 		(
 			const labelList& locationSurfaces,
 			const labelList& namedSurfaceIndex,
@@ -491,7 +491,7 @@ namespace tnbLib
 		) const;
 
 		//- Determines cell zone from cell region information.
-		bool calcRegionToZone
+		FoamSnappyHexMesh_EXPORT bool calcRegionToZone
 		(
 			const label surfZoneI,
 			const label ownRegion,
@@ -502,7 +502,7 @@ namespace tnbLib
 
 		//- Finds zone per cell. Uses topological walk with all faces
 		//  marked in namedSurfaceIndex regarded as blocked.
-		void findCellZoneTopo
+		FoamSnappyHexMesh_EXPORT void findCellZoneTopo
 		(
 			const point& keepPoint,
 			const labelList& namedSurfaceIndex,
@@ -512,14 +512,14 @@ namespace tnbLib
 
 		//- Make namedSurfaceIndex consistent with cellToZone
 		//  - clear out any blocked faces in between same cell zone.
-		void makeConsistentFaceIndex
+		FoamSnappyHexMesh_EXPORT void makeConsistentFaceIndex
 		(
 			const labelList& cellToZone,
 			labelList& namedSurfaceIndex
 		) const;
 
 		//- Remove any loose standing cells
-		void handleSnapProblems
+		FoamSnappyHexMesh_EXPORT void handleSnapProblems
 		(
 			const snapParameters& snapParams,
 			const bool useTopologicalSnapDetection,
@@ -536,7 +536,7 @@ namespace tnbLib
 
 		//- Get all faces in faceToZone that have no cellZone on
 		//  either side.
-		labelList freeStandingBaffleFaces
+		FoamSnappyHexMesh_EXPORT labelList freeStandingBaffleFaces
 		(
 			const labelList& faceToZone,
 			const labelList& cellToZone,
@@ -545,7 +545,7 @@ namespace tnbLib
 
 		//- Determine per patch edge the number of master faces. Used
 		//  to detect non-manifold situations.
-		void calcPatchNumMasterFaces
+		FoamSnappyHexMesh_EXPORT void calcPatchNumMasterFaces
 		(
 			const PackedBoolList& isMasterFace,
 			const indirectPrimitivePatch& patch,
@@ -554,7 +554,7 @@ namespace tnbLib
 
 		//- Determine per patch face the (singly-) connected zone it
 		//  is in. Return overall number of zones.
-		label markPatchZones
+		FoamSnappyHexMesh_EXPORT label markPatchZones
 		(
 			const indirectPrimitivePatch& patch,
 			const labelList& nMasterFaces,
@@ -562,7 +562,7 @@ namespace tnbLib
 		) const;
 
 		//- Make faces consistent.
-		void consistentOrientation
+		FoamSnappyHexMesh_EXPORT void consistentOrientation
 		(
 			const PackedBoolList& isMasterFace,
 			const indirectPrimitivePatch& patch,
@@ -576,13 +576,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("meshRefinement");
+		//ClassName("meshRefinement");
+		static const char* typeName_() { return "meshRefinement"; }
+		static FoamSnappyHexMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamSnappyHexMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from components
-		meshRefinement
+		FoamSnappyHexMesh_EXPORT meshRefinement
 		(
 			fvMesh& mesh,
 			const scalar mergeDistance,
@@ -593,7 +596,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		meshRefinement(const meshRefinement&) = delete;
+		FoamSnappyHexMesh_EXPORT meshRefinement(const meshRefinement&) = delete;
 
 
 		// Member Functions
@@ -680,13 +683,13 @@ namespace tnbLib
 		// Other
 
 			//- Count number of intersections (local)
-		label countHits() const;
+		FoamSnappyHexMesh_EXPORT label countHits() const;
 
 		//- Redecompose according to cell count
 		//  keepZoneFaces : find all faceZones from zoned surfaces and keep
 		//                  owner and neighbour together
 		//  keepBaffles   : find all baffles and keep them together
-		autoPtr<mapDistributePolyMesh> balance
+		FoamSnappyHexMesh_EXPORT autoPtr<mapDistributePolyMesh> balance
 		(
 			const bool keepZoneFaces,
 			const bool keepBaffles,
@@ -696,13 +699,13 @@ namespace tnbLib
 		);
 
 		//- Get faces with intersection.
-		labelList intersectedFaces() const;
+		FoamSnappyHexMesh_EXPORT labelList intersectedFaces() const;
 
 		//- Get points on surfaces with intersection and boundary faces.
-		labelList intersectedPoints() const;
+		FoamSnappyHexMesh_EXPORT labelList intersectedPoints() const;
 
 		//- Create patch from set of patches
-		static autoPtr<indirectPrimitivePatch> makePatch
+		static FoamSnappyHexMesh_EXPORT autoPtr<indirectPrimitivePatch> makePatch
 		(
 			const polyMesh&,
 			const labelList&
@@ -714,17 +717,17 @@ namespace tnbLib
 		//  - processor             : calculated (so free to move)
 		//  - cyclic/wedge/symmetry : slip
 		//  - other                 : slip
-		static tmp<pointVectorField> makeDisplacementField
+		static FoamSnappyHexMesh_EXPORT tmp<pointVectorField> makeDisplacementField
 		(
 			const pointMesh& pMesh,
 			const labelList& adaptPatchIDs
 		);
 
 		//- Helper function: check that face zones are synced
-		static void checkCoupledFaceZones(const polyMesh&);
+		static FoamSnappyHexMesh_EXPORT void checkCoupledFaceZones(const polyMesh&);
 
 		//- Helper: calculate edge weights (1/length)
-		static void calculateEdgeWeights
+		static FoamSnappyHexMesh_EXPORT void calculateEdgeWeights
 		(
 			const polyMesh& mesh,
 			const PackedBoolList& isMasterEdge,
@@ -752,7 +755,7 @@ namespace tnbLib
 		// Refinement
 
 			//- Is local topology a small gap?
-		bool isGap
+		FoamSnappyHexMesh_EXPORT bool isGap
 		(
 			const scalar,
 			const vector&,
@@ -762,7 +765,7 @@ namespace tnbLib
 		) const;
 
 		//- Is local topology a small gap normal to the test vector
-		bool isNormalGap
+		FoamSnappyHexMesh_EXPORT bool isNormalGap
 		(
 			const scalar,
 			const vector&,
@@ -772,7 +775,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculate list of cells to refine.
-		labelList refineCandidates
+		FoamSnappyHexMesh_EXPORT labelList refineCandidates
 		(
 			const pointField& keepPoints,
 			const scalar curvature,
@@ -789,10 +792,10 @@ namespace tnbLib
 		) const;
 
 		//- Refine some cells
-		autoPtr<mapPolyMesh> refine(const labelList& cellsToRefine);
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> refine(const labelList& cellsToRefine);
 
 		//- Refine some cells and rebalance
-		autoPtr<mapDistributePolyMesh> refineAndBalance
+		FoamSnappyHexMesh_EXPORT autoPtr<mapDistributePolyMesh> refineAndBalance
 		(
 			const string& msg,
 			decompositionMethod& decomposer,
@@ -802,7 +805,7 @@ namespace tnbLib
 		);
 
 		//- Balance before refining some cells
-		autoPtr<mapDistributePolyMesh> balanceAndRefine
+		FoamSnappyHexMesh_EXPORT autoPtr<mapDistributePolyMesh> balanceAndRefine
 		(
 			const string& msg,
 			decompositionMethod& decomposer,
@@ -815,7 +818,7 @@ namespace tnbLib
 		// Baffle handling
 
 			//- Split off unreachable areas of mesh.
-		void baffleAndSplitMesh
+		FoamSnappyHexMesh_EXPORT void baffleAndSplitMesh
 		(
 			const bool handleSnapProblems,
 
@@ -838,7 +841,7 @@ namespace tnbLib
 
 		//- Split off (with optional buffer layers) unreachable areas
 		//  of mesh. Does not introduce baffles.
-		autoPtr<mapPolyMesh> splitMesh
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> splitMesh
 		(
 			const label nBufferLayers,
 			const labelList& globalToMasterPatch,
@@ -848,27 +851,27 @@ namespace tnbLib
 
 		//- Find boundary points that connect to more than one cell
 		//  region and split them.
-		autoPtr<mapPolyMesh> dupNonManifoldPoints(const localPointRegion&);
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> dupNonManifoldPoints(const localPointRegion&);
 
 		//- Find boundary points that connect to more than one cell
 		//  region and split them.
-		autoPtr<mapPolyMesh> dupNonManifoldPoints();
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> dupNonManifoldPoints();
 
 		//- Create baffle for every internal face where ownPatch != -1.
 		//  External faces get repatched according to ownPatch (neiPatch
 		//  should be -1 for these)
-		autoPtr<mapPolyMesh> createBaffles
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> createBaffles
 		(
 			const labelList& ownPatch,
 			const labelList& neiPatch
 		);
 
 		//- Debug helper: check faceZones are not on processor patches
-		void checkZoneFaces() const;
+		FoamSnappyHexMesh_EXPORT void checkZoneFaces() const;
 
 		//- Create baffles for faces straddling zoned surfaces. Return
 		//  baffles.
-		autoPtr<mapPolyMesh> createZoneBaffles
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> createZoneBaffles
 		(
 			const labelList& globalToMasterPatch,
 			const labelList& globalToSlavePatch,
@@ -876,12 +879,12 @@ namespace tnbLib
 		);
 
 		//- Merge baffles. Gets pairs of faces.
-		autoPtr<mapPolyMesh> mergeBaffles(const List<labelPair>&);
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> mergeBaffles(const List<labelPair>&);
 
 		//- Put faces/cells into zones according to surface specification.
 		//  Returns null if no zone surfaces present. Region containing
 		//  the keepPoint will not be put into a cellZone.
-		autoPtr<mapPolyMesh> zonify
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> zonify
 		(
 			const point& keepPoint,
 			const bool allowFreeStandingZoneFaces
@@ -891,16 +894,16 @@ namespace tnbLib
 		// Other topo changes
 
 			//- Add patch originating from meshing. Update meshedPatches_.
-		label addMeshedPatch(const word& name, const dictionary&);
+		FoamSnappyHexMesh_EXPORT label addMeshedPatch(const word& name, const dictionary&);
 
 		//- Get patchIDs for patches added in addMeshedPatch.
-		labelList meshedPatches() const;
+		FoamSnappyHexMesh_EXPORT labelList meshedPatches() const;
 
 		//- Select coupled faces that are not collocated
-		void selectSeparatedCoupledFaces(boolList&) const;
+		FoamSnappyHexMesh_EXPORT void selectSeparatedCoupledFaces(boolList&) const;
 
 		//- Find region point is in. Uses optional perturbation to re-test.
-		static label findRegion
+		static FoamSnappyHexMesh_EXPORT label findRegion
 		(
 			const polyMesh&,
 			const labelList& cellRegion,
@@ -909,7 +912,7 @@ namespace tnbLib
 		);
 
 		//- Split mesh. Keep part containing point.
-		autoPtr<mapPolyMesh> splitMeshRegions
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> splitMeshRegions
 		(
 			const labelList& globalToMasterPatch,
 			const labelList& globalToSlavePatch,
@@ -917,18 +920,18 @@ namespace tnbLib
 		);
 
 		//- Split faces into two
-		autoPtr<mapPolyMesh> splitFaces
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> splitFaces
 		(
 			const labelList& splitFaces,
 			const labelPairList& splits
 		);
 
 		//- Update local numbering for mesh redistribution
-		void distribute(const mapDistributePolyMesh&);
+		FoamSnappyHexMesh_EXPORT void distribute(const mapDistributePolyMesh&);
 
 		//- Update for external change to mesh. changedFaces are in new mesh
 		//  face labels.
-		void updateMesh
+		FoamSnappyHexMesh_EXPORT void updateMesh
 		(
 			const mapPolyMesh&,
 			const labelList& changedFaces
@@ -947,7 +950,7 @@ namespace tnbLib
 		// Restoring : is where other processes delete and reinsert data.
 
 			//- Signal points/face/cells for which to store data
-		void storeData
+		FoamSnappyHexMesh_EXPORT void storeData
 		(
 			const labelList& pointsToStore,
 			const labelList& facesToStore,
@@ -957,7 +960,7 @@ namespace tnbLib
 		//- Update local numbering + undo
 		//  Data to restore given as new pointlabel + stored pointlabel
 		//  (i.e. what was in pointsToStore)
-		void updateMesh
+		FoamSnappyHexMesh_EXPORT void updateMesh
 		(
 			const mapPolyMesh&,
 			const labelList& changedFaces,
@@ -970,7 +973,7 @@ namespace tnbLib
 
 			//- Merge coplanar faces. preserveFaces is != -1 for faces
 			//  to be preserved
-		label mergePatchFacesUndo
+		FoamSnappyHexMesh_EXPORT label mergePatchFacesUndo
 		(
 			const scalar minCos,
 			const scalar concaveCos,
@@ -979,33 +982,33 @@ namespace tnbLib
 			const labelList& preserveFaces
 		);
 
-		autoPtr<mapPolyMesh> doRemovePoints
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> doRemovePoints
 		(
 			removePoints& pointRemover,
 			const boolList& pointCanBeDeleted
 		);
 
-		autoPtr<mapPolyMesh> doRestorePoints
+		FoamSnappyHexMesh_EXPORT autoPtr<mapPolyMesh> doRestorePoints
 		(
 			removePoints& pointRemover,
 			const labelList& facesToRestore
 		);
 
-		labelList collectFaces
+		FoamSnappyHexMesh_EXPORT labelList collectFaces
 		(
 			const labelList& candidateFaces,
 			const labelHashSet& set
 		) const;
 
 		// Pick up faces of cells of faces in set.
-		labelList growFaceCellFace
+		FoamSnappyHexMesh_EXPORT labelList growFaceCellFace
 		(
 			const labelHashSet& set
 		) const;
 
 		//- Merge edges, maintain mesh quality. Return global number
 		//  of edges merged
-		label mergeEdgesUndo
+		FoamSnappyHexMesh_EXPORT label mergeEdgesUndo
 		(
 			const scalar minCos,
 			const dictionary& motionDict
@@ -1015,16 +1018,16 @@ namespace tnbLib
 		// Debug/IO
 
 			//- Debugging: check that all faces still obey start()>end()
-		void checkData();
+		FoamSnappyHexMesh_EXPORT void checkData();
 
-		static void testSyncPointList
+		static FoamSnappyHexMesh_EXPORT void testSyncPointList
 		(
 			const string& msg,
 			const polyMesh& mesh,
 			const List<scalar>& fld
 		);
 
-		static void testSyncPointList
+		static FoamSnappyHexMesh_EXPORT void testSyncPointList
 		(
 			const string& msg,
 			const polyMesh& mesh,
@@ -1051,7 +1054,7 @@ namespace tnbLib
 
 		//- Determine master point for subset of points. If coupled
 		//  chooses only one
-		static PackedBoolList getMasterPoints
+		static FoamSnappyHexMesh_EXPORT PackedBoolList getMasterPoints
 		(
 			const polyMesh& mesh,
 			const labelList& meshPoints
@@ -1059,33 +1062,33 @@ namespace tnbLib
 
 		//- Determine master edge for subset of edges. If coupled
 		//  chooses only one
-		static PackedBoolList getMasterEdges
+		static FoamSnappyHexMesh_EXPORT PackedBoolList getMasterEdges
 		(
 			const polyMesh& mesh,
 			const labelList& meshEdges
 		);
 
 		//- Print some mesh stats.
-		void printMeshInfo(const bool, const string&) const;
+		FoamSnappyHexMesh_EXPORT void printMeshInfo(const bool, const string&) const;
 
 		//- Replacement for Time::timeName() : return oldInstance (if
 		//  overwrite_)
-		word timeName() const;
+		FoamSnappyHexMesh_EXPORT word timeName() const;
 
 		//- Set instance of all local IOobjects
-		void setInstance(const fileName&);
+		FoamSnappyHexMesh_EXPORT void setInstance(const fileName&);
 
 		//- Write mesh and all data
-		bool write() const;
+		FoamSnappyHexMesh_EXPORT bool write() const;
 
 		//- Write refinement level as volScalarFields for postprocessing
-		void dumpRefinementLevel() const;
+		FoamSnappyHexMesh_EXPORT void dumpRefinementLevel() const;
 
 		//- Debug: Write intersection information to OBJ format
-		void dumpIntersections(const fileName& prefix) const;
+		FoamSnappyHexMesh_EXPORT void dumpIntersections(const fileName& prefix) const;
 
 		//- Do any one of above IO functions
-		void write
+		FoamSnappyHexMesh_EXPORT void write
 		(
 			const debugType debugFlags,
 			const writeType writeFlags,
@@ -1101,12 +1104,12 @@ namespace tnbLib
 		);
 
 		//- Get/set write level
-		static writeType writeLevel();
-		static void writeLevel(const writeType);
+		static FoamSnappyHexMesh_EXPORT writeType writeLevel();
+		static FoamSnappyHexMesh_EXPORT void writeLevel(const writeType);
 
 		//- Get/set output level
-		static outputType outputLevel();
-		static void outputLevel(const outputType);
+		static FoamSnappyHexMesh_EXPORT outputType outputLevel();
+		static FoamSnappyHexMesh_EXPORT void outputLevel(const outputType);
 
 
 		//- Helper: convert wordList into bit pattern using provided
@@ -1118,7 +1121,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const meshRefinement&) = delete;
+		FoamSnappyHexMesh_EXPORT void operator=(const meshRefinement&) = delete;
 	};
 
 
@@ -1129,8 +1132,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <meshRefinementTemplates.cxx>
+//#include <meshRefinementTemplates.cxx>
 #endif
+
+#include <meshRefinementTemplatesI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

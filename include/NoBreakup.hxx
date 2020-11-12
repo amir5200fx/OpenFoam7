@@ -37,6 +37,16 @@ Description
 
 #include <vector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamNoBreakup_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNoBreakup_EXPORT_DEFINE
+#define FoamNoBreakup_EXPORT __declspec(dllexport)
+#else
+#define FoamNoBreakup_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -53,7 +63,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamNoBreakup_EXPORT const ::tnbLib::word typeName;
+		static FoamNoBreakup_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -62,35 +62,39 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Return patch-cell-centre distance field
-		tmp<scalarField> y() const;
+		FoamFvMotionSolver_EXPORT tmp<scalarField> y() const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("inverseDistance");
+		//TypeName("inverseDistance");
+		static const char* typeName_() { return "inverseDistance"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct for the given fvMesh and data Istream
-		inverseDistanceDiffusivity(const fvMesh& mesh, Istream& mdData);
+		FoamFvMotionSolver_EXPORT inverseDistanceDiffusivity(const fvMesh& mesh, Istream& mdData);
 
 		//- Disallow default bitwise copy construction
-		inverseDistanceDiffusivity(const inverseDistanceDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT inverseDistanceDiffusivity(const inverseDistanceDiffusivity&) = delete;
 
 
 		//- Destructor
-		virtual ~inverseDistanceDiffusivity();
+		FoamFvMotionSolver_EXPORT virtual ~inverseDistanceDiffusivity();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const inverseDistanceDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT void operator=(const inverseDistanceDiffusivity&) = delete;
 
 		//- Return diffusivity field
-		virtual tmp<surfaceScalarField> operator()() const;
+		FoamFvMotionSolver_EXPORT virtual tmp<surfaceScalarField> operator()() const;
 	};
 
 

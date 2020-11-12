@@ -70,7 +70,7 @@ namespace tnbLib
 			exponent(1)
 		{}
 
-		specieCoeffs(const speciesTable& species, Istream& is);
+		FoamThermophysicalModels_EXPORT specieCoeffs(const speciesTable& species, Istream& is);
 
 		bool operator==(const specieCoeffs& sc) const
 		{
@@ -91,7 +91,7 @@ namespace tnbLib
 		}
 
 		//- Construct the left- and right-hand-side reaction coefficients
-		static void setLRhs
+		static FoamThermophysicalModels_EXPORT void setLRhs
 		(
 			Istream&,
 			const speciesTable&,
@@ -100,7 +100,7 @@ namespace tnbLib
 		);
 
 		//- Write the string representation of the specieCoeffs list
-		static void reactionStr
+		static FoamThermophysicalModels_EXPORT void reactionStr
 		(
 			OStringStream& reaction,
 			const speciesTable&,
@@ -108,7 +108,7 @@ namespace tnbLib
 		);
 
 		//- Return string representation of reaction
-		static string reactionStr
+		static FoamThermophysicalModels_EXPORT string reactionStr
 		(
 			OStringStream& reaction,
 			const speciesTable&,

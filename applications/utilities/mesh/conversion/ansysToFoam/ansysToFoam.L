@@ -31,6 +31,8 @@ License
    ------ local definitions
  \* ------------------------------------------------------------------------- */
 
+ #include <FiniteVolume_Module.hxx>
+
 #include <sstream>
 // For EOF only
 #include <cstdio>

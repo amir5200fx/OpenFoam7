@@ -71,19 +71,23 @@ namespace tnbLib
 			bool calcRandomised();
 
 			//- Calculate the randomised field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("randomise");
+			//TypeName("randomise");
+			static const char* typeName_() { return "randomise"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			randomise
+			FoamFunctionObjects_EXPORT randomise
 			(
 				const word& name,
 				const Time& runTime,
@@ -92,13 +96,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~randomise();
+			FoamFunctionObjects_EXPORT virtual ~randomise();
 
 
 			// Member Functions
 
 				//- Read the randomise data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 		};
 
 
@@ -110,8 +114,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <randomiseTemplates.cxx>
+//#include <randomiseTemplates.cxx>
 #endif
+
+#include <randomiseTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

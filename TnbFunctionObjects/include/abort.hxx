@@ -83,7 +83,7 @@ namespace tnbLib
 			fileName abortFile_;
 
 			//- Action type names
-			static const NamedEnum<actionType, 3> actionTypeNames_;
+			static FoamFunctionObjects_EXPORT const NamedEnum<actionType, 3> actionTypeNames_;
 
 			//- The type of action
 			actionType action_;
@@ -92,19 +92,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Remove abort file.
-			void removeFile() const;
+			FoamFunctionObjects_EXPORT void removeFile() const;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("abort");
+			//TypeName("abort");
+			static const char* typeName_() { return "abort"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			abort
+			FoamFunctionObjects_EXPORT abort
 			(
 				const word& name,
 				const Time& runTime,
@@ -112,32 +116,32 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			abort(const abort&) = delete;
+			FoamFunctionObjects_EXPORT abort(const abort&) = delete;
 
 
 			//- Destructor
-			virtual ~abort();
+			FoamFunctionObjects_EXPORT virtual ~abort();
 
 
 			// Member Functions
 
 				//- Read the dictionary settings
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Execute, check existence of abort file and take action
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Execute, check existence of abort file and take action
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 			//- Execute at the final time-loop, used for cleanup
-			virtual bool end();
+			FoamFunctionObjects_EXPORT virtual bool end();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const abort&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const abort&) = delete;
 		};
 
 

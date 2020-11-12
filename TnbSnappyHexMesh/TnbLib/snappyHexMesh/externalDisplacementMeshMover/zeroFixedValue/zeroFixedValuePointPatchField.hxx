@@ -64,20 +64,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("zeroFixedValue");
+		//TypeName("zeroFixedValue");
+		static const char* typeName_() { return "zeroFixedValue"; }
+		static FoamSnappyHexMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamSnappyHexMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		zeroFixedValuePointPatchField
+		FoamSnappyHexMesh_EXPORT zeroFixedValuePointPatchField
 		(
 			const pointPatch&,
 			const DimensionedField<Type, pointMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		zeroFixedValuePointPatchField
+		FoamSnappyHexMesh_EXPORT zeroFixedValuePointPatchField
 		(
 			const pointPatch&,
 			const DimensionedField<Type, pointMesh>&,
@@ -85,7 +89,7 @@ namespace tnbLib
 		);
 
 		//- Construct by mapping given patchField<Type> onto a new patch
-		zeroFixedValuePointPatchField
+		FoamSnappyHexMesh_EXPORT zeroFixedValuePointPatchField
 		(
 			const zeroFixedValuePointPatchField<Type>&,
 			const pointPatch&,
@@ -94,7 +98,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		zeroFixedValuePointPatchField
+		FoamSnappyHexMesh_EXPORT zeroFixedValuePointPatchField
 		(
 			const zeroFixedValuePointPatchField<Type>&
 		);
@@ -112,7 +116,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		zeroFixedValuePointPatchField
+		FoamSnappyHexMesh_EXPORT zeroFixedValuePointPatchField
 		(
 			const zeroFixedValuePointPatchField<Type>&,
 			const DimensionedField<Type, pointMesh>&
@@ -145,8 +149,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <zeroFixedValuePointPatchField.cxx>
+//#include <zeroFixedValuePointPatchField.cxx>
 #endif
+
+#include <zeroFixedValuePointPatchFieldI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

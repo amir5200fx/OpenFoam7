@@ -175,7 +175,7 @@ namespace tnbLib
 			List<Type> extractData(const UList<label>& keys, const Map<Type>&)
 				const;
 
-			void writeGraph
+			FoamFunctionObjects_EXPORT void writeGraph
 			(
 				const coordSet& coords,
 				const word& valueName,
@@ -184,7 +184,7 @@ namespace tnbLib
 
 			//- Write volfields with the parts of alpha which are not
 			//  droplets (liquidCore, backGround)
-			void writeAlphaFields
+			FoamFunctionObjects_EXPORT void writeAlphaFields
 			(
 				const regionSplit& regions,
 				const Map<label>& keepRegions,
@@ -193,13 +193,13 @@ namespace tnbLib
 			) const;
 
 			//- Mark all regions starting at patches
-			Map<label> findPatchRegions(const regionSplit&) const;
+			FoamFunctionObjects_EXPORT Map<label> findPatchRegions(const regionSplit&) const;
 
 			//- Helper: divide if denom != 0
-			static tmp<scalarField> divide(const scalarField&, const scalarField&);
+			static FoamFunctionObjects_EXPORT tmp<scalarField> divide(const scalarField&, const scalarField&);
 
 			//- Given per-region data calculate per-bin average/deviation and graph
-			void writeGraphs
+			FoamFunctionObjects_EXPORT void writeGraphs
 			(
 				const word& fieldName,              // name of field
 				const labelList& indices,           // index of bin for each region
@@ -209,7 +209,7 @@ namespace tnbLib
 			) const;
 
 			//- Given per-cell data calculate per-bin average/deviation and graph
-			void writeGraphs
+			FoamFunctionObjects_EXPORT void writeGraphs
 			(
 				const word& fieldName,              // name of field
 				const scalarField& cellField,       // per cell field data
@@ -227,14 +227,18 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("regionSizeDistribution");
+			//TypeName("regionSizeDistribution");
+			static const char* typeName_() { return "regionSizeDistribution"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct for given objectRegistry and dictionary.
 				//  Allow the possibility to load fields from files
-			regionSizeDistribution
+			FoamFunctionObjects_EXPORT regionSizeDistribution
 			(
 				const word& name,
 				const Time& runTime,
@@ -242,30 +246,30 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			regionSizeDistribution(const regionSizeDistribution&) = delete;
+			FoamFunctionObjects_EXPORT regionSizeDistribution(const regionSizeDistribution&) = delete;
 
 
 			// Destructor
 
-			virtual ~regionSizeDistribution();
+			FoamFunctionObjects_EXPORT virtual ~regionSizeDistribution();
 
 
 			// Member Functions
 
 				//- Read the regionSizeDistribution data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Do nothing
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Calculate the regionSizeDistribution and write
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const regionSizeDistribution&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const regionSizeDistribution&) = delete;
 		};
 
 
@@ -277,8 +281,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <regionSizeDistributionTemplates.cxx>
+//#include <regionSizeDistributionTemplates.cxx>
 #endif
+
+#include <regionSizeDistributionTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

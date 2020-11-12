@@ -42,6 +42,16 @@ SourceFiles
 #include <runTimeSelectionTables.hxx>
 #include <CloudSubModelBase.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamIsotropyModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamIsotropyModel_EXPORT_DEFINE
+#define FoamIsotropyModel_EXPORT __declspec(dllexport)
+#else
+#define FoamIsotropyModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -69,10 +79,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("isotropyModel");
+		//TypeName("isotropyModel");
+		static const char* typeName_() { return "isotropyModel"; }
+		static FoamIsotropyModel_EXPORT const ::tnbLib::word typeName;
+		static FoamIsotropyModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			IsotropyModel,
@@ -82,7 +96,58 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<IsotropyModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamIsotropyModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamIsotropyModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamIsotropyModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class IsotropyModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<IsotropyModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<IsotropyModel>(new IsotropyModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = IsotropyModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "IsotropyModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class IsotropyModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<IsotropyModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<IsotropyModel>(new IsotropyModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = IsotropyModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

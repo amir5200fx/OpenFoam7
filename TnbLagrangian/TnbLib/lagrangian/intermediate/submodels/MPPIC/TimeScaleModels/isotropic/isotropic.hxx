@@ -65,16 +65,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("isotropic");
+			//TypeName("isotropic");
+			static const char* typeName_() { return "isotropic"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			//- Constructors
 
 				//- Construct from components
-			isotropic(const dictionary& dict);
+			FoamLagrangian_EXPORT isotropic(const dictionary& dict);
 
 			//- Construct a copy
-			isotropic(const isotropic& hc);
+			FoamLagrangian_EXPORT isotropic(const isotropic& hc);
 
 			//- Construct and return a clone
 			virtual autoPtr<TimeScaleModel> clone() const
@@ -87,13 +91,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~isotropic();
+			FoamLagrangian_EXPORT virtual ~isotropic();
 
 
 			//- Member Functions
 
 				//- Time scale
-			tmp<FieldField<Field, scalar>> oneByTau
+			FoamLagrangian_EXPORT tmp<FieldField<Field, scalar>> oneByTau
 			(
 				const FieldField<Field, scalar>& alpha,
 				const FieldField<Field, scalar>& r32,

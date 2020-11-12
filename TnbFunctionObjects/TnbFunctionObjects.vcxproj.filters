@@ -226,6 +226,9 @@
     <Filter Include="TnbLib\functionObjects\solvers\phaseScalarTransport">
       <UniqueIdentifier>{924a78c7-07fd-4b7c-acf0-a58c6f54cee9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\functionObjects\module">
+      <UniqueIdentifier>{d485eea1-8971-493b-8c03-e109763c8ab7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\functionObjects\field\fieldExpression\fieldExpression.hxx">
@@ -443,6 +446,87 @@
     </ClInclude>
     <ClInclude Include="TnbLib\functionObjects\solvers\phaseScalarTransport\phaseScalarTransport.hxx">
       <Filter>TnbLib\functionObjects\solvers\phaseScalarTransport</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\module\FunctionObjects_Module.hxx">
+      <Filter>TnbLib\functionObjects\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\blendingFactor\blendingFactorTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\blendingFactor</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\add\addTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\add</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\components\componentsTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\components</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\ddt\ddtTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\ddt</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\div\divTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\div</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldAverage\fieldAverageTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldAverage</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldCoordinateSystemTransform\fieldCoordinateSystemTransformTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldCoordinateSystemTransform</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldExpression\fieldExpressionTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldExpression</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldMinMax\fieldMinMaxTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldMinMax</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldsExpression\fieldsExpressionTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldsExpression</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\fieldValue\fieldValueTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\fieldValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\fieldValueDelta\fieldValueDeltaTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\fieldValueDelta</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue\surfaceFieldValueTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\surfaceFieldValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\fieldValues\volFieldValue\volFieldValueTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\volFieldValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\grad\gradTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\grad</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\mag\magTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\mag</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\magSqr\magSqrTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\magSqr</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\nearWallFields\nearWallFieldsTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\nearWallFields</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\randomise\randomiseTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\randomise</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\readFields\readFieldsTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\readFields</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\regionSizeDistribution\regionSizeDistributionTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\regionSizeDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\scale\scaleTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\scale</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\subtract\subtractTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\subtract</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\surfaceInterpolate\surfaceInterpolateFunObjTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\surfaceInterpolate</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\turbulenceFields\turbulenceFieldsTemplates.hxx">
+      <Filter>TnbLib\functionObjects\field\turbulenceFields</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\utilities\residuals\residualsTemplates.hxx">
+      <Filter>TnbLib\functionObjects\utilities\residuals</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -742,6 +826,15 @@
     </ClCompile>
     <ClCompile Include="TnbLib\functionObjects\solvers\phaseScalarTransport\phaseScalarTransport.cxx">
       <Filter>TnbLib\functionObjects\solvers\phaseScalarTransport</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\surfaceFieldValue\surfaceFieldValueIO.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\surfaceFieldValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\fieldValues\volFieldValue\volFieldValueIO.cxx">
+      <Filter>TnbLib\functionObjects\field\fieldValues\volFieldValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\field\streamLine\streamLineIO.cxx">
+      <Filter>TnbLib\functionObjects\field\streamLine</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

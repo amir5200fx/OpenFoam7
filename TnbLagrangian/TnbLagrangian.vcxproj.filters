@@ -1327,6 +1327,9 @@
     <Filter Include="TnbLib\lagrangian\coalCombustion\submodels\surfaceReactionModel\COxidationMurphyShaddix">
       <UniqueIdentifier>{e0f53288-0443-4cbc-9096-77f420684a67}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\lagrangian\module">
+      <UniqueIdentifier>{0cb6bd41-fa79-4ffb-8f36-aa097690507b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\lagrangian\basic\Cloud\CloudTemplate.hxx">
@@ -3134,6 +3137,18 @@
     </ClInclude>
     <ClInclude Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\solidification\solidificationPhaseChange.hxx">
       <Filter>TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\solidification</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\module\Lagrangian_Module.hxx">
+      <Filter>TnbLib\lagrangian\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel\InjectionModelTemplateListI.hxx">
+      <Filter>TnbLib\lagrangian\intermediate\submodels\Kinematic\InjectionModel\InjectionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\waxSolventEvaporation\waxSolventEvaporationI.hxx">
+      <Filter>TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\waxSolventEvaporation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\standardPhaseChange\standardPhaseChangeI.hxx">
+      <Filter>TnbLib\regionModels\surfaceFilmModels\submodels\thermo\phaseChangeModel\standardPhaseChange</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

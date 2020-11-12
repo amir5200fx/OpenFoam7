@@ -2,7 +2,7 @@
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const pointData& wDist)
+FoamSnappyHexMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const pointData& wDist)
 {
 	if (os.format() == IOstream::ASCII)
 	{
@@ -19,7 +19,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const pointData& wDist)
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, pointData& wDist)
+FoamSnappyHexMesh_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, pointData& wDist)
 {
 	return is >> static_cast<pointEdgePoint&>(wDist) >> wDist.s_ >> wDist.v_;
 }

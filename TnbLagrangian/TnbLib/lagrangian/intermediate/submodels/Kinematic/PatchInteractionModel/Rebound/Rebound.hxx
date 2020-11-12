@@ -35,6 +35,16 @@ Description
 
 #include <PatchInteractionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamRebound_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamRebound_EXPORT_DEFINE
+#define FoamRebound_EXPORT __declspec(dllexport)
+#else
+#define FoamRebound_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -58,7 +68,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("rebound");
+		//TypeName("rebound");
+		static const char* typeName_() { return "rebound"; }
+		static FoamRebound_EXPORT const ::tnbLib::word typeName;
+		static FoamRebound_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -115,7 +115,7 @@ namespace tnbLib
 				ANY_WRITE
 			};
 
-			static const NamedEnum<writeOption, 3> writeOptionNames_;
+			static FoamFunctionObjects_EXPORT const NamedEnum<writeOption, 3> writeOptionNames_;
 
 		private:
 
@@ -128,19 +128,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Write the requested registered IO object
-			virtual void writeObject(const regIOobject& obj);
+			FoamFunctionObjects_EXPORT virtual void writeObject(const regIOobject& obj);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("writeObjects");
+			//TypeName("writeObjects");
+			static const char* typeName_() { return "writeObjects"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			writeObjects
+			FoamFunctionObjects_EXPORT writeObjects
 			(
 				const word& name,
 				const Time& runTime,
@@ -148,29 +152,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			writeObjects(const writeObjects&) = delete;
+			FoamFunctionObjects_EXPORT writeObjects(const writeObjects&) = delete;
 
 
 			//- Destructor
-			virtual ~writeObjects();
+			FoamFunctionObjects_EXPORT virtual ~writeObjects();
 
 
 			// Member Functions
 
 				//- Read the writeObjects data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Do nothing
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the registered objects
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const writeObjects&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const writeObjects&) = delete;
 		};
 
 

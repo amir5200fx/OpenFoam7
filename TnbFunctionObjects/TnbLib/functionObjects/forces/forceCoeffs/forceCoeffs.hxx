@@ -139,19 +139,23 @@ namespace tnbLib
 		protected:
 
 			//- Output file header information
-			virtual void writeFileHeader(const label i);
+			FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("forceCoeffs");
+			//TypeName("forceCoeffs");
+			static const char* typeName_() { return "forceCoeffs"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			forceCoeffs
+			FoamFunctionObjects_EXPORT forceCoeffs
 			(
 				const word& name,
 				const Time& runTime,
@@ -159,29 +163,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			forceCoeffs(const forceCoeffs&) = delete;
+			FoamFunctionObjects_EXPORT forceCoeffs(const forceCoeffs&) = delete;
 
 
 			//- Destructor
-			virtual ~forceCoeffs();
+			FoamFunctionObjects_EXPORT virtual ~forceCoeffs();
 
 
 			// Member Functions
 
 				//- Read the forces data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Execute, currently does nothing
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the forces
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const forceCoeffs&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const forceCoeffs&) = delete;
 		};
 
 

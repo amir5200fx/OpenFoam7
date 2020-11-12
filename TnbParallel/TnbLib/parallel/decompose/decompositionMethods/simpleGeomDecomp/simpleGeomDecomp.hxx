@@ -50,9 +50,9 @@ namespace tnbLib
 	{
 		// Private Member Functions
 
-		void assignToProcessorGroup(labelList&, const label) const;
+		FoamParallel_EXPORT void assignToProcessorGroup(labelList&, const label) const;
 
-		void assignToProcessorGroup
+		FoamParallel_EXPORT void assignToProcessorGroup
 		(
 			labelList& processorGroup,
 			const label nProcGroup,
@@ -61,9 +61,9 @@ namespace tnbLib
 			const scalar summedWeights
 		) const;
 
-		labelList decomposeOneProc(const pointField& points) const;
+		FoamParallel_EXPORT labelList decomposeOneProc(const pointField& points) const;
 
-		labelList decomposeOneProc
+		FoamParallel_EXPORT labelList decomposeOneProc
 		(
 			const pointField& points,
 			const scalarField& weights
@@ -73,16 +73,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("simple");
+		//TypeName("simple");
+		static const char* typeName_() { return "simple"; }
+		static FoamParallel_EXPORT const ::tnbLib::word typeName;
+		static FoamParallel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given the decomposition dictionary
-		simpleGeomDecomp(const dictionary& decompositionDict);
+		FoamParallel_EXPORT simpleGeomDecomp(const dictionary& decompositionDict);
 
 		//- Disallow default bitwise copy construction
-		simpleGeomDecomp(const simpleGeomDecomp&) = delete;
+		FoamParallel_EXPORT simpleGeomDecomp(const simpleGeomDecomp&) = delete;
 
 
 		//- Destructor
@@ -99,9 +103,9 @@ namespace tnbLib
 			return true;
 		}
 
-		virtual labelList decompose(const pointField&);
+		FoamParallel_EXPORT virtual labelList decompose(const pointField&);
 
-		virtual labelList decompose(const pointField&, const scalarField&);
+		FoamParallel_EXPORT virtual labelList decompose(const pointField&, const scalarField&);
 
 		virtual labelList decompose(const polyMesh&, const pointField& points)
 		{
@@ -133,7 +137,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const simpleGeomDecomp&) = delete;
+		FoamParallel_EXPORT void operator=(const simpleGeomDecomp&) = delete;
 	};
 
 

@@ -97,25 +97,29 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Update file
-			void updateFile();
+			FoamFunctionObjects_EXPORT void updateFile();
 
 			//- Disallow default bitwise copy construction
-			timeActivatedFileUpdate(const timeActivatedFileUpdate&) = delete;
+			FoamFunctionObjects_EXPORT timeActivatedFileUpdate(const timeActivatedFileUpdate&) = delete;
 
 			//- Disallow default bitwise assignment
-			void operator=(const timeActivatedFileUpdate&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const timeActivatedFileUpdate&) = delete;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("timeActivatedFileUpdate");
+			//TypeName("timeActivatedFileUpdate");
+			static const char* typeName_() { return "timeActivatedFileUpdate"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			timeActivatedFileUpdate
+			FoamFunctionObjects_EXPORT timeActivatedFileUpdate
 			(
 				const word& name,
 				const Time& runTime,
@@ -124,19 +128,19 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~timeActivatedFileUpdate();
+			FoamFunctionObjects_EXPORT virtual ~timeActivatedFileUpdate();
 
 
 			// Member Functions
 
 				//- Read the timeActivatedFileUpdate data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Execute file updates
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Do nothing
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 		};
 
 

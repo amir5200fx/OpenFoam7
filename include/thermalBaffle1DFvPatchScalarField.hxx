@@ -93,6 +93,16 @@ SourceFiles
 #include <autoPtr.hxx>
 #include <mappedPatchBase.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamthermalBaffle1DFvPatchScalarField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamthermalBaffle1DFvPatchScalarField_EXPORT_DEFINE
+#define FoamthermalBaffle1DFvPatchScalarField_EXPORT __declspec(dllexport)
+#else
+#define FoamthermalBaffle1DFvPatchScalarField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -158,7 +168,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("compressible::thermalBaffle1D");
+			//TypeName("compressible::thermalBaffle1D");
+			static const char* typeName_() { return "compressible::thermalBaffle1D"; }
+			static FoamthermalBaffle1DFvPatchScalarField_EXPORT const ::tnbLib::word typeName;
+			static FoamthermalBaffle1DFvPatchScalarField_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

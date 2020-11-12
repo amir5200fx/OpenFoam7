@@ -70,10 +70,10 @@ namespace tnbLib
 				// Constructors
 
 					//- Construct null
-				filmSubModelBase(surfaceFilmRegionModel& film);
+				FoamLagrangian_EXPORT filmSubModelBase(surfaceFilmRegionModel& film);
 
 				//- Construct from film film without name
-				filmSubModelBase
+				FoamLagrangian_EXPORT filmSubModelBase
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict,
@@ -83,7 +83,7 @@ namespace tnbLib
 				);
 
 				//- Construct from film film with name
-				filmSubModelBase
+				FoamLagrangian_EXPORT filmSubModelBase
 				(
 					const word& modelName,
 					surfaceFilmRegionModel& film,
@@ -94,7 +94,7 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~filmSubModelBase();
+				FoamLagrangian_EXPORT virtual ~filmSubModelBase();
 
 
 				// Member Functions
@@ -102,7 +102,7 @@ namespace tnbLib
 					// Access
 
 						//- Flag to indicate when to write a property
-				virtual bool writeTime() const;
+				FoamLagrangian_EXPORT virtual bool writeTime() const;
 
 				//- Return const access to the film surface film model
 				inline const surfaceFilmRegionModel& film() const;

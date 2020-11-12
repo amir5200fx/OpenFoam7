@@ -56,7 +56,7 @@ namespace tnbLib
 
 	class molecule;
 
-	Ostream& operator<<(Ostream&, const molecule&);
+	FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const molecule&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -70,7 +70,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Size in bytes of the fields
-		static const std::size_t sizeofFields_;
+		static FoamLagrangian_EXPORT const std::size_t sizeofFields_;
 
 
 	public:
@@ -111,15 +111,15 @@ namespace tnbLib
 
 			// Private Member Functions
 
-			void checkSiteListSizes() const;
+			FoamLagrangian_EXPORT void checkSiteListSizes() const;
 
-			void setInteracionSiteBools
+			FoamLagrangian_EXPORT void setInteracionSiteBools
 			(
 				const List<word>& siteIds,
 				const List<word>& pairPotSiteIds
 			);
 
-			bool linearMoleculeTest() const;
+			FoamLagrangian_EXPORT bool linearMoleculeTest() const;
 
 
 		public:
@@ -223,11 +223,11 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		tensor rotationTensorX(scalar deltaT) const;
+		FoamLagrangian_EXPORT tensor rotationTensorX(scalar deltaT) const;
 
-		tensor rotationTensorY(scalar deltaT) const;
+		FoamLagrangian_EXPORT tensor rotationTensorY(scalar deltaT) const;
 
-		tensor rotationTensorZ(scalar deltaT) const;
+		FoamLagrangian_EXPORT tensor rotationTensorZ(scalar deltaT) const;
 
 
 	public:
@@ -274,7 +274,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		molecule
+		FoamLagrangian_EXPORT molecule
 		(
 			const polyMesh& mesh,
 			Istream& is,
@@ -311,15 +311,15 @@ namespace tnbLib
 
 			// Tracking
 
-		bool move(moleculeCloud&, trackingData&, const scalar trackTime);
+		FoamLagrangian_EXPORT bool move(moleculeCloud&, trackingData&, const scalar trackTime);
 
-		virtual void transformProperties(const tensor& T);
+		FoamLagrangian_EXPORT virtual void transformProperties(const tensor& T);
 
-		virtual void transformProperties(const vector& separation);
+		FoamLagrangian_EXPORT virtual void transformProperties(const vector& separation);
 
-		void setSitePositions(const constantProperties& constProps);
+		FoamLagrangian_EXPORT void setSitePositions(const constantProperties& constProps);
 
-		void setSiteSizes(label size);
+		FoamLagrangian_EXPORT void setSiteSizes(label size);
 
 
 		// Access
@@ -365,25 +365,25 @@ namespace tnbLib
 
 			//- Overridable function to handle the particle hitting a patch
 			//  Executed before other patch-hitting functions
-		bool hitPatch(moleculeCloud& cloud, trackingData& td);
+		FoamLagrangian_EXPORT bool hitPatch(moleculeCloud& cloud, trackingData& td);
 
 		//- Overridable function to handle the particle hitting a processorPatch
-		void hitProcessorPatch(moleculeCloud& cloud, trackingData& td);
+		FoamLagrangian_EXPORT void hitProcessorPatch(moleculeCloud& cloud, trackingData& td);
 
 		//- Overridable function to handle the particle hitting a wallPatch
-		void hitWallPatch(moleculeCloud& cloud, trackingData& td);
+		FoamLagrangian_EXPORT void hitWallPatch(moleculeCloud& cloud, trackingData& td);
 
 
 		// I-O
 
-		static void readFields(Cloud<molecule>& mC);
+		static FoamLagrangian_EXPORT void readFields(Cloud<molecule>& mC);
 
-		static void writeFields(const Cloud<molecule>& mC);
+		static FoamLagrangian_EXPORT void writeFields(const Cloud<molecule>& mC);
 
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const molecule&);
+		friend FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const molecule&);
 	};
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

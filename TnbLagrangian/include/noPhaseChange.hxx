@@ -58,20 +58,24 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("none");
+				//TypeName("none");
+				static const char* typeName_() { return "none"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				noPhaseChange(surfaceFilmRegionModel& film, const dictionary& dict);
+				FoamLagrangian_EXPORT noPhaseChange(surfaceFilmRegionModel& film, const dictionary& dict);
 
 				//- Disallow default bitwise copy construction
-				noPhaseChange(const noPhaseChange&) = delete;
+				FoamLagrangian_EXPORT noPhaseChange(const noPhaseChange&) = delete;
 
 
 				//- Destructor
-				virtual ~noPhaseChange();
+				FoamLagrangian_EXPORT virtual ~noPhaseChange();
 
 
 				// Member Functions
@@ -79,10 +83,10 @@ namespace tnbLib
 					// Evolution
 
 						//- Return the model 'active' status - default active = true
-				virtual bool active() const;
+				FoamLagrangian_EXPORT virtual bool active() const;
 
 				//- Correct
-				virtual void correctModel
+				FoamLagrangian_EXPORT virtual void correctModel
 				(
 					const scalar dt,
 					scalarField& availableMass,
@@ -94,7 +98,7 @@ namespace tnbLib
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const noPhaseChange&) = delete;
+				FoamLagrangian_EXPORT void operator=(const noPhaseChange&) = delete;
 			};
 
 

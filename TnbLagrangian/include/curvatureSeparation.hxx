@@ -93,34 +93,38 @@ namespace tnbLib
 				// Protected Member Functions
 
 					//- Calculate local (inverse) radius of curvature
-				tmp<volScalarField> calcInvR1(const volVectorField& U) const;
+				FoamLagrangian_EXPORT tmp<volScalarField> calcInvR1(const volVectorField& U) const;
 
 				//- Calculate the cosine of the angle between gravity vector and
 				//  cell out flow direction
-				tmp<scalarField> calcCosAngle(const surfaceScalarField& phi) const;
+				FoamLagrangian_EXPORT tmp<scalarField> calcCosAngle(const surfaceScalarField& phi) const;
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("curvatureSeparation");
+				//TypeName("curvatureSeparation");
+				static const char* typeName_() { return "curvatureSeparation"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				curvatureSeparation
+				FoamLagrangian_EXPORT curvatureSeparation
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
 				);
 
 				//- Disallow default bitwise copy construction
-				curvatureSeparation(const curvatureSeparation&) = delete;
+				FoamLagrangian_EXPORT curvatureSeparation(const curvatureSeparation&) = delete;
 
 
 				//- Destructor
-				virtual ~curvatureSeparation();
+				FoamLagrangian_EXPORT virtual ~curvatureSeparation();
 
 
 				// Member Functions
@@ -128,7 +132,7 @@ namespace tnbLib
 					// Evolution
 
 						//- Correct
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					scalarField& availableMass,
 					scalarField& massToInject,
@@ -139,7 +143,7 @@ namespace tnbLib
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const curvatureSeparation&) = delete;
+				FoamLagrangian_EXPORT void operator=(const curvatureSeparation&) = delete;
 			};
 
 

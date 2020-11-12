@@ -61,10 +61,10 @@ namespace tnbLib
 				// Constructors
 
 					//- Construct null
-				forceList(surfaceFilmRegionModel& film);
+				FoamLagrangian_EXPORT forceList(surfaceFilmRegionModel& film);
 
 				//- Construct from type name, dictionary and surface film model
-				forceList
+				FoamLagrangian_EXPORT forceList
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
@@ -72,13 +72,13 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~forceList();
+				FoamLagrangian_EXPORT virtual ~forceList();
 
 
 				// Member Functions
 
 					//- Return (net) force system
-				tmp<fvVectorMatrix> correct(volVectorField& U);
+				FoamLagrangian_EXPORT tmp<fvVectorMatrix> correct(volVectorField& U);
 			};
 
 

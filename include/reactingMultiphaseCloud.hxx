@@ -52,25 +52,29 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("reactingMultiphaseCloud");
+		//TypeName("reactingMultiphaseCloud");
+		static const char* typeName_() { return "reactingMultiphaseCloud"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Null constructor
-		reactingMultiphaseCloud();
+		FoamLagrangian_EXPORT reactingMultiphaseCloud();
 
 		//- Disallow default bitwise copy construction
-		reactingMultiphaseCloud(const reactingMultiphaseCloud&) = delete;
+		FoamLagrangian_EXPORT reactingMultiphaseCloud(const reactingMultiphaseCloud&) = delete;
 
 
 		//- Destructor
-		virtual ~reactingMultiphaseCloud();
+		FoamLagrangian_EXPORT virtual ~reactingMultiphaseCloud();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const reactingMultiphaseCloud&) = delete;
+		FoamLagrangian_EXPORT void operator=(const reactingMultiphaseCloud&) = delete;
 	};
 
 

@@ -51,8 +51,8 @@ namespace tnbLib
 
 	class phaseProperties;
 
-	Istream& operator>>(Istream&, phaseProperties&);
-	Ostream& operator<<(Ostream&, const phaseProperties&);
+	FoamLagrangian_EXPORT Istream& operator>>(Istream&, phaseProperties&);
+	FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const phaseProperties&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -75,7 +75,7 @@ namespace tnbLib
 		};
 
 		//- Corresponding word representations for phase type enumerations
-		static const NamedEnum<phaseType, 4> phaseTypeNames;
+		static FoamLagrangian_EXPORT const NamedEnum<phaseType, 4> phaseTypeNames;
 
 
 	private:
@@ -101,16 +101,16 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Reorder species to be consistent with the given specie name list
-		void reorder(const wordList& specieNames);
+		FoamLagrangian_EXPORT void reorder(const wordList& specieNames);
 
 		//- Set carrier ids
-		void setCarrierIds(const wordList& carrierNames);
+		FoamLagrangian_EXPORT void setCarrierIds(const wordList& carrierNames);
 
 		//- Check the total mass fraction
-		void checkTotalMassFraction() const;
+		FoamLagrangian_EXPORT void checkTotalMassFraction() const;
 
 		//- Set the state label
-		word phaseToStateLabel(const phaseType pt) const;
+		FoamLagrangian_EXPORT word phaseToStateLabel(const phaseType pt) const;
 
 
 	public:
@@ -118,21 +118,21 @@ namespace tnbLib
 		// Constructors
 
 			//- Null constructor
-		phaseProperties();
+		FoamLagrangian_EXPORT phaseProperties();
 
 		//- Construct from Istream
-		phaseProperties(Istream&);
+		FoamLagrangian_EXPORT phaseProperties(Istream&);
 
 
 		//- Destructor
-		~phaseProperties();
+		FoamLagrangian_EXPORT ~phaseProperties();
 
 
 		// Public Member Functions
 
 			//- Reorder species to be consistent with the corresponding
 			//  phase specie name list
-		void reorder
+		FoamLagrangian_EXPORT void reorder
 		(
 			const wordList& gasNames,
 			const wordList& liquidNames,
@@ -143,42 +143,42 @@ namespace tnbLib
 		// Access
 
 			//- Return const access to the phase type
-		phaseType phase() const;
+		FoamLagrangian_EXPORT phaseType phase() const;
 
 		//- Return const access to the phase state label
-		const word& stateLabel() const;
+		FoamLagrangian_EXPORT const word& stateLabel() const;
 
 		//- Return word representation of the phase type
-		word phaseTypeName() const;
+		FoamLagrangian_EXPORT word phaseTypeName() const;
 
 		//- Return the list of specie names
-		const List<word>& names() const;
+		FoamLagrangian_EXPORT const List<word>& names() const;
 
 		//- Return const access to a specie name
-		const word& name(const label speciei) const;
+		FoamLagrangian_EXPORT const word& name(const label speciei) const;
 
 		//- Return const access to all specie mass fractions
-		const scalarField& Y() const;
+		FoamLagrangian_EXPORT const scalarField& Y() const;
 
 		//- Return non-const access to a specie mass fraction
-		scalar& Y(const label speciei);
+		FoamLagrangian_EXPORT scalar& Y(const label speciei);
 
 		//- Return const access to the map to the carrier ids
-		const labelList& carrierIds() const;
+		FoamLagrangian_EXPORT const labelList& carrierIds() const;
 
 		//- Return the id of a specie in the local list by name
 		//  Returns -1 if not found
-		label id(const word& specieName) const;
+		FoamLagrangian_EXPORT label id(const word& specieName) const;
 
 		
-		bool operator==(const phaseProperties&) const; //- added by amir
-		bool operator!=(const phaseProperties&) const; //- added by amir
+		FoamLagrangian_EXPORT bool operator==(const phaseProperties&) const; //- added by amir
+		FoamLagrangian_EXPORT bool operator!=(const phaseProperties&) const; //- added by amir
 
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, phaseProperties&);
-		friend Ostream& operator<<(Ostream&, const phaseProperties&);
+		friend FoamLagrangian_EXPORT Istream& operator>>(Istream&, phaseProperties&);
+		friend FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const phaseProperties&);
 	};
 
 

@@ -44,6 +44,16 @@ SourceFiles
 
 #include <dimensionedVector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamSurfaceFilmModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSurfaceFilmModel_EXPORT_DEFINE
+#define FoamSurfaceFilmModel_EXPORT __declspec(dllexport)
+#else
+#define FoamSurfaceFilmModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -133,10 +143,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("surfaceFilmModel");
+		//TypeName("surfaceFilmModel");
+		static const char* typeName_() { return "surfaceFilmModel"; }
+		static FoamSurfaceFilmModel_EXPORT const ::tnbLib::word typeName;
+		static FoamSurfaceFilmModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			SurfaceFilmModel,
@@ -146,7 +160,59 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<SurfaceFilmModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamSurfaceFilmModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamSurfaceFilmModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamSurfaceFilmModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class SurfaceFilmModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<SurfaceFilmModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<SurfaceFilmModel>(new SurfaceFilmModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = SurfaceFilmModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "SurfaceFilmModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class SurfaceFilmModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<SurfaceFilmModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<SurfaceFilmModel>(new SurfaceFilmModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = SurfaceFilmModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

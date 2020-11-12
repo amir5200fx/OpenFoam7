@@ -79,7 +79,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Read all meshes
-		void read();
+		FoamParallel_EXPORT void read();
 
 
 	public:
@@ -87,19 +87,19 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		processorMeshes(PtrList<Time>& databases, const word& meshName);
+		FoamParallel_EXPORT processorMeshes(PtrList<Time>& databases, const word& meshName);
 
 		//- Disallow default bitwise copy construction
-		processorMeshes(const processorMeshes&) = delete;
+		FoamParallel_EXPORT processorMeshes(const processorMeshes&) = delete;
 
 
 		// Member Functions
 
 			//- Update the meshes based on the mesh files saved in time directories
-		fvMesh::readUpdateState readUpdate();
+		FoamParallel_EXPORT fvMesh::readUpdateState readUpdate();
 
 		//- Reconstruct point position after motion in parallel
-		void reconstructPoints(fvMesh&);
+		FoamParallel_EXPORT void reconstructPoints(fvMesh&);
 
 		PtrList<fvMesh>& meshes()
 		{
@@ -130,7 +130,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const processorMeshes&) = delete;
+		FoamParallel_EXPORT void operator=(const processorMeshes&) = delete;
 	};
 
 

@@ -109,7 +109,7 @@ namespace tnbLib
 
 			// Private Member Functions
 
-			void writeGraph
+			FoamFunctionObjects_EXPORT void writeGraph
 			(
 				const coordSet& coords,
 				const word& valueName,
@@ -120,13 +120,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("histogram");
+			//TypeName("histogram");
+			static const char* typeName_() { return "histogram"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			histogram
+			FoamFunctionObjects_EXPORT histogram
 			(
 				const word& name,
 				const Time& runTime,
@@ -134,31 +138,31 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			histogram(const histogram&) = delete;
+			FoamFunctionObjects_EXPORT histogram(const histogram&) = delete;
 
 
 			// Destructor
-			virtual ~histogram();
+			FoamFunctionObjects_EXPORT virtual ~histogram();
 
 
 			// Member Functions
 
 				//- Read the histogram data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Execute, currently does nothing
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Calculate the histogram and write.
 			//  postProcess overrides the usual writeControl behaviour and
 			//  forces writing always (used in post-processing mode)
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const histogram&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const histogram&) = delete;
 		};
 
 

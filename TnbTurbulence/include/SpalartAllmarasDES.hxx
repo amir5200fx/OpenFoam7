@@ -47,6 +47,16 @@ SourceFiles
 
 #include <LESeddyViscosity.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamSpalartAllmarasDES_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSpalartAllmarasDES_EXPORT_DEFINE
+#define FoamSpalartAllmarasDES_EXPORT __declspec(dllexport)
+#else
+#define FoamSpalartAllmarasDES_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -149,7 +159,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("SpalartAllmarasDES");
+			//TypeName("SpalartAllmarasDES");
+			static const char* typeName_() { return "SpalartAllmarasDES"; }
+			static FoamSpalartAllmarasDES_EXPORT const ::tnbLib::word typeName;
+			static FoamSpalartAllmarasDES_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

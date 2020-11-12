@@ -91,7 +91,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Return the roughness dependent E
-		scalar E(const scalar KsPlus, const scalar Cs) const;
+		FoamTurbulence_EXPORT scalar E(const scalar KsPlus, const scalar Cs) const;
 
 
 	protected:
@@ -99,26 +99,30 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Calculate the turbulence viscosity
-		virtual tmp<scalarField> nut() const;
+		FoamTurbulence_EXPORT virtual tmp<scalarField> nut() const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("nutkRoughWallFunction");
+		//TypeName("nutkRoughWallFunction");
+		static const char* typeName_() { return "nutkRoughWallFunction"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		nutkRoughWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutkRoughWallFunctionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		nutkRoughWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutkRoughWallFunctionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -128,7 +132,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  nutkRoughWallFunctionFvPatchScalarField
 		//  onto a new patch
-		nutkRoughWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutkRoughWallFunctionFvPatchScalarField
 		(
 			const nutkRoughWallFunctionFvPatchScalarField&,
 			const fvPatch&,
@@ -137,7 +141,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		nutkRoughWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutkRoughWallFunctionFvPatchScalarField
 		(
 			const nutkRoughWallFunctionFvPatchScalarField&
 		);
@@ -152,7 +156,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		nutkRoughWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutkRoughWallFunctionFvPatchScalarField
 		(
 			const nutkRoughWallFunctionFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -204,10 +208,10 @@ namespace tnbLib
 		// Mapping functions
 
 			//- Map (and resize as needed) from self given a mapping object
-		virtual void autoMap(const fvPatchFieldMapper&);
+		FoamTurbulence_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
-		virtual void rmap
+		FoamTurbulence_EXPORT virtual void rmap
 		(
 			const fvPatchScalarField&,
 			const labelList&
@@ -217,7 +221,7 @@ namespace tnbLib
 		// I-O
 
 			//- Write
-		virtual void write(Ostream&) const;
+		FoamTurbulence_EXPORT virtual void write(Ostream&) const;
 	};
 
 

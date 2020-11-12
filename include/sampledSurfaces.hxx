@@ -92,10 +92,10 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Output verbosity
-		static bool verbose_;
+		static FoamSampling_EXPORT bool verbose_;
 
 		//- Tolerance for merging points (fraction of mesh bounding box)
-		static scalar mergeTol_;
+		static FoamSampling_EXPORT scalar mergeTol_;
 
 
 		// Private Data
@@ -135,10 +135,10 @@ namespace tnbLib
 
 
 			//- Return number of fields
-		label classifyFields();
+		FoamSampling_EXPORT label classifyFields();
 
 		//- Write geometry only
-		void writeGeometry() const;
+		FoamSampling_EXPORT void writeGeometry() const;
 
 		//- Write sampled fieldName on surface and on outputDir path		
 		template<class Type>
@@ -171,13 +171,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("surfaces");
+		//TypeName("surfaces");
+		static const char* typeName_() { return "surfaces"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from Time and dictionary
-		sampledSurfaces
+		FoamSampling_EXPORT sampledSurfaces
 		(
 			const word& name,
 			const Time& time,
@@ -186,7 +190,7 @@ namespace tnbLib
 
 		//- Construct for given objectRegistry and dictionary
 		//  allow the possibility to load fields from files
-		sampledSurfaces
+		FoamSampling_EXPORT sampledSurfaces
 		(
 			const word& name,
 			const objectRegistry&,
@@ -195,53 +199,53 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		sampledSurfaces(const sampledSurfaces&) = delete;
+		FoamSampling_EXPORT sampledSurfaces(const sampledSurfaces&) = delete;
 
 
 		//- Destructor
-		virtual ~sampledSurfaces();
+		FoamSampling_EXPORT virtual ~sampledSurfaces();
 
 
 		// Member Functions
 
 			//- Does any of the surfaces need an update?
-		virtual bool needsUpdate() const;
+		FoamSampling_EXPORT virtual bool needsUpdate() const;
 
 		//- Mark the surfaces as needing an update.
 		//  May also free up unneeded data.
 		//  Return false if all surfaces were already marked as expired.
-		virtual bool expire();
+		FoamSampling_EXPORT virtual bool expire();
 
 		//- Update the surfaces as required and merge surface points (parallel).
 		//  Return false if no surfaces required an update.
-		virtual bool update();
+		FoamSampling_EXPORT virtual bool update();
 
 		//- Set verbosity level
-		void verbose(const bool verbosity = true);
+		FoamSampling_EXPORT void verbose(const bool verbosity = true);
 
 		//- Read the sampledSurfaces dictionary
-		virtual bool read(const dictionary&);
+		FoamSampling_EXPORT virtual bool read(const dictionary&);
 
 		//- Execute, currently does nothing
-		virtual bool execute();
+		FoamSampling_EXPORT virtual bool execute();
 
 		//- Sample and write
-		virtual bool write();
+		FoamSampling_EXPORT virtual bool write();
 
 		//- Update for changes of mesh - expires the surfaces
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamSampling_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 		//- Update for mesh point-motion - expires the surfaces
-		virtual void movePoints(const polyMesh&);
+		FoamSampling_EXPORT virtual void movePoints(const polyMesh&);
 
 		//- Update for changes of mesh due to readUpdate - expires the surfaces
-		virtual void readUpdate(const polyMesh::readUpdateState state);
+		FoamSampling_EXPORT virtual void readUpdate(const polyMesh::readUpdateState state);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const sampledSurfaces&) = delete;
+		FoamSampling_EXPORT void operator=(const sampledSurfaces&) = delete;
 	};
 
 

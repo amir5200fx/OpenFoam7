@@ -93,7 +93,7 @@ namespace tnbLib
 				// Protected member functions
 
 					//- Return Sherwood number as a function of Reynolds and Schmidt numbers
-				scalar Sh(const scalar Re, const scalar Sc) const;
+				FoamLagrangian_EXPORT scalar Sh(const scalar Re, const scalar Sc) const;
 
 				template<class YInfType>
 				void correctModel
@@ -109,30 +109,34 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("waxSolventEvaporation");
+				//TypeName("waxSolventEvaporation");
+				static const char* typeName_() { return "waxSolventEvaporation"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				waxSolventEvaporation
+				FoamLagrangian_EXPORT waxSolventEvaporation
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
 				);
 
 				//- Disallow default bitwise copy construction
-				waxSolventEvaporation(const waxSolventEvaporation&) = delete;
+				FoamLagrangian_EXPORT waxSolventEvaporation(const waxSolventEvaporation&) = delete;
 
 
 				//- Destructor
-				virtual ~waxSolventEvaporation();
+				FoamLagrangian_EXPORT virtual ~waxSolventEvaporation();
 
 
 				// Member Functions
 
 					//- Correct
-				virtual void correctModel
+				FoamLagrangian_EXPORT virtual void correctModel
 				(
 					const scalar dt,
 					scalarField& availableMass,
@@ -144,7 +148,7 @@ namespace tnbLib
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const waxSolventEvaporation&) = delete;
+				FoamLagrangian_EXPORT void operator=(const waxSolventEvaporation&) = delete;
 			};
 
 
@@ -153,6 +157,8 @@ namespace tnbLib
 		} // End namespace surfaceFilmModels
 	} // End namespace regionModels
 } // End namespace tnbLib
+
+#include <waxSolventEvaporationI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

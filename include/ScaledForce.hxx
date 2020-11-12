@@ -35,6 +35,16 @@ Description
 
 #include <ParticleForce.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamScaledForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamScaledForce_EXPORT_DEFINE
+#define FoamScaledForce_EXPORT __declspec(dllexport)
+#else
+#define FoamScaledForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -66,7 +76,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("scaled");
+		//TypeName("scaled");
+		static const char* typeName_() { return "scaled"; }
+		static FoamScaledForce_EXPORT const ::tnbLib::word typeName;
+		static FoamScaledForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

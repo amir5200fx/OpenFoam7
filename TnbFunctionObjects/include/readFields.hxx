@@ -118,14 +118,18 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("readFields");
+			//TypeName("readFields");
+			static const char* typeName_() { return "readFields"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct for given objectRegistry and dictionary.
 				//  Allow the possibility to load fields from files
-			readFields
+			FoamFunctionObjects_EXPORT readFields
 			(
 				const word& name,
 				const Time& runTime,
@@ -133,29 +137,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			readFields(const readFields&) = delete;
+			FoamFunctionObjects_EXPORT readFields(const readFields&) = delete;
 
 
 			//- Destructor
-			virtual ~readFields();
+			FoamFunctionObjects_EXPORT virtual ~readFields();
 
 
 			// Member Functions
 
 				//- Read the set of fields from dictionary
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Read the fields
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Do nothing
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const readFields&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const readFields&) = delete;
 		};
 
 
@@ -167,8 +171,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <readFieldsTemplates.cxx>
+//#include <readFieldsTemplates.cxx>
 #endif
+
+#include <readFieldsTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

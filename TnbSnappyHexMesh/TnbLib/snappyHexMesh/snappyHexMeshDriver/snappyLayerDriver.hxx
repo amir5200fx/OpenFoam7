@@ -115,7 +115,7 @@ namespace tnbLib
 			// Layers
 
 				//- For debugging: Dump displacement to .obj files
-		static void dumpDisplacement
+		static FoamSnappyHexMesh_EXPORT void dumpDisplacement
 		(
 			const fileName&,
 			const indirectPrimitivePatch&,
@@ -124,7 +124,7 @@ namespace tnbLib
 		);
 
 		//- Average point wise data to face wise
-		static tmp<scalarField> avgPointData
+		static FoamSnappyHexMesh_EXPORT tmp<scalarField> avgPointData
 		(
 			const indirectPrimitivePatch&,
 			const scalarField& pointFld
@@ -132,20 +132,20 @@ namespace tnbLib
 
 		//- Check that primitivePatch is not multiply connected.
 		//  Collect non-manifold points in pointSet.
-		static void checkManifold
+		static FoamSnappyHexMesh_EXPORT void checkManifold
 		(
 			const indirectPrimitivePatch&,
 			pointSet& nonManifoldPoints
 		);
 
 		//- Check that mesh outside is not multiply connected.
-		void checkMeshManifold() const;
+		FoamSnappyHexMesh_EXPORT void checkMeshManifold() const;
 
 
 		// Static extrusion setup
 
 			//- Unset extrusion on point. Returns true if anything unset.
-		static bool unmarkExtrusion
+		static FoamSnappyHexMesh_EXPORT bool unmarkExtrusion
 		(
 			const label patchPointi,
 			pointField& patchDisp,
@@ -154,7 +154,7 @@ namespace tnbLib
 		);
 
 		//- Unset extrusion on face. Returns true if anything unset.
-		static bool unmarkExtrusion
+		static FoamSnappyHexMesh_EXPORT bool unmarkExtrusion
 		(
 			const face& localFace,
 			pointField& patchDisp,
@@ -163,7 +163,7 @@ namespace tnbLib
 		);
 
 		//- No extrusion at non-manifold points.
-		void handleNonManifolds
+		FoamSnappyHexMesh_EXPORT void handleNonManifolds
 		(
 			const indirectPrimitivePatch& pp,
 			const labelList& meshEdges,
@@ -175,7 +175,7 @@ namespace tnbLib
 
 		//- No extrusion on feature edges. Assumes non-manifold
 		//  edges already handled.
-		void handleFeatureAngle
+		FoamSnappyHexMesh_EXPORT void handleFeatureAngle
 		(
 			const indirectPrimitivePatch& pp,
 			const labelList& meshEdges,
@@ -186,7 +186,7 @@ namespace tnbLib
 		) const;
 
 		//- No extrusion on warped faces
-		void handleWarpedFaces
+		FoamSnappyHexMesh_EXPORT void handleWarpedFaces
 		(
 			const indirectPrimitivePatch& pp,
 			const scalar faceRatio,
@@ -199,7 +199,7 @@ namespace tnbLib
 
 		//- Determine the number of layers per point from the number of
 		//  layers per surface.
-		void setNumLayers
+		FoamSnappyHexMesh_EXPORT void setNumLayers
 		(
 			const labelList& patchToNLayers,
 			const labelList& patchIDs,
@@ -217,14 +217,14 @@ namespace tnbLib
 		//  - processor             : calculated (so free to move)
 		//  - cyclic/wedge/symmetry : slip
 		//  - other                 : slip
-		static tmp<pointVectorField> makeLayerDisplacementField
+		static FoamSnappyHexMesh_EXPORT tmp<pointVectorField> makeLayerDisplacementField
 		(
 			const pointMesh& pMesh,
 			const labelList& numLayers
 		);
 
 		//- Grow no-extrusion layer.
-		void growNoExtrusion
+		FoamSnappyHexMesh_EXPORT void growNoExtrusion
 		(
 			const indirectPrimitivePatch& pp,
 			pointField& patchDisp,
@@ -233,7 +233,7 @@ namespace tnbLib
 		) const;
 
 		//- See what patches boundaryedges should be extruded into
-		void determineSidePatches
+		FoamSnappyHexMesh_EXPORT void determineSidePatches
 		(
 			const globalIndex& globalFaces,
 			const labelListList& edgeGlobalFaces,
@@ -247,7 +247,7 @@ namespace tnbLib
 		//  minthickness: when to give up and not extrude
 		//  Gets per patch parameters and determine pp pointwise
 		//  parameters.
-		void calculateLayerThickness
+		FoamSnappyHexMesh_EXPORT void calculateLayerThickness
 		(
 			const indirectPrimitivePatch& pp,
 			const labelList& patchIDs,
@@ -265,7 +265,7 @@ namespace tnbLib
 		// Extrusion execution
 
 			//- Synchronize displacement among coupled patches.
-		void syncPatchDisplacement
+		FoamSnappyHexMesh_EXPORT void syncPatchDisplacement
 		(
 			const indirectPrimitivePatch& pp,
 			const scalarField& minThickness,
@@ -275,7 +275,7 @@ namespace tnbLib
 		) const;
 
 		//- Get nearest point on surface to snap to
-		void getPatchDisplacement
+		FoamSnappyHexMesh_EXPORT void getPatchDisplacement
 		(
 			const indirectPrimitivePatch& pp,
 			const scalarField& thickness,
@@ -286,7 +286,7 @@ namespace tnbLib
 		) const;
 
 		//- For truncateDisplacement: find strings of edges
-		bool sameEdgeNeighbour
+		FoamSnappyHexMesh_EXPORT bool sameEdgeNeighbour
 		(
 			const labelListList& globalEdgeFaces,
 			const label myGlobalFacei,
@@ -295,7 +295,7 @@ namespace tnbLib
 		) const;
 
 		//- For truncateDisplacement: find strings of edges
-		void getVertexString
+		FoamSnappyHexMesh_EXPORT void getVertexString
 		(
 			const indirectPrimitivePatch& pp,
 			const labelListList& globalEdgeFaces,
@@ -311,7 +311,7 @@ namespace tnbLib
 		//   to zero
 		// - all displacement < minThickness gets set to zero
 		// - all non-consecutive extrusions get set to 0
-		label truncateDisplacement
+		FoamSnappyHexMesh_EXPORT label truncateDisplacement
 		(
 			const globalIndex& globalFaces,
 			const labelListList& edgeGlobalFaces,
@@ -329,7 +329,7 @@ namespace tnbLib
 		//  optional slow decreasing of the number of layers.
 		//  Returns the number of layers per face and per point
 		//  to go into the actual layer addition engine.
-		void setupLayerInfoTruncation
+		FoamSnappyHexMesh_EXPORT void setupLayerInfoTruncation
 		(
 			const indirectPrimitivePatch& pp,
 			const labelList& patchNLayers,
@@ -340,7 +340,7 @@ namespace tnbLib
 		) const;
 
 		//- Does any of the cells use a face from faces?
-		static bool cellsUseFace
+		static FoamSnappyHexMesh_EXPORT bool cellsUseFace
 		(
 			const polyMesh& mesh,
 			const labelList& cellLabels,
@@ -350,7 +350,7 @@ namespace tnbLib
 		//- Checks the newly added cells and locally unmarks points
 		//  so they will not get extruded next time round. Returns
 		//  global number of unmarked points (0 if all was fine)
-		static label checkAndUnmark
+		static FoamSnappyHexMesh_EXPORT label checkAndUnmark
 		(
 			const addPatchCellLayer& addLayer,
 			const dictionary& motionDict,
@@ -365,7 +365,7 @@ namespace tnbLib
 		);
 
 		//- Count global number of extruded faces
-		static label countExtrusion
+		static FoamSnappyHexMesh_EXPORT label countExtrusion
 		(
 			const indirectPrimitivePatch& pp,
 			const List<extrudeMode>& extrudeStatus
@@ -373,7 +373,7 @@ namespace tnbLib
 
 		//- Collect layer faces and layer cells into bools
 		//  for ease of handling
-		static void getLayerCellsFaces
+		static FoamSnappyHexMesh_EXPORT void getLayerCellsFaces
 		(
 			const polyMesh&,
 			const addPatchCellLayer&,
@@ -384,7 +384,7 @@ namespace tnbLib
 		);
 
 		//- Print layer coverage table
-		void printLayerData
+		FoamSnappyHexMesh_EXPORT void printLayerData
 		(
 			const fvMesh& mesh,
 			const labelList& patchIDs,
@@ -394,7 +394,7 @@ namespace tnbLib
 		) const;
 
 		//- Write cellSet,faceSet for layers
-		bool writeLayerData
+		FoamSnappyHexMesh_EXPORT bool writeLayerData
 		(
 			const fvMesh& mesh,
 			const labelList& patchIDs,
@@ -423,7 +423,7 @@ namespace tnbLib
 		);
 
 		//- Calculate inverse sum of edge weights (currently always 1.0)
-		void sumWeights
+		FoamSnappyHexMesh_EXPORT void sumWeights
 		(
 			const PackedBoolList& isMasterEdge,
 			const labelList& meshEdges,
@@ -433,7 +433,7 @@ namespace tnbLib
 		) const;
 
 		//- Smooth scalar field on patch
-		void smoothField
+		FoamSnappyHexMesh_EXPORT void smoothField
 		(
 			const motionSmoother& meshMover,
 			const PackedBoolList& isMasterPoint,
@@ -445,7 +445,7 @@ namespace tnbLib
 		) const;
 
 		//- Smooth normals on patch.
-		void smoothPatchNormals
+		FoamSnappyHexMesh_EXPORT void smoothPatchNormals
 		(
 			const motionSmoother& meshMover,
 			const PackedBoolList& isMasterPoint,
@@ -456,7 +456,7 @@ namespace tnbLib
 		) const;
 
 		//- Smooth normals in interior.
-		void smoothNormals
+		FoamSnappyHexMesh_EXPORT void smoothNormals
 		(
 			const label nSmoothDisp,
 			const PackedBoolList& isMasterPoint,
@@ -465,7 +465,7 @@ namespace tnbLib
 			pointVectorField& normals
 		) const;
 
-		bool isMaxEdge
+		FoamSnappyHexMesh_EXPORT bool isMaxEdge
 		(
 			const List<pointData>&,
 			const label edgeI,
@@ -474,7 +474,7 @@ namespace tnbLib
 
 		//- Stop layer growth where mesh wraps around edge with a
 		//  large feature angle
-		void handleFeatureAngleLayerTerminations
+		FoamSnappyHexMesh_EXPORT void handleFeatureAngleLayerTerminations
 		(
 			const scalar minCos,
 			const PackedBoolList& isMasterPoint,
@@ -490,7 +490,7 @@ namespace tnbLib
 		//- Find isolated islands (points, edges and faces and
 		// layer terminations)
 		// in the layer mesh and stop any layer growth at these points.
-		void findIsolatedRegions
+		FoamSnappyHexMesh_EXPORT void findIsolatedRegions
 		(
 			const scalar minCosLayerTermination,
 			const PackedBoolList& isMasterPoint,
@@ -505,7 +505,7 @@ namespace tnbLib
 		) const;
 
 		// Calculate medial axis fields
-		void medialAxisSmoothingInfo
+		FoamSnappyHexMesh_EXPORT void medialAxisSmoothingInfo
 		(
 			const motionSmoother& meshMover,
 			const label nSmoothNormals,
@@ -520,7 +520,7 @@ namespace tnbLib
 		) const;
 
 		//- Main routine to shrink mesh
-		void shrinkMeshMedialDistance
+		FoamSnappyHexMesh_EXPORT void shrinkMeshMedialDistance
 		(
 			motionSmoother& meshMover,
 			const dictionary& meshQualityDict,
@@ -549,12 +549,15 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("snappyLayerDriver");
+		//ClassName("snappyLayerDriver");
+		static const char* typeName_() { return "snappyLayerDriver"; }
+		static FoamSnappyHexMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamSnappyHexMesh_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct from components
-		snappyLayerDriver
+		FoamSnappyHexMesh_EXPORT snappyLayerDriver
 		(
 			meshRefinement& meshRefiner,
 			const labelList& globalToMasterPatch,
@@ -562,20 +565,20 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		snappyLayerDriver(const snappyLayerDriver&) = delete;
+		FoamSnappyHexMesh_EXPORT snappyLayerDriver(const snappyLayerDriver&) = delete;
 
 
 		// Member Functions
 
 				//- Merge patch faces on same cell.
-		void mergePatchFacesUndo
+		FoamSnappyHexMesh_EXPORT void mergePatchFacesUndo
 		(
 			const layerParameters& layerParams,
 			const dictionary& motionDict
 		);
 
 		//- Add cell layers
-		void addLayers
+		FoamSnappyHexMesh_EXPORT void addLayers
 		(
 			const layerParameters& layerParams,
 			const dictionary& motionDict,
@@ -586,7 +589,7 @@ namespace tnbLib
 		);
 
 		//- Add layers according to the dictionary settings
-		void doLayers
+		FoamSnappyHexMesh_EXPORT void doLayers
 		(
 			const dictionary& shrinkDict,
 			const dictionary& motionDict,
@@ -600,7 +603,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const snappyLayerDriver&) = delete;
+		FoamSnappyHexMesh_EXPORT void operator=(const snappyLayerDriver&) = delete;
 	};
 
 
@@ -611,8 +614,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <snappyLayerDriverTemplates.cxx>
+//#include <snappyLayerDriverTemplates.cxx>
 #endif
+
+#include <snappyLayerDriverTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

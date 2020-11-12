@@ -119,13 +119,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("systemCall");
+			//TypeName("systemCall");
+			static const char* typeName_() { return "systemCall"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			systemCall
+			FoamFunctionObjects_EXPORT systemCall
 			(
 				const word& name,
 				const Time& runTime,
@@ -133,32 +137,32 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			systemCall(const systemCall&) = delete;
+			FoamFunctionObjects_EXPORT systemCall(const systemCall&) = delete;
 
 
 			//- Destructor
-			virtual ~systemCall();
+			FoamFunctionObjects_EXPORT virtual ~systemCall();
 
 
 			// Member Functions
 
 				//- Read the system calls
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Execute the "executeCalls" at each time-step
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Execute the "endCalls" at the final time-loop
-			virtual bool end();
+			FoamFunctionObjects_EXPORT virtual bool end();
 
 			//- Write, execute the "writeCalls"
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const systemCall&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const systemCall&) = delete;
 		};
 
 

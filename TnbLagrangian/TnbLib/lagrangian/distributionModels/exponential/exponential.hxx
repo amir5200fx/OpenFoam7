@@ -70,16 +70,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("exponential");
+			//TypeName("exponential");
+			static const char* typeName_() { return "exponential"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			exponential(const dictionary& dict, Random& rndGen);
+			FoamLagrangian_EXPORT exponential(const dictionary& dict, Random& rndGen);
 
 			//- Construct copy
-			exponential(const exponential& p);
+			FoamLagrangian_EXPORT exponential(const exponential& p);
 
 			//- Construct and return a clone
 			virtual autoPtr<distributionModel> clone() const
@@ -89,22 +93,22 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~exponential();
+			FoamLagrangian_EXPORT virtual ~exponential();
 
 
 			// Member Functions
 
 				//- Sample the distributionModel
-			virtual scalar sample() const;
+			FoamLagrangian_EXPORT virtual scalar sample() const;
 
 			//- Return the minimum value
-			virtual scalar minValue() const;
+			FoamLagrangian_EXPORT virtual scalar minValue() const;
 
 			//- Return the maximum value
-			virtual scalar maxValue() const;
+			FoamLagrangian_EXPORT virtual scalar maxValue() const;
 
 			//- Return the mean value
-			virtual scalar meanValue() const;
+			FoamLagrangian_EXPORT virtual scalar meanValue() const;
 		};
 
 

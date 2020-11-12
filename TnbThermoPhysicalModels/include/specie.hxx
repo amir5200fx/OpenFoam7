@@ -57,7 +57,7 @@ namespace tnbLib
 	inline specie operator*(const scalar, const specie&);
 	inline specie operator==(const specie&, const specie&);
 
-	Ostream& operator<<(Ostream&, const specie&);
+	FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream&, const specie&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -81,7 +81,10 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("specie");
+		//ClassName("specie");
+		static const char* typeName_() { return "specie"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
 
 
 		// Constructors
@@ -101,10 +104,10 @@ namespace tnbLib
 		inline specie(const word& name, const specie&);
 
 		//- Construct from dictionary
-		specie(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT specie(const dictionary& dict);
 
 		//- Copy constructor
-		specie(const specie&) = default;
+		FoamThermophysicalModels_EXPORT specie(const specie&) = default;
 
 
 		// Member Functions
@@ -127,7 +130,7 @@ namespace tnbLib
 		// I-O
 
 			//- Write to Ostream
-		void write(Ostream& os) const;
+		FoamThermophysicalModels_EXPORT void write(Ostream& os) const;
 
 
 		// Member Operators
@@ -146,7 +149,7 @@ namespace tnbLib
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const specie&);
+		friend FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream&, const specie&);
 	};
 
 

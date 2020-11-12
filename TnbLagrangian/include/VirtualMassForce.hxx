@@ -38,6 +38,16 @@ SourceFiles
 
 #include <PressureGradientForce.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamVirtualMassForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamVirtualMassForce_EXPORT_DEFINE
+#define FoamVirtualMassForce_EXPORT __declspec(dllexport)
+#else
+#define FoamVirtualMassForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -61,7 +71,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("virtualMass");
+		//TypeName("virtualMass");
+		static const char* typeName_() { return "virtualMass"; }
+		static FoamVirtualMassForce_EXPORT const ::tnbLib::word typeName;
+		static FoamVirtualMassForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

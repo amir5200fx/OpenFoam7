@@ -230,9 +230,9 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Check and print error message
-		static void check(const int, const char*);
+		static FoamParallel_EXPORT void check(const int, const char*);
 
-		label decompose
+		FoamParallel_EXPORT label decompose
 		(
 			const fileName& meshPath,
 			const List<label>& adjncy,
@@ -242,7 +242,7 @@ namespace tnbLib
 		);
 
 		//- Decompose non-parallel
-		label decomposeOneProc
+		FoamParallel_EXPORT label decomposeOneProc
 		(
 			const fileName& meshPath,
 			const List<label>& adjncy,
@@ -255,16 +255,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("scotch");
+		//TypeName("scotch");
+		static const char* typeName_() { return "scotch"; }
+		static FoamParallel_EXPORT const ::tnbLib::word typeName;
+		static FoamParallel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given the decomposition dictionary and mesh
-		scotchDecomp(const dictionary& decompositionDict);
+		FoamParallel_EXPORT scotchDecomp(const dictionary& decompositionDict);
 
 		//- Disallow default bitwise copy construction
-		scotchDecomp(const scotchDecomp&) = delete;
+		FoamParallel_EXPORT scotchDecomp(const scotchDecomp&) = delete;
 
 
 		//- Destructor
@@ -288,7 +292,7 @@ namespace tnbLib
 		//  Weights get normalised with minimum weight and truncated to
 		//  convert into integer so e.g. 3.5 is seen as 3. The overall sum
 		//  of weights might otherwise overflow.
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const polyMesh& mesh,
 			const pointField& points,
@@ -300,7 +304,7 @@ namespace tnbLib
 		//  location. Can be overridden by decomposers that provide this
 		//  functionality natively.
 		//  See note on weights above.
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const polyMesh& mesh,
 			const labelList& agglom,
@@ -316,7 +320,7 @@ namespace tnbLib
 		//    processors)
 		//  - the connections are across coupled patches
 		//  See note on weights above.
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const labelListList& globalCellCells,
 			const pointField& cc,
@@ -327,7 +331,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const scotchDecomp&) = delete;
+		FoamParallel_EXPORT void operator=(const scotchDecomp&) = delete;
 	};
 
 

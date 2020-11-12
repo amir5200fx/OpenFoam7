@@ -64,20 +64,24 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("laminar");
+				//TypeName("laminar");
+				static const char* typeName_() { return "laminar"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				laminar(surfaceFilmRegionModel& film, const dictionary& dict);
+				FoamLagrangian_EXPORT laminar(surfaceFilmRegionModel& film, const dictionary& dict);
 
 				//- Disallow default bitwise copy construction
-				laminar(const laminar&) = delete;
+				FoamLagrangian_EXPORT laminar(const laminar&) = delete;
 
 
 				//- Destructor
-				virtual ~laminar();
+				FoamLagrangian_EXPORT virtual ~laminar();
 
 
 				// Member Functions
@@ -85,22 +89,22 @@ namespace tnbLib
 					// Evolution
 
 						//- Return the film surface velocity
-				virtual tmp<volVectorField> Us() const;
+				FoamLagrangian_EXPORT virtual tmp<volVectorField> Us() const;
 
 				//- Return the film turbulence viscosity
-				virtual tmp<volScalarField> mut() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> mut() const;
 
 				//- Correct/update the model
-				virtual void correct();
+				FoamLagrangian_EXPORT virtual void correct();
 
 				//- Return the source for the film momentum equation
-				virtual tmp<fvVectorMatrix> Su(volVectorField& U) const;
+				FoamLagrangian_EXPORT virtual tmp<fvVectorMatrix> Su(volVectorField& U) const;
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const laminar&) = delete;
+				FoamLagrangian_EXPORT void operator=(const laminar&) = delete;
 			};
 
 

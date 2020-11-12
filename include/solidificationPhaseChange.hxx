@@ -82,20 +82,24 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("solidification");
+				//TypeName("solidification");
+				static const char* typeName_() { return "solidification"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				solidification(surfaceFilmRegionModel& film, const dictionary& dict);
+				FoamLagrangian_EXPORT solidification(surfaceFilmRegionModel& film, const dictionary& dict);
 
 				//- Disallow default bitwise copy construction
-				solidification(const solidification&) = delete;
+				FoamLagrangian_EXPORT solidification(const solidification&) = delete;
 
 
 				//- Destructor
-				virtual ~solidification();
+				FoamLagrangian_EXPORT virtual ~solidification();
 
 
 				// Member Functions
@@ -103,7 +107,7 @@ namespace tnbLib
 					// Evolution
 
 						//- Correct
-				virtual void correctModel
+				FoamLagrangian_EXPORT virtual void correctModel
 				(
 					const scalar dt,
 					scalarField& availableMass,
@@ -115,7 +119,7 @@ namespace tnbLib
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const solidification&) = delete;
+				FoamLagrangian_EXPORT void operator=(const solidification&) = delete;
 			};
 
 

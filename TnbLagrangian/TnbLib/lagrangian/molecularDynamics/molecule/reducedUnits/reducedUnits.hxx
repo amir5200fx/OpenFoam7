@@ -49,7 +49,7 @@ namespace tnbLib
 
 	class reducedUnits;
 
-	Ostream& operator<<(Ostream&, const reducedUnits&);
+	FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const reducedUnits&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -91,7 +91,7 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void calcRefValues();
+		FoamLagrangian_EXPORT void calcRefValues();
 
 
 	public:
@@ -99,7 +99,7 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Static data someStaticData
-		static const scalar kb;
+		static FoamLagrangian_EXPORT const scalar kb;
 
 
 		// Constructors
@@ -108,10 +108,10 @@ namespace tnbLib
 			//  length  = 1nm
 			//  mass = 1.660538782e-27kg (unified atomic mass unit)
 			//  temperature = 1K (therefore, energy = 1*kb)
-		reducedUnits();
+		FoamLagrangian_EXPORT reducedUnits();
 
 		//- Construct from components
-		reducedUnits
+		FoamLagrangian_EXPORT reducedUnits
 		(
 			scalar refLength,
 			scalar refTime,
@@ -119,26 +119,26 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		reducedUnits(const IOdictionary& reducedUnitsDict);
+		FoamLagrangian_EXPORT reducedUnits(const IOdictionary& reducedUnitsDict);
 
 		//- Disallow default bitwise copy construction
-		reducedUnits(const reducedUnits&) = delete;
+		FoamLagrangian_EXPORT reducedUnits(const reducedUnits&) = delete;
 
 
 		//- Destructor
-		~reducedUnits();
+		FoamLagrangian_EXPORT ~reducedUnits();
 
 
 		// Member Functions
 
-		void setRefValues
+		FoamLagrangian_EXPORT void setRefValues
 		(
 			scalar refLength,
 			scalar refTime,
 			scalar refMass
 		);
 
-		void setRefValues(const IOdictionary& reducedUnitsDict);
+		FoamLagrangian_EXPORT void setRefValues(const IOdictionary& reducedUnitsDict);
 
 
 		// Access
@@ -169,12 +169,12 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const reducedUnits&) = delete;
+		FoamLagrangian_EXPORT void operator=(const reducedUnits&) = delete;
 
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const reducedUnits&);
+		friend FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const reducedUnits&);
 	};
 
 

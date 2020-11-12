@@ -74,10 +74,14 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("regionModelFunctionObject");
+			//TypeName("regionModelFunctionObject");
+			static const char* typeName_() { return "regionModelFunctionObject"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			//- Declare runtime constructor selection table
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				regionModelFunctionObject,
@@ -87,16 +91,69 @@ namespace tnbLib
 					regionModel& region
 					),
 					(dict, region)
-			);
+			);*/
+			
+			typedef autoPtr<regionModelFunctionObject> (*dictionaryConstructorPtr)(
+				const dictionary& dict, regionModel& region);
+			typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+			static FoamLagrangian_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+			static FoamLagrangian_EXPORT void constructdictionaryConstructorTables();
+			static FoamLagrangian_EXPORT void destroydictionaryConstructorTables();
+
+			template <class regionModelFunctionObjectType>
+			class adddictionaryConstructorToTable
+			{
+			public:
+				static autoPtr<regionModelFunctionObject> New(const dictionary& dict, regionModel& region)
+				{
+					return autoPtr<regionModelFunctionObject>(new regionModelFunctionObjectType(dict, region));
+				}
+
+				adddictionaryConstructorToTable(const word& lookup = regionModelFunctionObjectType::typeName)
+				{
+					constructdictionaryConstructorTables();
+					if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+							"regionModelFunctionObject" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+			};
+
+			template <class regionModelFunctionObjectType>
+			class addRemovabledictionaryConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<regionModelFunctionObject> New(const dictionary& dict, regionModel& region)
+				{
+					return autoPtr<regionModelFunctionObject>(new regionModelFunctionObjectType(dict, region));
+				}
+
+				addRemovabledictionaryConstructorToTable(
+					const word& lookup = regionModelFunctionObjectType::typeName) : lookup_(lookup)
+				{
+					constructdictionaryConstructorTables();
+					dictionaryConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovabledictionaryConstructorToTable()
+				{
+					if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+				}
+			};
 
 
 			// Constructors
 
 				//- Construct null from region
-			regionModelFunctionObject(regionModel& region);
+			FoamLagrangian_EXPORT regionModelFunctionObject(regionModel& region);
 
 			//- Construct from dictionary
-			regionModelFunctionObject
+			FoamLagrangian_EXPORT regionModelFunctionObject
 			(
 				const dictionary& dict,
 				regionModel& region,
@@ -104,7 +161,7 @@ namespace tnbLib
 			);
 
 			//- Construct copy
-			regionModelFunctionObject(const regionModelFunctionObject& ppm);
+			FoamLagrangian_EXPORT regionModelFunctionObject(const regionModelFunctionObject& ppm);
 
 			//- Construct and return a clone
 			virtual autoPtr<regionModelFunctionObject> clone() const
@@ -117,11 +174,11 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~regionModelFunctionObject();
+			FoamLagrangian_EXPORT virtual ~regionModelFunctionObject();
 
 
 			//- Selector
-			static autoPtr<regionModelFunctionObject> New
+			static FoamLagrangian_EXPORT autoPtr<regionModelFunctionObject> New
 			(
 				const dictionary& dict,
 				regionModel& region,
@@ -134,15 +191,15 @@ namespace tnbLib
 				// Evaluation
 
 					//- Pre-evolve region hook
-			virtual void preEvolveRegion();
+			FoamLagrangian_EXPORT virtual void preEvolveRegion();
 
 			//- Post-evolve region hook
-			virtual void postEvolveRegion();
+			FoamLagrangian_EXPORT virtual void postEvolveRegion();
 
 			// I-O
 
 				//- write
-			virtual void write() const;
+			FoamLagrangian_EXPORT virtual void write() const;
 		};
 
 

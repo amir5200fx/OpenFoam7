@@ -39,6 +39,16 @@ SourceFiles
 #include <Random.hxx>
 #include <fixedValueFvPatchFields.hxx>
 
+#ifdef FoamFvMotionSolver_EXPORT_DEFINE
+#define FoamcellMotionFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamcellMotionFvPatchField_EXPORT_DEFINE
+#define FoamcellMotionFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamcellMotionFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -57,7 +67,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cellMotion");
+		//TypeName("cellMotion");
+		static const char* typeName_() { return "cellMotion"; }
+		static FoamcellMotionFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamcellMotionFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

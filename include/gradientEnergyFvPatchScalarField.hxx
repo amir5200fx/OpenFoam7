@@ -83,20 +83,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("gradientEnergy");
+		//TypeName("gradientEnergy");
+		static const char* typeName_() { return "gradientEnergy"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		gradientEnergyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT gradientEnergyFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		gradientEnergyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT gradientEnergyFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -105,7 +109,7 @@ namespace tnbLib
 
 		//- Construct by mapping given gradientEnergyFvPatchScalarField
 		// onto a new patch
-		gradientEnergyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT gradientEnergyFvPatchScalarField
 		(
 			const gradientEnergyFvPatchScalarField&,
 			const fvPatch&,
@@ -114,7 +118,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		gradientEnergyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT gradientEnergyFvPatchScalarField
 		(
 			const gradientEnergyFvPatchScalarField&
 		);
@@ -129,7 +133,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		gradientEnergyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT gradientEnergyFvPatchScalarField
 		(
 			const gradientEnergyFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -153,7 +157,7 @@ namespace tnbLib
 			// Evaluation functions
 
 				//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamThermophysicalModels_EXPORT virtual void updateCoeffs();
 	};
 
 

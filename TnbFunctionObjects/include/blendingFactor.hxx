@@ -72,19 +72,23 @@ namespace tnbLib
 			bool calcBF();
 
 			//- Calculate the blending factor field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("blendingFactor");
+			//TypeName("blendingFactor");
+			static const char* typeName_() { return "blendingFactor"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			blendingFactor
+			FoamFunctionObjects_EXPORT blendingFactor
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,13 +97,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~blendingFactor();
+			FoamFunctionObjects_EXPORT virtual ~blendingFactor();
 
 
 			// Member Functions
 
 				//- Read the blendingFactor data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 		};
 
 
@@ -111,8 +115,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <blendingFactorTemplates.cxx>
+//#include <blendingFactorTemplates.cxx>
 #endif
+
+#include <blendingFactorTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

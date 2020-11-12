@@ -51,8 +51,8 @@ namespace tnbLib
 
 	class pointData;
 
-	Istream& operator>>(Istream&, pointData&);
-	Ostream& operator<<(Ostream&, const pointData&);
+	FoamSnappyHexMesh_EXPORT Istream& operator>>(Istream&, pointData&);
+	FoamSnappyHexMesh_EXPORT Ostream& operator<<(Ostream&, const pointData&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -162,8 +162,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const pointData&);
-		friend Istream& operator>>(Istream&, pointData&);
+		friend FoamSnappyHexMesh_EXPORT Ostream& operator<<(Ostream&, const pointData&);
+		friend FoamSnappyHexMesh_EXPORT Istream& operator>>(Istream&, pointData&);
 	};
 
 

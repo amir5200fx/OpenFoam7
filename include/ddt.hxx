@@ -67,19 +67,23 @@ namespace tnbLib
 
 			//- Calculate the time derivative of the field and return
 			//  true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("ddt");
+			//TypeName("ddt");
+			static const char* typeName_() { return "ddt"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			ddt
+			FoamFunctionObjects_EXPORT ddt
 			(
 				const word& name,
 				const Time& runTime,
@@ -88,7 +92,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~ddt();
+			FoamFunctionObjects_EXPORT virtual ~ddt();
 		};
 
 
@@ -100,8 +104,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <ddtTemplates.cxx>
+//#include <ddtTemplates.cxx>
 #endif
+
+#include <ddtTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

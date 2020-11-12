@@ -73,13 +73,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("incompressibleTurbulenceModel");
+		//TypeName("incompressibleTurbulenceModel");
+		static const char* typeName_() { return "incompressibleTurbulenceModel"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		incompressibleTurbulenceModel
+		FoamTurbulence_EXPORT incompressibleTurbulenceModel
 		(
 			const geometricOneField& rho,
 			const volVectorField& U,
@@ -89,7 +93,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		incompressibleTurbulenceModel
+		FoamTurbulence_EXPORT incompressibleTurbulenceModel
 		(
 			const incompressibleTurbulenceModel&
 		) = delete;
@@ -103,34 +107,34 @@ namespace tnbLib
 		// Member Functions
 
 			//- Return the laminar dynamic viscosity
-		virtual tmp<volScalarField> mu() const;
+		FoamTurbulence_EXPORT virtual tmp<volScalarField> mu() const;
 
 		//- Return the laminar dynamic viscosity on patch
-		virtual tmp<scalarField> mu(const label patchi) const;
+		FoamTurbulence_EXPORT virtual tmp<scalarField> mu(const label patchi) const;
 
 		//- Return the turbulence dynamic viscosity
-		virtual tmp<volScalarField> mut() const;
+		FoamTurbulence_EXPORT virtual tmp<volScalarField> mut() const;
 
 		//- Return the turbulence dynamic viscosity on patch
-		virtual tmp<scalarField> mut(const label patchi) const;
+		FoamTurbulence_EXPORT virtual tmp<scalarField> mut(const label patchi) const;
 
 		//- Return the effective dynamic viscosity
-		virtual tmp<volScalarField> muEff() const;
+		FoamTurbulence_EXPORT virtual tmp<volScalarField> muEff() const;
 
 		//- Return the effective dynamic viscosity on patch
-		virtual tmp<scalarField> muEff(const label patchi) const;
+		FoamTurbulence_EXPORT virtual tmp<scalarField> muEff(const label patchi) const;
 
 		//- Return the effective stress tensor including the laminar stress
-		virtual tmp<volSymmTensorField> devReff() const = 0;
+		FoamTurbulence_EXPORT virtual tmp<volSymmTensorField> devReff() const = 0;
 
 		//- Return the source term for the momentum equation
-		virtual tmp<fvVectorMatrix> divDevReff(volVectorField& U) const = 0;
+		FoamTurbulence_EXPORT virtual tmp<fvVectorMatrix> divDevReff(volVectorField& U) const = 0;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const incompressibleTurbulenceModel&) = delete;
+		FoamTurbulence_EXPORT void operator=(const incompressibleTurbulenceModel&) = delete;
 	};
 
 

@@ -52,7 +52,7 @@ bool tnbLib::patchInteractionData::operator!=(const patchInteractionData & p) co
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream & tnbLib::operator<<
+FoamLagrangian_EXPORT tnbLib::Ostream & tnbLib::operator<<
 (
 	Ostream & os,
 	const patchInteractionData & pid
@@ -62,7 +62,7 @@ tnbLib::Ostream & tnbLib::operator<<
 	return os;
 }
 
-tnbLib::Istream& tnbLib::operator>>
+FoamLagrangian_EXPORT tnbLib::Istream& tnbLib::operator>>
 (
 	Istream& is,
 	patchInteractionData& pid

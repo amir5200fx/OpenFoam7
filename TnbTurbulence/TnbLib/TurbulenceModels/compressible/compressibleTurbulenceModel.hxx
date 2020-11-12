@@ -73,13 +73,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("compressibleTurbulenceModel");
+		//TypeName("compressibleTurbulenceModel");
+		static const char* typeName_() { return "compressibleTurbulenceModel"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		compressibleTurbulenceModel
+		FoamTurbulence_EXPORT compressibleTurbulenceModel
 		(
 			const volScalarField& rho,
 			const volVectorField& U,
@@ -89,7 +93,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		compressibleTurbulenceModel
+		FoamTurbulence_EXPORT compressibleTurbulenceModel
 		(
 			const compressibleTurbulenceModel&
 		) = delete;
@@ -109,22 +113,22 @@ namespace tnbLib
 		}
 
 		//- Return the volumetric flux field
-		virtual tmp<surfaceScalarField> phi() const;
+		FoamTurbulence_EXPORT virtual tmp<surfaceScalarField> phi() const;
 
 		//- Return the effective stress tensor including the laminar stress
-		virtual tmp<volSymmTensorField> devRhoReff() const = 0;
+		FoamTurbulence_EXPORT virtual tmp<volSymmTensorField> devRhoReff() const = 0;
 
 		//- Return the source term for the momentum equation
-		virtual tmp<fvVectorMatrix> divDevRhoReff(volVectorField& U) const = 0;
+		FoamTurbulence_EXPORT virtual tmp<fvVectorMatrix> divDevRhoReff(volVectorField& U) const = 0;
 
 		//- Correct the turbulence thermal diffusivity for energy transport
-		virtual void correctEnergyTransport();
+		FoamTurbulence_EXPORT virtual void correctEnergyTransport();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const compressibleTurbulenceModel&) = delete;
+		FoamTurbulence_EXPORT void operator=(const compressibleTurbulenceModel&) = delete;
 	};
 
 
