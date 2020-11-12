@@ -111,7 +111,7 @@ namespace tnbLib
 			};
 
 			//- Region type names
-			static const NamedEnum<regionTypes, 2> regionTypeNames_;
+			static FoamFiniteVolume_EXPORT const NamedEnum<regionTypes, 2> regionTypeNames_;
 
 
 		protected:
