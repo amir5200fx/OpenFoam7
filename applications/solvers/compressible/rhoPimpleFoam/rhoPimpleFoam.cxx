@@ -33,6 +33,15 @@ Description
 
 \*---------------------------------------------------------------------------*/
 
+#include <Base_Module.hxx>
+#include <DynamicMesh_Module.hxx>
+#include <FiniteVolume_Module.hxx>
+#include <FvMesh_Module.hxx>
+#include <ThermophysicalModels_Module.hxx>
+#include <TransportModels_Module.hxx>
+#include <Turbulence_Module.hxx>
+#include <FunctionObjects_Module.hxx>
+
 #include <fvCFD.hxx>
 #include <dynamicFvMesh.hxx>
 #include <fluidThermo.hxx>
@@ -43,6 +52,8 @@ Description
 #include <fvOptions.hxx>
 #include <localEulerDdtScheme.hxx>
 #include <fvcSmooth.hxx>
+
+#include <fieldAverage.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -66,6 +77,8 @@ int main(int argc, char *argv[])
 #include <compressibleCourantNo.lxx>
 #include <setInitialDeltaT.lxx>
 	}
+	
+	functionObjects::fieldAverage ff("ff", runTime, dictionary());
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -65,6 +65,9 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <Base_Module.hxx>
+#include <FiniteVolume_Module.hxx>
+
 #include <fixedValueFvPatchFields.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
