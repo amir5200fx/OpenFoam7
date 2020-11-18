@@ -48,7 +48,10 @@ Usage
 
 \*---------------------------------------------------------------------------*/
 
+#include <Base_Module.hxx>
 #include <DynamicMesh_Module.hxx>
+#include <FiniteVolume_Module.hxx>
+#include <FvMesh_Module.hxx>
 
 #include <Time.hxx>
 #include <IOdictionary.hxx>
