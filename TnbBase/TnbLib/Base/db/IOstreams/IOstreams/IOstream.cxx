@@ -68,6 +68,8 @@ tnbLib::IOstream::compressionEnum(const word& compression)
 
 bool tnbLib::IOstream::check(const char* operation) const
 {
+	//return true;
+	
 	if (bad())
 	{
 		FatalIOErrorInFunction(*this)

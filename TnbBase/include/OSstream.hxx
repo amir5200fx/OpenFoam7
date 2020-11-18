@@ -66,7 +66,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Set stream status
-		FoamBase_EXPORT OSstream
+		OSstream
 		(
 			ostream& os,
 			const string& name,

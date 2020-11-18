@@ -56,18 +56,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(MSMPI_INC);$(SolutionDir)Commons\pthreads\include;$(SolutionDir)Commons\zlib\include;$(SolutionDir)Commons\deelx;$(SolutionDir)Commons\dlfcn\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(MSMPI_LIB64);$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Commons\pthreads\include;$(SolutionDir)Commons\zlib\include;$(SolutionDir)Commons\deelx;$(SolutionDir)Commons\dlfcn\include;$(SolutionDir)Commons\mpi\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Commons\zlib\lib;$(SolutionDir)Commons\mpi\lib;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
-    <IncludePath>$(MSMPI_INC);$(SolutionDir)Commons\pthreads\include;$(SolutionDir)Commons\zlib\include;$(SolutionDir)Commons\deelx;$(SolutionDir)Commons\dlfcn\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(MSMPI_LIB64);$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Commons\pthreads\include;$(SolutionDir)Commons\zlib\include;$(SolutionDir)Commons\deelx;$(SolutionDir)Commons\dlfcn\include;$(SolutionDir)Commons\mpi\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Commons\zlib\lib;$(SolutionDir)Commons\mpi\lib;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(MSMPI_INC);$(SolutionDir)Commons\pthreads\include;$(SolutionDir)Commons\zlib\include;$(SolutionDir)Commons\deelx;$(SolutionDir)Commons\dlfcn\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(MSMPI_LIB64);$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Commons\pthreads\include;$(SolutionDir)Commons\zlib\include;$(SolutionDir)Commons\deelx;$(SolutionDir)Commons\dlfcn\include;$(SolutionDir)Commons\mpi\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Commons\zlib\lib;$(SolutionDir)Commons\mpi\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -86,7 +86,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>msmpi.lib;msmpifec.lib;msmpifmc.lib;zlibstatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msmpi.lib;zlibstatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
@@ -113,7 +113,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>msmpi.lib;msmpifec.lib;msmpifmc.lib;zlibstatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>msmpi.lib;zlibstatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -139,7 +139,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>msmpi.lib;msmpifec.lib;msmpifmc.lib;zlibstatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libmpiautodbl_seti8_64.lib;libmpiautodbl_seti8r8_64.lib;libmpiautodbl_setr8_64.lib;libmpio64.lib;libmtmpiautodbl_seti8_64.lib;libmtmpiautodbl_seti8r8_64.lib;libmtmpiautodbl_setr8_64.lib;libmtmpio64.lib;libmtpcdmpi64.lib;libmtpcmpi64.lib;libpcdmpi64.lib;libpcmpi64.lib;zlibstatd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

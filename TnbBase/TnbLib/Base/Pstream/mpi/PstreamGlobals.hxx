@@ -39,6 +39,7 @@ SourceFiles
 
 #include <DynamicList.hxx>
 
+#define MPI_hpux
 #include <mpi.h>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

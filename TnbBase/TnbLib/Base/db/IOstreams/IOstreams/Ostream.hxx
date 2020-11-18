@@ -59,10 +59,10 @@ namespace tnbLib
 		// Protected data
 
 			//- Number of spaces per indent level
-		static FoamBase_EXPORT const unsigned short indentSize_ = 4;
+		static const unsigned short indentSize_ = 4;
 
 		//- Indentation of the entry from the start of the keyword
-		static FoamBase_EXPORT const unsigned short entryIndentation_ = 16;
+		static const unsigned short entryIndentation_ = 16;
 
 		//- Current indent level
 		unsigned short indentLevel_;

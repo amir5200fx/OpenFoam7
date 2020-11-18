@@ -40,8 +40,12 @@ FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, string& s)
 	{
 		s = t.stringToken();
 	}
-	else
+	else if(t.isWord()) // added by Amin
 	{
+		s = t.wordToken();
+	}
+	else
+	{	
 		is.setBad();
 		FatalIOErrorInFunction(is)
 			<< "wrong token type - expected string, found " << t.info()
