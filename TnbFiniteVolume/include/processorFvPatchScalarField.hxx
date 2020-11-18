@@ -37,7 +37,7 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 
 	template<>
-	void processorFvPatchField<scalar>::initInterfaceMatrixUpdate
+	FoamFiniteVolume_EXPORT void processorFvPatchField<scalar>::initInterfaceMatrixUpdate
 	(
 		scalarField&,
 		const scalarField&,
@@ -48,7 +48,7 @@ namespace tnbLib
 
 
 	template<>
-	void processorFvPatchField<scalar>::updateInterfaceMatrix
+	FoamFiniteVolume_EXPORT void processorFvPatchField<scalar>::updateInterfaceMatrix
 	(
 		scalarField& result,
 		const scalarField&,
