@@ -1,0 +1,2591 @@
+!
+!
+! 	Copyright IBM corp. 1983-2010, 2012-2017
+!       US Government Users Restricted Rights:
+!           Use, duplication or disclosure restricted 
+!           by GSA ADP Schedule Contract with IBM Corp.
+!
+!       Function: - MPI Fortran header file
+!
+!       Notice:   - IBM Platform MPI is based in parts on the contributions
+!                         of the following groups:
+!
+!   - MPICH (Argonne National Laboratory, Mississippi State University)
+!     versions 1.0.11, 1.0.12
+!     (c)Copyright 1993 University of Chicago
+!     (c)Copyright 1993 Mississippi State University
+!
+!   - LAM (Ohio Supercomputer Center)
+!     versions 6.0, 6.1
+!     (c)Copyright 1995-1996 The Ohio State University
+!
+!   "@(#)PLATFORM MPI  (05/11/2011) Linux x86-64"
+!
+
+!
+! MPI constants module definition,
+! it has all MPI constants.
+!
+       MODULE MPI_CONSTANTS
+
+!
+! MPI version
+!
+       integer MPI_VERSION, MPI_SUBVERSION
+
+       parameter (MPI_VERSION=2)
+       parameter (MPI_SUBVERSION=2)
+
+       integer PLATFORM_MPI, HP_MPI, HP_MPI_MINOR
+       parameter (PLATFORM_MPI=09010404)
+       parameter (HP_MPI=203)
+       parameter (HP_MPI_MINOR=1)
+!
+! MPI_Status object size
+!
+       integer MPI_SOURCE, MPI_TAG, MPI_ERROR
+       parameter (MPI_SOURCE=1)
+       parameter (MPI_TAG=2)
+       parameter (MPI_ERROR=3)
+       integer MPI_STATUS_SIZE
+       parameter (MPI_STATUS_SIZE=8)
+!
+! MPI defined constants
+!
+       integer MPI_PROC_NULL, MPI_ANY_SOURCE, MPI_ROOT, MPI_ANY_TAG
+       integer MPI_MAX_PROCESSOR_NAME, MPI_MAX_OBJECT_NAME
+       integer MPI_MAX_ERROR_STRING, MPI_MAX_PORT_NAME
+       integer MPI_MAX_DATAREP_STRING
+       integer MPI_UNDEFINED, MPI_GRAPH, MPI_CART, MPI_DIST_GRAPH
+       integer MPI_KEYVAL_INVALID, MPI_BSEND_OVERHEAD
+       integer MPI_TYPECLASS_INTEGER, MPI_TYPECLASS_REAL
+       integer MPI_TYPECLASS_COMPLEX
+       parameter (MPI_PROC_NULL=-1)
+       parameter (MPI_ANY_SOURCE=-2)
+       parameter (MPI_ROOT=-3)
+       parameter (MPI_ANY_TAG=-1)
+       parameter (MPI_MAX_PROCESSOR_NAME=255)
+       parameter (MPI_MAX_OBJECT_NAME=63)
+       parameter (MPI_MAX_ERROR_STRING=255)
+       parameter (MPI_MAX_PORT_NAME=63)
+       parameter (MPI_MAX_DATAREP_STRING=127)
+       parameter (MPI_UNDEFINED=-32766)
+       parameter (MPI_GRAPH=1)
+       parameter (MPI_CART=2)
+       parameter (MPI_DIST_GRAPH=3)
+       parameter (MPI_KEYVAL_INVALID=-1)
+       parameter (MPI_BSEND_OVERHEAD=64)
+       parameter (MPI_TYPECLASS_INTEGER=1)
+       parameter (MPI_TYPECLASS_REAL=2)
+       parameter (MPI_TYPECLASS_COMPLEX=3)
+
+       integer MPI_IDENT, MPI_CONGRUENT, MPI_SIMILAR, MPI_UNEQUAL
+       integer MPI_MAX_INFO_KEY, MPI_MAX_INFO_VAL
+       integer MPI_LOCK_EXCLUSIVE, MPI_LOCK_SHARED
+       parameter (MPI_IDENT=0)
+       parameter (MPI_CONGRUENT=1)
+       parameter (MPI_SIMILAR=2)
+       parameter (MPI_UNEQUAL=3)
+       parameter (MPI_MAX_INFO_KEY=255)
+       parameter (MPI_MAX_INFO_VAL=16383)
+       parameter (MPI_LOCK_EXCLUSIVE=1)
+       parameter (MPI_LOCK_SHARED=2)
+
+       integer MPI_THREAD_SINGLE, MPI_THREAD_FUNNELED
+       integer MPI_THREAD_SERIALIZED, MPI_THREAD_MULTIPLE
+       parameter (MPI_THREAD_SINGLE=0)
+       parameter (MPI_THREAD_FUNNELED=1)
+       parameter (MPI_THREAD_SERIALIZED=2)
+       parameter (MPI_THREAD_MULTIPLE=3)
+!
+! Predefined attribute keys.
+!
+       integer MPI_TAG_UB, MPI_HOST, MPI_IO, MPI_WTIME_IS_GLOBAL
+       integer IMPI_CLIENT_SIZE, IMPI_CLIENT_COLOR
+       integer IMPI_HOST_SIZE, IMPI_HOST_COLOR
+       integer MPI_WIN_BASE, MPI_WIN_SIZE, MPI_WIN_DISP_UNIT
+       integer MPI_WIN_CREATE_FLAVOR, MPI_WIN_MODEL
+       integer MPI_UNIVERSE_SIZE, MPI_APPNUM, MPI_LASTUSEDCODE
+       parameter (MPI_TAG_UB=0)
+       parameter (MPI_HOST=1)
+       parameter (MPI_IO=2)
+       parameter (MPI_WTIME_IS_GLOBAL=3)
+       parameter (IMPI_CLIENT_SIZE=4)
+       parameter (IMPI_CLIENT_COLOR=5)
+       parameter (IMPI_HOST_SIZE=6)
+       parameter (IMPI_HOST_COLOR=7)
+       parameter (MPI_WIN_BASE=8)
+       parameter (MPI_WIN_SIZE=9)
+       parameter (MPI_WIN_DISP_UNIT=10)
+       parameter (MPI_WIN_CREATE_FLAVOR=11)
+       parameter (MPI_WIN_MODEL=12)
+       parameter (MPI_UNIVERSE_SIZE=13)
+       parameter (MPI_APPNUM=14)
+       parameter (MPI_LASTUSEDCODE=15)
+!
+! Predefined reference constants
+!
+       integer*4 MPI_BOTTOM
+       common/mpi_f_bottom/MPI_BOTTOM
+       save /mpi_f_bottom/
+       integer*4 MPI_STATUS_IGNORE
+       common/mpi_f_status_ignore/MPI_STATUS_IGNORE
+       save /mpi_f_status_ignore/
+       integer*4 MPI_STATUSES_IGNORE(1)
+       common/mpi_f_statuses_ignore/MPI_STATUSES_IGNORE
+       save /mpi_f_statuses_ignore/
+       integer*4 MPI_ERRCODES_IGNORE(1)
+       common/mpi_f_errcodes_ignore/MPI_ERRCODES_IGNORE
+       save /mpi_f_errcodes_ignore/
+       integer*4 MPI_ARGV_NULL(1)
+       common/mpi_f_argv_null/MPI_ARGV_NULL
+       save /mpi_f_argv_null/
+       integer*4 MPI_ARGVS_NULL(1,1)
+       common/mpi_f_argvs_null/MPI_ARGVS_NULL
+       save /mpi_f_argvs_null/
+       integer*4 MPI_IN_PLACE
+       common/mpi_f_in_place/MPI_IN_PLACE
+       save /mpi_f_in_place/
+       integer*4 MPI_UNWEIGHTED
+       common/mpi_f_unweighted/MPI_UNWEIGHTED
+       save /mpi_f_unweighted/
+!
+! error classes
+!
+       integer MPI_SUCCESS, MPI_ERR_BUFFER, MPI_ERR_COUNT
+       integer MPI_ERR_TYPE, MPI_ERR_TAG, MPI_ERR_COMM
+       integer MPI_ERR_RANK, MPI_ERR_ROOT, MPI_ERR_GROUP
+       integer MPI_ERR_OP, MPI_ERR_TOPOLOGY, MPI_ERR_DIMS
+       integer MPI_ERR_ARG, MPI_ERR_UNKNOWN, MPI_ERR_TRUNCATE
+       integer MPI_ERR_OTHER, MPI_ERR_INTERN, MPI_ERR_IN_STATUS
+       integer MPI_ERR_PENDING, MPI_ERR_REQUEST, MPI_ERR_INFO
+       integer MPI_ERR_INFO_NOKEY, MPI_ERR_INFO_KEY, MPI_ERR_INFO_VALUE
+       integer MPI_ERR_WIN, MPI_ERR_BASE, MPI_ERR_SIZE, MPI_ERR_DISP
+       integer MPI_ERR_LOCKTYPE, MPI_ERR_ASSERT, MPI_ERR_RMA_CONFLICT
+       integer MPI_ERR_RMA_SYNC, MPI_ERR_NO_MEM, MPI_ERR_KEYVAL
+       integer MPI_ERR_SPAWN, MPI_ERR_PORT
+       integer MPI_ERR_SERVICE, MPI_ERR_NAME
+       integer MPI_ERR_LASTCODE
+
+       parameter (MPI_SUCCESS=0)
+       parameter (MPI_ERR_BUFFER=1)
+       parameter (MPI_ERR_COUNT=2)
+       parameter (MPI_ERR_TYPE=3)
+       parameter (MPI_ERR_TAG=4)
+       parameter (MPI_ERR_COMM=5)
+       parameter (MPI_ERR_RANK=6)
+       parameter (MPI_ERR_ROOT=7)
+       parameter (MPI_ERR_GROUP=8)
+       parameter (MPI_ERR_OP=9)
+       parameter (MPI_ERR_TOPOLOGY=10)
+       parameter (MPI_ERR_DIMS=11)
+       parameter (MPI_ERR_ARG=12)
+       parameter (MPI_ERR_UNKNOWN=13)
+       parameter (MPI_ERR_TRUNCATE=14)
+       parameter (MPI_ERR_OTHER=15)
+       parameter (MPI_ERR_INTERN=16)
+       parameter (MPI_ERR_IN_STATUS=17)
+       parameter (MPI_ERR_PENDING=18)
+       parameter (MPI_ERR_REQUEST=19)
+       parameter (MPI_ERR_INFO=20)
+       parameter (MPI_ERR_INFO_NOKEY=21)
+       parameter (MPI_ERR_INFO_KEY=22)
+       parameter (MPI_ERR_INFO_VALUE=23)
+       parameter (MPI_ERR_WIN=24)
+       parameter (MPI_ERR_BASE=25)
+       parameter (MPI_ERR_SIZE=26)
+       parameter (MPI_ERR_DISP=27)
+       parameter (MPI_ERR_LOCKTYPE=28)
+       parameter (MPI_ERR_ASSERT=29)
+       parameter (MPI_ERR_RMA_CONFLICT=30)
+       parameter (MPI_ERR_RMA_SYNC=31)
+       parameter (MPI_ERR_NO_MEM=32)
+       parameter (MPI_ERR_KEYVAL=33)
+       parameter (MPI_ERR_SPAWN=34)
+       parameter (MPI_ERR_PORT=51)
+       parameter (MPI_ERR_SERVICE=52)
+       parameter (MPI_ERR_NAME=53)
+       parameter (MPI_ERR_LASTCODE=1073741823)
+!
+! one-sided assert flags
+!
+       integer MPI_MODE_NOCHECK, MPI_MODE_NOSTORE, MPI_MODE_NOPUT
+       integer MPI_MODE_NOPRECEDE, MPI_MODE_NOSUCCEED
+       integer MPI_COMM_TYPE_SHARED
+
+       parameter (MPI_MODE_NOCHECK=1)
+       parameter (MPI_MODE_NOSTORE=2)
+       parameter (MPI_MODE_NOPUT=4)
+       parameter (MPI_MODE_NOPRECEDE=8)
+       parameter (MPI_MODE_NOSUCCEED=16)
+       parameter (MPI_COMM_TYPE_SHARED=32)
+!
+! datatype decoding combiners
+!
+       integer MPI_COMBINER_NAMED, MPI_COMBINER_DUP
+       integer MPI_COMBINER_CONTIGUOUS, MPI_COMBINER_VECTOR
+       integer MPI_COMBINER_HVECTOR_INTEGER, MPI_COMBINER_HVECTOR
+       integer MPI_COMBINER_INDEXED, MPI_COMBINER_HINDEXED_INTEGER
+       integer MPI_COMBINER_HINDEXED, MPI_COMBINER_INDEXED_BLOCK
+       integer MPI_COMBINER_STRUCT_INTEGER, MPI_COMBINER_STRUCT
+       integer MPI_COMBINER_SUBARRAY, MPI_COMBINER_DARRAY
+       integer MPI_COMBINER_F90_REAL, MPI_COMBINER_F90_COMPLEX
+       integer MPI_COMBINER_F90_INTEGER, MPI_COMBINER_RESIZED
+
+       parameter (MPI_COMBINER_NAMED=0)
+       parameter (MPI_COMBINER_DUP=1)
+       parameter (MPI_COMBINER_CONTIGUOUS=2)
+       parameter (MPI_COMBINER_VECTOR=3)
+       parameter (MPI_COMBINER_HVECTOR_INTEGER=4)
+       parameter (MPI_COMBINER_HVECTOR=5)
+       parameter (MPI_COMBINER_INDEXED=6)
+       parameter (MPI_COMBINER_HINDEXED_INTEGER=7)
+       parameter (MPI_COMBINER_HINDEXED=8)
+       parameter (MPI_COMBINER_INDEXED_BLOCK=9)
+       parameter (MPI_COMBINER_STRUCT_INTEGER=10)
+       parameter (MPI_COMBINER_STRUCT=11)
+       parameter (MPI_COMBINER_SUBARRAY=12)
+       parameter (MPI_COMBINER_DARRAY=13)
+       parameter (MPI_COMBINER_F90_REAL=14)
+       parameter (MPI_COMBINER_F90_COMPLEX=15)
+       parameter (MPI_COMBINER_F90_INTEGER=16)
+       parameter (MPI_COMBINER_RESIZED=17)
+!
+! NULL handles.
+!
+       integer MPI_COMM_NULL, MPI_DATATYPE_NULL, MPI_ERRHANDLER_NULL
+       integer MPI_GROUP_NULL, MPI_OP_NULL, MPI_INFO_NULL
+       integer MPI_WIN_NULL, MPI_REQUEST_NULL
+       parameter (MPI_COMM_NULL=-1)
+       parameter (MPI_DATATYPE_NULL=-1)
+       parameter (MPI_ERRHANDLER_NULL=-1)
+       parameter (MPI_GROUP_NULL=-1)
+       parameter (MPI_OP_NULL=-1)
+       parameter (MPI_INFO_NULL=-1)
+       parameter (MPI_WIN_NULL=-1)
+       parameter (MPI_REQUEST_NULL=-1)
+!
+! Predefined NULL copy/delete/dup callback routines.
+!
+       external MPI_NULL_COPY_FN, MPI_NULL_DELETE_FN, MPI_DUP_FN
+       external MPI_COMM_NULL_COPY_FN, MPI_COMM_NULL_DELETE_FN
+       external MPI_COMM_DUP_FN
+       external MPI_WIN_NULL_COPY_FN, MPI_WIN_NULL_DELETE_FN
+       external MPI_WIN_DUP_FN
+       external MPI_TYPE_NULL_COPY_FN, MPI_TYPE_NULL_DELETE_FN
+       external MPI_TYPE_DUP_FN
+!
+! Global debugging variable.
+!
+       integer*4 MPI_DEBUG_CONT
+       common/mpi_debug_cont/MPI_DEBUG_CONT
+       save /mpi_debug_cont/
+
+!
+! Predefined communicator objects: (0 - 2)
+!
+       integer MPI_COMM_WORLD, MPI_COMM_SELF
+       integer MPI_GROUP_EMPTY
+       parameter (MPI_COMM_WORLD=0)
+       parameter (MPI_COMM_SELF=1)
+       parameter (MPI_GROUP_EMPTY=2)
+!
+! Predefined operator objects: (3 - 14)
+!
+       integer MPI_MAX, MPI_MIN, MPI_SUM, MPI_PROD, MPI_LAND
+       integer MPI_BAND, MPI_LOR, MPI_BOR, MPI_LXOR, MPI_BXOR
+       integer MPI_MAXLOC, MPI_MINLOC
+       parameter (MPI_MAX=3)
+       parameter (MPI_MIN=4)
+       parameter (MPI_SUM=5)
+       parameter (MPI_PROD=6)
+       parameter (MPI_LAND=7)
+       parameter (MPI_BAND=8)
+       parameter (MPI_LOR=9)
+       parameter (MPI_BOR=10)
+       parameter (MPI_LXOR=11)
+       parameter (MPI_BXOR=12)
+       parameter (MPI_MAXLOC=13)
+       parameter (MPI_MINLOC=14)
+!
+! Predefined datatype objects: (15 - 33)
+!
+       integer MPI_INTEGER, MPI_REAL, MPI_DOUBLE_PRECISION
+       integer MPI_COMPLEX, MPI_LOGICAL, MPI_CHARACTER
+       integer MPI_BYTE, MPI_PACKED, MPI_UB, MPI_LB, MPI_2REAL
+       integer MPI_2DOUBLE_PRECISION, MPI_2INTEGER
+       integer MPI_INTEGER1, MPI_INTEGER2, MPI_INTEGER4
+       integer MPI_REAL4, MPI_REAL8, MPI_DOUBLE_COMPLEX
+       parameter (MPI_INTEGER=15)
+       parameter (MPI_REAL=16)
+       parameter (MPI_DOUBLE_PRECISION=17)
+       parameter (MPI_COMPLEX=18)
+       parameter (MPI_LOGICAL=19)
+       parameter (MPI_CHARACTER=20)
+       parameter (MPI_BYTE=21)
+       parameter (MPI_PACKED=22)
+       parameter (MPI_UB=23)
+       parameter (MPI_LB=24)
+       parameter (MPI_2REAL=25)
+       parameter (MPI_2DOUBLE_PRECISION=26)
+       parameter (MPI_2INTEGER=27)
+       parameter (MPI_INTEGER1=28)
+       parameter (MPI_INTEGER2=29)
+       parameter (MPI_INTEGER4=30)
+       parameter (MPI_REAL4=31)
+       parameter (MPI_REAL8=32)
+       parameter (MPI_DOUBLE_COMPLEX=33)
+!
+! Predefined error handlers: (34 - 35)
+!
+       integer MPI_ERRORS_ARE_FATAL, MPI_ERRORS_RETURN
+       parameter (MPI_ERRORS_ARE_FATAL=34)
+       parameter (MPI_ERRORS_RETURN=35)
+!
+! Newly added datatypes: (36 - 37)
+!
+       integer MPI_INTEGER8, MPI_REAL16
+       parameter (MPI_INTEGER8=36)
+       parameter (MPI_REAL16=37)
+!
+! Newly added operator: (38)
+!
+       integer MPI_REPLACE
+       parameter (MPI_REPLACE=38)
+!
+! new mpi 2.2 Datatypes
+!
+       integer MPI_AINT, MPI_OFFSET
+       parameter (MPI_AINT=41)
+       parameter (MPI_OFFSET=42)
+!
+! Make the C datatypes available from Fortran
+!
+       integer MPI_CHAR, MPI_WCHAR, MPI_SIGNED_CHAR, MPI_SHORT
+       integer MPI_INT, MPI_LONG, MPI_LONG_LONG, MPI_LONG_LONG_INT
+       integer MPI_FLOAT, MPI_DOUBLE, MPI_LONG_DOUBLE
+       integer MPI_UNSIGNED_CHAR, MPI_UNSIGNED_SHORT, MPI_UNSIGNED
+       integer MPI_UNSIGNED_LONG, MPI_UNSIGNED_LONG_LONG, MPI_C_BOOL
+       integer MPI_INT8_T, MPI_INT16_T, MPI_INT32_T, MPI_INT64_T
+       integer MPI_UINT8_T, MPI_UINT16_T, MPI_UINT32_T, MPI_UINT64_T
+       integer MPI_C_COMPLEX, MPI_C_FLOAT_COMPLEX
+       integer MPI_C_DOUBLE_COMPLEX, MPI_C_LONG_DOUBLE_COMPLEX
+       integer MPI_COMPLEX8, MPI_COMPLEX16, MPI_COMPLEX32
+       integer MPI_FLOAT_INT, MPI_DOUBLE_INT, MPI_LONG_INT, MPI_2INT
+       integer MPI_SHORT_INT, MPI_LONG_DOUBLE_INT
+       integer MPI_INT8, MPI_UINT8
+
+       parameter (MPI_CHAR=43)
+       parameter (MPI_WCHAR=44)
+       parameter (MPI_SIGNED_CHAR=45)
+       parameter (MPI_SHORT=46)
+       parameter (MPI_INT=47)
+       parameter (MPI_LONG=48)
+       parameter (MPI_LONG_LONG=74)
+       parameter (MPI_LONG_LONG_INT=74)
+       parameter (MPI_FLOAT=49)
+       parameter (MPI_DOUBLE=50)
+       parameter (MPI_LONG_DOUBLE=51)
+       parameter (MPI_UNSIGNED_CHAR=52)
+       parameter (MPI_UNSIGNED_SHORT=53)
+       parameter (MPI_UNSIGNED=54)
+       parameter (MPI_UNSIGNED_LONG=55)
+       parameter (MPI_UNSIGNED_LONG_LONG=75)
+       parameter (MPI_C_BOOL=56)
+       parameter (MPI_INT8_T=57)
+       parameter (MPI_INT16_T=58)
+       parameter (MPI_INT32_T=59)
+       parameter (MPI_INT64_T=60)
+       parameter (MPI_UINT8_T=61)
+       parameter (MPI_UINT16_T=62)
+       parameter (MPI_UINT32_T=63)
+       parameter (MPI_UINT64_T=64)
+       parameter (MPI_C_COMPLEX=65)
+       parameter (MPI_C_FLOAT_COMPLEX=65)
+       parameter (MPI_C_DOUBLE_COMPLEX=66)
+       parameter (MPI_C_LONG_DOUBLE_COMPLEX=67)
+       parameter (MPI_COMPLEX8=65)
+       parameter (MPI_COMPLEX16=66)
+       parameter (MPI_COMPLEX32=67)
+       parameter (MPI_FLOAT_INT=68)
+       parameter (MPI_DOUBLE_INT=69)
+       parameter (MPI_LONG_INT=70)
+       parameter (MPI_2INT=71)
+       parameter (MPI_SHORT_INT=72)
+       parameter (MPI_LONG_DOUBLE_INT=73)
+       parameter (MPI_INT8=74)
+       parameter (MPI_UINT8=75)
+!
+! Double precision functions
+!
+       real*8 MPI_WTIME, MPI_WTICK
+       real*8 PMPI_WTIME, PMPI_WTICK
+       external MPI_WTIME, MPI_WTICK
+       external PMPI_WTIME, PMPI_WTICK
+!
+! Address KIND parameters
+!
+       integer MPI_INTEGER_KIND
+       parameter (MPI_INTEGER_KIND=4)
+
+       integer MPI_ADDRESS_KIND
+       parameter (MPI_ADDRESS_KIND=8)
+
+!
+! Constants for Fortran MPI-IO programs
+!
+
+!
+!      $Revision: 8577 $
+!
+!      "@(#)PLATFORM MPI  (05/11/2011) Linux x86-64"
+!
+
+!
+!     $Id: mpiof.h.m4 8577 2010-04-19 20:04:54Z gpaulsen $
+!
+!     Copyright (C) 1997 University of Chicago.
+!     See COPYRIGHT notice in top-level directory.
+!
+!
+!    user include file for Fortran MPI-IO programs
+!
+      INTEGER MPI_MODE_RDONLY, MPI_MODE_RDWR, MPI_MODE_WRONLY
+      INTEGER MPI_MODE_DELETE_ON_CLOSE, MPI_MODE_UNIQUE_OPEN
+      INTEGER MPI_MODE_CREATE, MPI_MODE_EXCL
+      INTEGER MPI_MODE_APPEND, MPI_MODE_SEQUENTIAL
+      PARAMETER (MPI_MODE_RDONLY=2, MPI_MODE_RDWR=8, MPI_MODE_WRONLY=4)
+      PARAMETER (MPI_MODE_CREATE=1, MPI_MODE_DELETE_ON_CLOSE=16)
+      PARAMETER (MPI_MODE_UNIQUE_OPEN=32, MPI_MODE_EXCL=64)
+      PARAMETER (MPI_MODE_APPEND=128, MPI_MODE_SEQUENTIAL=256)
+!
+      INTEGER MPI_FILE_NULL
+      PARAMETER (MPI_FILE_NULL=0)
+!
+!      INTEGER MPI_MAX_DATAREP_STRING
+!      PARAMETER (MPI_MAX_DATAREP_STRING=127)
+!
+      INTEGER MPI_SEEK_SET, MPI_SEEK_CUR, MPI_SEEK_END
+      PARAMETER (MPI_SEEK_SET=600, MPI_SEEK_CUR=602, MPI_SEEK_END=604)
+!
+      INTEGER MPIO_REQUEST_NULL
+      PARAMETER (MPIO_REQUEST_NULL=0)
+!
+      integer*8 MPI_DISPLACEMENT_CURRENT
+      PARAMETER (MPI_DISPLACEMENT_CURRENT=-54278278)
+!
+      INTEGER MPI_OFFSET_KIND
+      PARAMETER (MPI_OFFSET_KIND=8)
+!
+      INTEGER MPI_ORDER_C, MPI_ORDER_FORTRAN
+      PARAMETER (MPI_ORDER_C=56, MPI_ORDER_FORTRAN=57)
+      INTEGER MPI_DISTRIBUTE_BLOCK, MPI_DISTRIBUTE_CYCLIC
+      INTEGER MPI_DISTRIBUTE_NONE, MPI_DISTRIBUTE_DFLT_DARG
+      PARAMETER (MPI_DISTRIBUTE_BLOCK=121, MPI_DISTRIBUTE_CYCLIC=122)
+      PARAMETER (MPI_DISTRIBUTE_NONE=123)
+      PARAMETER (MPI_DISTRIBUTE_DFLT_DARG=-49767)
+!
+! Predefined I/O error classes
+!
+       integer MPI_ERR_ACCESS, MPI_ERR_AMODE
+       integer MPI_ERR_BAD_FILE, MPI_ERR_CONVERSION
+       integer MPI_ERR_DUP_DATAREP, MPI_ERR_FILE
+       integer MPI_ERR_FILE_EXISTS, MPI_ERR_FILE_IN_USE
+       integer MPI_ERR_IO, MPI_ERR_NO_SPACE
+       integer MPI_ERR_NO_SUCH_FILE, MPI_ERR_NOT_SAME
+       integer MPI_ERR_QUOTA, MPI_ERR_READ_ONLY
+       integer MPI_ERR_UNSUPPORTED_DATAREP
+       integer MPI_ERR_UNSUPPORTED_OPERATION
+       parameter (MPI_ERR_ACCESS=35)
+       parameter (MPI_ERR_AMODE=36)
+       parameter (MPI_ERR_BAD_FILE=37)
+       parameter (MPI_ERR_CONVERSION=38)
+       parameter (MPI_ERR_DUP_DATAREP=39)
+       parameter (MPI_ERR_FILE=40)
+       parameter (MPI_ERR_FILE_EXISTS=41)
+       parameter (MPI_ERR_FILE_IN_USE=42)
+       parameter (MPI_ERR_IO=43)
+       parameter (MPI_ERR_NO_SPACE=44)
+       parameter (MPI_ERR_NO_SUCH_FILE=45)
+       parameter (MPI_ERR_NOT_SAME=46)
+       parameter (MPI_ERR_QUOTA=47)
+       parameter (MPI_ERR_READ_ONLY=48)
+       parameter (MPI_ERR_UNSUPPORTED_DATAREP=49)
+       parameter (MPI_ERR_UNSUPPORTED_OPERATION=50)
+!
+
+!
+! End MPI_CONSTANTS module definition
+!
+       END MODULE MPI_CONSTANTS
+
+!
+! MPI module definition,
+! it has a subset of MPI routine interfaces.
+!
+       MODULE MPI
+
+       USE MPI_CONSTANTS
+!
+! External subroutine interfaces
+!
+       INTERFACE
+!
+! Point-to-Point Communication
+!
+       !SUBROUTINE MPI_SEND(BUF, COUNT, DATATYPE, DEST, TAG,
+       !+  COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, DEST, TAG, COMM, IERROR
+       !END SUBROUTINE MPI_SEND
+
+       !SUBROUTINE MPI_RECV(BUF, COUNT, DATATYPE, SOURCE, TAG,
+       !+  COMM, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, SOURCE, TAG, COMM
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_RECV
+
+       SUBROUTINE MPI_GET_COUNT(STATUS, DATATYPE, COUNT, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER STATUS(MPI_STATUS_SIZE), DATATYPE, COUNT, IERROR
+       END SUBROUTINE MPI_GET_COUNT
+
+       !SUBROUTINE MPI_BSEND(BUF, COUNT, DATATYPE, DEST, TAG,
+       !+  COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, DEST, TAG, COMM, IERROR
+       !END SUBROUTINE MPI_BSEND
+
+       !SUBROUTINE MPI_SSEND(BUF, COUNT, DATATYPE, DEST, TAG,
+       !+  COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, DEST, TAG, COMM, IERROR
+       !END SUBROUTINE MPI_SSEND
+
+       !SUBROUTINE MPI_RSEND(BUF, COUNT, DATATYPE, DEST, TAG,
+       !+  COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, DEST, TAG, COMM, IERROR
+       !END SUBROUTINE MPI_RSEND
+
+       !SUBROUTINE MPI_BUFFER_ATTACH( BUFFER, SIZE, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUFFER(*)
+       !        INTEGER SIZE, IERROR
+       !END SUBROUTINE MPI_BUFFER_ATTACH
+
+       !SUBROUTINE MPI_BUFFER_DETACH( BUFFER, SIZE, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUFFER(*)
+       !        INTEGER SIZE, IERROR
+       !END SUBROUTINE MPI_BUFFER_DETACH
+
+       !SUBROUTINE MPI_ISEND(BUF, COUNT, DATATYPE, DEST, TAG,
+       !+  COMM, REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, DEST, TAG
+       !        INTEGER COMM, REQUEST, IERROR
+       !END SUBROUTINE MPI_ISEND
+
+       !SUBROUTINE MPI_IBSEND(BUF, COUNT, DATATYPE, DEST, TAG,
+       !+  COMM, REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, DEST, TAG
+       !        INTEGER COMM, REQUEST, IERROR
+       !END SUBROUTINE MPI_IBSEND
+
+       !SUBROUTINE MPI_ISSEND(BUF, COUNT, DATATYPE, DEST, TAG,
+       !+  COMM, REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, DEST, TAG
+       !        INTEGER COMM, REQUEST, IERROR
+       !END SUBROUTINE MPI_ISSEND
+
+       !SUBROUTINE MPI_IRSEND(BUF, COUNT, DATATYPE, DEST, TAG,
+       !+  COMM, REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, DEST, TAG
+       !        INTEGER COMM, REQUEST, IERROR
+       !END SUBROUTINE MPI_IRSEND
+
+       !SUBROUTINE MPI_IRECV(BUF, COUNT, DATATYPE, SOURCE, TAG,
+       !+  COMM, REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, SOURCE, TAG
+       !        INTEGER COMM, REQUEST, IERROR
+       !END SUBROUTINE MPI_IRECV
+
+       SUBROUTINE MPI_WAIT(REQUEST, STATUS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER REQUEST, STATUS(MPI_STATUS_SIZE), IERROR
+       END SUBROUTINE MPI_WAIT
+
+       SUBROUTINE MPI_TEST(REQUEST, FLAG, STATUS, IERROR)
+        USE MPI_CONSTANTS
+        LOGICAL FLAG
+        INTEGER REQUEST, STATUS(MPI_STATUS_SIZE), IERROR
+       END SUBROUTINE MPI_TEST
+
+       SUBROUTINE MPI_REQUEST_FREE(REQUEST, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER REQUEST, IERROR
+       END SUBROUTINE MPI_REQUEST_FREE
+
+       SUBROUTINE MPI_WAITANY(COUNT, ARRAY_OF_REQUESTS, INDEX,
+     +  STATUS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, ARRAY_OF_REQUESTS(*), INDEX
+        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       END SUBROUTINE MPI_WAITANY
+
+       SUBROUTINE MPI_TESTANY(COUNT, ARRAY_OF_REQUESTS, INDEX,
+     +  FLAG, STATUS, IERROR)
+        USE MPI_CONSTANTS
+        LOGICAL FLAG
+        INTEGER COUNT, ARRAY_OF_REQUESTS(*), INDEX
+        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       END SUBROUTINE MPI_TESTANY
+
+       SUBROUTINE MPI_WAITALL(COUNT, ARRAY_OF_REQUESTS,
+     +  ARRAY_OF_STATUSES, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, ARRAY_OF_REQUESTS(*)
+        INTEGER ARRAY_OF_STATUSES(MPI_STATUS_SIZE,*), IERROR
+       END SUBROUTINE MPI_WAITALL
+
+       SUBROUTINE MPI_TESTALL(COUNT, ARRAY_OF_REQUESTS, FLAG,
+     +  ARRAY_OF_STATUSES, IERROR)
+        USE MPI_CONSTANTS
+        LOGICAL FLAG
+        INTEGER COUNT, ARRAY_OF_REQUESTS(*)
+        INTEGER ARRAY_OF_STATUSES(MPI_STATUS_SIZE,*), IERROR
+       END SUBROUTINE MPI_TESTALL
+
+       SUBROUTINE MPI_WAITSOME(INCOUNT, ARRAY_OF_REQUESTS, OUTCOUNT,
+     +  ARRAY_OF_INDICES, ARRAY_OF_STATUSES, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INCOUNT, ARRAY_OF_REQUESTS(*)
+        INTEGER OUTCOUNT, ARRAY_OF_INDICES(*)
+        INTEGER ARRAY_OF_STATUSES(MPI_STATUS_SIZE,*), IERROR
+       END SUBROUTINE MPI_WAITSOME
+
+       SUBROUTINE MPI_TESTSOME(INCOUNT, ARRAY_OF_REQUESTS, OUTCOUNT,
+     +  ARRAY_OF_INDICES, ARRAY_OF_STATUSES, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INCOUNT, ARRAY_OF_REQUESTS(*), OUTCOUNT
+        INTEGER ARRAY_OF_INDICES(*)
+        INTEGER ARRAY_OF_STATUSES(MPI_STATUS_SIZE,*), IERROR
+       END SUBROUTINE MPI_TESTSOME
+
+       SUBROUTINE MPI_IPROBE(SOURCE, TAG, COMM, FLAG, STATUS, IERROR)
+        USE MPI_CONSTANTS
+        LOGICAL FLAG
+        INTEGER SOURCE, TAG, COMM, STATUS(MPI_STATUS_SIZE), IERROR
+       END SUBROUTINE MPI_IPROBE
+
+       SUBROUTINE MPI_PROBE(SOURCE, TAG, COMM, STATUS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER SOURCE, TAG, COMM, STATUS(MPI_STATUS_SIZE), IERROR
+       END SUBROUTINE MPI_PROBE
+
+       SUBROUTINE MPI_CANCEL(REQUEST, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER REQUEST, IERROR
+       END SUBROUTINE MPI_CANCEL
+
+       SUBROUTINE MPI_TEST_CANCELLED(STATUS, FLAG, IERROR)
+        USE MPI_CONSTANTS
+        LOGICAL FLAG
+        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       END SUBROUTINE MPI_TEST_CANCELLED
+
+       !SUBROUTINE MPI_SEND_INIT(BUF, COUNT, DATATYPE, DEST, TAG,
+       !+  COMM, REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER REQUEST, COUNT, DATATYPE, DEST, TAG
+       !        INTEGER COMM, REQUEST, IERROR
+       !END SUBROUTINE MPI_SEND_INIT
+
+       !SUBROUTINE MPI_BSEND_INIT(BUF, COUNT, DATATYPE, DEST, TAG,
+       !+  COMM, REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER REQUEST, COUNT, DATATYPE, DEST, TAG
+       !        INTEGER COMM, REQUEST, IERROR
+       !END SUBROUTINE MPI_BSEND_INIT
+
+       !SUBROUTINE MPI_SSEND_INIT(BUF, COUNT, DATATYPE, DEST, TAG,
+       !+  COMM, REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, DEST, TAG
+       !        INTEGER COMM, REQUEST, IERROR
+       !END SUBROUTINE MPI_SSEND_INIT
+
+       !SUBROUTINE MPI_RSEND_INIT(BUF, COUNT, DATATYPE, DEST, TAG,
+       !+  COMM, REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, DEST, TAG
+       !        INTEGER COMM, REQUEST, IERROR
+       !END SUBROUTINE MPI_RSEND_INIT
+
+       !SUBROUTINE MPI_RECV_INIT(BUF, COUNT, DATATYPE, SOURCE, TAG,
+       !+  COMM, REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, SOURCE, TAG
+       !        INTEGER COMM, REQUEST, IERROR
+       !END SUBROUTINE MPI_RECV_INIT
+
+       SUBROUTINE MPI_START(REQUEST, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER REQUEST, IERROR
+       END SUBROUTINE MPI_START
+
+       SUBROUTINE MPI_STARTALL(COUNT, ARRAY_OF_REQUESTS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, ARRAY_OF_REQUESTS(*), IERROR
+       END SUBROUTINE MPI_STARTALL
+
+       !SUBROUTINE MPI_SENDRECV(SENDBUF, SENDCOUNT, SENDTYPE, DEST,
+       !+  SENDTAG, RECVBUF, RECVCOUNT, RECVTYPE,
+       !+  SOURCE, RECVTAG, COMM, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER SENDCOUNT, SENDTYPE, DEST, SENDTAG, RECVCOUNT
+       !        INTEGER RECVTYPE, SOURCE, RECVTAG, COMM
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_SENDRECV
+
+       !SUBROUTINE MPI_SENDRECV_REPLACE(BUF, COUNT, DATATYPE, DEST,
+       !+  SENDTAG, SOURCE, RECVTAG, COMM, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER COUNT, DATATYPE, DEST
+       !        INTEGER SENDTAG, SOURCE, RECVTAG
+       !        INTEGER COMM, STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_SENDRECV_REPLACE
+
+       SUBROUTINE MPI_TYPE_CONTIGUOUS(COUNT, OLDTYPE, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, OLDTYPE, NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_CONTIGUOUS
+
+       SUBROUTINE MPI_TYPE_VECTOR(COUNT, BLOCKLENGTH, STRIDE,
+     +  OLDTYPE, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, BLOCKLENGTH, STRIDE
+        INTEGER OLDTYPE, NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_VECTOR
+
+       SUBROUTINE MPI_TYPE_HVECTOR(COUNT, BLOCKLENGTH, STRIDE,
+     +  OLDTYPE, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, BLOCKLENGTH, STRIDE, OLDTYPE, NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_HVECTOR
+
+       SUBROUTINE MPI_TYPE_INDEXED(COUNT, ARRAY_OF_BLOCKLENGTHS,
+     +  ARRAY_OF_DISPLACEMENTS, OLDTYPE, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, ARRAY_OF_BLOCKLENGTHS(*)
+        INTEGER ARRAY_OF_DISPLACEMENTS(*), OLDTYPE, NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_INDEXED
+
+       SUBROUTINE MPI_TYPE_HINDEXED(COUNT, ARRAY_OF_BLOCKLENGTHS,
+     +  ARRAY_OF_DISPLACEMENTS, OLDTYPE, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, ARRAY_OF_BLOCKLENGTHS(*)
+        INTEGER ARRAY_OF_DISPLACEMENTS(*), OLDTYPE, NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_HINDEXED
+
+       SUBROUTINE MPI_TYPE_STRUCT(COUNT, ARRAY_OF_BLOCKLENGTHS,
+     +  ARRAY_OF_DISPLACEMENTS, ARRAY_OF_TYPES, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, ARRAY_OF_BLOCKLENGTHS(*)
+        INTEGER ARRAY_OF_DISPLACEMENTS(*), ARRAY_OF_TYPES(*)
+        INTEGER NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_STRUCT
+
+       !SUBROUTINE MPI_ADDRESS(LOCATION, ADDRESS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> LOCATION(*)
+       !        INTEGER ADDRESS, IERROR
+       !END SUBROUTINE MPI_ADDRESS
+
+       SUBROUTINE MPI_TYPE_EXTENT(DATATYPE, EXTENT, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER DATATYPE, IERROR
+        INTEGER(KIND = MPI_ADDRESS_KIND) EXTENT
+       END SUBROUTINE MPI_TYPE_EXTENT
+
+       SUBROUTINE MPI_TYPE_SIZE(DATATYPE, SIZE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER DATATYPE, SIZE, IERROR
+       END SUBROUTINE MPI_TYPE_SIZE
+
+       SUBROUTINE MPI_TYPE_LB( DATATYPE, DISPLACEMENT, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER DATATYPE, DISPLACEMENT, IERROR
+       END SUBROUTINE MPI_TYPE_LB
+
+       SUBROUTINE MPI_TYPE_UB( DATATYPE, DISPLACEMENT, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER DATATYPE, DISPLACEMENT, IERROR
+       END SUBROUTINE MPI_TYPE_UB
+
+       SUBROUTINE MPI_TYPE_COMMIT(DATATYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER DATATYPE, IERROR
+       END SUBROUTINE MPI_TYPE_COMMIT
+
+       SUBROUTINE MPI_TYPE_FREE(DATATYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER DATATYPE, IERROR
+       END SUBROUTINE MPI_TYPE_FREE
+
+       SUBROUTINE MPI_GET_ELEMENTS(STATUS, DATATYPE, COUNT, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER STATUS(MPI_STATUS_SIZE), DATATYPE, COUNT, IERROR
+       END SUBROUTINE MPI_GET_ELEMENTS
+
+       !SUBROUTINE MPI_PACK(INBUF, INCOUNT, DATATYPE, OUTBUF, OUTSIZE,
+       !+  POSITION, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> INBUF(*), OUTBUF(*)
+       !        INTEGER INCOUNT, DATATYPE, OUTSIZE
+       !        INTEGER POSITION, COMM, IERROR
+       !END SUBROUTINE MPI_PACK
+
+       !SUBROUTINE MPI_UNPACK(INBUF, INSIZE, POSITION, OUTBUF,
+       !+  OUTCOUNT, DATATYPE, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> INBUF(*), OUTBUF(*)
+       !        INTEGER INSIZE, POSITION, OUTCOUNT
+       !        INTEGER DATATYPE, COMM, IERROR
+       !END SUBROUTINE MPI_UNPACK
+
+       SUBROUTINE MPI_PACK_SIZE(INCOUNT, DATATYPE, COMM, SIZE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INCOUNT, DATATYPE, COMM, SIZE, IERROR
+       END SUBROUTINE MPI_PACK_SIZE
+!
+! Collective Communication
+!
+       SUBROUTINE MPI_BARRIER(COMM, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, IERROR
+       END SUBROUTINE MPI_BARRIER
+
+       !SUBROUTINE MPI_BCAST(BUFFER, COUNT, DATATYPE, ROOT,
+       !+  COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUFFER(*)
+       !        INTEGER COUNT, DATATYPE, ROOT, COMM, IERROR
+       !END SUBROUTINE MPI_BCAST
+
+       !SUBROUTINE MPI_GATHER(SENDBUF, SENDCOUNT, SENDTYPE, RECVBUF,
+       !+  RECVCOUNT, RECVTYPE, ROOT, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER SENDCOUNT, SENDTYPE, RECVCOUNT, RECVTYPE
+       !        INTEGER ROOT, COMM, IERROR
+       !END SUBROUTINE MPI_GATHER
+
+       !SUBROUTINE MPI_GATHERV(SENDBUF, SENDCOUNT, SENDTYPE, RECVBUF,
+       !+  RECVCOUNTS, DISPLS, RECVTYPE, ROOT, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER SENDCOUNT, SENDTYPE, RECVCOUNTS(*), DISPLS(*)
+       !        INTEGER RECVTYPE, ROOT, COMM, IERROR
+       !END SUBROUTINE MPI_GATHERV
+
+       !SUBROUTINE MPI_SCATTER(SENDBUF, SENDCOUNT, SENDTYPE, RECVBUF,
+       !+  RECVCOUNT, RECVTYPE, ROOT, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER SENDCOUNT, SENDTYPE, RECVCOUNT, RECVTYPE
+       !        INTEGER ROOT, COMM, IERROR
+       !END SUBROUTINE MPI_SCATTER
+
+       !SUBROUTINE MPI_SCATTERV(SENDBUF, SENDCOUNTS, DISPLS, SENDTYPE,
+       !+  RECVBUF, RECVCOUNT, RECVTYPE, ROOT, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER SENDCOUNTS(*), DISPLS(*), SENDTYPE, RECVCOUNT
+       !        INTEGER RECVTYPE, ROOT, COMM, IERROR
+       !END SUBROUTINE MPI_SCATTERV
+
+       !SUBROUTINE MPI_ALLGATHER(SENDBUF, SENDCOUNT, SENDTYPE,
+       !+  RECVBUF, RECVCOUNT, RECVTYPE, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER SENDCOUNT, SENDTYPE, RECVCOUNT, RECVTYPE
+       !        INTEGER COMM, IERROR
+       !END SUBROUTINE MPI_ALLGATHER
+
+       !SUBROUTINE MPI_ALLGATHERV(SENDBUF, SENDCOUNT, SENDTYPE,
+       !+  RECVBUF, RECVCOUNTS, DISPLS, RECVTYPE, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER SENDCOUNT, SENDTYPE, RECVCOUNTS(*), DISPLS(*)
+       !        INTEGER RECVTYPE, COMM, IERROR
+       !END SUBROUTINE MPI_ALLGATHERV
+
+       !SUBROUTINE MPI_ALLTOALL(SENDBUF, SENDCOUNT, SENDTYPE, RECVBUF,
+       !+  RECVCOUNT, RECVTYPE, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER SENDCOUNT, SENDTYPE, RECVCOUNT, RECVTYPE
+       !        INTEGER COMM, IERROR
+       !END SUBROUTINE MPI_ALLTOALL
+
+       !SUBROUTINE MPI_ALLTOALLV(SENDBUF, SENDCOUNTS,
+       !+  SDISPLS, SENDTYPE, RECVBUF, RECVCOUNTS,
+       !+  RDISPLS, RECVTYPE, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER SENDCOUNTS(*), SDISPLS(*), SENDTYPE
+       !        INTEGER RECVCOUNTS(*), RDISPLS(*), RECVTYPE
+       !        INTEGER COMM, IERROR
+       !END SUBROUTINE MPI_ALLTOALLV
+
+       !SUBROUTINE MPI_REDUCE(SENDBUF, RECVBUF, COUNT, DATATYPE,
+       !+  OP, ROOT, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER COUNT, DATATYPE, OP, ROOT, COMM, IERROR
+       !END SUBROUTINE MPI_REDUCE
+
+       !SUBROUTINE MPI_REDUCE_LOCAL(SENDBUF, RECVBUF, COUNT, DATATYPE,
+       !+  OP, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER COUNT, DATATYPE, OP, IERROR
+       !END SUBROUTINE MPI_REDUCE_LOCAL
+
+       SUBROUTINE MPI_OP_CREATE( FUNCTION, COMMUTE, OP, IERROR)
+        USE MPI_CONSTANTS
+        EXTERNAL FUNCTION
+        LOGICAL COMMUTE
+        INTEGER OP, IERROR
+       END SUBROUTINE MPI_OP_CREATE
+
+       SUBROUTINE MPI_OP_FREE( OP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER OP, IERROR
+       END SUBROUTINE MPI_OP_FREE
+
+       !SUBROUTINE MPI_OP_COMMUTATIVE(OP, COMMUTE, IERROR)
+       !        USE MPI_CONSTANTS
+       !        INTEGER OP, COMMUTE, IERROR
+       !END SUBROUTINE MPI_OP_COMMUTATIVE
+
+       !SUBROUTINE MPI_ALLREDUCE(SENDBUF, RECVBUF, COUNT,
+       !+  DATATYPE, OP, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER COUNT, DATATYPE, OP, COMM, IERROR
+       !END SUBROUTINE MPI_ALLREDUCE
+
+       !SUBROUTINE MPI_REDUCE_SCATTER(SENDBUF, RECVBUF, RECVCOUNTS,
+       !+  DATATYPE, OP, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER RECVCOUNTS(*), DATATYPE, OP, COMM, IERROR
+       !END SUBROUTINE MPI_REDUCE_SCATTER
+
+       !SUBROUTINE MPI_REDUCE_SCATTER_BLOCK(SENDBUF, RECVBUF, RECVCOUNT,
+       !+  DATATYPE, OP, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER RECVCOUNT, DATATYPE, OP, COMM, IERROR
+       !END SUBROUTINE MPI_REDUCE_SCATTER_BLOCK
+
+       !SUBROUTINE MPI_SCAN(SENDBUF, RECVBUF, COUNT, DATATYPE, OP,
+       !+  COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER COUNT, DATATYPE, OP, COMM, IERROR
+       !END SUBROUTINE MPI_SCAN
+!
+! Groups, Context, etc
+!
+       SUBROUTINE MPI_GROUP_SIZE(GROUP, SIZE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP, SIZE, IERROR
+       END SUBROUTINE MPI_GROUP_SIZE
+
+       SUBROUTINE MPI_GROUP_RANK(GROUP, RANK, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP, RANK, IERROR
+       END SUBROUTINE MPI_GROUP_RANK
+
+       SUBROUTINE MPI_GROUP_TRANSLATE_RANKS(GROUP1, N, RANKS1,
+     +  GROUP2, RANKS2, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP1, N, RANKS1(*), GROUP2, RANKS2(*), IERROR
+       END SUBROUTINE MPI_GROUP_TRANSLATE_RANKS
+
+       SUBROUTINE MPI_GROUP_COMPARE(GROUP1, GROUP2, RESULT, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP1, GROUP2, RESULT, IERROR
+       END SUBROUTINE MPI_GROUP_COMPARE
+
+       SUBROUTINE MPI_COMM_GROUP(COMM, GROUP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, GROUP, IERROR
+       END SUBROUTINE MPI_COMM_GROUP
+
+       SUBROUTINE MPI_GROUP_UNION(GROUP1, GROUP2, NEWGROUP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP1, GROUP2, NEWGROUP, IERROR
+       END SUBROUTINE MPI_GROUP_UNION
+
+       SUBROUTINE MPI_GROUP_INTERSECTION(GROUP1, GROUP2,
+     +  NEWGROUP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP1, GROUP2, NEWGROUP, IERROR
+       END SUBROUTINE MPI_GROUP_INTERSECTION
+
+       SUBROUTINE MPI_GROUP_DIFFERENCE(GROUP1, GROUP2,
+     +  NEWGROUP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP1, GROUP2, NEWGROUP, IERROR
+       END SUBROUTINE MPI_GROUP_DIFFERENCE
+
+       SUBROUTINE MPI_GROUP_INCL(GROUP, N, RANKS, NEWGROUP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP, N, RANKS(*), NEWGROUP, IERROR
+       END SUBROUTINE MPI_GROUP_INCL
+
+       SUBROUTINE MPI_GROUP_EXCL(GROUP, N, RANKS, NEWGROUP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP, N, RANKS(*), NEWGROUP, IERROR
+       END SUBROUTINE MPI_GROUP_EXCL
+
+       SUBROUTINE MPI_GROUP_RANGE_INCL(GROUP, N, RANGES,
+     +  NEWGROUP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP, N, RANGES(3,*), NEWGROUP, IERROR
+       END SUBROUTINE MPI_GROUP_RANGE_INCL
+
+       SUBROUTINE MPI_GROUP_RANGE_EXCL(GROUP, N, RANGES,
+     +  NEWGROUP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP, N, RANGES(3,*), NEWGROUP, IERROR
+       END SUBROUTINE MPI_GROUP_RANGE_EXCL
+
+       SUBROUTINE MPI_GROUP_FREE(GROUP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP, IERROR
+       END SUBROUTINE MPI_GROUP_FREE
+
+       SUBROUTINE MPI_COMM_SIZE(COMM, SIZE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, SIZE, IERROR
+       END SUBROUTINE MPI_COMM_SIZE
+
+       SUBROUTINE MPI_COMM_RANK(COMM, RANK, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, RANK, IERROR
+       END SUBROUTINE MPI_COMM_RANK
+
+       SUBROUTINE MPI_COMM_COMPARE(COMM1, COMM2, RESULT, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM1, COMM2, RESULT, IERROR
+       END SUBROUTINE MPI_COMM_COMPARE
+
+       SUBROUTINE MPI_COMM_DUP(COMM, NEWCOMM, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, NEWCOMM, IERROR
+       END SUBROUTINE MPI_COMM_DUP
+
+       SUBROUTINE MPI_COMM_CREATE(COMM, GROUP, NEWCOMM, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, GROUP, NEWCOMM, IERROR
+       END SUBROUTINE MPI_COMM_CREATE
+
+       SUBROUTINE MPI_COMM_SPLIT(COMM, COLOR, KEY, NEWCOMM, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, COLOR, KEY, NEWCOMM, IERROR
+       END SUBROUTINE MPI_COMM_SPLIT
+
+       SUBROUTINE MPI_COMM_FREE(COMM, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, IERROR
+       END SUBROUTINE MPI_COMM_FREE
+
+       SUBROUTINE MPI_COMM_TEST_INTER(COMM, FLAG, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, IERROR
+        LOGICAL FLAG
+       END SUBROUTINE MPI_COMM_TEST_INTER
+
+       SUBROUTINE MPI_COMM_REMOTE_SIZE(COMM, SIZE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, SIZE, IERROR
+       END SUBROUTINE MPI_COMM_REMOTE_SIZE
+
+       SUBROUTINE MPI_COMM_REMOTE_GROUP(COMM, GROUP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, GROUP, IERROR
+       END SUBROUTINE MPI_COMM_REMOTE_GROUP
+
+       SUBROUTINE MPI_INTERCOMM_CREATE(LOCAL_COMM, LOCAL_LEADER,
+     +  PEER_COMM, REMOTE_LEADER, TAG, NEWINTERCOMM, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER LOCAL_COMM, LOCAL_LEADER, PEER_COMM
+        INTEGER REMOTE_LEADER, TAG, NEWINTERCOMM, IERROR
+       END SUBROUTINE MPI_INTERCOMM_CREATE
+
+       SUBROUTINE MPI_INTERCOMM_MERGE(INTERCOMM, HIGH,
+     +  INTRACOMM, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INTERCOMM, INTRACOMM, IERROR
+        LOGICAL HIGH
+       END SUBROUTINE MPI_INTERCOMM_MERGE
+
+       SUBROUTINE MPI_KEYVAL_CREATE(COPY_FN, DELETE_FN, KEYVAL,
+     +  EXTRA_STATE, IERROR)
+        USE MPI_CONSTANTS
+        EXTERNAL COPY_FN, DELETE_FN
+        INTEGER KEYVAL, EXTRA_STATE, IERROR
+       END SUBROUTINE MPI_KEYVAL_CREATE
+
+       SUBROUTINE MPI_KEYVAL_FREE(KEYVAL, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER KEYVAL, IERROR
+       END SUBROUTINE MPI_KEYVAL_FREE
+
+       SUBROUTINE MPI_ATTR_PUT(COMM, KEYVAL, ATTRIBUTE_VAL, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, KEYVAL, ATTRIBUTE_VAL, IERROR
+       END SUBROUTINE MPI_ATTR_PUT
+
+       SUBROUTINE MPI_ATTR_GET(COMM, KEYVAL, ATTRIBUTE_VAL,
+     +  FLAG, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, KEYVAL, ATTRIBUTE_VAL, IERROR
+        LOGICAL FLAG
+       END SUBROUTINE MPI_ATTR_GET
+
+       SUBROUTINE MPI_ATTR_DELETE(COMM, KEYVAL, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, KEYVAL, IERROR
+       END SUBROUTINE MPI_ATTR_DELETE
+!
+! Process Topologies
+!
+       SUBROUTINE MPI_CART_CREATE(COMM_OLD, NDIMS, DIMS, PERIODS,
+     +  REORDER, COMM_CART, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM_OLD, NDIMS, DIMS(*), COMM_CART, IERROR
+        LOGICAL PERIODS(*), REORDER
+       END SUBROUTINE MPI_CART_CREATE
+
+       SUBROUTINE MPI_DIMS_CREATE(NNODES, NDIMS, DIMS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER NNODES, NDIMS, DIMS(*), IERROR
+       END SUBROUTINE MPI_DIMS_CREATE
+
+       SUBROUTINE MPI_GRAPH_CREATE(COMM_OLD, NNODES, INDEX, EDGES,
+     +  REORDER, COMM_GRAPH, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM_OLD, NNODES, INDEX(*), EDGES(*)
+        INTEGER COMM_GRAPH, IERROR
+        LOGICAL REORDER
+       END SUBROUTINE MPI_GRAPH_CREATE
+
+       SUBROUTINE MPI_TOPO_TEST(COMM, STATUS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, STATUS, IERROR
+       END SUBROUTINE MPI_TOPO_TEST
+
+       SUBROUTINE MPI_GRAPHDIMS_GET(COMM, NNODES, NEDGES, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, NNODES, NEDGES, IERROR
+       END SUBROUTINE MPI_GRAPHDIMS_GET
+
+       SUBROUTINE MPI_GRAPH_GET(COMM, MAXINDEX, MAXEDGES, INDEX,
+     +  EDGES, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, MAXINDEX, MAXEDGES, INDEX(*)
+        INTEGER EDGES(*), IERROR
+       END SUBROUTINE MPI_GRAPH_GET
+
+       SUBROUTINE MPI_CARTDIM_GET(COMM, NDIMS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, NDIMS, IERROR
+       END SUBROUTINE MPI_CARTDIM_GET
+
+       SUBROUTINE MPI_CART_GET(COMM, MAXDIMS, DIMS, PERIODS,
+     +  COORDS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, MAXDIMS, DIMS(*), COORDS(*), IERROR
+        LOGICAL PERIODS(*)
+       END SUBROUTINE MPI_CART_GET
+
+       SUBROUTINE MPI_CART_RANK(COMM, COORDS, RANK, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, COORDS(*), RANK, IERROR
+       END SUBROUTINE MPI_CART_RANK
+
+       SUBROUTINE MPI_CART_COORDS(COMM, RANK, MAXDIMS, COORDS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, RANK, MAXDIMS, COORDS(*), IERROR
+       END SUBROUTINE MPI_CART_COORDS
+
+       SUBROUTINE MPI_GRAPH_NEIGHBORS_COUNT(COMM, RANK,
+     +  NNEIGHBORS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, RANK, NNEIGHBORS, IERROR
+       END SUBROUTINE MPI_GRAPH_NEIGHBORS_COUNT
+
+       SUBROUTINE MPI_GRAPH_NEIGHBORS(COMM, RANK, MAXNEIGHBORS,
+     +  NEIGHBORS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, RANK, MAXNEIGHBORS, NEIGHBORS(*), IERROR
+       END SUBROUTINE MPI_GRAPH_NEIGHBORS
+
+       SUBROUTINE MPI_CART_SHIFT(COMM, DIRECTION, DISP, RANK_SOURCE,
+     +  RANK_DEST, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, DIRECTION, DISP, RANK_SOURCE, RANK_DEST, IERROR
+       END SUBROUTINE MPI_CART_SHIFT
+
+       SUBROUTINE MPI_CART_SUB(COMM, REMAIN_DIMS, NEWCOMM, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, NEWCOMM, IERROR
+        LOGICAL REMAIN_DIMS(*)
+       END SUBROUTINE MPI_CART_SUB
+
+       SUBROUTINE MPI_CART_MAP(COMM, NDIMS, DIMS, PERIODS,
+     +  NEWRANK, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, NDIMS, DIMS(*), NEWRANK, IERROR
+        LOGICAL PERIODS(*)
+       END SUBROUTINE MPI_CART_MAP
+
+       SUBROUTINE MPI_GRAPH_MAP(COMM, NNODES, INDEX, EDGES,
+     +  NEWRANK, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, NNODES, INDEX(*), EDGES(*), NEWRANK, IERROR
+       END SUBROUTINE MPI_GRAPH_MAP
+
+       SUBROUTINE MPI_DIST_GRAPH_CREATE(COMM_OLD, N, SOURCES, DEGREES,
+     +  DESTINATIONS, WEIGHTS, INFO, REORDER, COMM_DIST_GRAPH, IERROR)
+        INTEGER COMM_OLD, N, SOURCES(*), DEGREES(*), DESTINATIONS(*)
+        INTEGER WEIGHTS(*), INFO, COMM_DIST_GRAPH, IERROR
+        LOGICAL REORDER
+       END SUBROUTINE MPI_DIST_GRAPH_CREATE
+
+       SUBROUTINE MPI_DIST_GRAPH_CREATE_ADJACENT(COMM_OLD, INDEGREE,
+     +  SOURCES, SOURCEWEIGHTS, OUTDEGREE, DESTINATIONS, DESTWEIGHTS,
+     +  INFO, REORDER,COMM_DIST_GRAPH, IERROR)
+        INTEGER COMM_OLD, INDEGREE, SOURCES(*), SOURCEWEIGHTS(*)
+        INTEGER OUTDEGREE
+        INTEGER DESTINATIONS(*), DESTWEIGHTS(*), INFO, COMM_DIST_GRAPH
+        INTEGER IERROR
+        LOGICAL REORDER
+       END SUBROUTINE MPI_DIST_GRAPH_CREATE_ADJACENT
+
+       SUBROUTINE MPI_DIST_GRAPH_NEIGHBORS_COUNT(COMM, INDEGREE,
+     +  OUTDEGREE, WEIGHTED, IERROR)
+        INTEGER COMM, INDEGREE, OUTDEGREE, IERROR
+        LOGICAL WEIGHTED
+       END SUBROUTINE MPI_DIST_GRAPH_NEIGHBORS_COUNT
+
+       SUBROUTINE MPI_DIST_GRAPH_NEIGHBORS(COMM, MAXINDEGREE,
+     +  SOURCES, SOURCEWEIGHTS, MAXOUTDEGREE, DESTINATIONS, DESTWEIGHTS,
+     +  IERROR)
+        INTEGER COMM, MAXINDEGREE, SOURCES(*), SOURCEWEIGHTS(*)
+        INTEGER MAXOUTDEGREE, DESTINATIONS(*), DESTWEIGHTS(*), IERROR
+       END SUBROUTINE MPI_DIST_GRAPH_NEIGHBORS
+!
+! Environmental Inquiry
+!
+       SUBROUTINE MPI_GET_VERSION(VERSION, SUBVERSION, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER VERSION, SUBVERSION, IERROR
+       END SUBROUTINE MPI_GET_VERSION
+
+       SUBROUTINE MPI_GET_PROCESSOR_NAME(NAME, RESULTLEN, IERROR)
+        USE MPI_CONSTANTS
+        CHARACTER(*) NAME
+        INTEGER RESULTLEN, IERROR
+       END SUBROUTINE MPI_GET_PROCESSOR_NAME
+
+       SUBROUTINE MPI_ERRHANDLER_CREATE(FUNCTION, HANDLER, IERROR)
+        USE MPI_CONSTANTS
+        EXTERNAL FUNCTION
+        INTEGER ERRHANDLER, IERROR
+       END SUBROUTINE MPI_ERRHANDLER_CREATE
+
+       SUBROUTINE MPI_ERRHANDLER_SET(COMM, ERRHANDLER, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, ERRHANDLER, IERROR
+       END SUBROUTINE MPI_ERRHANDLER_SET
+
+       SUBROUTINE MPI_ERRHANDLER_GET(COMM, ERRHANDLER, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, ERRHANDLER, IERROR
+       END SUBROUTINE MPI_ERRHANDLER_GET
+
+       SUBROUTINE MPI_ERRHANDLER_FREE(ERRHANDLER, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER ERRHANDLER, IERROR
+       END SUBROUTINE MPI_ERRHANDLER_FREE
+
+       SUBROUTINE MPI_ERROR_STRING(ERRORCODE, STRING,
+     +  RESULTLEN, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER ERRORCODE, RESULTLEN, IERROR
+        CHARACTER(*) STRING
+       END SUBROUTINE MPI_ERROR_STRING
+
+       SUBROUTINE MPI_ERROR_CLASS(ERRORCODE, ERRORCLASS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER ERRORCODE, ERRORCLASS, IERROR
+       END SUBROUTINE MPI_ERROR_CLASS
+
+       SUBROUTINE MPI_INIT(IERROR)
+        USE MPI_CONSTANTS
+        INTEGER IERROR
+       END SUBROUTINE MPI_INIT
+
+       SUBROUTINE MPI_FINALIZE(IERROR)
+        USE MPI_CONSTANTS
+        INTEGER IERROR
+       END SUBROUTINE MPI_FINALIZE
+
+       SUBROUTINE MPI_INITIALIZED(FLAG, IERROR)
+        USE MPI_CONSTANTS
+        LOGICAL FLAG
+        INTEGER IERROR
+       END SUBROUTINE MPI_INITIALIZED
+
+       SUBROUTINE MPI_ABORT(COMM, ERRORCODE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, ERRORCODE, IERROR
+       END SUBROUTINE MPI_ABORT
+!
+! Profiling
+!
+       SUBROUTINE MPI_PCONTROL(level)
+        USE MPI_CONSTANTS
+        INTEGER LEVEL
+       END SUBROUTINE MPI_PCONTROL
+!
+! Miscellany
+!
+       SUBROUTINE MPI_ALLOC_MEM(SIZE, INFO, BASEPTR, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INFO, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) SIZE, BASEPTR
+       END SUBROUTINE MPI_ALLOC_MEM
+
+       SUBROUTINE MPI_COMM_CREATE_ERRHANDLER(FUNCTION,
+     +  ERRHANDLER, IERROR)
+        USE MPI_CONSTANTS
+        EXTERNAL FUNCTION
+        INTEGER ERRHANDLER, IERROR
+       END SUBROUTINE MPI_COMM_CREATE_ERRHANDLER
+
+       SUBROUTINE MPI_COMM_GET_ERRHANDLER(COMM, ERRHANDLER, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, ERRHANDLER, IERROR
+       END SUBROUTINE MPI_COMM_GET_ERRHANDLER
+
+       SUBROUTINE MPI_COMM_SET_ERRHANDLER(COMM, ERRHANDLER, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, ERRHANDLER, IERROR
+       END SUBROUTINE MPI_COMM_SET_ERRHANDLER
+
+       SUBROUTINE MPI_FILE_CREATE_ERRHANDLER(FUNCTION,
+     +  ERRHANDLER, IERROR)
+        USE MPI_CONSTANTS
+        EXTERNAL FUNCTION
+        INTEGER ERRHANDLER, IERROR
+       END SUBROUTINE MPI_FILE_CREATE_ERRHANDLER
+
+       SUBROUTINE MPI_FILE_GET_ERRHANDLER(FILE, ERRHANDLER, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FILE, ERRHANDLER, IERROR
+       END SUBROUTINE MPI_FILE_GET_ERRHANDLER
+
+       SUBROUTINE MPI_FILE_SET_ERRHANDLER(FILE, ERRHANDLER, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FILE, ERRHANDLER, IERROR
+       END SUBROUTINE MPI_FILE_SET_ERRHANDLER
+
+       SUBROUTINE MPI_FINALIZED(FLAG, IERROR)
+        USE MPI_CONSTANTS
+        LOGICAL FLAG
+        INTEGER IERROR
+       END SUBROUTINE MPI_FINALIZED
+
+       !SUBROUTINE MPI_FREE_MEM(BASE, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BASE(*)
+       !        INTEGER IERROR
+       !END SUBROUTINE MPI_FREE_MEM
+
+       !SUBROUTINE MPI_GET_ADDRESS(LOCATION, ADDRESS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> LOCATION(*)
+       !        INTEGER IERROR
+       !        INTEGER(KIND=MPI_ADDRESS_KIND) ADDRESS
+       !END SUBROUTINE MPI_GET_ADDRESS
+
+       SUBROUTINE MPI_INFO_CREATE(INFO, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INFO, IERROR
+       END SUBROUTINE MPI_INFO_CREATE
+
+       SUBROUTINE MPI_INFO_DELETE(INFO, KEY, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INFO, IERROR
+        CHARACTER(*) KEY
+       END SUBROUTINE MPI_INFO_DELETE
+
+       SUBROUTINE MPI_INFO_DUP(INFO, NEWINFO, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INFO, NEWINFO, IERROR
+       END SUBROUTINE MPI_INFO_DUP
+
+       SUBROUTINE MPI_INFO_FREE(INFO, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INFO, IERROR
+       END SUBROUTINE MPI_INFO_FREE
+
+       SUBROUTINE MPI_INFO_GET(INFO, KEY, VALUELEN,
+     +  VALUE, FLAG, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INFO, VALUELEN, IERROR
+        CHARACTER(*) KEY, VALUE
+        LOGICAL FLAG
+       END SUBROUTINE MPI_INFO_GET
+
+       SUBROUTINE MPI_INFO_GET_NKEYS(INFO, NKEYS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INFO, NKEYS, IERROR
+       END SUBROUTINE MPI_INFO_GET_NKEYS
+
+       SUBROUTINE MPI_INFO_GET_NTHKEY(INFO, N, KEY, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INFO, N, IERROR
+        CHARACTER(*) KEY
+       END SUBROUTINE MPI_INFO_GET_NTHKEY
+
+       SUBROUTINE MPI_INFO_GET_VALUELEN(INFO, KEY, VALUELEN,
+     +  FLAG, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INFO, VALUELEN, IERROR
+        LOGICAL FLAG
+        CHARACTER(*) KEY
+       END SUBROUTINE MPI_INFO_GET_VALUELEN
+
+       SUBROUTINE MPI_INFO_SET(INFO, KEY, VALUE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INFO, IERROR
+        CHARACTER(*) KEY, VALUE
+       END SUBROUTINE MPI_INFO_SET
+
+       !SUBROUTINE MPI_PACK_EXTERNAL(DATAREP, INBUF, INCOUNT,
+       !+  DATATYPE, OUTBUF, OUTSIZE, POSITION, IERROR)
+       !        USE MPI_CONSTANTS
+       !        INTEGER INCOUNT, DATATYPE, IERROR
+       !        INTEGER(KIND=MPI_ADDRESS_KIND) OUTSIZE, POSITION
+       !        CHARACTER(*) DATAREP
+       !        <type> INBUF(*), OUTBUF(*)
+       !END SUBROUTINE MPI_PACK_EXTERNAL
+
+       SUBROUTINE MPI_PACK_EXTERNAL_SIZE(DATAREP, INCOUNT, DATATYPE,
+     +  SIZE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INCOUNT, DATATYPE, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) SIZE
+        CHARACTER(*) DATAREP
+       END SUBROUTINE MPI_PACK_EXTERNAL_SIZE
+
+       SUBROUTINE MPI_REQUEST_GET_STATUS( REQUEST, FLAG,
+     +  STATUS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER REQUEST, STATUS(MPI_STATUS_SIZE), IERROR
+        LOGICAL FLAG
+       END SUBROUTINE MPI_REQUEST_GET_STATUS
+
+       SUBROUTINE MPI_TYPE_CREATE_DARRAY(SIZE, RANK, NDIMS,
+     +  ARRAY_OF_GSIZES, ARRAY_OF_DISTRIBS, ARRAY_OF_DARGS,
+     +  ARRAY_OF_PSIZES, ORDER, OLDTYPE, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER SIZE, RANK, NDIMS, ARRAY_OF_GSIZES(*)
+        INTEGER ARRAY_OF_DISTRIBS(*), ARRAY_OF_DARGS(*)
+        INTEGER ARRAY_OF_PSIZES(*), ORDER, OLDTYPE, NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_CREATE_DARRAY
+
+       SUBROUTINE MPI_TYPE_CREATE_HINDEXED(COUNT,
+     +  ARRAY_OF_BLOCKLENGTHS, ARRAY_OF_DISPLACEMENTS,
+     +  OLDTYPE, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, ARRAY_OF_BLOCKLENGTHS(*), OLDTYPE
+        INTEGER NEWTYPE, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) ARRAY_OF_DISPLACEMENTS(*)
+       END SUBROUTINE MPI_TYPE_CREATE_HINDEXED
+
+       SUBROUTINE MPI_TYPE_CREATE_HVECTOR(COUNT, BLOCKLENGTH, STIDE,
+     +  OLDTYPE, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, BLOCKLENGTH, OLDTYPE, NEWTYPE, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) STRIDE
+       END SUBROUTINE MPI_TYPE_CREATE_HVECTOR
+
+       SUBROUTINE MPI_TYPE_CREATE_INDEXED_BLOCK(COUNT, BLOCKLENGTH,
+     +  ARRAY_OF_DISPLACEMENTS, OLDTYPE, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, BLOCKLENGTH, ARRAY_OF_DISPLACEMENTS(*)
+        INTEGER OLDTYPE, NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_CREATE_INDEXED_BLOCK
+
+       SUBROUTINE MPI_TYPE_CREATE_RESIZED(OLDTYPE, LB, EXTENT,
+     +  NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER OLDTYPE, NEWTYPE, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) LB, EXTENT
+       END SUBROUTINE MPI_TYPE_CREATE_RESIZED
+
+       SUBROUTINE MPI_TYPE_CREATE_STRUCT(COUNT,
+     +  ARRAY_OF_BLOCKLENGTHS, ARRAY_OF_DISPLACEMENTS,
+     +  ARRAY_OF_TYPES, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, ARRAY_OF_BLOCKLENGTHS(*)
+        INTEGER ARRAY_OF_TYPES(*), NEWTYPE, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) ARRAY_OF_DISPLACEMENTS(*)
+       END SUBROUTINE MPI_TYPE_CREATE_STRUCT
+
+       SUBROUTINE MPI_TYPE_CREATE_SUBARRAY(NDIMS, ARRAY_OF_SIZES,
+     +  ARRAY_OF_SUBSIZES, ARRAY_OF_STARTS, ORDER,
+     +  OLDTYPE, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER NDIMS, ARRAY_OF_SIZES(*), ARRAY_OF_SUBSIZES(*)
+        INTEGER ARRAY_OF_STARTS(*), ORDER, OLDTYPE
+        INTEGER NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_CREATE_SUBARRAY
+
+       SUBROUTINE MPI_TYPE_GET_EXTENT(DATATYPE, LB, EXTENT, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER DATATYPE, IERROR
+        INTEGER(KIND = MPI_ADDRESS_KIND) LB, EXTENT
+       END SUBROUTINE MPI_TYPE_GET_EXTENT
+
+       SUBROUTINE MPI_TYPE_GET_TRUE_EXTENT(DATATYPE, TRUE_LB,
+     +  TRUE_EXTENT, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER DATATYPE, IERROR
+        INTEGER(KIND = MPI_ADDRESS_KIND) TRUE_LB, TRUE_EXTENT
+       END SUBROUTINE MPI_TYPE_GET_TRUE_EXTENT
+
+       !SUBROUTINE MPI_UNPACK_EXTERNAL(DATAREP, INBUF, INSIZE,
+       !+  POSITION, OUTBUF, OUTCOUNT, DATATYPE, IERROR)
+       !        USE MPI_CONSTANTS
+       !        INTEGER OUTCOUNT, DATATYPE, IERROR
+       !        INTEGER(KIND=MPI_ADDRESS_KIND) INSIZE, POSITION
+       !        CHARACTER(*) DATAREP
+       !        <type> INBUF(*), OUTBUF(*)
+       !END SUBROUTINE MPI_UNPACK_EXTERNAL
+
+       SUBROUTINE MPI_WIN_CREATE_ERRHANDLER(FUNCTION,
+     +  ERRHANDLER, IERROR)
+        USE MPI_CONSTANTS
+        EXTERNAL FUNCTION
+        INTEGER ERRHANDLER, IERROR
+       END SUBROUTINE MPI_WIN_CREATE_ERRHANDLER
+
+       SUBROUTINE MPI_WIN_GET_ERRHANDLER(WIN, ERRHANDLER, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, ERRHANDLER, IERROR
+       END SUBROUTINE MPI_WIN_GET_ERRHANDLER
+
+       SUBROUTINE MPI_WIN_SET_ERRHANDLER(WIN, ERRHANDLER, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, ERRHANDLER, IERROR
+       END SUBROUTINE MPI_WIN_SET_ERRHANDLER
+!
+! Process Creation and Management
+!
+       SUBROUTINE MPI_CLOSE_PORT(PORT_NAME, IERROR)
+        USE MPI_CONSTANTS
+        CHARACTER(*) PORT_NAME
+        INTEGER IERROR
+       END SUBROUTINE MPI_CLOSE_PORT
+
+       SUBROUTINE MPI_COMM_ACCEPT(PORT_NAME, INFO, ROOT,
+     +  COMM, NEWCOMM, IERROR)
+        USE MPI_CONSTANTS
+        CHARACTER(*) PORT_NAME
+        INTEGER INFO, ROOT, COMM, NEWCOMM, IERROR
+       END SUBROUTINE MPI_COMM_ACCEPT
+
+       SUBROUTINE MPI_COMM_CONNECT(PORT_NAME, INFO, ROOT,
+     +  COMM, NEWCOMM, IERROR)
+        USE MPI_CONSTANTS
+        CHARACTER(*) PORT_NAME
+        INTEGER INFO, ROOT, COMM, NEWCOMM, IERROR
+       END SUBROUTINE MPI_COMM_CONNECT
+
+       SUBROUTINE MPI_COMM_DISCONNECT(COMM, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, IERROR
+       END SUBROUTINE MPI_COMM_DISCONNECT
+
+       SUBROUTINE MPI_COMM_GET_PARENT(PARENT, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER PARENT, IERROR
+       END SUBROUTINE MPI_COMM_GET_PARENT
+
+       SUBROUTINE MPI_COMM_JOIN(FD, INTERCOMM, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FD, INTERCOMM, IERROR
+       END SUBROUTINE MPI_COMM_JOIN
+
+       SUBROUTINE MPI_COMM_SPAWN(COMMAND, ARGV, MAXPROCS, INFO,
+     +  ROOT, COMM, INTERCOMM, ARRAY_OF_ERRCODES, IERROR)
+        USE MPI_CONSTANTS
+        CHARACTER(*) COMMAND, ARGV(*)
+        INTEGER INFO, MAXPROCS, ROOT, COMM, INTERCOMM
+        INTEGER ARRAY_OF_ERRCODES(*), IERROR
+       END SUBROUTINE MPI_COMM_SPAWN
+
+       SUBROUTINE MPI_COMM_SPAWN_MULTIPLE(COUNT, ARRAY_OF_COMMANDS,
+     +  ARRAY_OF_ARGV, ARRAY_OF_MAXPROCS, ARRAY_OF_INFO, ROOT,
+     +  COMM, INTERCOMM, ARRAY_OF_ERRCODES, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COUNT, ARRAY_OF_INFO(*), ARRAY_OF_MAXPROCS(*)
+        INTEGER ROOT, COMM, INTERCOMM
+        INTEGER ARRAY_OF_ERRCODES(*), IERROR
+        CHARACTER(*) ARRAY_OF_COMMANDS(*), ARRAY_OF_ARGV(COUNT, *)
+       END SUBROUTINE MPI_COMM_SPAWN_MULTIPLE
+
+       SUBROUTINE MPI_LOOKUP_NAME(SERVICE_NAME, INFO,
+     +  PORT_NAME, IERROR)
+        USE MPI_CONSTANTS
+        CHARACTER(*) SERVICE_NAME, PORT_NAME
+        INTEGER INFO, IERROR
+       END SUBROUTINE MPI_LOOKUP_NAME
+
+       SUBROUTINE MPI_OPEN_PORT(INFO, PORT_NAME, IERROR)
+        USE MPI_CONSTANTS
+        CHARACTER(*) PORT_NAME
+        INTEGER INFO, IERROR
+       END SUBROUTINE MPI_OPEN_PORT
+
+       SUBROUTINE MPI_PUBLISH_NAME(SERVICE_NAME, INFO,
+     +  PORT_NAME, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INFO, IERROR
+        CHARACTER(*) SERVICE_NAME, PORT_NAME
+       END SUBROUTINE MPI_PUBLISH_NAME
+
+       SUBROUTINE MPI_UNPUBLISH_NAME(SERVICE_NAME, INFO,
+     +  PORT_NAME, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER INFO, IERROR
+        CHARACTER(*) SERVICE_NAME, PORT_NAME
+       END SUBROUTINE MPI_UNPUBLISH_NAME
+!
+! One-Sided Communications
+!
+       !SUBROUTINE MPI_ACCUMULATE(ORIGIN_ADDR, ORIGIN_COUNT,
+       !+  ORIGIN_DATATYPE, TARGET_RANK, TARGET_DISP,
+       !        USE MPI_CONSTANTS
+       !        TARGET_COUNT, TARGET_DATATYPE, OP, WIN, IERROR)
+       !        <type> ORIGIN_ADDR(*)
+       !        INTEGER(KIND=MPI_ADDRESS_KIND) TARGET_DISP
+       !        INTEGER ORIGIN_COUNT, ORIGIN_DATATYPE,TARGET_RANK
+       !        INTEGER TARGET_COUNT, TARGET_DATATYPE, OP, WIN, IERROR
+       !END SUBROUTINE MPI_ACCUMULATE
+
+       !SUBROUTINE MPI_GET(ORIGIN_ADDR, ORIGIN_COUNT, ORIGIN_DATATYPE,
+       !+  TARGET_RANK, TARGET_DISP, TARGET_COUNT,
+       !+  TARGET_DATATYPE, WIN, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> ORIGIN_ADDR(*)
+       !        INTEGER(KIND=MPI_ADDRESS_KIND) TARGET_DISP
+       !        INTEGER ORIGIN_COUNT, ORIGIN_DATATYPE, TARGET_RANK
+       !        INTEGER TARGET_COUNT, TARGET_DATATYPE, WIN, IERROR
+       !END SUBROUTINE MPI_GET
+
+       !SUBROUTINE MPI_PUT(ORIGIN_ADDR, ORIGIN_COUNT, ORIGIN_DATATYPE,
+       !+  TARGET_RANK, TARGET_DISP, TARGET_COUNT,
+       !+  TARGET_DATATYPE, WIN, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> ORIGIN_ADDR(*)
+       !        INTEGER(KIND=MPI_ADDRESS_KIND) TARGET_DISP
+       !        INTEGER ORIGIN_COUNT, ORIGIN_DATATYPE, TARGET_RANK
+       !        INTEGER TARGET_COUNT, TARGET_DATATYPE, WIN, IERROR
+       !END SUBROUTINE MPI_PUT
+
+       SUBROUTINE MPI_WIN_COMPLETE(WIN, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, IERROR
+       END SUBROUTINE MPI_WIN_COMPLETE
+
+       !SUBROUTINE MPI_WIN_CREATE(BASE, SIZE, DISP_UNIT, INFO,
+       !+  COMM, WIN, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BASE(*)
+       !        INTEGER(KIND=MPI_ADDRESS_KIND) SIZE
+       !        INTEGER DISP_UNIT, INFO, COMM, WIN, IERROR
+       !END SUBROUTINE MPI_WIN_CREATE
+
+       SUBROUTINE MPI_WIN_FENCE(ASSERT, WIN, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER ASSERT, WIN, IERROR
+       END SUBROUTINE MPI_WIN_FENCE
+
+       SUBROUTINE MPI_WIN_FREE(WIN, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, IERROR
+       END SUBROUTINE MPI_WIN_FREE
+
+       SUBROUTINE MPI_WIN_GET_GROUP(WIN, GROUP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, GROUP, IERROR
+       END SUBROUTINE MPI_WIN_GET_GROUP
+
+       SUBROUTINE MPI_WIN_LOCK(LOCK_TYPE, RANK, ASSERT, WIN, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER LOCK_TYPE, RANK, ASSERT, WIN, IERROR
+       END SUBROUTINE MPI_WIN_LOCK
+
+       SUBROUTINE MPI_WIN_POST(GROUP, ASSERT, WIN, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP, ASSERT, WIN, IERROR
+       END SUBROUTINE MPI_WIN_POST
+
+       SUBROUTINE MPI_WIN_START(GROUP, ASSERT, WIN, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER GROUP, ASSERT, WIN, IERROR
+       END SUBROUTINE MPI_WIN_START
+
+       SUBROUTINE MPI_WIN_TEST(WIN, FLAG, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, IERROR
+        LOGICAL FLAG
+       END SUBROUTINE MPI_WIN_TEST
+
+       SUBROUTINE MPI_WIN_UNLOCK(RANK, WIN, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER RANK, WIN, IERROR
+       END SUBROUTINE MPI_WIN_UNLOCK
+
+       SUBROUTINE MPI_WIN_WAIT(WIN, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, IERROR
+       END SUBROUTINE MPI_WIN_WAIT
+!
+! Extended Collective Operations
+!
+       !SUBROUTINE MPI_ALLTOALLW(SENDBUF, SENDCOUNTS,
+       !+  SDISPLS, SENDTYPES, RECVBUF, RECVCOUNTS,
+       !+  RDISPLS, RECVTYPES, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER SENDCOUNTS(*), SDISPLS(*), SENDTYPES(*)
+       !        INTEGER RECVCOUNTS(*), RDISPLS(*), RECVTYPES(*)
+       !        INTEGER COMM, IERROR
+       !END SUBROUTINE MPI_ALLTOALLW
+
+       !SUBROUTINE MPI_EXSCAN(SENDBUF, RECVBUF, COUNT, DATATYPE,
+       !+  OP, COMM, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> SENDBUF(*), RECVBUF(*)
+       !        INTEGER COUNT, DATATYPE, OP, COMM, IERROR
+       !END SUBROUTINE MPI_EXSCAN
+!
+! External Interfaces
+!
+       SUBROUTINE MPI_ADD_ERROR_CLASS(ERRORCLASS, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER ERRORCLASS, IERROR
+       END SUBROUTINE MPI_ADD_ERROR_CLASS
+
+       SUBROUTINE MPI_ADD_ERROR_CODE(ERRORCLASS, ERRORCODE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER ERRORCLASS, ERRORCODE, IERROR
+       END SUBROUTINE MPI_ADD_ERROR_CODE
+
+       SUBROUTINE MPI_ADD_ERROR_STRING(ERRORCODE, STRING, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER ERRORCODE, IERROR
+        CHARACTER(*) STRING
+       END SUBROUTINE MPI_ADD_ERROR_STRING
+
+       SUBROUTINE MPI_COMM_CALL_ERRHANDLER(COMM, ERRORCODE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, ERRORCODE, IERROR
+       END SUBROUTINE MPI_COMM_CALL_ERRHANDLER
+
+       SUBROUTINE MPI_COMM_CREATE_KEYVAL(COMM_COPY_ATTR_FN,
+     +  COMM_DELETE_ATTR_FN, COMM_KEYVAL, EXTRA_STATE, IERROR)
+        USE MPI_CONSTANTS
+        EXTERNAL COMM_COPY_ATTR_FN, COMM_DELETE_ATTR_FN
+        INTEGER COMM_KEYVAL, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) EXTRA_STATE
+       END SUBROUTINE MPI_COMM_CREATE_KEYVAL
+
+       SUBROUTINE MPI_COMM_DELETE_ATTR(COMM, COMM_KEYVAL, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, COMM_KEYVAL, IERROR
+       END SUBROUTINE MPI_COMM_DELETE_ATTR
+
+       SUBROUTINE MPI_COMM_FREE_KEYVAL(COMM_KEYVAL, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM_KEYVAL, IERROR
+       END SUBROUTINE MPI_COMM_FREE_KEYVAL
+
+       SUBROUTINE MPI_COMM_GET_ATTR(COMM, COMM_KEYVAL, ATTRIBUTE_VAL,
+     +  FLAG, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, COMM_KEYVAL, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE_VAL
+        LOGICAL FLAG
+       END SUBROUTINE MPI_COMM_GET_ATTR
+
+       SUBROUTINE MPI_COMM_GET_NAME(COMM, COMM_NAME,
+     +  RESULTLEN, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, RESULTLEN, IERROR
+        CHARACTER(*) COMM_NAME
+       END SUBROUTINE MPI_COMM_GET_NAME
+
+       SUBROUTINE MPI_COMM_SET_ATTR(COMM, COMM_KEYVAL,
+     +  ATTRIBUTE_VAL, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, COMM_KEYVAL, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE_VAL
+       END SUBROUTINE MPI_COMM_SET_ATTR
+
+       SUBROUTINE MPI_COMM_SET_NAME(COMM, COMM_NAME, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER COMM, IERROR
+        CHARACTER(*) COMM_NAME
+       END SUBROUTINE MPI_COMM_SET_NAME
+
+       SUBROUTINE MPI_FILE_CALL_ERRHANDLER(FH, ERRORCODE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, ERRORCODE, IERROR
+       END SUBROUTINE MPI_FILE_CALL_ERRHANDLER
+
+       SUBROUTINE MPI_GREQUEST_COMPLETE(REQUEST, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER REQUEST, IERROR
+       END SUBROUTINE MPI_GREQUEST_COMPLETE
+
+       SUBROUTINE MPI_GREQUEST_START(QUERY_FN, FREE_FN, CANCEL_FN,
+     +  EXTRA_STATE, REQUEST, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER REQUEST, IERROR
+        EXTERNAL QUERY_FN, FREE_FN, CANCEL_FN
+        INTEGER (KIND=MPI_ADDRESS_KIND) EXTRA_STATE
+       END SUBROUTINE MPI_GREQUEST_START
+
+       SUBROUTINE MPI_INIT_THREAD(REQUIRED, PROVIDED, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER REQUIRED, PROVIDED, IERROR
+       END SUBROUTINE MPI_INIT_THREAD
+
+       SUBROUTINE MPI_IS_THREAD_MAIN(FLAG, IERROR)
+        USE MPI_CONSTANTS
+        LOGICAL FLAG
+        INTEGER IERROR
+       END SUBROUTINE MPI_IS_THREAD_MAIN
+
+       SUBROUTINE MPI_QUERY_THREAD(PROVIDED, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER PROVIDED, IERROR
+       END SUBROUTINE MPI_QUERY_THREAD
+
+       SUBROUTINE MPI_STATUS_SET_CANCELLED(STATUS, FLAG, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+        LOGICAL FLAG
+       END SUBROUTINE MPI_STATUS_SET_CANCELLED
+
+       SUBROUTINE MPI_STATUS_SET_ELEMENTS(STATUS, DATATYPE,
+     +  COUNT, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER STATUS(MPI_STATUS_SIZE), DATATYPE, COUNT, IERROR
+       END SUBROUTINE MPI_STATUS_SET_ELEMENTS
+
+       SUBROUTINE MPI_TYPE_CREATE_KEYVAL(TYPE_COPY_ATTR_FN,
+     +  TYPE_DELETE_ATTR_FN, TYPE_KEYVAL, EXTRA_STATE, IERROR)
+        USE MPI_CONSTANTS
+        EXTERNAL TYPE_COPY_ATTR_FN, TYPE_DELETE_ATTR_FN
+        INTEGER TYPE_KEYVAL, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) EXTRA_STATE
+       END SUBROUTINE MPI_TYPE_CREATE_KEYVAL
+
+       SUBROUTINE MPI_TYPE_DELETE_ATTR(TYPE, TYPE_KEYVAL, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER TYPE, TYPE_KEYVAL, IERROR
+       END SUBROUTINE MPI_TYPE_DELETE_ATTR
+
+       SUBROUTINE MPI_TYPE_DUP(TYPE, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER TYPE, NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_DUP
+
+       SUBROUTINE MPI_TYPE_FREE_KEYVAL(TYPE_KEYVAL, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER TYPE_KEYVAL, IERROR
+       END SUBROUTINE MPI_TYPE_FREE_KEYVAL
+
+       SUBROUTINE MPI_TYPE_GET_ATTR(TYPE, TYPE_KEYVAL, ATTRIBUTE_VAL,
+     +  FLAG, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER TYPE, TYPE_KEYVAL, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE_VAL
+        LOGICAL FLAG
+       END SUBROUTINE MPI_TYPE_GET_ATTR
+
+       SUBROUTINE MPI_TYPE_GET_CONTENTS(DATATYPE, MAX_INTEGERS,
+     +  MAX_ADDRESSES, MAX_DATATYPES, ARRAY_OF_INTEGERS,
+     +  ARRAY_OF_ADDRESSES, ARRAY_OF_DATATYPES, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER DATATYPE, MAX_INTEGERS, MAX_ADDRESSES
+        INTEGER MAX_DATATYPES, ARRAY_OF_INTEGERS(*)
+        INTEGER ARRAY_OF_DATATYPES(*), IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) ARRAY_OF_ADDRESSES(*)
+       END SUBROUTINE MPI_TYPE_GET_CONTENTS
+
+       SUBROUTINE MPI_TYPE_GET_ENVELOPE(DATATYPE, NUM_INTEGERS,
+     +  NUM_ADDRESSES, NUM_DATATYPES, COMBINER, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER DATATYPE, NUM_INTEGERS, NUM_ADDRESSES
+        INTEGER NUM_DATATYPES, COMBINER, IERROR
+       END SUBROUTINE MPI_TYPE_GET_ENVELOPE
+
+       SUBROUTINE MPI_TYPE_GET_NAME(TYPE, TYPE_NAME,
+     +  RESULTLEN, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER TYPE, RESULTLEN, IERROR
+        CHARACTER(*) TYPE_NAME
+       END SUBROUTINE MPI_TYPE_GET_NAME
+
+       SUBROUTINE MPI_TYPE_SET_ATTR(TYPE, TYPE_KEYVAL,
+     +  ATTRIBUTE_VAL, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER TYPE, TYPE_KEYVAL, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE_VAL
+       END SUBROUTINE MPI_TYPE_SET_ATTR
+
+       SUBROUTINE MPI_TYPE_SET_NAME(TYPE, TYPE_NAME, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER TYPE, IERROR
+        CHARACTER(*) TYPE_NAME
+       END SUBROUTINE MPI_TYPE_SET_NAME
+
+       SUBROUTINE MPI_WIN_CALL_ERRHANDLER(WIN, ERRORCODE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, ERRORCODE, IERROR
+       END SUBROUTINE MPI_WIN_CALL_ERRHANDLER
+
+       SUBROUTINE MPI_WIN_CREATE_KEYVAL(WIN_COPY_ATTR_FN,
+     +  WIN_DELETE_ATTR_FN, WIN_KEYVAL, EXTRA_STATE, IERROR)
+        USE MPI_CONSTANTS
+        EXTERNAL WIN_COPY_ATTR_FN, WIN_DELETE_ATTR_FN
+        INTEGER WIN_KEYVAL, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) EXTRA_STATE
+       END SUBROUTINE MPI_WIN_CREATE_KEYVAL
+
+       SUBROUTINE MPI_WIN_DELETE_ATTR(WIN, WIN_KEYVAL, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, WIN_KEYVAL, IERROR
+       END SUBROUTINE MPI_WIN_DELETE_ATTR
+
+       SUBROUTINE MPI_WIN_FREE_KEYVAL(WIN_KEYVAL, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN_KEYVAL, IERROR
+       END SUBROUTINE MPI_WIN_FREE_KEYVAL
+
+       SUBROUTINE MPI_WIN_GET_ATTR(WIN, WIN_KEYVAL, ATTRIBUTE_VAL,
+     +  FLAG, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, WIN_KEYVAL, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE_VAL
+        LOGICAL FLAG
+       END SUBROUTINE MPI_WIN_GET_ATTR
+
+       SUBROUTINE MPI_WIN_GET_NAME(WIN, WIN_NAME, RESULTLEN, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, RESULTLEN, IERROR
+        CHARACTER(*) WIN_NAME
+       END SUBROUTINE MPI_WIN_GET_NAME
+
+       SUBROUTINE MPI_WIN_SET_ATTR(WIN, WIN_KEYVAL,
+     +  ATTRIBUTE_VAL, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, WIN_KEYVAL, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) ATTRIBUTE_VAL
+       END SUBROUTINE MPI_WIN_SET_ATTR
+
+       SUBROUTINE MPI_WIN_SET_NAME(WIN, WIN_NAME, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER WIN, IERROR
+        CHARACTER(*) WIN_NAME
+       END SUBROUTINE MPI_WIN_SET_NAME
+!
+! I/O
+!
+       SUBROUTINE MPI_FILE_CLOSE(FH, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, IERROR
+       END SUBROUTINE MPI_FILE_CLOSE
+
+       SUBROUTINE MPI_FILE_DELETE(FILENAME, INFO, IERROR)
+        USE MPI_CONSTANTS
+        CHARACTER(*) FILENAME
+        INTEGER INFO, IERROR
+       END SUBROUTINE MPI_FILE_DELETE
+
+       SUBROUTINE MPI_FILE_GET_AMODE(FH, AMODE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, AMODE, IERROR
+       END SUBROUTINE MPI_FILE_GET_AMODE
+
+       SUBROUTINE MPI_FILE_GET_ATOMICITY(FH, FLAG, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, IERROR
+        LOGICAL FLAG
+       END SUBROUTINE MPI_FILE_GET_ATOMICITY
+
+       SUBROUTINE MPI_FILE_GET_BYTE_OFFSET(FH, OFFSET, DISP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, IERROR
+        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET, DISP
+       END SUBROUTINE MPI_FILE_GET_BYTE_OFFSET
+
+       SUBROUTINE MPI_FILE_GET_GROUP(FH, GROUP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, GROUP, IERROR
+       END SUBROUTINE MPI_FILE_GET_GROUP
+
+       SUBROUTINE MPI_FILE_GET_INFO(FH, INFO_USED, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, INFO_USED, IERROR
+       END SUBROUTINE MPI_FILE_GET_INFO
+
+       SUBROUTINE MPI_FILE_GET_POSITION(FH, OFFSET, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, IERROR
+        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET
+       END SUBROUTINE MPI_FILE_GET_POSITION
+
+       SUBROUTINE MPI_FILE_GET_POSITION_SHARED(FH, OFFSET, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, IERROR
+        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET
+       END SUBROUTINE MPI_FILE_GET_POSITION_SHARED
+
+       SUBROUTINE MPI_FILE_GET_SIZE(FH, SIZE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, IERROR
+        INTEGER(KIND=MPI_OFFSET_KIND) SIZE
+       END SUBROUTINE MPI_FILE_GET_SIZE
+
+       SUBROUTINE MPI_FILE_GET_TYPE_EXTENT(FH, DATATYPE,
+     +  EXTENT, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, DATATYPE, IERROR
+        INTEGER(KIND=MPI_ADDRESS_KIND) EXTENT
+       END SUBROUTINE MPI_FILE_GET_TYPE_EXTENT
+
+       SUBROUTINE MPI_FILE_GET_VIEW(FH, DISP, ETYPE, FILETYPE,
+     +  DATAREP, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, ETYPE, FILETYPE, IERROR
+        INTEGER(KIND=MPI_OFFSET_KIND) DISP
+        CHARACTER(*) DATAREP
+       END SUBROUTINE MPI_FILE_GET_VIEW
+
+       !SUBROUTINE MPI_FILE_IREAD(FH, BUF, COUNT, DATATYPE,
+       !+  REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE, REQUEST, IERROR
+       !END SUBROUTINE MPI_FILE_IREAD
+
+       !SUBROUTINE MPI_FILE_IREAD_AT(FH, OFFSET, BUF, COUNT,
+       !+  DATATYPE, REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE, REQUEST, IERROR
+       !        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET
+       !END SUBROUTINE MPI_FILE_IREAD_AT
+
+       !SUBROUTINE MPI_FILE_IREAD_SHARED(FH, BUF, COUNT, DATATYPE
+       !+  REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE, REQUEST, IERROR
+       !END SUBROUTINE MPI_FILE_IREAD_SHARED
+
+       !SUBROUTINE MPI_FILE_IWRITE(FH, BUF, COUNT, DATATYPE,
+       !+  REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE, REQUEST, IERROR
+       !END SUBROUTINE MPI_FILE_IWRITE
+
+       !SUBROUTINE MPI_FILE_IWRITE_AT(FH, OFFSET, BUF, COUNT,
+       !+  DATATYPE, REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE, REQUEST, IERROR
+       !        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET
+       !END SUBROUTINE MPI_FILE_IWRITE_AT
+
+       !SUBROUTINE MPI_FILE_IWRITE_SHARED(FH, BUF, COUNT, DATATYPE,
+       !+  REQUEST, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE, REQUEST, IERROR
+       !END SUBROUTINE MPI_FILE_IWRITE_SHARED
+
+       SUBROUTINE MPI_FILE_OPEN(COMM, FILENAME, AMODE,
+     +  INFO, FH, IERROR)
+        USE MPI_CONSTANTS
+        CHARACTER(*) FILENAME
+        INTEGER COMM, AMODE, INFO, FH, IERROR
+       END SUBROUTINE MPI_FILE_OPEN
+
+       SUBROUTINE MPI_FILE_PREALLOCATE(FH, SIZE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, IERROR
+        INTEGER(KIND=MPI_OFFSET_KIND) SIZE
+       END SUBROUTINE MPI_FILE_PREALLOCATE
+
+       !SUBROUTINE MPI_FILE_READ(FH, BUF, COUNT, DATATYPE,
+       !+  STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_READ
+
+       !SUBROUTINE MPI_FILE_READ_ALL(FH, BUF, COUNT, DATATYPE,
+       !+  STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_READ_ALL
+
+       !SUBROUTINE MPI_FILE_READ_ALL_BEGIN(FH, BUF, COUNT,
+       !+  DATATYPE, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE, IERROR
+       !END SUBROUTINE MPI_FILE_READ_ALL_BEGIN
+
+       !SUBROUTINE MPI_FILE_READ_ALL_END(FH, BUF, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_READ_ALL_END
+
+       !SUBROUTINE MPI_FILE_READ_AT(FH, OFFSET, BUF, COUNT,
+       !+  DATATYPE, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET
+       !END SUBROUTINE MPI_FILE_READ_AT
+
+       !SUBROUTINE MPI_FILE_READ_AT_ALL(FH, OFFSET, BUF, COUNT,
+       !+  DATATYPE, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET
+       !END SUBROUTINE MPI_FILE_READ_AT_ALL
+
+       !SUBROUTINE MPI_FILE_READ_AT_ALL_BEGIN(FH, OFFSET, BUF,
+       !+  COUNT, DATATYPE, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE, IERROR
+       !        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET
+       !END SUBROUTINE MPI_FILE_READ_AT_ALL_BEGIN
+
+       !SUBROUTINE MPI_FILE_READ_AT_ALL_END(FH, BUF, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_READ_AT_ALL_END
+
+       !SUBROUTINE MPI_FILE_READ_ORDERED(FH, BUF, COUNT, DATATYPE,
+       !+  STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_READ_ORDERED
+
+       !SUBROUTINE MPI_FILE_READ_ORDERED_BEGIN(FH, BUF, COUNT,
+       !+  DATATYPE, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE, IERROR
+       !END SUBROUTINE MPI_FILE_READ_ORDERED_BEGIN
+
+       !SUBROUTINE MPI_FILE_READ_ORDERED_END(FH, BUF, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_READ_ORDERED_END
+
+       !SUBROUTINE MPI_FILE_READ_SHARED(FH, BUF, COUNT, DATATYPE,
+       !+  STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_READ_SHARED
+
+       SUBROUTINE MPI_FILE_SEEK(FH, OFFSET, WHENCE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, WHENCE, IERROR
+        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET
+       END SUBROUTINE MPI_FILE_SEEK
+
+       SUBROUTINE MPI_FILE_SEEK_SHARED(FH, OFFSET, WHENCE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, WHENCE, IERROR
+        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET
+       END SUBROUTINE MPI_FILE_SEEK_SHARED
+
+       SUBROUTINE MPI_FILE_SET_ATOMICITY(FH, FLAG, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, IERROR
+        LOGICAL FLAG
+       END SUBROUTINE MPI_FILE_SET_ATOMICITY
+
+       SUBROUTINE MPI_FILE_SET_INFO(FH, INFO, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, INFO, IERROR
+       END SUBROUTINE MPI_FILE_SET_INFO
+
+       SUBROUTINE MPI_FILE_SET_SIZE(FH, SIZE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, IERROR
+        INTEGER(KIND=MPI_OFFSET_KIND) SIZE
+       END SUBROUTINE MPI_FILE_SET_SIZE
+
+       SUBROUTINE MPI_FILE_SET_VIEW(FH, DISP, ETYPE,
+     +  FILETYPE, DATAREP, INFO, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, ETYPE, FILETYPE, INFO, IERROR
+        INTEGER(KIND=MPI_OFFSET_KIND) DISP
+        CHARACTER(*) DATAREP
+       END SUBROUTINE MPI_FILE_SET_VIEW
+
+       SUBROUTINE MPI_FILE_SYNC(FH, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER FH, IERROR
+       END SUBROUTINE MPI_FILE_SYNC
+
+       !SUBROUTINE MPI_FILE_WRITE(FH, BUF, COUNT, DATATYPE,
+       !+  STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_WRITE
+
+       !SUBROUTINE MPI_FILE_WRITE_ALL(FH, BUF, COUNT, DATATYPE,
+       !+  STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_WRITE_ALL
+
+       !SUBROUTINE MPI_FILE_WRITE_ALL_BEGIN(FH, BUF, COUNT,
+       !+  DATATYPE, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE, IERROR
+       !END SUBROUTINE MPI_FILE_WRITE_ALL_BEGIN
+
+       !SUBROUTINE MPI_FILE_WRITE_ALL_END(FH, BUF, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_WRITE_ALL_END
+
+       !SUBROUTINE MPI_FILE_WRITE_AT(FH, OFFSET, BUF, COUNT,
+       !+  DATATYPE, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET
+       !END SUBROUTINE MPI_FILE_WRITE_AT
+
+       !SUBROUTINE MPI_FILE_WRITE_AT_ALL(FH, OFFSET, BUF,
+       !+  COUNT, DATATYPE, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET
+       !END SUBROUTINE MPI_FILE_WRITE_AT_ALL
+
+       !SUBROUTINE MPI_FILE_WRITE_AT_ALL_BEGIN(FH, OFFSET,
+       !+  BUF, COUNT, DATATYPE, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE, IERROR
+       !        INTEGER(KIND=MPI_OFFSET_KIND) OFFSET
+       !END SUBROUTINE MPI_FILE_WRITE_AT_ALL_BEGIN
+
+       !SUBROUTINE MPI_FILE_WRITE_AT_ALL_END(FH, BUF, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_WRITE_AT_ALL_END
+
+       !SUBROUTINE MPI_FILE_WRITE_ORDERED(FH, BUF, COUNT, DATATYPE,
+       !+  STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_WRITE_ORDERED
+
+       !SUBROUTINE MPI_FILE_WRITE_ORDERED_BEGIN(FH, BUF, COUNT,
+       !+  DATATYPE, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE, IERROR
+       !END SUBROUTINE MPI_FILE_WRITE_ORDERED_BEGIN
+
+       !SUBROUTINE MPI_FILE_WRITE_ORDERED_END(FH, BUF, STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_WRITE_ORDERED_END
+
+       !SUBROUTINE MPI_FILE_WRITE_SHARED(FH, BUF, COUNT, DATATYPE,
+       !+  STATUS, IERROR)
+       !        USE MPI_CONSTANTS
+       !        <type> BUF(*)
+       !        INTEGER FH, COUNT, DATATYPE
+       !        INTEGER STATUS(MPI_STATUS_SIZE), IERROR
+       !END SUBROUTINE MPI_FILE_WRITE_SHARED
+
+       SUBROUTINE MPI_REGISTER_DATAREP(DATAREP,
+     +  READ_CONVERSION_FN, WRITE_CONVERSION_FN,
+     +  DTYPE_FILE_EXTENT_FN, EXTRA_STATE, IERROR)
+        USE MPI_CONSTANTS
+        CHARACTER(*) DATAREP
+        EXTERNAL READ_CONVERSION_FN, WRITE_CONVERSION_FN
+        EXTERNAL DTYPE_FILE_EXTENT_FN
+        INTEGER(KIND=MPI_ADDRESS_KIND) EXTRA_STATE
+        INTEGER IERROR
+       END SUBROUTINE MPI_REGISTER_DATAREP
+!
+! Language Bingings, MPI_SIZEOF is a generic interface
+!
+       SUBROUTINE MPI_TYPE_CREATE_F90_COMPLEX(P, R, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER P, R, NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_CREATE_F90_COMPLEX
+
+       SUBROUTINE MPI_TYPE_CREATE_F90_INTEGER(R, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER R, NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_CREATE_F90_INTEGER
+
+       SUBROUTINE MPI_TYPE_CREATE_F90_REAL(P, R, NEWTYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER P, R, NEWTYPE, IERROR
+       END SUBROUTINE MPI_TYPE_CREATE_F90_REAL
+
+       SUBROUTINE MPI_TYPE_MATCH_SIZE(TYPECLASS, SIZE, TYPE, IERROR)
+        USE MPI_CONSTANTS
+        INTEGER TYPECLASS, SIZE, TYPE, IERROR
+       END SUBROUTINE MPI_TYPE_MATCH_SIZE
+
+       END INTERFACE
+
+!
+! Generic interface for MPI_SIZEOF()
+!
+       INTERFACE MPI_SIZEOF
+!
+! Integer types
+!
+       ! one byte integer scalar
+       SUBROUTINE MPI_SIZEOF_IS1(X, SIZE, IERROR)
+        INTEGER(1) X
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_IS1
+
+       ! one byte integer array
+       SUBROUTINE MPI_SIZEOF_IA1(X, SIZE, IERROR)
+        INTEGER(1) X(*)
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_IA1
+
+       ! two bytes integer scalar
+       SUBROUTINE MPI_SIZEOF_IS2(X, SIZE, IERROR)
+        INTEGER(2) X
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_IS2
+
+       ! two bytes integer array
+       SUBROUTINE MPI_SIZEOF_IA2(X, SIZE, IERROR)
+        INTEGER(2) X(*)
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_IA2
+
+       ! four bytes integer scalar
+       SUBROUTINE MPI_SIZEOF_IS4(X, SIZE, IERROR)
+        INTEGER(4) X
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_IS4
+
+       ! four bytes integer array
+       SUBROUTINE MPI_SIZEOF_IA4(X, SIZE, IERROR)
+        INTEGER(4) X(*)
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_IA4
+
+       ! eight bytes integer scalar
+       SUBROUTINE MPI_SIZEOF_IS8(X, SIZE, IERROR)
+        INTEGER(8) X
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_IS8
+
+       ! eight bytes integer array
+       SUBROUTINE MPI_SIZEOF_IA8(X, SIZE, IERROR)
+        INTEGER(8) X(*)
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_IA8
+!
+! Real types
+!
+       ! four bytes real scalar
+       SUBROUTINE MPI_SIZEOF_RS4(X, SIZE, IERROR)
+        REAL(4) X
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_RS4
+
+       ! four bytes real array
+       SUBROUTINE MPI_SIZEOF_RA4(X, SIZE, IERROR)
+        REAL(4) X(*)
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_RA4
+
+       ! eight bytes real scalar
+       SUBROUTINE MPI_SIZEOF_RS8(X, SIZE, IERROR)
+        REAL(8) X
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_RS8
+
+       ! eight bytes real array
+       SUBROUTINE MPI_SIZEOF_RA8(X, SIZE, IERROR)
+        REAL(8) X(*)
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_RA8
+
+!#ifdef HAVE_REAL16
+!
+!       ! 16 bytes real scalar
+!       SUBROUTINE MPI_SIZEOF_RS16(X, SIZE, IERROR)
+!        REAL(16) X
+!        INTEGER SIZE, IERROR
+!       END SUBROUTINE MPI_SIZEOF_RS16
+!
+!       ! 16 bytes real array
+!       SUBROUTINE MPI_SIZEOF_RA16(X, SIZE, IERROR)
+!        REAL(16) X(*)
+!        INTEGER SIZE, IERROR
+!       END SUBROUTINE MPI_SIZEOF_RA16
+!
+!#endif
+
+!
+! Complex types
+!
+       ! two*four bytes complex scalar
+       SUBROUTINE MPI_SIZEOF_CS4(X, SIZE, IERROR)
+        COMPLEX(4) X
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_CS4
+
+       ! two*four bytes complex array
+       SUBROUTINE MPI_SIZEOF_CA4(X, SIZE, IERROR)
+        COMPLEX(4) X(*)
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_CA4
+
+       ! two*eight bytes complex scalar
+       SUBROUTINE MPI_SIZEOF_CS8(X, SIZE, IERROR)
+        COMPLEX(8) X
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_CS8
+
+       ! two*eight bytes complex array
+       SUBROUTINE MPI_SIZEOF_CA8(X, SIZE, IERROR)
+        COMPLEX(8) X(*)
+        INTEGER SIZE, IERROR
+       END SUBROUTINE MPI_SIZEOF_CA8
+
+       END INTERFACE
+
+!
+! Certain MPI routines need to inform the compiler that they
+! access memory which the compiler doesn't know about, so it
+! won't optimize too agressively and break those calls.
+!
+
+!$dir  sync_routine(MPI_START)
+!$dir  sync_routine(MPI_STARTALL)
+!$dir  sync_routine(MPI_WAIT)
+!$dir  sync_routine(MPI_WAITALL)
+!$dir  sync_routine(MPI_WAITANY)
+!$dir  sync_routine(MPI_WAITSOME)
+!$dir  sync_routine(MPI_TEST)
+!$dir  sync_routine(MPI_TESTALL)
+!$dir  sync_routine(MPI_TESTANY)
+!$dir  sync_routine(MPI_TESTSOME)
+!$dir  sync_routine(MPI_WIN_START)
+!$dir  sync_routine(MPI_WIN_COMPLETE)
+!$dir  sync_routine(MPI_WIN_POST)
+!$dir  sync_routine(MPI_WIN_WAIT)
+!$dir  sync_routine(MPI_WIN_TEST)
+
+!
+! End MPI module definition
+!
+       END MODULE MPI
+

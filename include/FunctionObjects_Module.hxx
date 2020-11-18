@@ -12,7 +12,7 @@
 #endif // FoamFunctionObjects_EXPORT_DEFINE
 #endif // FoamFunctionObjects_STATIC_DEFINE
 
-#ifdef FoamFunctionObjects_EXPORT
+#ifdef FoamFunctionObjects_EXPORT_DEFINE
 #include <Base_Module.hxx>
 #include <Conversion_Module.hxx>
 #include <FiniteVolume_Module.hxx>

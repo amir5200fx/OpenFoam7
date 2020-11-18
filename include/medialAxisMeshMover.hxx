@@ -1,0 +1,293 @@
+#pragma once
+#ifndef _medialAxisMeshMover_Header
+#define _medialAxisMeshMover_Header
+
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+	\\  /    A nd           | Copyright (C) 2014-2019 OpenFOAM Foundation
+	 \\/     M anipulation  |
+-------------------------------------------------------------------------------
+License
+	This file is part of OpenFOAM.
+
+	OpenFOAM is free software: you can redistribute it and/or modify it
+	under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
+	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+	FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+	for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
+
+Class
+	tnbLib::medialAxisMeshMover
+
+Description
+	Mesh motion solver that uses a medial axis algorithm to work
+	out a fraction between the (nearest point on a) moving surface
+	and the (nearest point on a) fixed surface.
+	This fraction is then used to scale the motion. Use
+	- fixedValue on all moving patches
+	- zeroFixedValue on stationary patches
+	- slip on all slipping patches
+
+SourceFiles
+	medialAxisMeshMover.C
+
+\*---------------------------------------------------------------------------*/
+
+#include <externalDisplacementMeshMover.hxx>
+#include <motionSmootherAlgo.hxx>
+#include <snappyLayerDriver.hxx>
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+namespace tnbLib
+{
+
+	class pointData;
+
+	/*---------------------------------------------------------------------------*\
+				 Class medialAxisMeshMover Declaration
+	\*---------------------------------------------------------------------------*/
+
+	class medialAxisMeshMover
+		:
+		public externalDisplacementMeshMover
+	{
+		// Private Data
+
+		const labelList adaptPatchIDs_;
+
+		autoPtr<indirectPrimitivePatch> adaptPatchPtr_;
+
+		//- Scale factor for displacement
+		pointScalarField scale_;
+
+		//- Starting mesh position
+		pointField oldPoints_;
+
+		//- Mesh mover algorithm
+		motionSmootherAlgo meshMover_;
+
+
+		// Pre-calculated medial axis information
+
+			//- Normal of nearest wall. Where this normal changes direction
+			//  defines the medial axis
+		pointVectorField dispVec_;
+
+		//- Ratio of medial distance to wall distance.
+		//  (1 at wall, 0 at medial axis)
+		pointScalarField medialRatio_;
+
+		//- Distance to nearest medial axis point
+		pointScalarField medialDist_;
+
+		//- Location on nearest medial axis point
+		pointVectorField medialVec_;
+
+
+		// Private Member Functions
+
+			//- Extract fixed-value patchfields
+		static FoamSnappyHexMesh_EXPORT labelList getFixedValueBCs(const pointVectorField&);
+
+		//- Extract bc types. Replace fixedValue derivatives with fixedValue
+		FoamSnappyHexMesh_EXPORT wordList getPatchFieldTypes(const pointVectorField& fld);
+
+		//- Construct patch on selected patches
+		static FoamSnappyHexMesh_EXPORT autoPtr<indirectPrimitivePatch> getPatch
+		(
+			const polyMesh&,
+			const labelList&
+		);
+
+
+		// Calculation of medial axis information
+
+			//- Smooth normals on patch
+		FoamSnappyHexMesh_EXPORT void smoothPatchNormals
+		(
+			const label nSmoothDisp,
+			const PackedBoolList& isMasterPoint,
+			const PackedBoolList& isMasterEdge,
+			pointField& normals
+		) const;
+
+		//- Smooth normals on interior
+		FoamSnappyHexMesh_EXPORT void smoothNormals
+		(
+			const label nSmoothDisp,
+			const PackedBoolList& isMasterPoint,
+			const PackedBoolList& isMasterEdge,
+			const labelList& fixedPoints,
+			pointVectorField& normals
+		) const;
+
+		//- Is mesh edge on a cusp of displacement
+		FoamSnappyHexMesh_EXPORT bool isMaxEdge
+		(
+			const List<pointData>& pointWallDist,
+			const label edgeI,
+			const scalar minCos
+		) const;
+
+		//- Initialise medial axis. Uses pointDisplacement field only
+		//  for boundary types, not values.
+		FoamSnappyHexMesh_EXPORT void update(const dictionary&);
+
+
+		// Calculation of mesh movement
+
+			//- Unmark extrusion at given point
+		static FoamSnappyHexMesh_EXPORT bool unmarkExtrusion
+		(
+			const label patchPointi,
+			pointField& patchDisp,
+			List<snappyLayerDriver::extrudeMode>& extrudeStatus
+		);
+
+		//- Synchronise extrusion
+		FoamSnappyHexMesh_EXPORT void syncPatchDisplacement
+		(
+			const scalarField& minThickness,
+			pointField& patchDisp,
+			List<snappyLayerDriver::extrudeMode>& extrudeStatus
+		) const;
+
+		FoamSnappyHexMesh_EXPORT void smoothLambdaMuDisplacement
+		(
+			const label nSmoothDisp,
+			const PackedBoolList& isMasterPoint,
+			const PackedBoolList& isMasterEdge,
+			vectorField& displacement
+		) const;
+
+		FoamSnappyHexMesh_EXPORT void minSmoothField
+		(
+			const label nSmoothDisp,
+			const PackedBoolList& isMasterPoint,
+			const PackedBoolList& isMasterEdge,
+			const scalarField& fieldMin,
+			scalarField& field
+		) const;
+
+		//- Stop layer growth at feature edges
+		FoamSnappyHexMesh_EXPORT void handleFeatureAngleLayerTerminations
+		(
+			const scalar minCos,
+			const PackedBoolList& isMasterPoint,
+			const labelList& meshEdges,
+			List<snappyLayerDriver::extrudeMode>& extrudeStatus,
+			pointField& patchDisp,
+			label& nPointCounter
+		) const;
+
+		//- Find isolated islands (points, edges and faces and layer
+		//  terminations) in the layer mesh and stop any layer growth
+		//  at these points
+		FoamSnappyHexMesh_EXPORT void findIsolatedRegions
+		(
+			const scalar minCosLayerTermination,
+			const bool detectExtrusionIsland,
+			const PackedBoolList& isMasterPoint,
+			const PackedBoolList& isMasterEdge,
+			const labelList& meshEdges,
+			const scalarField& minThickness,
+			List<snappyLayerDriver::extrudeMode>& extrudeStatus,
+			pointField& patchDisp
+		) const;
+
+
+		//- Calculate desired displacement. Modifies per-patch displacement
+		//  and calculates displacement for whole mesh
+		//  (in pointDisplacement)
+		FoamSnappyHexMesh_EXPORT void calculateDisplacement
+		(
+			const dictionary&,
+			const scalarField& minThickness,
+			List<snappyLayerDriver::extrudeMode>& extrudeStatus,
+			pointField& patchDisp
+		);
+
+		//- Move mesh according to calculated displacement
+		FoamSnappyHexMesh_EXPORT bool shrinkMesh
+		(
+			const dictionary& meshQualityDict,
+			const label nAllowableErrors,
+			labelList& checkFaces
+		);
+
+
+	public:
+
+		//- Runtime type information
+		//TypeName("displacementMedialAxis");
+		static const char* typeName_() { return "displacementMedialAxis"; }
+		static FoamSnappyHexMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamSnappyHexMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
+
+
+		// Constructors
+
+			//- Construct from dictionary and displacement field
+		FoamSnappyHexMesh_EXPORT medialAxisMeshMover
+		(
+			const dictionary& dict,
+			const List<labelPair>& baffles,
+			pointVectorField& pointDisplacement
+		);
+
+		//- Disallow default bitwise copy construction
+		FoamSnappyHexMesh_EXPORT medialAxisMeshMover(const medialAxisMeshMover&) = delete;
+
+
+		// Destructor
+
+		FoamSnappyHexMesh_EXPORT virtual ~medialAxisMeshMover();
+
+
+		// Member Functions
+
+			//- Move mesh using current pointDisplacement boundary values.
+			//  Return true if successful (errors on checkFaces less than
+			//  allowable). Updates pointDisplacement.
+		FoamSnappyHexMesh_EXPORT virtual bool move
+		(
+			const dictionary&,
+			const label nAllowableErrors,
+			labelList& checkFaces
+		);
+
+		//- Update local data for geometry changes
+		FoamSnappyHexMesh_EXPORT virtual void movePoints(const pointField&);
+
+		//-  Update local data for topology changes
+		virtual void updateMesh(const mapPolyMesh&)
+		{
+			NotImplemented;
+		}
+
+
+		// Member Operators
+
+			//- Disallow default bitwise assignment
+		FoamSnappyHexMesh_EXPORT void operator=(const medialAxisMeshMover&) = delete;
+	};
+
+
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+} // End namespace tnbLib
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif // !_medialAxisMeshMover_Header

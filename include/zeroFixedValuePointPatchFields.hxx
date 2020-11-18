@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _processorFvPatchScalarField_Header
-#define _processorFvPatchScalarField_Header
+#ifndef _zeroFixedValuePointPatchFields_Header
+#define _zeroFixedValuePointPatchFields_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2014-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -25,44 +25,32 @@ License
 	You should have received a copy of the GNU General Public License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
+InClass
+	tnbLib::zeroFixedValuePointPatchFields
+
+Description
+
+SourceFiles
+	zeroFixedValuePointPatchFields.C
+
 \*---------------------------------------------------------------------------*/
 
-#include <processorFvPatchField.hxx>
+#include <zeroFixedValuePointPatchField.hxx>
+#include <fieldTypes.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
 
-	// * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	template<>
-	FoamFiniteVolume_EXPORT void processorFvPatchField<scalar>::initInterfaceMatrixUpdate
-	(
-		scalarField&,
-		const scalarField&,
-		const scalarField&,
-		const direction,
-		const Pstream::commsTypes commsType
-	) const;
-
-
-	template<>
-	FoamFiniteVolume_EXPORT void processorFvPatchField<scalar>::updateInterfaceMatrix
-	(
-		scalarField& result,
-		const scalarField&,
-		const scalarField& coeffs,
-		const direction,
-		const Pstream::commsTypes commsType
-	) const;
-
+	makePointPatchFieldTypedefs(zeroFixedValue);
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 } // End namespace tnbLib
 
-
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_processorFvPatchScalarField_Header
+#endif // !_zeroFixedValuePointPatchFields_Header
