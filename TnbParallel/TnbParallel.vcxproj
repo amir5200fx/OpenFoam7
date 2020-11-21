@@ -96,18 +96,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Commons\mpi\include;$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
     <TargetName>$(ProjectName)d</TargetName>
-    <LibraryPath>$(SolutionDir)Commons\metis\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\metis\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
-    <IncludePath>$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Commons\mpi\include;$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
     <TargetName>$(ProjectName)d</TargetName>
-    <LibraryPath>$(SolutionDir)Commons\metis\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\metis\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Commons\metis\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Commons\mpi\include;$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\metis\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
