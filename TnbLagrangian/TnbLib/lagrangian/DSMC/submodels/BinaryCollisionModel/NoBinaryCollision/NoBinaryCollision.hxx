@@ -35,6 +35,16 @@ Description
 
 #include <BinaryCollisionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamNoBinaryCollision_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNoBinaryCollision_EXPORT_DEFINE
+#define FoamNoBinaryCollision_EXPORT __declspec(dllexport)
+#else
+#define FoamNoBinaryCollision_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -51,7 +61,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamNoBinaryCollision_EXPORT const ::tnbLib::word typeName;
+		static FoamNoBinaryCollision_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

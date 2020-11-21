@@ -39,6 +39,16 @@ SourceFiles
 
 #include <Reaction.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamNonEquilibriumReversibleReaction_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNonEquilibriumReversibleReaction_EXPORT_DEFINE
+#define FoamNonEquilibriumReversibleReaction_EXPORT __declspec(dllexport)
+#else
+#define FoamNonEquilibriumReversibleReaction_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -67,7 +77,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("nonEquilibriumReversible");
+		//TypeName("nonEquilibriumReversible");
+		static const char* typeName_() { return "nonEquilibriumReversible"; }
+		static FoamNonEquilibriumReversibleReaction_EXPORT const ::tnbLib::word typeName;
+		static FoamNonEquilibriumReversibleReaction_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

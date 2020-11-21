@@ -111,7 +111,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~DLListBase();
+		inline ~DLListBase();
 
 
 		// Member Functions
@@ -140,28 +140,28 @@ namespace tnbLib
 		// Edit
 
 			//- Add at head of list
-		void insert(link*);
+		FoamBase_EXPORT void insert(link*);
 
 		//- Add at tail of list
-		void append(link*);
+		FoamBase_EXPORT void append(link*);
 
 		//- Swap this element with the one above unless it is at the top
-		bool swapUp(link*);
+		FoamBase_EXPORT bool swapUp(link*);
 
 		//- Swap this element with the one below unless it is at the bottom
-		bool swapDown(link*);
+		FoamBase_EXPORT bool swapDown(link*);
 
 		//- Remove and return head
-		link* removeHead();
+		FoamBase_EXPORT link* removeHead();
 
 		//- Remove and return element
-		link* remove(link*);
+		FoamBase_EXPORT link* remove(link*);
 
 		// Remove and return element specified by iterator
 		inline link* remove(iterator&);
 
 		//- Replace oldLink with newLink and return element
-		link* replace(link* oldLink, link* newLink);
+		FoamBase_EXPORT link* replace(link* oldLink, link* newLink);
 
 		//- Replace oldIter with newLink and return element
 		inline link* replace(iterator& oldIter, link* newLink);
@@ -321,13 +321,13 @@ namespace tnbLib
 	private:
 
 		//- Iterator returned by end()
-		static iterator endIter_;
+		static FoamBase_EXPORT iterator endIter_;
 
 		//- const_iterator returned by end()
-		static const_iterator endConstIter_;
+		static FoamBase_EXPORT const_iterator endConstIter_;
 
 		//- const_reverse_iterator returned by end()
-		static const_reverse_iterator endConstRevIter_;
+		static FoamBase_EXPORT const_reverse_iterator endConstRevIter_;
 	};
 
 

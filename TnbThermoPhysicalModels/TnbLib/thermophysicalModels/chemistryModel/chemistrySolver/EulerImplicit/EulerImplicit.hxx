@@ -39,6 +39,16 @@ SourceFiles
 #include <chemistrySolver.hxx>
 #include <Switch.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamEulerImplicit_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamEulerImplicit_EXPORT_DEFINE
+#define FoamEulerImplicit_EXPORT __declspec(dllexport)
+#else
+#define FoamEulerImplicit_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -77,7 +87,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("EulerImplicit");
+		//TypeName("EulerImplicit");
+		static const char* typeName_() { return "EulerImplicit"; }
+		static FoamEulerImplicit_EXPORT const ::tnbLib::word typeName;
+		static FoamEulerImplicit_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

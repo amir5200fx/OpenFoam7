@@ -49,12 +49,14 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <includeModule.hxx>
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	extern const char* const FOAMversion;
-	extern const char* const FOAMbuild;
+	FoamBase_EXPORT extern const char* const FOAMversion;
+	FoamBase_EXPORT extern const char* const FOAMbuild;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

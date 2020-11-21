@@ -71,14 +71,18 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cyclic");
+		//TypeName("cyclic");
+		static const char* typeName_() { return "cyclic"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from fine level interface,
 			//  local and neighbour restrict addressing
-		cyclicGAMGInterface
+		FoamBase_EXPORT cyclicGAMGInterface
 		(
 			const label index,
 			const lduInterfacePtrsList& coarseInterfaces,
@@ -90,7 +94,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		cyclicGAMGInterface
+		FoamBase_EXPORT cyclicGAMGInterface
 		(
 			const label index,
 			const lduInterfacePtrsList& coarseInterfaces,
@@ -98,11 +102,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		cyclicGAMGInterface(const cyclicGAMGInterface&) = delete;
+		FoamBase_EXPORT cyclicGAMGInterface(const cyclicGAMGInterface&) = delete;
 
 
 		//- Destructor
-		virtual ~cyclicGAMGInterface();
+		FoamBase_EXPORT virtual ~cyclicGAMGInterface();
 
 
 		// Member Functions
@@ -110,7 +114,7 @@ namespace tnbLib
 			// Interface transfer functions
 
 				//- Transfer and return internal field adjacent to the interface
-		virtual tmp<labelField> internalFieldTransfer
+		FoamBase_EXPORT virtual tmp<labelField> internalFieldTransfer
 		(
 			const Pstream::commsTypes commsType,
 			const labelUList& iF
@@ -154,13 +158,13 @@ namespace tnbLib
 		// I/O
 
 			//- Write to stream
-		virtual void write(Ostream&) const;
+		FoamBase_EXPORT virtual void write(Ostream&) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const cyclicGAMGInterface&) = delete;
+		FoamBase_EXPORT void operator=(const cyclicGAMGInterface&) = delete;
 	};
 
 

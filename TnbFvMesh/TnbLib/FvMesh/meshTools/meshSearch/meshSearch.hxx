@@ -77,7 +77,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Updates nearestI, nearestDistSqr from any closer ones.
-		static bool findNearer
+		static FoamFvMesh_EXPORT bool findNearer
 		(
 			const point& sample,
 			const pointField& points,
@@ -86,7 +86,7 @@ namespace tnbLib
 		);
 
 		//- Updates nearestI, nearestDistSqr from any selected closer ones.
-		static bool findNearer
+		static FoamFvMesh_EXPORT bool findNearer
 		(
 			const point& sample,
 			const pointField& points,
@@ -99,30 +99,30 @@ namespace tnbLib
 		// Cells
 
 			//- Nearest cell centre using octree
-		label findNearestCellTree(const point&) const;
+		FoamFvMesh_EXPORT label findNearestCellTree(const point&) const;
 
 		//- Nearest cell centre going through all cells
-		label findNearestCellLinear(const point&) const;
+		FoamFvMesh_EXPORT label findNearestCellLinear(const point&) const;
 
 		//- Walk from seed. Does not 'go around' boundary, just returns
 		//  last cell before boundary.
-		label findNearestCellWalk(const point&, const label) const;
+		FoamFvMesh_EXPORT label findNearestCellWalk(const point&, const label) const;
 
 		//- Cell containing location. Linear search.
-		label findCellLinear(const point&) const;
+		FoamFvMesh_EXPORT label findCellLinear(const point&) const;
 
 		//- Walk from seed. Does not 'go around' boundary, just returns
 		//  last cell before boundary.
-		label findCellWalk(const point&, const label) const;
+		FoamFvMesh_EXPORT label findCellWalk(const point&, const label) const;
 
 
 		// Faces
 
-		label findNearestFaceTree(const point&) const;
+		FoamFvMesh_EXPORT label findNearestFaceTree(const point&) const;
 
-		label findNearestFaceLinear(const point&) const;
+		FoamFvMesh_EXPORT label findNearestFaceLinear(const point&) const;
 
-		label findNearestFaceWalk(const point&, const label) const;
+		FoamFvMesh_EXPORT label findNearestFaceWalk(const point&, const label) const;
 
 
 
@@ -130,7 +130,7 @@ namespace tnbLib
 
 			//- Walk from seed to find nearest boundary face. Gets stuck in
 			//  local minimum.
-		label findNearestBoundaryFaceWalk
+		FoamFvMesh_EXPORT label findNearestBoundaryFaceWalk
 		(
 			const point& location,
 			const label seedFacei
@@ -140,20 +140,23 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("meshSearch");
+		/*ClassName("meshSearch");*/
+		static const char* typeName_() { return "meshSearch"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Static Data Members
 
 			//- Tolerance on linear dimensions
-		static scalar tol_;
+		static FoamFvMesh_EXPORT scalar tol_;
 
 
 		// Constructors
 
 			//- Construct from components. Constructs bb slightly bigger than
 			//  mesh points bb.
-		meshSearch
+		FoamFvMesh_EXPORT meshSearch
 		(
 			const polyMesh& mesh,
 			const polyMesh::cellDecomposition = polyMesh::CELL_TETS
@@ -162,7 +165,7 @@ namespace tnbLib
 		//- Construct with a custom bounding box. Any mesh element outside
 		//  bb will not be found. Up to user to make sure bb
 		//  extends slightly beyond wanted elements.
-		meshSearch
+		FoamFvMesh_EXPORT meshSearch
 		(
 			const polyMesh& mesh,
 			const treeBoundBox& bb,
@@ -170,11 +173,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		meshSearch(const meshSearch&) = delete;
+		FoamFvMesh_EXPORT meshSearch(const meshSearch&) = delete;
 
 
 		//- Destructor
-		~meshSearch();
+		FoamFvMesh_EXPORT ~meshSearch();
 
 
 		// Member Functions
@@ -193,10 +196,10 @@ namespace tnbLib
 
 		//- Get (demand driven) reference to octree holding all
 		//  boundary faces
-		const indexedOctree<treeDataFace>& boundaryTree() const;
+		FoamFvMesh_EXPORT const indexedOctree<treeDataFace>& boundaryTree() const;
 
 		//- Get (demand driven) reference to octree holding all cells
-		const indexedOctree<treeDataCell>& cellTree() const;
+		FoamFvMesh_EXPORT const indexedOctree<treeDataCell>& cellTree() const;
 
 
 		// Queries
@@ -207,14 +210,14 @@ namespace tnbLib
 			//  - use linear search
 			//  - if seed is provided walk. (uses findNearestCellWalk;
 			//    does not handle holes in domain)
-		label findNearestCell
+		FoamFvMesh_EXPORT label findNearestCell
 		(
 			const point& location,
 			const label seedCelli = -1,
 			const bool useTreeSearch = true
 		) const;
 
-		label findNearestFace
+		FoamFvMesh_EXPORT label findNearestFace
 		(
 			const point& location,
 			const label seedFacei = -1,
@@ -225,7 +228,7 @@ namespace tnbLib
 		//  If seed provided walks and falls back to linear/tree search.
 		//  (so handles holes correctly)s
 		//  Returns -1 if not in domain.
-		label findCell
+		FoamFvMesh_EXPORT label findCell
 		(
 			const point& location,
 			const label seedCelli = -1,
@@ -236,7 +239,7 @@ namespace tnbLib
 		//  If seed provided walks but then does not pass local minima
 		//  in distance. Also does not jump from one connected region to
 		//  the next.
-		label findNearestBoundaryFace
+		FoamFvMesh_EXPORT label findNearestBoundaryFace
 		(
 			const point& location,
 			const label seedFacei = -1,
@@ -245,32 +248,32 @@ namespace tnbLib
 
 		//- Find first intersection of boundary in segment [pStart, pEnd]
 		//  (so inclusive of endpoints). Always octree for now
-		pointIndexHit intersection(const point& pStart, const point& pEnd)
+		FoamFvMesh_EXPORT pointIndexHit intersection(const point& pStart, const point& pEnd)
 			const;
 
 		//- Find all intersections of boundary within segment pStart .. pEnd
 		//  Always octree for now
-		List<pointIndexHit> intersections
+		FoamFvMesh_EXPORT List<pointIndexHit> intersections
 		(
 			const point& pStart,
 			const point& pEnd
 		) const;
 
 		//- Determine inside/outside status
-		bool isInside(const point&) const;
+		FoamFvMesh_EXPORT bool isInside(const point&) const;
 
 
 		//- Delete all storage
-		void clearOut();
+		FoamFvMesh_EXPORT void clearOut();
 
 		//- Correct for mesh geom/topo changes
-		void correct();
+		FoamFvMesh_EXPORT void correct();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const meshSearch&) = delete;
+		FoamFvMesh_EXPORT void operator=(const meshSearch&) = delete;
 	};
 
 

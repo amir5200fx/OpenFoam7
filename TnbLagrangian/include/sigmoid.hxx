@@ -64,7 +64,7 @@ namespace tnbLib
 
 			// Private Member Functions
 
-			scalar sigmoidScale
+			FoamLagrangian_EXPORT scalar sigmoidScale
 			(
 				const scalar r,
 				const scalar shift,
@@ -75,13 +75,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("sigmoid");
+			//TypeName("sigmoid");
+			static const char* typeName_() { return "sigmoid"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			sigmoid
+			FoamLagrangian_EXPORT sigmoid
 			(
 				const word& name,
 				const dictionary& energyScalingFunctionProperties,
@@ -96,10 +100,10 @@ namespace tnbLib
 
 			// Member Functions
 
-			void scaleEnergy(scalar& e, const scalar r) const;
+			FoamLagrangian_EXPORT void scaleEnergy(scalar& e, const scalar r) const;
 
 			//- Read dictionary
-			bool read(const dictionary& energyScalingFunctionProperties);
+			FoamLagrangian_EXPORT bool read(const dictionary& energyScalingFunctionProperties);
 		};
 
 

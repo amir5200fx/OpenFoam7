@@ -82,13 +82,13 @@ void tnbLib::surfacePatch::writeDict(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Member Operators  * * * * * * * * * * * * * //
 
-bool tnbLib::surfacePatch::operator!=(const surfacePatch& p) const
+FoamFvMesh_EXPORT bool tnbLib::surfacePatch::operator!=(const surfacePatch& p) const
 {
 	return !(*this == p);
 }
 
 
-bool tnbLib::surfacePatch::operator==(const surfacePatch& p) const
+FoamFvMesh_EXPORT bool tnbLib::surfacePatch::operator==(const surfacePatch& p) const
 {
 	return
 		(
@@ -101,7 +101,7 @@ bool tnbLib::surfacePatch::operator==(const surfacePatch& p) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfacePatch& p)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfacePatch& p)
 {
 	p.write(os);
 	os.check("Ostream& operator<<(Ostream& f, const surfacePatch& p");

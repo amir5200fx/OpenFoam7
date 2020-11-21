@@ -51,6 +51,16 @@ SourceFiles
 #include <autoPtr.hxx>  // added by amir
 #include <LESdelta.hxx>  // added by amir
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamLESModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLESModel_EXPORT_DEFINE
+#define FoamLESModel_EXPORT __declspec(dllexport)
+#else
+#define FoamLESModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -109,12 +119,16 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName("LES");
+		//TypeName("LES");
+		static const char* typeName_() { return "LES"; }
+		static FoamLESModel_EXPORT const ::tnbLib::word typeName;
+		static FoamLESModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			LESModel,
@@ -129,7 +143,67 @@ namespace tnbLib
 				const word& propertiesName
 				),
 				(alpha, rho, U, alphaRhoPhi, phi, transport, propertiesName)
-		);
+		);*/
+
+		typedef autoPtr<LESModel> (*dictionaryConstructorPtr)(const alphaField& alpha, const rhoField& rho,
+		                                                      const volVectorField& U,
+		                                                      const surfaceScalarField& alphaRhoPhi,
+		                                                      const surfaceScalarField& phi,
+		                                                      const transportModel& transport,
+		                                                      const word& propertiesName);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamLESModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamLESModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamLESModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class LESModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<LESModel> New(const alphaField& alpha, const rhoField& rho, const volVectorField& U,
+			                             const surfaceScalarField& alphaRhoPhi, const surfaceScalarField& phi,
+			                             const transportModel& transport, const word& propertiesName)
+			{
+				return autoPtr<LESModel>(new LESModelType(alpha, rho, U, alphaRhoPhi, phi, transport, propertiesName));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = LESModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "LESModel" << std::
+						endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class LESModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<LESModel> New(const alphaField& alpha, const rhoField& rho, const volVectorField& U,
+			                             const surfaceScalarField& alphaRhoPhi, const surfaceScalarField& phi,
+			                             const transportModel& transport, const word& propertiesName)
+			{
+				return autoPtr<LESModel>(new LESModelType(alpha, rho, U, alphaRhoPhi, phi, transport, propertiesName));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = LESModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

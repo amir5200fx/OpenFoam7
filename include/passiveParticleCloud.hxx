@@ -57,7 +57,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct given mesh
-		passiveParticleCloud
+		FoamLagrangian_EXPORT passiveParticleCloud
 		(
 			const polyMesh&,
 			const word& cloudName = "defaultCloud",
@@ -65,7 +65,7 @@ namespace tnbLib
 		);
 
 		//- Construct from mesh, cloud name, and a list of particles
-		passiveParticleCloud
+		FoamLagrangian_EXPORT passiveParticleCloud
 		(
 			const polyMesh& mesh,
 			const word& cloudName,
@@ -73,13 +73,13 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		passiveParticleCloud(const passiveParticleCloud&) = delete;
+		FoamLagrangian_EXPORT passiveParticleCloud(const passiveParticleCloud&) = delete;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const passiveParticleCloud&) = delete;
+		FoamLagrangian_EXPORT void operator=(const passiveParticleCloud&) = delete;
 	};
 
 

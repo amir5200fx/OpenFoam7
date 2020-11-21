@@ -39,6 +39,16 @@ SourceFiles
 #include <List.hxx>
 #include <regIOobject.hxx>
 
+#ifdef FoamBase_EXPORT_DEFINE
+#define FoamGlobalIOList_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamGlobalIOList_EXPORT_DEFINE
+#define FoamGlobalIOList_EXPORT __declspec(dllexport)
+#else
+#define FoamGlobalIOList_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -57,7 +67,11 @@ namespace tnbLib
 
 	public:
 
-		TypeName("List");
+		//TypeName("List");
+		static const char* typeName_() { return "List"; }
+		static FoamGlobalIOList_EXPORT const ::tnbLib::word typeName;
+		static FoamGlobalIOList_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

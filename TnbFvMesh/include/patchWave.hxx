@@ -83,7 +83,7 @@ namespace tnbLib
 			//- Set initial set of changed faces (= all faces of patches in
 			//  patchIDs). Set changedFaces to labels of changed faces,
 			//  changedInfo to face centres.
-		void setChangedFaces
+		FoamFvMesh_EXPORT void setChangedFaces
 		(
 			const labelHashSet& patchIDs,
 			labelList& changedFaces,
@@ -92,7 +92,7 @@ namespace tnbLib
 
 		//- Copy MeshWave cell values. Return number of illegal/unset
 		//  cells.
-		label getValues(const MeshWave<wallPoint>&);
+		FoamFvMesh_EXPORT label getValues(const MeshWave<wallPoint>&);
 
 
 	public:
@@ -103,7 +103,7 @@ namespace tnbLib
 			//  whether or not to correct wall.
 			//  Calculate for all cells. correctWalls : correct wall (face&point)
 			//  cells for correct distance, searching neighbours.
-		patchWave
+		FoamFvMesh_EXPORT patchWave
 		(
 			const polyMesh& mesh,
 			const labelHashSet& patchIDs,
@@ -111,13 +111,13 @@ namespace tnbLib
 		);
 
 		//- Destructor
-		virtual ~patchWave();
+		FoamFvMesh_EXPORT virtual ~patchWave();
 
 
 		// Member Functions
 
 			//- Correct for mesh geom/topo changes
-		virtual void correct();
+		FoamFvMesh_EXPORT virtual void correct();
 
 
 		label nUnset() const

@@ -52,6 +52,16 @@ SourceFiles
 #include <volFieldsFwd.hxx>
 #include <GlobalIOField.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamFieldActivatedInjection_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFieldActivatedInjection_EXPORT_DEFINE
+#define FoamFieldActivatedInjection_EXPORT __declspec(dllexport)
+#else
+#define FoamFieldActivatedInjection_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -120,7 +130,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("fieldActivatedInjection");
+		//TypeName("fieldActivatedInjection");
+		static const char* typeName_() { return "fieldActivatedInjection"; }
+		static FoamFieldActivatedInjection_EXPORT const ::tnbLib::word typeName;
+		static FoamFieldActivatedInjection_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

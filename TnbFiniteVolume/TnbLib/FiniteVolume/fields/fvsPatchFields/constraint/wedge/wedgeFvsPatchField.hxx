@@ -39,6 +39,16 @@ SourceFiles
 #include <fvsPatchField.hxx>
 #include <wedgeFvPatch.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamWedgeFvsPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamWedgeFvsPatchField_EXPORT_DEFINE
+#define FoamWedgeFvsPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamWedgeFvsPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -57,7 +67,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(wedgeFvPatch::typeName_());
+		/*TypeName(wedgeFvPatch::typeName_());*/
+		static const char* typeName_() { return wedgeFvPatch::typeName_(); }
+		static FoamWedgeFvsPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamWedgeFvsPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

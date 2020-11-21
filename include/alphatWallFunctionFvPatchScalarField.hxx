@@ -99,20 +99,24 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("compressible::alphatWallFunction");
+			//TypeName("compressible::alphatWallFunction");
+			static const char* typeName_() { return "compressible::alphatWallFunction"; }
+			static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+			static FoamTurbulence_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from patch and internal field
-			alphatWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT alphatWallFunctionFvPatchScalarField
 			(
 				const fvPatch&,
 				const DimensionedField<scalar, volMesh>&
 			);
 
 			//- Construct from patch, internal field and dictionary
-			alphatWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT alphatWallFunctionFvPatchScalarField
 			(
 				const fvPatch&,
 				const DimensionedField<scalar, volMesh>&,
@@ -122,7 +126,7 @@ namespace tnbLib
 			//- Construct by mapping given
 			//  alphatWallFunctionFvPatchScalarField
 			//  onto a new patch
-			alphatWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT alphatWallFunctionFvPatchScalarField
 			(
 				const alphatWallFunctionFvPatchScalarField&,
 				const fvPatch&,
@@ -131,7 +135,7 @@ namespace tnbLib
 			);
 
 			//- Copy constructor
-			alphatWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT alphatWallFunctionFvPatchScalarField
 			(
 				const alphatWallFunctionFvPatchScalarField&
 			);
@@ -146,7 +150,7 @@ namespace tnbLib
 			}
 
 			//- Copy constructor setting internal field reference
-			alphatWallFunctionFvPatchScalarField
+			FoamTurbulence_EXPORT alphatWallFunctionFvPatchScalarField
 			(
 				const alphatWallFunctionFvPatchScalarField&,
 				const DimensionedField<scalar, volMesh>&
@@ -170,13 +174,13 @@ namespace tnbLib
 				// Evaluation functions
 
 					//- Update the coefficients associated with the patch field
-			virtual void updateCoeffs();
+			FoamTurbulence_EXPORT virtual void updateCoeffs();
 
 
 			// I-O
 
 				//- Write
-			virtual void write(Ostream&) const;
+			FoamTurbulence_EXPORT virtual void write(Ostream&) const;
 		};
 
 

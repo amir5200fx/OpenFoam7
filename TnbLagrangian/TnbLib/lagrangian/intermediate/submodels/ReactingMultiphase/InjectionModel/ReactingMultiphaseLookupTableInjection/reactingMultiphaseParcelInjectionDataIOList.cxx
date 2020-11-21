@@ -1,3 +1,6 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+#define FoamGlobalIOList_EXPORT_DEFINE
+
 #include <reactingMultiphaseParcelInjectionDataIOList.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

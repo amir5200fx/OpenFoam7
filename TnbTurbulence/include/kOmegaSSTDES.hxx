@@ -58,6 +58,16 @@ SourceFiles
 #include <LESModel.hxx>
 #include <LESeddyViscosity.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamkOmegaSSTDES_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamkOmegaSSTDES_EXPORT_DEFINE
+#define FoamkOmegaSSTDES_EXPORT __declspec(dllexport)
+#else
+#define FoamkOmegaSSTDES_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -125,7 +135,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("kOmegaSSTDES");
+			//TypeName("kOmegaSSTDES");
+			static const char* typeName_() { return "kOmegaSSTDES"; }
+			static FoamkOmegaSSTDES_EXPORT const ::tnbLib::word typeName;
+			static FoamkOmegaSSTDES_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

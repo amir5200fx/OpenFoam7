@@ -56,7 +56,7 @@ namespace tnbLib
 			// Marching front
 
 				//- Append to list of src face seed indices
-		void appendToDirectSeeds
+		FoamFvMesh_EXPORT void appendToDirectSeeds
 		(
 			labelList& mapFlag,
 			labelList& srcTgtSeed,
@@ -68,7 +68,7 @@ namespace tnbLib
 
 		//- Restart the advancing front - typically happens for
 		//  disconnected regions
-		void restartAdvancingFront
+		FoamFvMesh_EXPORT void restartAdvancingFront
 		(
 			labelList& mapFlag,
 			DynamicList<label>& nonOverlapFaces,
@@ -80,7 +80,7 @@ namespace tnbLib
 		// Evaluation
 
 			//- Area of intersection between source and target faces
-		scalar interArea
+		FoamFvMesh_EXPORT scalar interArea
 		(
 			const label srcFacei,
 			const label tgtFacei
@@ -90,13 +90,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("directAMI");
+		//TypeName("directAMI");
+		static const char* typeName_() { return "directAMI"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		directAMI
+		FoamFvMesh_EXPORT directAMI
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -108,11 +112,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		directAMI(const directAMI&) = delete;
+		FoamFvMesh_EXPORT directAMI(const directAMI&) = delete;
 
 
 		//- Destructor
-		virtual ~directAMI();
+		FoamFvMesh_EXPORT virtual ~directAMI();
 
 
 		// Member Functions
@@ -120,7 +124,7 @@ namespace tnbLib
 			// Manipulation
 
 				//- Update addressing and weights
-		virtual void calculate
+		FoamFvMesh_EXPORT virtual void calculate
 		(
 			labelListList& srcAddress,
 			scalarListList& srcWeights,
@@ -134,7 +138,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const directAMI&) = delete;
+		FoamFvMesh_EXPORT void operator=(const directAMI&) = delete;
 	};
 
 

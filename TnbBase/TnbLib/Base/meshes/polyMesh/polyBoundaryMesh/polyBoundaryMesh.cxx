@@ -1188,7 +1188,7 @@ tnbLib::polyPatch& tnbLib::polyBoundaryMesh::operator[]
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const polyBoundaryMesh& pbm)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const polyBoundaryMesh& pbm)
 {
 	pbm.writeData(os);
 	return os;

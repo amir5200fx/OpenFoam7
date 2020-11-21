@@ -49,7 +49,7 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class porosityModelList;
-	Ostream& operator<<(Ostream& os, const porosityModelList& models);
+	FoamFiniteVolume_EXPORT Ostream& operator<<(Ostream& os, const porosityModelList& models);
 
 	/*---------------------------------------------------------------------------*\
 						  Class porosityModelList Declaration
@@ -71,29 +71,29 @@ namespace tnbLib
 
 		// Constructors
 
-		porosityModelList(const fvMesh& mesh, const dictionary& dict);
+		FoamFiniteVolume_EXPORT porosityModelList(const fvMesh& mesh, const dictionary& dict);
 
 		//- Disallow default bitwise copy construction
-		porosityModelList(const porosityModelList&) = delete;
+		FoamFiniteVolume_EXPORT porosityModelList(const porosityModelList&) = delete;
 
 
 		//- Destructor
-		~porosityModelList();
+		FoamFiniteVolume_EXPORT ~porosityModelList();
 
 
 		// Member Functions
 
 			//- Return active status
-		bool active(const bool active = false) const;
+		FoamFiniteVolume_EXPORT bool active(const bool active = false) const;
 
 		//- Reset the source list
-		void reset(const dictionary& dict);
+		FoamFiniteVolume_EXPORT void reset(const dictionary& dict);
 
 		//- Add resistance
-		void addResistance(fvVectorMatrix& UEqn);
+		FoamFiniteVolume_EXPORT void addResistance(fvVectorMatrix& UEqn);
 
 		//- Add resistance
-		void addResistance
+		FoamFiniteVolume_EXPORT void addResistance
 		(
 			fvVectorMatrix& UEqn,
 			const volScalarField& rho,
@@ -101,7 +101,7 @@ namespace tnbLib
 		);
 
 		//- Add resistance
-		void addResistance
+		FoamFiniteVolume_EXPORT void addResistance
 		(
 			const fvVectorMatrix& UEqn,
 			volTensorField& AU,
@@ -112,13 +112,13 @@ namespace tnbLib
 		// I-O
 
 			//- Read dictionary
-		bool read(const dictionary& dict);
+		FoamFiniteVolume_EXPORT bool read(const dictionary& dict);
 
 		//- Write data to Ostream
-		bool writeData(Ostream& os) const;
+		FoamFiniteVolume_EXPORT bool writeData(Ostream& os) const;
 
 		//- Ostream operator
-		friend Ostream& operator<<
+		friend FoamFiniteVolume_EXPORT Ostream& operator<<
 			(
 				Ostream& os,
 				const porosityModelList& models
@@ -128,7 +128,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const porosityModelList&) = delete;
+		FoamFiniteVolume_EXPORT void operator=(const porosityModelList&) = delete;
 	};
 
 

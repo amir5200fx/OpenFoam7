@@ -80,13 +80,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("maitlandSmith");
+			//TypeName("maitlandSmith");
+			static const char* typeName_() { return "maitlandSmith"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			maitlandSmith
+			FoamLagrangian_EXPORT maitlandSmith
 			(
 				const word& name,
 				const dictionary& pairPotentialProperties
@@ -100,10 +104,10 @@ namespace tnbLib
 
 			// Member Functions
 
-			scalar unscaledEnergy(const scalar r) const;
+			FoamLagrangian_EXPORT scalar unscaledEnergy(const scalar r) const;
 
 			//- Read dictionary
-			bool read(const dictionary& pairPotentialProperties);
+			FoamLagrangian_EXPORT bool read(const dictionary& pairPotentialProperties);
 		};
 
 

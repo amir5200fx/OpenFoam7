@@ -55,7 +55,18 @@ namespace tnbLib
 						Class PatchEdgeFaceWaveName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(PatchEdgeFaceWave);
+	//TemplateName(PatchEdgeFaceWave);
+	class PatchEdgeFaceWaveName
+	{
+	public:
+		PatchEdgeFaceWaveName()
+		{
+		}
+
+		static const char* typeName_() { return "PatchEdgeFaceWave"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\

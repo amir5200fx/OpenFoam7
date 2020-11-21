@@ -35,6 +35,16 @@ Description
 
 #include <HeatTransferModelTemplate.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamNoHeatTransfer_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNoHeatTransfer_EXPORT_DEFINE
+#define FoamNoHeatTransfer_EXPORT __declspec(dllexport)
+#else
+#define FoamNoHeatTransfer_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -52,7 +62,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamNoHeatTransfer_EXPORT const ::tnbLib::word typeName;
+		static FoamNoHeatTransfer_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

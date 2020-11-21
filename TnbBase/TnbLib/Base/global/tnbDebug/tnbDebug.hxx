@@ -36,6 +36,8 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <includeModule.hxx>
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -55,75 +57,75 @@ namespace tnbLib
 		//- The central control dictionary.
 		//  Located in ~/.OpenFOAM/VERSION or $WM_PROJECT_DIR/etc
 		//  \sa tnbLib::findEtcFile()
-		dictionary& controlDict();
+		FoamBase_EXPORT dictionary& controlDict();
 
 		//- The DebugSwitches sub-dictionary in the central controlDict.
-		dictionary& debugSwitches();
+		FoamBase_EXPORT dictionary& debugSwitches();
 
 		//- The InfoSwitches sub-dictionary in the central controlDict.
-		dictionary& infoSwitches();
+		FoamBase_EXPORT dictionary& infoSwitches();
 
 		//- The OptimisationSwitches sub-dictionary in the central controlDict.
-		dictionary& optimisationSwitches();
+		FoamBase_EXPORT dictionary& optimisationSwitches();
 
 		//- Lookup debug switch or add default value.
-		int debugSwitch(const char* name, const int defaultValue = 0);
+		FoamBase_EXPORT int debugSwitch(const char* name, const int defaultValue = 0);
 
 		//- Lookup info switch or add default value.
-		int infoSwitch(const char* name, const int defaultValue = 0);
+		FoamBase_EXPORT int infoSwitch(const char* name, const int defaultValue = 0);
 
 		//- Lookup optimisation switch or add default value.
-		int optimisationSwitch(const char* name, const int defaultValue = 0);
+		FoamBase_EXPORT int optimisationSwitch(const char* name, const int defaultValue = 0);
 
 		//- Lookup optimisation switch or add default value.
-		float floatOptimisationSwitch
+		FoamBase_EXPORT float floatOptimisationSwitch
 		(
 			const char* name,
 			const float defaultValue = 0
 		);
 
 		//- Internal function to lookup a sub-dictionary from controlDict.
-		dictionary& switchSet(const char* subDictName, dictionary*& subDictPtr);
+		FoamBase_EXPORT dictionary& switchSet(const char* subDictName, dictionary*& subDictPtr);
 
 		//- List debug switches
-		void listSwitches(const bool unset);
+		FoamBase_EXPORT void listSwitches(const bool unset);
 
 
 		// Registered debug switches
 
 			//- Register debug switch read/write object
-		void addDebugObject(const char* name, simpleRegIOobject* obj);
+		FoamBase_EXPORT void addDebugObject(const char* name, simpleRegIOobject* obj);
 
 		//- Register info switch read/write object
-		void addInfoObject(const char* name, simpleRegIOobject* obj);
+		FoamBase_EXPORT void addInfoObject(const char* name, simpleRegIOobject* obj);
 
 		//- Register optimisation switch read/write object
-		void addOptimisationObject(const char* name, simpleRegIOobject* obj);
+		FoamBase_EXPORT void addOptimisationObject(const char* name, simpleRegIOobject* obj);
 
 		//- Register DimensionSets read/write object
-		void addDimensionSetObject(const char* name, simpleRegIOobject* obj);
+		FoamBase_EXPORT void addDimensionSetObject(const char* name, simpleRegIOobject* obj);
 
 		//- Register DimensionedConstant read/write object
-		void addDimensionedConstantObject(const char* name, simpleRegIOobject*);
+		FoamBase_EXPORT void addDimensionedConstantObject(const char* name, simpleRegIOobject*);
 
 
 		//- Get access to registered debug switch objects
-		simpleObjectRegistry& debugObjects();
+		FoamBase_EXPORT simpleObjectRegistry& debugObjects();
 
 		//- Get access to registered info switch objects
-		simpleObjectRegistry& infoObjects();
+		FoamBase_EXPORT simpleObjectRegistry& infoObjects();
 
 		//- Get access to registered optimisation switch objects
-		simpleObjectRegistry& optimisationObjects();
+		FoamBase_EXPORT simpleObjectRegistry& optimisationObjects();
 
 		//- Get access to registered dimensionSets switch objects
-		simpleObjectRegistry& dimensionSetObjects();
+		FoamBase_EXPORT simpleObjectRegistry& dimensionSetObjects();
 
 		//- Get access to registered dimensionedConstant switch objects
-		simpleObjectRegistry& dimensionedConstantObjects();
+		FoamBase_EXPORT simpleObjectRegistry& dimensionedConstantObjects();
 
 		//- List registered debug switches
-		void listRegisteredSwitches(const bool unset);
+		FoamBase_EXPORT void listRegisteredSwitches(const bool unset);
 
 	} // End namespace debug
 

@@ -69,9 +69,9 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const SphericalTensor I;
-		static const SphericalTensor oneThirdI;
-		static const SphericalTensor twoThirdsI;
+		static FoamBase_EXPORT const SphericalTensor I;
+		static FoamBase_EXPORT const SphericalTensor oneThirdI;
+		static FoamBase_EXPORT const SphericalTensor twoThirdsI;
 
 
 		//- Component labeling enumeration

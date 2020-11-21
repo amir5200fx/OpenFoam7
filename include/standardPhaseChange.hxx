@@ -76,7 +76,7 @@ namespace tnbLib
 				// Protected member functions
 
 					//- Return Sherwood number as a function of Reynolds and Schmidt numbers
-				scalar Sh(const scalar Re, const scalar Sc) const;
+				FoamLagrangian_EXPORT scalar Sh(const scalar Re, const scalar Sc) const;
 
 				template<class YInfType>
 				void correctModel
@@ -92,24 +92,28 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("standardPhaseChange");
+				//TypeName("standardPhaseChange");
+				static const char* typeName_() { return "standardPhaseChange"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				standardPhaseChange
+				FoamLagrangian_EXPORT standardPhaseChange
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
 				);
 
 				//- Disallow default bitwise copy construction
-				standardPhaseChange(const standardPhaseChange&) = delete;
+				FoamLagrangian_EXPORT standardPhaseChange(const standardPhaseChange&) = delete;
 
 
 				//- Destructor
-				virtual ~standardPhaseChange();
+				FoamLagrangian_EXPORT virtual ~standardPhaseChange();
 
 
 				// Member Functions
@@ -117,7 +121,7 @@ namespace tnbLib
 					// Evolution
 
 						//- Correct
-				virtual void correctModel
+				FoamLagrangian_EXPORT virtual void correctModel
 				(
 					const scalar dt,
 					scalarField& availableMass,
@@ -129,7 +133,7 @@ namespace tnbLib
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const standardPhaseChange&) = delete;
+				FoamLagrangian_EXPORT void operator=(const standardPhaseChange&) = delete;
 			};
 
 
@@ -138,6 +142,8 @@ namespace tnbLib
 		} // End namespace surfaceFilmModels
 	} // End namespace regionModels
 } // End namespace tnbLib
+
+#include <standardPhaseChangeI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

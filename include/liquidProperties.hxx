@@ -86,34 +86,132 @@ namespace tnbLib
 
 	public:
 
-		TypeName("liquid");
+		//TypeName("liquid");
+		static const char* typeName_() { return "liquid"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			liquidProperties,
 			,
 			(),
 			()
-		);
+		);*/
 
-		declareRunTimeSelectionTable
+		typedef autoPtr<liquidProperties> (*ConstructorPtr)();
+		typedef HashTable<ConstructorPtr, word, string::hash> ConstructorTable;
+		static FoamThermophysicalModels_EXPORT ConstructorTable* ConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroyConstructorTables();
+
+		template <class liquidPropertiesType>
+		class addConstructorToTable
+		{
+		public:
+			static autoPtr<liquidProperties> New() { return autoPtr<liquidProperties>(new liquidPropertiesType()); }
+
+			addConstructorToTable(const word& lookup = liquidPropertiesType::typeName)
+			{
+				constructConstructorTables();
+				if (!ConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "liquidProperties" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addConstructorToTable() { destroyConstructorTables(); }
+		};
+
+		template <class liquidPropertiesType>
+		class addRemovableConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<liquidProperties> New() { return autoPtr<liquidProperties>(new liquidPropertiesType()); }
+
+			addRemovableConstructorToTable(const word& lookup = liquidPropertiesType::typeName) : lookup_(lookup)
+			{
+				constructConstructorTables();
+				ConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableConstructorToTable() { if (ConstructorTablePtr_) { ConstructorTablePtr_->erase(lookup_); } }
+		};
+
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			liquidProperties,
 			dictionary,
 			(const dictionary& dict),
 			(dict)
-		);
+		);*/
+
+		typedef autoPtr<liquidProperties> (*dictionaryConstructorPtr)(const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamThermophysicalModels_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructdictionaryConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroydictionaryConstructorTables();
+
+		template <class liquidPropertiesType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<liquidProperties> New(const dictionary& dict)
+			{
+				return autoPtr<liquidProperties>(new liquidPropertiesType(dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = liquidPropertiesType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "liquidProperties" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class liquidPropertiesType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<liquidProperties> New(const dictionary& dict)
+			{
+				return autoPtr<liquidProperties>(new liquidPropertiesType(dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = liquidPropertiesType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from components
-		liquidProperties
+		FoamThermophysicalModels_EXPORT liquidProperties
 		(
 			scalar W,
 			scalar Tc,
@@ -129,19 +227,19 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		liquidProperties(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT liquidProperties(const dictionary& dict);
 
 		//- Construct and return clone
-		virtual autoPtr<liquidProperties> clone() const = 0;
+		FoamThermophysicalModels_EXPORT virtual autoPtr<liquidProperties> clone() const = 0;
 
 
 		// Selectors
 
 			//- Return a pointer to a new liquidProperties created from name
-		static autoPtr<liquidProperties> New(const word& name);
+		static FoamThermophysicalModels_EXPORT autoPtr<liquidProperties> New(const word& name);
 
 		//- Return a pointer to a new liquidProperties created from dictionary
-		static autoPtr<liquidProperties> New(const dictionary& dict);
+		static FoamThermophysicalModels_EXPORT autoPtr<liquidProperties> New(const dictionary& dict);
 
 
 		//- Destructor
@@ -225,7 +323,7 @@ namespace tnbLib
 		inline scalar Ha(const scalar p, const scalar T) const;
 
 		// Entropy [J/kg/K]
-		scalar S(const scalar p, const scalar T) const;
+		FoamThermophysicalModels_EXPORT scalar S(const scalar p, const scalar T) const;
 
 
 		// Physical properties
@@ -274,7 +372,7 @@ namespace tnbLib
 		// I-O
 
 			//- Read and set the properties present it the given dictionary
-		void readIfPresent(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT void readIfPresent(const dictionary& dict);
 
 		//- Read and set the function coefficients
 		//  if present it the given dictionary
@@ -292,21 +390,21 @@ namespace tnbLib
 		inline void readIfPresent(Liquid& l, const dictionary& dict);
 
 		//- Write the function coefficients
-		virtual void writeData(Ostream& os) const = 0;
+		FoamThermophysicalModels_EXPORT virtual void writeData(Ostream& os) const = 0;
 
 		//- Write dictionary to Ostream
-		void write(Ostream& os) const;
+		FoamThermophysicalModels_EXPORT void write(Ostream& os) const;
 
 		//- Write the data for each of the property functions
 		template<class Liquid>
 		inline void writeData(const Liquid& l, Ostream& os) const;
 
 		//- Ostream Operator
-		friend Ostream& operator<<(Ostream& os, const liquidProperties& l);
+		friend FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const liquidProperties& l);
 	};
 
 
-	Ostream& operator<<(Ostream& os, const liquidProperties& l);
+	FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const liquidProperties& l);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -77,13 +77,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("fvMeshFunctionObject");
+			/*TypeName("fvMeshFunctionObject");*/
+			static const char* typeName_() { return "fvMeshFunctionObject"; }
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+			static FoamFiniteVolume_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			fvMeshFunctionObject
+			FoamFiniteVolume_EXPORT fvMeshFunctionObject
 			(
 				const word& name,
 				const Time& runTime,
@@ -91,7 +95,7 @@ namespace tnbLib
 			);
 
 			//- Construct from the region objectRegistry and dictionary
-			fvMeshFunctionObject
+			FoamFiniteVolume_EXPORT fvMeshFunctionObject
 			(
 				const word& name,
 				const objectRegistry& obr,
@@ -99,17 +103,17 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			fvMeshFunctionObject(const fvMeshFunctionObject&) = delete;
+			FoamFiniteVolume_EXPORT fvMeshFunctionObject(const fvMeshFunctionObject&) = delete;
 
 
 			//- Destructor
-			virtual ~fvMeshFunctionObject();
+			FoamFiniteVolume_EXPORT virtual ~fvMeshFunctionObject();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const fvMeshFunctionObject&) = delete;
+			FoamFiniteVolume_EXPORT void operator=(const fvMeshFunctionObject&) = delete;
 		};
 
 

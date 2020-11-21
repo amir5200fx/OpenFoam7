@@ -121,7 +121,7 @@ void tnbLib::C3H6O::writeData(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Ostream Operator  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const C3H6O& l)
+FoamThermophysicalModels_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const C3H6O& l)
 {
 	l.writeData(os);
 	return os;

@@ -55,16 +55,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("CaCO3");
+		//TypeName("CaCO3");
+		static const char* typeName_() { return "CaCO3"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct null
-		CaCO3();
+		FoamThermophysicalModels_EXPORT CaCO3();
 
 		//- Construct from dictionary
-		CaCO3(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT CaCO3(const dictionary& dict);
 
 		//- Construct and return clone
 		virtual autoPtr<solidProperties> clone() const
@@ -76,14 +80,14 @@ namespace tnbLib
 		// I-O
 
 			//- Write the function coefficients
-		void writeData(Ostream& os) const;
+		FoamThermophysicalModels_EXPORT void writeData(Ostream& os) const;
 
 		//- Ostream Operator
-		friend Ostream& operator<<(Ostream& os, const CaCO3& s);
+		friend FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const CaCO3& s);
 	};
 
 
-	Ostream& operator<<(Ostream& os, const CaCO3& s);
+	FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const CaCO3& s);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

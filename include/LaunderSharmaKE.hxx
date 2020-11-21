@@ -68,6 +68,16 @@ SourceFiles
 #include <RASModel.hxx>
 #include <eddyViscosity.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamLaunderSharmaKE_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLaunderSharmaKE_EXPORT_DEFINE
+#define FoamLaunderSharmaKE_EXPORT __declspec(dllexport)
+#else
+#define FoamLaunderSharmaKE_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -122,7 +132,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("LaunderSharmaKE");
+			//TypeName("LaunderSharmaKE");
+			static const char* typeName_() { return "LaunderSharmaKE"; }
+			static FoamLaunderSharmaKE_EXPORT const ::tnbLib::word typeName;
+			static FoamLaunderSharmaKE_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

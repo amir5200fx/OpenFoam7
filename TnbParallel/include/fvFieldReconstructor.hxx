@@ -100,7 +100,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		fvFieldReconstructor
+		FoamParallel_EXPORT fvFieldReconstructor
 		(
 			fvMesh& mesh,
 			const PtrList<fvMesh>& procMeshes,
@@ -110,7 +110,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		fvFieldReconstructor(const fvFieldReconstructor&) = delete;
+		FoamParallel_EXPORT fvFieldReconstructor(const fvFieldReconstructor&) = delete;
 
 
 		// Member Functions
@@ -193,7 +193,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const fvFieldReconstructor&) = delete;
+		FoamParallel_EXPORT void operator=(const fvFieldReconstructor&) = delete;
 	};
 
 

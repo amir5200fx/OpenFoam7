@@ -77,11 +77,11 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void setSiteIdList(const dictionary& moleculePropertiesDict);
+		FoamLagrangian_EXPORT void setSiteIdList(const dictionary& moleculePropertiesDict);
 
-		void readPotentialDict();
+		FoamLagrangian_EXPORT void readPotentialDict();
 
-		void readMdInitialiseDict
+		FoamLagrangian_EXPORT void readMdInitialiseDict
 		(
 			const IOdictionary& mdInitialiseDict,
 			IOdictionary& idListDict
@@ -93,10 +93,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mesh reference
-		potential(const polyMesh& mesh);
+		FoamLagrangian_EXPORT potential(const polyMesh& mesh);
 
 		//- Construct from mdInitialiseDict
-		potential
+		FoamLagrangian_EXPORT potential
 		(
 			const polyMesh& mesh,
 			const IOdictionary& mdInitialiseDict,
@@ -104,11 +104,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		potential(const potential&) = delete;
+		FoamLagrangian_EXPORT potential(const potential&) = delete;
 
 
 		//- Destructor
-		~potential();
+		FoamLagrangian_EXPORT ~potential();
 
 
 		// Member Functions
@@ -137,7 +137,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const potential&) = delete;
+		FoamLagrangian_EXPORT void operator=(const potential&) = delete;
 	};
 
 

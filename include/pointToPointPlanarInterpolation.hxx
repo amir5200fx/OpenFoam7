@@ -77,10 +77,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate a local coordinate system from set of points
-		coordinateSystem calcCoordinateSystem(const pointField&) const;
+		FoamFvMesh_EXPORT coordinateSystem calcCoordinateSystem(const pointField&) const;
 
 		//- Calculate addressing and weights
-		void calcWeights
+		FoamFvMesh_EXPORT void calcWeights
 		(
 			const pointField& sourcePoints,
 			const pointField& destPoints
@@ -89,7 +89,10 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("pointToPointPlanarInterpolation");
+		/*ClassName("pointToPointPlanarInterpolation");*/
+		static const char* typeName_() { return "pointToPointPlanarInterpolation"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
@@ -98,7 +101,7 @@ namespace tnbLib
 			//  from sourcePoints and maps onto that. If nearestOnly skips any
 			//  local coordinate system and triangulation and uses nearest vertex
 			//  only
-		pointToPointPlanarInterpolation
+		FoamFvMesh_EXPORT pointToPointPlanarInterpolation
 		(
 			const pointField& sourcePoints,
 			const pointField& destPoints,
@@ -107,7 +110,7 @@ namespace tnbLib
 		);
 
 		//- Construct from coordinate system and locations.
-		pointToPointPlanarInterpolation
+		FoamFvMesh_EXPORT pointToPointPlanarInterpolation
 		(
 			const coordinateSystem& referenceCS,
 			const pointField& sourcePoints,
@@ -144,10 +147,10 @@ namespace tnbLib
 		}
 
 		//- Helper: extract words of times
-		static wordList timeNames(const instantList&);
+		static FoamFvMesh_EXPORT wordList timeNames(const instantList&);
 
 		//- Helper: find time. Return true if successful.
-		static bool findTime
+		static FoamFvMesh_EXPORT bool findTime
 		(
 			const instantList& times,
 			const label startSampleTime,

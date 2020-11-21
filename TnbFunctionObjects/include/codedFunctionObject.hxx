@@ -94,7 +94,7 @@ namespace tnbLib
 		// Protected static data
 
 			//- The keywords associated with source code
-		static const wordList codeKeys_;
+		static FoamFunctionObjects_EXPORT const wordList codeKeys_;
 
 
 		// Protected data
@@ -115,34 +115,38 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Get the loaded dynamic libraries
-		virtual dlLibraryTable& libs() const;
+		FoamFunctionObjects_EXPORT virtual dlLibraryTable& libs() const;
 
 		//- Adapt the context for the current object
-		virtual void prepare(dynamicCode&, const dynamicCodeContext&) const;
+		FoamFunctionObjects_EXPORT virtual void prepare(dynamicCode&, const dynamicCodeContext&) const;
 
 		//- Return a description (type + name) for the output
-		virtual string description() const;
+		FoamFunctionObjects_EXPORT virtual string description() const;
 
 		//- Clear any redirected objects
-		virtual void clearRedirect() const;
+		FoamFunctionObjects_EXPORT virtual void clearRedirect() const;
 
 		//- Get the dictionary to initialize the codeContext
-		virtual const dictionary& codeDict() const;
+		FoamFunctionObjects_EXPORT virtual const dictionary& codeDict() const;
 
 		//- Get the keywords associated with source code
-		virtual const wordList& codeKeys() const;
+		FoamFunctionObjects_EXPORT virtual const wordList& codeKeys() const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("coded");
+		//TypeName("coded");
+		static const char* typeName_() { return "coded"; }
+		static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+		static FoamFunctionObjects_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from Time and dictionary
-		codedFunctionObject
+		FoamFunctionObjects_EXPORT codedFunctionObject
 		(
 			const word& name,
 			const Time& time,
@@ -150,40 +154,40 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		codedFunctionObject(const codedFunctionObject&) = delete;
+		FoamFunctionObjects_EXPORT codedFunctionObject(const codedFunctionObject&) = delete;
 
 
 		//- Destructor
-		virtual ~codedFunctionObject();
+		FoamFunctionObjects_EXPORT virtual ~codedFunctionObject();
 
 
 		// Member Functions
 
 			//- Dynamically compiled functionObject
-		functionObject& redirectFunctionObject() const;
+		FoamFunctionObjects_EXPORT functionObject& redirectFunctionObject() const;
 
 		//- Called at each ++ or += of the time-loop.
 		//  postProcess overrides the usual executeControl behaviour and
 		//  forces execution (used in post-processing mode)
-		virtual bool execute();
+		FoamFunctionObjects_EXPORT virtual bool execute();
 
 		//- Called at each ++ or += of the time-loop.
 		//  postProcess overrides the usual writeControl behaviour and
 		//  forces writing always (used in post-processing mode)
-		virtual bool write();
+		FoamFunctionObjects_EXPORT virtual bool write();
 
 		//- Called when Time::run() determines that the time-loop exits.
 		//  By default it simply calls execute().
-		virtual bool end();
+		FoamFunctionObjects_EXPORT virtual bool end();
 
 		//- Read and set the function object if its data have changed
-		virtual bool read(const dictionary&);
+		FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const codedFunctionObject&) = delete;
+		FoamFunctionObjects_EXPORT void operator=(const codedFunctionObject&) = delete;
 	};
 
 

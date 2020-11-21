@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <cyclicRepeatAMIFvPatchFields.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>

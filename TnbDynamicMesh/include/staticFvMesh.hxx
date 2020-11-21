@@ -55,20 +55,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("staticFvMesh");
+		//TypeName("staticFvMesh");
+		static const char* typeName_() { return "staticFvMesh"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from IOobject
-		staticFvMesh(const IOobject& io);
+		FoamDynamicMesh_EXPORT staticFvMesh(const IOobject& io);
 
 		//- Disallow default bitwise copy construction
 		staticFvMesh(const staticFvMesh&) = delete;
 
 
 		//- Destructor
-		~staticFvMesh();
+		FoamDynamicMesh_EXPORT ~staticFvMesh();
 
 
 		// Member Functions
@@ -80,7 +84,7 @@ namespace tnbLib
 		}
 
 		//- Dummy update function which does not change the mesh
-		virtual bool update();
+		FoamDynamicMesh_EXPORT virtual bool update();
 
 
 		// Member Operators

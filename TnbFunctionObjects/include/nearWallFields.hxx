@@ -143,7 +143,7 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Calculate addressing from cells back to patch faces
-			void calcAddressing();
+			FoamFunctionObjects_EXPORT void calcAddressing();
 
 			template<class Type>
 			void createFields
@@ -169,14 +169,18 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("nearWallFields");
+			//TypeName("nearWallFields");
+			static const char* typeName_() { return "nearWallFields"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct for given objectRegistry and dictionary.
 				//  Allow the possibility to load fields from files
-			nearWallFields
+			FoamFunctionObjects_EXPORT nearWallFields
 			(
 				const word& name,
 				const Time& runTime,
@@ -184,29 +188,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			nearWallFields(const nearWallFields&) = delete;
+			FoamFunctionObjects_EXPORT nearWallFields(const nearWallFields&) = delete;
 
 
 			//- Destructor
-			virtual ~nearWallFields();
+			FoamFunctionObjects_EXPORT virtual ~nearWallFields();
 
 
 			// Member Functions
 
 				//- Read the controls
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate the near-wall fields
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the near-wall fields
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const nearWallFields&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const nearWallFields&) = delete;
 		};
 
 
@@ -218,8 +222,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <nearWallFieldsTemplates.cxx>
+//#include <nearWallFieldsTemplates.cxx>
 #endif
+
+#include <nearWallFieldsTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

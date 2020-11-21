@@ -44,7 +44,7 @@ void tnbLib::CaCO3::writeData(Ostream& os) const
 
 // * * * * * * * * * * * * * * IOStream operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const CaCO3& s)
+FoamThermophysicalModels_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const CaCO3& s)
 {
 	s.writeData(os);
 	return os;

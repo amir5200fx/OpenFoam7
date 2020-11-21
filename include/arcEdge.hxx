@@ -64,19 +64,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Calculate the coordinate system, angle and radius
-			cylindricalCS calcAngle();
+			FoamFvMesh_EXPORT cylindricalCS calcAngle();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("arc");
+			//TypeName("arc");
+			static const char* typeName_() { return "arc"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			arcEdge
+			FoamFvMesh_EXPORT arcEdge
 			(
 				const pointField& points,
 				const label start, const label end,
@@ -84,7 +88,7 @@ namespace tnbLib
 			);
 
 			//- Construct from Istream setting pointsList
-			arcEdge
+			FoamFvMesh_EXPORT arcEdge
 			(
 				const dictionary& dict,
 				const label index,
@@ -94,7 +98,7 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			arcEdge(const arcEdge&) = delete;
+			FoamFvMesh_EXPORT arcEdge(const arcEdge&) = delete;
 
 
 			//- Destructor
@@ -106,16 +110,16 @@ namespace tnbLib
 
 				//- Return the point position corresponding to the curve parameter
 				//  0 <= lambda <= 1
-			point position(const scalar) const;
+			FoamFvMesh_EXPORT point position(const scalar) const;
 
 			//- Return the length of the curve
-			scalar length() const;
+			FoamFvMesh_EXPORT scalar length() const;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const arcEdge&) = delete;
+			FoamFvMesh_EXPORT void operator=(const arcEdge&) = delete;
 		};
 
 

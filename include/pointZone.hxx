@@ -79,16 +79,20 @@ namespace tnbLib
 		// Static Data Members
 
 			//- The name associated with the zone-labels dictionary entry
-		static const char * const labelsName;
+		static FoamBase_EXPORT const char * const labelsName;
 
 
 		//- Runtime type information
-		TypeName("pointZone");
+		//TypeName("pointZone");
+		static const char* typeName_() { return "pointZone"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			pointZone,
@@ -100,13 +104,64 @@ namespace tnbLib
 				const pointZoneMesh& zm
 				),
 				(name, dict, index, zm)
-		);
+		);*/
+
+		typedef autoPtr<pointZone> (*dictionaryConstructorPtr)(const word& name, const dictionary& dict, const label index,
+		                                                       const pointZoneMesh& zm);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamBase_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamBase_EXPORT void constructdictionaryConstructorTables();
+		static FoamBase_EXPORT void destroydictionaryConstructorTables();
+
+		template <class pointZoneType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<pointZone> New(const word& name, const dictionary& dict, const label index, const pointZoneMesh& zm)
+			{
+				return autoPtr<pointZone>(new pointZoneType(name, dict, index, zm));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = pointZoneType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "pointZone" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class pointZoneType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<pointZone> New(const word& name, const dictionary& dict, const label index, const pointZoneMesh& zm)
+			{
+				return autoPtr<pointZone>(new pointZoneType(name, dict, index, zm));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = pointZoneType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from components
-		pointZone
+		FoamBase_EXPORT pointZone
 		(
 			const word& name,
 			const labelUList& addr,
@@ -115,7 +170,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components, transferring contents
-		pointZone
+		FoamBase_EXPORT pointZone
 		(
 			const word& name,
 			labelList&& addr,
@@ -124,7 +179,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		pointZone
+		FoamBase_EXPORT pointZone
 		(
 			const word& name,
 			const dictionary&,
@@ -134,7 +189,7 @@ namespace tnbLib
 
 		//- Construct given the original zone and resetting the
 		//  point list and zone mesh information
-		pointZone
+		FoamBase_EXPORT pointZone
 		(
 			const pointZone&,
 			const labelUList& addr,
@@ -144,7 +199,7 @@ namespace tnbLib
 
 		//- Construct given the original zone, resetting the
 		//  face list and zone mesh information
-		pointZone
+		FoamBase_EXPORT pointZone
 		(
 			const pointZone&,
 			labelList&& addr,
@@ -153,7 +208,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		pointZone(const pointZone&) = delete;
+		FoamBase_EXPORT pointZone(const pointZone&) = delete;
 
 
 		//- Construct and return a clone, resetting the zone mesh
@@ -185,7 +240,7 @@ namespace tnbLib
 
 			//- Return a pointer to a new point zone
 			//  created on freestore from dictionary
-		static autoPtr<pointZone> New
+		static FoamBase_EXPORT autoPtr<pointZone> New
 		(
 			const word& name,
 			const dictionary&,
@@ -195,45 +250,45 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~pointZone();
+		FoamBase_EXPORT virtual ~pointZone();
 
 
 		// Member Functions
 
 			//- Return zoneMesh reference
-		const pointZoneMesh& zoneMesh() const;
+		FoamBase_EXPORT const pointZoneMesh& zoneMesh() const;
 
 		//- Helper function to re-direct to zone::localID(...)
-		label whichPoint(const label globalPointID) const;
+		FoamBase_EXPORT label whichPoint(const label globalPointID) const;
 
 		//- Check zone definition. Return true if in error.
-		virtual bool checkDefinition(const bool report = false) const;
+		FoamBase_EXPORT virtual bool checkDefinition(const bool report = false) const;
 
 		//- Check whether zone is synchronised across coupled boundaries. Return
 		//  true if in error.
-		virtual bool checkParallelSync(const bool report = false) const;
+		FoamBase_EXPORT virtual bool checkParallelSync(const bool report = false) const;
 
 		//- Correct patch after moving points
 		virtual void movePoints(const pointField&)
 		{}
 
 		//- Write dictionary
-		virtual void writeDict(Ostream&) const;
+		FoamBase_EXPORT virtual void writeDict(Ostream&) const;
 
 
 		// Member Operators
 
 			//- Assignment to zone, clearing demand-driven data
-		void operator=(const pointZone&);
+		FoamBase_EXPORT void operator=(const pointZone&);
 
 		//- Move assignment to zone, clearing demand-driven data
-		void operator=(pointZone&&);
+		FoamBase_EXPORT void operator=(pointZone&&);
 
 		//- Assign addressing, clearing demand-driven data
-		void operator=(const labelUList&);
+		FoamBase_EXPORT void operator=(const labelUList&);
 
 		//- Move addressing, clearing demand-driven data
-		void operator=(labelList&&);
+		FoamBase_EXPORT void operator=(labelList&&);
 
 
 		// I-O

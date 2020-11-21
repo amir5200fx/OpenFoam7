@@ -87,19 +87,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				// Calculate the delta values
-			void calcDelta();
+			FoamTurbulence_EXPORT void calcDelta();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("Prandtl");
+			//TypeName("Prandtl");
+			static const char* typeName_() { return "Prandtl"; }
+			static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+			static FoamTurbulence_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from name, turbulenceModel and dictionary
-			PrandtlDelta
+			FoamTurbulence_EXPORT PrandtlDelta
 			(
 				const word& name,
 				const turbulenceModel& turbulence,
@@ -107,7 +111,7 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			PrandtlDelta(const PrandtlDelta&) = delete;
+			FoamTurbulence_EXPORT PrandtlDelta(const PrandtlDelta&) = delete;
 
 
 			//- Destructor
@@ -118,16 +122,16 @@ namespace tnbLib
 			// Member Functions
 
 				//- Read the LESdelta dictionary
-			virtual void read(const dictionary&);
+			FoamTurbulence_EXPORT virtual void read(const dictionary&);
 
 			// Correct values
-			virtual void correct();
+			FoamTurbulence_EXPORT virtual void correct();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const PrandtlDelta&) = delete;
+			FoamTurbulence_EXPORT void operator=(const PrandtlDelta&) = delete;
 		};
 
 

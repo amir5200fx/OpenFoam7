@@ -60,6 +60,16 @@ Description
 #include <DevolatilisationModel.hxx>
 #include <primitiveFieldsFwd.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamSingleKineticRateDevolatilisation_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSingleKineticRateDevolatilisation_EXPORT_DEFINE
+#define FoamSingleKineticRateDevolatilisation_EXPORT __declspec(dllexport)
+#else
+#define FoamSingleKineticRateDevolatilisation_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -188,7 +198,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("singleKineticRateDevolatilisation");
+		//TypeName("singleKineticRateDevolatilisation");
+		static const char* typeName_() { return "singleKineticRateDevolatilisation"; }
+		static FoamSingleKineticRateDevolatilisation_EXPORT const ::tnbLib::word typeName;
+		static FoamSingleKineticRateDevolatilisation_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

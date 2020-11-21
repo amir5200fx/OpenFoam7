@@ -74,17 +74,21 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("constant");
+				//TypeName("constant");
+				static const char* typeName_() { return "constant"; }
+				static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+				static FoamRadiationModels_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				constant(const dictionary& dict, const fvMesh& mesh);
+				FoamRadiationModels_EXPORT constant(const dictionary& dict, const fvMesh& mesh);
 
 
 				//- Destructor
-				virtual ~constant();
+				FoamRadiationModels_EXPORT virtual ~constant();
 
 
 				// Member Functions
@@ -94,19 +98,19 @@ namespace tnbLib
 						// Absorption coefficient
 
 							//- Absorption coefficient for continuous phase
-				tmp<volScalarField> aCont(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> aCont(const label bandI = 0) const;
 
 
 				// Emission coefficient
 
 					//- Emission coefficient for continuous phase
-				tmp<volScalarField> eCont(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> eCont(const label bandI = 0) const;
 
 
 				// Emission contribution
 
 					//- Emission contribution for continuous phase
-				tmp<volScalarField> ECont(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> ECont(const label bandI = 0) const;
 
 
 				// Member Functions

@@ -60,7 +60,11 @@ namespace tnbLib
 
 	public:
 
-		TypeName("centredCFCFaceToCellStencil");
+		/*TypeName("centredCFCFaceToCellStencil");*/
+		static const char* typeName_() { return "centredCFCFaceToCellStencil"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 

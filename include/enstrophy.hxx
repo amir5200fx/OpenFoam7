@@ -60,19 +60,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Calculate the enstrophy field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("enstrophy");
+			//TypeName("enstrophy");
+			static const char* typeName_() { return "enstrophy"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			enstrophy
+			FoamFunctionObjects_EXPORT enstrophy
 			(
 				const word& name,
 				const Time& runTime,
@@ -81,7 +85,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~enstrophy();
+			FoamFunctionObjects_EXPORT virtual ~enstrophy();
 		};
 
 

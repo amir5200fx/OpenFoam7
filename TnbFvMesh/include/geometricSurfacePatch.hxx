@@ -68,16 +68,19 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("geometricSurfacePatch");
+		/*ClassName("geometricSurfacePatch");*/
+		static const char* typeName_() { return "geometricSurfacePatch"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct null
-		geometricSurfacePatch();
+		FoamFvMesh_EXPORT geometricSurfacePatch();
 
 		//- Construct from components
-		geometricSurfacePatch
+		FoamFvMesh_EXPORT geometricSurfacePatch
 		(
 			const word& geometricType,
 			const word& name,
@@ -85,10 +88,10 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		geometricSurfacePatch(Istream&, const label index);
+		FoamFvMesh_EXPORT geometricSurfacePatch(Istream&, const label index);
 
 		//- Construct from dictionary
-		geometricSurfacePatch
+		FoamFvMesh_EXPORT geometricSurfacePatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -135,24 +138,24 @@ namespace tnbLib
 		}
 
 		//- Write
-		void write(Ostream&) const;
+		FoamFvMesh_EXPORT void write(Ostream&) const;
 
 		//- Write dictionary
-		void writeDict(Ostream&) const;
+		FoamFvMesh_EXPORT void writeDict(Ostream&) const;
 
 
 		// Member Operators
 
-		bool operator!=(const geometricSurfacePatch&) const;
+		FoamFvMesh_EXPORT bool operator!=(const geometricSurfacePatch&) const;
 
 		//- compare.
-		bool operator==(const geometricSurfacePatch&) const;
+		FoamFvMesh_EXPORT bool operator==(const geometricSurfacePatch&) const;
 
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const geometricSurfacePatch&);
-		friend Istream& operator>>(Istream&, geometricSurfacePatch&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const geometricSurfacePatch&);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream&, geometricSurfacePatch&);
 	};
 
 

@@ -49,7 +49,7 @@ namespace tnbLib
 	// Set reference level for a component of the solution
 	// on a given patch face
 	template<>
-	void fvMatrix<scalar>::setComponentReference
+	FoamFiniteVolume_EXPORT void fvMatrix<scalar>::setComponentReference
 	(
 		const label patchi,
 		const label facei,
@@ -58,31 +58,31 @@ namespace tnbLib
 	);
 
 	template<>
-	autoPtr<fvMatrix<scalar>::fvSolver> fvMatrix<scalar>::solver
+	FoamFiniteVolume_EXPORT autoPtr<fvMatrix<scalar>::fvSolver> fvMatrix<scalar>::solver
 	(
 		const dictionary&
 	);
 
 	template<>
-	solverPerformance fvMatrix<scalar>::fvSolver::solve
+	FoamFiniteVolume_EXPORT solverPerformance fvMatrix<scalar>::fvSolver::solve
 	(
 		const dictionary&
 	);
 
 	template<>
-	solverPerformance fvMatrix<scalar>::solveSegregated
+	FoamFiniteVolume_EXPORT solverPerformance fvMatrix<scalar>::solveSegregated
 	(
 		const dictionary&
 	);
 
 	template<>
-	tmp<scalarField> fvMatrix<scalar>::residual() const;
+	FoamFiniteVolume_EXPORT tmp<scalarField> fvMatrix<scalar>::residual() const;
 
 	template<>
-	tmp<volScalarField> fvMatrix<scalar>::H() const;
+	FoamFiniteVolume_EXPORT tmp<volScalarField> fvMatrix<scalar>::H() const;
 
 	template<>
-	tmp<volScalarField> fvMatrix<scalar>::H1() const;
+	FoamFiniteVolume_EXPORT tmp<volScalarField> fvMatrix<scalar>::H1() const;
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

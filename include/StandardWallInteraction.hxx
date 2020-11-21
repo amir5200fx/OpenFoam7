@@ -50,6 +50,16 @@ Description
 
 #include <PatchInteractionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamStandardWallInteraction_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamStandardWallInteraction_EXPORT_DEFINE
+#define FoamStandardWallInteraction_EXPORT __declspec(dllexport)
+#else
+#define FoamStandardWallInteraction_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -96,7 +106,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("standardWallInteraction");
+		//TypeName("standardWallInteraction");
+		static const char* typeName_() { return "standardWallInteraction"; }
+		static FoamStandardWallInteraction_EXPORT const ::tnbLib::word typeName;
+		static FoamStandardWallInteraction_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

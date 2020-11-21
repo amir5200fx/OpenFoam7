@@ -80,12 +80,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("LESfilter");
+		//TypeName("LESfilter");
+		static const char* typeName_() { return "LESfilter"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			LESfilter,
@@ -95,7 +99,58 @@ namespace tnbLib
 				const dictionary& LESfilterDict
 				),
 				(mesh, LESfilterDict)
-		);
+		);*/
+
+		typedef autoPtr<LESfilter> (*dictionaryConstructorPtr)(const fvMesh& mesh, const dictionary& LESfilterDict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamTurbulence_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamTurbulence_EXPORT void constructdictionaryConstructorTables();
+		static FoamTurbulence_EXPORT void destroydictionaryConstructorTables();
+
+		template <class LESfilterType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<LESfilter> New(const fvMesh& mesh, const dictionary& LESfilterDict)
+			{
+				return autoPtr<LESfilter>(new LESfilterType(mesh, LESfilterDict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = LESfilterType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "LESfilter" << std::
+						endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class LESfilterType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<LESfilter> New(const fvMesh& mesh, const dictionary& LESfilterDict)
+			{
+				return autoPtr<LESfilter>(new LESfilterType(mesh, LESfilterDict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = LESfilterType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
@@ -107,13 +162,13 @@ namespace tnbLib
 		{}
 
 		//- Disallow default bitwise copy construction
-		LESfilter(const LESfilter&) = delete;
+		FoamTurbulence_EXPORT LESfilter(const LESfilter&) = delete;
 
 
 		// Selectors
 
 			//- Return a reference to the selected LES filter
-		static autoPtr<LESfilter> New
+		static FoamTurbulence_EXPORT autoPtr<LESfilter> New
 		(
 			const fvMesh&,
 			const dictionary&,
@@ -135,29 +190,29 @@ namespace tnbLib
 		}
 
 		//- Read the LESfilter dictionary
-		virtual void read(const dictionary&) = 0;
+		FoamTurbulence_EXPORT virtual void read(const dictionary&) = 0;
 
 
 		// Member Operators
 
-		void operator=(const LESfilter&) = delete;
+		FoamTurbulence_EXPORT void operator=(const LESfilter&) = delete;
 
-		virtual tmp<volScalarField> operator()
+		FoamTurbulence_EXPORT virtual tmp<volScalarField> operator()
 			(
 				const tmp<volScalarField>&
 				) const = 0;
 
-		virtual tmp<volVectorField> operator()
+		FoamTurbulence_EXPORT virtual tmp<volVectorField> operator()
 			(
 				const tmp<volVectorField>&
 				) const = 0;
 
-		virtual tmp<volSymmTensorField> operator()
+		FoamTurbulence_EXPORT virtual tmp<volSymmTensorField> operator()
 			(
 				const tmp<volSymmTensorField>&
 				) const = 0;
 
-		virtual tmp<volTensorField> operator()
+		FoamTurbulence_EXPORT virtual tmp<volTensorField> operator()
 			(
 				const tmp<volTensorField>&
 				) const = 0;

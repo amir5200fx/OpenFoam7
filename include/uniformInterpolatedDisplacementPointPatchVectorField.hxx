@@ -80,20 +80,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("uniformInterpolatedDisplacement");
+		//TypeName("uniformInterpolatedDisplacement");
+		static const char* typeName_() { return "uniformInterpolatedDisplacement"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		uniformInterpolatedDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT uniformInterpolatedDisplacementPointPatchVectorField
 		(
 			const pointPatch&,
 			const DimensionedField<vector, pointMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		uniformInterpolatedDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT uniformInterpolatedDisplacementPointPatchVectorField
 		(
 			const pointPatch&,
 			const DimensionedField<vector, pointMesh>&,
@@ -101,7 +105,7 @@ namespace tnbLib
 		);
 
 		//- Construct by mapping given patchField<vector> onto a new patch
-		uniformInterpolatedDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT uniformInterpolatedDisplacementPointPatchVectorField
 		(
 			const uniformInterpolatedDisplacementPointPatchVectorField&,
 			const pointPatch&,
@@ -122,7 +126,7 @@ namespace tnbLib
 		}
 
 		//- Construct as copy setting internal field reference
-		uniformInterpolatedDisplacementPointPatchVectorField
+		FoamFvMotionSolver_EXPORT uniformInterpolatedDisplacementPointPatchVectorField
 		(
 			const uniformInterpolatedDisplacementPointPatchVectorField&,
 			const DimensionedField<vector, pointMesh>&
@@ -150,11 +154,11 @@ namespace tnbLib
 			// Evaluation functions
 
 				//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFvMotionSolver_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFvMotionSolver_EXPORT virtual void write(Ostream&) const;
 	};
 
 

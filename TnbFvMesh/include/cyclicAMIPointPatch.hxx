@@ -65,51 +65,55 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Initialise the calculation of the patch geometry
-		virtual void initGeometry(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void initGeometry(PstreamBuffers&);
 
 		//- Calculate the patch geometry
-		virtual void calcGeometry(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void calcGeometry(PstreamBuffers&);
 
 		//- Initialise the patches for moving points
-		virtual void initMovePoints(PstreamBuffers&, const pointField&);
+		FoamFvMesh_EXPORT virtual void initMovePoints(PstreamBuffers&, const pointField&);
 
 		//- Correct patches after moving points
-		virtual void movePoints(PstreamBuffers&, const pointField&);
+		FoamFvMesh_EXPORT virtual void movePoints(PstreamBuffers&, const pointField&);
 
 		//- Initialise the update of the patch topology
-		virtual void initUpdateMesh(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void initUpdateMesh(PstreamBuffers&);
 
 		//- Update of the patch topology
-		virtual void updateMesh(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void updateMesh(PstreamBuffers&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName(cyclicAMIPolyPatch::typeName_());
+		//TypeName(cyclicAMIPolyPatch::typeName_());
+		static const char* typeName_() { return cyclicAMIPolyPatch::typeName_(); }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		cyclicAMIPointPatch
+		FoamFvMesh_EXPORT cyclicAMIPointPatch
 		(
 			const polyPatch& patch,
 			const pointBoundaryMesh& bm
 		);
 
 		//- Disallow default bitwise copy construction
-		cyclicAMIPointPatch(const cyclicAMIPointPatch&);
+		FoamFvMesh_EXPORT cyclicAMIPointPatch(const cyclicAMIPointPatch&);
 
 
 		//- Destructor
-		virtual ~cyclicAMIPointPatch();
+		FoamFvMesh_EXPORT virtual ~cyclicAMIPointPatch();
 
 
 		// Member Functions
 
 			//- Return true if this patch field is coupled
-		virtual bool coupled() const;
+		FoamFvMesh_EXPORT virtual bool coupled() const;
 
 		//- Return the constraint type this pointPatch implements.
 		virtual const word& constraintType() const
@@ -153,7 +157,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const cyclicAMIPointPatch&);
+		FoamFvMesh_EXPORT void operator=(const cyclicAMIPointPatch&);
 	};
 
 

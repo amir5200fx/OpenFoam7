@@ -64,40 +64,147 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("solidThermo");
+		//TypeName("solidThermo");
+		static const char* typeName_() { return "solidThermo"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Declare run-time constructor selection tables
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			solidThermo,
 			fvMesh,
 			(const fvMesh& mesh, const word& phaseName),
 			(mesh, phaseName)
-		);
+		);*/
+		
+		typedef autoPtr<solidThermo> (*fvMeshConstructorPtr)(const fvMesh& mesh, const word& phaseName);
+		typedef HashTable<fvMeshConstructorPtr, word, string::hash> fvMeshConstructorTable;
+		static FoamThermophysicalModels_EXPORT fvMeshConstructorTable* fvMeshConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructfvMeshConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroyfvMeshConstructorTables();
+
+		template <class solidThermoType>
+		class addfvMeshConstructorToTable
+		{
+		public:
+			static autoPtr<solidThermo> New(const fvMesh& mesh, const word& phaseName)
+			{
+				return autoPtr<solidThermo>(new solidThermoType(mesh, phaseName));
+			}
+
+			addfvMeshConstructorToTable(const word& lookup = solidThermoType::typeName)
+			{
+				constructfvMeshConstructorTables();
+				if (!fvMeshConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "solidThermo" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addfvMeshConstructorToTable() { destroyfvMeshConstructorTables(); }
+		};
+
+		template <class solidThermoType>
+		class addRemovablefvMeshConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<solidThermo> New(const fvMesh& mesh, const word& phaseName)
+			{
+				return autoPtr<solidThermo>(new solidThermoType(mesh, phaseName));
+			}
+
+			addRemovablefvMeshConstructorToTable(const word& lookup = solidThermoType::typeName) : lookup_(lookup)
+			{
+				constructfvMeshConstructorTables();
+				fvMeshConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablefvMeshConstructorToTable()
+			{
+				if (fvMeshConstructorTablePtr_) { fvMeshConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 		// Declare run-time constructor selection tables
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			solidThermo,
 			dictionary,
 			(const fvMesh& mesh, const dictionary& dict, const word& phaseName),
 			(mesh, dict, phaseName)
-		);
+		);*/
+
+		typedef autoPtr<solidThermo> (*dictionaryConstructorPtr)(const fvMesh& mesh, const dictionary& dict,
+		                                                         const word& phaseName);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamThermophysicalModels_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructdictionaryConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroydictionaryConstructorTables();
+
+		template <class solidThermoType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<solidThermo> New(const fvMesh& mesh, const dictionary& dict, const word& phaseName)
+			{
+				return autoPtr<solidThermo>(new solidThermoType(mesh, dict, phaseName));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = solidThermoType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "solidThermo" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class solidThermoType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<solidThermo> New(const fvMesh& mesh, const dictionary& dict, const word& phaseName)
+			{
+				return autoPtr<solidThermo>(new solidThermoType(mesh, dict, phaseName));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = solidThermoType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from mesh and phase name
-		solidThermo
+		FoamThermophysicalModels_EXPORT solidThermo
 		(
 			const fvMesh&,
 			const word& phaseName
 		);
 
 		//- Construct from mesh, dictionary and phase name
-		solidThermo
+		FoamThermophysicalModels_EXPORT solidThermo
 		(
 			const fvMesh&,
 			const dictionary& dict,
@@ -106,7 +213,7 @@ namespace tnbLib
 
 		//- Return a pointer to a new solidThermo created from
 		//  the solidThermophysicalProperties dictionary
-		static autoPtr<solidThermo> New
+		static FoamThermophysicalModels_EXPORT autoPtr<solidThermo> New
 		(
 			const fvMesh&,
 			const word& phaseName = word::null
@@ -114,7 +221,7 @@ namespace tnbLib
 
 		//- Return a pointer to a new solidThermo created from
 		//  local dictionary
-		static autoPtr<solidThermo> New
+		static FoamThermophysicalModels_EXPORT autoPtr<solidThermo> New
 		(
 			const fvMesh&,
 			const dictionary&,
@@ -123,7 +230,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~solidThermo();
+		FoamThermophysicalModels_EXPORT virtual ~solidThermo();
 
 
 		// Member Functions
@@ -131,25 +238,25 @@ namespace tnbLib
 			// Fields derived from thermodynamic state variables
 
 				//- Density [kg/m^3]
-		virtual tmp<volScalarField> rho() const;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> rho() const;
 
 		//- Density for patch [kg/m^3]
-		virtual tmp<scalarField> rho(const label patchi) const;
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> rho(const label patchi) const;
 
 		//- Return non-const access to the local density field [kg/m^3]
-		virtual volScalarField& rho();
+		FoamThermophysicalModels_EXPORT virtual volScalarField& rho();
 
 		//- Thermal conductivity [W/m/K]
-		virtual tmp<volVectorField> Kappa() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volVectorField> Kappa() const = 0;
 
 		//- Return true if thermal conductivity is isotropic
-		virtual bool isotropic() const = 0;
+		FoamThermophysicalModels_EXPORT virtual bool isotropic() const = 0;
 
 
 		// Per patch calculation
 
 			//- Anisotropic thermal conductivity [W/m/K]
-		virtual tmp<vectorField> Kappa
+		FoamThermophysicalModels_EXPORT virtual tmp<vectorField> Kappa
 		(
 			const label patchi
 		) const = 0;
@@ -158,7 +265,7 @@ namespace tnbLib
 		// I-O
 
 			//- Read thermophysicalProperties dictionary
-		virtual bool read();
+		FoamThermophysicalModels_EXPORT virtual bool read();
 	};
 
 

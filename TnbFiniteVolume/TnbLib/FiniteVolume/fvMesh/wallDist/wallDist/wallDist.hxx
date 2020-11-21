@@ -95,26 +95,29 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Construct the normal-to-wall field as required
-		void constructn() const;
+		FoamFiniteVolume_EXPORT void constructn() const;
 
 
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("wallDist");
+		/*ClassName("wallDist");*/
+		static const char* typeName_() { return "wallDist"; } 
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName; 
+		static FoamFiniteVolume_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh and optional patch type name
-		wallDist
+		FoamFiniteVolume_EXPORT wallDist
 		(
 			const fvMesh& mesh,
 			const word& patchTypeName = "wall"
 		);
 
 		//- Construct from mesh, patch IDs and optional patch type name
-		wallDist
+		FoamFiniteVolume_EXPORT wallDist
 		(
 			const fvMesh& mesh,
 			const labelHashSet& patchIDs,
@@ -122,16 +125,16 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		wallDist(const wallDist&) = delete;
+		FoamFiniteVolume_EXPORT wallDist(const wallDist&) = delete;
 
 
 		//- Destructor
 		virtual ~wallDist();
-
+		FoamFiniteVolume_EXPORT
 
 		// Member Functions
 
-			//- Return the patchIDs
+		//- Return the patchIDs
 		const labelHashSet& patchIDs() const
 		{
 			return patchIDs_;
@@ -144,19 +147,19 @@ namespace tnbLib
 		}
 
 		//- Return reference to cached normal-to-wall field
-		const volVectorField& n() const;
+		FoamFiniteVolume_EXPORT const volVectorField& n() const;
 
 		//- Update the y-field when the mesh moves
-		virtual bool movePoints();
+		FoamFiniteVolume_EXPORT virtual bool movePoints();
 
 		//- Update the y-field when the mesh changes
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamFiniteVolume_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const wallDist&) = delete;
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const wallDist&) = delete;
 	};
 
 

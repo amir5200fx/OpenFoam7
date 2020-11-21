@@ -40,6 +40,16 @@ SourceFiles
 #include <fvPatchField.hxx>
 #include <coupledFvPatch.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCoupledFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCoupledFvPatchField_EXPORT_DEFINE
+#define FoamCoupledFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamCoupledFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -59,7 +69,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(coupledFvPatch::typeName_());
+		//TypeName(coupledFvPatch::typeName_());
+		static const char* typeName_() { return coupledFvPatch::typeName_(); }
+		static FoamCoupledFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamCoupledFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

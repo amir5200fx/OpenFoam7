@@ -162,23 +162,23 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
-		static const char* const componentNames[];
-		static const longDoubleScalar zero;
-		static const longDoubleScalar one;
-		static const longDoubleScalar max;
-		static const longDoubleScalar min;
-		static const longDoubleScalar rootMax;
-		static const longDoubleScalar rootMin;
+		static FoamBase_EXPORT const char* const typeName;
+		static FoamBase_EXPORT const char* const componentNames[];
+		static FoamBase_EXPORT const longDoubleScalar zero;
+		static FoamBase_EXPORT const longDoubleScalar one;
+		static FoamBase_EXPORT const longDoubleScalar max;
+		static FoamBase_EXPORT const longDoubleScalar min;
+		static FoamBase_EXPORT const longDoubleScalar rootMax;
+		static FoamBase_EXPORT const longDoubleScalar rootMin;
 
 
 		// Constructors
 
 			//- Construct from primitive
-		explicit pTraits(const longDoubleScalar&);
+		FoamBase_EXPORT explicit pTraits(const longDoubleScalar&);
 
 		//- Construct from Istream
-		pTraits(Istream&);
+		FoamBase_EXPORT pTraits(Istream&);
 
 
 		// Member Functions
@@ -200,7 +200,7 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	//- Return a string representation of a longDoubleScalar
-	word name(const longDoubleScalar);
+	FoamBase_EXPORT word name(const longDoubleScalar);
 
 
 	// Standard C++ transcendental functions
@@ -458,15 +458,15 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * IOstream Functions  * * * * * * * * * * * * //
 
-	longDoubleScalar readScalar(Istream&);
+	FoamBase_EXPORT longDoubleScalar readScalar(Istream&);
 
-	void writeEntry(Ostream& os, const longDoubleScalar value);
+	FoamBase_EXPORT void writeEntry(Ostream& os, const longDoubleScalar value);
 
 
 	// * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-	Istream& operator>>(Istream&, longDoubleScalar&);
-	Ostream& operator<<(Ostream&, const longDoubleScalar);
+	FoamBase_EXPORT Istream& operator>>(Istream&, longDoubleScalar&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const longDoubleScalar);
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

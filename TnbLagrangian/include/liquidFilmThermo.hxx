@@ -85,96 +85,100 @@ namespace tnbLib
 				// Protected member functions
 
 					//- Return a reference to a thermo film
-				const thermoSingleLayer& thermoFilm() const;
+				FoamLagrangian_EXPORT const thermoSingleLayer& thermoFilm() const;
 
 				//- Initialise the liquid pointer
-				void initLiquid(const dictionary& dict);
+				FoamLagrangian_EXPORT void initLiquid(const dictionary& dict);
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("liquid");
+				//TypeName("liquid");
+				static const char* typeName_() { return "liquid"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model and dictionary
-				liquidFilmThermo
+				FoamLagrangian_EXPORT liquidFilmThermo
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
 				);
 
 				//- Disallow default bitwise copy construction
-				liquidFilmThermo(const liquidFilmThermo&) = delete;
+				FoamLagrangian_EXPORT liquidFilmThermo(const liquidFilmThermo&) = delete;
 
 
 				//- Destructor
-				virtual ~liquidFilmThermo();
+				FoamLagrangian_EXPORT virtual ~liquidFilmThermo();
 
 
 				// Member Functions
 
 					//- Return the specie name
-				virtual const word& name() const;
+				FoamLagrangian_EXPORT virtual const word& name() const;
 
 
 				// Elemental access
 
 					//- Return density [kg/m^3]
-				virtual scalar rho(const scalar p, const scalar T) const;
+				FoamLagrangian_EXPORT virtual scalar rho(const scalar p, const scalar T) const;
 
 				//- Return dynamic viscosity [Pa.s]
-				virtual scalar mu(const scalar p, const scalar T) const;
+				FoamLagrangian_EXPORT virtual scalar mu(const scalar p, const scalar T) const;
 
 				//- Return surface tension [kg/s^2]
-				virtual scalar sigma(const scalar p, const scalar T) const;
+				FoamLagrangian_EXPORT virtual scalar sigma(const scalar p, const scalar T) const;
 
 				//- Return specific heat capacity [J/kg/K]
-				virtual scalar Cp(const scalar p, const scalar T) const;
+				FoamLagrangian_EXPORT virtual scalar Cp(const scalar p, const scalar T) const;
 
 				//- Return thermal conductivity [W/m/K]
-				virtual scalar kappa(const scalar p, const scalar T) const;
+				FoamLagrangian_EXPORT virtual scalar kappa(const scalar p, const scalar T) const;
 
 				//- Return diffusivity [m2/s]
-				virtual scalar D(const scalar p, const scalar T) const;
+				FoamLagrangian_EXPORT virtual scalar D(const scalar p, const scalar T) const;
 
 				//- Return latent heat [J/kg]
-				virtual scalar hl(const scalar p, const scalar T) const;
+				FoamLagrangian_EXPORT virtual scalar hl(const scalar p, const scalar T) const;
 
 				//- Return vapour pressure [Pa]
-				virtual scalar pv(const scalar p, const scalar T) const;
+				FoamLagrangian_EXPORT virtual scalar pv(const scalar p, const scalar T) const;
 
 				//- Return molecular weight [kg/kmol]
-				virtual scalar W() const;
+				FoamLagrangian_EXPORT virtual scalar W() const;
 
 				//- Return boiling temperature [K]
-				virtual scalar Tb(const scalar p) const;
+				FoamLagrangian_EXPORT virtual scalar Tb(const scalar p) const;
 
 
 				// Field access
 
 					//- Return density [kg/m^3]
-				virtual tmp<volScalarField> rho() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> rho() const;
 
 				//- Return dynamic viscosity [Pa.s]
-				virtual tmp<volScalarField> mu() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> mu() const;
 
 				//- Return surface tension [kg/s^2]
-				virtual tmp<volScalarField> sigma() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> sigma() const;
 
 				//- Return specific heat capacity [J/kg/K]
-				virtual tmp<volScalarField> Cp() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> Cp() const;
 
 				//- Return thermal conductivity [W/m/K]
-				virtual tmp<volScalarField> kappa() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> kappa() const;
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const liquidFilmThermo&) = delete;
+				FoamLagrangian_EXPORT void operator=(const liquidFilmThermo&) = delete;
 			};
 
 

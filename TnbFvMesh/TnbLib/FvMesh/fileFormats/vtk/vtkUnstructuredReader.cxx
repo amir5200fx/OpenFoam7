@@ -16,7 +16,7 @@ namespace tnbLib
 {
 	defineTypeNameAndDebug(vtkUnstructuredReader, 1);
 
-	template<>
+	/*template<>
 	const char*
 		NamedEnum<vtkUnstructuredReader::vtkDataType, 8>::names[] =
 	{
@@ -28,24 +28,24 @@ namespace tnbLib
 		"double",
 		"string",
 		"vtkIdType"
-	};
+	};*/
 	const NamedEnum<vtkUnstructuredReader::vtkDataType, 8>
 		vtkUnstructuredReader::vtkDataTypeNames;
 
 
-	template<>
+	/*template<>
 	const char*
 		NamedEnum<vtkUnstructuredReader::vtkDataSetType, 3>::names[] =
 	{
 		"FIELD",
 		"SCALARS",
 		"VECTORS"
-	};
+	};*/
 	const NamedEnum<vtkUnstructuredReader::vtkDataSetType, 3>
 		vtkUnstructuredReader::vtkDataSetTypeNames;
 
 
-	template<>
+	/*template<>
 	const char*
 		NamedEnum<vtkUnstructuredReader::parseMode, 5>::names[] =
 	{
@@ -54,7 +54,7 @@ namespace tnbLib
 		"POLYDATA",
 		"CELL_DATA",
 		"POINT_DATA"
-	};
+	};*/
 	const NamedEnum<vtkUnstructuredReader::parseMode, 5>
 		vtkUnstructuredReader::parseModeNames;
 }

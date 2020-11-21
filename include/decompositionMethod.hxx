@@ -63,12 +63,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("decompositionMethod");
+		//TypeName("decompositionMethod");
+		static const char* typeName_() { return "decompositionMethod"; }
+		static FoamParallel_EXPORT const ::tnbLib::word typeName;
+		static FoamParallel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			decompositionMethod,
@@ -77,22 +81,74 @@ namespace tnbLib
 				const dictionary& decompositionDict
 				),
 				(decompositionDict)
-		);
+		);*/
+
+		typedef autoPtr<decompositionMethod> (*dictionaryConstructorPtr)(const dictionary& decompositionDict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamParallel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamParallel_EXPORT void constructdictionaryConstructorTables();
+		static FoamParallel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class decompositionMethodType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<decompositionMethod> New(const dictionary& decompositionDict)
+			{
+				return autoPtr<decompositionMethod>(new decompositionMethodType(decompositionDict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = decompositionMethodType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "decompositionMethod"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class decompositionMethodType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<decompositionMethod> New(const dictionary& decompositionDict)
+			{
+				return autoPtr<decompositionMethod>(new decompositionMethodType(decompositionDict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = decompositionMethodType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors
 
 			//- Construct given the decomposition dictionary
-		decompositionMethod(const dictionary& decompositionDict);
+		FoamParallel_EXPORT decompositionMethod(const dictionary& decompositionDict);
 
 		//- Disallow default bitwise copy construction
-		decompositionMethod(const decompositionMethod&) = delete;
+		FoamParallel_EXPORT decompositionMethod(const decompositionMethod&) = delete;
 
 
 		// Selectors
 
 			//- Return a reference to the selected decomposition method
-		static autoPtr<decompositionMethod> New
+		static FoamParallel_EXPORT autoPtr<decompositionMethod> New
 		(
 			const dictionary& decompositionDict
 		);
@@ -112,7 +168,7 @@ namespace tnbLib
 
 		//- Is method parallel aware (i.e. does it synchronize domains across
 		//  proc boundaries)
-		virtual bool parallelAware() const = 0;
+		FoamParallel_EXPORT virtual bool parallelAware() const = 0;
 
 
 		// No topology (implemented by geometric decomposers)
@@ -140,7 +196,7 @@ namespace tnbLib
 
 			//- Return for every coordinate the wanted processor number. Use the
 			//  mesh connectivity (if needed)
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const polyMesh& mesh,
 			const pointField& points,
@@ -148,7 +204,7 @@ namespace tnbLib
 		) = 0;
 
 		//- Like decompose but with uniform weights on the points
-		virtual labelList decompose(const polyMesh&, const pointField&);
+		FoamParallel_EXPORT virtual labelList decompose(const polyMesh&, const pointField&);
 
 
 		//- Return for every coordinate the wanted processor number. Gets
@@ -158,7 +214,7 @@ namespace tnbLib
 		//  functionality natively. Coarse cells are local to the processor
 		//  (if in parallel). If you want to have coarse cells spanning
 		//  processors use the globalCellCells instead.
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const polyMesh& mesh,
 			const labelList& cellToRegion,
@@ -167,7 +223,7 @@ namespace tnbLib
 		);
 
 		//- Like decompose but with uniform weights on the regions
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const polyMesh& mesh,
 			const labelList& cellToRegion,
@@ -184,7 +240,7 @@ namespace tnbLib
 			//    from 0 at processor0 and then incrementing all through the
 			//    processors)
 			//  - the connections are across coupled patches
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const labelListList& globalCellCells,
 			const pointField& cc,
@@ -192,7 +248,7 @@ namespace tnbLib
 		) = 0;
 
 		//- Like decompose but with uniform weights on the cells
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const labelListList& globalCellCells,
 			const pointField& cc
@@ -207,7 +263,7 @@ namespace tnbLib
 			//           cyclics but not processor patches.
 			//  global : connections are in global indices. Coupled across
 			//            cyclics and processor patches.
-		static void calcCellCells
+		static FoamParallel_EXPORT void calcCellCells
 		(
 			const polyMesh& mesh,
 			const labelList& agglom,
@@ -219,7 +275,7 @@ namespace tnbLib
 		//- Helper: determine (local or global) cellCells and face weights
 		//  from mesh agglomeration.
 		//  Uses mag of faceArea as weights
-		static void calcCellCells
+		static FoamParallel_EXPORT void calcCellCells
 		(
 			const polyMesh& mesh,
 			const labelList& agglom,
@@ -235,7 +291,7 @@ namespace tnbLib
 		//  explicitConnections: sets of boundary faces  ,,     ,,
 		//  specifiedProcessorFaces: groups of faces with all cells on
 		//  same processor.
-		void setConstraints
+		FoamParallel_EXPORT void setConstraints
 		(
 			const polyMesh& mesh,
 			boolList& blockedFace,
@@ -247,7 +303,7 @@ namespace tnbLib
 		//- Helper: apply constraints to a decomposition. This gives
 		//  constraints opportunity to modify decomposition in case
 		//  the native decomposition method has not obeyed all constraints
-		void applyConstraints
+		FoamParallel_EXPORT void applyConstraints
 		(
 			const polyMesh& mesh,
 			const boolList& blockedFace,
@@ -267,7 +323,7 @@ namespace tnbLib
 		//   (blockedFace should be false on these). Owner and
 		//   neighbour on same processor.
 		// Set all to zero size to have unconstrained decomposition.
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const polyMesh& mesh,
 			const scalarField& cellWeights,
@@ -286,7 +342,7 @@ namespace tnbLib
 		//      decompose(mesh, cellCentres(), cellWeights)
 		//  - valid constraints:
 		//      decompose(mesh, cellToRegion, regionPoints, regionWeights)
-		labelList decompose
+		FoamParallel_EXPORT labelList decompose
 		(
 			const polyMesh& mesh,
 			const scalarField& cWeights
@@ -296,7 +352,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const decompositionMethod&) = delete;
+		FoamParallel_EXPORT void operator=(const decompositionMethod&) = delete;
 	};
 
 

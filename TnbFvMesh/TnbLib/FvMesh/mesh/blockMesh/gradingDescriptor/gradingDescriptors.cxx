@@ -33,7 +33,7 @@ tnbLib::gradingDescriptors tnbLib::gradingDescriptors::inv() const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, gradingDescriptors& gds)
+FoamFvMesh_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, gradingDescriptors& gds)
 {
 	// Examine next token
 	token t(is);

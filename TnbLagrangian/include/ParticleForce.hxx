@@ -42,6 +42,16 @@ SourceFiles
 #include <forceSuSp.hxx>
 #include <fvMesh.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamParticleForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamParticleForce_EXPORT_DEFINE
+#define FoamParticleForce_EXPORT __declspec(dllexport)
+#else
+#define FoamParticleForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -69,10 +79,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("particleForce");
+		//TypeName("particleForce");
+		static const char* typeName_() { return "particleForce"; }
+		static FoamParticleForce_EXPORT const ::tnbLib::word typeName;
+		static FoamParticleForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			ParticleForce,
@@ -83,7 +97,59 @@ namespace tnbLib
 				const dictionary& dict
 				),
 				(owner, mesh, dict)
-		);
+		);*/
+		
+		typedef autoPtr<ParticleForce> (*dictionaryConstructorPtr)(CloudType& owner, const fvMesh& mesh,
+		                                                           const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamParticleForce_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamParticleForce_EXPORT void constructdictionaryConstructorTables();
+		static FoamParticleForce_EXPORT void destroydictionaryConstructorTables();
+
+		template <class ParticleForceType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<ParticleForce> New(CloudType& owner, const fvMesh& mesh, const dictionary& dict)
+			{
+				return autoPtr<ParticleForce>(new ParticleForceType(owner, mesh, dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = ParticleForceType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "ParticleForce" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class ParticleForceType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<ParticleForce> New(CloudType& owner, const fvMesh& mesh, const dictionary& dict)
+			{
+				return autoPtr<ParticleForce>(new ParticleForceType(owner, mesh, dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = ParticleForceType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		//- Convenience typedef for return type

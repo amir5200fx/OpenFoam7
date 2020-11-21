@@ -147,9 +147,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <IOOutputFilter.cxx>
-#endif
+//#ifdef NoRepository
+//#include <IOOutputFilter.cxx>
+//#endif
+
+#include <IOOutputFilterI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

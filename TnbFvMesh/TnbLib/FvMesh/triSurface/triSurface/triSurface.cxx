@@ -1359,7 +1359,7 @@ void tnbLib::triSurface::writeStats(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Member Operators  * * * * * * * * * * * * * //
 
-void tnbLib::triSurface::operator=(const triSurface& ts)
+FoamFvMesh_EXPORT void tnbLib::triSurface::operator=(const triSurface& ts)
 {
 	List<labelledTri>::operator=(ts);
 	clearOut();
@@ -1368,7 +1368,7 @@ void tnbLib::triSurface::operator=(const triSurface& ts)
 }
 
 
-void tnbLib::triSurface::operator=(triSurface&& ts)
+FoamFvMesh_EXPORT void tnbLib::triSurface::operator=(triSurface&& ts)
 {
 	List<labelledTri>::operator=(move(ts));
 	clearOut();
@@ -1379,7 +1379,7 @@ void tnbLib::triSurface::operator=(triSurface&& ts)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const triSurface& sm)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const triSurface& sm)
 {
 	sm.write(os);
 	return os;

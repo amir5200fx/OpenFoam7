@@ -205,7 +205,7 @@ void tnbLib::coupleGroupIdentifier::write(Ostream& os) const
 
 // * * * * * * * * * * * * * * Friend Operators * * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const coupleGroupIdentifier& p)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const coupleGroupIdentifier& p)
 {
 	p.write(os);
 	os.check("Ostream& operator<<(Ostream& os, const coupleGroupIdentifier& p");

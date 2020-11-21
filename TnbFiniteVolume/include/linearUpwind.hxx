@@ -41,6 +41,16 @@ SourceFiles
 #include <upwind.hxx>
 #include <gaussGrad.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamLinearUpwind_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLinearUpwind_EXPORT_DEFINE
+#define FoamLinearUpwind_EXPORT __declspec(dllexport)
+#else
+#define FoamLinearUpwind_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -63,7 +73,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("linearUpwind");
+		/*TypeName("linearUpwind");*/
+		static const char* typeName_() { return "linearUpwind"; }
+		static FoamLinearUpwind_EXPORT const ::tnbLib::word typeName;
+		static FoamLinearUpwind_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -54,7 +54,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cyclicAMILduInterface");
+		//TypeName("cyclicAMILduInterface");
+		static const char* typeName_() { return "cyclicAMILduInterface"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -65,7 +69,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~cyclicAMILduInterface();
+		FoamFvMesh_EXPORT virtual ~cyclicAMILduInterface();
 
 
 		// Member Functions
@@ -73,26 +77,26 @@ namespace tnbLib
 			// Access
 
 				//- Return neighbour
-		virtual label neighbPatchID() const = 0;
+		FoamFvMesh_EXPORT virtual label neighbPatchID() const = 0;
 
 		//- Does this side own the interface?
-		virtual bool owner() const = 0;
+		FoamFvMesh_EXPORT virtual bool owner() const = 0;
 
 		//- Return processor number
-		virtual const cyclicAMILduInterface& neighbPatch() const = 0;
+		FoamFvMesh_EXPORT virtual const cyclicAMILduInterface& neighbPatch() const = 0;
 
 		//- Return a reference to the AMI interpolators
-		virtual const PtrList<AMIInterpolation>& AMIs() const = 0;
+		FoamFvMesh_EXPORT virtual const PtrList<AMIInterpolation>& AMIs() const = 0;
 
 		// Return a reference to the AMI transformations
-		virtual const List<vectorTensorTransform>&
+		FoamFvMesh_EXPORT virtual const List<vectorTensorTransform>&
 			AMITransforms() const = 0;
 
 		//- Return face transformation tensor
-		virtual const tensorField& forwardT() const = 0;
+		FoamFvMesh_EXPORT virtual const tensorField& forwardT() const = 0;
 
 		//- Return face reverse transformation tensor
-		virtual const tensorField& reverseT() const = 0;
+		FoamFvMesh_EXPORT virtual const tensorField& reverseT() const = 0;
 	};
 
 

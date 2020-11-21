@@ -59,16 +59,20 @@ namespace tnbLib
 
 	public:
 
-		TypeName("featureEdgeMesh");
+		/*TypeName("featureEdgeMesh");*/
+		static const char* typeName_() { return "featureEdgeMesh"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct (read) given an IOobject
-		featureEdgeMesh(const IOobject&);
+		FoamFvMesh_EXPORT featureEdgeMesh(const IOobject&);
 
 		//- Construct from featureEdgeMesh data
-		featureEdgeMesh
+		FoamFvMesh_EXPORT featureEdgeMesh
 		(
 			const IOobject&,
 			const pointField&,
@@ -76,16 +80,16 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		featureEdgeMesh(const IOobject&, const featureEdgeMesh&);
+		FoamFvMesh_EXPORT featureEdgeMesh(const IOobject&, const featureEdgeMesh&);
 
 
 		// IO
 
 			//- ReadData function required for regIOobject read operation
-		virtual bool readData(Istream&);
+		FoamFvMesh_EXPORT virtual bool readData(Istream&);
 
 		//- WriteData function required for regIOobject write operation
-		virtual bool writeData(Ostream&) const;
+		FoamFvMesh_EXPORT virtual bool writeData(Ostream&) const;
 
 		//- Is object global
 		virtual bool global() const

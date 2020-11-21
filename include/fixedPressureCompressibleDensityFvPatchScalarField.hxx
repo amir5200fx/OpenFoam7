@@ -90,27 +90,31 @@ namespace tnbLib
 	{
 		// Private Data
 
-			//- Name of static pressure field
+		//- Name of static pressure field
 		word pName_;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("fixedPressureCompressibleDensity");
+		//TypeName("fixedPressureCompressibleDensity");
+		static const char* typeName_() { return "fixedPressureCompressibleDensity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		fixedPressureCompressibleDensityFvPatchScalarField
+		FoamFiniteVolume_EXPORT fixedPressureCompressibleDensityFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		fixedPressureCompressibleDensityFvPatchScalarField
+		FoamFiniteVolume_EXPORT fixedPressureCompressibleDensityFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -120,7 +124,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  fixedPressureCompressibleDensityFvPatchScalarField
 		//  onto a new patch
-		fixedPressureCompressibleDensityFvPatchScalarField
+		FoamFiniteVolume_EXPORT fixedPressureCompressibleDensityFvPatchScalarField
 		(
 			const fixedPressureCompressibleDensityFvPatchScalarField&,
 			const fvPatch&,
@@ -129,7 +133,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		fixedPressureCompressibleDensityFvPatchScalarField
+		FoamFiniteVolume_EXPORT fixedPressureCompressibleDensityFvPatchScalarField
 		(
 			const fixedPressureCompressibleDensityFvPatchScalarField&
 		);
@@ -144,7 +148,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		fixedPressureCompressibleDensityFvPatchScalarField
+		FoamFiniteVolume_EXPORT fixedPressureCompressibleDensityFvPatchScalarField
 		(
 			const fixedPressureCompressibleDensityFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -169,11 +173,11 @@ namespace tnbLib
 
 		// Member Functions
 
-			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		//- Update the coefficients associated with the patch field
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

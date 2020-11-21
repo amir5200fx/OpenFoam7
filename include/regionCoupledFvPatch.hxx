@@ -79,12 +79,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(regionCoupledPolyPatch::typeName_());
+		/*TypeName(regionCoupledPolyPatch::typeName_());*/
+		static const char* typeName_() { return regionCoupledPolyPatch::typeName_(); }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from polyPatch
+		//- Construct from polyPatch
 		regionCoupledFvPatch(const polyPatch& patch, const fvBoundaryMesh& bm)
 			:
 			fvPatch(patch, bm),
@@ -108,9 +112,9 @@ namespace tnbLib
 		// Member Functions
 
 
-			// Access
+		// Access
 
-				//- Return faceCell addressing
+		//- Return faceCell addressing
 		virtual const labelUList& faceCells() const
 		{
 			return fvPatch::faceCells();
@@ -125,9 +129,9 @@ namespace tnbLib
 
 		// Interface transfer functions
 
-			//- Return the values of the given internal data adjacent to
-			//  the interface as a field
-		virtual tmp<labelField> interfaceInternalField
+		//- Return the values of the given internal data adjacent to
+		//  the interface as a field
+		FoamFiniteVolume_EXPORT virtual tmp<labelField> interfaceInternalField
 		(
 			const labelUList& internalData
 		) const;
@@ -144,7 +148,7 @@ namespace tnbLib
 		{}
 
 		//- Return neighbour field
-		virtual tmp<labelField> internalFieldTransfer
+		FoamFiniteVolume_EXPORT virtual tmp<labelField> internalFieldTransfer
 		(
 			const Pstream::commsTypes commsType,
 			const labelUList& iF

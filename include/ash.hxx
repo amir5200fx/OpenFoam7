@@ -55,16 +55,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("ash");
+		//TypeName("ash");
+		static const char* typeName_() { return "ash"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct null
-		ash();
+		FoamThermophysicalModels_EXPORT ash();
 
 		//- Construct from dictionary
-		ash(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT ash(const dictionary& dict);
 
 		//- Construct and return clone
 		virtual autoPtr<solidProperties> clone() const
@@ -76,14 +80,14 @@ namespace tnbLib
 		// I-O
 
 			//- Write the function coefficients
-		void writeData(Ostream& os) const;
+		FoamThermophysicalModels_EXPORT void writeData(Ostream& os) const;
 
 		//- Ostream Operator
-		friend Ostream& operator<<(Ostream& os, const ash& s);
+		friend FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const ash& s);
 	};
 
 
-	Ostream& operator<<(Ostream& os, const ash& s);
+	FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const ash& s);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

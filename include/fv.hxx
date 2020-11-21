@@ -41,7 +41,9 @@ namespace tnbLib
 {
 	namespace fv
 	{
-		NamespaceName("fv");
+		inline const char* typeName_() { return "fv"; } 
+		extern FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		extern FoamFiniteVolume_EXPORT int debug;
 	}
 }
 

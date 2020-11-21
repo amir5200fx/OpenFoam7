@@ -62,19 +62,23 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Calculate the patch geometry
-		virtual void calcGeometry(PstreamBuffers&);
+		FoamBase_EXPORT virtual void calcGeometry(PstreamBuffers&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("symmetryPlane");
+		//TypeName("symmetryPlane");
+		static const char* typeName_() { return "symmetryPlane"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		symmetryPlanePolyPatch
+		FoamBase_EXPORT symmetryPlanePolyPatch
 		(
 			const word& name,
 			const label size,
@@ -85,7 +89,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		symmetryPlanePolyPatch
+		FoamBase_EXPORT symmetryPlanePolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -95,7 +99,7 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		symmetryPlanePolyPatch
+		FoamBase_EXPORT symmetryPlanePolyPatch
 		(
 			const symmetryPlanePolyPatch&,
 			const polyBoundaryMesh&
@@ -103,7 +107,7 @@ namespace tnbLib
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		symmetryPlanePolyPatch
+		FoamBase_EXPORT symmetryPlanePolyPatch
 		(
 			const symmetryPlanePolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -113,7 +117,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		symmetryPlanePolyPatch
+		FoamBase_EXPORT symmetryPlanePolyPatch
 		(
 			const symmetryPlanePolyPatch& pp,
 			const polyBoundaryMesh& bm,

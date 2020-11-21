@@ -45,7 +45,7 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	tmp<volVectorField> constrainHbyA
+	FoamFiniteVolume_EXPORT tmp<volVectorField> constrainHbyA
 	(
 		const tmp<volVectorField>& tHbyA,
 		const volVectorField& U,

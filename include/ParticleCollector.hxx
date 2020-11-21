@@ -96,6 +96,16 @@ SourceFiles
 #include <Switch.hxx>
 #include <OFstream.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamParticleCollector_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamParticleCollector_EXPORT_DEFINE
+#define FoamParticleCollector_EXPORT __declspec(dllexport)
+#else
+#define FoamParticleCollector_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -244,7 +254,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("particleCollector");
+		//TypeName("particleCollector");
+		static const char* typeName_() { return "particleCollector"; }
+		static FoamParticleCollector_EXPORT const ::tnbLib::word typeName;
+		static FoamParticleCollector_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

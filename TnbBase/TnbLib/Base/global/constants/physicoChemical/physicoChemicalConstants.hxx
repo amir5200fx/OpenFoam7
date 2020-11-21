@@ -47,25 +47,25 @@ namespace tnbLib
 			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 				//- Group name for physico-chemical constants
-			extern const char* const group;
+			FoamBase_EXPORT extern const char* const group;
 
 			//- Universal gas constant: default SI units: [J/mol/K]
-			extern const dimensionedScalar R;
+			FoamBase_EXPORT extern const dimensionedScalar R;
 
 			//- Faraday constant: default SI units: [C/mol]
-			extern const dimensionedScalar F;
+			FoamBase_EXPORT extern const dimensionedScalar F;
 
 			//- Stefan-Boltzmann constant: default SI units: [W/m^2/K^4]
-			extern const dimensionedScalar sigma;
+			FoamBase_EXPORT extern const dimensionedScalar sigma;
 
 			//- Wien displacement law constant: default SI units: [m K]
-			extern const dimensionedScalar b;
+			FoamBase_EXPORT extern const dimensionedScalar b;
 
 			//- First radiation constant: default SI units: [W/m^2]
-			extern const dimensionedScalar c1;
+			FoamBase_EXPORT extern const dimensionedScalar c1;
 
 			//- Second radiation constant: default SI units: [m K]
-			extern const dimensionedScalar c2;
+			FoamBase_EXPORT extern const dimensionedScalar c2;
 
 			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

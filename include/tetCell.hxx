@@ -109,7 +109,7 @@ namespace tnbLib
 		// Operations
 
 			//- Return tet shape cell
-		cellShape tetCellShape() const;
+		FoamBase_EXPORT cellShape tetCellShape() const;
 
 		//- Return the tetrahedron
 		inline tetPointRef tet(const pointField&) const;

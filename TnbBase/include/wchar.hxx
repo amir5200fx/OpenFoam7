@@ -40,6 +40,8 @@ See also
 
 \*---------------------------------------------------------------------------*/
 
+#include <includeModule.hxx>
+
 #include <cwchar>
 #include <string>
 
@@ -54,13 +56,13 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
 	//- Output wide character (Unicode) as UTF-8
-	Ostream& operator<<(Ostream&, const wchar_t);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const wchar_t);
 
 	//- Output wide character (Unicode) string as UTF-8
-	Ostream& operator<<(Ostream&, const wchar_t*);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const wchar_t*);
 
 	//- Output wide character (Unicode) string as UTF-8
-	Ostream& operator<<(Ostream&, const std::wstring&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const std::wstring&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -78,10 +78,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		boundaryRegion();
+		FoamConversion_EXPORT boundaryRegion();
 
 		//- Construct read from registry, name. instance
-		boundaryRegion
+		FoamConversion_EXPORT boundaryRegion
 		(
 			const objectRegistry&,
 			const word& name = "boundaryRegion",
@@ -89,36 +89,36 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		boundaryRegion(const boundaryRegion&) = delete;
+		FoamConversion_EXPORT boundaryRegion(const boundaryRegion&) = delete;
 
 
 		//- Destructor
-		~boundaryRegion();
+		FoamConversion_EXPORT ~boundaryRegion();
 
 
 		// Member Functions
 
 			//- Append to the end, return index
-		label append(const dictionary&);
+		FoamConversion_EXPORT label append(const dictionary&);
 
 		//- Return index corresponding to patch 'name'
 		//  returns -1 if not found
-		label findIndex(const word& name) const;
+		FoamConversion_EXPORT label findIndex(const word& name) const;
 
 		//- Return a Map of (id => name)
-		Map<word> names() const;
+		FoamConversion_EXPORT Map<word> names() const;
 
 		//- Return a Map of (id => names) selected by patterns
-		Map<word> names(const UList<wordRe>& patterns) const;
+		FoamConversion_EXPORT Map<word> names(const UList<wordRe>& patterns) const;
 
 		//- Return a Map of (id => type)
-		Map<word> boundaryTypes() const;
+		FoamConversion_EXPORT Map<word> boundaryTypes() const;
 
 		//- Return BoundaryType corresponding to patch 'name'
-		word boundaryType(const word& name) const;
+		FoamConversion_EXPORT word boundaryType(const word& name) const;
 
 		//- Read constant/boundaryRegion
-		void readDict
+		FoamConversion_EXPORT void readDict
 		(
 			const objectRegistry&,
 			const word& name = "boundaryRegion",
@@ -126,7 +126,7 @@ namespace tnbLib
 		);
 
 		//- Write constant/boundaryRegion for later reuse
-		void writeDict
+		FoamConversion_EXPORT void writeDict
 		(
 			const objectRegistry&,
 			const word& name = "boundaryRegion",
@@ -137,10 +137,10 @@ namespace tnbLib
 		// Member Operators
 
 			//- Assignment
-		void operator=(const boundaryRegion&);
+		FoamConversion_EXPORT void operator=(const boundaryRegion&);
 
 		//- Assign from Map<dictionary>
-		void operator=(const Map<dictionary>&);
+		FoamConversion_EXPORT void operator=(const Map<dictionary>&);
 
 
 		// Friend Functions
@@ -150,7 +150,7 @@ namespace tnbLib
 			//  \verbatim
 			//      newPatchName    originalName;
 			//  \endverbatim
-		void rename(const dictionary&);
+		FoamConversion_EXPORT void rename(const dictionary&);
 	};
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

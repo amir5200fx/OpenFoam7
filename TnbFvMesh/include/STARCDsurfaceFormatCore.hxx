@@ -61,9 +61,9 @@ namespace tnbLib
 
 			// Protected Member Functions
 
-			static Map<word> readInpCellTable(IFstream&);
+			static FoamFvMesh_EXPORT Map<word> readInpCellTable(IFstream&);
 
-			static void writeCase
+			static FoamFvMesh_EXPORT void writeCase
 			(
 				Ostream&,
 				const pointField&,

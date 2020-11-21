@@ -99,22 +99,22 @@ namespace tnbLib
 
 		// Constructors
 
-			//- Construct from mappers
-		fvPatchMapper
+		//- Construct from mappers
+		FoamFiniteVolume_EXPORT fvPatchMapper
 		(
 			const fvPatch& patch,
 			const faceMapper& faceMap
 		);
 
 		//- Disallow default bitwise copy construction
-		fvPatchMapper
+		FoamFiniteVolume_EXPORT fvPatchMapper
 		(
 			const fvPatchMapper&
 		);
 
 
 		//- Destructor
-		virtual ~fvPatchMapper();
+		FoamFiniteVolume_EXPORT virtual ~fvPatchMapper();
 
 
 		// Member Functions
@@ -137,19 +137,19 @@ namespace tnbLib
 		}
 
 		//- Return direct addressing
-		virtual const labelUList& directAddressing() const;
+		FoamFiniteVolume_EXPORT virtual const labelUList& directAddressing() const;
 
 		//- Return interpolated addressing
-		virtual const labelListList& addressing() const;
+		FoamFiniteVolume_EXPORT virtual const labelListList& addressing() const;
 
 		//- Return interpolaion weights
-		virtual const scalarListList& weights() const;
+		FoamFiniteVolume_EXPORT virtual const scalarListList& weights() const;
 
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const fvPatchMapper&) = delete;
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const fvPatchMapper&) = delete;
 	};
 
 

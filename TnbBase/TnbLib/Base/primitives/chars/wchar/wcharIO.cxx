@@ -5,7 +5,7 @@
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const wchar_t wc)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const wchar_t wc)
 {
 	if (!(wc & ~0x0000007F))
 	{
@@ -75,7 +75,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const wchar_t wc)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const wchar_t* wstr)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const wchar_t* wstr)
 {
 	if (wstr)
 	{
@@ -89,7 +89,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const wchar_t* wstr)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const std::wstring& wstr)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const std::wstring& wstr)
 {
 	for
 		(

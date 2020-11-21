@@ -96,20 +96,24 @@ namespace tnbLib
 
 				// Protected Member Functions
 
-				virtual void correctNut();
-				virtual void correctNonlinearStress(const volTensorField& gradU);
+				FoamTurbulence_EXPORT virtual void correctNut();
+				FoamTurbulence_EXPORT virtual void correctNonlinearStress(const volTensorField& gradU);
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("ShihQuadraticKE");
+				//TypeName("ShihQuadraticKE");
+				static const char* typeName_() { return "ShihQuadraticKE"; }
+				static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+				static FoamTurbulence_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				ShihQuadraticKE
+				FoamTurbulence_EXPORT ShihQuadraticKE
 				(
 					const geometricOneField& alpha,
 					const geometricOneField& rho,
@@ -130,7 +134,7 @@ namespace tnbLib
 				// Member Functions
 
 					//- Read RASProperties dictionary
-				virtual bool read();
+				FoamTurbulence_EXPORT virtual bool read();
 
 				//- Return the effective diffusivity for k
 				tmp<volScalarField> DkEff() const
@@ -165,7 +169,7 @@ namespace tnbLib
 				}
 
 				//- Solve the turbulence equations and correct the turbulence viscosity
-				virtual void correct();
+				FoamTurbulence_EXPORT virtual void correct();
 			};
 
 

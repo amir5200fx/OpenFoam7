@@ -67,20 +67,20 @@ namespace tnbLib
 		static const int nElements = 104;
 
 		//- Static table of the weights of all known elements
-		static const atomicWeight atomicWeights[nElements];
+		static FoamThermophysicalModels_EXPORT const atomicWeight atomicWeights[nElements];
 
 
 		// Constructors
 
 			//- Construct from atomicWeights_
-		atomicWeightTable();
+		FoamThermophysicalModels_EXPORT atomicWeightTable();
 	};
 
 
 	// * * * * * * * * * * * * * * * * Global data  * * * * * * * * * * * * * * //
 
 	// Atomic weights table for every element in the periodic table
-	extern atomicWeightTable atomicWeights;
+	extern FoamThermophysicalModels_EXPORT atomicWeightTable atomicWeights;
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

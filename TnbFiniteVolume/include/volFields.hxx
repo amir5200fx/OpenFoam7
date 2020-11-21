@@ -50,14 +50,14 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	template<>
-	tmp<GeometricField<scalar, fvPatchField, volMesh>>
+	FoamFiniteVolume_EXPORT tmp<GeometricField<scalar, fvPatchField, volMesh>>
 		GeometricField<scalar, fvPatchField, volMesh>::component
 		(
 			const direction
 		) const;
 
 	template<>
-	void GeometricField<scalar, fvPatchField, volMesh>::replace
+	FoamFiniteVolume_EXPORT void GeometricField<scalar, fvPatchField, volMesh>::replace
 	(
 		const direction,
 		const GeometricField<scalar, fvPatchField, volMesh>& sf

@@ -54,7 +54,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("processorLduInterfaceField");
+		//TypeName("processorLduInterfaceField");
+		static const char* typeName_() { return "processorLduInterfaceField"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -65,7 +69,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~processorLduInterfaceField();
+		FoamBase_EXPORT virtual ~processorLduInterfaceField();
 
 
 		// Member Functions
@@ -73,22 +77,22 @@ namespace tnbLib
 			// Access
 
 				//- Return communicator used for comms
-		virtual label comm() const = 0;
+		FoamBase_EXPORT virtual label comm() const = 0;
 
 		//- Return processor number
-		virtual int myProcNo() const = 0;
+		FoamBase_EXPORT virtual int myProcNo() const = 0;
 
 		//- Return neighbour processor number
-		virtual int neighbProcNo() const = 0;
+		FoamBase_EXPORT virtual int neighbProcNo() const = 0;
 
 		//- Is the transform required
-		virtual bool doTransform() const = 0;
+		FoamBase_EXPORT virtual bool doTransform() const = 0;
 
 		//- Return face transformation tensor
-		virtual const tensorField& forwardT() const = 0;
+		FoamBase_EXPORT virtual const tensorField& forwardT() const = 0;
 
 		//- Return rank of component for transform
-		virtual int rank() const = 0;
+		FoamBase_EXPORT virtual int rank() const = 0;
 
 
 		//- Transform given patch field
@@ -96,7 +100,7 @@ namespace tnbLib
 		void transformCoupleField(Field<Type>& f) const;
 
 		//- Transform given patch component field
-		void transformCoupleField
+		FoamBase_EXPORT void transformCoupleField
 		(
 			scalarField& f,
 			const direction cmpt

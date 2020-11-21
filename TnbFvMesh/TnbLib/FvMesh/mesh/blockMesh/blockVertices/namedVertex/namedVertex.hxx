@@ -67,13 +67,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("name");
+			//TypeName("name");
+			static const char* typeName_() { return "name"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Istream setting pointsList
-			namedVertex
+			FoamFvMesh_EXPORT namedVertex
 			(
 				const dictionary&,
 				const label index,
@@ -89,7 +93,7 @@ namespace tnbLib
 
 			// Member Functions
 
-			virtual operator point() const;
+			FoamFvMesh_EXPORT virtual operator point() const;
 		};
 
 

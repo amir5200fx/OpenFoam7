@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="porousSimpleFoam">
+      <UniqueIdentifier>{4788b559-a72a-4742-8d02-567b8d53bfa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SRFSimpleFoam">
+      <UniqueIdentifier>{19f9f1ce-da69-4aa0-b638-f0b8f9cf795f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="createFields.lxx">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="pEqn.lxx">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="UEqn.lxx">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="porousSimpleFoam\createPorousZones.lxx">
+      <Filter>porousSimpleFoam</Filter>
+    </None>
+    <None Include="porousSimpleFoam\pEqn.lxx">
+      <Filter>porousSimpleFoam</Filter>
+    </None>
+    <None Include="porousSimpleFoam\UEqn.lxx">
+      <Filter>porousSimpleFoam</Filter>
+    </None>
+    <None Include="SRFSimpleFoam\createFields.lxx">
+      <Filter>SRFSimpleFoam</Filter>
+    </None>
+    <None Include="SRFSimpleFoam\pEqn.lxx">
+      <Filter>SRFSimpleFoam</Filter>
+    </None>
+    <None Include="SRFSimpleFoam\UrelEqn.lxx">
+      <Filter>SRFSimpleFoam</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="simpleFoam.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="porousSimpleFoam\porousSimpleFoam.cxx">
+      <Filter>porousSimpleFoam</Filter>
+    </ClCompile>
+    <ClCompile Include="SRFSimpleFoam\SRFSimpleFoam.cxx">
+      <Filter>SRFSimpleFoam</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

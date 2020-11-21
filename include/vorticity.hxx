@@ -60,19 +60,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Calculate the vorticity field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("vorticity");
+			//TypeName("vorticity");
+			static const char* typeName_() { return "vorticity"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			vorticity
+			FoamFunctionObjects_EXPORT vorticity
 			(
 				const word& name,
 				const Time& runTime,
@@ -81,7 +85,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~vorticity();
+			FoamFunctionObjects_EXPORT virtual ~vorticity();
 		};
 
 

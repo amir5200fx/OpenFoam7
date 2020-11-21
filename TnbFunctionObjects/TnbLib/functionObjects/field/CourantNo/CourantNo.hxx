@@ -72,25 +72,29 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Divide the Courant number by rho if required
-			tmp<volScalarField::Internal> byRho
+			FoamFunctionObjects_EXPORT tmp<volScalarField::Internal> byRho
 			(
 				const tmp<volScalarField::Internal>& Co
 			) const;
 
 			//- Calculate the Courant number field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("CourantNo");
+			//TypeName("CourantNo");
+			static const char* typeName_() { return "CourantNo"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			CourantNo
+			FoamFunctionObjects_EXPORT CourantNo
 			(
 				const word& name,
 				const Time&,
@@ -99,13 +103,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~CourantNo();
+			FoamFunctionObjects_EXPORT virtual ~CourantNo();
 
 
 			// Member Functions
 
 				//- Read the CourantNo data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 		};
 
 

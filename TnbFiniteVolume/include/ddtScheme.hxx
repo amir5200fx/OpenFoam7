@@ -43,6 +43,16 @@ SourceFiles
 #include <typeInfo.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamDdtScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDdtScheme_EXPORT_DEFINE
+#define FoamDdtScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamDdtScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -83,14 +93,64 @@ namespace tnbLib
 
 			// Declare run-time constructor selection tables
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				tmp,
 				ddtScheme,
 				Istream,
 				(const fvMesh& mesh, Istream& schemeData),
 				(mesh, schemeData)
-			);
+			);*/
+
+			typedef tmp<ddtScheme> (*IstreamConstructorPtr)(const fvMesh& mesh, Istream& schemeData);
+			typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
+			static FoamDdtScheme_EXPORT IstreamConstructorTable* IstreamConstructorTablePtr_;
+			static FoamDdtScheme_EXPORT void constructIstreamConstructorTables();
+			static FoamDdtScheme_EXPORT void destroyIstreamConstructorTables();
+
+			template <class ddtSchemeType>
+			class addIstreamConstructorToTable
+			{
+			public:
+				static tmp<ddtScheme> New(const fvMesh& mesh, Istream& schemeData)
+				{
+					return tmp<ddtScheme>(new ddtSchemeType(mesh, schemeData));
+				}
+
+				addIstreamConstructorToTable(const word& lookup = ddtSchemeType::typeName)
+				{
+					constructIstreamConstructorTables();
+					if (!IstreamConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "ddtScheme" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
+			};
+
+			template <class ddtSchemeType>
+			class addRemovableIstreamConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static tmp<ddtScheme> New(const fvMesh& mesh, Istream& schemeData)
+				{
+					return tmp<ddtScheme>(new ddtSchemeType(mesh, schemeData));
+				}
+
+				addRemovableIstreamConstructorToTable(const word& lookup = ddtSchemeType::typeName) : lookup_(lookup)
+				{
+					constructIstreamConstructorTables();
+					IstreamConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovableIstreamConstructorToTable()
+				{
+					if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors

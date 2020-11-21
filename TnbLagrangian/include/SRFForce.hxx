@@ -39,6 +39,16 @@ SourceFiles
 #include <ParticleForce.hxx>
 #include <SRFModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamSRFForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSRFForce_EXPORT_DEFINE
+#define FoamSRFForce_EXPORT __declspec(dllexport)
+#else
+#define FoamSRFForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -64,7 +74,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("SRF");
+		//TypeName("SRF");
+		static const char* typeName_() { return "SRF"; }
+		static FoamSRFForce_EXPORT const ::tnbLib::word typeName;
+		static FoamSRFForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

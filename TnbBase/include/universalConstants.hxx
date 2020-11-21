@@ -47,10 +47,10 @@ namespace tnbLib
 			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 				//- Group name for universal constants
-			extern const char* const group;
+			FoamBase_EXPORT extern const char* const group;
 
 			//- Reduced Planck constant: default SI units: [J/s]
-			extern const dimensionedScalar hr;
+			FoamBase_EXPORT extern const dimensionedScalar hr;
 
 			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

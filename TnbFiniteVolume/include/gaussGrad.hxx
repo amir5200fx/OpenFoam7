@@ -41,6 +41,16 @@ SourceFiles
 #include <surfaceInterpolationScheme.hxx>
 #include <linear.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamGaussGrad_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamGaussGrad_EXPORT_DEFINE
+#define FoamGaussGrad_EXPORT __declspec(dllexport)
+#else
+#define FoamGaussGrad_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -68,7 +78,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("Gauss");
+			/*TypeName("Gauss");*/
+			static const char* typeName_() { return "Gauss"; }
+			static FoamGaussGrad_EXPORT const ::tnbLib::word typeName;
+			static FoamGaussGrad_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

@@ -61,7 +61,7 @@ namespace tnbLib
 				// Private Member Functions
 
 					//- Read model controls
-				void readReactingOneDimControls();
+				FoamLagrangian_EXPORT void readReactingOneDimControls();
 
 
 			protected:
@@ -154,49 +154,53 @@ namespace tnbLib
 				// Protected member functions
 
 					//- Read control parameters from dictionary
-				bool read();
+				FoamLagrangian_EXPORT bool read();
 
 				//- Read control parameters from dict
-				bool read(const dictionary& dict);
+				FoamLagrangian_EXPORT bool read(const dictionary& dict);
 
 				//- Update submodels
-				void updateFields();
+				FoamLagrangian_EXPORT void updateFields();
 
 				//- Update/move mesh based on change in mass
-				void updateMesh(const scalarField& mass0);
+				FoamLagrangian_EXPORT void updateMesh(const scalarField& mass0);
 
 				//- Update radiative flux in pyrolysis region
-				void updateqr();
+				FoamLagrangian_EXPORT void updateqr();
 
 				//- Update enthalpy flux for pyrolysis gases
-				void updatePhiGas();
+				FoamLagrangian_EXPORT void updatePhiGas();
 
 				//- Mass check
-				void calculateMassTransfer();
+				FoamLagrangian_EXPORT void calculateMassTransfer();
 
 
 				// Equations
 
 					//- Solve continuity equation
-				void solveContinuity();
+				FoamLagrangian_EXPORT void solveContinuity();
 
 				//- Solve energy
-				void solveEnergy();
+				FoamLagrangian_EXPORT void solveEnergy();
 
 				//- Solve solid species mass conservation
-				void solveSpeciesMass();
+				FoamLagrangian_EXPORT void solveSpeciesMass();
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("reactingOneDim");
+				//TypeName("reactingOneDim");
+				static const char* typeName_() { return "reactingOneDim"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from type name and mesh
-				reactingOneDim
+				FoamLagrangian_EXPORT reactingOneDim
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -204,7 +208,7 @@ namespace tnbLib
 				);
 
 				//- Construct from type name, mesh and dictionary
-				reactingOneDim
+				FoamLagrangian_EXPORT reactingOneDim
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -213,11 +217,11 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				reactingOneDim(const reactingOneDim&) = delete;
+				FoamLagrangian_EXPORT reactingOneDim(const reactingOneDim&) = delete;
 
 
 				//- Destructor
-				virtual ~reactingOneDim();
+				FoamLagrangian_EXPORT virtual ~reactingOneDim();
 
 
 				// Member Functions
@@ -227,22 +231,22 @@ namespace tnbLib
 						//- Fields
 
 							//- Return const density [Kg/m^3]
-				const volScalarField& rho() const;
+				FoamLagrangian_EXPORT const volScalarField& rho() const;
 
 				//- Return const temperature [K]
-				virtual const volScalarField& T() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& T() const;
 
 				//- Return specific heat capacity [J/kg/K]
-				virtual const tmp<volScalarField> Cp() const;
+				FoamLagrangian_EXPORT virtual const tmp<volScalarField> Cp() const;
 
 				//- Return the region absorptivity [1/m]
-				virtual tmp<volScalarField> kappaRad() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> kappaRad() const;
 
 				//- Return the region thermal conductivity [W/m/k]
-				virtual tmp<volScalarField> kappa() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> kappa() const;
 
 				//- Return the total gas mass flux to primary region [kg/m^2/s]
-				virtual const surfaceScalarField& phiGas() const;
+				FoamLagrangian_EXPORT virtual const surfaceScalarField& phiGas() const;
 
 
 				// Solution parameters
@@ -251,41 +255,41 @@ namespace tnbLib
 				inline label nNonOrthCorr() const;
 
 				//- Return max diffusivity allowed in the solid
-				virtual scalar maxDiff() const;
+				FoamLagrangian_EXPORT virtual scalar maxDiff() const;
 
 
 				// Helper functions
 
 					//- External hook to add mass to the primary region
-				virtual scalar addMassSources
+				FoamLagrangian_EXPORT virtual scalar addMassSources
 				(
 					const label patchi,            // patchi on primary region
 					const label facei              // facei of patchi
 				);
 
 				//- Mean diffusion number of the solid region
-				virtual scalar solidRegionDiffNo() const;
+				FoamLagrangian_EXPORT virtual scalar solidRegionDiffNo() const;
 
 
 				// Evolution
 
 					 //- Pre-evolve region
-				virtual void preEvolveRegion();
+				FoamLagrangian_EXPORT virtual void preEvolveRegion();
 
 				//- Evolve the pyrolysis equations
-				virtual void evolveRegion();
+				FoamLagrangian_EXPORT virtual void evolveRegion();
 
 
 				// I-O
 
 					 //- Provide some feedback
-				virtual void info();
+				FoamLagrangian_EXPORT virtual void info();
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const reactingOneDim&) = delete;
+				FoamLagrangian_EXPORT void operator=(const reactingOneDim&) = delete;
 			};
 
 

@@ -74,13 +74,13 @@ namespace tnbLib
 			RED,
 			GREEN
 		};
-		static void calcRefineStatus
+		static FoamFvMesh_EXPORT void calcRefineStatus
 		(
 			const triSurface& surf,
 			const label facei,
 			List<refineType>& refine
 		);
-		static void greenRefine
+		static FoamFvMesh_EXPORT void greenRefine
 		(
 			const triSurface& surf,
 			const label facei,
@@ -88,7 +88,7 @@ namespace tnbLib
 			const label newPointi,
 			DynamicList<labelledTri>& newFaces
 		);
-		static triSurface doRefine
+		static FoamFvMesh_EXPORT triSurface doRefine
 		(
 			const triSurface& surf,
 			const List<refineType>& refineStatus
@@ -97,7 +97,7 @@ namespace tnbLib
 
 		// Coarsening
 
-		static scalar faceCosAngle
+		static FoamFvMesh_EXPORT scalar faceCosAngle
 		(
 			const point& pStart,
 			const point& pEnd,
@@ -105,7 +105,7 @@ namespace tnbLib
 			const point& pRight
 		);
 
-		static void protectNeighbours
+		static FoamFvMesh_EXPORT void protectNeighbours
 		(
 			const triSurface& surf,
 			const label vertI,
@@ -113,7 +113,7 @@ namespace tnbLib
 		);
 
 		//- Faces to collapse because of edge collapse
-		static labelHashSet getCollapsedFaces
+		static FoamFvMesh_EXPORT labelHashSet getCollapsedFaces
 		(
 			const triSurface& surf,
 			label edgeI
@@ -121,7 +121,7 @@ namespace tnbLib
 
 		// Return value of faceUsed for faces using vertI (local numbering).
 		// Used internally.
-		static label vertexUsesFace
+		static FoamFvMesh_EXPORT label vertexUsesFace
 		(
 			const triSurface& surf,
 			const labelHashSet& faceUsed,
@@ -136,7 +136,7 @@ namespace tnbLib
 		//  point v2 if they share a common vertex
 		//  (but not a common edge since then the triangles collapse to
 		//  nothing)
-		static void getMergedEdges
+		static FoamFvMesh_EXPORT void getMergedEdges
 		(
 			const triSurface& surf,
 			const label edgeI,
@@ -148,7 +148,7 @@ namespace tnbLib
 		//- Calculates (cos of) angle across edgeI of facei,
 		//  taking into account updated addressing (resulting from edge
 		//  collapse)
-		static scalar edgeCosAngle
+		static FoamFvMesh_EXPORT scalar edgeCosAngle
 		(
 			const triSurface& surf,
 			const label v1,
@@ -164,7 +164,7 @@ namespace tnbLib
 		//  collapsing
 		//  edge to v1 at pt. Returns 1 if v1 is on edge without neighbours
 		//  (and hence no edge angle can be defined)
-		static scalar collapseMinCosAngle
+		static FoamFvMesh_EXPORT scalar collapseMinCosAngle
 		(
 			const triSurface& surf,
 			const label v1,
@@ -175,7 +175,7 @@ namespace tnbLib
 		);
 
 		//- Like collapseMinCosAngle but return true for value < minCos
-		bool collapseCreatesFold
+		FoamFvMesh_EXPORT bool collapseCreatesFold
 		(
 			const triSurface& surf,
 			const label v1,
@@ -202,7 +202,7 @@ namespace tnbLib
 		//  Returns
 		//  - location on edge/point and hit()
 		//  - or miss() if no intersection found
-		static surfaceLocation cutEdge
+		static FoamFvMesh_EXPORT surfaceLocation cutEdge
 		(
 			const triSurface& s,
 			const label triI,
@@ -215,7 +215,7 @@ namespace tnbLib
 
 		//- Checks if current is on the same triangle as the endpoint
 		//  and shifts it there. If so updates current and sets a hit.
-		static void snapToEnd
+		static FoamFvMesh_EXPORT void snapToEnd
 		(
 			const triSurface& s,
 			const surfaceLocation& endInfo,
@@ -230,7 +230,7 @@ namespace tnbLib
 		//  - hit() if triangle contains endpoint
 		//  - triangle()=-1 if no triangle found
 		//  - nearest triangle/edge otherwise
-		static surfaceLocation visitFaces
+		static FoamFvMesh_EXPORT surfaceLocation visitFaces
 		(
 			const triSurface& s,
 			const labelList& eFaces,
@@ -247,14 +247,14 @@ namespace tnbLib
 		// OBJ writing
 
 			//- Write pointField to OBJ format file
-		static void writeOBJ
+		static FoamFvMesh_EXPORT void writeOBJ
 		(
 			const fileName& fName,
 			const pointField& pts
 		);
 
 		//- Write vertex subset to OBJ format file
-		static void writeOBJ
+		static FoamFvMesh_EXPORT void writeOBJ
 		(
 			const triSurface& surf,
 			const fileName& fName,
@@ -265,7 +265,7 @@ namespace tnbLib
 		// Additional addressing
 
 			//- Get all triangles using edge endpoint
-		static void getVertexTriangles
+		static FoamFvMesh_EXPORT void getVertexTriangles
 		(
 			const triSurface& surf,
 			const label edgeI,
@@ -273,7 +273,7 @@ namespace tnbLib
 		);
 
 		//- Get all vertices (local numbering) connected to vertices of edge
-		static labelList getVertexVertices
+		static FoamFvMesh_EXPORT labelList getVertexVertices
 		(
 			const triSurface& surf,
 			const edge& e
@@ -290,7 +290,7 @@ namespace tnbLib
 		//);
 
 		//- Get face connected to edge not facei
-		static label otherFace
+		static FoamFvMesh_EXPORT label otherFace
 		(
 			const triSurface& surf,
 			const label facei,
@@ -298,7 +298,7 @@ namespace tnbLib
 		);
 
 		//- Get the two edges on facei counterclockwise after edgeI
-		static void otherEdges
+		static FoamFvMesh_EXPORT void otherEdges
 		(
 			const triSurface& surf,
 			const label facei,
@@ -309,7 +309,7 @@ namespace tnbLib
 
 		//- Get the two vertices (local numbering) on facei counterclockwise
 		//  vertI
-		static void otherVertices
+		static FoamFvMesh_EXPORT void otherVertices
 		(
 			const triSurface& surf,
 			const label facei,
@@ -319,7 +319,7 @@ namespace tnbLib
 		);
 
 		//- Get edge opposite vertex (local numbering)
-		static label oppositeEdge
+		static FoamFvMesh_EXPORT label oppositeEdge
 		(
 			const triSurface& surf,
 			const label facei,
@@ -327,7 +327,7 @@ namespace tnbLib
 		);
 
 		//- Get vertex (local numbering) opposite edge
-		static label oppositeVertex
+		static FoamFvMesh_EXPORT label oppositeVertex
 		(
 			const triSurface& surf,
 			const label facei,
@@ -335,7 +335,7 @@ namespace tnbLib
 		);
 
 		//- Returns edge label connecting v1, v2 (local numbering)
-		static label getEdge
+		static FoamFvMesh_EXPORT label getEdge
 		(
 			const triSurface& surf,
 			const label vert1I,
@@ -343,7 +343,7 @@ namespace tnbLib
 		);
 
 		//- Return index of triangle (or -1) using all three edges
-		static label getTriangle
+		static FoamFvMesh_EXPORT label getTriangle
 		(
 			const triSurface& surf,
 			const label e0I,
@@ -354,7 +354,7 @@ namespace tnbLib
 		// Coarsening
 
 			//- Create new triSurface by collapsing edges to edge mids.
-		static triSurface collapseEdges
+		static FoamFvMesh_EXPORT triSurface collapseEdges
 		(
 			const triSurface& surf,
 			const labelList& collapsableEdges
@@ -366,16 +366,16 @@ namespace tnbLib
 		//  noEdge: no edge can be collapsed
 		//  collapsed: already collapsed
 		//  >0: edge label that can be collapsed
-		static const label ANYEDGE;
-		static const label NOEDGE;
-		static const label COLLAPSED;
+		static FoamFvMesh_EXPORT const label ANYEDGE;
+		static FoamFvMesh_EXPORT const label NOEDGE;
+		static FoamFvMesh_EXPORT const label COLLAPSED;
 
 		//- Create new triSurface by collapsing edges to specified
 		//  positions. faceStatus allows
 		//  explicit control over which faces need to be protected (see above).
 		//  faceStatus gets updated to protect collapsing already collapsed
 		//  faces.
-		static triSurface collapseEdges
+		static FoamFvMesh_EXPORT triSurface collapseEdges
 		(
 			const triSurface& surf,
 			const labelList& collapsableEdges,
@@ -387,7 +387,7 @@ namespace tnbLib
 		// Refinement
 
 			//- Refine edges by splitting to opposite vertex
-		static triSurface greenRefine
+		static FoamFvMesh_EXPORT triSurface greenRefine
 		(
 			const triSurface& surf,
 			const labelList& refineEdges
@@ -395,7 +395,7 @@ namespace tnbLib
 
 		//- Refine face by splitting all edges. Neighbouring face is
 		//  greenRefine'd.
-		static triSurface redGreenRefine
+		static FoamFvMesh_EXPORT triSurface redGreenRefine
 		(
 			const triSurface& surf,
 			const labelList& refineFaces
@@ -405,21 +405,21 @@ namespace tnbLib
 		// Geometric
 
 			//- Returns element in edgeIndices with minimum length
-		static label minEdge
+		static FoamFvMesh_EXPORT label minEdge
 		(
 			const triSurface& surf,
 			const labelList& edgeIndices
 		);
 
 		//- Returns element in edgeIndices with minimum length
-		static label maxEdge
+		static FoamFvMesh_EXPORT label maxEdge
 		(
 			const triSurface& surf,
 			const labelList& edgeIndices
 		);
 
 		//- Merge points within distance
-		static triSurface mergePoints
+		static FoamFvMesh_EXPORT triSurface mergePoints
 		(
 			const triSurface& surf,
 			const scalar mergeTol
@@ -428,7 +428,7 @@ namespace tnbLib
 		//- Triangle (unit) normal. If nearest point to triangle on edge use
 		//  edge normal (calculated on the fly); if on vertex use vertex normal.
 		//  Uses planarTol.
-		static vector surfaceNormal
+		static FoamFvMesh_EXPORT vector surfaceNormal
 		(
 			const triSurface& surf,
 			const label nearestFacei,
@@ -445,7 +445,7 @@ namespace tnbLib
 
 		//- If nearest point is on edgeI, determine on which side of surface
 		//  sample is.
-		static sideType edgeSide
+		static FoamFvMesh_EXPORT sideType edgeSide
 		(
 			const triSurface& surf,
 			const point& sample,
@@ -456,7 +456,7 @@ namespace tnbLib
 		//- Given nearest point (to sample) on surface determines which side
 		//  sample is. Uses either face normal, edge normal or point normal
 		//  (non-trivial). Uses triangle::classify.
-		static sideType surfaceSide
+		static FoamFvMesh_EXPORT sideType surfaceSide
 		(
 			const triSurface& surf,
 			const point& sample,
@@ -468,7 +468,7 @@ namespace tnbLib
 			//- Simple triangulation of (selected patches of) boundaryMesh. Needs
 			//  polyMesh (or polyBoundaryMesh) since only at this level are the
 			//  triangles on neighbouring patches connected.
-		static triSurface triangulate
+		static FoamFvMesh_EXPORT triSurface triangulate
 		(
 			const polyBoundaryMesh& mBesh,
 			const labelHashSet& includePatches,
@@ -476,7 +476,7 @@ namespace tnbLib
 		);
 
 
-		static triSurface triangulate
+		static FoamFvMesh_EXPORT triSurface triangulate
 		(
 			const polyBoundaryMesh& bMesh,
 			const labelHashSet& includePatches,
@@ -489,7 +489,7 @@ namespace tnbLib
 		//  Needs
 		//  polyMesh (or polyBoundaryMesh) since only at this level are the
 		//  triangles on neighbouring patches connected.
-		triSurface triangulateFaceCentre
+		FoamFvMesh_EXPORT triSurface triangulateFaceCentre
 		(
 			const polyBoundaryMesh& mBesh,
 			const labelHashSet& includePatches,
@@ -501,7 +501,7 @@ namespace tnbLib
 
 			//- Calculate linear interpolation weights for point (guaranteed to be
 			//  inside triangle)
-		static void calcInterpolationWeights
+		static FoamFvMesh_EXPORT void calcInterpolationWeights
 		(
 			const triPointRef&,
 			const point&,
@@ -515,7 +515,7 @@ namespace tnbLib
 		// or if the point is outside all triangles:
 		//   (a b -1) : the edge ab the point is nearest to.
 		//   (a -1 -1) : the vertex a the point is nearest to
-		static void calcInterpolationWeights
+		static FoamFvMesh_EXPORT void calcInterpolationWeights
 		(
 			const triSurface& s,
 			const pointField& samplePts,
@@ -525,13 +525,13 @@ namespace tnbLib
 
 		//- Do unconstrained Delaunay of points. Returns triSurface with 3D
 		//  points with z=0. All triangles in region 0.
-		static triSurface delaunay2D(const List<vector2D>&);
+		static FoamFvMesh_EXPORT triSurface delaunay2D(const List<vector2D>&);
 
 
 		// Tracking
 
 			//- Test point on plane of triangle to see if on edge or point or inside
-		static surfaceLocation classify
+		static FoamFvMesh_EXPORT surfaceLocation classify
 		(
 			const triSurface&,
 			const label triI,
@@ -555,7 +555,7 @@ namespace tnbLib
 		//  - new position+triangle/edge/point
 		//  Caller has to check for situation 3 by checking that triangle()
 		//  is not set.
-		static surfaceLocation trackToEdge
+		static FoamFvMesh_EXPORT surfaceLocation trackToEdge
 		(
 			const triSurface&,
 			const surfaceLocation& start,
@@ -568,7 +568,7 @@ namespace tnbLib
 		//  endInfo should be location on surface.
 		//  hitInfo should be initialised to starting location (on surface as
 		//  well). Upon return is set to end location.
-		static void track
+		static FoamFvMesh_EXPORT void track
 		(
 			const triSurface&,
 			const surfaceLocation& endInfo,

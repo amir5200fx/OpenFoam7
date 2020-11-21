@@ -58,7 +58,7 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 
 	class entry;
-	Ostream& operator<<(Ostream&, const entry&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const entry&);
 
 	/*---------------------------------------------------------------------------*\
 							   Class entry Declaration
@@ -76,41 +76,41 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Get the next valid keyword. Return true if is valid keyType.
-		static bool getKeyword(keyType&, token&, Istream&);
+		static FoamBase_EXPORT bool getKeyword(keyType&, token&, Istream&);
 
 		//- Get the next valid keyword otherwise return false
-		static bool getKeyword(keyType&, Istream&);
+		static FoamBase_EXPORT bool getKeyword(keyType&, Istream&);
 
 
 	public:
 
-		static int disableFunctionEntries;
+		static FoamBase_EXPORT int disableFunctionEntries;
 
 
 		// Constructors
 
 			//- Construct from keyword
-		entry(const keyType&);
+		FoamBase_EXPORT entry(const keyType&);
 
 		//- Copy constructor
-		entry(const entry&);
+		FoamBase_EXPORT entry(const entry&);
 
 		//- Construct on freestore as copy with reference to the
 		//  dictionary the copy belongs to
-		virtual autoPtr<entry> clone
+		FoamBase_EXPORT virtual autoPtr<entry> clone
 		(
 			const dictionary& parentDict
 		) const = 0;
 
 		//- Construct on freestore as copy
 		//  Note: the parent directory is set to dictionary::null
-		virtual autoPtr<entry> clone() const;
+		FoamBase_EXPORT virtual autoPtr<entry> clone() const;
 
 		//- Construct from Istream and insert into dictionary
-		static bool New(dictionary& parentDict, Istream&);
+		static FoamBase_EXPORT bool New(dictionary& parentDict, Istream&);
 
 		//- Construct on freestore from Istream and return
-		static autoPtr<entry> New(Istream& is);
+		static FoamBase_EXPORT autoPtr<entry> New(Istream& is);
 
 
 		//- Destructor
@@ -133,16 +133,16 @@ namespace tnbLib
 		}
 
 		//- Return the dictionary name
-		virtual const fileName& name() const = 0;
+		FoamBase_EXPORT virtual const fileName& name() const = 0;
 
 		//- Return the dictionary name
-		virtual fileName& name() = 0;
+		FoamBase_EXPORT virtual fileName& name() = 0;
 
 		//- Return line number of first token in dictionary
-		virtual label startLineNumber() const = 0;
+		FoamBase_EXPORT virtual label startLineNumber() const = 0;
 
 		//- Return line number of last token in dictionary
-		virtual label endLineNumber() const = 0;
+		FoamBase_EXPORT virtual label endLineNumber() const = 0;
 
 		//- Return true if this entry is a stream
 		virtual bool isStream() const
@@ -151,7 +151,7 @@ namespace tnbLib
 		}
 
 		//- Return token stream if this entry is a primitive entry
-		virtual ITstream& stream() const = 0;
+		FoamBase_EXPORT virtual ITstream& stream() const = 0;
 
 		//- Return true if this entry is a dictionary
 		virtual bool isDict() const
@@ -160,26 +160,26 @@ namespace tnbLib
 		}
 
 		//- Return dictionary if this entry is a dictionary
-		virtual const dictionary& dict() const = 0;
+		FoamBase_EXPORT virtual const dictionary& dict() const = 0;
 
 		//- Return non-const access to dictionary if this entry is a dictionary
-		virtual dictionary& dict() = 0;
+		FoamBase_EXPORT virtual dictionary& dict() = 0;
 
 		//- Write
-		virtual void write(Ostream&) const = 0;
+		FoamBase_EXPORT virtual void write(Ostream&) const = 0;
 
 
 		// Member Operators
 
-		void operator=(const entry&);
+		FoamBase_EXPORT void operator=(const entry&);
 
-		bool operator==(const entry&) const;
-		bool operator!=(const entry&) const;
+		FoamBase_EXPORT bool operator==(const entry&) const;
+		FoamBase_EXPORT bool operator!=(const entry&) const;
 
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const entry&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const entry&);
 	};
 
 

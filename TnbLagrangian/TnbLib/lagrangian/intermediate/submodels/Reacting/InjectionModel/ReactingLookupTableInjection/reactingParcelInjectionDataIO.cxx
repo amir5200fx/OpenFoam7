@@ -15,7 +15,7 @@ tnbLib::reactingParcelInjectionData::reactingParcelInjectionData(Istream& is)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamLagrangian_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	Ostream& os,
 	const reactingParcelInjectionData& data
@@ -29,7 +29,7 @@ tnbLib::Ostream& tnbLib::operator<<
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, reactingParcelInjectionData& data)
+FoamLagrangian_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, reactingParcelInjectionData& data)
 {
 	is >> static_cast<thermoParcelInjectionData&>(data);
 

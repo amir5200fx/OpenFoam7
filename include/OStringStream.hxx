@@ -128,7 +128,7 @@ namespace tnbLib
 		// Print
 
 			//- Print description to Ostream
-		void print(Ostream&) const;
+		FoamBase_EXPORT void print(Ostream&) const;
 	};
 
 

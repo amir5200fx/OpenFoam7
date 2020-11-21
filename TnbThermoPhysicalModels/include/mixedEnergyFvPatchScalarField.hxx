@@ -58,20 +58,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("mixedEnergy");
+		//TypeName("mixedEnergy");
+		static const char* typeName_() { return "mixedEnergy"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		mixedEnergyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT mixedEnergyFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		mixedEnergyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT mixedEnergyFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -80,7 +84,7 @@ namespace tnbLib
 
 		//- Construct by mapping given mixedEnergyFvPatchScalarField
 		// onto a new patch
-		mixedEnergyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT mixedEnergyFvPatchScalarField
 		(
 			const mixedEnergyFvPatchScalarField&,
 			const fvPatch&,
@@ -89,7 +93,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		mixedEnergyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT mixedEnergyFvPatchScalarField
 		(
 			const mixedEnergyFvPatchScalarField&
 		);
@@ -104,7 +108,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		mixedEnergyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT mixedEnergyFvPatchScalarField
 		(
 			const mixedEnergyFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -137,7 +141,7 @@ namespace tnbLib
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamThermophysicalModels_EXPORT virtual void updateCoeffs();
 	};
 
 

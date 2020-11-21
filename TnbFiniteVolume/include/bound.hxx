@@ -52,7 +52,7 @@ namespace tnbLib
 	//- Bound the given scalar field if it has gone unbounded.
 	//  Return the bounded field.
 	//  Used extensively in RAS and LES turbulence models.
-	volScalarField& bound(volScalarField&, const dimensionedScalar& lowerBound);
+	FoamFiniteVolume_EXPORT volScalarField& bound(volScalarField&, const dimensionedScalar& lowerBound);
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

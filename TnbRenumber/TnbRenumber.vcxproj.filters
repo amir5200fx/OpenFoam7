@@ -34,6 +34,9 @@
     <Filter Include="TnbLib\renumber\renumberMethods\randomRenumber">
       <UniqueIdentifier>{4529d7b9-2af8-4707-a744-f8e14100a38c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\renumber\module">
+      <UniqueIdentifier>{dc4374c4-157d-4668-9a57-e5dc16d13af6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\renumber\renumberMethods\renumberMethod\renumberMethod.hxx">
@@ -66,6 +69,9 @@
     <ClInclude Include="TnbLib\renumber\renumberMethods\structuredRenumber\OppositeFaceCellWaveI.hxx">
       <Filter>TnbLib\renumber\renumberMethods\structuredRenumber</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\renumber\module\Renumber_Module.hxx">
+      <Filter>TnbLib\renumber\module</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\renumber\renumberMethods\renumberMethod\renumberMethod.cxx">
@@ -79,9 +85,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\renumber\renumberMethods\CuthillMcKeeRenumber\CuthillMcKeeRenumber.cxx">
       <Filter>TnbLib\renumber\renumberMethods\CuthillMcKeeRenumber</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\renumber\renumberMethods\structuredRenumber\OppositeFaceCellWave.cxx">
-      <Filter>TnbLib\renumber\renumberMethods\structuredRenumber</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\renumber\renumberMethods\structuredRenumber\OppositeFaceCellWaveName.cxx">
       <Filter>TnbLib\renumber\renumberMethods\structuredRenumber</Filter>

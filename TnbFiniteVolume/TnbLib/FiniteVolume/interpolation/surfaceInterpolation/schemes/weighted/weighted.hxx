@@ -39,6 +39,16 @@ SourceFiles
 #include <surfaceInterpolationScheme.hxx>
 #include <volFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamWeighted_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamWeighted_EXPORT_DEFINE
+#define FoamWeighted_EXPORT __declspec(dllexport)
+#else
+#define FoamWeighted_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -61,7 +71,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("weighted");
+		/*TypeName("weighted");*/
+		static const char* typeName_() { return "weighted"; }
+		static FoamWeighted_EXPORT const ::tnbLib::word typeName;
+		static FoamWeighted_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -55,10 +55,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("gnuplot");
+		//TypeName("gnuplot");
+		static const char* typeName_() { return "gnuplot"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- FileName extension  for this graph format
-		static const word ext_;
+		static FoamBase_EXPORT const word ext_;
 
 
 		// Constructors
@@ -87,7 +91,7 @@ namespace tnbLib
 
 		// Write
 
-		void write(const graph&, Ostream& os) const;
+		FoamBase_EXPORT void write(const graph&, Ostream& os) const;
 	};
 
 

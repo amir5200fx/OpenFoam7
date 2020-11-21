@@ -73,7 +73,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from patch and neighbour patches.
-		patchPatchDist
+		FoamFvMesh_EXPORT patchPatchDist
 		(
 			const polyPatch& pp,
 			const labelHashSet& nbrPatchIDs
@@ -81,7 +81,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~patchPatchDist();
+		FoamFvMesh_EXPORT virtual ~patchPatchDist();
 
 
 		// Member Functions
@@ -97,7 +97,7 @@ namespace tnbLib
 		}
 
 		//- Correct for mesh geom/topo changes
-		virtual void correct();
+		FoamFvMesh_EXPORT virtual void correct();
 	};
 
 

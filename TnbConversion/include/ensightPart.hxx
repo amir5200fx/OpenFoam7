@@ -56,8 +56,8 @@ namespace tnbLib
 
 	class ensightPart;
 
-	Ostream& operator<<(Ostream&, const ensightPart&);
-	ensightGeoFile& operator<<(ensightGeoFile&, const ensightPart&);
+	FoamConversion_EXPORT Ostream& operator<<(Ostream&, const ensightPart&);
+	FoamConversion_EXPORT ensightGeoFile& operator<<(ensightGeoFile&, const ensightPart&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -69,7 +69,7 @@ namespace tnbLib
 		// Private Data
 
 			// Static Data Members
-		static const List<word> elemTypes_;
+		static FoamConversion_EXPORT const List<word> elemTypes_;
 
 
 	protected:
@@ -134,17 +134,17 @@ namespace tnbLib
 			//- Reconstruct part characteristics (eg, element types) from Istream
 			//  A part reconstructed in this manner can be used when writing fields,
 			//  but cannot be used to write a new geometry
-		void reconstruct(Istream&);
+		FoamConversion_EXPORT void reconstruct(Istream&);
 
 		//- Check for fully defined fields
-		bool isFieldDefined(const List<scalar>&) const;
+		FoamConversion_EXPORT bool isFieldDefined(const List<scalar>&) const;
 
 		//- Write the part header
-		void writeHeader(ensightFile&, bool withDescription = false) const;
+		FoamConversion_EXPORT void writeHeader(ensightFile&, bool withDescription = false) const;
 
 		//- Write a scalar field for idList
 		//  A null reference for idList writes the perNode values
-		void writeFieldList
+		FoamConversion_EXPORT void writeFieldList
 		(
 			ensightFile& os,
 			const List<scalar>& field,
@@ -152,13 +152,13 @@ namespace tnbLib
 		) const;
 
 		//- Track points used
-		virtual localPoints calcLocalPoints() const
+		FoamConversion_EXPORT virtual localPoints calcLocalPoints() const
 		{
 			return localPoints();
 		}
 
 		//- Write connectivities
-		virtual void writeConnectivity
+		FoamConversion_EXPORT virtual void writeConnectivity
 		(
 			ensightGeoFile&,
 			const word& key,
@@ -171,19 +171,23 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("ensightPart");
+		//TypeName("ensightPart");
+		static const char* typeName_() { return "ensightPart"; }
+		static FoamConversion_EXPORT const ::tnbLib::word typeName;
+		static FoamConversion_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct null
-		ensightPart();
+		//- Construct null
+		FoamConversion_EXPORT ensightPart();
 
 		//- Construct empty part with number and description
-		ensightPart(label partNumber, const string& partDescription);
+		FoamConversion_EXPORT ensightPart(label partNumber, const string& partDescription);
 
 		//- Construct part with number, description and points reference
-		ensightPart
+		FoamConversion_EXPORT ensightPart
 		(
 			label partNumber,
 			const string& partDescription,
@@ -191,13 +195,13 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		ensightPart(const ensightPart&);
+		FoamConversion_EXPORT ensightPart(const ensightPart&);
 
 
 		// Selectors
 
 			// Declare run-time constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			ensightPart,
@@ -206,7 +210,52 @@ namespace tnbLib
 				Istream& is
 				),
 				(is)
-		);
+		);*/
+		
+		typedef autoPtr<ensightPart> (*istreamConstructorPtr)(Istream& is);
+		typedef HashTable<istreamConstructorPtr, word, string::hash> istreamConstructorTable;
+		static FoamConversion_EXPORT istreamConstructorTable* istreamConstructorTablePtr_;
+		static FoamConversion_EXPORT void constructistreamConstructorTables();
+		static FoamConversion_EXPORT void destroyistreamConstructorTables();
+
+		template <class ensightPartType>
+		class addistreamConstructorToTable
+		{
+		public:
+			static autoPtr<ensightPart> New(Istream& is) { return autoPtr<ensightPart>(new ensightPartType(is)); }
+
+			addistreamConstructorToTable(const word& lookup = ensightPartType::typeName)
+			{
+				constructistreamConstructorTables();
+				if (!istreamConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "ensightPart" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addistreamConstructorToTable() { destroyistreamConstructorTables(); }
+		};
+
+		template <class ensightPartType>
+		class addRemovableistreamConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<ensightPart> New(Istream& is) { return autoPtr<ensightPart>(new ensightPartType(is)); }
+
+			addRemovableistreamConstructorToTable(const word& lookup = ensightPartType::typeName) : lookup_(lookup)
+			{
+				constructistreamConstructorTables();
+				istreamConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableistreamConstructorToTable()
+			{
+				if (istreamConstructorTablePtr_) { istreamConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 		//- Construct and return clone
 		autoPtr<ensightPart> clone() const
@@ -216,11 +265,11 @@ namespace tnbLib
 
 		//- Reconstruct part characteristics on freestore from Istream
 		//  \sa reconstruct
-		static autoPtr<ensightPart> New(Istream&);
+		static FoamConversion_EXPORT autoPtr<ensightPart> New(Istream&);
 
 
 		//- Destructor
-		virtual ~ensightPart();
+		FoamConversion_EXPORT virtual ~ensightPart();
 
 
 		// Static members
@@ -297,24 +346,24 @@ namespace tnbLib
 		// Edit
 
 			//- Renumber elements
-		void renumber(const labelUList&);
+		FoamConversion_EXPORT void renumber(const labelUList&);
 
 		//- Write summary information about the object
-		bool writeSummary(Ostream&) const;
+		FoamConversion_EXPORT bool writeSummary(Ostream&) const;
 
 		//- Write reconstruction information for the object
-		bool writeData(Ostream&) const;
+		FoamConversion_EXPORT bool writeData(Ostream&) const;
 
 		//- Write geometry
 		virtual void writeGeometry(ensightGeoFile&) const
 		{}
 
 		//- Helper: write geometry given the pointField
-		void writeGeometry(ensightGeoFile&, const pointField&) const;
+		FoamConversion_EXPORT void writeGeometry(ensightGeoFile&, const pointField&) const;
 
 		//- Write scalar field
 		//  optionally write data per node
-		void writeScalarField
+		FoamConversion_EXPORT void writeScalarField
 		(
 			ensightFile&,
 			const List<scalar>& field,
@@ -323,7 +372,7 @@ namespace tnbLib
 
 		//- Write vector field components
 		//  optionally write data per node
-		void writeVectorField
+		FoamConversion_EXPORT void writeVectorField
 		(
 			ensightFile&,
 			const List<scalar>& field0,
@@ -347,16 +396,16 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const ensightPart&) = delete;
+		FoamConversion_EXPORT void operator=(const ensightPart&) = delete;
 
 
 		// IOstream Operators
 
 			//- Write data (reconstruction information)
-		friend Ostream& operator<<(Ostream&, const ensightPart&);
+		friend FoamConversion_EXPORT Ostream& operator<<(Ostream&, const ensightPart&);
 
 		//- Write geometry
-		friend ensightGeoFile& operator<<(ensightGeoFile&, const ensightPart&);
+		friend FoamConversion_EXPORT ensightGeoFile& operator<<(ensightGeoFile&, const ensightPart&);
 	};
 
 

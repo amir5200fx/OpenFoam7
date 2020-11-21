@@ -100,16 +100,16 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Root of the LIB target for Make/files
-		static const char* const libTargetRoot;
+		static FoamBase_EXPORT const char* const libTargetRoot;
 
 		//- Top-level directory name for copy/compiling
-		static const char* const topDirName;
+		static FoamBase_EXPORT const char* const topDirName;
 
 
 		// Protected Member Functions
 
 			//- Copy lines while expanding variables
-		static void copyAndFilter
+		static FoamBase_EXPORT void copyAndFilter
 		(
 			ISstream&,
 			OSstream&,
@@ -118,7 +118,7 @@ namespace tnbLib
 
 		//- Resolve code-templates via the codeTemplateEnvName
 		//  alternatively in the codeTemplateDirName via tnbLib::findEtcFile
-		static bool resolveTemplates
+		static FoamBase_EXPORT bool resolveTemplates
 		(
 			const UList<fileName>& templateNames,
 			DynamicList<fileName>& resolvedFiles,
@@ -126,20 +126,20 @@ namespace tnbLib
 		);
 
 		//- Write SHA1 value as C-comment
-		bool writeCommentSHA1(Ostream&) const;
+		FoamBase_EXPORT bool writeCommentSHA1(Ostream&) const;
 
 		//- Copy/create Make/files prior to compilation
-		bool createMakeFiles() const;
+		FoamBase_EXPORT bool createMakeFiles() const;
 
 		//- Copy/create Make/options prior to compilation
-		bool createMakeOptions() const;
+		FoamBase_EXPORT bool createMakeOptions() const;
 
 
 		//- Write digest to Make/SHA1Digest
-		bool writeDigest(const SHA1Digest&) const;
+		FoamBase_EXPORT bool writeDigest(const SHA1Digest&) const;
 
 		//- Write digest to Make/SHA1Digest
-		bool writeDigest(const std::string&) const;
+		FoamBase_EXPORT bool writeDigest(const std::string&) const;
 
 
 	public:
@@ -148,37 +148,37 @@ namespace tnbLib
 
 			//- Name of the code template environment variable
 			//  Used to located the codeTemplateName
-		static const word codeTemplateEnvName;
+		static FoamBase_EXPORT const word codeTemplateEnvName;
 
 		//- Name of the code template sub-directory
 		//  Used when locating the codeTemplateName via tnbLib::findEtcFile
-		static const fileName codeTemplateDirName;
+		static FoamBase_EXPORT const fileName codeTemplateDirName;
 
 		//- Flag if system operations are allowed
-		static int allowSystemOperations;
+		static FoamBase_EXPORT int allowSystemOperations;
 
 
 		// Static Member functions
 
 			//- Check security for creating dynamic code
-		static void checkSecurity(const char* title, const dictionary&);
+		static FoamBase_EXPORT void checkSecurity(const char* title, const dictionary&);
 
 		//- Return the library basename without leading 'lib' or trailing '.so'
-		static word libraryBaseName(const fileName& libPath);
+		static FoamBase_EXPORT word libraryBaseName(const fileName& libPath);
 
 
 		// Constructors
 
 			//- Construct for a specified code name and code directory name
 			//  Defaults to using the code name for the code directory name
-		dynamicCode
+		FoamBase_EXPORT dynamicCode
 		(
 			const word& codeName,
 			const word& codeDirName = ""
 		);
 
 		//- Disallow default bitwise copy construction
-		dynamicCode(const dynamicCode&) = delete;
+		FoamBase_EXPORT dynamicCode(const dynamicCode&) = delete;
 
 
 		// Member Functions
@@ -225,13 +225,13 @@ namespace tnbLib
 
 		//- Path for specified code name relative to \$FOAM_CASE
 		//  Corresponds to topDirName/codeDirName()
-		fileName codeRelPath() const;
+		FoamBase_EXPORT fileName codeRelPath() const;
 
 
 		//- Library path for specified code name relative to \$FOAM_CASE
 		//  Corresponds to
 		//  dynamicCode/codeDirName()/libSubDir()/lib\<codeName\>.so
-		fileName libRelPath() const;
+		FoamBase_EXPORT fileName libRelPath() const;
 
 
 		//- Path for SHA1Digest
@@ -243,45 +243,45 @@ namespace tnbLib
 
 
 		//- Clear files and variables
-		void clear();
+		FoamBase_EXPORT void clear();
 
 		//- Clear files and reset variables to specified context
-		void reset(const dynamicCodeContext&);
+		FoamBase_EXPORT void reset(const dynamicCodeContext&);
 
 
 		//- Add a file template name, which will be found and filtered
-		void addCompileFile(const fileName& name);
+		FoamBase_EXPORT void addCompileFile(const fileName& name);
 
 		//- Add a file template name, which will be found and filtered
-		void addCopyFile(const fileName& name);
+		FoamBase_EXPORT void addCopyFile(const fileName& name);
 
 		//- Add a file to create with its contents. Will not be filtered
-		void addCreateFile(const fileName& name, const string& contents);
+		FoamBase_EXPORT void addCreateFile(const fileName& name, const string& contents);
 
 		//- Define a filter variable
-		void setFilterVariable(const word& key, const std::string& value);
+		FoamBase_EXPORT void setFilterVariable(const word& key, const std::string& value);
 
 		//- Define contents for Make/options
-		void setMakeOptions(const std::string& content);
+		FoamBase_EXPORT void setMakeOptions(const std::string& content);
 
 
 		//- Verify if the copied code is up-to-date, based on Make/SHA1Digest
-		bool upToDate(const dynamicCodeContext& context) const;
+		FoamBase_EXPORT bool upToDate(const dynamicCodeContext& context) const;
 
 		//- Verify if the copied code is up-to-date, based on Make/SHA1Digest
-		bool upToDate(const SHA1Digest& sha1) const;
+		FoamBase_EXPORT bool upToDate(const SHA1Digest& sha1) const;
 
 		//- Copy/create files prior to compilation
-		bool copyOrCreateFiles(const bool verbose = false) const;
+		FoamBase_EXPORT bool copyOrCreateFiles(const bool verbose = false) const;
 
 		//- Compile a libso
-		bool wmakeLibso() const;
+		FoamBase_EXPORT bool wmakeLibso() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const dynamicCode&) = delete;
+		FoamBase_EXPORT void operator=(const dynamicCode&) = delete;
 	};
 
 

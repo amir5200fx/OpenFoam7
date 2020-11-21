@@ -56,7 +56,7 @@ namespace tnbLib
 				//- Search for an object.
 				//    checkGlobal : also check undecomposed case
 				//    isFile      : true:check for file  false:check for directory
-			fileName filePathInfo
+			FoamBase_EXPORT fileName filePathInfo
 			(
 				const bool checkGlobal,
 				const bool isFile,
@@ -67,17 +67,21 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("uncollated");
+			//TypeName("uncollated");
+			static const char* typeName_() { return "uncollated"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct null
-			uncollatedFileOperation(const bool verbose);
+			FoamBase_EXPORT uncollatedFileOperation(const bool verbose);
 
 
 			//- Destructor
-			virtual ~uncollatedFileOperation();
+			FoamBase_EXPORT virtual ~uncollatedFileOperation();
 
 
 			// Member Functions
@@ -85,13 +89,13 @@ namespace tnbLib
 				// OSSpecific equivalents
 
 					//- Make directory
-			virtual bool mkDir(const fileName&, mode_t = 0777) const;
+			FoamBase_EXPORT virtual bool mkDir(const fileName&, mode_t = 0777) const;
 
 			//- Set the file mode
-			virtual bool chMod(const fileName&, const mode_t) const;
+			FoamBase_EXPORT virtual bool chMod(const fileName&, const mode_t) const;
 
 			//- Return the file mode
-			virtual mode_t mode
+			FoamBase_EXPORT virtual mode_t mode
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -99,7 +103,7 @@ namespace tnbLib
 			) const;
 
 			//- Return the file type: directory, file or link
-			virtual fileType type
+			FoamBase_EXPORT virtual fileType type
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -108,7 +112,7 @@ namespace tnbLib
 
 			//- Does the name exist (as directory or file) in the file system?
 			//  Optionally enable/disable check for gzip file.
-			virtual bool exists
+			FoamBase_EXPORT virtual bool exists
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -116,7 +120,7 @@ namespace tnbLib
 			) const;
 
 			//- Does the name exist as a directory in the file system?
-			virtual bool isDir
+			FoamBase_EXPORT virtual bool isDir
 			(
 				const fileName&,
 				const bool followLink = true
@@ -124,7 +128,7 @@ namespace tnbLib
 
 			//- Does the name exist as a FILE in the file system?
 			//  Optionally enable/disable check for gzip file.
-			virtual bool isFile
+			FoamBase_EXPORT virtual bool isFile
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -132,7 +136,7 @@ namespace tnbLib
 			) const;
 
 			//- Return size of file
-			virtual off_t fileSize
+			FoamBase_EXPORT virtual off_t fileSize
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -140,7 +144,7 @@ namespace tnbLib
 			) const;
 
 			//- Return time of last file modification
-			virtual time_t lastModified
+			FoamBase_EXPORT virtual time_t lastModified
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -148,7 +152,7 @@ namespace tnbLib
 			) const;
 
 			//- Return time of last file modification
-			virtual double highResLastModified
+			FoamBase_EXPORT virtual double highResLastModified
 			(
 				const fileName&,
 				const bool checkVariants = true,
@@ -156,7 +160,7 @@ namespace tnbLib
 			) const;
 
 			//- Read a directory and return the entries as a string list
-			virtual fileNameList readDir
+			FoamBase_EXPORT virtual fileNameList readDir
 			(
 				const fileName&,
 				const fileType = fileType::file,
@@ -165,7 +169,7 @@ namespace tnbLib
 			) const;
 
 			//- Copy, recursively if necessary, the source to the destination
-			virtual bool cp
+			FoamBase_EXPORT virtual bool cp
 			(
 				const fileName& src,
 				const fileName& dst,
@@ -174,10 +178,10 @@ namespace tnbLib
 
 			//- Create a softlink. dst should not exist. Returns true if
 		   //  successful.
-			virtual bool ln(const fileName& src, const fileName& dst) const;
+			FoamBase_EXPORT virtual bool ln(const fileName& src, const fileName& dst) const;
 
 			//- Rename src to dst
-			virtual bool mv
+			FoamBase_EXPORT virtual bool mv
 			(
 				const fileName& src,
 				const fileName& dst,
@@ -187,17 +191,17 @@ namespace tnbLib
 			//- Rename to a corresponding backup file
 			//  If the backup file already exists, attempt with
 			//  "01" .. "99" suffix
-			virtual bool mvBak
+			FoamBase_EXPORT virtual bool mvBak
 			(
 				const fileName&,
 				const std::string& ext = "bak"
 			) const;
 
 			//- Remove a file, returning true if successful otherwise false
-			virtual bool rm(const fileName&) const;
+			FoamBase_EXPORT virtual bool rm(const fileName&) const;
 
 			//- Remove a directory and its contents
-			virtual bool rmDir(const fileName&) const;
+			FoamBase_EXPORT virtual bool rmDir(const fileName&) const;
 
 			//            //- Open a shared library. Return handle to library. Print error
 			//            //  message if library cannot be loaded (check = true)
@@ -211,7 +215,7 @@ namespace tnbLib
 					// (reg)IOobject functinality
 
 						//- Search for an object. checkGlobal : also check undecomposed case
-			virtual fileName filePath
+			FoamBase_EXPORT virtual fileName filePath
 			(
 				const bool checkGlobal,
 				const IOobject&,
@@ -220,14 +224,14 @@ namespace tnbLib
 
 			//- Search for a directory. checkGlobal : also check undecomposed
 			//  case
-			virtual fileName dirPath
+			FoamBase_EXPORT virtual fileName dirPath
 			(
 				const bool checkGlobal,
 				const IOobject&
 			) const;
 
 			//- Search directory for objects. Used in IOobjectList.
-			virtual fileNameList readObjects
+			FoamBase_EXPORT virtual fileNameList readObjects
 			(
 				const objectRegistry& db,
 				const fileName& instance,
@@ -236,7 +240,7 @@ namespace tnbLib
 			) const;
 
 			//- Read object header from supplied file
-			virtual bool readHeader
+			FoamBase_EXPORT virtual bool readHeader
 			(
 				IOobject&,
 				const fileName&,
@@ -245,7 +249,7 @@ namespace tnbLib
 
 			//- Reads header for regIOobject and returns an ISstream
 			//  to read the contents.
-			virtual autoPtr<ISstream> readStream
+			FoamBase_EXPORT virtual autoPtr<ISstream> readStream
 			(
 				regIOobject&,
 				const fileName&,
@@ -254,7 +258,7 @@ namespace tnbLib
 			) const;
 
 			//- Top-level read
-			virtual bool read
+			FoamBase_EXPORT virtual bool read
 			(
 				regIOobject&,
 				const bool masterOnly,
@@ -263,10 +267,10 @@ namespace tnbLib
 			) const;
 
 			//- Generate an ISstream that reads a file
-			virtual autoPtr<ISstream> NewIFstream(const fileName&) const;
+			FoamBase_EXPORT virtual autoPtr<ISstream> NewIFstream(const fileName&) const;
 
 			//- Generate an Ostream that writes a file
-			virtual autoPtr<Ostream> NewOFstream
+			FoamBase_EXPORT virtual autoPtr<Ostream> NewOFstream
 			(
 				const fileName& pathname,
 				IOstream::streamFormat format = IOstream::ASCII,

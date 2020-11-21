@@ -84,20 +84,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("kLowReWallFunction");
+		//TypeName("kLowReWallFunction");
+		static const char* typeName_() { return "kLowReWallFunction"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		kLowReWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT kLowReWallFunctionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		kLowReWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT kLowReWallFunctionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -106,7 +110,7 @@ namespace tnbLib
 
 		//- Construct by mapping given kLowReWallFunctionFvPatchScalarField
 		//  onto a new patch
-		kLowReWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT kLowReWallFunctionFvPatchScalarField
 		(
 			const kLowReWallFunctionFvPatchScalarField&,
 			const fvPatch&,
@@ -115,7 +119,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		kLowReWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT kLowReWallFunctionFvPatchScalarField
 		(
 			const kLowReWallFunctionFvPatchScalarField&
 		);
@@ -130,7 +134,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		kLowReWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT kLowReWallFunctionFvPatchScalarField
 		(
 			const kLowReWallFunctionFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -154,13 +158,13 @@ namespace tnbLib
 			// Evaluation functions
 
 				//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamTurbulence_EXPORT virtual void updateCoeffs();
 
 
 		// I-O
 
 			//- Write
-		virtual void write(Ostream&) const;
+		FoamTurbulence_EXPORT virtual void write(Ostream&) const;
 	};
 
 

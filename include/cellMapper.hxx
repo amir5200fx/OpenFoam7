@@ -90,10 +90,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate addressing for mapping with inserted cells
-		void calcAddressing() const;
+		FoamBase_EXPORT void calcAddressing() const;
 
 		//- Clear out local storage
-		void clearOut();
+		FoamBase_EXPORT void clearOut();
 
 
 	public:
@@ -103,20 +103,20 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mapPolyMesh
-		cellMapper(const mapPolyMesh& mpm);
+		FoamBase_EXPORT cellMapper(const mapPolyMesh& mpm);
 
 		//- Disallow default bitwise copy construction
-		cellMapper(const cellMapper&) = delete;
+		FoamBase_EXPORT cellMapper(const cellMapper&) = delete;
 
 
 		//- Destructor
-		virtual ~cellMapper();
+		FoamBase_EXPORT virtual ~cellMapper();
 
 
 		// Member Functions
 
 			//- Return size before mapping
-		virtual label sizeBeforeMapping() const;
+		FoamBase_EXPORT virtual label sizeBeforeMapping() const;
 
 		//- Is the mapping direct
 		virtual bool direct() const
@@ -130,13 +130,13 @@ namespace tnbLib
 		}
 
 		//- Return direct addressing
-		virtual const labelUList& directAddressing() const;
+		FoamBase_EXPORT virtual const labelUList& directAddressing() const;
 
 		//- Return interpolated addressing
-		virtual const labelListList& addressing() const;
+		FoamBase_EXPORT virtual const labelListList& addressing() const;
 
 		//- Return interpolaion weights
-		virtual const scalarListList& weights() const;
+		FoamBase_EXPORT virtual const scalarListList& weights() const;
 
 		//- Are there any inserted cells
 		virtual bool insertedObjects() const
@@ -145,13 +145,13 @@ namespace tnbLib
 		}
 
 		//- Return list of inserted cells
-		const virtual labelList& insertedObjectLabels() const;
+		FoamBase_EXPORT const virtual labelList& insertedObjectLabels() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const cellMapper&) = delete;
+		FoamBase_EXPORT void operator=(const cellMapper&) = delete;
 	};
 
 

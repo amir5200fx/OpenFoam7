@@ -58,7 +58,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- Name of cell type
 		word type_;
@@ -66,38 +66,42 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Depending on cell type add to or delete from cellSet.
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("shapeToCell");
+		/*TypeName("shapeToCell");*/
+		static const char* typeName_() { return "shapeToCell"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Static data
 
 			//- Cos of feature angle for polyHedral to be splitHex
-		static scalar featureCos;
+		static FoamFvMesh_EXPORT scalar featureCos;
 
 		// Constructors
 
 			//- Construct from components
-		shapeToCell
+		FoamFvMesh_EXPORT shapeToCell
 		(
 			const polyMesh& mesh,
 			const word& type
 		);
 
 		//- Construct from dictionary
-		shapeToCell
+		FoamFvMesh_EXPORT shapeToCell
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		shapeToCell
+		FoamFvMesh_EXPORT shapeToCell
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -105,7 +109,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~shapeToCell();
+		FoamFvMesh_EXPORT virtual ~shapeToCell();
 
 
 		// Member Functions
@@ -115,7 +119,7 @@ namespace tnbLib
 			return CELLSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

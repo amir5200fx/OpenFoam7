@@ -262,6 +262,9 @@
     <Filter Include="TnbLib\dynamicFvMesh\include">
       <UniqueIdentifier>{ed13cfe9-6f0d-4275-ae8b-9bbb6f4d82e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\dynamicMesh\module">
+      <UniqueIdentifier>{81c77082-8ede-4f28-8773-03892bf696a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.hxx">
@@ -582,6 +585,9 @@
     <ClInclude Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\polyTopoChangeTemplatesI.hxx">
       <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\module\DynamicMesh_Module.hxx">
+      <Filter>TnbLib\dynamicMesh\module</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.cxx">
@@ -865,6 +871,18 @@
     </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\polyTopoChange\polyTopoChange\addPatchCellLayer.cxx">
       <Filter>TnbLib\dynamicMesh\polyTopoChange\polyTopoChange</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\addCellLayer.cxx">
+      <Filter>TnbLib\dynamicMesh\layerAdditionRemoval</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\removeCellLayer.cxx">
+      <Filter>TnbLib\dynamicMesh\layerAdditionRemoval</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\layerAdditionRemoval\setLayerPairing.cxx">
+      <Filter>TnbLib\dynamicMesh\layerAdditionRemoval</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\layerAdditionRemovalNamedEnum.cxx">
+      <Filter>TnbLib\dynamicMesh\slidingInterface</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

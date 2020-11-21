@@ -56,7 +56,7 @@ namespace tnbLib
 	private:
 
 		//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- (unit)vector to compare to
 		vector normal_;
@@ -68,18 +68,22 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Normalize normal and check tolerance
-		void setNormal();
+		FoamFvMesh_EXPORT void setNormal();
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("normalToFace");
+		/*TypeName("normalToFace");*/
+		static const char* typeName_() { return "normalToFace"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		normalToFace
+		FoamFvMesh_EXPORT normalToFace
 		(
 			const polyMesh& mesh,
 			const vector& normal,
@@ -87,14 +91,14 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		normalToFace(const polyMesh& mesh, const dictionary& dict);
+		FoamFvMesh_EXPORT normalToFace(const polyMesh& mesh, const dictionary& dict);
 
 		//- Construct from Istream
-		normalToFace(const polyMesh& mesh, Istream&);
+		FoamFvMesh_EXPORT normalToFace(const polyMesh& mesh, Istream&);
 
 
 		//- Destructor
-		virtual ~normalToFace();
+		FoamFvMesh_EXPORT virtual ~normalToFace();
 
 
 		// Member Functions
@@ -104,7 +108,7 @@ namespace tnbLib
 			return FACESETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

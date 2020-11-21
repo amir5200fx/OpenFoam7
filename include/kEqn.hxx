@@ -58,6 +58,16 @@ SourceFiles
 
 #include <LESeddyViscosity.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamkEqn_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamkEqn_EXPORT_DEFINE
+#define FoamkEqn_EXPORT __declspec(dllexport)
+#else
+#define FoamkEqn_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -102,7 +112,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("kEqn");
+			//TypeName("kEqn");
+			static const char* typeName_() { return "kEqn"; }
+			static FoamkEqn_EXPORT const ::tnbLib::word typeName;
+			static FoamkEqn_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

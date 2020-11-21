@@ -109,7 +109,7 @@ void tnbLib::dictionaryListEntry::write(Ostream& os) const
 
 // * * * * * * * * * * * * * * Ostream operator  * * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const dictionaryListEntry& de)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const dictionaryListEntry& de)
 {
 	de.write(os);
 	return os;
@@ -117,7 +117,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const dictionaryListEntry& de)
 
 
 template<>
-tnbLib::Ostream& tnbLib::operator<<
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	Ostream& os,
 	const InfoProxy<dictionaryListEntry>& ip

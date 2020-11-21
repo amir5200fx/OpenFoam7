@@ -57,45 +57,45 @@ namespace tnbLib
 	//	PID_T pid();
 	//#endif
 
-	int pid();
+	FoamBase_EXPORT int pid();
 
 	//- Return the parent PID of this process
-	PID_T ppid();
+	FoamBase_EXPORT PID_T ppid();
 
 	//- Return the group PID of this process
-	PID_T pgid();
+	FoamBase_EXPORT PID_T pgid();
 
 	//- Return true if environment variable of given name is defined
-	bool env(const word&);
+	FoamBase_EXPORT bool env(const word&);
 
 	//- Return environment variable of given name
 	//  Return string() if the environment is undefined
-	string getEnv(const word&);
+	FoamBase_EXPORT string getEnv(const word&);
 
 	//- Set an environment variable
-	bool setEnv(const word& name, const string& value, const bool overwrite);
+	FoamBase_EXPORT bool setEnv(const word& name, const string& value, const bool overwrite);
 
 	//- Return the system's host name
-	word hostName();
+	FoamBase_EXPORT word hostName();
 
 	//- Return the user's login name
-	word userName();
+	FoamBase_EXPORT word userName();
 
 	//- Is user administrator
-	bool isAdministrator();
+	FoamBase_EXPORT bool isAdministrator();
 
 	//- Return home directory path name for the current user
-	fileName home();
+	FoamBase_EXPORT fileName home();
 
 	//- Return home directory path name for a particular user
-	fileName home(const word& userName);
+	FoamBase_EXPORT fileName home(const word& userName);
 
 	//- Return current working directory path name
-	fileName cwd();
+	FoamBase_EXPORT fileName cwd();
 
 	//- Change the current directory to the one given and return true,
 	//  else return false
-	bool chDir(const fileName& dir);
+	FoamBase_EXPORT bool chDir(const fileName& dir);
 
 	//- Search for @em name in the following hierarchy:
 	//  -# site-wide settings:
@@ -112,36 +112,36 @@ namespace tnbLib
 
 	//- Make a directory and return an error if it could not be created
 	//  and does not already exist
-	bool mkDir(const fileName&, mode_t = 0777);
+	FoamBase_EXPORT bool mkDir(const fileName&, mode_t = 0777);
 
 	//- Set the file mode
-	bool chMod(const fileName&, const mode_t);
+	FoamBase_EXPORT bool chMod(const fileName&, const mode_t);
 
 	//- Return the file mode
-	mode_t mode(const fileName& name, const bool checkVariants = true, const bool followLink = true);
+	FoamBase_EXPORT mode_t mode(const fileName& name, const bool checkVariants = true, const bool followLink = true);
 
 	//- Return the file type: DIRECTORY or FILE
-	fileType type(const fileName&, const bool checkVariants = true, const bool followLink = true);
+	FoamBase_EXPORT fileType type(const fileName&, const bool checkVariants = true, const bool followLink = true);
 
 	//- Does the name exist (as DIRECTORY or FILE) in the file system?
 	//  Optionally enable/disable check for gzip file.
-	bool exists(const fileName&, const bool checkGzip = true, const bool followLink = true);
+	FoamBase_EXPORT bool exists(const fileName&, const bool checkGzip = true, const bool followLink = true);
 
 	//- Does the name exist as a DIRECTORY in the file system?
-	bool isDir(const fileName&, const bool followLink = true);
+	FoamBase_EXPORT bool isDir(const fileName&, const bool followLink = true);
 
 	//- Does the name exist as a FILE in the file system?
 	//  Optionally enable/disable check for gzip file.
-	bool isFile(const fileName&, const bool checkGzip = true, const bool followLink = true);
+	FoamBase_EXPORT bool isFile(const fileName&, const bool checkGzip = true, const bool followLink = true);
 
 	//- Return size of file
-	off_t fileSize(const fileName&, const bool checkGzip = true, const bool followLink = true);
+	FoamBase_EXPORT off_t fileSize(const fileName&, const bool checkGzip = true, const bool followLink = true);
 
 	//- Return time of last file modification
-	time_t lastModified(const fileName&, const bool checkGzip = true, const bool followLink = true);
+	FoamBase_EXPORT time_t lastModified(const fileName&, const bool checkGzip = true, const bool followLink = true);
 
 	//- Return time of last file modification
-	double highResLastModified
+	FoamBase_EXPORT double highResLastModified
 	(
 		const fileName&,
 		const bool checkVariants = true,
@@ -149,7 +149,7 @@ namespace tnbLib
 	);
 
 	//- Read a directory and return the entries as a string list
-	fileNameList readDir
+	FoamBase_EXPORT fileNameList readDir
 	(
 		const fileName&,
 		const fileType = fileType::file,
@@ -158,65 +158,65 @@ namespace tnbLib
 	);
 
 	//- Copy, recursively if necessary, the source to the destination
-	bool cp(const fileName& src, const fileName& dst, const bool followLink = true);
+	FoamBase_EXPORT bool cp(const fileName& src, const fileName& dst, const bool followLink = true);
 
 	//- Create a soft link. dst should not exist. Returns true if successful.
-	bool ln(const fileName& src, const fileName& dst);
+	FoamBase_EXPORT bool ln(const fileName& src, const fileName& dst);
 
 	//- Rename src to dst
-	bool mv(const fileName& src, const fileName& dst, const bool followLink = false);
+	FoamBase_EXPORT bool mv(const fileName& src, const fileName& dst, const bool followLink = false);
 
 	//- Rename to a corresponding backup file
 	//  If the backup file already exists, attempt with "01" .. "99" suffix
-	bool mvBak(const fileName&, const std::string& ext = "bak");
+	FoamBase_EXPORT bool mvBak(const fileName&, const std::string& ext = "bak");
 
 	//- Remove a file, returning true if successful otherwise false
-	bool rm(const fileName&);
+	FoamBase_EXPORT bool rm(const fileName&);
 
 	//- Remove a directory and its contents
-	bool rmDir(const fileName&);
+	FoamBase_EXPORT bool rmDir(const fileName&);
 
 	//- Sleep for the specified number of seconds
-	unsigned int sleep(const unsigned int);
+	FoamBase_EXPORT unsigned int sleep(const unsigned int);
 
 	//- Close file descriptor
-	void fdClose(const int);
+	FoamBase_EXPORT void fdClose(const int);
 
 	//- Check if machine is up by pinging given port
-	bool ping(const word&, const label port, const label timeOut);
+	FoamBase_EXPORT bool ping(const word&, const label port, const label timeOut);
 
 	//- Check if machine is up by pinging port 22 (ssh) and 222 (rsh)
-	bool ping(const word&, const label timeOut = 10);
+	FoamBase_EXPORT bool ping(const word&, const label timeOut = 10);
 
 	//- Execute the specified command
-	int system(const std::string& command);
+	FoamBase_EXPORT int system(const std::string& command);
 
 	//- Open a shared library. Return handle to library. Print error message
 //  if library cannot be loaded (check = true)
-	void* dlOpen(const fileName& lib, const bool check = true);
+	FoamBase_EXPORT void* dlOpen(const fileName& lib, const bool check = true);
 
 	//- Close a dlopened library using handle. Return true if successful
-	bool dlClose(void*);
+	FoamBase_EXPORT bool dlClose(void*);
 
 	//- Lookup a symbol in a dlopened library using handle to library
-	void* dlSym(void* handle, const std::string& symbol);
+	FoamBase_EXPORT void* dlSym(void* handle, const std::string& symbol);
 
 	//- Report if symbol in a dlopened library could be found
-	bool dlSymFound(void* handle, const std::string& symbol);
+	FoamBase_EXPORT bool dlSymFound(void* handle, const std::string& symbol);
 
 	//- Return all loaded libraries
-	fileNameList dlLoaded();
+	FoamBase_EXPORT fileNameList dlLoaded();
 
 	// Low level random numbers. Use Random class instead.
 
 	//- Seed random number generator.
-	void osRandomSeed(const label seed);
+	FoamBase_EXPORT void osRandomSeed(const label seed);
 
 	//- Return random integer (uniform distribution between 0 and 2^31)
-	label osRandomInteger();
+	FoamBase_EXPORT label osRandomInteger();
 
 	//- Return random double precision (uniform distribution between 0 and 1)
-	scalar osRandomDouble();
+	FoamBase_EXPORT scalar osRandomDouble();
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

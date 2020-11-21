@@ -49,24 +49,24 @@ namespace tnbLib
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 			//- In-place read with dictionary lookup
-		void read(Istream&, label&, const dictionary&);
+		FoamFvMesh_EXPORT void read(Istream&, label&, const dictionary&);
 
 		//- In-place read with dictionary lookup
 		template<class T>
 		void read(Istream&, List<T>&, const dictionary&);
 
 		//- Return-read with dictionary lookup
-		label read(Istream&, const dictionary&);
+		FoamFvMesh_EXPORT label read(Istream&, const dictionary&);
 
 		//- Return-read with dictionary lookup
 		template<class T>
 		List<T> read(Istream& is, const dictionary&);
 
 		//- Write with dictionary lookup
-		void write(Ostream&, const label, const dictionary&);
+		FoamFvMesh_EXPORT void write(Ostream&, const label, const dictionary&);
 
 		//- Linear search for label entry
-		const keyType& findEntry(const dictionary&, const label);
+		FoamFvMesh_EXPORT const keyType& findEntry(const dictionary&, const label);
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

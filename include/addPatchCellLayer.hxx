@@ -183,7 +183,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Get the face on the other side of the edge.
-		static label nbrFace
+		static FoamDynamicMesh_EXPORT label nbrFace
 		(
 			const labelListList& edgeFaces,
 			const label edgeI,
@@ -191,9 +191,9 @@ namespace tnbLib
 		);
 
 		//- Add vertex to face if unique.
-		static void addVertex(const label, face&, label& fp);
+		static FoamDynamicMesh_EXPORT void addVertex(const label, face&, label& fp);
 
-		bool sameEdgeNeighbour
+		FoamDynamicMesh_EXPORT bool sameEdgeNeighbour
 		(
 			const indirectPrimitivePatch& pp,
 			const labelListList& globalEdgeFaces,
@@ -203,7 +203,7 @@ namespace tnbLib
 			const label edgeI
 		) const;
 
-		labelPair getEdgeString
+		FoamDynamicMesh_EXPORT labelPair getEdgeString
 		(
 			const indirectPrimitivePatch& pp,
 			const labelListList& globalEdgeFaces,
@@ -214,7 +214,7 @@ namespace tnbLib
 
 
 		//- Add face between layer-1 and layer.
-		label addSideFace
+		FoamDynamicMesh_EXPORT label addSideFace
 		(
 			const indirectPrimitivePatch&,
 			const labelListList& addedCells,
@@ -232,10 +232,10 @@ namespace tnbLib
 		) const;
 
 		//- Find patch to neighbouring processor
-		static label findProcPatch(const polyMesh&, const label nbrProcID);
+		static FoamDynamicMesh_EXPORT label findProcPatch(const polyMesh&, const label nbrProcID);
 
 		//- Extract properties from mesh face
-		static void setFaceProps
+		static FoamDynamicMesh_EXPORT void setFaceProps
 		(
 			const polyMesh&,
 			const label,
@@ -248,13 +248,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("addPatchCellLayer");
+		//ClassName("addPatchCellLayer");
+		static const char* typeName_() { return "addPatchCellLayer"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh.
-		addPatchCellLayer(const polyMesh&, const bool addToMesh = true);
+		FoamDynamicMesh_EXPORT addPatchCellLayer(const polyMesh&, const bool addToMesh = true);
 
 		//- Disallow default bitwise copy construction
 		addPatchCellLayer(const addPatchCellLayer&) = delete;
@@ -280,21 +283,21 @@ namespace tnbLib
 		//- Helper: get added cells per patch face.
 		//  addedCells[patchFace] is list of cells added. Last element is
 		//  the top cells (i.e. the boundary cell)
-		static labelListList addedCells
+		static FoamDynamicMesh_EXPORT labelListList addedCells
 		(
 			const polyMesh&,
 			const labelListList& layerFaces
 		);
 
 		//- Added cells given current mesh & layerfaces.
-		labelListList addedCells() const;
+		FoamDynamicMesh_EXPORT labelListList addedCells() const;
 
 
 		// Edit
 
 			//- Per patch edge the pp faces (in global indices) using it. Uses
 			//  uniqueEqOp() to remove duplicates.
-		static labelListList globalEdgeFaces
+		static FoamDynamicMesh_EXPORT labelListList globalEdgeFaces
 		(
 			const polyMesh&,
 			const globalIndex& globalFaces,
@@ -306,7 +309,7 @@ namespace tnbLib
 		//  (patchi >= mesh.boundaryMesh().size()) in which case the
 		//  nbrProcToPatch, patchToNbrProc give the correspondence. nPatches
 		//  is the new number of patches.
-		static void calcSidePatch
+		static FoamDynamicMesh_EXPORT void calcSidePatch
 		(
 			const polyMesh&,
 			const globalIndex& globalFaces,
@@ -339,7 +342,7 @@ namespace tnbLib
 		//        get a cell should firstDisplacement be <> 0
 		//  Note: cells get added from owner cells of patch faces
 		//        (instead of e.g. from patch faces)
-		void setRefinement
+		FoamDynamicMesh_EXPORT void setRefinement
 		(
 			const globalIndex& globalFaces,
 			const labelListList& globalEdgeFaces,
@@ -385,7 +388,7 @@ namespace tnbLib
 		//- Update any locally stored mesh information. Gets additional
 		//  map from new to old patch (since patch needs to be
 		//  recreated since has to be on outside).
-		void updateMesh
+		FoamDynamicMesh_EXPORT void updateMesh
 		(
 			const mapPolyMesh&,
 			const labelList& faceMap,   // new to old patch faces

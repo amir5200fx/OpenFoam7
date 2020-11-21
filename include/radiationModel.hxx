@@ -110,21 +110,25 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Create IO object if dictionary is present
-		IOobject createIOobject(const fvMesh& mesh) const;
+		FoamRadiationModels_EXPORT IOobject createIOobject(const fvMesh& mesh) const;
 
 		//- Initialise
-		void initialise();
+		FoamRadiationModels_EXPORT void initialise();
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("radiationModel");
+		//TypeName("radiationModel");
+		static const char* typeName_() { return "radiationModel"; }
+		static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+		static FoamRadiationModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare runtime constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			radiationModel,
@@ -133,9 +137,57 @@ namespace tnbLib
 				const volScalarField& T
 				),
 				(T)
-		);
+		);*/
 
-		declareRunTimeSelectionTable
+		typedef autoPtr<radiationModel> (*TConstructorPtr)(const volScalarField& T);
+		typedef HashTable<TConstructorPtr, word, string::hash> TConstructorTable;
+		static FoamRadiationModels_EXPORT TConstructorTable* TConstructorTablePtr_;
+		static FoamRadiationModels_EXPORT void constructTConstructorTables();
+		static FoamRadiationModels_EXPORT void destroyTConstructorTables();
+
+		template <class radiationModelType>
+		class addTConstructorToTable
+		{
+		public:
+			static autoPtr<radiationModel> New(const volScalarField& T)
+			{
+				return autoPtr<radiationModel>(new radiationModelType(T));
+			}
+
+			addTConstructorToTable(const word& lookup = radiationModelType::typeName)
+			{
+				constructTConstructorTables();
+				if (!TConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "radiationModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addTConstructorToTable() { destroyTConstructorTables(); }
+		};
+
+		template <class radiationModelType>
+		class addRemovableTConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<radiationModel> New(const volScalarField& T)
+			{
+				return autoPtr<radiationModel>(new radiationModelType(T));
+			}
+
+			addRemovableTConstructorToTable(const word& lookup = radiationModelType::typeName) : lookup_(lookup)
+			{
+				constructTConstructorTables();
+				TConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableTConstructorToTable() { if (TConstructorTablePtr_) { TConstructorTablePtr_->erase(lookup_); } }
+		};
+
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			radiationModel,
@@ -145,19 +197,71 @@ namespace tnbLib
 				const volScalarField& T
 				),
 				(dict, T)
-		);
+		);*/
+
+		typedef autoPtr<radiationModel> (*dictionaryConstructorPtr)(const dictionary& dict, const volScalarField& T);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamRadiationModels_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamRadiationModels_EXPORT void constructdictionaryConstructorTables();
+		static FoamRadiationModels_EXPORT void destroydictionaryConstructorTables();
+
+		template <class radiationModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<radiationModel> New(const dictionary& dict, const volScalarField& T)
+			{
+				return autoPtr<radiationModel>(new radiationModelType(dict, T));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = radiationModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "radiationModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class radiationModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<radiationModel> New(const dictionary& dict, const volScalarField& T)
+			{
+				return autoPtr<radiationModel>(new radiationModelType(dict, T));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = radiationModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors
 
 			//- Null constructor
-		radiationModel(const volScalarField& T);
+		FoamRadiationModels_EXPORT radiationModel(const volScalarField& T);
 
 		//- Construct from components
-		radiationModel(const word& type, const volScalarField& T);
+		FoamRadiationModels_EXPORT radiationModel(const word& type, const volScalarField& T);
 
 		//- Construct from components
-		radiationModel
+		FoamRadiationModels_EXPORT radiationModel
 		(
 			const word& type,
 			const dictionary& dict,
@@ -165,16 +269,16 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		radiationModel(const radiationModel&) = delete;
+		FoamRadiationModels_EXPORT radiationModel(const radiationModel&) = delete;
 
 
 		// Selectors
 
 			//- Return a reference to the selected radiation model
-		static autoPtr<radiationModel> New(const volScalarField& T);
+		static FoamRadiationModels_EXPORT autoPtr<radiationModel> New(const volScalarField& T);
 
 		//- Return a reference to the selected radiation model
-		static autoPtr<radiationModel> New
+		static FoamRadiationModels_EXPORT autoPtr<radiationModel> New
 		(
 			const dictionary& dict,
 			const volScalarField& T
@@ -182,7 +286,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~radiationModel();
+		FoamRadiationModels_EXPORT virtual ~radiationModel();
 
 
 		// Member Functions
@@ -190,49 +294,49 @@ namespace tnbLib
 			// Edit
 
 				//- Main update/correction routine
-		virtual void correct();
+		FoamRadiationModels_EXPORT virtual void correct();
 
 		//- Solve radiation equation(s)
-		virtual void calculate() = 0;
+		FoamRadiationModels_EXPORT virtual void calculate() = 0;
 
 		//- Read radiationProperties dictionary
-		virtual bool read() = 0;
+		FoamRadiationModels_EXPORT virtual bool read() = 0;
 
 
 		// Access
 
 			//- Source term component (for power of T^4)
-		virtual tmp<volScalarField> Rp() const = 0;
+		FoamRadiationModels_EXPORT virtual tmp<volScalarField> Rp() const = 0;
 
 		//- Source term component (constant)
-		virtual tmp<volScalarField::Internal> Ru() const = 0;
+		FoamRadiationModels_EXPORT virtual tmp<volScalarField::Internal> Ru() const = 0;
 
 		//- Energy source term
-		virtual tmp<fvScalarMatrix> Sh
+		FoamRadiationModels_EXPORT virtual tmp<fvScalarMatrix> Sh
 		(
 			const basicThermo& thermo,
 			const volScalarField& he
 		) const;
 
 		//- Temperature source term
-		virtual tmp<fvScalarMatrix> ST
+		FoamRadiationModels_EXPORT virtual tmp<fvScalarMatrix> ST
 		(
 			const dimensionedScalar& rhoCp,
 			volScalarField& T
 		) const;
 
 		//- Access to absorptionEmission model
-		const radiationModels::absorptionEmissionModel&
+		FoamRadiationModels_EXPORT const radiationModels::absorptionEmissionModel&
 			absorptionEmission() const;
 
 		//- Access to soot Model
-		const radiationModels::sootModel& soot() const;
+		FoamRadiationModels_EXPORT const radiationModels::sootModel& soot() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const radiationModel&) = delete;
+		FoamRadiationModels_EXPORT void operator=(const radiationModel&) = delete;
 	};
 
 

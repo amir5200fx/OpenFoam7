@@ -104,16 +104,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("structured");
+		//TypeName("structured");
+		static const char* typeName_() { return "structured"; }
+		static FoamRenumber_EXPORT const ::tnbLib::word typeName;
+		static FoamRenumber_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given the renumber dictionary
-		structuredRenumber(const dictionary& renumberDict);
+		FoamRenumber_EXPORT structuredRenumber(const dictionary& renumberDict);
 
 		//- Disallow default bitwise copy construction
-		structuredRenumber(const structuredRenumber&) = delete;
+		FoamRenumber_EXPORT structuredRenumber(const structuredRenumber&) = delete;
 
 
 		//- Destructor
@@ -135,7 +139,7 @@ namespace tnbLib
 		//- Return the order in which cells need to be visited, i.e.
 		//  from ordered back to original cell label.
 		//  Use the mesh connectivity (if needed)
-		virtual labelList renumber
+		FoamRenumber_EXPORT virtual labelList renumber
 		(
 			const polyMesh& mesh,
 			const pointField& cc
@@ -159,7 +163,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const structuredRenumber&) = delete;
+		FoamRenumber_EXPORT void operator=(const structuredRenumber&) = delete;
 	};
 
 

@@ -433,7 +433,7 @@ bool tnbLib::chemistryTabulationMethods::ISAT<CompType, ThermoType>::retrieve
 )
 {
 	bool retrieved(false);
-	chemPointISAT<CompType, ThermoType>* phi0;
+	chemPointISAT<CompType, ThermoType>* phi0 = nullptr; // added nullptr by Amin
 
 	// If the tree is not empty
 	if (chemisTree_.size())

@@ -81,9 +81,9 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Get size of all meshes
-		static label totalSize(const PtrList<lduPrimitiveMesh>&);
+		static FoamBase_EXPORT label totalSize(const PtrList<lduPrimitiveMesh>&);
 
-		static labelList upperTriOrder
+		static FoamBase_EXPORT labelList upperTriOrder
 		(
 			const label nCells,
 			const labelUList& lower,
@@ -91,7 +91,7 @@ namespace tnbLib
 		);
 
 		//- Check if in upper-triangular ordering
-		static void checkUpperTriangular
+		static FoamBase_EXPORT void checkUpperTriangular
 		(
 			const label size,
 			const labelUList& l,
@@ -104,13 +104,16 @@ namespace tnbLib
 		// Static data
 
 			// Declare name of the class and its debug switch
-		ClassName("lduPrimitiveMesh");
+		//ClassName("lduPrimitiveMesh");
+		static const char* typeName_() { return "lduPrimitiveMesh"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct from components but without interfaces. Add interfaces
 			//  separately using addInterfaces
-		lduPrimitiveMesh
+		FoamBase_EXPORT lduPrimitiveMesh
 		(
 			const label nCells,
 			labelList& l,
@@ -120,14 +123,14 @@ namespace tnbLib
 		);
 
 		//- Add interfaces to a mesh constructed without
-		void addInterfaces
+		FoamBase_EXPORT void addInterfaces
 		(
 			lduInterfacePtrsList& interfaces,
 			const lduSchedule& ps
 		);
 
 		//- Construct from components and re-use storage.
-		lduPrimitiveMesh
+		FoamBase_EXPORT lduPrimitiveMesh
 		(
 			const label nCells,
 			labelList& l,
@@ -158,7 +161,7 @@ namespace tnbLib
 		//                   - the new patch face (if boundaryMap>=0)
 		//                   Faces becoming internal are negative for flipped
 		//                   faces.
-		lduPrimitiveMesh
+		FoamBase_EXPORT lduPrimitiveMesh
 		(
 			const label comm,
 			const labelList& procAgglomMap,
@@ -175,7 +178,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		lduPrimitiveMesh(const lduPrimitiveMesh&) = delete;
+		FoamBase_EXPORT lduPrimitiveMesh(const lduPrimitiveMesh&) = delete;
 
 
 		//- Destructor
@@ -242,7 +245,7 @@ namespace tnbLib
 		// Helper
 
 			//- Select either mesh0 (meshI is 0) or otherMeshes[meshI-1]
-		static const lduMesh& mesh
+		static FoamBase_EXPORT const lduMesh& mesh
 		(
 			const lduMesh& mesh0,
 			const PtrList<lduPrimitiveMesh>& otherMeshes,
@@ -251,7 +254,7 @@ namespace tnbLib
 
 		//- Gather meshes from other processors onto procIDs[0].
 		//  Received meshes get GAMGInterface and communicator comm
-		static void gather
+		static FoamBase_EXPORT void gather
 		(
 			const label comm,
 			const lduMesh& mesh,
@@ -267,7 +270,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const lduPrimitiveMesh&) = delete;
+		FoamBase_EXPORT void operator=(const lduPrimitiveMesh&) = delete;
 	};
 
 

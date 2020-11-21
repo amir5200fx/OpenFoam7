@@ -58,17 +58,17 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Write header information with points
-			static void writeHeader
+			static FoamFvMesh_EXPORT void writeHeader
 			(
 				Ostream&,
 				const pointField&
 			);
 
 			//- Write trailing information with zone information
-			static void writeTail(Ostream&, const UList<surfZone>&);
+			static FoamFvMesh_EXPORT void writeTail(Ostream&, const UList<surfZone>&);
 
 			//- Write trailing information with zone Ids
-			static void writeTail(Ostream&, const labelUList& zoneIds);
+			static FoamFvMesh_EXPORT void writeTail(Ostream&, const labelUList& zoneIds);
 		};
 
 

@@ -437,7 +437,7 @@ void tnbLib::distribution::operator=(const distribution& rhs)
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const distribution& d)
+FoamLagrangian_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const distribution& d)
 {
 	os << d.binWidth_
 		<< static_cast<const Map<label>&>(d);

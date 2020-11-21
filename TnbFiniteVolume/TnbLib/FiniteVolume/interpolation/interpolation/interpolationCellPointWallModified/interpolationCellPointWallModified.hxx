@@ -44,6 +44,16 @@ Description
 
 #include <interpolationCellPoint.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamInterpolationCellPointWallModified_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamInterpolationCellPointWallModified_EXPORT_DEFINE
+#define FoamInterpolationCellPointWallModified_EXPORT __declspec(dllexport)
+#else
+#define FoamInterpolationCellPointWallModified_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -75,7 +85,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cellPointWallModified");
+		//TypeName("cellPointWallModified");
+		static const char* typeName_() { return "cellPointWallModified"; }
+		static FoamInterpolationCellPointWallModified_EXPORT const ::tnbLib::word typeName;
+		static FoamInterpolationCellPointWallModified_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

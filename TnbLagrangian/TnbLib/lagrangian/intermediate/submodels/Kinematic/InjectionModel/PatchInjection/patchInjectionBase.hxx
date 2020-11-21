@@ -100,23 +100,23 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mesh and patch name
-		patchInjectionBase(const polyMesh& mesh, const word& patchName);
+		FoamLagrangian_EXPORT patchInjectionBase(const polyMesh& mesh, const word& patchName);
 
 		//- Copy constructor
-		patchInjectionBase(const patchInjectionBase& pib);
+		FoamLagrangian_EXPORT patchInjectionBase(const patchInjectionBase& pib);
 
 
 		//- Destructor
-		virtual ~patchInjectionBase();
+		FoamLagrangian_EXPORT virtual ~patchInjectionBase();
 
 
 		// Member Functions
 
 			//- Update patch geometry and derived info for injection locations
-		virtual void updateMesh(const polyMesh& mesh);
+		FoamLagrangian_EXPORT virtual void updateMesh(const polyMesh& mesh);
 
 		//- Set the injection position and owner cell, tetFace and tetPt
-		virtual void setPositionAndCell
+		FoamLagrangian_EXPORT virtual void setPositionAndCell
 		(
 			const fvMesh& mesh,
 			Random& rnd,

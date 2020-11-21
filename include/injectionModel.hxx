@@ -70,21 +70,25 @@ namespace tnbLib
 				// Protected Member Functions
 
 					//- Add to injected mass
-				void addToInjectedMass(const scalar dMass);
+				FoamLagrangian_EXPORT void addToInjectedMass(const scalar dMass);
 
 				//- Correct
-				void correct();
+				FoamLagrangian_EXPORT void correct();
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("injectionModel");
+				//TypeName("injectionModel");
+				static const char* typeName_() { return "injectionModel"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Declare runtime constructor selection table
 
-				declareRunTimeSelectionTable
+				/*declareRunTimeSelectionTable
 				(
 					autoPtr,
 					injectionModel,
@@ -94,16 +98,69 @@ namespace tnbLib
 						const dictionary& dict
 						),
 						(film, dict)
-				);
+				);*/
+
+				typedef autoPtr<injectionModel> (*dictionaryConstructorPtr)(
+					surfaceFilmRegionModel& film, const dictionary& dict);
+				typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+				static FoamLagrangian_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+				static FoamLagrangian_EXPORT void constructdictionaryConstructorTables();
+				static FoamLagrangian_EXPORT void destroydictionaryConstructorTables();
+
+				template <class injectionModelType>
+				class adddictionaryConstructorToTable
+				{
+				public:
+					static autoPtr<injectionModel> New(surfaceFilmRegionModel& film, const dictionary& dict)
+					{
+						return autoPtr<injectionModel>(new injectionModelType(film, dict));
+					}
+
+					adddictionaryConstructorToTable(const word& lookup = injectionModelType::typeName)
+					{
+						constructdictionaryConstructorTables();
+						if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+						{
+							std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+								"injectionModel" << std::endl;
+							error::safePrintStack(std::cerr);
+						}
+					}
+
+					~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+				};
+
+				template <class injectionModelType>
+				class addRemovabledictionaryConstructorToTable
+				{
+					const word& lookup_;
+				public:
+					static autoPtr<injectionModel> New(surfaceFilmRegionModel& film, const dictionary& dict)
+					{
+						return autoPtr<injectionModel>(new injectionModelType(film, dict));
+					}
+
+					addRemovabledictionaryConstructorToTable(
+						const word& lookup = injectionModelType::typeName) : lookup_(lookup)
+					{
+						constructdictionaryConstructorTables();
+						dictionaryConstructorTablePtr_->set(lookup, New);
+					}
+
+					~addRemovabledictionaryConstructorToTable()
+					{
+						if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+					}
+				};
 
 
 				// Constructors
 
 					//- Construct null
-				injectionModel(surfaceFilmRegionModel& film);
+				FoamLagrangian_EXPORT injectionModel(surfaceFilmRegionModel& film);
 
 				//- Construct from type name, dictionary and surface film model
-				injectionModel
+				FoamLagrangian_EXPORT injectionModel
 				(
 					const word& modelType,
 					surfaceFilmRegionModel& film,
@@ -111,13 +168,13 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				injectionModel(const injectionModel&) = delete;
+				FoamLagrangian_EXPORT injectionModel(const injectionModel&) = delete;
 
 
 				// Selectors
 
 					//- Return a reference to the selected injection model
-				static autoPtr<injectionModel> New
+				static FoamLagrangian_EXPORT autoPtr<injectionModel> New
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict,
@@ -126,13 +183,13 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~injectionModel();
+				FoamLagrangian_EXPORT virtual ~injectionModel();
 
 
 				// Member Functions
 
 					//- Correct
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					scalarField& availableMass,
 					scalarField& massToInject,
@@ -140,7 +197,7 @@ namespace tnbLib
 				) = 0;
 
 				//- Return the total mass injected
-				virtual scalar injectedMassTotal() const;
+				FoamLagrangian_EXPORT virtual scalar injectedMassTotal() const;
 
 				//- Accumulate the total mass injected for the patches into the
 				//  scalarField provided
@@ -151,7 +208,7 @@ namespace tnbLib
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const injectionModel&) = delete;
+				FoamLagrangian_EXPORT void operator=(const injectionModel&) = delete;
 			};
 
 

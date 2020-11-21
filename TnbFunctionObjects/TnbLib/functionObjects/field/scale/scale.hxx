@@ -72,19 +72,23 @@ namespace tnbLib
 			bool calcScale();
 
 			//- Calculate the scale of the field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scale");
+			//TypeName("scale");
+			static const char* typeName_() { return "scale"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scale
+			FoamFunctionObjects_EXPORT scale
 			(
 				const word& name,
 				const Time& runTime,
@@ -93,13 +97,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scale();
+			FoamFunctionObjects_EXPORT virtual ~scale();
 
 
 			// Member Functions
 
 				//- Read the randomise data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 		};
 
 
@@ -111,8 +115,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <scaleTemplates.cxx>
+//#include <scaleTemplates.cxx>
 #endif
+
+#include <scaleTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

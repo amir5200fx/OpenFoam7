@@ -95,13 +95,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pressureInletOutletParSlipVelocity");
+		/*TypeName("pressureInletOutletParSlipVelocity");*/
+		static const char* typeName_() { return "pressureInletOutletParSlipVelocity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		pressureInletOutletParSlipVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureInletOutletParSlipVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
@@ -110,7 +114,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  pressureInletOutletParSlipVelocityFvPatchVectorField
 		//  onto a new patch
-		pressureInletOutletParSlipVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureInletOutletParSlipVelocityFvPatchVectorField
 		(
 			const pressureInletOutletParSlipVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -119,7 +123,7 @@ namespace tnbLib
 		);
 
 		//- Construct from patch, internal field and dictionary
-		pressureInletOutletParSlipVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureInletOutletParSlipVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -127,7 +131,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		pressureInletOutletParSlipVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureInletOutletParSlipVelocityFvPatchVectorField
 		(
 			const pressureInletOutletParSlipVelocityFvPatchVectorField&
 		);
@@ -145,7 +149,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		pressureInletOutletParSlipVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureInletOutletParSlipVelocityFvPatchVectorField
 		(
 			const pressureInletOutletParSlipVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -207,15 +211,15 @@ namespace tnbLib
 
 
 		//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 
 
 		// Member Operators
 
-		virtual void operator=(const fvPatchField<vector>& pvf);
+		FoamFiniteVolume_EXPORT virtual void operator=(const fvPatchField<vector>& pvf);
 	};
 
 

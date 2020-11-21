@@ -53,8 +53,8 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 
 	class vectorTensorTransform;
-	Istream& operator>>(Istream& is, vectorTensorTransform&);
-	Ostream& operator<<(Ostream& os, const vectorTensorTransform& C);
+	FoamBase_EXPORT Istream& operator>>(Istream& is, vectorTensorTransform&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const vectorTensorTransform& C);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -81,11 +81,11 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
+		static FoamBase_EXPORT const char* const typeName;
 
-		static const vectorTensorTransform zero;
+		static FoamBase_EXPORT const vectorTensorTransform zero;
 
-		static const vectorTensorTransform I;
+		static FoamBase_EXPORT const vectorTensorTransform I;
 
 
 		// Constructors
@@ -177,9 +177,9 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream& is, vectorTensorTransform&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream& is, vectorTensorTransform&);
 
-		friend Ostream& operator<<(Ostream& os, const vectorTensorTransform&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const vectorTensorTransform&);
 	};
 
 
@@ -190,7 +190,7 @@ namespace tnbLib
 
 
 	//- Return a string representation of a vectorTensorTransform
-	word name(const vectorTensorTransform&);
+	FoamBase_EXPORT word name(const vectorTensorTransform&);
 
 
 	//- Data associated with vectorTensorTransform type are contiguous
@@ -199,11 +199,11 @@ namespace tnbLib
 
 	//- Template specialisations
 	template<>
-	tmp<Field<bool>> vectorTensorTransform::transform(const Field<bool>&) const;
+	FoamBase_EXPORT tmp<Field<bool>> vectorTensorTransform::transform(const Field<bool>&) const;
 	template<>
-	tmp<Field<label>> vectorTensorTransform::transform(const Field<label>&) const;
+	FoamBase_EXPORT tmp<Field<label>> vectorTensorTransform::transform(const Field<label>&) const;
 	template<>
-	tmp<Field<scalar>> vectorTensorTransform::transform(const Field<scalar>&)
+	FoamBase_EXPORT tmp<Field<scalar>> vectorTensorTransform::transform(const Field<scalar>&)
 		const;
 
 

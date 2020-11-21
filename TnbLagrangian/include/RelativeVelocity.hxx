@@ -47,6 +47,16 @@ SourceFiles
 
 #include <CloudFunctionObject.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamRelativeVelocity_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamRelativeVelocity_EXPORT_DEFINE
+#define FoamRelativeVelocity_EXPORT __declspec(dllexport)
+#else
+#define FoamRelativeVelocity_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -72,7 +82,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("relativeVelocity");
+		//TypeName("relativeVelocity");
+		static const char* typeName_() { return "relativeVelocity"; }
+		static FoamRelativeVelocity_EXPORT const ::tnbLib::word typeName;
+		static FoamRelativeVelocity_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

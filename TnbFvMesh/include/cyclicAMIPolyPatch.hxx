@@ -57,9 +57,9 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Return normal of face at max distance from rotation axis
-		vector findFaceNormalMaxRadius(const pointField& faceCentres) const;
+		FoamFvMesh_EXPORT vector findFaceNormalMaxRadius(const pointField& faceCentres) const;
 
-		void calcTransforms
+		FoamFvMesh_EXPORT void calcTransforms
 		(
 			const primitivePatch& half0,
 			const pointField& half0Ctrs,
@@ -134,43 +134,47 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Reset the AMI interpolator
-		virtual void resetAMI() const;
+		FoamFvMesh_EXPORT virtual void resetAMI() const;
 
 		//- Recalculate the transformation tensors
-		virtual void calcTransforms();
+		FoamFvMesh_EXPORT virtual void calcTransforms();
 
 		//- Initialise the calculation of the patch geometry
-		virtual void initGeometry(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void initGeometry(PstreamBuffers&);
 
 		//- Calculate the patch geometry
-		virtual void calcGeometry(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void calcGeometry(PstreamBuffers&);
 
 		//- Initialise the patches for moving points
-		virtual void initMovePoints(PstreamBuffers& pBufs, const pointField&);
+		FoamFvMesh_EXPORT virtual void initMovePoints(PstreamBuffers& pBufs, const pointField&);
 
 		//- Correct patches after moving points
-		virtual void movePoints(PstreamBuffers& pBufs, const pointField&);
+		FoamFvMesh_EXPORT virtual void movePoints(PstreamBuffers& pBufs, const pointField&);
 
 		//- Initialise the update of the patch topology
-		virtual void initUpdateMesh(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void initUpdateMesh(PstreamBuffers&);
 
 		//- Update of the patch topology
-		virtual void updateMesh(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void updateMesh(PstreamBuffers&);
 
 		//- Clear geometry
-		virtual void clearGeom();
+		FoamFvMesh_EXPORT virtual void clearGeom();
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("cyclicAMI");
+		//TypeName("cyclicAMI");
+		static const char* typeName_() { return "cyclicAMI"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from (base couped patch) components
-		cyclicAMIPolyPatch
+		FoamFvMesh_EXPORT cyclicAMIPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -185,7 +189,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		cyclicAMIPolyPatch
+		FoamFvMesh_EXPORT cyclicAMIPolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -198,11 +202,11 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		cyclicAMIPolyPatch(const cyclicAMIPolyPatch&, const polyBoundaryMesh&);
+		FoamFvMesh_EXPORT cyclicAMIPolyPatch(const cyclicAMIPolyPatch&, const polyBoundaryMesh&);
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		cyclicAMIPolyPatch
+		FoamFvMesh_EXPORT cyclicAMIPolyPatch
 		(
 			const cyclicAMIPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -213,7 +217,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		cyclicAMIPolyPatch
+		FoamFvMesh_EXPORT cyclicAMIPolyPatch
 		(
 			const cyclicAMIPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -278,7 +282,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~cyclicAMIPolyPatch();
+		FoamFvMesh_EXPORT virtual ~cyclicAMIPolyPatch();
 
 
 		// Member Functions
@@ -296,31 +300,31 @@ namespace tnbLib
 		inline const word& neighbPatchName() const;
 
 		//- Neighbour patch ID
-		virtual label neighbPatchID() const;
+		FoamFvMesh_EXPORT virtual label neighbPatchID() const;
 
 		//- Does this side own the patch?
-		virtual bool owner() const;
+		FoamFvMesh_EXPORT virtual bool owner() const;
 
 		//- Return a reference to the neighbour patch
-		virtual const cyclicAMIPolyPatch& neighbPatch() const;
+		FoamFvMesh_EXPORT virtual const cyclicAMIPolyPatch& neighbPatch() const;
 
 		//- Return a reference to the projection surface
-		const autoPtr<searchableSurface>& surfPtr() const;
+		FoamFvMesh_EXPORT const autoPtr<searchableSurface>& surfPtr() const;
 
 		//- Return a reference to the AMI interpolators
-		const PtrList<AMIInterpolation>& AMIs() const;
+		FoamFvMesh_EXPORT const PtrList<AMIInterpolation>& AMIs() const;
 
 		//- Return a reference to the AMI transforms
-		const List<vectorTensorTransform>& AMITransforms() const;
+		FoamFvMesh_EXPORT const List<vectorTensorTransform>& AMITransforms() const;
 
 		//- Return true if applying the low weight correction
-		bool applyLowWeightCorrection() const;
+		FoamFvMesh_EXPORT bool applyLowWeightCorrection() const;
 
 		//- Return the weights sum for this patch
-		virtual const scalarField& weightsSum() const;
+		FoamFvMesh_EXPORT virtual const scalarField& weightsSum() const;
 
 		//- Return the weights sum for the neighbour patch
-		virtual const scalarField& neighbWeightsSum() const;
+		FoamFvMesh_EXPORT virtual const scalarField& neighbWeightsSum() const;
 
 
 
@@ -336,31 +340,31 @@ namespace tnbLib
 		inline const vector& separationVector() const;
 
 		//- Transform patch-based positions from nbr side to this side
-		virtual void transformPosition(pointField&) const;
+		FoamFvMesh_EXPORT virtual void transformPosition(pointField&) const;
 
 		//- Transform a patch-based position from nbr side to this side
-		virtual void transformPosition
+		FoamFvMesh_EXPORT virtual void transformPosition
 		(
 			point& l,
 			const label facei
 		) const;
 
 		//- Transform a patch-based direction from nbr side to this side
-		virtual void transformDirection
+		FoamFvMesh_EXPORT virtual void transformDirection
 		(
 			vector& d,
 			const label facei
 		) const;
 
 		//- Transform a patch-based position from this side to nbr side
-		virtual void reverseTransformPosition
+		FoamFvMesh_EXPORT virtual void reverseTransformPosition
 		(
 			point& l,
 			const label facei
 		) const;
 
 		//- Transform a patch-based direction from this side to nbr side
-		virtual void reverseTransformDirection
+		FoamFvMesh_EXPORT virtual void reverseTransformDirection
 		(
 			vector& d,
 			const label facei
@@ -386,7 +390,7 @@ namespace tnbLib
 		) const;
 
 		//- Interpolate field component
-		tmp<scalarField> interpolate
+		FoamFvMesh_EXPORT tmp<scalarField> interpolate
 		(
 			const scalarField& field,
 			const direction cmpt,
@@ -396,7 +400,7 @@ namespace tnbLib
 
 
 		//- Calculate the patch geometry
-		virtual void calcGeometry
+		FoamFvMesh_EXPORT virtual void calcGeometry
 		(
 			const primitivePatch& referPatch,
 			const pointField& thisCtrs,
@@ -409,7 +413,7 @@ namespace tnbLib
 
 		//- Initialize ordering for primitivePatch. Does not
 		//  refer to *this (except for name() and type() etc.)
-		virtual void initOrder
+		FoamFvMesh_EXPORT virtual void initOrder
 		(
 			PstreamBuffers&,
 			const primitivePatch&
@@ -420,7 +424,7 @@ namespace tnbLib
 		//  index of the new face -rotation:for every new face the clockwise
 		//  shift of the original face. Return false if nothing changes
 		//  (faceMap is identity, rotation is 0), true otherwise.
-		virtual bool order
+		FoamFvMesh_EXPORT virtual bool order
 		(
 			PstreamBuffers&,
 			const primitivePatch&,
@@ -430,7 +434,7 @@ namespace tnbLib
 
 		//- Return the transform and face indices on neighbour patch which
 		//  shares point p following trajectory vector n
-		labelPair pointAMIAndFace
+		FoamFvMesh_EXPORT labelPair pointAMIAndFace
 		(
 			const label facei,
 			const vector& n,
@@ -439,10 +443,10 @@ namespace tnbLib
 
 		//- Index of processor that holds all of both sides, or -1 if
 		//  distributed
-		label singlePatchProc() const;
+		FoamFvMesh_EXPORT label singlePatchProc() const;
 
 		//- Write the polyPatch data as a dictionary
-		virtual void write(Ostream&) const;
+		FoamFvMesh_EXPORT virtual void write(Ostream&) const;
 	};
 
 

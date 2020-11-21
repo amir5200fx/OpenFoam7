@@ -84,49 +84,49 @@ namespace tnbLib
 
 
 	template<>
-	tmp<Field<symmTensor>> transformFieldMask<symmTensor>
+	FoamBase_EXPORT tmp<Field<symmTensor>> transformFieldMask<symmTensor>
 		(
 			const tensorField&
 			);
 
 	template<>
-	tmp<Field<symmTensor>> transformFieldMask<symmTensor>
+	FoamBase_EXPORT tmp<Field<symmTensor>> transformFieldMask<symmTensor>
 		(
 			const tmp<tensorField>&
 			);
 
 
 	template<>
-	tmp<Field<sphericalTensor>> transformFieldMask<sphericalTensor>
+	FoamBase_EXPORT tmp<Field<sphericalTensor>> transformFieldMask<sphericalTensor>
 		(
 			const tensorField&
 			);
 
 	template<>
-	tmp<Field<sphericalTensor>> transformFieldMask<sphericalTensor>
+	FoamBase_EXPORT tmp<Field<sphericalTensor>> transformFieldMask<sphericalTensor>
 		(
 			const tmp<tensorField>&
 			);
 
 
 	//- Rotate given vectorField with the given quaternion
-	void transform(vectorField&, const quaternion&, const vectorField&);
+	FoamBase_EXPORT void transform(vectorField&, const quaternion&, const vectorField&);
 
 	//- Rotate given vectorField with the given quaternion
-	tmp<vectorField> transform(const quaternion&, const vectorField&);
+	FoamBase_EXPORT tmp<vectorField> transform(const quaternion&, const vectorField&);
 
 	//- Rotate given tmp<vectorField> with the given quaternion
-	tmp<vectorField> transform(const quaternion&, const tmp<vectorField>&);
+	FoamBase_EXPORT tmp<vectorField> transform(const quaternion&, const tmp<vectorField>&);
 
 
 	//- Transform given vectorField of coordinates with the given septernion
-	void transformPoints(vectorField&, const septernion&, const vectorField&);
+	FoamBase_EXPORT void transformPoints(vectorField&, const septernion&, const vectorField&);
 
 	//- Transform given vectorField of coordinates with the given septernion
-	tmp<vectorField> transformPoints(const septernion&, const vectorField&);
+	FoamBase_EXPORT tmp<vectorField> transformPoints(const septernion&, const vectorField&);
 
 	//- Transform given tmp<vectorField> of coordinates with the given septernion
-	tmp<vectorField> transformPoints(const septernion&, const tmp<vectorField>&);
+	FoamBase_EXPORT tmp<vectorField> transformPoints(const septernion&, const tmp<vectorField>&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

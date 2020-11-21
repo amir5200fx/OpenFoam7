@@ -200,7 +200,7 @@ bool tnbLib::dimensionSet::operator/=(const dimensionSet& ds)
 
 // * * * * * * * * * * * * * * * Friend functions * * * * * * * * * * * * * * //
 
-tnbLib::dimensionSet tnbLib::max(const dimensionSet& ds1, const dimensionSet& ds2)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::max(const dimensionSet& ds1, const dimensionSet& ds2)
 {
 	if (dimensionSet::debug && ds1 != ds2)
 	{
@@ -214,7 +214,7 @@ tnbLib::dimensionSet tnbLib::max(const dimensionSet& ds1, const dimensionSet& ds
 }
 
 
-tnbLib::dimensionSet tnbLib::min(const dimensionSet& ds1, const dimensionSet& ds2)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::min(const dimensionSet& ds1, const dimensionSet& ds2)
 {
 	if (dimensionSet::debug && ds1 != ds2)
 	{
@@ -228,7 +228,7 @@ tnbLib::dimensionSet tnbLib::min(const dimensionSet& ds1, const dimensionSet& ds
 }
 
 
-tnbLib::dimensionSet tnbLib::cmptMultiply
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::cmptMultiply
 (
 	const dimensionSet& ds1,
 	const dimensionSet& ds2
@@ -238,7 +238,7 @@ tnbLib::dimensionSet tnbLib::cmptMultiply
 }
 
 
-tnbLib::dimensionSet tnbLib::cmptDivide
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::cmptDivide
 (
 	const dimensionSet& ds1,
 	const dimensionSet& ds2
@@ -248,7 +248,7 @@ tnbLib::dimensionSet tnbLib::cmptDivide
 }
 
 
-tnbLib::dimensionSet tnbLib::pow(const dimensionSet& ds, const scalar p)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::pow(const dimensionSet& ds, const scalar p)
 {
 	dimensionSet dimPow
 	(
@@ -265,7 +265,7 @@ tnbLib::dimensionSet tnbLib::pow(const dimensionSet& ds, const scalar p)
 }
 
 
-tnbLib::dimensionSet tnbLib::pow
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::pow
 (
 	const dimensionSet& ds,
 	const dimensionedScalar& dS
@@ -293,7 +293,7 @@ tnbLib::dimensionSet tnbLib::pow
 }
 
 
-tnbLib::dimensionSet tnbLib::pow
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::pow
 (
 	const dimensionedScalar& dS,
 	const dimensionSet& ds
@@ -315,115 +315,115 @@ tnbLib::dimensionSet tnbLib::pow
 }
 
 
-tnbLib::dimensionSet tnbLib::sqr(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::sqr(const dimensionSet& ds)
 {
 	return pow(ds, 2);
 }
 
 
-tnbLib::dimensionSet tnbLib::pow3(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::pow3(const dimensionSet& ds)
 {
 	return pow(ds, 3);
 }
 
 
-tnbLib::dimensionSet tnbLib::pow4(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::pow4(const dimensionSet& ds)
 {
 	return pow(ds, 4);
 }
 
 
-tnbLib::dimensionSet tnbLib::pow5(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::pow5(const dimensionSet& ds)
 {
 	return pow(ds, 5);
 }
 
 
-tnbLib::dimensionSet tnbLib::pow6(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::pow6(const dimensionSet& ds)
 {
 	return pow(ds, 6);
 }
 
 
-tnbLib::dimensionSet tnbLib::pow025(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::pow025(const dimensionSet& ds)
 {
 	return sqrt(sqrt(ds));
 }
 
 
-tnbLib::dimensionSet tnbLib::sqrt(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::sqrt(const dimensionSet& ds)
 {
 	return pow(ds, 0.5);
 }
 
 
-tnbLib::dimensionSet tnbLib::cbrt(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::cbrt(const dimensionSet& ds)
 {
 	return pow(ds, 1.0 / 3.0);
 }
 
 
-tnbLib::dimensionSet tnbLib::magSqr(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::magSqr(const dimensionSet& ds)
 {
 	return pow(ds, 2);
 }
 
 
-tnbLib::dimensionSet tnbLib::mag(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::mag(const dimensionSet& ds)
 {
 	return ds;
 }
 
 
-tnbLib::dimensionSet tnbLib::sign(const dimensionSet&)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::sign(const dimensionSet&)
 {
 	return dimless;
 }
 
 
-tnbLib::dimensionSet tnbLib::pos(const dimensionSet&)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::pos(const dimensionSet&)
 {
 	return dimless;
 }
 
 
-tnbLib::dimensionSet tnbLib::pos0(const dimensionSet&)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::pos0(const dimensionSet&)
 {
 	return dimless;
 }
 
 
-tnbLib::dimensionSet tnbLib::neg(const dimensionSet&)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::neg(const dimensionSet&)
 {
 	return dimless;
 }
 
 
-tnbLib::dimensionSet tnbLib::neg0(const dimensionSet&)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::neg0(const dimensionSet&)
 {
 	return dimless;
 }
 
 
-tnbLib::dimensionSet tnbLib::posPart(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::posPart(const dimensionSet& ds)
 {
 	return ds;
 }
 
 
-tnbLib::dimensionSet tnbLib::negPart(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::negPart(const dimensionSet& ds)
 {
 	return ds;
 }
 
 
-tnbLib::dimensionSet tnbLib::inv(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::inv(const dimensionSet& ds)
 {
 	return dimless / ds;
 }
 
 
-tnbLib::dimensionSet tnbLib::trans(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::trans(const dimensionSet& ds)
 {
 	if (dimensionSet::debug && !ds.dimensionless())
 	{
@@ -436,7 +436,7 @@ tnbLib::dimensionSet tnbLib::trans(const dimensionSet& ds)
 }
 
 
-tnbLib::dimensionSet tnbLib::atan2(const dimensionSet& ds1, const dimensionSet& ds2)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::atan2(const dimensionSet& ds1, const dimensionSet& ds2)
 {
 	if (dimensionSet::debug && ds1 != ds2)
 	{
@@ -450,7 +450,7 @@ tnbLib::dimensionSet tnbLib::atan2(const dimensionSet& ds1, const dimensionSet& 
 }
 
 
-tnbLib::dimensionSet tnbLib::transform(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::transform(const dimensionSet& ds)
 {
 	return ds;
 }
@@ -458,13 +458,13 @@ tnbLib::dimensionSet tnbLib::transform(const dimensionSet& ds)
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::dimensionSet tnbLib::operator-(const dimensionSet& ds)
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::operator-(const dimensionSet& ds)
 {
 	return ds;
 }
 
 
-tnbLib::dimensionSet tnbLib::operator+
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::operator+
 (
 	const dimensionSet& ds1,
 	const dimensionSet& ds2
@@ -484,7 +484,7 @@ tnbLib::dimensionSet tnbLib::operator+
 }
 
 
-tnbLib::dimensionSet tnbLib::operator-
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::operator-
 (
 	const dimensionSet& ds1,
 	const dimensionSet& ds2
@@ -504,7 +504,7 @@ tnbLib::dimensionSet tnbLib::operator-
 }
 
 
-tnbLib::dimensionSet tnbLib::operator*
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::operator*
 (
 	const dimensionSet& ds1,
 	const dimensionSet& ds2
@@ -521,7 +521,7 @@ tnbLib::dimensionSet tnbLib::operator*
 }
 
 
-tnbLib::dimensionSet tnbLib::operator/
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::operator/
 (
 	const dimensionSet& ds1,
 	const dimensionSet& ds2
@@ -538,7 +538,7 @@ tnbLib::dimensionSet tnbLib::operator/
 }
 
 
-tnbLib::dimensionSet tnbLib::operator&
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::operator&
 (
 	const dimensionSet& ds1,
 	const dimensionSet& ds2
@@ -548,7 +548,7 @@ tnbLib::dimensionSet tnbLib::operator&
 }
 
 
-tnbLib::dimensionSet tnbLib::operator^
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::operator^
 (
 	const dimensionSet& ds1,
 	const dimensionSet& ds2
@@ -558,7 +558,7 @@ tnbLib::dimensionSet tnbLib::operator^
 }
 
 
-tnbLib::dimensionSet tnbLib::operator&&
+FoamBase_EXPORT tnbLib::dimensionSet tnbLib::operator&&
 (
 	const dimensionSet& ds1,
 	const dimensionSet& ds2

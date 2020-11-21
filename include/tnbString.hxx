@@ -64,9 +64,9 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class string;
-	Istream& operator>>(Istream&, string&);
-	Ostream& operator<<(Ostream&, const string&);
-	Ostream& operator<<(Ostream&, const std::string&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, string&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const string&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const std::string&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -81,11 +81,11 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
-		static int debug;
+		static FoamBase_EXPORT const char* const typeName;
+		static FoamBase_EXPORT int debug;
 
 		//- An empty string
-		static const string null;
+		static FoamBase_EXPORT const string null;
 
 
 		//- Hashing function class, shared by all the derived classes
@@ -126,13 +126,13 @@ namespace tnbLib
 		inline string(const size_type, const char);
 
 		//- Construct from Istream
-		string(Istream&);
+		FoamBase_EXPORT string(Istream&);
 
 
 		// Member Functions
 
 			//- Count and return the number of a given character in the string
-		size_type count(const char) const;
+		FoamBase_EXPORT size_type count(const char) const;
 
 		//- Is this string type valid?
 		template<class String>
@@ -163,7 +163,7 @@ namespace tnbLib
 
 		//- Replace first occurrence of sub-string oldStr with newStr
 		//  starting at start
-		string& replace
+		FoamBase_EXPORT string& replace
 		(
 			const string& oldStr,
 			const string& newStr,
@@ -172,7 +172,7 @@ namespace tnbLib
 
 		//- Replace all occurrences of sub-string oldStr with newStr
 		//  starting at start
-		string& replaceAll
+		FoamBase_EXPORT string& replaceAll
 		(
 			const string& oldStr,
 			const string& newStr,
@@ -193,19 +193,19 @@ namespace tnbLib
 		//  Any unknown entries are removed silently if allowEmpty is true
 		//  \sa
 		//  tnbLib::findEtcFile
-		string& expand(const bool allowEmpty = false);
+		FoamBase_EXPORT string& expand(const bool allowEmpty = false);
 
 		//- Remove repeated characters returning true if string changed
-		bool removeRepeated(const char);
+		FoamBase_EXPORT bool removeRepeated(const char);
 
 		//- Return string with repeated characters removed
-		string removeRepeated(const char) const;
+		FoamBase_EXPORT string removeRepeated(const char) const;
 
 		//- Remove trailing character returning true if string changed
-		bool removeTrailing(const char);
+		FoamBase_EXPORT bool removeTrailing(const char);
 
 		//- Return string with trailing character removed
-		string removeTrailing(const char) const;
+		FoamBase_EXPORT string removeTrailing(const char) const;
 
 
 		// Member Operators
@@ -229,13 +229,13 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, string&);
-		friend Ostream& operator<<(Ostream&, const string&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, string&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const string&);
 	};
 
 
-	void writeEntry(Ostream& os, const char* value);
-	void writeEntry(Ostream& os, const string& value);
+	FoamBase_EXPORT void writeEntry(Ostream& os, const char* value);
+	FoamBase_EXPORT void writeEntry(Ostream& os, const string& value);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

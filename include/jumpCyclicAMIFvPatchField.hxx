@@ -44,6 +44,16 @@ SourceFiles
 
 #include <cyclicAMIFvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamJumpCyclicAMIFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamJumpCyclicAMIFvPatchField_EXPORT_DEFINE
+#define FoamJumpCyclicAMIFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamJumpCyclicAMIFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -62,7 +72,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("jumpCyclicAMI");
+		//TypeName("jumpCyclicAMI");
+		static const char* typeName_() { return "jumpCyclicAMI"; }
+		static FoamJumpCyclicAMIFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamJumpCyclicAMIFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -148,7 +162,7 @@ namespace tnbLib
 
 	//- Update result field based on interface functionality
 	template<>
-	void jumpCyclicAMIFvPatchField<scalar>::updateInterfaceMatrix
+	FoamFiniteVolume_EXPORT void jumpCyclicAMIFvPatchField<scalar>::updateInterfaceMatrix
 	(
 		scalarField& result,
 		const scalarField& psiInternal,

@@ -98,20 +98,24 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("SDA");
+			//TypeName("SDA");
+			static const char* typeName_() { return "SDA"; }
+			static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamDynamicMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			SDA
+			FoamDynamicMesh_EXPORT SDA
 			(
 				const dictionary& SBMFCoeffs,
 				const Time& runTime
 			);
 
 			//- Disallow default bitwise copy construction
-			SDA(const SDA&);
+			FoamDynamicMesh_EXPORT SDA(const SDA&);
 
 
 			//- Construct and return a clone
@@ -129,16 +133,16 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~SDA();
+			FoamDynamicMesh_EXPORT virtual ~SDA();
 
 
 			// Member Functions
 
 				//- Return the solid-body motion transformation septernion
-			virtual septernion transformation() const;
+			FoamDynamicMesh_EXPORT virtual septernion transformation() const;
 
 			//- Update properties from given dictionary
-			virtual bool read(const dictionary& SBMFCoeffs);
+			FoamDynamicMesh_EXPORT virtual bool read(const dictionary& SBMFCoeffs);
 
 
 			// Member Operators

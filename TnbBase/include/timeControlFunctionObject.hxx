@@ -95,22 +95,26 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Read relevant dictionary entries
-			void readControls();
+			FoamBase_EXPORT void readControls();
 
 			//- Returns true if within time bounds
-			bool active() const;
+			FoamBase_EXPORT bool active() const;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("timeControl");
+			//TypeName("timeControl");
+			static const char* typeName_() { return "timeControl"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			timeControl
+			FoamBase_EXPORT timeControl
 			(
 				const word& name,
 				const Time&,
@@ -118,7 +122,7 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			timeControl(const timeControl&) = delete;
+			FoamBase_EXPORT timeControl(const timeControl&) = delete;
 
 
 			// Member Functions
@@ -146,33 +150,33 @@ namespace tnbLib
 				//- Called at each ++ or += of the time-loop.
 				//  postProcess overrides the usual executeControl behaviour and
 				//  forces execution (used in post-processing mode)
-			virtual bool execute();
+			FoamBase_EXPORT virtual bool execute();
 
 			//- Called at each ++ or += of the time-loop.
 			//  postProcess overrides the usual writeControl behaviour and
 			//  forces writing (used in post-processing mode)
-			virtual bool write();
+			FoamBase_EXPORT virtual bool write();
 
 			//- Called when Time::run() determines that the time-loop exits
-			virtual bool end();
+			FoamBase_EXPORT virtual bool end();
 
 			//- Return the time to the next write
-			virtual scalar timeToNextWrite();
+			FoamBase_EXPORT virtual scalar timeToNextWrite();
 
 			//- Read and set the function object if its data have changed
-			virtual bool read(const dictionary&);
+			FoamBase_EXPORT virtual bool read(const dictionary&);
 
 			//- Update for changes of mesh
-			virtual void updateMesh(const mapPolyMesh& mpm);
+			FoamBase_EXPORT virtual void updateMesh(const mapPolyMesh& mpm);
 
 			//- Update for changes of mesh
-			virtual void movePoints(const polyMesh& mesh);
+			FoamBase_EXPORT virtual void movePoints(const polyMesh& mesh);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const timeControl&) = delete;
+			FoamBase_EXPORT void operator=(const timeControl&) = delete;
 		};
 
 

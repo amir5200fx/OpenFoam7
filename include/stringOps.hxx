@@ -80,7 +80,7 @@ namespace tnbLib
 		//
 		//  \note the leading sigil can be changed to avoid conflicts with other
 		//  string expansions
-		string expand
+		FoamBase_EXPORT string expand
 		(
 			const string&,
 			const HashTable<string, word, string::hash>& mapping,
@@ -114,7 +114,7 @@ namespace tnbLib
 		//
 		//  \note the leading sigil can be changed to avoid conflicts with other
 		//  string expansions
-		string& inplaceExpand
+		FoamBase_EXPORT string& inplaceExpand
 		(
 			string&,
 			const HashTable<string, word, string::hash>& mapping,
@@ -130,7 +130,7 @@ namespace tnbLib
 		//
 		//  \note the leading sigil can be changed to avoid conflicts with other
 		//  string expansions
-		string expand
+		FoamBase_EXPORT string expand
 		(
 			const string&,
 			const dictionary& dict,
@@ -139,7 +139,7 @@ namespace tnbLib
 
 
 		//- Get dictionary or (optionally) environment variable
-		string getVariable
+		FoamBase_EXPORT string getVariable
 		(
 			const word& name,
 			const dictionary& dict,
@@ -150,7 +150,7 @@ namespace tnbLib
 
 		//- Recursively expands (dictionary or environment) variable
 		//  starting at index in string. Updates index.
-		string expand
+		FoamBase_EXPORT string expand
 		(
 			const string& s,
 			string::size_type& index,
@@ -171,7 +171,7 @@ namespace tnbLib
 		//
 		//  \note the leading sigil can be changed to avoid conflicts with other
 		//  string expansions
-		string& inplaceExpand
+		FoamBase_EXPORT string& inplaceExpand
 		(
 			string& s,
 			const dictionary& dict,
@@ -190,7 +190,7 @@ namespace tnbLib
 		//
 		//  \note the leading sigil can be changed to avoid conflicts with other
 		//  string expansions
-		string& inplaceExpand
+		FoamBase_EXPORT string& inplaceExpand
 		(
 			string&,
 			const dictionary& dict,
@@ -230,7 +230,7 @@ namespace tnbLib
 		//
 		//  \sa
 		//  tnbLib::findEtcFile
-		string expand
+		FoamBase_EXPORT string expand
 		(
 			const string&,
 			const bool allowEmpty = false
@@ -270,7 +270,7 @@ namespace tnbLib
 		//  Any unknown entries are removed silently if allowEmpty is true.
 		//  \sa
 		//  tnbLib::findEtcFile
-		string& inplaceExpand
+		FoamBase_EXPORT string& inplaceExpand
 		(
 			string&,
 			const bool allowEmpty = false
@@ -278,22 +278,22 @@ namespace tnbLib
 
 
 		//- Return string trimmed of leading whitespace
-		string trimLeft(const string&);
+		FoamBase_EXPORT string trimLeft(const string&);
 
 		//- Trim leading whitespace inplace
-		string& inplaceTrimLeft(string&);
+		FoamBase_EXPORT string& inplaceTrimLeft(string&);
 
 		//- Return string trimmed of trailing whitespace
-		string trimRight(const string&);
+		FoamBase_EXPORT string trimRight(const string&);
 
 		//- Trim trailing whitespace inplace
-		string& inplaceTrimRight(string&);
+		FoamBase_EXPORT string& inplaceTrimRight(string&);
 
 		//- Return string trimmed of leading and trailing whitespace
-		string trim(const string&);
+		FoamBase_EXPORT string trim(const string&);
 
 		//- Trim leading and trailing whitespace inplace
-		string& inplaceTrim(string&);
+		FoamBase_EXPORT string& inplaceTrim(string&);
 
 
 	} // End namespace stringOps

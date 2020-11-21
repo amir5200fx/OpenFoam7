@@ -137,57 +137,60 @@ namespace tnbLib
 			// Creation of demand-driven private data
 
 				//- Calculate point merge map
-		void calcPointMergeMap() const;
+		FoamDynamicMesh_EXPORT void calcPointMergeMap() const;
 
 		//- Complete point map
-		void completePointMap() const;
+		FoamDynamicMesh_EXPORT void completePointMap() const;
 
 		//- Calculate mesh points
-		void calcMeshPoints() const;
+		FoamDynamicMesh_EXPORT void calcMeshPoints() const;
 
 		//- Calculate local points
-		void calcLocalPoints() const;
+		FoamDynamicMesh_EXPORT void calcLocalPoints() const;
 
 		//- Calculate local faces
-		void calcLocalFaces() const;
+		FoamDynamicMesh_EXPORT void calcLocalFaces() const;
 
 		//- Calculate point-point addressing
-		void calcPointPoints() const;
+		FoamDynamicMesh_EXPORT void calcPointPoints() const;
 
 		//- Calculate master point addressing
-		void calcMasterPointFaces() const;
+		FoamDynamicMesh_EXPORT void calcMasterPointFaces() const;
 
 		//- Calculate cut faces
-		void calcCutFaces() const;
+		FoamDynamicMesh_EXPORT void calcCutFaces() const;
 
 		//- Clear cut faces
-		void clearCutFaces();
+		FoamDynamicMesh_EXPORT void clearCutFaces();
 
 		//- Clear out demand-driven data
-		void clearOut();
+		FoamDynamicMesh_EXPORT void clearOut();
 
 
 		// Static Data Members
 
 			//- Estimated ratio of original-to-enriched face size
-		static const label enrichedFaceRatio_;
+		static FoamDynamicMesh_EXPORT const label enrichedFaceRatio_;
 
 		//- Estimated number of master face hits by slave points
-		static const label nFaceHits_;
+		static FoamDynamicMesh_EXPORT const label nFaceHits_;
 
 		//- Size of face on which the check is forced
-		static const label maxFaceSizeDebug_;
+		static FoamDynamicMesh_EXPORT const label maxFaceSizeDebug_;
 
 
 	public:
 
 		// Static Data Members
-		ClassName("enrichedPatch");
+		//ClassName("enrichedPatch");
+		static const char* typeName_() { return "enrichedPatch"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct from components
-		enrichedPatch
+		FoamDynamicMesh_EXPORT enrichedPatch
 		(
 			const primitiveFacePatch& masterPatch,
 			const primitiveFacePatch& slavePatch,
@@ -204,7 +207,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~enrichedPatch();
+		FoamDynamicMesh_EXPORT ~enrichedPatch();
 
 
 		// Member Functions
@@ -212,10 +215,10 @@ namespace tnbLib
 			// Access
 
 				//- Return non-const access to point map to add points
-		Map<point>& pointMap();
+		FoamDynamicMesh_EXPORT Map<point>& pointMap();
 
 		//- Return map of points
-		const Map<point>& pointMap() const;
+		FoamDynamicMesh_EXPORT const Map<point>& pointMap() const;
 
 		//- Return map of point merges
 		Map<label>& pointMergeMap()
@@ -233,7 +236,7 @@ namespace tnbLib
 		// Topological data
 
 			//- Calculate enriched faces
-		void calcEnrichedFaces
+		FoamDynamicMesh_EXPORT void calcEnrichedFaces
 		(
 			const labelListList& pointsIntoMasterEdges,
 			const labelListList& pointsIntoSlaveEdges,
@@ -241,42 +244,42 @@ namespace tnbLib
 		);
 
 		//- Return enriched faces
-		const faceList& enrichedFaces() const;
+		FoamDynamicMesh_EXPORT const faceList& enrichedFaces() const;
 
 		//- Return mesh points
-		const labelList& meshPoints() const;
+		FoamDynamicMesh_EXPORT const labelList& meshPoints() const;
 
 		//- Return local faces
-		const faceList& localFaces() const;
+		FoamDynamicMesh_EXPORT const faceList& localFaces() const;
 
 		//- Return local points
-		const pointField& localPoints() const;
+		FoamDynamicMesh_EXPORT const pointField& localPoints() const;
 
 		//- Return point-point addressing
-		const labelListList& pointPoints() const;
+		FoamDynamicMesh_EXPORT const labelListList& pointPoints() const;
 
 		//- Master point face addressing
-		const Map<labelList>& masterPointFaces() const;
+		FoamDynamicMesh_EXPORT const Map<labelList>& masterPointFaces() const;
 
 
 		// Cut faces
 
 			//- Return list of cut faces
-		const faceList& cutFaces() const;
+		FoamDynamicMesh_EXPORT const faceList& cutFaces() const;
 
 		//- Return cut face master list
-		const labelList& cutFaceMaster() const;
+		FoamDynamicMesh_EXPORT const labelList& cutFaceMaster() const;
 
 		//- Return cut face slave list
-		const labelList& cutFaceSlave() const;
+		FoamDynamicMesh_EXPORT const labelList& cutFaceSlave() const;
 
 
 		//- Check if the patch is fully supported
-		bool checkSupport() const;
+		FoamDynamicMesh_EXPORT bool checkSupport() const;
 
 
 		//- Debugging: dump graphical representation to obj format file
-		void writeOBJ(const fileName&) const;
+		FoamDynamicMesh_EXPORT void writeOBJ(const fileName&) const;
 
 
 		// Member Operators

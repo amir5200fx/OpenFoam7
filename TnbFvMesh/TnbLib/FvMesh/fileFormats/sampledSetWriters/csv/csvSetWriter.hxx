@@ -69,7 +69,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("csv");
+		//TypeName("csv");
+		static const char* typeName_() { return "csv"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

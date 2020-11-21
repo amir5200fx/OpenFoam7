@@ -62,7 +62,7 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-	Istream& operator>>(Istream& is, doubleScalar& s)
+	FoamBase_EXPORT Istream& operator>>(Istream& is, doubleScalar& s)
 	{
 		token t(is);
 
@@ -93,7 +93,7 @@ namespace tnbLib
 	}
 
 
-	Ostream& operator<<(Ostream& os, const doubleScalar s)
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const doubleScalar s)
 	{
 		os.write(s);
 		os.check("Ostream& operator<<(Ostream&, const doubleScalar&)");

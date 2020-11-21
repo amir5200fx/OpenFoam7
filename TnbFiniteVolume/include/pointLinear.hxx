@@ -41,6 +41,16 @@ SourceFiles
 
 #include <linear.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamPointLinear_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPointLinear_EXPORT_DEFINE
+#define FoamPointLinear_EXPORT __declspec(dllexport)
+#else
+#define FoamPointLinear_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -59,7 +69,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pointLinear");
+		/*TypeName("pointLinear");*/
+		static const char* typeName_() { return "pointLinear"; }
+		static FoamPointLinear_EXPORT const ::tnbLib::word typeName;
+		static FoamPointLinear_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

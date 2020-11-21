@@ -55,10 +55,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Disallow default bitwise copy construction
-		coupledPointPatch(const coupledPointPatch&);
+		FoamBase_EXPORT coupledPointPatch(const coupledPointPatch&);
 
 		//- Disallow default bitwise assignment
-		void operator=(const coupledPointPatch&);
+		FoamBase_EXPORT void operator=(const coupledPointPatch&);
 
 
 	protected:
@@ -66,38 +66,42 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Initialise the calculation of the patch geometry
-		virtual void initGeometry(PstreamBuffers&) = 0;
+		FoamBase_EXPORT virtual void initGeometry(PstreamBuffers&) = 0;
 
 		//- Calculate the patch geometry
-		virtual void calcGeometry(PstreamBuffers&) = 0;
+		FoamBase_EXPORT virtual void calcGeometry(PstreamBuffers&) = 0;
 
 		//- Initialise the patches for moving points
-		virtual void initMovePoints(PstreamBuffers&, const pointField&) = 0;
+		FoamBase_EXPORT virtual void initMovePoints(PstreamBuffers&, const pointField&) = 0;
 
 		//- Correct patches after moving points
-		virtual void movePoints(PstreamBuffers&, const pointField&) = 0;
+		FoamBase_EXPORT virtual void movePoints(PstreamBuffers&, const pointField&) = 0;
 
 		//- Initialise the update of the patch topology
-		virtual void initUpdateMesh(PstreamBuffers&) = 0;
+		FoamBase_EXPORT virtual void initUpdateMesh(PstreamBuffers&) = 0;
 
 		//- Update of the patch topology
-		virtual void updateMesh(PstreamBuffers&) = 0;
+		FoamBase_EXPORT virtual void updateMesh(PstreamBuffers&) = 0;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName(coupledPolyPatch::typeName_());
+		//TypeName(coupledPolyPatch::typeName_());
+		static const char* typeName_() { return coupledPolyPatch::typeName_(); }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		coupledPointPatch(const pointBoundaryMesh& bm);
+		FoamBase_EXPORT coupledPointPatch(const pointBoundaryMesh& bm);
 
 
 		//- Destructor
-		virtual ~coupledPointPatch();
+		FoamBase_EXPORT virtual ~coupledPointPatch();
 
 	};
 

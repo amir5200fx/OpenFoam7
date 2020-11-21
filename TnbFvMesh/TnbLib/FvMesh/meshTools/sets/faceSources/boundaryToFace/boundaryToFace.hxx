@@ -54,33 +54,37 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 
 		// Private Member Functions
 
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("boundaryToFace");
+		/*TypeName("boundaryToFace");*/
+		static const char* typeName_() { return "boundaryToFace"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		boundaryToFace(const polyMesh&);
+		FoamFvMesh_EXPORT boundaryToFace(const polyMesh&);
 
 		//- Construct from dictionary
-		boundaryToFace
+		FoamFvMesh_EXPORT boundaryToFace
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		boundaryToFace
+		FoamFvMesh_EXPORT boundaryToFace
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -88,7 +92,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~boundaryToFace();
+		FoamFvMesh_EXPORT virtual ~boundaryToFace();
 
 
 		// Member Functions
@@ -98,7 +102,7 @@ namespace tnbLib
 			return FACESETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

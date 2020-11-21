@@ -62,7 +62,7 @@ namespace tnbLib
 		// Static data
 
 			//- Tolerance on linear dimensions
-		static scalar tolSqr;
+		static FoamFvMesh_EXPORT scalar tolSqr;
 
 
 
@@ -86,10 +86,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate face bounding box
-		treeBoundBox calcBb(const label celli) const;
+		FoamFvMesh_EXPORT treeBoundBox calcBb(const label celli) const;
 
 		//- Initialise all member data
-		void update();
+		FoamFvMesh_EXPORT void update();
 
 	public:
 
@@ -100,9 +100,9 @@ namespace tnbLib
 
 		public:
 
-			findNearestOp(const indexedOctree<treeDataFace>& tree);
+			FoamFvMesh_EXPORT findNearestOp(const indexedOctree<treeDataFace>& tree);
 
-			void operator()
+			FoamFvMesh_EXPORT void operator()
 				(
 					const labelUList& indices,
 					const point& sample,
@@ -112,7 +112,7 @@ namespace tnbLib
 					point& nearestPoint
 					) const;
 
-			void operator()
+			FoamFvMesh_EXPORT void operator()
 				(
 					const labelUList& indices,
 					const linePointRef& ln,
@@ -131,11 +131,11 @@ namespace tnbLib
 
 		public:
 
-			findIntersectOp(const indexedOctree<treeDataFace>& tree);
+			FoamFvMesh_EXPORT findIntersectOp(const indexedOctree<treeDataFace>& tree);
 
 			//- Calculate intersection of triangle with ray. Sets result
 			//  accordingly
-			bool operator()
+			FoamFvMesh_EXPORT bool operator()
 				(
 					const label index,
 					const point& start,
@@ -146,13 +146,16 @@ namespace tnbLib
 
 
 		// Declare name of the class and its debug switch
-		ClassName("treeDataFace");
+		/*ClassName("treeDataFace");*/
+		static const char* typeName_() { return "treeDataFace"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh and subset of faces.
-		treeDataFace
+		FoamFvMesh_EXPORT treeDataFace
 		(
 			const bool cacheBb,
 			const primitiveMesh&,
@@ -160,7 +163,7 @@ namespace tnbLib
 		);
 
 		//- Construct from mesh and subset of faces, transferring contents
-		treeDataFace
+		FoamFvMesh_EXPORT treeDataFace
 		(
 			const bool cacheBb,
 			const primitiveMesh&,
@@ -168,10 +171,10 @@ namespace tnbLib
 		);
 
 		//- Construct from mesh. Uses all faces in mesh.
-		treeDataFace(const bool cacheBb, const primitiveMesh&);
+		FoamFvMesh_EXPORT treeDataFace(const bool cacheBb, const primitiveMesh&);
 
 		//- Construct from mesh. Uses all faces in patch.
-		treeDataFace(const bool cacheBb, const polyPatch&);
+		FoamFvMesh_EXPORT treeDataFace(const bool cacheBb, const polyPatch&);
 
 
 		// Member Functions
@@ -195,21 +198,21 @@ namespace tnbLib
 
 		//- Get representative point cloud for all shapes inside
 		//  (one point per shape)
-		pointField shapePoints() const;
+		FoamFvMesh_EXPORT pointField shapePoints() const;
 
 
 		// Search
 
 			//- Get type (inside,outside,mixed,unknown) of point w.r.t. surface.
 			//  Only makes sense for closed surfaces.
-		volumeType getVolumeType
+		FoamFvMesh_EXPORT volumeType getVolumeType
 		(
 			const indexedOctree<treeDataFace>&,
 			const point&
 		) const;
 
 		//- Does (bb of) shape at index overlap bb
-		bool overlaps
+		FoamFvMesh_EXPORT bool overlaps
 		(
 			const label index,
 			const treeBoundBox& sampleBb

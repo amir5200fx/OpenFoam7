@@ -70,20 +70,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("inclinedFilmNusseltInletVelocity");
+		//TypeName("inclinedFilmNusseltInletVelocity");
+		static const char* typeName_() { return "inclinedFilmNusseltInletVelocity"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		inclinedFilmNusseltInletVelocityFvPatchVectorField
+		FoamLagrangian_EXPORT inclinedFilmNusseltInletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		inclinedFilmNusseltInletVelocityFvPatchVectorField
+		FoamLagrangian_EXPORT inclinedFilmNusseltInletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -92,7 +96,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		// inclinedFilmNusseltInletVelocityFvPatchVectorField onto a new patch
-		inclinedFilmNusseltInletVelocityFvPatchVectorField
+		FoamLagrangian_EXPORT inclinedFilmNusseltInletVelocityFvPatchVectorField
 		(
 			const inclinedFilmNusseltInletVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -101,7 +105,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		inclinedFilmNusseltInletVelocityFvPatchVectorField
+		FoamLagrangian_EXPORT inclinedFilmNusseltInletVelocityFvPatchVectorField
 		(
 			const inclinedFilmNusseltInletVelocityFvPatchVectorField&
 		);
@@ -116,7 +120,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		inclinedFilmNusseltInletVelocityFvPatchVectorField
+		FoamLagrangian_EXPORT inclinedFilmNusseltInletVelocityFvPatchVectorField
 		(
 			const inclinedFilmNusseltInletVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -141,10 +145,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamLagrangian_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamLagrangian_EXPORT virtual void write(Ostream&) const;
 	};
 
 

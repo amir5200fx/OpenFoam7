@@ -59,9 +59,9 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 
 	class cellShape;
-	bool operator==(const cellShape&, const cellShape&);
-	Istream& operator>>(Istream&, cellShape&);
-	Ostream& operator<<(Ostream&, const cellShape&);
+	FoamBase_EXPORT bool operator==(const cellShape&, const cellShape&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, cellShape&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const cellShape&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -158,23 +158,23 @@ namespace tnbLib
 		inline scalar mag(const pointField&) const;
 
 		//- Collapse shape to correct one after removing duplicate vertices
-		void collapse();
+		FoamBase_EXPORT void collapse();
 
 
 		// Friend Operators
 
-		friend bool operator==(const cellShape&, const cellShape&);
+		friend FoamBase_EXPORT bool operator==(const cellShape&, const cellShape&);
 
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, cellShape&);
-		friend Ostream& operator<<(Ostream&, const cellShape&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, cellShape&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const cellShape&);
 	};
 
 
 	template<>
-	Ostream& operator<<(Ostream& os, const InfoProxy<cellShape>& ip);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const InfoProxy<cellShape>& ip);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

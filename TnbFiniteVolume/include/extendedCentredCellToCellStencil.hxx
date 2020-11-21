@@ -67,10 +67,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from uncompacted cell stencil
-		explicit extendedCentredCellToCellStencil(const cellToCellStencil&);
+		FoamFiniteVolume_EXPORT explicit extendedCentredCellToCellStencil(const cellToCellStencil&);
 
 		//- Disallow default bitwise copy construction
-		extendedCentredCellToCellStencil
+		FoamFiniteVolume_EXPORT extendedCentredCellToCellStencil
 		(
 			const extendedCentredCellToCellStencil&
 		);
@@ -91,7 +91,7 @@ namespace tnbLib
 		}
 
 		//- After removing elements from the stencil adapt the schedule (map).
-		void compact();
+		FoamFiniteVolume_EXPORT void compact();
 
 		//- Use map to get the data into stencil order
 		template<class Type>
@@ -138,8 +138,8 @@ namespace tnbLib
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const extendedCentredCellToCellStencil&) = delete;
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const extendedCentredCellToCellStencil&) = delete;
 	};
 
 

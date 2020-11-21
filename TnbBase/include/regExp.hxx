@@ -40,6 +40,8 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <includeModule.hxx>
+
 #include <string>
 
 template <class T> class CRegexpT;
@@ -65,10 +67,10 @@ namespace tnbLib
 		// Private member functions
 
 			//- Disallow default bitwise copy construct
-		regExp(const regExp&);
+		FoamBase_EXPORT regExp(const regExp&);
 
 		//- Disallow default bitwise assignment
-		void operator=(const regExp&);
+		FoamBase_EXPORT void operator=(const regExp&);
 
 	public:
 
@@ -94,17 +96,17 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		regExp();
+		FoamBase_EXPORT regExp();
 
 		//- Construct from character array, optionally ignoring case
-		regExp(const char*, const bool ignoreCase = false);
+		FoamBase_EXPORT regExp(const char*, const bool ignoreCase = false);
 
 		//- Construct from std::string (or string), optionally ignoring case
-		regExp(const std::string&, const bool ignoreCase = false);
+		FoamBase_EXPORT regExp(const std::string&, const bool ignoreCase = false);
 
 		// Destructor
 
-		~regExp();
+		FoamBase_EXPORT ~regExp();
 
 
 		// Member functions
@@ -127,30 +129,30 @@ namespace tnbLib
 		//- Editing
 
 			//- Compile pattern into a regular expression, optionally ignoring case
-		void set(const char*, const bool ignoreCase = false) const;
+		FoamBase_EXPORT void set(const char*, const bool ignoreCase = false) const;
 
 		//- Compile pattern into a regular expression, optionally ignoring case
-		void set(const std::string&, const bool ignoreCase = false) const;
+		FoamBase_EXPORT void set(const std::string&, const bool ignoreCase = false) const;
 
 
 		//- Release precompiled expression.
 		//  Returns true if precompiled expression existed before clear
-		bool clear() const;
+		FoamBase_EXPORT 	bool clear() const;
 
 
 		//- Searching
 
 			//- Find position within string.
 			//  Returns the index where it begins or string::npos if not found
-		std::string::size_type find(const std::string& str) const;
+		FoamBase_EXPORT std::string::size_type find(const std::string& str) const;
 
 		//- Return true if it matches the entire string
 		//  The begin-of-line (^) and end-of-line ($) anchors are implicit
-		bool match(const std::string&) const;
+		FoamBase_EXPORT bool match(const std::string&) const;
 
 		//- Return true if it matches and sets the sub-groups matched
 		//  The begin-of-line (^) and end-of-line ($) anchors are implicit
-		bool match(const string&, List<string>& groups) const;
+		FoamBase_EXPORT bool match(const string&, List<string>& groups) const;
 
 		//- Return true if the regex was found in within string
 		bool search(const std::string& str) const
@@ -163,11 +165,11 @@ namespace tnbLib
 
 			//- Assign and compile pattern from a character array
 			//  Always case sensitive
-		void operator=(const char*);
+		FoamBase_EXPORT void operator=(const char*);
 
 		//- Assign and compile pattern from string
 		//  Always case sensitive
-		void operator=(const std::string&);
+		FoamBase_EXPORT void operator=(const std::string&);
 
 	};
 

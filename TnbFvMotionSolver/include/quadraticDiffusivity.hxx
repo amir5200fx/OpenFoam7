@@ -60,35 +60,39 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("quadratic");
+		//TypeName("quadratic");
+		static const char* typeName_() { return "quadratic"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct for the given fvMesh and data Istream
-		quadraticDiffusivity(const fvMesh& mesh, Istream& mdData);
+		FoamFvMotionSolver_EXPORT quadraticDiffusivity(const fvMesh& mesh, Istream& mdData);
 
 		//- Disallow default bitwise copy construction
-		quadraticDiffusivity(const quadraticDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT quadraticDiffusivity(const quadraticDiffusivity&) = delete;
 
 
 		//- Destructor
-		virtual ~quadraticDiffusivity();
+		FoamFvMotionSolver_EXPORT virtual ~quadraticDiffusivity();
 
 
 		// Member Functions
 
 			//- Correct the motion diffusivity
-		virtual void correct();
+		FoamFvMotionSolver_EXPORT virtual void correct();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const quadraticDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT void operator=(const quadraticDiffusivity&) = delete;
 
 		//- Return diffusivity field
-		virtual tmp<surfaceScalarField> operator()() const;
+		FoamFvMotionSolver_EXPORT virtual tmp<surfaceScalarField> operator()() const;
 	};
 
 

@@ -53,16 +53,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamParallel_EXPORT const ::tnbLib::word typeName;
+		static FoamParallel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given the decomposition dictionary
-		noDecomp(const dictionary& decompositionDict);
+		FoamParallel_EXPORT noDecomp(const dictionary& decompositionDict);
 
 		//- Disallow default bitwise copy construction
-		noDecomp(const noDecomp&) = delete;
+		FoamParallel_EXPORT noDecomp(const noDecomp&) = delete;
 
 
 		//- Destructor
@@ -112,7 +116,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const noDecomp&) = delete;
+		FoamParallel_EXPORT void operator=(const noDecomp&) = delete;
 	};
 
 

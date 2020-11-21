@@ -30,6 +30,10 @@ Description
 
 \*---------------------------------------------------------------------------*/
 
+#include <Base_Module.hxx>
+#include <FiniteVolume_Module.hxx>
+#include <FvMesh_Module.hxx>
+
 #include <argList.hxx>
 #include <Time.hxx>
 #include <IFstream.hxx>

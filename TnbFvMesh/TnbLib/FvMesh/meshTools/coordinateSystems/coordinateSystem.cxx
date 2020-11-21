@@ -338,7 +338,7 @@ void tnbLib::coordinateSystem::init
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-bool tnbLib::operator!=(const coordinateSystem& a, const coordinateSystem& b)
+FoamFvMesh_EXPORT bool tnbLib::operator!=(const coordinateSystem& a, const coordinateSystem& b)
 {
 	return
 		(
@@ -351,7 +351,7 @@ bool tnbLib::operator!=(const coordinateSystem& a, const coordinateSystem& b)
 
 // * * * * * * * * * * * * * * * Friend Functions  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const coordinateSystem& cs)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const coordinateSystem& cs)
 {
 	cs.write(os);
 	os.check("Ostream& operator<<(Ostream&, const coordinateSystem&");

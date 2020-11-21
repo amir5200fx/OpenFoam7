@@ -63,13 +63,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("setUpdater");
+		//TypeName("setUpdater");
+		static const char* typeName_() { return "setUpdater"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from dictionary
-		setUpdater
+		FoamDynamicMesh_EXPORT setUpdater
 		(
 			const word& name,
 			const dictionary& dict,
@@ -82,29 +86,29 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~setUpdater();
+		FoamDynamicMesh_EXPORT virtual ~setUpdater();
 
 
 		// Member Functions
 
 			//- Check for topology change
-		virtual bool changeTopology() const;
+		FoamDynamicMesh_EXPORT virtual bool changeTopology() const;
 
 		//- Insert the layer addition/removal instructions
 		//  into the topological change
-		virtual void setRefinement(polyTopoChange&) const;
+		FoamDynamicMesh_EXPORT virtual void setRefinement(polyTopoChange&) const;
 
 		//- Modify motion points to comply with the topological change
-		virtual void modifyMotionPoints(pointField& motionPoints) const;
+		FoamDynamicMesh_EXPORT virtual void modifyMotionPoints(pointField& motionPoints) const;
 
 		//- Force recalculation of locally stored data on topological change
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamDynamicMesh_EXPORT virtual void write(Ostream&) const;
 
 		//- Write dictionary
-		virtual void writeDict(Ostream&) const;
+		FoamDynamicMesh_EXPORT virtual void writeDict(Ostream&) const;
 
 
 		// Member Operators

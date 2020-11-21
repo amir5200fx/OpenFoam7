@@ -133,13 +133,13 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate losort
-		void calcLosort() const;
+		FoamBase_EXPORT void calcLosort() const;
 
 		//- Calculate owner start
-		void calcOwnerStart() const;
+		FoamBase_EXPORT void calcOwnerStart() const;
 
 		//- Calculate losort start
-		void calcLosortStart() const;
+		FoamBase_EXPORT void calcLosortStart() const;
 
 
 	public:
@@ -155,11 +155,11 @@ namespace tnbLib
 		{}
 
 		//- Disallow default bitwise copy construction
-		lduAddressing(const lduAddressing&) = delete;
+		FoamBase_EXPORT lduAddressing(const lduAddressing&) = delete;
 
 
 		//- Destructor
-		virtual ~lduAddressing();
+		FoamBase_EXPORT virtual ~lduAddressing();
 
 
 		// Member Functions
@@ -171,10 +171,10 @@ namespace tnbLib
 		}
 
 		//- Return lower addressing
-		virtual const labelUList& lowerAddr() const = 0;
+		FoamBase_EXPORT virtual const labelUList& lowerAddr() const = 0;
 
 		//- Return upper addressing
-		virtual const labelUList& upperAddr() const = 0;
+		FoamBase_EXPORT virtual const labelUList& upperAddr() const = 0;
 
 		//- Return patch to internal addressing given patch number
 		virtual const labelUList& patchAddr
@@ -183,28 +183,28 @@ namespace tnbLib
 		) const = 0;
 
 		// Return patch field evaluation schedule
-		virtual const lduSchedule& patchSchedule() const = 0;
+		FoamBase_EXPORT virtual const lduSchedule& patchSchedule() const = 0;
 
 		//- Return losort addressing
-		const labelUList& losortAddr() const;
+		FoamBase_EXPORT const labelUList& losortAddr() const;
 
 		//- Return owner start addressing
-		const labelUList& ownerStartAddr() const;
+		FoamBase_EXPORT const labelUList& ownerStartAddr() const;
 
 		//- Return losort start addressing
-		const labelUList& losortStartAddr() const;
+		FoamBase_EXPORT const labelUList& losortStartAddr() const;
 
 		//- Return off-diagonal index given owner and neighbour label
-		label triIndex(const label a, const label b) const;
+		FoamBase_EXPORT label triIndex(const label a, const label b) const;
 
 		//- Calculate bandwidth and profile of addressing
-		Tuple2<label, scalar> band() const;
+		FoamBase_EXPORT Tuple2<label, scalar> band() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const lduAddressing&) = delete;
+		FoamBase_EXPORT void operator=(const lduAddressing&) = delete;
 	};
 
 

@@ -63,6 +63,16 @@ SourceFiles
 #include <fixedGradientFvPatchFields.hxx>
 #include <Function1.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamUniformFixedGradientFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamUniformFixedGradientFvPatchField_EXPORT_DEFINE
+#define FoamUniformFixedGradientFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamUniformFixedGradientFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -79,14 +89,18 @@ namespace tnbLib
 	{
 		// Private Data
 
-			//- Gradient
+		//- Gradient
 		autoPtr<Function1<Type>> uniformGradient_;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("uniformFixedGradient");
+		//TypeName("uniformFixedGradient");
+		static const char* typeName_() { return "uniformFixedGradient"; }
+		static FoamUniformFixedGradientFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamUniformFixedGradientFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

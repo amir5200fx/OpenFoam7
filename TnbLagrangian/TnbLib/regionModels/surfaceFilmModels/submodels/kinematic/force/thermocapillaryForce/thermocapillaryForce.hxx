@@ -58,24 +58,28 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("thermocapillary");
+				//TypeName("thermocapillary");
+				static const char* typeName_() { return "thermocapillary"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				thermocapillaryForce
+				FoamLagrangian_EXPORT thermocapillaryForce
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
 				);
 
 				//- Disallow default bitwise copy construction
-				thermocapillaryForce(const thermocapillaryForce&) = delete;
+				FoamLagrangian_EXPORT thermocapillaryForce(const thermocapillaryForce&) = delete;
 
 
 				//- Destructor
-				virtual ~thermocapillaryForce();
+				FoamLagrangian_EXPORT virtual ~thermocapillaryForce();
 
 
 				// Member Functions
@@ -83,13 +87,13 @@ namespace tnbLib
 					// Evolution
 
 						//- Correct
-				virtual tmp<fvVectorMatrix> correct(volVectorField& U);
+				FoamLagrangian_EXPORT virtual tmp<fvVectorMatrix> correct(volVectorField& U);
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const thermocapillaryForce&) = delete;
+				FoamLagrangian_EXPORT void operator=(const thermocapillaryForce&) = delete;
 			};
 
 

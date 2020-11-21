@@ -72,7 +72,7 @@ tnbLib::tmp<tnbLib::Field<tnbLib::scalar>> tnbLib::vectorTensorTransform::transf
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, vectorTensorTransform& tr)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, vectorTensorTransform& tr)
 {
 	// Read beginning of vectorTensorTransform
 	is.readBegin("vectorTensorTransform");
@@ -89,7 +89,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, vectorTensorTransform& tr)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const vectorTensorTransform& tr)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const vectorTensorTransform& tr)
 {
 	os << token::BEGIN_LIST
 		<< tr.t() << token::SPACE << tr.R() << token::SPACE << tr.hasR()

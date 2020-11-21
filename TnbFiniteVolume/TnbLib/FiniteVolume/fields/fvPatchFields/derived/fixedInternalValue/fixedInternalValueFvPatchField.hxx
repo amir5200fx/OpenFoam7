@@ -76,20 +76,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("fixedInternalValue");
+		//TypeName("fixedInternalValue");
+		static const char* typeName_() { return "fixedInternalValue"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		fixedInternalValueFvPatchField
+		FoamFiniteVolume_EXPORT fixedInternalValueFvPatchField
 		(
 			const fvPatch&,
 			const DimensionedField<Type, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		fixedInternalValueFvPatchField
+		FoamFiniteVolume_EXPORT fixedInternalValueFvPatchField
 		(
 			const fvPatch&,
 			const DimensionedField<Type, volMesh>&,
@@ -98,7 +102,7 @@ namespace tnbLib
 
 		//- Construct by mapping the given fixedInternalValueFvPatchField<Type>
 		//  onto a new patch
-		fixedInternalValueFvPatchField
+		FoamFiniteVolume_EXPORT fixedInternalValueFvPatchField
 		(
 			const fixedInternalValueFvPatchField<Type>&,
 			const fvPatch&,
@@ -107,7 +111,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		fixedInternalValueFvPatchField
+		FoamFiniteVolume_EXPORT fixedInternalValueFvPatchField
 		(
 			const fixedInternalValueFvPatchField<Type>&
 		);
@@ -122,7 +126,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		fixedInternalValueFvPatchField
+		FoamFiniteVolume_EXPORT fixedInternalValueFvPatchField
 		(
 			const fixedInternalValueFvPatchField<Type>&,
 			const DimensionedField<Type, volMesh>&
@@ -146,7 +150,7 @@ namespace tnbLib
 			// Evaluation functions
 
 				//-Manipulate a matrix
-		virtual void manipulateMatrix(fvMatrix<Type>& matrix);
+		FoamFiniteVolume_EXPORT virtual void manipulateMatrix(fvMatrix<Type>& matrix);
 	};
 
 

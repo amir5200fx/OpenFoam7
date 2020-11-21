@@ -87,7 +87,7 @@ namespace tnbLib
 		// Protected data
 
 			//- Tolerance used in weighted calculations
-		static scalar tolerance_;
+		static FoamTurbulence_EXPORT scalar tolerance_;
 
 		//- Local copy of turbulence G field
 		scalarField G_;
@@ -109,20 +109,20 @@ namespace tnbLib
 
 			//- Set the master patch - master is responsible for updating all
 			//  wall function patches
-		virtual void setMaster();
+		FoamTurbulence_EXPORT virtual void setMaster();
 
 		//- Create the averaging weights for cells which are bounded by
 		//  multiple wall function faces
-		virtual void createAveragingWeights();
+		FoamTurbulence_EXPORT virtual void createAveragingWeights();
 
 		//- Helper function to return non-const access to an epsilon patch
-		virtual epsilonWallFunctionFvPatchScalarField& epsilonPatch
+		FoamTurbulence_EXPORT virtual epsilonWallFunctionFvPatchScalarField& epsilonPatch
 		(
 			const label patchi
 		);
 
 		//- Main driver to calculate the turbulence fields
-		virtual void calculateTurbulenceFields
+		FoamTurbulence_EXPORT virtual void calculateTurbulenceFields
 		(
 			const turbulenceModel& turbulence,
 			scalarField& G0,
@@ -130,7 +130,7 @@ namespace tnbLib
 		);
 
 		//- Calculate the epsilon and G
-		virtual void calculate
+		FoamTurbulence_EXPORT virtual void calculate
 		(
 			const turbulenceModel& turbulence,
 			const List<scalar>& cornerWeights,
@@ -149,20 +149,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("epsilonWallFunction");
+		//TypeName("epsilonWallFunction");
+		static const char* typeName_() { return "epsilonWallFunction"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		epsilonWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT epsilonWallFunctionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		epsilonWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT epsilonWallFunctionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -172,7 +176,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  epsilonWallFunctionFvPatchScalarField
 		//  onto a new patch
-		epsilonWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT epsilonWallFunctionFvPatchScalarField
 		(
 			const epsilonWallFunctionFvPatchScalarField&,
 			const fvPatch&,
@@ -181,7 +185,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		epsilonWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT epsilonWallFunctionFvPatchScalarField
 		(
 			const epsilonWallFunctionFvPatchScalarField&
 		);
@@ -196,7 +200,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		epsilonWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT epsilonWallFunctionFvPatchScalarField
 		(
 			const epsilonWallFunctionFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -224,25 +228,25 @@ namespace tnbLib
 			// Access
 
 				//- Return non-const access to the master's G field
-		scalarField& G(bool init = false);
+		FoamTurbulence_EXPORT scalarField& G(bool init = false);
 
 		//- Return non-const access to the master's epsilon field
-		scalarField& epsilon(bool init = false);
+		FoamTurbulence_EXPORT scalarField& epsilon(bool init = false);
 
 
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamTurbulence_EXPORT virtual void updateCoeffs();
 
 		//- Update the coefficients associated with the patch field
-		virtual void updateWeightedCoeffs(const scalarField& weights);
+		FoamTurbulence_EXPORT virtual void updateWeightedCoeffs(const scalarField& weights);
 
 		//- Manipulate matrix
-		virtual void manipulateMatrix(fvMatrix<scalar>& matrix);
+		FoamTurbulence_EXPORT virtual void manipulateMatrix(fvMatrix<scalar>& matrix);
 
 		//- Manipulate matrix with given weights
-		virtual void manipulateMatrix
+		FoamTurbulence_EXPORT virtual void manipulateMatrix
 		(
 			fvMatrix<scalar>& matrix,
 			const scalarField& weights

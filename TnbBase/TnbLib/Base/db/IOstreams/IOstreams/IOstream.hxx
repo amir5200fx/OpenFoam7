@@ -92,7 +92,7 @@ namespace tnbLib
 		};
 
 		//- Ostream operator
-		friend Ostream& operator<<(Ostream& os, const streamFormat& sf);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const streamFormat& sf);
 
 		//- Version number type
 		class versionNumber
@@ -144,7 +144,7 @@ namespace tnbLib
 			}
 
 			//- Return the versionNumber as a character string
-			string str() const;
+			FoamBase_EXPORT string str() const;
 
 
 			// Member Operators
@@ -187,7 +187,7 @@ namespace tnbLib
 
 
 			//- Ostream operator
-			friend Ostream& operator<<(Ostream& os, const versionNumber& vn);
+			friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const versionNumber& vn);
 		};
 
 
@@ -202,13 +202,13 @@ namespace tnbLib
 		// Public static data
 
 			//- Original version number
-		static const versionNumber originalVersion;
+		static FoamBase_EXPORT const versionNumber originalVersion;
 
 		//- Current version number
-		static const versionNumber currentVersion;
+		static FoamBase_EXPORT const versionNumber currentVersion;
 
 		//- Default precision
-		static unsigned int precision_;
+		static FoamBase_EXPORT unsigned int precision_;
 
 
 	private:
@@ -216,7 +216,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Name of the stream
-		static fileName name_;
+		static FoamBase_EXPORT fileName name_;
 
 		streamFormat format_;
 		versionNumber version_;
@@ -313,11 +313,11 @@ namespace tnbLib
 
 			//- Check IOstream status for given operation
 			//  print IOstream state if error has occurred
-		virtual bool check(const char* operation) const;
+		FoamBase_EXPORT virtual bool check(const char* operation) const;
 
 		//- Check IOstream status for given operation
 		//  print IOstream state if error has occurred and exit
-		void fatalCheck(const char* operation) const;
+		FoamBase_EXPORT void fatalCheck(const char* operation) const;
 
 		//- Return true if stream has been opened
 		bool opened() const
@@ -373,7 +373,7 @@ namespace tnbLib
 		// Stream state functions
 
 			//- Return stream format of given format name
-		static streamFormat formatEnum(const word&);
+		static FoamBase_EXPORT streamFormat formatEnum(const word&);
 
 		//- Return current stream format
 		streamFormat format() const
@@ -412,7 +412,7 @@ namespace tnbLib
 		}
 
 		//- Return compression of given compression name
-		static compressionType compressionEnum(const word&);
+		static FoamBase_EXPORT compressionType compressionEnum(const word&);
 
 		//- Return the stream compression
 		compressionType compression() const
@@ -457,7 +457,7 @@ namespace tnbLib
 		}
 
 		//- Return flags of stream
-		virtual ios_base::fmtflags flags() const = 0;
+		FoamBase_EXPORT virtual ios_base::fmtflags flags() const = 0;
 
 		//- Return the default precision
 		static unsigned int defaultPrecision()
@@ -492,7 +492,7 @@ namespace tnbLib
 		}
 
 		//- Set flags of stream
-		virtual ios_base::fmtflags flags(const ios_base::fmtflags f) = 0;
+		FoamBase_EXPORT virtual ios_base::fmtflags flags(const ios_base::fmtflags f) = 0;
 
 		//- Set flags of stream
 		ios_base::fmtflags setf(const ios_base::fmtflags f)
@@ -520,10 +520,10 @@ namespace tnbLib
 		// Print
 
 			//- Print description of IOstream to Ostream
-		virtual void print(Ostream&) const;
+		FoamBase_EXPORT virtual void print(Ostream&) const;
 
 		//- Check given stream state bits
-		void print(Ostream&, const int streamState) const;
+		FoamBase_EXPORT void print(Ostream&, const int streamState) const;
 
 
 		// Info
@@ -537,11 +537,11 @@ namespace tnbLib
 	};
 
 
-	Ostream& operator<<(Ostream& os, const IOstream::streamFormat& sf);
-	Ostream& operator<<(Ostream& os, const IOstream::versionNumber& vn);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const IOstream::streamFormat& sf);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const IOstream::versionNumber& vn);
 
 	template<>
-	Ostream& operator<<(Ostream& os, const InfoProxy<IOstream>& ip);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const InfoProxy<IOstream>& ip);
 
 
 	// --------------------------------------------------------------------

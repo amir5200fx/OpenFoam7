@@ -79,13 +79,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("NSRDSfunc0");
+		//TypeName("NSRDSfunc0");
+		static const char* typeName_() { return "NSRDSfunc0"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		NSRDSfunc0
+		FoamThermophysicalModels_EXPORT NSRDSfunc0
 		(
 			const scalar a,
 			const scalar b,
@@ -96,7 +100,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		NSRDSfunc0(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT NSRDSfunc0(const dictionary& dict);
 
 
 		// Member Functions

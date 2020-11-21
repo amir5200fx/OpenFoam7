@@ -80,13 +80,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("limitVelocity");
+			//TypeName("limitVelocity");
+			static const char* typeName_() { return "limitVelocity"; }
+			static FoamFvOptions_EXPORT const ::tnbLib::word typeName;
+			static FoamFvOptions_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			limitVelocity
+			FoamFvOptions_EXPORT limitVelocity
 			(
 				const word& name,
 				const word& modelType,
@@ -95,7 +99,7 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			limitVelocity(const limitVelocity&) = delete;
+			FoamFvOptions_EXPORT limitVelocity(const limitVelocity&) = delete;
 
 
 			//- Destructor
@@ -106,16 +110,16 @@ namespace tnbLib
 			// Member Functions
 
 				//- Read dictionary
-			virtual bool read(const dictionary& dict);
+			FoamFvOptions_EXPORT virtual bool read(const dictionary& dict);
 
 			//- Correct the energy field
-			virtual void correct(volVectorField& U);
+			FoamFvOptions_EXPORT virtual void correct(volVectorField& U);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const limitVelocity&) = delete;
+			FoamFvOptions_EXPORT void operator=(const limitVelocity&) = delete;
 		};
 
 

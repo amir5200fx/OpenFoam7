@@ -286,7 +286,8 @@ namespace tnbLib
 	}
 
 
-	template<>
+	// moved to the transformField.cxx file by amir
+	/*template<>
 	tmp<Field<symmTensor>> transformFieldMask<symmTensor>
 		(
 			const tensorField& tf
@@ -304,10 +305,11 @@ namespace tnbLib
 		tmp<Field<symmTensor>> ret = transformFieldMask<symmTensor>(ttf());
 		ttf.clear();
 		return ret;
-	}
+	}*/
 
 
-	template<>
+	// moved to the symmTransformField.cxx file by amir
+	/*template<>
 	tmp<Field<symmTensor>> transformFieldMask<symmTensor>
 		(
 			const symmTensorField& stf
@@ -323,7 +325,7 @@ namespace tnbLib
 			)
 	{
 		return tstf;
-	}
+	}*/
 
 
 	// * * * * * * * * * * * * * * * global operators  * * * * * * * * * * * * * //

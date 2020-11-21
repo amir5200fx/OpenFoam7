@@ -45,7 +45,7 @@ SourceFiles
 namespace tnbLib
 {
 
-	extern const labelList emptyLabelList;
+	FoamBase_EXPORT extern const labelList emptyLabelList;
 
 	//- Return reference to zero-sized list. Compare to List::null() which returns
 	//  null pointer cast as list reference.
@@ -137,10 +137,10 @@ namespace tnbLib
 	void inplaceSubset(const BoolListType& select, ListType&);
 
 	//- Invert one-to-one map. Unmapped elements will be -1.
-	labelList invert(const label len, const labelUList&);
+	FoamBase_EXPORT labelList invert(const label len, const labelUList&);
 
 	//- Invert one-to-many map. Unmapped elements will be size 0.
-	labelListList invertOneToMany(const label len, const labelUList&);
+	FoamBase_EXPORT labelListList invertOneToMany(const label len, const labelUList&);
 
 	//- Invert many-to-many.
 	//  Input and output types need to be inherited from List.
@@ -157,7 +157,7 @@ namespace tnbLib
 	}
 
 	//- Create identity map (map[i] == i) of given length
-	labelList identity(const label len);
+	FoamBase_EXPORT labelList identity(const label len);
 
 	//- Find first occurrence of given element and return index,
 	//  return -1 if not found. Linear search.

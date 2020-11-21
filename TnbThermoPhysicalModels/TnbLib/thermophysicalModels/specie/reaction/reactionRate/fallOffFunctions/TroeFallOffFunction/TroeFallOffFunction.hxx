@@ -47,7 +47,7 @@ namespace tnbLib
 	class dictionary;  // added by amir
 
 	class TroeFallOffFunction;
-	Ostream& operator<<(Ostream&, const TroeFallOffFunction&);
+	FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream&, const TroeFallOffFunction&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -67,7 +67,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		inline TroeFallOffFunction
+		FoamThermophysicalModels_EXPORT inline TroeFallOffFunction
 		(
 			const scalar alpha,
 			const scalar Tsss,
@@ -76,7 +76,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		inline TroeFallOffFunction(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT inline TroeFallOffFunction(const dictionary& dict);
 
 
 		// Member Functions
@@ -87,13 +87,13 @@ namespace tnbLib
 			return "Troe";
 		}
 
-		inline scalar operator()
+		FoamThermophysicalModels_EXPORT inline scalar operator()
 			(
 				const scalar T,
 				const scalar Pr
 				) const;
 
-		inline scalar ddT
+		FoamThermophysicalModels_EXPORT inline scalar ddT
 		(
 			const scalar Pr,
 			const scalar F,
@@ -101,7 +101,7 @@ namespace tnbLib
 			const scalar T
 		) const;
 
-		inline scalar ddc
+		FoamThermophysicalModels_EXPORT inline scalar ddc
 		(
 			const scalar Pr,
 			const scalar F,
@@ -110,12 +110,12 @@ namespace tnbLib
 		) const;
 
 		//- Write to stream
-		inline void write(Ostream& os) const;
+		FoamThermophysicalModels_EXPORT inline void write(Ostream& os) const;
 
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const TroeFallOffFunction&);
+		friend FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream&, const TroeFallOffFunction&);
 	};
 
 

@@ -75,7 +75,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Get other face using v0, v1. Returns -1 if none.
-		label getNeighbour
+		FoamBase_EXPORT label getNeighbour
 		(
 			const label facei,
 			const label fp,
@@ -85,7 +85,7 @@ namespace tnbLib
 
 		//- Gets labels of changed faces and enterVertices on faces.
 		// Returns labels of faces changed and enterVertices on them.
-		void faceToFace
+		FoamBase_EXPORT void faceToFace
 		(
 			const labelList& changedFaces,
 			const labelList& enterVerts,
@@ -97,13 +97,16 @@ namespace tnbLib
 
 	public:
 
-		ClassName("walkPatch");
+		//ClassName("walkPatch");
+		static const char* typeName_() { return "walkPatch"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from components
-		walkPatch
+		FoamBase_EXPORT walkPatch
 		(
 			const primitivePatch& pp,
 			const labelList& faceZone,  // Per face which zone it belongs to
@@ -115,7 +118,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		walkPatch(const walkPatch&) = delete;
+		FoamBase_EXPORT walkPatch(const walkPatch&) = delete;
 
 
 		// Member Functions
@@ -134,7 +137,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const walkPatch&) = delete;
+		FoamBase_EXPORT void operator=(const walkPatch&) = delete;
 	};
 
 

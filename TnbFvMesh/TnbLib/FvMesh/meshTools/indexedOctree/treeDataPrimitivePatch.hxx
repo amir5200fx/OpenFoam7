@@ -52,7 +52,18 @@ namespace tnbLib
 					 Class treeDataPrimitivePatchName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(treeDataPrimitivePatch);
+	/*TemplateName(treeDataPrimitivePatch);*/
+	class treeDataPrimitivePatchName
+	{
+	public:
+		treeDataPrimitivePatchName()
+		{
+		}
+
+		static const char* typeName_() { return "treeDataPrimitivePatch"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\

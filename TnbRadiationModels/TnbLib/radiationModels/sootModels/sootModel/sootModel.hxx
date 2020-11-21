@@ -65,11 +65,15 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("sootModel");
+			//TypeName("sootModel");
+			static const char* typeName_() { return "sootModel"; }
+			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+			static FoamRadiationModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			//- Declare runtime constructor selection table
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				sootModel,
@@ -80,13 +84,65 @@ namespace tnbLib
 					const word& modelType
 					),
 					(dict, mesh, modelType)
-			);
+			);*/
+
+			typedef autoPtr<sootModel> (*dictionaryConstructorPtr)(const dictionary& dict, const fvMesh& mesh,
+			                                                       const word& modelType);
+			typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+			static FoamRadiationModels_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+			static FoamRadiationModels_EXPORT void constructdictionaryConstructorTables();
+			static FoamRadiationModels_EXPORT void destroydictionaryConstructorTables();
+
+			template <class sootModelType>
+			class adddictionaryConstructorToTable
+			{
+			public:
+				static autoPtr<sootModel> New(const dictionary& dict, const fvMesh& mesh, const word& modelType)
+				{
+					return autoPtr<sootModel>(new sootModelType(dict, mesh, modelType));
+				}
+
+				adddictionaryConstructorToTable(const word& lookup = sootModelType::typeName)
+				{
+					constructdictionaryConstructorTables();
+					if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "sootModel" <<
+							std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+			};
+
+			template <class sootModelType>
+			class addRemovabledictionaryConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<sootModel> New(const dictionary& dict, const fvMesh& mesh, const word& modelType)
+				{
+					return autoPtr<sootModel>(new sootModelType(dict, mesh, modelType));
+				}
+
+				addRemovabledictionaryConstructorToTable(const word& lookup = sootModelType::typeName) : lookup_(lookup)
+				{
+					constructdictionaryConstructorTables();
+					dictionaryConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovabledictionaryConstructorToTable()
+				{
+					if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+				}
+			};
 
 
 			// Constructors
 
 				//- Construct from components
-			sootModel
+			FoamRadiationModels_EXPORT sootModel
 			(
 				const dictionary& dict,
 				const fvMesh& mesh,
@@ -95,7 +151,7 @@ namespace tnbLib
 
 
 			//- Selector
-			static autoPtr<sootModel> New
+			static FoamRadiationModels_EXPORT autoPtr<sootModel> New
 			(
 				const dictionary& dict,
 				const fvMesh& mesh
@@ -103,7 +159,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~sootModel();
+			FoamRadiationModels_EXPORT virtual ~sootModel();
 
 
 			// Member Functions
@@ -126,13 +182,13 @@ namespace tnbLib
 			// Edit
 
 				//- Main update/correction routine
-			virtual void correct() = 0;
+			FoamRadiationModels_EXPORT virtual void correct() = 0;
 
 
 			// Access
 
 				//- Return const reference to soot
-			virtual const volScalarField& soot() const = 0;
+			FoamRadiationModels_EXPORT virtual const volScalarField& soot() const = 0;
 		};
 
 

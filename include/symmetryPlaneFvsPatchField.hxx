@@ -39,6 +39,16 @@ SourceFiles
 #include <fvsPatchField.hxx>
 #include <symmetryPlaneFvPatch.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamSymmetryPlaneFvsPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSymmetryPlaneFvsPatchField_EXPORT_DEFINE
+#define FoamSymmetryPlaneFvsPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamSymmetryPlaneFvsPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -57,8 +67,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(symmetryPlaneFvPatch::typeName_());
-
+		/*TypeName(symmetryPlaneFvPatch::typeName_());*/
+		static const char* typeName_() { return symmetryPlaneFvPatch::typeName_(); }
+		static FoamSymmetryPlaneFvsPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamSymmetryPlaneFvsPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 

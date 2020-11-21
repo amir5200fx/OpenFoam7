@@ -69,7 +69,7 @@ namespace tnbLib
 		static const label kMaxx_ = 12;
 		static const label iMaxx_ = kMaxx_ + 1;
 
-		static const scalar
+		static FoamODE_EXPORT const scalar
 			stepFactor1_, stepFactor2_, stepFactor3_,
 			stepFactor4_, stepFactor5_,
 			kFactor1_, kFactor2_;
@@ -105,7 +105,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Computes the j-th line of the extrapolation table
-		bool seul
+		FoamODE_EXPORT bool seul
 		(
 			const scalar x0,
 			const scalarField& y0,
@@ -116,7 +116,7 @@ namespace tnbLib
 		) const;
 
 		//- Polynomial extrpolation
-		void extrapolate
+		FoamODE_EXPORT void extrapolate
 		(
 			const label k,
 			scalarRectangularMatrix& table,
@@ -127,13 +127,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("seulex");
+		//TypeName("seulex");
+		static const char* typeName_() { return "seulex"; }
+		static FoamODE_EXPORT const ::tnbLib::word typeName;
+		static FoamODE_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from ODESystem
-		seulex(const ODESystem& ode, const dictionary& dict);
+		FoamODE_EXPORT seulex(const ODESystem& ode, const dictionary& dict);
 
 
 		//- Destructor
@@ -144,10 +148,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Resize the ODE solver
-		virtual bool resize();
+		FoamODE_EXPORT virtual bool resize();
 
 		//- Solve the ODE system and the update the state
-		virtual void solve
+		FoamODE_EXPORT virtual void solve
 		(
 			scalar& x,
 			scalarField& y,

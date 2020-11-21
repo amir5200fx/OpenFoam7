@@ -55,8 +55,8 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class triad;
-	Istream& operator>>(Istream&, triad&);
-	Ostream& operator<<(Ostream&, const triad&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, triad&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const triad&);
 
 	class quaternion;
 
@@ -86,10 +86,10 @@ namespace tnbLib
 		inline triad(const vector& pa);
 
 		//- Construct from a quaternion
-		triad(const quaternion& q);
+		FoamBase_EXPORT triad(const quaternion& q);
 
 		//- Construct from a tensor
-		triad(const tensor& t);
+		FoamBase_EXPORT triad(const tensor& t);
 
 		//- Construct from Istream
 		inline triad(Istream&);
@@ -97,8 +97,8 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const triad I;
-		static const triad unset;
+		static FoamBase_EXPORT const triad I;
+		static FoamBase_EXPORT const triad unset;
 
 
 		// Member Functions
@@ -116,31 +116,31 @@ namespace tnbLib
 		static inline vector orthogonal(const vector& v1, const vector& v2);
 
 		//- Orthogonalize this triad so that it is ortho-normal
-		void orthogonalize();
+		FoamBase_EXPORT void orthogonalize();
 
 		//- Normalize each set axis vector to have a unit magnitude
-		void normalize();
+		inline void normalize();
 
 		//- Align this triad with the given vector v
 		//  by rotating the most aligned axis to be coincident with v
-		void align(const vector& v);
+		FoamBase_EXPORT void align(const vector& v);
 
 		//- Sort the axes such that they are closest to the x, y and z axes
-		triad sortxyz() const;
+		FoamBase_EXPORT triad sortxyz() const;
 
 		//- Convert to a quaternion
-		operator quaternion() const;
+		FoamBase_EXPORT operator quaternion() const;
 
 
 		// Member Operators
 
 		inline void operator=(const Vector<vector>&);
 
-		void operator=(const tensor& t);
+		FoamBase_EXPORT void operator=(const tensor& t);
 
 		//- Add the triad t2 to this triad
 		//  without normalizing or orthogonalizing
-		void operator+=(const triad& t2);
+		FoamBase_EXPORT void operator+=(const triad& t2);
 
 
 		// IOstream Operators
@@ -153,7 +153,7 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * Global Functions  * * * * * * * * * * * * * //
 
 	//- Return a quantity of the difference between two triads
-	scalar diff(const triad& A, const triad& B);
+	FoamBase_EXPORT scalar diff(const triad& A, const triad& B);
 
 	//- Data associated with quaternion type are contiguous
 	template<>

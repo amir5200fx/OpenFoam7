@@ -61,10 +61,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Disallow default bitwise copy construction
-		porosityModel(const porosityModel&) = delete;
+		FoamFiniteVolume_EXPORT porosityModel(const porosityModel&) = delete;
 
 		//- Disallow default bitwise assignment
-		void operator=(const porosityModel&) = delete;
+		FoamFiniteVolume_EXPORT void operator=(const porosityModel&) = delete;
 
 
 	protected:
@@ -100,13 +100,13 @@ namespace tnbLib
 
 
 			//- Transform the model data wrt mesh changes
-		virtual void calcTransformModelData() = 0;
+		FoamFiniteVolume_EXPORT virtual void calcTransformModelData() = 0;
 
 		//- Adjust negative resistance values to be multiplier of max value
-		void adjustNegativeResistance(dimensionedVector& resist);
+		FoamFiniteVolume_EXPORT void adjustNegativeResistance(dimensionedVector& resist);
 
 		//- Calculate the porosity force
-		virtual void calcForce
+		FoamFiniteVolume_EXPORT virtual void calcForce
 		(
 			const volVectorField& U,
 			const volScalarField& rho,
@@ -114,32 +114,36 @@ namespace tnbLib
 			vectorField& force
 		) const = 0;
 
-		virtual void correct(fvVectorMatrix& UEqn) const = 0;
+		FoamFiniteVolume_EXPORT virtual void correct(fvVectorMatrix& UEqn) const = 0;
 
-		virtual void correct
+		FoamFiniteVolume_EXPORT 	virtual void correct
 		(
 			fvVectorMatrix& UEqn,
 			const volScalarField& rho,
 			const volScalarField& mu
 		) const = 0;
 
-		virtual void correct
+		FoamFiniteVolume_EXPORT virtual void correct
 		(
 			const fvVectorMatrix& UEqn,
 			volTensorField& AU
 		) const = 0;
 
 		//- Return label index
-		label fieldIndex(const label index) const;
+		FoamFiniteVolume_EXPORT label fieldIndex(const label index) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("porosityModel");
+		//TypeName("porosityModel");
+		static const char* typeName_() { return "porosityModel"; }
+		static const ::tnbLib::word typeName;
+		static int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			porosityModel,
@@ -152,10 +156,60 @@ namespace tnbLib
 				const word& cellZoneName
 				),
 				(modelName, name, mesh, dict, cellZoneName)
-		);
+		);*/
+
+		typedef autoPtr<porosityModel> (*meshConstructorPtr)(const word& modelName, const word& name, const fvMesh& mesh,
+		                                                     const dictionary& dict, const word& cellZoneName);
+		typedef HashTable<meshConstructorPtr, word, string::hash> meshConstructorTable;
+		static FoamFiniteVolume_EXPORT meshConstructorTable* meshConstructorTablePtr_;
+		static FoamFiniteVolume_EXPORT void constructmeshConstructorTables();
+		static FoamFiniteVolume_EXPORT void destroymeshConstructorTables();
+
+		template <class porosityModelType>
+		class addmeshConstructorToTable
+		{
+		public:
+			static autoPtr<porosityModel> New(const word& modelName, const word& name, const fvMesh& mesh,
+			                                  const dictionary& dict, const word& cellZoneName)
+			{
+				return autoPtr<porosityModel>(new porosityModelType(modelName, name, mesh, dict, cellZoneName));
+			}
+
+			addmeshConstructorToTable(const word& lookup = porosityModelType::typeName)
+			{
+				constructmeshConstructorTables();
+				if (!meshConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "porosityModel" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addmeshConstructorToTable() { destroymeshConstructorTables(); }
+		};
+
+		template <class porosityModelType>
+		class addRemovablemeshConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<porosityModel> New(const word& modelName, const word& name, const fvMesh& mesh,
+			                                  const dictionary& dict, const word& cellZoneName)
+			{
+				return autoPtr<porosityModel>(new porosityModelType(modelName, name, mesh, dict, cellZoneName));
+			}
+
+			addRemovablemeshConstructorToTable(const word& lookup = porosityModelType::typeName) : lookup_(lookup)
+			{
+				constructmeshConstructorTables();
+				meshConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablemeshConstructorToTable() { if (meshConstructorTablePtr_) { meshConstructorTablePtr_->erase(lookup_); } }
+		};;
 
 		//- Constructor
-		porosityModel
+		FoamFiniteVolume_EXPORT porosityModel
 		(
 			const word& name,
 			const word& modelType,
@@ -201,7 +255,7 @@ namespace tnbLib
 		};
 
 		//- Selector
-		static autoPtr<porosityModel> New
+		static FoamFiniteVolume_EXPORT autoPtr<porosityModel> New
 		(
 			const word& name,
 			const fvMesh& mesh,
@@ -210,7 +264,7 @@ namespace tnbLib
 		);
 
 		//- Destructor
-		virtual ~porosityModel();
+		FoamFiniteVolume_EXPORT virtual ~porosityModel();
 
 
 		// Member Functions
@@ -225,13 +279,13 @@ namespace tnbLib
 		inline const labelList& cellZoneIDs() const;
 
 		//- Return dictionary used for model construction
-		const dictionary& dict() const;
+		FoamFiniteVolume_EXPORT const dictionary& dict() const;
 
 		//- Transform the model data wrt mesh changes
-		virtual void transformModelData();
+		FoamFiniteVolume_EXPORT virtual void transformModelData();
 
 		//- Return the force over the cell zone(s)
-		virtual tmp<vectorField> force
+		FoamFiniteVolume_EXPORT virtual tmp<vectorField> force
 		(
 			const volVectorField& U,
 			const volScalarField& rho,
@@ -239,10 +293,10 @@ namespace tnbLib
 		);
 
 		//- Add resistance
-		virtual void addResistance(fvVectorMatrix& UEqn);
+		FoamFiniteVolume_EXPORT virtual void addResistance(fvVectorMatrix& UEqn);
 
 		//- Add resistance
-		virtual void addResistance
+		FoamFiniteVolume_EXPORT virtual void addResistance
 		(
 			fvVectorMatrix& UEqn,
 			const volScalarField& rho,
@@ -250,7 +304,7 @@ namespace tnbLib
 		);
 
 		//- Add resistance
-		virtual void addResistance
+		FoamFiniteVolume_EXPORT virtual void addResistance
 		(
 			const fvVectorMatrix& UEqn,
 			volTensorField& AU,
@@ -261,13 +315,13 @@ namespace tnbLib
 		// I-O
 
 			//- Write
-		virtual bool writeData(Ostream& os) const;
+		FoamFiniteVolume_EXPORT virtual bool writeData(Ostream& os) const;
 
 		//- Inherit read from regIOobject
 		using regIOobject::read;
 
 		//- Read porosity dictionary
-		virtual bool read(const dictionary& dict);
+		FoamFiniteVolume_EXPORT virtual bool read(const dictionary& dict);
 	};
 
 

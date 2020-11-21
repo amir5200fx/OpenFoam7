@@ -40,6 +40,16 @@ SourceFiles
 #include <surfaceInterpolationScheme.hxx>
 #include <volFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamClippedLinear_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamClippedLinear_EXPORT_DEFINE
+#define FoamClippedLinear_EXPORT __declspec(dllexport)
+#else
+#define FoamClippedLinear_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -79,7 +89,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("clippedLinear");
+		/*TypeName("clippedLinear");*/
+		static const char* typeName_() { return "clippedLinear"; }
+		static FoamClippedLinear_EXPORT const ::tnbLib::word typeName;
+		static FoamClippedLinear_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

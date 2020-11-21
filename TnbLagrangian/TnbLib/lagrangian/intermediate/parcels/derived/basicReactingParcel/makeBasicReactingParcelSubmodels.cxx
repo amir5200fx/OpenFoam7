@@ -23,6 +23,8 @@ License
 
 \*---------------------------------------------------------------------------*/
 
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <basicReactingCloud.hxx>
 
 #include <makeParcelCloudFunctionObjects.hxx>

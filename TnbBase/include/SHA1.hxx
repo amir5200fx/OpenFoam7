@@ -93,21 +93,21 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Swap bytes from internal to network (big-endian) order
-		static inline uint32_t swapBytes(uint32_t);
+		static FoamBase_EXPORT inline uint32_t swapBytes(uint32_t);
 
 		//- Copy the 4-byte value into the memory location pointed to by *dst.
 		//  If the architecture allows unaligned access this is equivalent to
 		//  *(uint32_t *) cp = val
-		static inline void set_uint32(unsigned char *cp, uint32_t);
+		static FoamBase_EXPORT inline void set_uint32(unsigned char *cp, uint32_t);
 
 		//- Process data block-wise, LEN must be a multiple of 64!
-		void processBlock(const void *data, size_t len);
+		FoamBase_EXPORT void processBlock(const void *data, size_t len);
 
 		//- Process for the next LEN bytes, LEN need not be a multiple of 64.
-		void processBytes(const void *data, size_t len);
+		FoamBase_EXPORT void processBytes(const void *data, size_t len);
 
 		//- Calculate current digest from appended data.
-		void calcDigest(SHA1Digest&) const;
+		FoamBase_EXPORT void calcDigest(SHA1Digest&) const;
 
 	public:
 
@@ -125,7 +125,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Reset the hashed data before appending more
-		void clear();
+		FoamBase_EXPORT void clear();
 
 		//- Append data for processing
 		inline SHA1& append(const char* data, size_t len);
@@ -138,10 +138,10 @@ namespace tnbLib
 
 		//- Finalized the calculations (normally not needed directly).
 		//  Returns false if no bytes were passed for processing
-		bool finalize();
+		FoamBase_EXPORT bool finalize();
 
 		//- Calculate current digest from appended data.
-		SHA1Digest digest() const;
+		FoamBase_EXPORT SHA1Digest digest() const;
 
 
 		// Member Operators

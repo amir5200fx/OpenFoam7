@@ -106,10 +106,10 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- File header information
-			virtual void writeFileHeader(const label i);
+			FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i);
 
 			//- Calculate the heat-flux
-			tmp<volScalarField> calcWallHeatFlux
+			FoamFunctionObjects_EXPORT tmp<volScalarField> calcWallHeatFlux
 			(
 				const volScalarField& alpha,
 				const volScalarField& he
@@ -119,13 +119,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("wallHeatFlux");
+			//TypeName("wallHeatFlux");
+			static const char* typeName_() { return "wallHeatFlux"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			wallHeatFlux
+			FoamFunctionObjects_EXPORT wallHeatFlux
 			(
 				const word& name,
 				const Time& runTime,
@@ -133,29 +137,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			wallHeatFlux(const wallHeatFlux&) = delete;
+			FoamFunctionObjects_EXPORT wallHeatFlux(const wallHeatFlux&) = delete;
 
 
 			//- Destructor
-			virtual ~wallHeatFlux();
+			FoamFunctionObjects_EXPORT virtual ~wallHeatFlux();
 
 
 			// Member Functions
 
 				//- Read the wallHeatFlux data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate the wall heat-flux
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the wall heat-flux
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const wallHeatFlux&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const wallHeatFlux&) = delete;
 		};
 
 

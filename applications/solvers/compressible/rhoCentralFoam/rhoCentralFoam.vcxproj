@@ -203,6 +203,7 @@
     <ClCompile Include="rhoCentralFoam.cxx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BCs\mixedFixedValueSlip\mixedFixedValueSlipFvPatchFieldI.hxx" />
     <None Include="centralCourantNo.lxx" />
     <None Include="createFieldRefs.lxx" />
     <None Include="createFields.lxx" />

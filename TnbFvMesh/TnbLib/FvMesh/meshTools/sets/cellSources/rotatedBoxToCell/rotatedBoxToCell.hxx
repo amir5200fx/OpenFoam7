@@ -67,7 +67,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 
 		//- Skewed box
@@ -79,18 +79,22 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("rotatedBoxToCell");
+		/*TypeName("rotatedBoxToCell");*/
+		static const char* typeName_() { return "rotatedBoxToCell"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		rotatedBoxToCell
+		FoamFvMesh_EXPORT rotatedBoxToCell
 		(
 			const polyMesh& mesh,
 			const vector& origin,
@@ -100,14 +104,14 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		rotatedBoxToCell(const polyMesh& mesh, const dictionary& dict);
+		FoamFvMesh_EXPORT rotatedBoxToCell(const polyMesh& mesh, const dictionary& dict);
 
 		//- Construct from Istream
-		rotatedBoxToCell(const polyMesh& mesh, Istream&);
+		FoamFvMesh_EXPORT rotatedBoxToCell(const polyMesh& mesh, Istream&);
 
 
 		//- Destructor
-		virtual ~rotatedBoxToCell();
+		FoamFvMesh_EXPORT virtual ~rotatedBoxToCell();
 
 
 		// Member Functions
@@ -117,7 +121,7 @@ namespace tnbLib
 			return CELLSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

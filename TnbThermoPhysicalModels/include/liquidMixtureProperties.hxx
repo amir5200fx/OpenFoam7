@@ -70,7 +70,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Maximum reduced temperature
-		static const scalar TrMax;
+		static FoamThermophysicalModels_EXPORT const scalar TrMax;
 
 		//- The names of the liquids
 		List<word> components_;
@@ -84,10 +84,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from dictionary
-		liquidMixtureProperties(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT liquidMixtureProperties(const dictionary& dict);
 
 		//- Construct copy
-		liquidMixtureProperties(const liquidMixtureProperties& lm);
+		FoamThermophysicalModels_EXPORT liquidMixtureProperties(const liquidMixtureProperties& lm);
 
 		//- Construct and return a clone
 		virtual autoPtr<liquidMixtureProperties> clone() const
@@ -107,7 +107,7 @@ namespace tnbLib
 		// Selectors
 
 			//- Select construct from dictionary
-		static autoPtr<liquidMixtureProperties> New(const dictionary&);
+		static FoamThermophysicalModels_EXPORT autoPtr<liquidMixtureProperties> New(const dictionary&);
 
 
 		// Member Functions
@@ -131,26 +131,26 @@ namespace tnbLib
 		}
 
 		//- Calculate the critical temperature of mixture
-		scalar Tc(const scalarField& X) const;
+		FoamThermophysicalModels_EXPORT scalar Tc(const scalarField& X) const;
 
 		//- Invert the vapour pressure relationship to retrieve the boiling
 		//  temperature of the mixture as a function of pressure
-		scalar pvInvert(const scalar p, const scalarField& X) const;
+		FoamThermophysicalModels_EXPORT scalar pvInvert(const scalar p, const scalarField& X) const;
 
 		//- Return pseudocritical temperature according to Kay's rule
-		scalar Tpc(const scalarField& X) const;
+		FoamThermophysicalModels_EXPORT scalar Tpc(const scalarField& X) const;
 
 		//- Return pseudocritical pressure (modified Prausnitz and Gunn)
-		scalar Ppc(const scalarField& X) const;
+		FoamThermophysicalModels_EXPORT scalar Ppc(const scalarField& X) const;
 
 		//- Return pseudo triple point temperature (mole averaged formulation)
-		scalar Tpt(const scalarField& X) const;
+		FoamThermophysicalModels_EXPORT scalar Tpt(const scalarField& X) const;
 
 		//- Return mixture accentric factor
-		scalar omega(const scalarField& X) const;
+		FoamThermophysicalModels_EXPORT scalar omega(const scalarField& X) const;
 
 		//- Return the surface molar fractions
-		scalarField Xs
+		FoamThermophysicalModels_EXPORT scalarField Xs
 		(
 			const scalar p,
 			const scalar Tg,
@@ -161,16 +161,16 @@ namespace tnbLib
 
 		//- Calculate the mean molecular weight [kg/kmol]
 		//  from mole fractions
-		scalar W(const scalarField& X) const;
+		FoamThermophysicalModels_EXPORT scalar W(const scalarField& X) const;
 
 		//- Returns the mass fractions corresponding to the given mole fractions
-		scalarField Y(const scalarField& X) const;
+		FoamThermophysicalModels_EXPORT scalarField Y(const scalarField& X) const;
 
 		//- Returns the mole fractions corresponding to the given mass fractions
-		scalarField X(const scalarField& Y) const;
+		FoamThermophysicalModels_EXPORT scalarField X(const scalarField& Y) const;
 
 		//- Calculate the mixture density [kg/m^3]
-		scalar rho
+		FoamThermophysicalModels_EXPORT scalar rho
 		(
 			const scalar p,
 			const scalar T,
@@ -178,7 +178,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculate the mixture vapour pressure [Pa]
-		scalar pv
+		FoamThermophysicalModels_EXPORT scalar pv
 		(
 			const scalar p,
 			const scalar T,
@@ -186,7 +186,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculate the mixture latent heat [J/kg]
-		scalar hl
+		FoamThermophysicalModels_EXPORT scalar hl
 		(
 			const scalar p,
 			const scalar T,
@@ -194,7 +194,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculate the mixture heat capacity [J/kg/K]
-		scalar Cp
+		FoamThermophysicalModels_EXPORT scalar Cp
 		(
 			const scalar p,
 			const scalar T,
@@ -202,7 +202,7 @@ namespace tnbLib
 		) const;
 
 		//- Estimate mixture surface tension [N/m]
-		scalar sigma
+		FoamThermophysicalModels_EXPORT scalar sigma
 		(
 			const scalar p,
 			const scalar T,
@@ -210,7 +210,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculate the mixture viscosity [Pa s]
-		scalar mu
+		FoamThermophysicalModels_EXPORT scalar mu
 		(
 			const scalar p,
 			const scalar T,
@@ -219,7 +219,7 @@ namespace tnbLib
 
 		//- Estimate thermal conductivity  [W/m/K]
 		//  Li's method, Eq. 10-12.27 - 10.12-19
-		scalar kappa
+		FoamThermophysicalModels_EXPORT scalar kappa
 		(
 			const scalar p,
 			const scalar T,
@@ -227,7 +227,7 @@ namespace tnbLib
 		) const;
 
 		//- Vapour diffussivity [m2/s]
-		scalar D
+		FoamThermophysicalModels_EXPORT scalar D
 		(
 			const scalar p,
 			const scalar T,

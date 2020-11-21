@@ -59,29 +59,33 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("directional");
+		//TypeName("directional");
+		static const char* typeName_() { return "directional"; }
+		static FoamFvMotionSolver_EXPORT  const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct for the given fvMesh and data Istream
-		directionalDiffusivity(const fvMesh& mesh, Istream& mdData);
+		FoamFvMotionSolver_EXPORT directionalDiffusivity(const fvMesh& mesh, Istream& mdData);
 
 		//- Disallow default bitwise copy construction
-		directionalDiffusivity(const directionalDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT directionalDiffusivity(const directionalDiffusivity&) = delete;
 
 
 		//- Destructor
-		virtual ~directionalDiffusivity();
+		FoamFvMotionSolver_EXPORT virtual ~directionalDiffusivity();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const directionalDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT void operator=(const directionalDiffusivity&) = delete;
 
 		//- Return diffusivity field
-		virtual tmp<surfaceScalarField> operator()() const;
+		FoamFvMotionSolver_EXPORT virtual tmp<surfaceScalarField> operator()() const;
 	};
 
 

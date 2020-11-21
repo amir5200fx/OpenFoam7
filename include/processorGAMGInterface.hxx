@@ -74,13 +74,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("processor");
+		//TypeName("processor");
+		static const char* typeName_() { return "processor"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from fine-level interface,
 			//  local and neighbour restrict addressing
-		processorGAMGInterface
+		FoamBase_EXPORT processorGAMGInterface
 		(
 			const label index,
 			const lduInterfacePtrsList& coarseInterfaces,
@@ -92,7 +96,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components
-		processorGAMGInterface
+		FoamBase_EXPORT processorGAMGInterface
 		(
 			const label index,
 			const lduInterfacePtrsList& coarseInterfaces,
@@ -106,7 +110,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		processorGAMGInterface
+		FoamBase_EXPORT processorGAMGInterface
 		(
 			const label index,
 			const lduInterfacePtrsList& coarseInterfaces,
@@ -114,11 +118,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		processorGAMGInterface(const processorGAMGInterface&) = delete;
+		FoamBase_EXPORT processorGAMGInterface(const processorGAMGInterface&) = delete;
 
 
 		//- Destructor
-		virtual ~processorGAMGInterface();
+		FoamBase_EXPORT virtual ~processorGAMGInterface();
 
 
 		// Member Functions
@@ -126,14 +130,14 @@ namespace tnbLib
 			// Interface transfer functions
 
 				//- Initialise neighbour field transfer
-		virtual void initInternalFieldTransfer
+		FoamBase_EXPORT virtual void initInternalFieldTransfer
 		(
 			const Pstream::commsTypes commsType,
 			const labelUList& iF
 		) const;
 
 		//- Transfer and return internal field adjacent to the interface
-		virtual tmp<labelField> internalFieldTransfer
+		FoamBase_EXPORT virtual tmp<labelField> internalFieldTransfer
 		(
 			const Pstream::commsTypes commsType,
 			const labelUList& iF
@@ -176,13 +180,13 @@ namespace tnbLib
 		// I/O
 
 			//- Write to stream
-		virtual void write(Ostream&) const;
+		FoamBase_EXPORT virtual void write(Ostream&) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const processorGAMGInterface&) = delete;
+		FoamBase_EXPORT void operator=(const processorGAMGInterface&) = delete;
 	};
 
 

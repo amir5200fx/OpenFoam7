@@ -121,7 +121,11 @@ namespace tnbLib
 		public:
 
 			// Runtime type information
-			TypeName("sine");
+			//TypeName("sine");
+			static const char* typeName_() { return "sine"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

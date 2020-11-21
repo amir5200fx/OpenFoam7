@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <surfaceInterpolationScheme.hxx>
 
 #include <GeometricField.hxx>  // added by amir

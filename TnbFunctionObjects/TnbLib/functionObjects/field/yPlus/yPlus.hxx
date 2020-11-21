@@ -93,10 +93,10 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- File header information
-			virtual void writeFileHeader(const label i);
+			FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i);
 
 			//- Calculate y+
-			tmp<volScalarField> calcYPlus
+			FoamFunctionObjects_EXPORT tmp<volScalarField> calcYPlus
 			(
 				const turbulenceModel& turbModel
 			);
@@ -105,13 +105,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("yPlus");
+			//TypeName("yPlus");
+			static const char* typeName_() { return "yPlus"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			yPlus
+			FoamFunctionObjects_EXPORT yPlus
 			(
 				const word& name,
 				const Time& runTime,
@@ -119,29 +123,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			yPlus(const yPlus&) = delete;
+			FoamFunctionObjects_EXPORT yPlus(const yPlus&) = delete;
 
 
 			//- Destructor
-			virtual ~yPlus();
+			FoamFunctionObjects_EXPORT virtual ~yPlus();
 
 
 			// Member Functions
 
 				//- Read the yPlus data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate the yPlus field
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the yPlus field
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const yPlus&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const yPlus&) = delete;
 		};
 
 

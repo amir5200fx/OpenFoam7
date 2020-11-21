@@ -61,13 +61,17 @@ namespace tnbLib
 		public:
 
 			// Runtime type information
-			TypeName("linearRamp");
+			//TypeName("linearRamp");
+			static const char* typeName_() { return "linearRamp"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from entry name and dictionary
-			linearRamp
+			FoamBase_EXPORT linearRamp
 			(
 				const word& entryName,
 				const dictionary& dict
@@ -75,7 +79,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~linearRamp();
+			FoamBase_EXPORT virtual ~linearRamp();
 
 
 			// Member Functions

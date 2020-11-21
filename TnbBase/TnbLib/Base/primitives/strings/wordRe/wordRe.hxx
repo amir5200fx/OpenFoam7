@@ -65,8 +65,8 @@ namespace tnbLib
 	class Istream;
 	class Ostream;
 
-	Istream& operator>>(Istream&, wordRe&);
-	Ostream& operator<<(Ostream&, const wordRe&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, wordRe&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const wordRe&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -87,7 +87,7 @@ namespace tnbLib
 		// Static Data Members
 
 			//- An empty wordRe
-		static const wordRe null;
+		static FoamBase_EXPORT const wordRe null;
 
 
 		// Public data types
@@ -155,7 +155,7 @@ namespace tnbLib
 
 		//- Construct from Istream
 		//  Words are treated as literals, strings with an auto-test
-		wordRe(Istream&);
+		FoamBase_EXPORT wordRe(Istream&);
 
 
 		// Member Functions
@@ -219,7 +219,7 @@ namespace tnbLib
 		inline string quotemeta() const;
 
 		//- Output some basic info
-		Ostream& info(Ostream&) const;
+		FoamBase_EXPORT Ostream& info(Ostream&) const;
 
 
 		// Member Operators
@@ -252,8 +252,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, wordRe&);
-		friend Ostream& operator<<(Ostream&, const wordRe&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, wordRe&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const wordRe&);
 	};
 
 

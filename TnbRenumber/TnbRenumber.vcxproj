@@ -39,13 +39,13 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -81,9 +81,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\renumber\renumberMethods\CuthillMcKeeRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\manualRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\randomRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\renumberMethod;$(ProjectDir)TnbLib\renumber\renumberMethods\springRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\structuredRenumber;$(ProjectDir)TnbLib\renumber\SloanRenumber;$(ProjectDir)TnbLib\renumber\zoltanRenumber;$(SolutionDir)TnbParallel\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\renumber\renumberMethods\CuthillMcKeeRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\manualRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\randomRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\renumberMethod;$(ProjectDir)TnbLib\renumber\renumberMethods\springRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\structuredRenumber;$(ProjectDir)TnbLib\renumber\SloanRenumber;$(ProjectDir)TnbLib\renumber\zoltanRenumber;$(ProjectDir)TnbLib\renumber\module;$(SolutionDir)TnbParallel\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamRenumber_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,9 +130,9 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\renumber\renumberMethods\CuthillMcKeeRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\manualRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\randomRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\renumberMethod;$(ProjectDir)TnbLib\renumber\renumberMethods\springRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\structuredRenumber;$(ProjectDir)TnbLib\renumber\SloanRenumber;$(ProjectDir)TnbLib\renumber\zoltanRenumber;$(SolutionDir)TnbParallel\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\renumber\renumberMethods\CuthillMcKeeRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\manualRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\randomRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\renumberMethod;$(ProjectDir)TnbLib\renumber\renumberMethods\springRenumber;$(ProjectDir)TnbLib\renumber\renumberMethods\structuredRenumber;$(ProjectDir)TnbLib\renumber\SloanRenumber;$(ProjectDir)TnbLib\renumber\zoltanRenumber;$(ProjectDir)TnbLib\renumber\module;$(SolutionDir)TnbParallel\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamRenumber_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,6 +141,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="TnbLib\renumber\module\Renumber_Module.hxx" />
     <ClInclude Include="TnbLib\renumber\renumberMethods\CuthillMcKeeRenumber\CuthillMcKeeRenumber.hxx" />
     <ClInclude Include="TnbLib\renumber\renumberMethods\manualRenumber\manualRenumber.hxx" />
     <ClInclude Include="TnbLib\renumber\renumberMethods\randomRenumber\randomRenumber.hxx" />
@@ -162,6 +163,26 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClCompile Include="TnbLib\renumber\renumberMethods\structuredRenumber\structuredRenumber.cxx" />
     <ClCompile Include="TnbLib\renumber\SloanRenumber\SloanRenumber.cxx" />
     <ClCompile Include="TnbLib\renumber\zoltanRenumber\zoltanRenumber.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TnbBase\TnbBase.vcxproj">
+      <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbDynamicMesh\TnbDynamicMesh.vcxproj">
+      <Project>{e3788c5b-0066-49ce-a6f3-4ef1a5660b6d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+      <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFvMesh\TnbFvMesh.vcxproj">
+      <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbLagrangian\TnbLagrangian.vcxproj">
+      <Project>{27928553-74af-4229-b18c-4f7670767702}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbParallel\TnbParallel.vcxproj">
+      <Project>{122fddf5-b397-43f8-bcc5-5c3cdb60cb41}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

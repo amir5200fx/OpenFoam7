@@ -43,6 +43,16 @@ SourceFiles
 
 #include <gradScheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamFaceMDLimitedGrad_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFaceMDLimitedGrad_EXPORT_DEFINE
+#define FoamFaceMDLimitedGrad_EXPORT __declspec(dllexport)
+#else
+#define FoamFaceMDLimitedGrad_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -91,7 +101,11 @@ namespace tnbLib
 		public:
 
 			//- RunTime type information
-			TypeName("faceMDLimited");
+			/*TypeName("faceMDLimited");*/
+			static const char* typeName_() { return "faceMDLimited"; }
+			static FoamFaceMDLimitedGrad_EXPORT const ::tnbLib::word typeName;
+			static FoamFaceMDLimitedGrad_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

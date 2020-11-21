@@ -51,8 +51,8 @@ namespace tnbLib
 	class Switch;
 	class dictionary;
 
-	Istream& operator>>(Istream&, Switch&);
-	Ostream& operator<<(Ostream&, const Switch&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, Switch&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const Switch&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -85,7 +85,7 @@ namespace tnbLib
 		};
 
 		//- Number of switchTypes
-		static const unsigned char nSwitchType =
+		static FoamBase_EXPORT const unsigned char nSwitchType =
 			static_cast<unsigned char>(switchType::invalid) + 1;
 
 		//- Convert switchType to integer (unsigned char)
@@ -113,13 +113,13 @@ namespace tnbLib
 
 			//- The set of names corresponding to the switchType enumeration
 			//  Includes an extra entry for "invalid".
-		static const char* names[nSwitchType];
+		static FoamBase_EXPORT const char* names[nSwitchType];
 
 
 		// Static Member Functions
 
 			//- Return a switchType representation of a word
-		static switchType asEnum(const std::string&, const bool allowInvalid);
+		static FoamBase_EXPORT switchType asEnum(const std::string&, const bool allowInvalid);
 
 
 	public:
@@ -165,11 +165,11 @@ namespace tnbLib
 		{}
 
 		//- Construct from Istream
-		Switch(Istream& is);
+		FoamBase_EXPORT Switch(Istream& is);
 
 		//- Construct from dictionary, supplying default value so that if the
 		//  value is not found, it is added into the dictionary.
-		static Switch lookupOrAddToDict
+		static FoamBase_EXPORT Switch lookupOrAddToDict
 		(
 			const word&,
 			dictionary&,
@@ -180,13 +180,13 @@ namespace tnbLib
 		// Member Functions
 
 			//- Return true if the Switch has a valid value
-		bool valid() const;
+		FoamBase_EXPORT bool valid() const;
 
 		//- Return a text representation of the Switch
-		const char* asText() const;
+		FoamBase_EXPORT const char* asText() const;
 
 		//- Update the value of the Switch if it is found in the dictionary
-		bool readIfPresent(const word&, const dictionary&);
+		FoamBase_EXPORT bool readIfPresent(const word&, const dictionary&);
 
 
 		// Member Operators
@@ -212,8 +212,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, Switch&);
-		friend Ostream& operator<<(Ostream&, const Switch&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, Switch&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const Switch&);
 	};
 
 

@@ -1,3 +1,5 @@
+#define FoamIOList_EXPORT_DEFINE
+
 #include <displacementInterpolationMotionSolver.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>

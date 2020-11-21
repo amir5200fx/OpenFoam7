@@ -72,13 +72,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("duplicatePoints");
+		//ClassName("duplicatePoints");
+		static const char* typeName_() { return "duplicatePoints"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh
-		duplicatePoints(const polyMesh& mesh);
+		FoamDynamicMesh_EXPORT duplicatePoints(const polyMesh& mesh);
 
 		//- Disallow default bitwise copy construction
 		duplicatePoints(const duplicatePoints&) = delete;
@@ -100,14 +103,14 @@ namespace tnbLib
 			//- Play commands into polyTopoChange to duplicate points. Gets
 			//  localPointRegion structure which is per non-manifold point
 			//  the regions per point.
-		void setRefinement
+		FoamDynamicMesh_EXPORT void setRefinement
 		(
 			const localPointRegion& regionSide,
 			polyTopoChange&
 		);
 
 		//- Force recalculation of locally stored data on topological change
-		void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT void updateMesh(const mapPolyMesh&);
 
 
 		// Member Operators

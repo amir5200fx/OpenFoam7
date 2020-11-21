@@ -145,7 +145,7 @@ namespace tnbLib
 			};
 
 			//- Track direction enumeration names
-			static const NamedEnum<trackDirection, 3> trackDirectionNames_;
+			static FoamFunctionObjects_EXPORT const NamedEnum<trackDirection, 3> trackDirectionNames_;
 
 
 		private:
@@ -220,22 +220,26 @@ namespace tnbLib
 
 
 			//- Construct patch out of all wall patch faces
-			autoPtr<indirectPrimitivePatch> wallPatch() const;
+			FoamFunctionObjects_EXPORT autoPtr<indirectPrimitivePatch> wallPatch() const;
 
 			//- Do all seeding and tracking
-			void track();
+			FoamFunctionObjects_EXPORT void track();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("streamLine");
+			//TypeName("streamLine");
+			static const char* typeName_() { return "streamLine"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			streamLine
+			FoamFunctionObjects_EXPORT streamLine
 			(
 				const word& name,
 				const Time& runTime,
@@ -243,35 +247,35 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			streamLine(const streamLine&) = delete;
+			FoamFunctionObjects_EXPORT streamLine(const streamLine&) = delete;
 
 
 			//- Destructor
-			virtual ~streamLine();
+			FoamFunctionObjects_EXPORT virtual ~streamLine();
 
 
 			// Member Functions
 
 				//- Read the field average data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Do nothing
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Calculate and write the steamlines
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 			//- Update for changes of mesh
-			virtual void updateMesh(const mapPolyMesh&);
+			FoamFunctionObjects_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 			//- Update for mesh point-motion
-			virtual void movePoints(const polyMesh&);
+			FoamFunctionObjects_EXPORT virtual void movePoints(const polyMesh&);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const streamLine&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const streamLine&) = delete;
 		};
 
 

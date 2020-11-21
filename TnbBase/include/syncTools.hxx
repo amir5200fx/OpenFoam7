@@ -492,7 +492,7 @@ namespace tnbLib
 		);
 
 		//- Swap to obtain neighbour cell positions for all boundary faces
-		static void swapBoundaryCellPositions
+		static FoamBase_EXPORT void swapBoundaryCellPositions
 		(
 			const polyMesh& mesh,
 			const UList<point>& cellData,
@@ -591,22 +591,22 @@ namespace tnbLib
 
 			//- Get per point whether it is uncoupled or a master of a
 			//  coupled set of points
-		static PackedBoolList getMasterPoints(const polyMesh&);
+		static FoamBase_EXPORT PackedBoolList getMasterPoints(const polyMesh&);
 
 		//- Get per edge whether it is uncoupled or a master of a
 		//  coupled set of edges
-		static PackedBoolList getMasterEdges(const polyMesh&);
+		static FoamBase_EXPORT PackedBoolList getMasterEdges(const polyMesh&);
 
 		//- Get per face whether it is uncoupled or a master of a
 		//  coupled set of faces
-		static PackedBoolList getMasterFaces(const polyMesh&);
+		static FoamBase_EXPORT PackedBoolList getMasterFaces(const polyMesh&);
 
 		//- Get per face whether it is internal or a master of a
 		//  coupled set of faces
-		static PackedBoolList getInternalOrMasterFaces(const polyMesh&);
+		static FoamBase_EXPORT PackedBoolList getInternalOrMasterFaces(const polyMesh&);
 
 		//- Get per face whether it is internal or coupled
-		static PackedBoolList getInternalOrCoupledFaces(const polyMesh&);
+		static FoamBase_EXPORT PackedBoolList getInternalOrCoupledFaces(const polyMesh&);
 
 	};
 

@@ -82,7 +82,7 @@ namespace tnbLib
 
 		// Private Data
 
-		static int yyBufSize;
+		static FoamThermophysicalModels_EXPORT int yyBufSize;
 		label lineNo_;
 
 		//- Table of reaction type keywords
@@ -121,7 +121,7 @@ namespace tnbLib
 			unknownReactionType
 		};
 
-		static const char* reactionTypeNames[4];
+		static FoamThermophysicalModels_EXPORT const char* reactionTypeNames[4];
 
 		enum reactionRateType
 		{
@@ -135,7 +135,7 @@ namespace tnbLib
 			unknownReactionRateType
 		};
 
-		static const char* reactionRateTypeNames[8];
+		static FoamThermophysicalModels_EXPORT const char* reactionRateTypeNames[8];
 
 		enum fallOffFunctionType
 		{
@@ -145,10 +145,10 @@ namespace tnbLib
 			unknownFallOffFunctionType
 		};
 
-		static const char* fallOffFunctionNames[4];
+		static FoamThermophysicalModels_EXPORT const char* fallOffFunctionNames[4];
 
 
-		void initReactionKeywordTable();
+		FoamThermophysicalModels_EXPORT void initReactionKeywordTable();
 
 
 		//- List of elements
@@ -194,7 +194,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Flex lexer to read the CHEMKIN III file
-		int lex();
+		FoamThermophysicalModels_EXPORT int lex();
 
 		inline scalar stringToScalar(const string& s)
 		{
@@ -222,14 +222,14 @@ namespace tnbLib
 			}
 		}
 
-		scalar molecularWeight
+		FoamThermophysicalModels_EXPORT scalar molecularWeight
 		(
 			const List<specieElement>& specieComposition
 		) const;
 
-		void finishElements(labelList& currentAtoms);
+		FoamThermophysicalModels_EXPORT void finishElements(labelList& currentAtoms);
 
-		void checkCoeffs
+		FoamThermophysicalModels_EXPORT void checkCoeffs
 		(
 			const scalarList& reactionCoeffs,
 			const char* reationRateName,
@@ -261,7 +261,7 @@ namespace tnbLib
 			const scalar RR
 		);
 
-		void addReaction
+		FoamThermophysicalModels_EXPORT void addReaction
 		(
 			DynamicList<specieCoeffs>& lhs,
 			DynamicList<specieCoeffs>& rhs,
@@ -275,7 +275,7 @@ namespace tnbLib
 		);
 
 		// Read the CHEMKIN files
-		void read
+		FoamThermophysicalModels_EXPORT void read
 		(
 			const fileName& CHEMKINFileName,
 			const fileName& thermoFileName,
@@ -283,22 +283,26 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		chemkinReader(const chemkinReader&) = delete;
+		FoamThermophysicalModels_EXPORT chemkinReader(const chemkinReader&) = delete;
 
 		//- Disallow default bitwise assignment
-		void operator=(const chemkinReader&) = delete;
+		FoamThermophysicalModels_EXPORT void operator=(const chemkinReader&) = delete;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("chemkinReader");
+		//TypeName("chemkinReader");
+		static const char* typeName_() { return "chemkinReader"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from CHEMKIN III file name
-		chemkinReader
+		FoamThermophysicalModels_EXPORT chemkinReader
 		(
 			speciesTable& species,
 			const fileName& CHEMKINFileName,
@@ -308,7 +312,7 @@ namespace tnbLib
 		);
 
 		//- Construct by getting the CHEMKIN III file name from dictionary
-		chemkinReader(const dictionary& thermoDict, speciesTable& species);
+		FoamThermophysicalModels_EXPORT chemkinReader(const dictionary& thermoDict, speciesTable& species);
 
 
 		//- Destructor
@@ -373,5 +377,7 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include <chemkinReaderI.hxx>
 
 #endif // !_chemkinReader_Header

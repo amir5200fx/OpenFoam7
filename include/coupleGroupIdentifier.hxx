@@ -54,7 +54,7 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class coupleGroupIdentifier;
-	Ostream& operator<<(Ostream&, const coupleGroupIdentifier&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const coupleGroupIdentifier&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -72,7 +72,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Find other patch in specified mesh. Returns index of patch or -1.
-		label findOtherPatchID(const polyMesh&, const polyPatch&) const;
+		FoamBase_EXPORT label findOtherPatchID(const polyMesh&, const polyPatch&) const;
 
 
 	public:
@@ -80,13 +80,13 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		coupleGroupIdentifier();
+		FoamBase_EXPORT coupleGroupIdentifier();
 
 		//- Construct from components
-		coupleGroupIdentifier(const word& patchGroupName);
+		FoamBase_EXPORT coupleGroupIdentifier(const word& patchGroupName);
 
 		//- Construct from dictionary
-		coupleGroupIdentifier(const dictionary&);
+		FoamBase_EXPORT coupleGroupIdentifier(const dictionary&);
 
 
 		// Member Functions
@@ -98,19 +98,19 @@ namespace tnbLib
 		inline bool valid() const;
 
 		//- Find other patch in same region. Returns index of patch or -1.
-		label findOtherPatchID(const polyPatch&) const;
+		FoamBase_EXPORT label findOtherPatchID(const polyPatch&) const;
 
 		//- Find other patch and region. Returns index of patch and sets
 		//  otherRegion to name of region. Fatal error if patch not found
-		label findOtherPatchID(const polyPatch&, word&) const;
+		FoamBase_EXPORT label findOtherPatchID(const polyPatch&, word&) const;
 
 		//- Write the data as a dictionary
-		void write(Ostream&) const;
+		FoamBase_EXPORT void write(Ostream&) const;
 
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const coupleGroupIdentifier&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const coupleGroupIdentifier&);
 	};
 
 

@@ -65,16 +65,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("equilibrium");
+			//TypeName("equilibrium");
+			static const char* typeName_() { return "equilibrium"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			//- Constructors
 
 				//- Construct from components
-			equilibrium(const dictionary& dict);
+			FoamLagrangian_EXPORT equilibrium(const dictionary& dict);
 
 			//- Construct a copy
-			equilibrium(const equilibrium& hc);
+			FoamLagrangian_EXPORT equilibrium(const equilibrium& hc);
 
 			//- Construct and return a clone
 			virtual autoPtr<TimeScaleModel> clone() const
@@ -87,13 +91,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~equilibrium();
+			FoamLagrangian_EXPORT virtual ~equilibrium();
 
 
 			//- Member Functions
 
 				//- Time scale
-			tmp<FieldField<Field, scalar>> oneByTau
+			FoamLagrangian_EXPORT tmp<FieldField<Field, scalar>> oneByTau
 			(
 				const FieldField<Field, scalar>& alpha,
 				const FieldField<Field, scalar>& r32,

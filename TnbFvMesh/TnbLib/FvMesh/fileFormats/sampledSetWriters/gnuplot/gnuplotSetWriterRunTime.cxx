@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <gnuplotSetWriter.hxx>
 
 #include <writers.hxx>

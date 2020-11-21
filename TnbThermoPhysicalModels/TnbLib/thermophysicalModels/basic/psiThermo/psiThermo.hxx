@@ -66,31 +66,86 @@ namespace tnbLib
 
 		// Protected Member Functions
 
-			//- Construct as copy (not implemented)
-		psiThermo(const psiThermo&);
+		//- Construct as copy (not implemented)
+		FoamThermophysicalModels_EXPORT psiThermo(const psiThermo&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("psiThermo");
+		//TypeName("psiThermo");
+		static const char* typeName_() { return "psiThermo"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		//- Declare run-time constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			psiThermo,
 			fvMesh,
 			(const fvMesh& mesh, const word& phaseName),
 			(mesh, phaseName)
-		);
+		);*/
+		
+		typedef autoPtr<psiThermo> (*fvMeshConstructorPtr)(const fvMesh& mesh, const word& phaseName);
+		typedef HashTable<fvMeshConstructorPtr, word, string::hash> fvMeshConstructorTable;
+		static FoamThermophysicalModels_EXPORT fvMeshConstructorTable* fvMeshConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructfvMeshConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroyfvMeshConstructorTables();
+
+		template <class psiThermoType>
+		class addfvMeshConstructorToTable
+		{
+		public:
+			static autoPtr<psiThermo> New(const fvMesh& mesh, const word& phaseName)
+			{
+				return autoPtr<psiThermo>(new psiThermoType(mesh, phaseName));
+			}
+
+			addfvMeshConstructorToTable(const word& lookup = psiThermoType::typeName)
+			{
+				constructfvMeshConstructorTables();
+				if (!fvMeshConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "psiThermo" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addfvMeshConstructorToTable() { destroyfvMeshConstructorTables(); }
+		};
+
+		template <class psiThermoType>
+		class addRemovablefvMeshConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<psiThermo> New(const fvMesh& mesh, const word& phaseName)
+			{
+				return autoPtr<psiThermo>(new psiThermoType(mesh, phaseName));
+			}
+
+			addRemovablefvMeshConstructorToTable(const word& lookup = psiThermoType::typeName) : lookup_(lookup)
+			{
+				constructfvMeshConstructorTables();
+				fvMeshConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablefvMeshConstructorToTable()
+			{
+				if (fvMeshConstructorTablePtr_) { fvMeshConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from mesh and phase name
-		psiThermo
+		FoamThermophysicalModels_EXPORT psiThermo
 		(
 			const fvMesh&,
 			const word& phaseName
@@ -98,7 +153,7 @@ namespace tnbLib
 
 
 		//- Selector
-		static autoPtr<psiThermo> New
+		static FoamThermophysicalModels_EXPORT autoPtr<psiThermo> New
 		(
 			const fvMesh& mesh,
 			const word& phaseName = word::null
@@ -106,7 +161,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~psiThermo();
+		FoamThermophysicalModels_EXPORT virtual ~psiThermo();
 
 
 		// Member Functions
@@ -116,25 +171,25 @@ namespace tnbLib
 				//- Add the given density correction to the density field.
 				//  Used to update the density field following pressure solution.
 				//  For psiThermo does nothing.
-		virtual void correctRho(const volScalarField& deltaRho);
+		FoamThermophysicalModels_EXPORT virtual void correctRho(const volScalarField& deltaRho);
 
 		//- Density [kg/m^3] - uses current value of pressure
-		virtual tmp<volScalarField> rho() const;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> rho() const;
 
 		//- Density for patch [kg/m^3]
-		virtual tmp<scalarField> rho(const label patchi) const;
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> rho(const label patchi) const;
 
 		//- Compressibility [s^2/m^2]
-		virtual const volScalarField& psi() const;
+		FoamThermophysicalModels_EXPORT virtual const volScalarField& psi() const;
 
 
 		// Access to transport state variables
 
 			//- Dynamic viscosity of mixture [kg/m/s]
-		virtual tmp<volScalarField> mu() const;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> mu() const;
 
 		//- Dynamic viscosity of mixture for patch [kg/m/s]
-		virtual tmp<scalarField> mu(const label patchi) const;
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> mu(const label patchi) const;
 	};
 
 

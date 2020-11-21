@@ -44,6 +44,16 @@ SourceFiles
 
 #include <point.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamCloudFunctionObject_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCloudFunctionObject_EXPORT_DEFINE
+#define FoamCloudFunctionObject_EXPORT __declspec(dllexport)
+#else
+#define FoamCloudFunctionObject_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -79,10 +89,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cloudFunctionObject");
+		//TypeName("cloudFunctionObject");
+		static const char* typeName_() { return "cloudFunctionObject"; }
+		static FoamCloudFunctionObject_EXPORT const ::tnbLib::word typeName;
+		static FoamCloudFunctionObject_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			CloudFunctionObject,
@@ -93,7 +107,60 @@ namespace tnbLib
 				const word& modelName
 				),
 				(dict, owner, modelName)
-		);
+		);*/
+		
+		typedef autoPtr<CloudFunctionObject> (*dictionaryConstructorPtr)(
+			const dictionary& dict, CloudType& owner, const word& modelName);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamCloudFunctionObject_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamCloudFunctionObject_EXPORT void constructdictionaryConstructorTables();
+		static FoamCloudFunctionObject_EXPORT void destroydictionaryConstructorTables();
+
+		template <class CloudFunctionObjectType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<CloudFunctionObject> New(const dictionary& dict, CloudType& owner, const word& modelName)
+			{
+				return autoPtr<CloudFunctionObject>(new CloudFunctionObjectType(dict, owner, modelName));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = CloudFunctionObjectType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "CloudFunctionObject"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class CloudFunctionObjectType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<CloudFunctionObject> New(const dictionary& dict, CloudType& owner, const word& modelName)
+			{
+				return autoPtr<CloudFunctionObject>(new CloudFunctionObjectType(dict, owner, modelName));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = CloudFunctionObjectType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

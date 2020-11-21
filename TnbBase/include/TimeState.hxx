@@ -67,11 +67,11 @@ namespace tnbLib
 
 		// Constructors
 
-		TimeState();
+		FoamBase_EXPORT TimeState();
 
 
 		//- Destructor
-		virtual ~TimeState();
+		FoamBase_EXPORT virtual ~TimeState();
 
 
 		// Member Functions
@@ -79,10 +79,10 @@ namespace tnbLib
 			// Access
 
 				//- Convert the user-time (e.g. CA deg) to real-time (s).
-		virtual scalar userTimeToTime(const scalar theta) const;
+		FoamBase_EXPORT virtual scalar userTimeToTime(const scalar theta) const;
 
 		//- Convert the real-time (s) into user-time (e.g. CA deg)
-		virtual scalar timeToUserTime(const scalar t) const;
+		FoamBase_EXPORT virtual scalar timeToUserTime(const scalar t) const;
 
 		//- Return current time value
 		inline scalar timeOutputValue() const;

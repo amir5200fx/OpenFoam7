@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <MUSCL.hxx>
 
 #include <LimitedScheme.hxx>

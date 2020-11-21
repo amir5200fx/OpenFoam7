@@ -64,6 +64,16 @@ SourceFiles
 #include <RASModel.hxx>
 #include <eddyViscosity.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamrealizableKE_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamrealizableKE_EXPORT_DEFINE
+#define FoamrealizableKE_EXPORT __declspec(dllexport)
+#else
+#define FoamrealizableKE_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -128,7 +138,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("realizableKE");
+			//TypeName("realizableKE");
+			static const char* typeName_() { return "realizableKE"; }
+			static FoamrealizableKE_EXPORT const ::tnbLib::word typeName;
+			static FoamrealizableKE_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 

@@ -68,12 +68,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("energyScalingFunction");
+		//TypeName("energyScalingFunction");
+		static const char* typeName_() { return "energyScalingFunction"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			energyScalingFunction,
@@ -84,13 +88,72 @@ namespace tnbLib
 				const pairPotential& pairPot
 				),
 				(name, energyScalingFunctionProperties, pairPot)
-		);
+		);*/
+
+		typedef autoPtr<energyScalingFunction> (*dictionaryConstructorPtr)(
+			const word& name, const dictionary& energyScalingFunctionProperties, const pairPotential& pairPot);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamLagrangian_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamLagrangian_EXPORT void constructdictionaryConstructorTables();
+		static FoamLagrangian_EXPORT void destroydictionaryConstructorTables();
+
+		template <class energyScalingFunctionType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<energyScalingFunction> New(const word& name,
+			                                          const dictionary& energyScalingFunctionProperties,
+			                                          const pairPotential& pairPot)
+			{
+				return autoPtr<energyScalingFunction>(
+					new energyScalingFunctionType(name, energyScalingFunctionProperties, pairPot));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = energyScalingFunctionType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"energyScalingFunction" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class energyScalingFunctionType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<energyScalingFunction> New(const word& name,
+			                                          const dictionary& energyScalingFunctionProperties,
+			                                          const pairPotential& pairPot)
+			{
+				return autoPtr<energyScalingFunction>(
+					new energyScalingFunctionType(name, energyScalingFunctionProperties, pairPot));
+			}
+
+			addRemovabledictionaryConstructorToTable(
+				const word& lookup = energyScalingFunctionType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Selectors
 
 			//- Return a reference to the selected viscosity model
-		static autoPtr<energyScalingFunction> New
+		static FoamLagrangian_EXPORT autoPtr<energyScalingFunction> New
 		(
 			const word& name,
 			const dictionary& energyScalingFunctionProperties,
@@ -101,7 +164,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		energyScalingFunction
+		FoamLagrangian_EXPORT energyScalingFunction
 		(
 			const word& name,
 			const dictionary& energyScalingFunctionProperties,
@@ -109,7 +172,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		energyScalingFunction(const energyScalingFunction&);
+		FoamLagrangian_EXPORT energyScalingFunction(const energyScalingFunction&);
 
 
 		//- Destructor
@@ -119,7 +182,7 @@ namespace tnbLib
 
 		// Member Functions
 
-		virtual void scaleEnergy(scalar& e, const scalar r) const = 0;
+		FoamLagrangian_EXPORT virtual void scaleEnergy(scalar& e, const scalar r) const = 0;
 
 		const dictionary& energyScalingFunctionProperties() const
 		{
@@ -136,7 +199,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const energyScalingFunction&) = delete;
+		FoamLagrangian_EXPORT void operator=(const energyScalingFunction&) = delete;
 	};
 
 

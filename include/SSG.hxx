@@ -79,6 +79,16 @@ SourceFiles
 #include <RASModel.hxx>
 #include <ReynoldsStress.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamSSG_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSSG_EXPORT_DEFINE
+#define FoamSSG_EXPORT __declspec(dllexport)
+#else
+#define FoamSSG_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -136,7 +146,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("SSG");
+			//TypeName("SSG");
+			static const char* typeName_() { return "SSG"; }
+			static FoamSSG_EXPORT const ::tnbLib::word typeName;
+			static FoamSSG_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

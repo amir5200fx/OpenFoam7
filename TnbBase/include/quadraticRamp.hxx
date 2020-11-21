@@ -61,13 +61,17 @@ namespace tnbLib
 		public:
 
 			// Runtime type information
-			TypeName("quadraticRamp");
+			//TypeName("quadraticRamp");
+			static const char* typeName_() { return "quadraticRamp"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from entry name and dictionary
-			quadraticRamp
+			FoamBase_EXPORT quadraticRamp
 			(
 				const word& entryName,
 				const dictionary& dict
@@ -75,7 +79,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~quadraticRamp();
+			FoamBase_EXPORT virtual ~quadraticRamp();
 
 
 			// Member Functions

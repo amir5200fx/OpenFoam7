@@ -60,6 +60,16 @@ SourceFiles
 #include <LESModel.hxx>
 #include <LESeddyViscosity.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamWALE_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamWALE_EXPORT_DEFINE
+#define FoamWALE_EXPORT __declspec(dllexport)
+#else
+#define FoamWALE_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -106,7 +116,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("WALE");
+			//TypeName("WALE");
+			static const char* typeName_() { return "WALE"; }
+			static FoamWALE_EXPORT const ::tnbLib::word typeName;
+			static FoamWALE_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

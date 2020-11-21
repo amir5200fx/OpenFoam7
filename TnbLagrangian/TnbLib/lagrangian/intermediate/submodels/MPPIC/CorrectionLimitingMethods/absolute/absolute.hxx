@@ -69,16 +69,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("absolute");
+			//TypeName("absolute");
+			static const char* typeName_() { return "absolute"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			absolute(const dictionary& dict);
+			FoamLagrangian_EXPORT absolute(const dictionary& dict);
 
 			//- Copy constructor
-			absolute(const absolute& cl);
+			FoamLagrangian_EXPORT absolute(const absolute& cl);
 
 			//- Construct and return a clone
 			virtual autoPtr<CorrectionLimitingMethod> clone() const
@@ -91,13 +95,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~absolute();
+			FoamLagrangian_EXPORT virtual ~absolute();
 
 
 			// Member Functions
 
 				//- Return the limited velocity
-			virtual vector limitedVelocity
+			FoamLagrangian_EXPORT virtual vector limitedVelocity
 			(
 				const vector uP,
 				const vector dU,

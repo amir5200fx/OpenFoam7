@@ -62,19 +62,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Calculate the Lambda2 field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("Lambda2");
+			//TypeName("Lambda2");
+			static const char* typeName_() { return "Lambda2"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			Lambda2
+			FoamFunctionObjects_EXPORT Lambda2
 			(
 				const word& name,
 				const Time& runTime,
@@ -83,7 +87,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~Lambda2();
+			FoamFunctionObjects_EXPORT virtual ~Lambda2();
 		};
 
 

@@ -100,7 +100,7 @@ void tnbLib::edgeMesh::writeStats(Ostream& os) const
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const edgeMesh& em)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const edgeMesh& em)
 {
 	fileFormats::edgeMeshFormat::write(os, em.points_, em.edges_);
 
@@ -111,7 +111,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const edgeMesh& em)
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, edgeMesh& em)
+FoamFvMesh_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, edgeMesh& em)
 {
 	fileFormats::edgeMeshFormat::read(is, em.points_, em.edges_);
 

@@ -98,16 +98,26 @@ namespace tnbLib
 			);
 
 			//- Write field if present in objectRegistry
-			bool writeObject(const word& fieldName);
+			FoamBase_EXPORT bool writeObject(const word& fieldName)
+			{
+				NotImplemented;
+
+				return false;
+			}// Commented by Amin
+			
 
 			//- Clear field from the objectRegistry if present
-			bool clearObject(const word& fieldName);
+			FoamBase_EXPORT bool clearObject(const word& fieldName);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("regionFunctionObject");
+			//TypeName("regionFunctionObject");
+			static const char* typeName_() { return "regionFunctionObject"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
@@ -115,7 +125,7 @@ namespace tnbLib
 				//- Construct from Time and dictionary.
 				//  The region objectRegistry is looked-up runTime with the name
 				//  looked-up from the dictionary (defaults to polyMesh::defaultRegion)
-			regionFunctionObject
+			FoamBase_EXPORT regionFunctionObject
 			(
 				const word& name,
 				const Time& runTime,
@@ -123,7 +133,7 @@ namespace tnbLib
 			);
 
 			//- Construct from the region objectRegistry and dictionary
-			regionFunctionObject
+			FoamBase_EXPORT regionFunctionObject
 			(
 				const word& name,
 				const objectRegistry& obr,
@@ -131,23 +141,23 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			regionFunctionObject(const regionFunctionObject&) = delete;
+			FoamBase_EXPORT regionFunctionObject(const regionFunctionObject&) = delete;
 
 
 			//- Destructor
-			virtual ~regionFunctionObject();
+			FoamBase_EXPORT virtual ~regionFunctionObject();
 
 
 			// Member Functions
 
 				//- Read optional controls
-			virtual bool read(const dictionary&);
+			FoamBase_EXPORT virtual bool read(const dictionary&);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const regionFunctionObject&) = delete;
+			FoamBase_EXPORT void operator=(const regionFunctionObject&) = delete;
 		};
 
 

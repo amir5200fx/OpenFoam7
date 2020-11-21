@@ -44,6 +44,16 @@ SourceFiles
 
 #include <vector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamPackingModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPackingModel_EXPORT_DEFINE
+#define FoamPackingModel_EXPORT __declspec(dllexport)
+#else
+#define FoamPackingModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -78,10 +88,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("packingModel");
+		//TypeName("packingModel");
+		static const char* typeName_() { return "packingModel"; }
+		static FoamPackingModel_EXPORT const ::tnbLib::word typeName;
+		static FoamPackingModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			PackingModel,
@@ -91,7 +105,58 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<PackingModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamPackingModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamPackingModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamPackingModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class PackingModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<PackingModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<PackingModel>(new PackingModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = PackingModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "PackingModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class PackingModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<PackingModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<PackingModel>(new PackingModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = PackingModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

@@ -70,7 +70,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Is face internal to the subset.
-		static bool isInternalFace
+		static FoamFvMesh_EXPORT bool isInternalFace
 		(
 			const primitiveMesh&,
 			const boolList& includedCell,
@@ -78,7 +78,7 @@ namespace tnbLib
 		);
 
 		//- Find boundary faces of subset.
-		static void getFaces
+		static FoamFvMesh_EXPORT void getFaces
 		(
 			const primitiveMesh&,
 			const boolList& includedCell,
@@ -88,7 +88,7 @@ namespace tnbLib
 		);
 
 		//- Add triangulation of face to triangles. Optionally reverse.
-		void insertTriangles
+		void FoamFvMesh_EXPORT insertTriangles
 		(
 			const triFaceList&,
 			const label facei,
@@ -102,13 +102,16 @@ namespace tnbLib
 
 	public:
 
-		ClassName("meshTriangulation");
+		/*ClassName("meshTriangulation");*/
+		static const char* typeName_() { return "meshTriangulation"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct null
-		meshTriangulation();
+		FoamFvMesh_EXPORT meshTriangulation();
 
 		//- Construct from selected mesh cell and region number to be used
 		//  for triangles resulting from internal faces. (all boundary triangles
@@ -116,7 +119,7 @@ namespace tnbLib
 		//  faceCentreDecomposition = true  : decomposition around face centre
 		//                            false : decomposition using
 		//                                    existing vertices
-		meshTriangulation
+		FoamFvMesh_EXPORT meshTriangulation
 		(
 			const polyMesh&,
 			const label internalFacesPatch,

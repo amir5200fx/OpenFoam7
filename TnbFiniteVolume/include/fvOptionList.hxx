@@ -54,7 +54,7 @@ namespace tnbLib
 		class optionList;
 	}
 
-	Ostream& operator<<(Ostream& os, const fv::optionList& options);
+	FoamFiniteVolume_EXPORT Ostream& operator<<(Ostream& os, const fv::optionList& options);
 
 	namespace fv
 	{
@@ -81,13 +81,13 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Return the "options" sub-dictionary if present otherwise return dict
-			const dictionary& optionsDict(const dictionary& dict) const;
+			FoamFiniteVolume_EXPORT const dictionary& optionsDict(const dictionary& dict) const;
 
 			//- Read options dictionary
-			bool readOptions(const dictionary& dict);
+			FoamFiniteVolume_EXPORT bool readOptions(const dictionary& dict);
 
 			//- Check that all sources have been applied
-			void checkApplied() const;
+			FoamFiniteVolume_EXPORT void checkApplied() const;
 
 			//- Return source for equation with specified name and dimensions
 			template<class Type>
@@ -102,19 +102,23 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("optionList");
+			//TypeName("optionList");
+			static const char* typeName_() { return "optionList"; }
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+			static FoamFiniteVolume_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct null
-			optionList(const fvMesh& mesh);
+			FoamFiniteVolume_EXPORT optionList(const fvMesh& mesh);
 
 			//- Construct from mesh and dictionary
-			optionList(const fvMesh& mesh, const dictionary& dict);
+			FoamFiniteVolume_EXPORT optionList(const fvMesh& mesh, const dictionary& dict);
 
 			//- Disallow default bitwise copy construction
-			optionList(const optionList&) = delete;
+			FoamFiniteVolume_EXPORT optionList(const optionList&) = delete;
 
 
 			//- Destructor
@@ -125,10 +129,10 @@ namespace tnbLib
 			// Member Functions
 
 				//- Reset the source list
-			void reset(const dictionary& dict);
+			FoamFiniteVolume_EXPORT void reset(const dictionary& dict);
 
 			//- Return whether there is something to apply to the field
-			bool appliesToField(const word& fieldName) const;
+			FoamFiniteVolume_EXPORT bool appliesToField(const word& fieldName) const;
 
 
 			// Sources
@@ -244,13 +248,13 @@ namespace tnbLib
 			// IO
 
 				//- Read dictionary
-			virtual bool read(const dictionary& dict);
+			FoamFiniteVolume_EXPORT virtual bool read(const dictionary& dict);
 
 			//- Write data to Ostream
-			virtual bool writeData(Ostream& os) const;
+			FoamFiniteVolume_EXPORT virtual bool writeData(Ostream& os) const;
 
 			//- Ostream operator
-			friend Ostream& operator<<
+			friend FoamFiniteVolume_EXPORT Ostream& operator<<
 				(
 					Ostream& os,
 					const optionList& options
@@ -260,7 +264,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const optionList&) = delete;
+			FoamFiniteVolume_EXPORT void operator=(const optionList&) = delete;
 		};
 
 

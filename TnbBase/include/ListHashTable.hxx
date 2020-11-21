@@ -80,14 +80,17 @@ namespace tnbLib
 	struct ListHashTableCore
 	{
 		//- Return a canonical (power-of-two) size
-		static label canonicalSize(const label);
+		static FoamBase_EXPORT label canonicalSize(const label);
 
 		//- Construct null
 		ListHashTableCore()
 		{}
 
 		//- Define template name and debug
-		ClassName("ListHashTable");
+		//ClassName("ListHashTable");
+		static const char* typeName_() { return "ListHashTable"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 		//- A zero-sized end iterator
 		struct iteratorEnd

@@ -1,3 +1,5 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <basicReactingCloud.hxx>
 
 #include <makeParcelTurbulenceDispersionModels.hxx>

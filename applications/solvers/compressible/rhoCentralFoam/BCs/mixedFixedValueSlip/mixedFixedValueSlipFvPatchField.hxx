@@ -38,6 +38,9 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <Base_Module.hxx>
+#include <FiniteVolume_Module.hxx>
+
 #include <transformFvPatchField.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -224,8 +227,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <mixedFixedValueSlipFvPatchField.cxx>
+//#include <mixedFixedValueSlipFvPatchField.cxx>
 #endif
+
+#include <mixedFixedValueSlipFvPatchFieldI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

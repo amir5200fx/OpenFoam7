@@ -97,10 +97,10 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Read tokens. Skip dummy tokens
-			static void readToken(token& t, Istream& is);
+			static FoamBase_EXPORT void readToken(token& t, Istream& is);
 
 			//- Expand a variable (string/word/var starting with '$')
-			static token expand
+			static FoamBase_EXPORT token expand
 			(
 				const dictionary& dict,
 				const string& keyword,
@@ -108,20 +108,20 @@ namespace tnbLib
 			);
 
 			//- Expand a string/word/var token
-			static token expand
+			static FoamBase_EXPORT token expand
 			(
 				const dictionary& dict,
 				const token& t
 			);
 
-			static bool equalToken
+			static FoamBase_EXPORT bool equalToken
 			(
 				const token& t1,
 				const token& t2
 			);
 
 			//- Consume tokens until reached a specific word
-			static void skipUntil
+			static FoamBase_EXPORT void skipUntil
 			(
 				DynamicList<filePos>& stack,
 				const dictionary& parentDict,
@@ -129,7 +129,7 @@ namespace tnbLib
 				Istream& is
 			);
 
-			static bool evaluate
+			static FoamBase_EXPORT bool evaluate
 			(
 				const bool doIf,
 				DynamicList<filePos>& stack,
@@ -139,7 +139,7 @@ namespace tnbLib
 
 			//- Main driver: depending on 'equal' starts evaluating or
 			//  skips forward to #else
-			static bool execute
+			static FoamBase_EXPORT bool execute
 			(
 				const bool equal,
 				DynamicList<filePos>& stack,
@@ -149,7 +149,7 @@ namespace tnbLib
 
 			//- Main driver: depending on 'equal' starts evaluating or
 			//  skips forward to #else
-			static bool execute
+			static FoamBase_EXPORT bool execute
 			(
 				DynamicList<filePos>& stack,
 				dictionary& parentDict,
@@ -160,25 +160,28 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			ClassName("ifeq");
+			//ClassName("ifeq");
+			static const char* typeName_() { return "ifeq"; } 
+			static FoamBase_EXPORT const ::tnbLib::word typeName; 
+			static FoamBase_EXPORT int debug;
 
 
 			// Constructors
 
 				//- Disallow default bitwise copy construction
-			ifeqEntry(const ifeqEntry&) = delete;
+			FoamBase_EXPORT ifeqEntry(const ifeqEntry&) = delete;
 
 
 			// Member Functions
 
 				//- Execute the functionEntry in a sub-dict context
-			static bool execute(dictionary& parentDict, Istream& is);
+			static FoamBase_EXPORT bool execute(dictionary& parentDict, Istream& is);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const ifeqEntry&) = delete;
+			FoamBase_EXPORT void operator=(const ifeqEntry&) = delete;
 		};
 
 

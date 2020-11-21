@@ -98,7 +98,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Reorder according to map.
-		static void reorder
+		static FoamDynamicMesh_EXPORT void reorder
 		(
 			const labelList& map,
 			const label len,
@@ -107,7 +107,7 @@ namespace tnbLib
 		);
 
 		//- Get patch and zone info
-		void getFaceInfo
+		FoamDynamicMesh_EXPORT void getFaceInfo
 		(
 			const label facei,
 			label& patchID,
@@ -116,7 +116,7 @@ namespace tnbLib
 		) const;
 
 		//- Adds a face on top of existing facei. Reverses if necessary.
-		label addFace
+		FoamDynamicMesh_EXPORT label addFace
 		(
 			polyTopoChange& meshMod,
 			const label facei,
@@ -126,7 +126,7 @@ namespace tnbLib
 		) const;
 
 		//- Adds internal face from point. No checks on reversal.
-		label addInternalFace
+		FoamDynamicMesh_EXPORT label addInternalFace
 		(
 			polyTopoChange& meshMod,
 			const label meshFacei,
@@ -138,7 +138,7 @@ namespace tnbLib
 
 		//- Modifies existing facei for either new owner/neighbour or new face
 		//  points. Reverses if necessary.
-		void modFace
+		FoamDynamicMesh_EXPORT void modFace
 		(
 			polyTopoChange& meshMod,
 			const label facei,
@@ -147,10 +147,10 @@ namespace tnbLib
 			const label nei
 		) const;
 
-		scalar getLevel0EdgeLength() const;
+		FoamDynamicMesh_EXPORT scalar getLevel0EdgeLength() const;
 
 		//- Get cell added to point of celli (if any)
-		label getAnchorCell
+		FoamDynamicMesh_EXPORT label getAnchorCell
 		(
 			const labelListList& cellAnchorPoints,
 			const labelListList& cellAddedCells,
@@ -161,7 +161,7 @@ namespace tnbLib
 
 		//- Get new owner and neighbour (in unspecified order) of pointi
 		//  on facei.
-		void getFaceNeighbours
+		FoamDynamicMesh_EXPORT void getFaceNeighbours
 		(
 			const labelListList& cellAnchorPoints,
 			const labelListList& cellAddedCells,
@@ -174,15 +174,15 @@ namespace tnbLib
 
 
 		//- Get index of minimum pointlevel.
-		label findMinLevel(const labelList& f) const;
+		FoamDynamicMesh_EXPORT label findMinLevel(const labelList& f) const;
 		//- Get maximum pointlevel.
-		label findMaxLevel(const labelList& f) const;
+		FoamDynamicMesh_EXPORT label findMaxLevel(const labelList& f) const;
 		//- Count number of vertices <= anchorLevel
-		label countAnchors(const labelList&, const label) const;
+		FoamDynamicMesh_EXPORT label countAnchors(const labelList&, const label) const;
 		//- Debugging: dump cell as .obj file
-		void dumpCell(const label celli) const;
+		FoamDynamicMesh_EXPORT void dumpCell(const label celli) const;
 		//- Find index of point with wantedLevel, starting from fp.
-		label findLevel
+		FoamDynamicMesh_EXPORT label findLevel
 		(
 			const label facei,
 			const face& f,
@@ -195,7 +195,7 @@ namespace tnbLib
 		// void printLevels(Ostream&, const labelList&) const;
 
 		//- debug:check orientation of added internal face
-		static void checkInternalOrientation
+		static FoamDynamicMesh_EXPORT void checkInternalOrientation
 		(
 			polyTopoChange& meshMod,
 			const label celli,
@@ -206,7 +206,7 @@ namespace tnbLib
 		);
 
 		//- debug:check orientation of new boundary face
-		static void checkBoundaryOrientation
+		static FoamDynamicMesh_EXPORT void checkBoundaryOrientation
 		(
 			polyTopoChange& meshMod,
 			const label celli,
@@ -218,7 +218,7 @@ namespace tnbLib
 
 		//- If p0 and p1 are existing vertices check if edge is split and insert
 		// splitPoint.
-		void insertEdgeSplit
+		FoamDynamicMesh_EXPORT void insertEdgeSplit
 		(
 			const labelList& edgeMidPoint,
 			const label p0,
@@ -227,7 +227,7 @@ namespace tnbLib
 		) const;
 
 		//- Store in maps correspondence from midpoint to anchors and faces.
-		label storeMidPointInfo
+		FoamDynamicMesh_EXPORT label storeMidPointInfo
 		(
 			const labelListList& cellAnchorPoints,
 			const labelListList& cellAddedCells,
@@ -246,7 +246,7 @@ namespace tnbLib
 		) const;
 
 		//- Create all internal faces from an unsplit face.
-		void createInternalFromSplitFace
+		FoamDynamicMesh_EXPORT void createInternalFromSplitFace
 		(
 			const labelListList& cellAnchorPoints,
 			const labelListList& cellAddedCells,
@@ -263,7 +263,7 @@ namespace tnbLib
 		) const;
 
 		//- Create all internal faces to split celli into 8.
-		void createInternalFaces
+		FoamDynamicMesh_EXPORT void createInternalFaces
 		(
 			const labelListList& cellAnchorPoints,
 			const labelListList& cellAddedCells,
@@ -277,7 +277,7 @@ namespace tnbLib
 
 		//- Store vertices from startFp up to face split point.
 		//  Used when splitting face into 4.
-		void walkFaceToMid
+		FoamDynamicMesh_EXPORT void walkFaceToMid
 		(
 			const labelList& edgeMidPoint,
 			const label cLevel,
@@ -287,7 +287,7 @@ namespace tnbLib
 		) const;
 
 		//- Same as walkFaceToMid but now walk back.
-		void walkFaceFromMid
+		FoamDynamicMesh_EXPORT void walkFaceFromMid
 		(
 			const labelList& edgeMidPoint,
 			const label cLevel,
@@ -298,20 +298,20 @@ namespace tnbLib
 
 		//- Updates refineCell so consistent 2:1 refinement. Returns local
 		//  number of cells changed.
-		label faceConsistentRefinement
+		FoamDynamicMesh_EXPORT label faceConsistentRefinement
 		(
 			const bool maxSet,
 			PackedBoolList& refineCell
 		) const;
 
 		//- Check wanted refinement for 2:1 consistency
-		void checkWantedRefinementLevels(const labelList&) const;
+		FoamDynamicMesh_EXPORT void checkWantedRefinementLevels(const labelList&) const;
 
 
 		// Cellshape recognition
 
 			//- Collect all points on face of certain level
-		void collectLevelPoints
+		FoamDynamicMesh_EXPORT void collectLevelPoints
 		(
 			const labelList& f,
 			const label level,
@@ -319,7 +319,7 @@ namespace tnbLib
 		) const;
 
 		//- Collect all points on face (in local numbering) of certain level
-		void collectLevelPoints
+		FoamDynamicMesh_EXPORT void collectLevelPoints
 		(
 			const labelList& meshPoints,
 			const labelList& f,
@@ -329,7 +329,7 @@ namespace tnbLib
 
 		//- Collect all faces with four corner points and return true if
 		//  hex was matched (6 faces of each four corner points)
-		bool matchHexShape
+		FoamDynamicMesh_EXPORT bool matchHexShape
 		(
 			const label celli,
 			const label cellLevel,
@@ -340,7 +340,10 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("hexRef8");
+		//ClassName("hexRef8");
+		static const char* typeName_() { return "hexRef8"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
@@ -348,11 +351,11 @@ namespace tnbLib
 			//- Construct from mesh, read_if_present refinement data
 			//  (from write below). If readHistory is true does read_if_present
 			//  of refinement history. If false clears all history
-		hexRef8(const polyMesh& mesh, const bool readHistory = true);
+		FoamDynamicMesh_EXPORT hexRef8(const polyMesh& mesh, const bool readHistory = true);
 
 		//- Construct from mesh and un/refinement data and optional size of
 		//  starting cells
-		hexRef8
+		FoamDynamicMesh_EXPORT hexRef8
 		(
 			const polyMesh& mesh,
 			const labelList& cellLevel,
@@ -363,7 +366,7 @@ namespace tnbLib
 
 		//- Construct from mesh and refinement data and optional size of
 		//  starting cells
-		hexRef8
+		FoamDynamicMesh_EXPORT hexRef8
 		(
 			const polyMesh& mesh,
 			const labelList& cellLevel,
@@ -408,14 +411,14 @@ namespace tnbLib
 		// Refinement
 
 			//- Gets level such that the face has four points <= level.
-		label faceLevel(const label facei) const;
+		FoamDynamicMesh_EXPORT label faceLevel(const label facei) const;
 
 		//- Given valid mesh and current cell level and proposed
 		//  cells to refine calculate any clashes (due to 2:1) and return
 		//  ok list of cells to refine.
 		//  Either adds cells to refine to set (maxSet = true) or
 		//  removes cells to refine (maxSet = false)
-		labelList consistentRefinement
+		FoamDynamicMesh_EXPORT labelList consistentRefinement
 		(
 			const labelList& cellsToRefine,
 			const bool maxSet
@@ -435,7 +438,7 @@ namespace tnbLib
 		//  facesToCheck  : additional faces where to implement the
 		//                  maxFaceDiff thickness (usually only boundary
 		//                  faces)
-		labelList consistentSlowRefinement
+		FoamDynamicMesh_EXPORT labelList consistentSlowRefinement
 		(
 			const label maxFaceDiff,
 			const labelList& cellsToRefine,
@@ -447,7 +450,7 @@ namespace tnbLib
 		//- Like consistentSlowRefinement but uses different meshWave
 		//  (proper distance instead of toplogical count). No point checks
 		//  yet.
-		labelList consistentSlowRefinement2
+		FoamDynamicMesh_EXPORT labelList consistentSlowRefinement2
 		(
 			const label maxFaceDiff,
 			const labelList& cellsToRefine,
@@ -467,14 +470,14 @@ namespace tnbLib
 		//   that will allocate interpolation.
 		//  -points added to split edge: added from edge start()
 		//  -midpoints added: added from cellPoints[0].
-		labelListList setRefinement
+		FoamDynamicMesh_EXPORT labelListList setRefinement
 		(
 			const labelList& cells,
 			polyTopoChange&
 		);
 
 		//- Update local numbering for changed mesh.
-		void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT void updateMesh(const mapPolyMesh&);
 
 
 		// Restoring : is where other processes delete and reinsert data.
@@ -483,7 +486,7 @@ namespace tnbLib
 		//             Is not related to undoing my refinement
 
 			//- Signal points/face/cells for which to store data
-		void storeData
+		FoamDynamicMesh_EXPORT void storeData
 		(
 			const labelList& pointsToStore,
 			const labelList& facesToStore,
@@ -493,7 +496,7 @@ namespace tnbLib
 		//- Update local numbering + undo
 		//  Data to restore given as new pointlabel + stored pointlabel
 		//  (i.e. what was in pointsToStore)
-		void updateMesh
+		FoamDynamicMesh_EXPORT void updateMesh
 		(
 			const mapPolyMesh&,
 			const Map<label>& pointsToRestore,
@@ -504,7 +507,7 @@ namespace tnbLib
 
 		//- Update local numbering for subsetted mesh.
 		//  Gets new-to-old maps. Not compatible with unrefinement.
-		void subset
+		FoamDynamicMesh_EXPORT void subset
 		(
 			const labelList& pointMap,
 			const labelList& faceMap,
@@ -512,36 +515,36 @@ namespace tnbLib
 		);
 
 		//- Update local numbering for mesh redistribution
-		void distribute(const mapDistributePolyMesh&);
+		FoamDynamicMesh_EXPORT void distribute(const mapDistributePolyMesh&);
 
 		//- Debug: Check coupled mesh for correctness
-		void checkMesh() const;
+		FoamDynamicMesh_EXPORT void checkMesh() const;
 
 		//- Debug: Check 2:1 consistency across faces.
 		//  maxPointDiff==-1 : only check 2:1 across faces
 		//  maxPointDiff!=-1 : check point-connected cells.
-		void checkRefinementLevels
+		FoamDynamicMesh_EXPORT void checkRefinementLevels
 		(
 			const label maxPointDiff,
 			const labelList& pointsToCheck
 		) const;
 
 		//- Utility: get hexes as cell shapes
-		const cellShapeList& cellShapes() const;
+		FoamDynamicMesh_EXPORT const cellShapeList& cellShapes() const;
 
 
 		// Unrefinement (undoing refinement, not arbitrary coarsening)
 
 			//- Return the points at the centre of top-level split cells
 			//  that can be unsplit.
-		labelList getSplitPoints() const;
+		FoamDynamicMesh_EXPORT labelList getSplitPoints() const;
 
 		//- Given proposed
 		//  splitPoints to unrefine according to calculate any clashes
 		//  (due to 2:1) and return ok list of points to unrefine.
 		//  Either adds points to refine to set (maxSet = true) or
 		//  removes points to refine (maxSet = false)
-		labelList consistentUnrefinement
+		FoamDynamicMesh_EXPORT labelList consistentUnrefinement
 		(
 			const labelList& pointsToUnrefine,
 			const bool maxSet
@@ -551,7 +554,7 @@ namespace tnbLib
 		//  consistentUnrefinement. Only call if undoable set.
 		//  All 8 pointCells of a split point will be combined into
 		//  the lowest numbered cell of those 8.
-		void setUnrefinement
+		FoamDynamicMesh_EXPORT void setUnrefinement
 		(
 			const labelList& splitPointLabels,
 			polyTopoChange&
@@ -560,10 +563,10 @@ namespace tnbLib
 		// Write
 
 			// Set instance for mesh files
-		void setInstance(const fileName& inst);
+		FoamDynamicMesh_EXPORT void setInstance(const fileName& inst);
 
 		//- Force writing refinement+history to polyMesh directory.
-		bool write(const bool write = true) const;
+		FoamDynamicMesh_EXPORT bool write(const bool write = true) const;
 
 
 		// Member Operators

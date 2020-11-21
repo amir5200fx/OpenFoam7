@@ -17,7 +17,7 @@ namespace tnbLib
 {
 	defineTypeNameAndDebug(extendedEdgeMesh, 0);
 
-	template<>
+	/*template<>
 	const char* tnbLib::NamedEnum
 		<
 		tnbLib::extendedEdgeMesh::pointStatus,
@@ -56,7 +56,7 @@ namespace tnbLib
 		"outside",
 		"both",
 		"neither"
-	};
+	};*/
 }
 
 const tnbLib::NamedEnum<tnbLib::extendedEdgeMesh::pointStatus, 4>
@@ -1521,7 +1521,7 @@ void tnbLib::extendedEdgeMesh::writeStats(Ostream& os) const
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>
+FoamFvMesh_EXPORT tnbLib::Istream& tnbLib::operator>>
 (
 	Istream& is,
 	tnbLib::extendedEdgeMesh::sideVolumeType& vt
@@ -1539,7 +1539,7 @@ tnbLib::Istream& tnbLib::operator>>
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	Ostream& os,
 	const tnbLib::extendedEdgeMesh::sideVolumeType& vt
@@ -1551,7 +1551,7 @@ tnbLib::Ostream& tnbLib::operator<<
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const extendedEdgeMesh& em)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const extendedEdgeMesh& em)
 {
 	// fileFormats::extendedEdgeMeshFormat::write(os, em.points_, em.edges_);
 	os << "// points" << nl
@@ -1590,7 +1590,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const extendedEdgeMesh& em)
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, extendedEdgeMesh& em)
+FoamFvMesh_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, extendedEdgeMesh& em)
 {
 	// fileFormats::extendedEdgeMeshFormat::read(is, em.points_, em.edges_);
 	is >> static_cast<edgeMesh&>(em)

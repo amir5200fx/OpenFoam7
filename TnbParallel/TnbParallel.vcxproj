@@ -53,19 +53,19 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -96,15 +96,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(MSMPI_INC);$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Commons\mpi\include;$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
     <TargetName>$(ProjectName)d</TargetName>
+    <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\metis\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
-    <IncludePath>$(MSMPI_INC);$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Commons\mpi\include;$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
     <TargetName>$(ProjectName)d</TargetName>
+    <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\metis\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(MSMPI_INC);$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Commons\mpi\include;$(SolutionDir)Commons\metis\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\metis\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -112,12 +115,13 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\parallel\decompose\decompose;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionMethod;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\geomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\manualDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\noDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\structuredDecomp;$(ProjectDir)TnbLib\parallel\decompose\metisDecomp;$(ProjectDir)TnbLib\parallel\decompose\ptscotchDecomp;$(ProjectDir)TnbLib\parallel\decompose\scotchDecomp;$(ProjectDir)TnbLib\parallel\distributed\distributedTriSurfaceMesh;$(ProjectDir)TnbLib\parallel\reconstruct\reconstruct;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\parallel\decompose\decompose;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionMethod;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\geomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\manualDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\noDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\structuredDecomp;$(ProjectDir)TnbLib\parallel\decompose\metisDecomp;$(ProjectDir)TnbLib\parallel\decompose\ptscotchDecomp;$(ProjectDir)TnbLib\parallel\decompose\scotchDecomp;$(ProjectDir)TnbLib\parallel\distributed\distributedTriSurfaceMesh;$(ProjectDir)TnbLib\parallel\reconstruct\reconstruct;$(ProjectDir)TnbLib\parallel\module;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamParallel_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;metisd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
@@ -132,12 +136,13 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\parallel\decompose\decompose;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionMethod;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\geomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\manualDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\noDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\structuredDecomp;$(ProjectDir)TnbLib\parallel\decompose\metisDecomp;$(ProjectDir)TnbLib\parallel\decompose\ptscotchDecomp;$(ProjectDir)TnbLib\parallel\decompose\scotchDecomp;$(ProjectDir)TnbLib\parallel\distributed\distributedTriSurfaceMesh;$(ProjectDir)TnbLib\parallel\reconstruct\reconstruct;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\parallel\decompose\decompose;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionMethod;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\geomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\manualDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\noDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\structuredDecomp;$(ProjectDir)TnbLib\parallel\decompose\metisDecomp;$(ProjectDir)TnbLib\parallel\decompose\ptscotchDecomp;$(ProjectDir)TnbLib\parallel\decompose\scotchDecomp;$(ProjectDir)TnbLib\parallel\distributed\distributedTriSurfaceMesh;$(ProjectDir)TnbLib\parallel\reconstruct\reconstruct;$(ProjectDir)TnbLib\parallel\module;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamParallel_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>libmetis.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -189,14 +194,15 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\parallel\decompose\decompose;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionMethod;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\geomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\manualDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\noDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\structuredDecomp;$(ProjectDir)TnbLib\parallel\decompose\metisDecomp;$(ProjectDir)TnbLib\parallel\decompose\ptscotchDecomp;$(ProjectDir)TnbLib\parallel\decompose\scotchDecomp;$(ProjectDir)TnbLib\parallel\distributed\distributedTriSurfaceMesh;$(ProjectDir)TnbLib\parallel\reconstruct\reconstruct;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\parallel\decompose\decompose;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\decompositionConstraint;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveBaffles;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preserveFaceZones;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\preservePatches;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\refinementHistory;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionConstraints\singleProcessorFaceSets;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\decompositionMethod;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\geomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\hierarchGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\manualDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\multiLevelDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\noDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\simpleGeomDecomp;$(ProjectDir)TnbLib\parallel\decompose\decompositionMethods\structuredDecomp;$(ProjectDir)TnbLib\parallel\decompose\metisDecomp;$(ProjectDir)TnbLib\parallel\decompose\ptscotchDecomp;$(ProjectDir)TnbLib\parallel\decompose\scotchDecomp;$(ProjectDir)TnbLib\parallel\distributed\distributedTriSurfaceMesh;$(ProjectDir)TnbLib\parallel\reconstruct\reconstruct;$(ProjectDir)TnbLib\parallel\module;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FoamParallel_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;metis.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -222,6 +228,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\parallel\decompose\scotchDecomp\scotchDecomp.hxx" />
     <ClInclude Include="TnbLib\parallel\distributed\distributedTriSurfaceMesh\distributedTriSurfaceMesh.hxx" />
     <ClInclude Include="TnbLib\parallel\distributed\distributedTriSurfaceMesh\distributedTriSurfaceMeshI.hxx" />
+    <ClInclude Include="TnbLib\parallel\module\Parallel_Module.hxx" />
     <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\fvFieldReconstructor.hxx" />
     <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\fvFieldReconstructorReconstructFieldsI.hxx" />
     <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\pointFieldReconstructor.hxx" />
@@ -258,6 +265,23 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TnbBase\TnbBase.vcxproj">
+      <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbDynamicMesh\TnbDynamicMesh.vcxproj">
+      <Project>{e3788c5b-0066-49ce-a6f3-4ef1a5660b6d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+      <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFvMesh\TnbFvMesh.vcxproj">
+      <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbLagrangian\TnbLagrangian.vcxproj">
+      <Project>{27928553-74af-4229-b18c-4f7670767702}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

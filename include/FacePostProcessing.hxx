@@ -47,6 +47,16 @@ SourceFiles
 #include <OFstream.hxx> // added by amir
 #include <Switch.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamFacePostProcessing_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFacePostProcessing_EXPORT_DEFINE
+#define FoamFacePostProcessing_EXPORT __declspec(dllexport)
+#else
+#define FoamFacePostProcessing_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -123,7 +133,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("facePostProcessing");
+		//TypeName("facePostProcessing");
+		static const char* typeName_() { return "facePostProcessing"; }
+		static FoamFacePostProcessing_EXPORT const ::tnbLib::word typeName;
+		static FoamFacePostProcessing_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

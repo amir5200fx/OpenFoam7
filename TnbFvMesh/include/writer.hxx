@@ -109,18 +109,63 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("writer");
+		//TypeName("writer");
+		static const char* typeName_() { return "writer"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			writer,
 			word,
 			(),
 			()
-		);
+		);*/
+
+		typedef autoPtr<writer> (*wordConstructorPtr)();
+		typedef HashTable<wordConstructorPtr, word, string::hash> wordConstructorTable;
+		static FoamFvMesh_EXPORT wordConstructorTable* wordConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructwordConstructorTables();
+		static FoamFvMesh_EXPORT void destroywordConstructorTables();
+
+		template <class writerType>
+		class addwordConstructorToTable
+		{
+		public:
+			static autoPtr<writer> New() { return autoPtr<writer>(new writerType()); }
+
+			addwordConstructorToTable(const word& lookup = writerType::typeName)
+			{
+				constructwordConstructorTables();
+				if (!wordConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "writer" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addwordConstructorToTable() { destroywordConstructorTables(); }
+		};
+
+		template <class writerType>
+		class addRemovablewordConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<writer> New() { return autoPtr<writer>(new writerType()); }
+
+			addRemovablewordConstructorToTable(const word& lookup = writerType::typeName) : lookup_(lookup)
+			{
+				constructwordConstructorTables();
+				wordConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablewordConstructorToTable() { if (wordConstructorTablePtr_) { wordConstructorTablePtr_->erase(lookup_); } }
+		};;
 
 
 		// Selectors

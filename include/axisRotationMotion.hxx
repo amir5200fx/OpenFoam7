@@ -68,20 +68,24 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("axisRotationMotion");
+			//TypeName("axisRotationMotion");
+			static const char* typeName_() { return "axisRotationMotion"; }
+			static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamDynamicMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			axisRotationMotion
+			FoamDynamicMesh_EXPORT axisRotationMotion
 			(
 				const dictionary& SBMFCoeffs,
 				const Time& runTime
 			);
 
 			//- Disallow default bitwise copy construction
-			axisRotationMotion(const axisRotationMotion&);
+			FoamDynamicMesh_EXPORT axisRotationMotion(const axisRotationMotion&);
 
 			//- Construct and return a clone
 			virtual autoPtr<solidBodyMotionFunction> clone() const
@@ -98,16 +102,16 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~axisRotationMotion();
+			FoamDynamicMesh_EXPORT virtual ~axisRotationMotion();
 
 
 			// Member Functions
 
 				//- Return the solid-body motion transformation septernion
-			virtual septernion transformation() const;
+			FoamDynamicMesh_EXPORT virtual septernion transformation() const;
 
 			//- Update properties from given dictionary
-			virtual bool read(const dictionary& SBMFCoeffs);
+			FoamDynamicMesh_EXPORT virtual bool read(const dictionary& SBMFCoeffs);
 
 
 			// Member Operators

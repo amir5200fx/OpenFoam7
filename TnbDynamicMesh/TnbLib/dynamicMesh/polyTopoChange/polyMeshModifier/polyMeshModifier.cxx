@@ -47,7 +47,7 @@ const tnbLib::polyTopoChanger& tnbLib::polyMeshModifier::topoChanger() const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const polyMeshModifier& pmm)
+FoamDynamicMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const polyMeshModifier& pmm)
 {
 	pmm.write(os);
 	os.check("Ostream& operator<<(Ostream& f, const polyMeshModifier& pmm)");

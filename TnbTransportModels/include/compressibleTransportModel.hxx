@@ -58,42 +58,46 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("compressibleTransportModel");
+		//TypeName("compressibleTransportModel");
+		static const char* typeName_() { return "compressibleTransportModel"; }
+		static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+		static FoamTransportModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		compressibleTransportModel
+		FoamTransportModels_EXPORT compressibleTransportModel
 		();
 
 		//- Disallow default bitwise copy construction
-		compressibleTransportModel(const compressibleTransportModel&);
+		FoamTransportModels_EXPORT compressibleTransportModel(const compressibleTransportModel&);
 
 
 		//- Destructor
-		virtual ~compressibleTransportModel();
+		FoamTransportModels_EXPORT virtual ~compressibleTransportModel();
 
 
 		// Member Functions
 
 			//- Return the dynamic laminar viscosity
-		virtual tmp<volScalarField> mu() const = 0;
+		FoamTransportModels_EXPORT virtual tmp<volScalarField> mu() const = 0;
 
 		//- Return the dynamic laminar viscosity for patch
-		virtual tmp<scalarField> mu(const label patchi) const = 0;
+		FoamTransportModels_EXPORT virtual tmp<scalarField> mu(const label patchi) const = 0;
 
 		//- Return the laminar viscosity
-		virtual tmp<volScalarField> nu() const = 0;
+		FoamTransportModels_EXPORT virtual tmp<volScalarField> nu() const = 0;
 
 		//- Return the laminar viscosity for patch
-		virtual tmp<scalarField> nu(const label patchi) const = 0;
+		FoamTransportModels_EXPORT virtual tmp<scalarField> nu(const label patchi) const = 0;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const compressibleTransportModel&) = delete;
+		FoamTransportModels_EXPORT void operator=(const compressibleTransportModel&) = delete;
 	};
 
 

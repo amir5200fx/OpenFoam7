@@ -108,28 +108,28 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Count set/unset elements in packedlist.
-		static label count(const PackedBoolList&, const unsigned int);
+		static FoamDynamicMesh_EXPORT label count(const PackedBoolList&, const unsigned int);
 
 		//- Calculate cells that cannot be refined since would trigger
 		//  refinement of protectedCell_ (since 2:1 refinement cascade)
-		void calculateProtectedCells(PackedBoolList& unrefineableCell) const;
+		FoamDynamicMesh_EXPORT void calculateProtectedCells(PackedBoolList& unrefineableCell) const;
 
 		//- Read the projection parameters from dictionary
-		void readDict();
+		FoamDynamicMesh_EXPORT void readDict();
 
 
 		//- Refine cells. Update mesh and fields.
-		autoPtr<mapPolyMesh> refine(const labelList&);
+		FoamDynamicMesh_EXPORT autoPtr<mapPolyMesh> refine(const labelList&);
 
 		//- Unrefine cells. Gets passed in centre points of cells to combine.
-		autoPtr<mapPolyMesh> unrefine(const labelList&);
+		FoamDynamicMesh_EXPORT autoPtr<mapPolyMesh> unrefine(const labelList&);
 
 
 		// Selection of cells to un/refine
 
 			//- Calculates approximate value for refinement level so
 			//  we don't go above maxCell
-		scalar getRefineLevel
+		FoamDynamicMesh_EXPORT scalar getRefineLevel
 		(
 			const label maxCells,
 			const label maxRefinement,
@@ -138,14 +138,14 @@ namespace tnbLib
 		) const;
 
 		//- Get per cell max of connected point
-		scalarField maxPointField(const scalarField&) const;
+		FoamDynamicMesh_EXPORT scalarField maxPointField(const scalarField&) const;
 
 		//- Get point max of connected cell
-		scalarField maxCellField(const volScalarField&) const;
+		FoamDynamicMesh_EXPORT scalarField maxCellField(const volScalarField&) const;
 
-		scalarField cellToPoint(const scalarField& vFld) const;
+		FoamDynamicMesh_EXPORT scalarField cellToPoint(const scalarField& vFld) const;
 
-		scalarField error
+		FoamDynamicMesh_EXPORT scalarField error
 		(
 			const scalarField& fld,
 			const scalar minLevel,
@@ -153,7 +153,7 @@ namespace tnbLib
 		) const;
 
 		//- Select candidate cells for refinement
-		virtual void selectRefineCandidates
+		FoamDynamicMesh_EXPORT virtual void selectRefineCandidates
 		(
 			const scalar lowerRefineLevel,
 			const scalar upperRefineLevel,
@@ -162,7 +162,7 @@ namespace tnbLib
 		) const;
 
 		//- Subset candidate cells for refinement
-		virtual labelList selectRefineCells
+		FoamDynamicMesh_EXPORT virtual labelList selectRefineCells
 		(
 			const label maxCells,
 			const label maxRefinement,
@@ -170,7 +170,7 @@ namespace tnbLib
 		) const;
 
 		//- Select points that can be unrefined.
-		virtual labelList selectUnrefinePoints
+		FoamDynamicMesh_EXPORT virtual labelList selectUnrefinePoints
 		(
 			const scalar unrefineLevel,
 			const PackedBoolList& markedCell,
@@ -178,10 +178,10 @@ namespace tnbLib
 		) const;
 
 		//- Extend markedCell with cell-face-cell.
-		void extendMarkedCells(PackedBoolList& markedCell) const;
+		FoamDynamicMesh_EXPORT void extendMarkedCells(PackedBoolList& markedCell) const;
 
 		//- Check all cells have 8 anchor points
-		void checkEightAnchorPoints
+		FoamDynamicMesh_EXPORT void checkEightAnchorPoints
 		(
 			PackedBoolList& protectedCell,
 			label& nProtected
@@ -191,20 +191,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("dynamicRefineFvMesh");
+		//TypeName("dynamicRefineFvMesh");
+		static const char* typeName_() { return "dynamicRefineFvMesh"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from IOobject
-		explicit dynamicRefineFvMesh(const IOobject& io);
+		explicit FoamDynamicMesh_EXPORT dynamicRefineFvMesh(const IOobject& io);
 
 		//- Disallow default bitwise copy construction
 		dynamicRefineFvMesh(const dynamicRefineFvMesh&) = delete;
 
 
 		//- Destructor
-		virtual ~dynamicRefineFvMesh();
+		FoamDynamicMesh_EXPORT virtual ~dynamicRefineFvMesh();
 
 
 		// Member Functions
@@ -228,13 +232,13 @@ namespace tnbLib
 		}
 
 		//- Update the mesh for both mesh motion and topology change
-		virtual bool update();
+		FoamDynamicMesh_EXPORT virtual bool update();
 
 
 		// Writing
 
 			//- Write using given format, version and compression
-		virtual bool writeObject
+		FoamDynamicMesh_EXPORT virtual bool writeObject
 		(
 			IOstream::streamFormat fmt,
 			IOstream::versionNumber ver,

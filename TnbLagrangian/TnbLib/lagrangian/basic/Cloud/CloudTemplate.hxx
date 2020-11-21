@@ -44,6 +44,16 @@ SourceFiles
 #include <polyMesh.hxx>
 #include <PackedBoolList.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamCloud_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCloud_EXPORT_DEFINE
+#define FoamCloud_EXPORT __declspec(dllexport)
+#else
+#define FoamCloud_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -110,7 +120,11 @@ namespace tnbLib
 		typedef typename IDLList<ParticleType>::const_iterator const_iterator;
 
 		//-Runtime type information
-		TypeName("Cloud");
+		//TypeName("Cloud");
+		static const char* typeName_() { return "Cloud"; }
+		static FoamCloud_EXPORT const ::tnbLib::word typeName;
+		static FoamCloud_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Static data

@@ -54,6 +54,16 @@ SourceFiles
 
 #include <IsotropyModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamStochastic_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamStochastic_EXPORT_DEFINE
+#define FoamStochastic_EXPORT __declspec(dllexport)
+#else
+#define FoamStochastic_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -79,7 +89,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("stochastic");
+			//TypeName("stochastic");
+			static const char* typeName_() { return "stochastic"; }
+			static FoamStochastic_EXPORT const ::tnbLib::word typeName;
+			static FoamStochastic_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 

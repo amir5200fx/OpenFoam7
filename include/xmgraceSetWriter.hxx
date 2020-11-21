@@ -56,7 +56,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("xmgr");
+		//TypeName("xmgr");
+		static const char* typeName_() { return "xmgr"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

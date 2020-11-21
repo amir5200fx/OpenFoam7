@@ -152,7 +152,7 @@ namespace tnbLib
 
 	//- 2D specialisation
 	template<>
-	scalar line<point2D, const point2D&>::nearestDist
+	FoamBase_EXPORT scalar line<point2D, const point2D&>::nearestDist
 	(
 		const line<point2D, const point2D&>& edge,
 		point2D& thisPoint,

@@ -41,6 +41,16 @@ Description
 #include <runTimeSelectionTables.hxx>
 #include <tetIndices.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamInterpolation_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamInterpolation_EXPORT_DEFINE
+#define FoamInterpolation_EXPORT __declspec(dllexport)
+#else
+#define FoamInterpolation_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -77,7 +87,7 @@ namespace tnbLib
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			interpolation,
@@ -86,12 +96,62 @@ namespace tnbLib
 				const GeometricField<Type, fvPatchField, volMesh>& psi
 				),
 				(psi)
-		);
+		);*/
+
+		typedef autoPtr<interpolation> (*dictionaryConstructorPtr)(const GeometricField<Type, fvPatchField, volMesh>& psi);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamInterpolation_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamInterpolation_EXPORT void constructdictionaryConstructorTables();
+		static FoamInterpolation_EXPORT void destroydictionaryConstructorTables();
+
+		template <class interpolationType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<interpolation> New(const GeometricField<Type, fvPatchField, volMesh>& psi)
+			{
+				return autoPtr<interpolation>(new interpolationType(psi));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = interpolationType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "interpolation" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class interpolationType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<interpolation> New(const GeometricField<Type, fvPatchField, volMesh>& psi)
+			{
+				return autoPtr<interpolation>(new interpolationType(psi));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = interpolationType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Selectors
 
-			//- Return a reference to the specified interpolation scheme
+		//- Return a reference to the specified interpolation scheme
 		static autoPtr<interpolation<Type>> New
 		(
 			const word& interpolationType,

@@ -45,6 +45,16 @@ SourceFiles
 #include <Switch.hxx>  // added by amir
 #include <vector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamBreakupModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamBreakupModel_EXPORT_DEFINE
+#define FoamBreakupModel_EXPORT __declspec(dllexport)
+#else
+#define FoamBreakupModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -77,10 +87,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("breakupModel");
+		//TypeName("breakupModel");
+		static const char* typeName_() { return "breakupModel"; }
+		static FoamBreakupModel_EXPORT const ::tnbLib::word typeName;
+		static FoamBreakupModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			BreakupModel,
@@ -90,7 +104,58 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<BreakupModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamBreakupModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamBreakupModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamBreakupModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class BreakupModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<BreakupModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<BreakupModel>(new BreakupModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = BreakupModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "BreakupModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class BreakupModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<BreakupModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<BreakupModel>(new BreakupModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = BreakupModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

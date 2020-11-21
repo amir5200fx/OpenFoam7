@@ -38,6 +38,16 @@ SourceFiles
 
 #include <LiftForce.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamTomiyamaLiftForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamTomiyamaLiftForce_EXPORT_DEFINE
+#define FoamTomiyamaLiftForce_EXPORT __declspec(dllexport)
+#else
+#define FoamTomiyamaLiftForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -76,7 +86,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("TomiyamaLift");
+		//TypeName("TomiyamaLift");
+		static const char* typeName_() { return "TomiyamaLift"; }
+		static FoamTomiyamaLiftForce_EXPORT const ::tnbLib::word typeName;
+		static FoamTomiyamaLiftForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

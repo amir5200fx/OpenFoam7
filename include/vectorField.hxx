@@ -50,7 +50,7 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	tmp<vectorField> zip
+	FoamBase_EXPORT tmp<vectorField> zip
 	(
 		const tmp<scalarField>& x,
 		const tmp<scalarField>& y,

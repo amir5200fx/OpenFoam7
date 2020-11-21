@@ -142,16 +142,16 @@ namespace tnbLib
 
 			//- Count all points on processorPatches. Is all points for which
 			//  information is collected.
-		static label countPatchPoints(const polyBoundaryMesh&);
+		static FoamBase_EXPORT label countPatchPoints(const polyBoundaryMesh&);
 
 		//- Find index of same processor+index
-		label findSamePoint
+		FoamBase_EXPORT label findSamePoint
 		(
 			const labelPairList& allInfo,
 			const labelPair& info
 		) const;
 
-		labelPairList addSendTransform
+		FoamBase_EXPORT labelPairList addSendTransform
 		(
 			const label patchi,
 			const labelPairList& info
@@ -159,7 +159,7 @@ namespace tnbLib
 
 		//- Add information about patchPointi in relative indices to send
 		//  buffers (patchFaces, indexInFace etc.)
-		void addToSend
+		FoamBase_EXPORT void addToSend
 		(
 			const polyPatch&,
 			const label patchPointi,
@@ -170,7 +170,7 @@ namespace tnbLib
 		) const;
 
 		//- Merge info from neighbour into my data
-		bool mergeInfo
+		FoamBase_EXPORT bool mergeInfo
 		(
 			const labelPairList& nbrInfo,
 			const label localPointi,
@@ -179,41 +179,41 @@ namespace tnbLib
 
 		//- From mesh point to 'local point'. Is the mesh point itself
 		//  if meshToPatchPoint is empty.
-		static label meshToLocalPoint
+		static FoamBase_EXPORT label meshToLocalPoint
 		(
 			const Map<label>& meshToPatchPoint,
 			const label meshPointi
 		);
 
 		//- Opposite of meshToLocalPoint.
-		static label localToMeshPoint
+		static FoamBase_EXPORT label localToMeshPoint
 		(
 			const labelList& patchToMeshPoint,
 			const label localPointi
 		);
 
 		//- Store (and merge) info for meshPointi
-		bool storeInitialInfo
+		FoamBase_EXPORT bool storeInitialInfo
 		(
 			const labelPairList& nbrInfo,
 			const label localPointi
 		);
 
 		//- Store (and merge) info for meshPointi
-		bool mergeInfo
+		FoamBase_EXPORT bool mergeInfo
 		(
 			const labelPairList& nbrInfo,
 			const label localPointi
 		);
 
 		//- Debug printing
-		void printProcPoint
+		FoamBase_EXPORT void printProcPoint
 		(
 			const labelList& patchToMeshPoint,
 			const labelPair& pointInfo
 		) const;
 
-		void printProcPoints
+		FoamBase_EXPORT void printProcPoints
 		(
 			const labelList& patchToMeshPoint,
 			const labelPairList& pointInfo
@@ -221,7 +221,7 @@ namespace tnbLib
 
 		//- Initialize procPoints_ to my patch points. allPoints = true:
 		//  seed with all patch points, = false: only boundaryPoints().
-		void initOwnPoints
+		FoamBase_EXPORT void initOwnPoints
 		(
 			const Map<label>& meshToPatchPoint,
 			const bool allPoints,
@@ -229,7 +229,7 @@ namespace tnbLib
 		);
 
 		//- Send subset of procPoints to neighbours
-		void sendPatchPoints
+		FoamBase_EXPORT void sendPatchPoints
 		(
 			const bool mergeSeparated,
 			const Map<label>&,
@@ -238,7 +238,7 @@ namespace tnbLib
 		) const;
 
 		//- Receive neighbour points and merge into my procPoints.
-		void receivePatchPoints
+		FoamBase_EXPORT void receivePatchPoints
 		(
 			const bool mergeSeparated,
 			const Map<label>&,
@@ -249,13 +249,13 @@ namespace tnbLib
 
 		//- Remove entries of size 2 where meshPoint is in provided Map.
 		//  Used to remove normal face-face connected points.
-		void remove(const labelList& patchToMeshPoint, const Map<label>&);
+		FoamBase_EXPORT void remove(const labelList& patchToMeshPoint, const Map<label>&);
 
 		//- Return mesh points of other side in same order as my meshPoints.
-		static labelList reverseMeshPoints(const cyclicPolyPatch&);
+		static FoamBase_EXPORT labelList reverseMeshPoints(const cyclicPolyPatch&);
 
 		//- Do all calculations.
-		void calculateSharedPoints
+		FoamBase_EXPORT void calculateSharedPoints
 		(
 			const Map<label>&,
 			const labelList&,
@@ -267,7 +267,10 @@ namespace tnbLib
 	public:
 
 		//- Declare name of the class and its debug switch
-		ClassName("globalPoints");
+		//ClassName("globalPoints");
+		static const char* typeName_() { return "globalPoints"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
@@ -278,7 +281,7 @@ namespace tnbLib
 			//  mergeSeparated:
 			//      true  : merge coupled points across separated patches.
 			//      false : do not merge across coupled separated patches.
-		globalPoints
+		FoamBase_EXPORT globalPoints
 		(
 			const polyMesh& mesh,
 			const bool keepAllPoints,
@@ -288,7 +291,7 @@ namespace tnbLib
 		//- Construct from mesh and patch of coupled faces. Difference with
 		//  construct from mesh only is that this stores the meshToProcPoint,
 		//  procPoints as patch local point labels instead of mesh point labels.
-		globalPoints
+		FoamBase_EXPORT globalPoints
 		(
 			const polyMesh& mesh,
 			const indirectPrimitivePatch& coupledPatch,
@@ -297,7 +300,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		globalPoints(const globalPoints&) = delete;
+		FoamBase_EXPORT globalPoints(const globalPoints&) = delete;
 
 
 		// Member Functions
@@ -371,7 +374,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const globalPoints&) = delete;
+		FoamBase_EXPORT void operator=(const globalPoints&) = delete;
 	};
 
 

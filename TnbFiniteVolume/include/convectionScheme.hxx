@@ -43,6 +43,16 @@ SourceFiles
 #include <runTimeSelectionTables.hxx>
 #include <multivariateSurfaceInterpolationScheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamConvectionScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamConvectionScheme_EXPORT_DEFINE
+#define FoamConvectionScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamConvectionScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -80,7 +90,7 @@ namespace tnbLib
 
 			// Declare run-time constructor selection tables
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				tmp,
 				convectionScheme,
@@ -106,7 +116,115 @@ namespace tnbLib
 					Istream& schemeData
 					),
 					(mesh, fields, faceFlux, schemeData)
-			);
+			);*/
+
+			typedef tmp<convectionScheme> (*IstreamConstructorPtr)(const fvMesh& mesh, const surfaceScalarField& faceFlux,
+			                                                       Istream& schemeData);
+			typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
+			static FoamConvectionScheme_EXPORT IstreamConstructorTable* IstreamConstructorTablePtr_;
+			static FoamConvectionScheme_EXPORT void constructIstreamConstructorTables();
+			static FoamConvectionScheme_EXPORT void destroyIstreamConstructorTables();
+
+			template <class convectionSchemeType>
+			class addIstreamConstructorToTable
+			{
+			public:
+				static tmp<convectionScheme> New(const fvMesh& mesh, const surfaceScalarField& faceFlux, Istream& schemeData)
+				{
+					return tmp<convectionScheme>(new convectionSchemeType(mesh, faceFlux, schemeData));
+				}
+
+				addIstreamConstructorToTable(const word& lookup = convectionSchemeType::typeName)
+				{
+					constructIstreamConstructorTables();
+					if (!IstreamConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "convectionScheme" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
+			};
+
+			template <class convectionSchemeType>
+			class addRemovableIstreamConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static tmp<convectionScheme> New(const fvMesh& mesh, const surfaceScalarField& faceFlux, Istream& schemeData)
+				{
+					return tmp<convectionScheme>(new convectionSchemeType(mesh, faceFlux, schemeData));
+				}
+
+				addRemovableIstreamConstructorToTable(const word& lookup = convectionSchemeType::typeName) : lookup_(lookup)
+				{
+					constructIstreamConstructorTables();
+					IstreamConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovableIstreamConstructorToTable()
+				{
+					if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
+
+			typedef tmp<convectionScheme> (*MultivariateConstructorPtr)(const fvMesh& mesh,
+			                                                            const typename multivariateSurfaceInterpolationScheme<
+				                                                            Type>::fieldTable& fields,
+			                                                            const surfaceScalarField& faceFlux, Istream& schemeData);
+			typedef HashTable<MultivariateConstructorPtr, word, string::hash> MultivariateConstructorTable;
+			static FoamConvectionScheme_EXPORT MultivariateConstructorTable* MultivariateConstructorTablePtr_;
+			static FoamConvectionScheme_EXPORT void constructMultivariateConstructorTables();
+			static FoamConvectionScheme_EXPORT void destroyMultivariateConstructorTables();
+
+			template <class convectionSchemeType>
+			class addMultivariateConstructorToTable
+			{
+			public:
+				static tmp<convectionScheme> New(const fvMesh& mesh,
+				                                 const typename multivariateSurfaceInterpolationScheme<Type>::fieldTable& fields,
+				                                 const surfaceScalarField& faceFlux, Istream& schemeData)
+				{
+					return tmp<convectionScheme>(new convectionSchemeType(mesh, fields, faceFlux, schemeData));
+				}
+
+				addMultivariateConstructorToTable(const word& lookup = convectionSchemeType::typeName)
+				{
+					constructMultivariateConstructorTables();
+					if (!MultivariateConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "convectionScheme" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addMultivariateConstructorToTable() { destroyMultivariateConstructorTables(); }
+			};
+
+			template <class convectionSchemeType>
+			class addRemovableMultivariateConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static tmp<convectionScheme> New(const fvMesh& mesh,
+				                                 const typename multivariateSurfaceInterpolationScheme<Type>::fieldTable& fields,
+				                                 const surfaceScalarField& faceFlux, Istream& schemeData)
+				{
+					return tmp<convectionScheme>(new convectionSchemeType(mesh, fields, faceFlux, schemeData));
+				}
+
+				addRemovableMultivariateConstructorToTable(const word& lookup = convectionSchemeType::typeName) : lookup_(lookup)
+				{
+					constructMultivariateConstructorTables();
+					MultivariateConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovableMultivariateConstructorToTable()
+				{
+					if (MultivariateConstructorTablePtr_) { MultivariateConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors

@@ -12,7 +12,7 @@ tnbLib::word::word(Istream& is)
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, word& w)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, word& w)
 {
 	token t(is);
 
@@ -62,7 +62,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, word& w)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const word& w)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const word& w)
 {
 	os.write(w);
 	os.check("Ostream& operator<<(Ostream&, const word&)");

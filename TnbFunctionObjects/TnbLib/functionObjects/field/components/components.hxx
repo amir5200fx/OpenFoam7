@@ -120,8 +120,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <componentsTemplates.cxx>
+//#include <componentsTemplates.cxx>
 #endif
+
+#include <componentsTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

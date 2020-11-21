@@ -96,13 +96,13 @@ namespace tnbLib
 
 		// Debug switches
 
-		static int level;
+		static FoamBase_EXPORT int level;
 
 
 		// Constructors
 
 			//- Construct from components
-		messageStream
+		FoamBase_EXPORT messageStream
 		(
 			const string& title,
 			errorSeverity,
@@ -111,7 +111,7 @@ namespace tnbLib
 
 
 		//- Construct from dictionary
-		messageStream(const dictionary&);
+		FoamBase_EXPORT messageStream(const dictionary&);
 
 
 		// Member Functions
@@ -137,12 +137,12 @@ namespace tnbLib
 
 		//- Convert to OSstream
 		//  Prints to Pout for the master stream
-		OSstream& masterStream(const label communicator);
+		FoamBase_EXPORT OSstream& masterStream(const label communicator);
 
 
 		//- Convert to OSstream
 		//  Prints basic message and returns OSstream for further info.
-		OSstream& operator()
+		FoamBase_EXPORT OSstream& operator()
 			(
 				const char* functionName,
 				const char* sourceFileName,
@@ -151,7 +151,7 @@ namespace tnbLib
 
 		//- Convert to OSstream
 		//  Prints basic message and returns OSstream for further info.
-		OSstream& operator()
+		FoamBase_EXPORT OSstream& operator()
 			(
 				const string& functionName,
 				const char* sourceFileName,
@@ -160,7 +160,7 @@ namespace tnbLib
 
 		//- Convert to OSstream
 		//  Prints basic message and returns OSstream for further info.
-		OSstream& operator()
+		FoamBase_EXPORT OSstream& operator()
 			(
 				const char* functionName,
 				const char* sourceFileName,
@@ -172,7 +172,7 @@ namespace tnbLib
 
 		//- Convert to OSstream
 		//  Prints basic message and returns OSstream for further info.
-		OSstream& operator()
+		FoamBase_EXPORT OSstream& operator()
 			(
 				const char* functionName,
 				const char* sourceFileName,
@@ -182,7 +182,7 @@ namespace tnbLib
 
 		//- Convert to OSstream
 		//  Prints basic message and returns OSstream for further info.
-		OSstream& operator()
+		FoamBase_EXPORT OSstream& operator()
 			(
 				const char* functionName,
 				const char* sourceFileName,
@@ -191,10 +191,10 @@ namespace tnbLib
 				);
 
 		//- Convert to OSstream for << operations
-		operator OSstream&();
+		FoamBase_EXPORT operator OSstream&();
 
 		//- Explicitly convert to OSstream for << operations
-		OSstream& operator()()
+		FoamBase_EXPORT OSstream& operator()()
 		{
 			return operator OSstream&();
 		}
@@ -204,10 +204,10 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 	// Global error declarations: defined in messageStream.C
 
-	extern messageStream SeriousError;
-	extern messageStream Warning;
-	extern messageStream Info;
-	extern bool writeInfoHeader;
+	FoamBase_EXPORT extern messageStream SeriousError;
+	FoamBase_EXPORT extern messageStream Warning;
+	FoamBase_EXPORT extern messageStream Info;
+	FoamBase_EXPORT extern bool writeInfoHeader;
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

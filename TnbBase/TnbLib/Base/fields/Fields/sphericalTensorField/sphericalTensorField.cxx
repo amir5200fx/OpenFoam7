@@ -171,8 +171,8 @@ namespace tnbLib
 		return tRes;
 	}
 
-
-		template<>
+	// moved to the transformField.cxx file by amir
+		/*template<>
 	tmp<Field<sphericalTensor>> transformFieldMask<sphericalTensor>
 		(
 			const tensorField& tf
@@ -191,10 +191,10 @@ namespace tnbLib
 			transformFieldMask<sphericalTensor>(ttf());
 		ttf.clear();
 		return ret;
-	}
+	}*/
 
-
-	template<>
+	// moved to the symmTransformField.cxx file by amir
+	/*template<>
 	tmp<Field<sphericalTensor>> transformFieldMask<sphericalTensor>
 		(
 			const symmTensorField& stf
@@ -213,7 +213,7 @@ namespace tnbLib
 			transformFieldMask<sphericalTensor>(tstf());
 		tstf.clear();
 		return ret;
-	}
+	}*/
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

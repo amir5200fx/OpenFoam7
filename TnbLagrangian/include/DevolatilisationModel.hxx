@@ -44,6 +44,16 @@ SourceFiles
 
 #include <primitiveFieldsFwd.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamDevolatilisationModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDevolatilisationModel_EXPORT_DEFINE
+#define FoamDevolatilisationModel_EXPORT __declspec(dllexport)
+#else
+#define FoamDevolatilisationModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -69,10 +79,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("devolatilisationModel");
+		//TypeName("devolatilisationModel");
+		static const char* typeName_() { return "devolatilisationModel"; }
+		static FoamDevolatilisationModel_EXPORT const ::tnbLib::word typeName;
+		static FoamDevolatilisationModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			DevolatilisationModel,
@@ -82,7 +96,59 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<DevolatilisationModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamDevolatilisationModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamDevolatilisationModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamDevolatilisationModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class DevolatilisationModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<DevolatilisationModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<DevolatilisationModel>(new DevolatilisationModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = DevolatilisationModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"DevolatilisationModel" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class DevolatilisationModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<DevolatilisationModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<DevolatilisationModel>(new DevolatilisationModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(
+				const word& lookup = DevolatilisationModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

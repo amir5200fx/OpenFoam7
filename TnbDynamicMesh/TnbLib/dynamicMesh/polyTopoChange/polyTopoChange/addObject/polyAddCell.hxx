@@ -72,7 +72,11 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Runtime type information
-		TypeName("addCell");
+		//TypeName("addCell");
+		static const char* typeName_() { return "addCell"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

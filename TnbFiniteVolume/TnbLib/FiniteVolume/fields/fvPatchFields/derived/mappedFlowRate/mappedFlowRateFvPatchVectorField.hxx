@@ -92,20 +92,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("mappedFlowRate");
+		//TypeName("mappedFlowRate");
+		static const char* typeName_() { return "mappedFlowRate"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			 //- Construct from patch and internal field
-		mappedFlowRateFvPatchVectorField
+		//- Construct from patch and internal field
+		FoamFiniteVolume_EXPORT mappedFlowRateFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		mappedFlowRateFvPatchVectorField
+		FoamFiniteVolume_EXPORT mappedFlowRateFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -115,7 +119,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  mappedFlowRateFvPatchVectorField
 		//  onto a new patch
-		mappedFlowRateFvPatchVectorField
+		FoamFiniteVolume_EXPORT mappedFlowRateFvPatchVectorField
 		(
 			const mappedFlowRateFvPatchVectorField&,
 			const fvPatch&,
@@ -124,7 +128,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		mappedFlowRateFvPatchVectorField
+		FoamFiniteVolume_EXPORT mappedFlowRateFvPatchVectorField
 		(
 			const mappedFlowRateFvPatchVectorField&
 		);
@@ -139,7 +143,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		mappedFlowRateFvPatchVectorField
+		FoamFiniteVolume_EXPORT mappedFlowRateFvPatchVectorField
 		(
 			const mappedFlowRateFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -162,10 +166,10 @@ namespace tnbLib
 
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 
 	};
 

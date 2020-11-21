@@ -39,6 +39,16 @@ SourceFiles
 #include <multivariateSurfaceInterpolationScheme.hxx>
 #include <surfaceFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamMultivariateUpwind_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMultivariateUpwind_EXPORT_DEFINE
+#define FoamMultivariateUpwind_EXPORT __declspec(dllexport)
+#else
+#define FoamMultivariateUpwind_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -61,7 +71,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("upwind");
+		/*TypeName("upwind");*/
+		static const char* typeName_() { return "upwind"; }
+		static FoamMultivariateUpwind_EXPORT const ::tnbLib::word typeName;
+		static FoamMultivariateUpwind_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

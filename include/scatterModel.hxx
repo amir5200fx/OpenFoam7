@@ -62,11 +62,15 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("scatterModel");
+			//TypeName("scatterModel");
+			static const char* typeName_() { return "scatterModel"; }
+			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+			static FoamRadiationModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Declare runtime constructor selection table
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				scatterModel,
@@ -76,18 +80,70 @@ namespace tnbLib
 					const fvMesh& mesh
 					),
 					(dict, mesh)
-			);
+			);*/
+
+			typedef autoPtr<scatterModel> (*dictionaryConstructorPtr)(const dictionary& dict, const fvMesh& mesh);
+			typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+			static FoamRadiationModels_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+			static FoamRadiationModels_EXPORT void constructdictionaryConstructorTables();
+			static FoamRadiationModels_EXPORT void destroydictionaryConstructorTables();
+
+			template <class scatterModelType>
+			class adddictionaryConstructorToTable
+			{
+			public:
+				static autoPtr<scatterModel> New(const dictionary& dict, const fvMesh& mesh)
+				{
+					return autoPtr<scatterModel>(new scatterModelType(dict, mesh));
+				}
+
+				adddictionaryConstructorToTable(const word& lookup = scatterModelType::typeName)
+				{
+					constructdictionaryConstructorTables();
+					if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "scatterModel" <<
+							std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+			};
+
+			template <class scatterModelType>
+			class addRemovabledictionaryConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<scatterModel> New(const dictionary& dict, const fvMesh& mesh)
+				{
+					return autoPtr<scatterModel>(new scatterModelType(dict, mesh));
+				}
+
+				addRemovabledictionaryConstructorToTable(const word& lookup = scatterModelType::typeName) : lookup_(
+					lookup)
+				{
+					constructdictionaryConstructorTables();
+					dictionaryConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovabledictionaryConstructorToTable()
+				{
+					if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+				}
+			};
 
 
 			// Constructors
 
 				//- Construct from components
-			scatterModel(const dictionary& dict, const fvMesh& mesh);
+			FoamRadiationModels_EXPORT scatterModel(const dictionary& dict, const fvMesh& mesh);
 
 
 			// Selector
 
-			static autoPtr<scatterModel> New
+			static FoamRadiationModels_EXPORT autoPtr<scatterModel> New
 			(
 				const dictionary& dict,
 				const fvMesh& mesh
@@ -95,13 +151,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~scatterModel();
+			FoamRadiationModels_EXPORT virtual ~scatterModel();
 
 
 			// Member Functions
 
 				//- Return scatter coefficient
-			virtual tmp<volScalarField> sigmaEff() const = 0;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField> sigmaEff() const = 0;
 		};
 
 

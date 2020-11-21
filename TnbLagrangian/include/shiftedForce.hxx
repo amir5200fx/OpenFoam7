@@ -65,13 +65,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("shiftedForce");
+			//TypeName("shiftedForce");
+			static const char* typeName_() { return "shiftedForce"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			shiftedForce
+			FoamLagrangian_EXPORT shiftedForce
 			(
 				const word& name,
 				const dictionary& energyScalingFunctionProperties,
@@ -86,10 +90,10 @@ namespace tnbLib
 
 			// Member Functions
 
-			void scaleEnergy(scalar& e, const scalar r) const;
+			FoamLagrangian_EXPORT void scaleEnergy(scalar& e, const scalar r) const;
 
 			//- Read dictionary
-			bool read(const dictionary& energyScalingFunctionProperties);
+			FoamLagrangian_EXPORT bool read(const dictionary& energyScalingFunctionProperties);
 		};
 
 

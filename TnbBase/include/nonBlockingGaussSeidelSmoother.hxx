@@ -67,13 +67,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("nonBlockingGaussSeidel");
+		//TypeName("nonBlockingGaussSeidel");
+		static const char* typeName_() { return "nonBlockingGaussSeidel"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		nonBlockingGaussSeidelSmoother
+		FoamBase_EXPORT nonBlockingGaussSeidelSmoother
 		(
 			const word& fieldName,
 			const lduMatrix& matrix,
@@ -86,7 +90,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Smooth for the given number of sweeps
-		static void smooth
+		static FoamBase_EXPORT void smooth
 		(
 			const word& fieldName,
 			scalarField& psi,
@@ -100,7 +104,7 @@ namespace tnbLib
 		);
 
 		//- Smooth the solution for a given number of sweeps
-		virtual void smooth
+		FoamBase_EXPORT virtual void smooth
 		(
 			scalarField& psi,
 			const scalarField& Source,

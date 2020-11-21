@@ -60,16 +60,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("extendedFeatureEdgeMesh");
+		/*TypeName("extendedFeatureEdgeMesh");*/
+		static const char* typeName_() { return "extendedFeatureEdgeMesh"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct (read) given an IOobject
-		extendedFeatureEdgeMesh(const IOobject&);
+		FoamFvMesh_EXPORT extendedFeatureEdgeMesh(const IOobject&);
 
 		//- Copy constructor
-		extendedFeatureEdgeMesh
+		FoamFvMesh_EXPORT extendedFeatureEdgeMesh
 		(
 			const IOobject&,
 			const extendedEdgeMesh&
@@ -79,7 +83,7 @@ namespace tnbLib
 		//  (surfaceFeatures), an objectRegistry and a
 		//  fileName to write to.
 		//  Extracts, classifies and reorders the data from surfaceFeatures.
-		extendedFeatureEdgeMesh
+		FoamFvMesh_EXPORT extendedFeatureEdgeMesh
 		(
 			const surfaceFeatures& sFeat,
 			const objectRegistry& obr,
@@ -88,7 +92,7 @@ namespace tnbLib
 		);
 
 		//- Construct from PrimitivePatch
-		extendedFeatureEdgeMesh
+		FoamFvMesh_EXPORT extendedFeatureEdgeMesh
 		(
 			const IOobject&,
 			const PrimitivePatch<faceList, pointField>& surf,
@@ -98,7 +102,7 @@ namespace tnbLib
 		);
 
 		//- Construct from all components
-		extendedFeatureEdgeMesh
+		FoamFvMesh_EXPORT extendedFeatureEdgeMesh
 		(
 			const IOobject& io,
 			const pointField& pts,
@@ -122,7 +126,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~extendedFeatureEdgeMesh();
+		FoamFvMesh_EXPORT virtual ~extendedFeatureEdgeMesh();
 
 
 		// IO
@@ -131,10 +135,10 @@ namespace tnbLib
 		using regIOobject::write;
 
 		//- ReadData function required for regIOobject read operation
-		virtual bool readData(Istream&);
+		FoamFvMesh_EXPORT virtual bool readData(Istream&);
 
 		//- WriteData function required for regIOobject write operation
-		virtual bool writeData(Ostream&) const;
+		FoamFvMesh_EXPORT virtual bool writeData(Ostream&) const;
 
 		//- Is object global
 		virtual bool global() const

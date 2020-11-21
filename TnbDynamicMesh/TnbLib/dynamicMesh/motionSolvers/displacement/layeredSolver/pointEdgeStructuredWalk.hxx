@@ -54,8 +54,8 @@ namespace tnbLib
 
 	class pointEdgeStructuredWalk;
 
-	Istream& operator>>(Istream&, pointEdgeStructuredWalk&);
-	Ostream& operator<<(Ostream&, const pointEdgeStructuredWalk&);
+	FoamDynamicMesh_EXPORT Istream& operator>>(Istream&, pointEdgeStructuredWalk&);
+	FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const pointEdgeStructuredWalk&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -223,8 +223,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const pointEdgeStructuredWalk&);
-		friend Istream& operator>>(Istream&, pointEdgeStructuredWalk&);
+		FoamDynamicMesh_EXPORT friend Ostream& operator<<(Ostream&, const pointEdgeStructuredWalk&);
+		FoamDynamicMesh_EXPORT friend Istream& operator>>(Istream&, pointEdgeStructuredWalk&);
 	};
 
 

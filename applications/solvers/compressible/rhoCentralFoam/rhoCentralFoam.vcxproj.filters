@@ -80,5 +80,8 @@
     <None Include="BCs\mixedFixedValueSlip\mixedFixedValueSlipFvPatchField.cxx">
       <Filter>Source Files\BCs\mixedFixedValueSlip</Filter>
     </None>
+    <None Include="BCs\mixedFixedValueSlip\mixedFixedValueSlipFvPatchFieldI.hxx">
+      <Filter>Source Files\BCs\mixedFixedValueSlip</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -57,7 +57,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculates per edge the neighbour data (= edgeCells)
-		void calcEdgeBoundaryData
+		FoamFiniteVolume_EXPORT void calcEdgeBoundaryData
 		(
 			const boolList& isValidBFace,
 			const labelList& boundaryEdges,
@@ -67,7 +67,7 @@ namespace tnbLib
 		//- Calculates per cell the neighbour data
 		//  (= cell or boundary in global numbering).
 		//  First element is always cell itself!
-		void calcCellStencil(labelListList& globalCellCells) const;
+		FoamFiniteVolume_EXPORT void calcCellStencil(labelListList& globalCellCells) const;
 
 
 	public:

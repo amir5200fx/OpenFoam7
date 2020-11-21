@@ -54,6 +54,16 @@ SourceFiles
 
 #include <vector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamExplicit_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamExplicit_EXPORT_DEFINE
+#define FoamExplicit_EXPORT __declspec(dllexport)
+#else
+#define FoamExplicit_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -88,7 +98,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("explicit");
+			//TypeName("explicit");
+			static const char* typeName_() { return "explicit"; }
+			static FoamExplicit_EXPORT const ::tnbLib::word typeName;
+			static FoamExplicit_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 

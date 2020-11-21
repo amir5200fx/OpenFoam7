@@ -46,7 +46,7 @@ namespace tnbLib
 
 	// Specialization of the max function for scalar object
 	template<>
-	SolverPerformance<scalar> SolverPerformance<scalar>::max();
+	FoamBase_EXPORT SolverPerformance<scalar> SolverPerformance<scalar>::max();
 }
 
 

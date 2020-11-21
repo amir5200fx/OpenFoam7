@@ -64,6 +64,16 @@ SourceFiles
 
 #include <kEpsilon.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoambuoyantKEpsilon_EXPORT __declspec(dllexport)
+#else
+#ifdef FoambuoyantKEpsilon_EXPORT_DEFINE
+#define FoambuoyantKEpsilon_EXPORT __declspec(dllexport)
+#else
+#define FoambuoyantKEpsilon_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -105,7 +115,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("buoyantKEpsilon");
+			//TypeName("buoyantKEpsilon");
+			static const char* typeName_() { return "buoyantKEpsilon"; }
+			static FoambuoyantKEpsilon_EXPORT const ::tnbLib::word typeName;
+			static FoambuoyantKEpsilon_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

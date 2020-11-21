@@ -236,10 +236,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Set up processor patch addressing
-		void initProcAddr();
+		FoamBase_EXPORT void initProcAddr();
 
 		//- Helper function for shared edge addressing
-		static void countSharedEdges
+		static FoamBase_EXPORT void countSharedEdges
 		(
 			const EdgeMap<labelList>&,
 			EdgeMap<label>&,
@@ -247,21 +247,21 @@ namespace tnbLib
 		);
 
 		//- Calculate shared point addressing
-		void calcSharedPoints() const;
+		FoamBase_EXPORT void calcSharedPoints() const;
 
 		//- Calculate shared edge addressing
-		void calcSharedEdges() const;
+		FoamBase_EXPORT void calcSharedEdges() const;
 
 		//- Calculate global point addressing.
-		void calcGlobalPointSlaves() const;
+		FoamBase_EXPORT void calcGlobalPointSlaves() const;
 
 		// Global edge addressing
 
 			//- Calculate connected points
-		void calcPointConnectivity(List<labelPairList>&) const;
+		FoamBase_EXPORT void calcPointConnectivity(List<labelPairList>&) const;
 
 		//- Calculate pointEdges and pointPoints addressing
-		void calcGlobalPointEdges
+		FoamBase_EXPORT void calcGlobalPointEdges
 		(
 			labelListList& globalPointEdges,
 			List<labelPairList>& globalPointPoints
@@ -269,7 +269,7 @@ namespace tnbLib
 
 		//- Look up remote and local point and find using info the
 		//  transforms to go from remotePoint to localPoint
-		label findTransform
+		FoamBase_EXPORT label findTransform
 		(
 			const labelPairList& info,
 			const labelPair& remotePoint,
@@ -277,22 +277,22 @@ namespace tnbLib
 		) const;
 
 		//- Calculate global edge addressing.
-		void calcGlobalEdgeSlaves() const;
+		FoamBase_EXPORT void calcGlobalEdgeSlaves() const;
 
 		//- Calculate orientation w.r.t. edge master.
-		void calcGlobalEdgeOrientation() const;
+		FoamBase_EXPORT void calcGlobalEdgeOrientation() const;
 
 
 		// Global boundary face/cell addressing
 
 			//- Calculate coupled point to uncoupled boundary faces. Local only.
-		void calcPointBoundaryFaces(labelListList&) const;
+		FoamBase_EXPORT void calcPointBoundaryFaces(labelListList&) const;
 
 		//- Calculate global point to global boundary face addressing.
-		void calcGlobalPointBoundaryFaces() const;
+		FoamBase_EXPORT void calcGlobalPointBoundaryFaces() const;
 
 		//- Calculate global point to global boundary cell addressing.
-		void calcGlobalPointBoundaryCells() const;
+		FoamBase_EXPORT void calcGlobalPointBoundaryCells() const;
 
 		// Other
 
@@ -302,7 +302,7 @@ namespace tnbLib
 			// reaches all points and decide who is master, slave and who is
 			// its own master. Maybe store as well?
 
-		void calcGlobalCoPointSlaves() const;
+		FoamBase_EXPORT void calcGlobalCoPointSlaves() const;
 
 
 	public:
@@ -331,29 +331,32 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		ClassName("globalMeshData");
+		//ClassName("globalMeshData");
+		static const char* typeName_() { return "globalMeshData"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		// Static Data Members
 
 			//- Geometric tolerance (fraction of bounding box)
-		static const tnbLib::scalar matchTol_;
+		static FoamBase_EXPORT const tnbLib::scalar matchTol_;
 
 
 		// Constructors
 
 			//- Construct from mesh, derive rest (does parallel communication!)
-		globalMeshData(const polyMesh& mesh);
+		FoamBase_EXPORT globalMeshData(const polyMesh& mesh);
 
 		//- Disallow default bitwise copy construction
-		globalMeshData(const globalMeshData&) = delete;
+		FoamBase_EXPORT globalMeshData(const globalMeshData&) = delete;
 
 
 		//- Destructor
-		~globalMeshData();
+		FoamBase_EXPORT ~globalMeshData();
 
 		//- Remove all demand driven data
-		void clearOut();
+		FoamBase_EXPORT void clearOut();
 
 
 		// Member Functions
@@ -422,10 +425,10 @@ namespace tnbLib
 		// Globally shared point addressing
 
 			//- Return number of globally shared points
-		label nGlobalPoints() const;
+		FoamBase_EXPORT label nGlobalPoints() const;
 
 		//- Return indices of local points that are globally shared
-		const labelList& sharedPointLabels() const;
+		FoamBase_EXPORT const labelList& sharedPointLabels() const;
 
 		//- Return addressing into the complete globally shared points
 		//  list
@@ -435,24 +438,24 @@ namespace tnbLib
 		//  points. Shared point addressing gives the index in the
 		//  list of all globally shared points for each of the locally
 		//  shared points.
-		const labelList& sharedPointAddr() const;
+		FoamBase_EXPORT const labelList& sharedPointAddr() const;
 
 		//- Return shared point global labels. Tries to read
 		//  'pointProcAddressing' and returns list or -1 if none
 		//  available.
-		const labelList& sharedPointGlobalLabels() const;
+		FoamBase_EXPORT const labelList& sharedPointGlobalLabels() const;
 
 		//- Collect coordinates of shared points on all processors.
 		//  (does parallel communication!)
 		//  Note: not valid for cyclicParallel since shared cyclic points
 		//  are merged into single global point. (use geometricSharedPoints
 		//  instead)
-		pointField sharedPoints() const;
+		FoamBase_EXPORT pointField sharedPoints() const;
 
 		//- Like sharedPoints but keeps cyclic points separate.
 		//  (does geometric merging; uses matchTol_*bb as merging tolerance)
 		//  Use sharedPoints() instead.
-		pointField geometricSharedPoints() const;
+		FoamBase_EXPORT pointField geometricSharedPoints() const;
 
 
 
@@ -460,12 +463,12 @@ namespace tnbLib
 
 			//- Return number of globally shared edges. Demand-driven
 			//  calculation so call needs to be synchronous among processors!
-		label nGlobalEdges() const;
+		FoamBase_EXPORT label nGlobalEdges() const;
 
 		//- Return indices of local edges that are globally shared.
 		//  Demand-driven
 		//  calculation so call needs to be synchronous among processors!
-		const labelList& sharedEdgeLabels() const;
+		FoamBase_EXPORT const labelList& sharedEdgeLabels() const;
 
 		//- Return addressing into the complete globally shared edge
 		//  list. The set of shared
@@ -475,23 +478,23 @@ namespace tnbLib
 		//  shared edges.
 		//  Demand-driven
 		//  calculation so call needs to be synchronous among processors!
-		const labelList& sharedEdgeAddr() const;
+		FoamBase_EXPORT const labelList& sharedEdgeAddr() const;
 
 
 
 		// Global master - slave point communication
 
 			//- Return patch of all coupled faces
-		const indirectPrimitivePatch& coupledPatch() const;
+		FoamBase_EXPORT const indirectPrimitivePatch& coupledPatch() const;
 
 		//- Return map from coupledPatch edges to mesh edges
-		const labelList& coupledPatchMeshEdges() const;
+		FoamBase_EXPORT const labelList& coupledPatchMeshEdges() const;
 
 		//- Return map from mesh edges to coupledPatch edges
-		const Map<label>& coupledPatchMeshEdgeMap() const;
+		FoamBase_EXPORT const Map<label>& coupledPatchMeshEdgeMap() const;
 
 		//- Global transforms numbering
-		const globalIndexAndTransform& globalTransforms() const;
+		FoamBase_EXPORT const globalIndexAndTransform& globalTransforms() const;
 
 		//- Helper: synchronise data with transforms
 		template<class Type, class CombineOp, class TransformOp>
@@ -522,10 +525,10 @@ namespace tnbLib
 		// points on any coupled patch.
 
 			//- Numbering of coupled points is according to coupledPatch.
-		const globalIndex& globalPointNumbering() const;
-		const labelListList& globalPointSlaves() const;
-		const labelListList& globalPointTransformedSlaves() const;
-		const mapDistribute& globalPointSlavesMap() const;
+		FoamBase_EXPORT const globalIndex& globalPointNumbering() const;
+		FoamBase_EXPORT const labelListList& globalPointSlaves() const;
+		FoamBase_EXPORT const labelListList& globalPointTransformedSlaves() const;
+		FoamBase_EXPORT const mapDistribute& globalPointSlavesMap() const;
 		//- Helper to synchronise coupled patch point data
 		template<class Type, class CombineOp, class TransformOp>
 		void syncPointData
@@ -537,39 +540,39 @@ namespace tnbLib
 
 		// Coupled edge to coupled edges.
 
-		const globalIndex& globalEdgeNumbering() const;
-		const labelListList& globalEdgeSlaves() const;
-		const labelListList& globalEdgeTransformedSlaves() const;
-		const mapDistribute& globalEdgeSlavesMap() const;
+		FoamBase_EXPORT const globalIndex& globalEdgeNumbering() const;
+		FoamBase_EXPORT const labelListList& globalEdgeSlaves() const;
+		FoamBase_EXPORT const labelListList& globalEdgeTransformedSlaves() const;
+		FoamBase_EXPORT const mapDistribute& globalEdgeSlavesMap() const;
 		//- Is my edge same orientation as master edge
-		const PackedBoolList& globalEdgeOrientation() const;
+		FoamBase_EXPORT const PackedBoolList& globalEdgeOrientation() const;
 
 		// Collocated point to collocated point
 
-		const labelListList& globalCoPointSlaves() const;
-		const mapDistribute& globalCoPointSlavesMap() const;
+		FoamBase_EXPORT const labelListList& globalCoPointSlaves() const;
+		FoamBase_EXPORT const mapDistribute& globalCoPointSlavesMap() const;
 
 		// Coupled point to boundary faces. These are uncoupled boundary
 		// faces only but include empty patches.
 
 			//- Numbering of boundary faces is face-mesh.nInternalFaces()
-		const globalIndex& globalBoundaryFaceNumbering() const;
-		const labelListList& globalPointBoundaryFaces() const;
-		const labelListList& globalPointTransformedBoundaryFaces()
+		FoamBase_EXPORT const globalIndex& globalBoundaryFaceNumbering() const;
+		FoamBase_EXPORT const labelListList& globalPointBoundaryFaces() const;
+		FoamBase_EXPORT const labelListList& globalPointTransformedBoundaryFaces()
 			const;
-		const mapDistribute& globalPointBoundaryFacesMap() const;
+		FoamBase_EXPORT const mapDistribute& globalPointBoundaryFacesMap() const;
 
 		// Coupled point to boundary cell
 
 			//- From boundary cell to mesh cell
-		const labelList& boundaryCells() const;
+		FoamBase_EXPORT const labelList& boundaryCells() const;
 
 		//- Numbering of boundary cells is according to boundaryCells()
-		const globalIndex& globalBoundaryCellNumbering() const;
-		const labelListList& globalPointBoundaryCells() const;
-		const labelListList& globalPointTransformedBoundaryCells()
+		FoamBase_EXPORT const globalIndex& globalBoundaryCellNumbering() const;
+		FoamBase_EXPORT const labelListList& globalPointBoundaryCells() const;
+		FoamBase_EXPORT const labelListList& globalPointTransformedBoundaryCells()
 			const;
-		const mapDistribute& globalPointBoundaryCellsMap() const;
+		FoamBase_EXPORT const mapDistribute& globalPointBoundaryCellsMap() const;
 
 
 		// Other
@@ -580,7 +583,7 @@ namespace tnbLib
 			//  - global numbering over all unique indices
 			//  - the global number for all local points (so this will
 			//    be local for my unique points)
-		autoPtr<globalIndex> mergePoints
+		FoamBase_EXPORT autoPtr<globalIndex> mergePoints
 		(
 			labelList& pointToGlobal,
 			labelList& uniquePoints
@@ -593,7 +596,7 @@ namespace tnbLib
 		//    point indices.
 		//  - global numbering over all unique indices.
 		//  - the global number for all local points.
-		autoPtr<globalIndex> mergePoints
+		FoamBase_EXPORT autoPtr<globalIndex> mergePoints
 		(
 			const labelList& meshPoints,
 			const Map<label>& meshPointMap,
@@ -605,18 +608,18 @@ namespace tnbLib
 		// Edit
 
 			//- Update for moving points.
-		void movePoints(const pointField& newPoints);
+		FoamBase_EXPORT void movePoints(const pointField& newPoints);
 
 		//- Change global mesh data given a topological change. Does a
 		//  full parallel analysis to determine shared points and
 		//  boundaries.
-		void updateMesh();
+		FoamBase_EXPORT void updateMesh();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const globalMeshData&) = delete;
+		FoamBase_EXPORT void operator=(const globalMeshData&) = delete;
 	};
 
 

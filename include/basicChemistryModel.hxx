@@ -86,22 +86,26 @@ namespace tnbLib
 		inline volScalarField::Internal& deltaTChem();
 
 		//- Correct function - updates due to mesh changes
-		void correct();
+		FoamThermophysicalModels_EXPORT void correct();
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("basicChemistryModel");
+		//TypeName("basicChemistryModel");
+		static const char* typeName_() { return "basicChemistryModel"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from thermo
-		basicChemistryModel(basicThermo& thermo);
+		FoamThermophysicalModels_EXPORT basicChemistryModel(basicThermo& thermo);
 
 		//- Construct as copy (not implemented)
-		basicChemistryModel(const basicChemistryModel&);
+		FoamThermophysicalModels_EXPORT basicChemistryModel(const basicChemistryModel&);
 
 
 		// Selectors
@@ -115,7 +119,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~basicChemistryModel();
+		FoamThermophysicalModels_EXPORT virtual ~basicChemistryModel();
 
 
 		// Member Functions
@@ -127,10 +131,10 @@ namespace tnbLib
 		inline Switch chemistry() const;
 
 		//- The number of species
-		virtual label nSpecie() const = 0;
+		FoamThermophysicalModels_EXPORT virtual label nSpecie() const = 0;
 
 		//- The number of reactions
-		virtual label nReaction() const = 0;
+		FoamThermophysicalModels_EXPORT virtual label nReaction() const = 0;
 
 		//- Return the latest estimation of integration step
 		inline const volScalarField::Internal& deltaTChem() const;
@@ -141,19 +145,19 @@ namespace tnbLib
 			// Fields
 
 				//- Return const access to chemical source terms [kg/m^3/s]
-		virtual const volScalarField::Internal& RR
+		FoamThermophysicalModels_EXPORT virtual const volScalarField::Internal& RR
 		(
 			const label i
 		) const = 0;
 
 		//- Return access to chemical source terms [kg/m^3/s]
-		virtual volScalarField::Internal& RR
+		FoamThermophysicalModels_EXPORT virtual volScalarField::Internal& RR
 		(
 			const label i
 		) = 0;
 
 		//- Return reaction rate of the speciei in reactioni
-		virtual tmp<volScalarField::Internal> calculateRR
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField::Internal> calculateRR
 		(
 			const label reactioni,
 			const label speciei
@@ -163,27 +167,27 @@ namespace tnbLib
 		// Chemistry solution
 
 			//- Calculates the reaction rates
-		virtual void calculate() = 0;
+		FoamThermophysicalModels_EXPORT virtual void calculate() = 0;
 
 		//- Solve the reaction system for the given time step
 		//  and return the characteristic time
-		virtual scalar solve(const scalar deltaT) = 0;
+		FoamThermophysicalModels_EXPORT virtual scalar solve(const scalar deltaT) = 0;
 
 		//- Solve the reaction system for the given time step
 		//  and return the characteristic time
-		virtual scalar solve(const scalarField& deltaT) = 0;
+		FoamThermophysicalModels_EXPORT virtual scalar solve(const scalarField& deltaT) = 0;
 
 		//- Return the chemical time scale
-		virtual tmp<volScalarField> tc() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> tc() const = 0;
 
 		//- Return the heat release rate [kg/m/s^3]
-		virtual tmp<volScalarField> Qdot() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> Qdot() const = 0;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const basicChemistryModel&) = delete;
+		FoamThermophysicalModels_EXPORT void operator=(const basicChemistryModel&) = delete;
 	};
 
 

@@ -69,21 +69,21 @@ namespace tnbLib
 				// Constructors
 
 					//- Construct null
-				injectionModelList(surfaceFilmRegionModel& film);
+				FoamLagrangian_EXPORT injectionModelList(surfaceFilmRegionModel& film);
 
 				//- Construct from type name, dictionary and surface film model
-				injectionModelList
+				FoamLagrangian_EXPORT injectionModelList
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
 				);
 
 				//- Disallow default bitwise copy construction
-				injectionModelList(const injectionModelList&) = delete;
+				FoamLagrangian_EXPORT injectionModelList(const injectionModelList&) = delete;
 
 
 				//- Destructor
-				virtual ~injectionModelList();
+				FoamLagrangian_EXPORT virtual ~injectionModelList();
 
 
 				// Member Functions
@@ -91,7 +91,7 @@ namespace tnbLib
 					// Evolution
 
 						//- Correct
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					scalarField& availableMass,
 					volScalarField& massToInject,
@@ -102,13 +102,13 @@ namespace tnbLib
 				// I-O
 
 					//- Provide some info
-				virtual void info(Ostream& os);
+				FoamLagrangian_EXPORT virtual void info(Ostream& os);
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const injectionModelList&) = delete;
+				FoamLagrangian_EXPORT void operator=(const injectionModelList&) = delete;
 			};
 
 

@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <advectiveFvPatchFields.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>

@@ -48,8 +48,8 @@ namespace tnbLib
 	class hashedWordList;
 
 	// Forward declaration of friend functions and operators
-	Istream& operator>>(Istream&, hashedWordList&);
-	Ostream& operator<<(Ostream&, const hashedWordList&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, hashedWordList&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const hashedWordList&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -68,44 +68,44 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Rebuild the hash of indices
-		void rehash();
+		FoamBase_EXPORT void rehash();
 
 	public:
 
 		// Constructors
 
 			//- Construct null
-		hashedWordList();
+		FoamBase_EXPORT hashedWordList();
 
 		//- Copy constructor
-		hashedWordList(const hashedWordList&);
+		FoamBase_EXPORT hashedWordList(const hashedWordList&);
 
 		//- Move constructor
-		hashedWordList(hashedWordList&&);
+		FoamBase_EXPORT hashedWordList(hashedWordList&&);
 
 		//- Construct from list of names
-		hashedWordList(const UList<word>& names);
+		FoamBase_EXPORT hashedWordList(const UList<word>& names);
 
 		//- Move constructor transferring the parameter contents
-		hashedWordList(List<word>&& names);
+		FoamBase_EXPORT hashedWordList(List<word>&& names);
 
 		//- Construct from number and list of names
-		hashedWordList(const label nNames, const char** names);
+		FoamBase_EXPORT hashedWordList(const label nNames, const char** names);
 
 		//- Construct from a nullptr-terminated list of names
-		hashedWordList(const char** names);
+		FoamBase_EXPORT hashedWordList(const char** names);
 
 		//- Construct from Istream
-		hashedWordList(Istream&);
+		FoamBase_EXPORT hashedWordList(Istream&);
 
 
 		// Member Functions
 
 			//- Clear the list, i.e. set size to zero.
-		void clear();
+		FoamBase_EXPORT void clear();
 
 		//- Append an element at the end of the list
-		void append(const word&);
+		FoamBase_EXPORT void append(const word&);
 
 		//- Does the list contain the specified name
 		inline bool found(const word&) const;
@@ -115,7 +115,7 @@ namespace tnbLib
 
 		//- Transfer the contents of the argument List into this list
 		//  and annul the argument list.
-		void transfer(List<word>&);
+		FoamBase_EXPORT void transfer(List<word>&);
 
 
 		// Member Operators
@@ -138,8 +138,8 @@ namespace tnbLib
 
 		// Istream operators
 
-		friend Istream& operator>>(Istream&, hashedWordList&);
-		friend Ostream& operator<<(Ostream&, const hashedWordList&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, hashedWordList&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const hashedWordList&);
 	};
 
 

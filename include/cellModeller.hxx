@@ -56,13 +56,13 @@ namespace tnbLib
 		// Private Data
 
 			//- PtrList of models
-		static PtrList<cellModel> models_;
+		static FoamBase_EXPORT PtrList<cellModel> models_;
 
 		//- List of model pointers
-		static List<cellModel*> modelPtrs_;
+		static FoamBase_EXPORT List<cellModel*> modelPtrs_;
 
 		//- HashTable of model pointers
-		static HashTable<const cellModel*> modelDictionary_;
+		static FoamBase_EXPORT HashTable<const cellModel*> modelDictionary_;
 
 
 	public:
@@ -70,20 +70,20 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from central "cellModels" file
-		cellModeller();
+		FoamBase_EXPORT cellModeller();
 
 		//- Destructor
-		~cellModeller();
+		FoamBase_EXPORT ~cellModeller();
 
 
 		// Member Functions
 
 			//- Look up a model by name and return a pointer to the model or nullptr
-		static const cellModel* lookup(const word&);
+		static FoamBase_EXPORT const cellModel* lookup(const word&);
 
 		//- Look up a model by index and return a pointer to the model or
 		//  nullptr
-		static const cellModel* lookup(const label i);
+		static FoamBase_EXPORT const cellModel* lookup(const label i);
 	};
 
 

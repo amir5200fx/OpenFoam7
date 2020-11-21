@@ -104,7 +104,7 @@ namespace tnbLib
 
 			//- Create an edgeList of edges in facei which have both their points
 			//  in pointLabels
-		labelList edgesFromPoints
+		FoamDynamicMesh_EXPORT labelList edgesFromPoints
 		(
 			const label& facei,
 			const labelList& pointLabels
@@ -112,7 +112,7 @@ namespace tnbLib
 
 		//- Collapse a face to an edge, marking the collapsed edges and new
 		//  locations for points that will move as a result of the collapse
-		void collapseToEdge
+		FoamDynamicMesh_EXPORT void collapseToEdge
 		(
 			const label facei,
 			const pointField& pts,
@@ -130,7 +130,7 @@ namespace tnbLib
 
 		//- Collapse a face to a point, marking the collapsed edges and new
 		//  locations for points that will move as a result of the collapse
-		void collapseToPoint
+		FoamDynamicMesh_EXPORT void collapseToPoint
 		(
 			const label& facei,
 			const pointField& pts,
@@ -143,7 +143,7 @@ namespace tnbLib
 
 		//- Do an eigenvector analysis of the face to get its collapse axis
 		//  and aspect ratio
-		void faceCollapseAxisAndAspectRatio
+		FoamDynamicMesh_EXPORT void faceCollapseAxisAndAspectRatio
 		(
 			const face& f,
 			const point& fC,
@@ -152,11 +152,11 @@ namespace tnbLib
 		) const;
 
 		//- Return the target length scale for each face
-		scalarField calcTargetFaceSizes() const;
+		FoamDynamicMesh_EXPORT scalarField calcTargetFaceSizes() const;
 
 		//- Decides whether a face should be collapsed (and if so it it is to a
 		//  point or an edge)
-		collapseType collapseFace
+		FoamDynamicMesh_EXPORT collapseType collapseFace
 		(
 			const labelList& pointPriority,
 			const face& f,
@@ -169,10 +169,10 @@ namespace tnbLib
 
 		//- Return label of point that has the highest priority. This will be
 		//  the point on the edge that will be collapsed to.
-		label edgeMaster(const labelList& pointPriority, const edge& e) const;
+		FoamDynamicMesh_EXPORT label edgeMaster(const labelList& pointPriority, const edge& e) const;
 
 		//- Decides which points in an edge to collapse, based on their priority
-		void checkBoundaryPointMergeEdges
+		FoamDynamicMesh_EXPORT void checkBoundaryPointMergeEdges
 		(
 			const label pointi,
 			const label otherPointi,
@@ -183,7 +183,7 @@ namespace tnbLib
 		//- Helper function that breaks strings of collapses if an edge is not
 		//  labelled to collapse, but its points both collapse to the same
 		//  location
-		label breakStringsAtEdges
+		FoamDynamicMesh_EXPORT label breakStringsAtEdges
 		(
 			PackedBoolList& collapseEdge,
 			List<pointEdgeCollapse>& allPointInfo
@@ -192,7 +192,7 @@ namespace tnbLib
 		//- Prevent face pinching by finding points in a face that will be
 		//  collapsed to the same location, but that are not ordered
 		//  consecutively in the face
-		void determineDuplicatePointsOnFace
+		FoamDynamicMesh_EXPORT void determineDuplicatePointsOnFace
 		(
 			const face& f,
 			PackedBoolList& markedPoints,
@@ -203,7 +203,7 @@ namespace tnbLib
 
 		//- Count the number of edges on the face that will exist as a result
 		//  of the collapse
-		label countEdgesOnFace
+		FoamDynamicMesh_EXPORT label countEdgesOnFace
 		(
 			const face& f,
 			List<pointEdgeCollapse>& allPointInfo
@@ -211,7 +211,7 @@ namespace tnbLib
 
 		//- Does the face have fewer than 3 edges as a result of the potential
 		//  collapse
-		bool isFaceCollapsed
+		FoamDynamicMesh_EXPORT bool isFaceCollapsed
 		(
 			const face& f,
 			List<pointEdgeCollapse>& allPointInfo
@@ -219,7 +219,7 @@ namespace tnbLib
 
 		//- Given the collapse information, propagates the information using
 		//  PointEdgeWave. Result is a list of new point locations and indices
-		label syncCollapse
+		FoamDynamicMesh_EXPORT label syncCollapse
 		(
 			const globalIndex& globalPoints,
 			const labelList& boundaryPoint,
@@ -229,7 +229,7 @@ namespace tnbLib
 		) const;
 
 		//- Renumber f with new vertices. Removes consecutive duplicates
-		void filterFace
+		FoamDynamicMesh_EXPORT void filterFace
 		(
 			const Map<DynamicList<label>>& collapseStrings,
 			const List<pointEdgeCollapse>& allPointInfo,
@@ -240,16 +240,19 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("edgeCollapser");
+		//ClassName("edgeCollapser");
+		static const char* typeName_() { return "edgeCollapser"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh
-		edgeCollapser(const polyMesh& mesh);
+		FoamDynamicMesh_EXPORT edgeCollapser(const polyMesh& mesh);
 
 		//- Construct from mesh and dict
-		edgeCollapser(const polyMesh& mesh, const dictionary& dict);
+		FoamDynamicMesh_EXPORT edgeCollapser(const polyMesh& mesh, const dictionary& dict);
 
 		//- Disallow default bitwise copy construction
 		edgeCollapser(const edgeCollapser&) = delete;
@@ -260,7 +263,7 @@ namespace tnbLib
 			// Check
 
 				//- Calls motionSmoother::checkMesh and returns a set of bad faces
-		static HashSet<label> checkBadFaces
+		static FoamDynamicMesh_EXPORT HashSet<label> checkBadFaces
 		(
 			const polyMesh& mesh,
 			const dictionary& meshQualityDict
@@ -268,7 +271,7 @@ namespace tnbLib
 
 		//- Check mesh and mark points on faces in error
 		//  Returns boolList with points in error set
-		static label checkMeshQuality
+		static FoamDynamicMesh_EXPORT label checkMeshQuality
 		(
 			const polyMesh& mesh,
 			const dictionary& meshQualityDict,
@@ -279,7 +282,7 @@ namespace tnbLib
 		//  allPointInfo.
 		//  Returns a list of edge collapses that is consistent across
 		//  coupled boundaries and a list of pointEdgeCollapses.
-		void consistentCollapse
+		FoamDynamicMesh_EXPORT void consistentCollapse
 		(
 			const globalIndex& globalPoints,
 			const labelList& pointPriority,
@@ -294,14 +297,14 @@ namespace tnbLib
 
 			//- Play commands into polyTopoChange to create mesh.
 			//  Return true if anything changed.
-		bool setRefinement
+		FoamDynamicMesh_EXPORT bool setRefinement
 		(
 			const List<pointEdgeCollapse>& allPointInfo,
 			polyTopoChange& meshMod
 		) const;
 
 		//- Mark (in collapseEdge) any edges to collapse
-		label markSmallEdges
+		FoamDynamicMesh_EXPORT label markSmallEdges
 		(
 			const scalarField& minEdgeLen,
 			const labelList& pointPriority,
@@ -310,7 +313,7 @@ namespace tnbLib
 		) const;
 
 		//- Mark (in collapseEdge) any edges to merge
-		label markMergeEdges
+		FoamDynamicMesh_EXPORT label markMergeEdges
 		(
 			const scalar maxCos,
 			const labelList& pointPriority,
@@ -324,7 +327,7 @@ namespace tnbLib
 		//  as a result of the collapse.
 		//  Use in conjunctions with edgeCollapser to synchronise the
 		//  collapses and modify the mesh
-		labelPair markSmallSliverFaces
+		FoamDynamicMesh_EXPORT labelPair markSmallSliverFaces
 		(
 			const scalarField& faceFilterFactor,
 			const labelList& pointPriority,
@@ -333,7 +336,7 @@ namespace tnbLib
 		) const;
 
 		//- Marks edges in the faceZone indirectPatchFaces for collapse
-		labelPair markFaceZoneEdges
+		FoamDynamicMesh_EXPORT labelPair markFaceZoneEdges
 		(
 			const faceZone& fZone,
 			const scalarField& faceFilterFactor,

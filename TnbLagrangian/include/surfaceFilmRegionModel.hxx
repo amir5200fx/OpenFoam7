@@ -68,19 +68,23 @@ namespace tnbLib
 				// Protected member functions
 
 					//- Read control parameters from dictionary
-				virtual bool read();
+				FoamLagrangian_EXPORT virtual bool read();
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("surfaceFilmRegionModel");
+				//TypeName("surfaceFilmRegionModel");
+				static const char* typeName_() { return "surfaceFilmRegionModel"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from type name, mesh and gravity vector
-				surfaceFilmRegionModel
+				FoamLagrangian_EXPORT surfaceFilmRegionModel
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -89,11 +93,11 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				surfaceFilmRegionModel(const surfaceFilmRegionModel&) = delete;
+				FoamLagrangian_EXPORT surfaceFilmRegionModel(const surfaceFilmRegionModel&) = delete;
 
 
 				//- Destructor
-				virtual ~surfaceFilmRegionModel();
+				FoamLagrangian_EXPORT virtual ~surfaceFilmRegionModel();
 
 
 				// Member Functions
@@ -104,7 +108,7 @@ namespace tnbLib
 				inline const dimensionedVector& g() const;
 
 				//- External hook to add sources to the film
-				virtual void addSources
+				FoamLagrangian_EXPORT virtual void addSources
 				(
 					const label patchi,
 					const label facei,
@@ -118,67 +122,67 @@ namespace tnbLib
 				// Fields
 
 					//- Return the film thickness [m]
-				virtual const volScalarField& delta() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& delta() const = 0;
 
 				//- Return the film coverage, 1 = covered, 0 = uncovered / []
-				virtual const volScalarField& alpha() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& alpha() const = 0;
 
 				//- Return the film velocity [m/s]
-				virtual const volVectorField& U() const = 0;
+				FoamLagrangian_EXPORT virtual const volVectorField& U() const = 0;
 
 				//- Return the film surface velocity [m/s]
-				virtual const volVectorField& Us() const = 0;
+				FoamLagrangian_EXPORT virtual const volVectorField& Us() const = 0;
 
 				//- Return the film wall velocity [m/s]
-				virtual const volVectorField& Uw() const = 0;
+				FoamLagrangian_EXPORT virtual const volVectorField& Uw() const = 0;
 
 				//- Return the film density [kg/m^3]
-				virtual const volScalarField& rho() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& rho() const = 0;
 
 				//- Return the film mean temperature [K]
-				virtual const volScalarField& T() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& T() const = 0;
 
 				//- Return the film surface temperature [K]
-				virtual const volScalarField& Ts() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& Ts() const = 0;
 
 				//- Return the film wall temperature [K]
-				virtual const volScalarField& Tw() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& Tw() const = 0;
 
 				//- Return the film surface temperature [J/kg]
-				virtual const volScalarField& hs() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& hs() const = 0;
 
 				//- Return the film specific heat capacity [J/kg/K]
-				virtual const volScalarField& Cp() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& Cp() const = 0;
 
 				//- Return the film thermal conductivity [W/m/K]
-				virtual const volScalarField& kappa() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& kappa() const = 0;
 
 				//- Return the film surface tension [N/m]
-				virtual const volScalarField& sigma() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& sigma() const = 0;
 
 
 				// Transfer fields - to the primary region
 
 					//- Return mass transfer source - Eulerian phase only
-				virtual tmp<volScalarField> primaryMassTrans() const = 0;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> primaryMassTrans() const = 0;
 
 				//- Return the film mass available for transfer
-				virtual const volScalarField& cloudMassTrans() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& cloudMassTrans() const = 0;
 
 				//- Return the parcel diameters originating from film
-				virtual const volScalarField& cloudDiameterTrans() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& cloudDiameterTrans() const = 0;
 
 
 				// Evolution
 
 					//- Main driver routing to evolve the region - calls other evolves
-				virtual void evolve();
+				FoamLagrangian_EXPORT virtual void evolve();
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const surfaceFilmRegionModel&) = delete;
+				FoamLagrangian_EXPORT void operator=(const surfaceFilmRegionModel&) = delete;
 			};
 
 

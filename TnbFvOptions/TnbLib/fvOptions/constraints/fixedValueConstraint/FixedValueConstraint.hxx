@@ -85,13 +85,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("FixedValueConstraint");
+			//TypeName("FixedValueConstraint");
+			static const char* typeName_() { return "FixedValueConstraint"; }
+			static FoamFvOptions_EXPORT const ::tnbLib::word typeName;
+			static FoamFvOptions_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			FixedValueConstraint
+			FoamFvOptions_EXPORT FixedValueConstraint
 			(
 				const word& name,
 				const word& modelType,
@@ -103,10 +107,10 @@ namespace tnbLib
 			// Member Functions
 
 				//- Read source dictionary
-			virtual bool read(const dictionary& dict);
+			FoamFvOptions_EXPORT virtual bool read(const dictionary& dict);
 
 			//- Set value on field
-			virtual void constrain(fvMatrix<Type>& eqn, const label fieldi);
+			FoamFvOptions_EXPORT virtual void constrain(fvMatrix<Type>& eqn, const label fieldi);
 		};
 
 

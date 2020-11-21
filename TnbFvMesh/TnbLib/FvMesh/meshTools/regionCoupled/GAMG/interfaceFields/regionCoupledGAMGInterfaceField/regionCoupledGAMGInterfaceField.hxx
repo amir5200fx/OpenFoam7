@@ -61,20 +61,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("regionCoupled");
+		/*TypeName("regionCoupled");*/
+		static const char* typeName_() { return "regionCoupled"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from GAMG interface and fine level interface field
-		regionCoupledGAMGInterfaceField
+		FoamFvMesh_EXPORT regionCoupledGAMGInterfaceField
 		(
 			const GAMGInterface& GAMGCp,
 			const lduInterfaceField& fineInterfaceField
 		);
 
 		//- Construct from GAMG interface and fine level interface field
-		regionCoupledGAMGInterfaceField
+		FoamFvMesh_EXPORT regionCoupledGAMGInterfaceField
 		(
 			const GAMGInterface& GAMGCp,
 			const bool doTransform,
@@ -82,14 +86,14 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		regionCoupledGAMGInterfaceField
+		FoamFvMesh_EXPORT regionCoupledGAMGInterfaceField
 		(
 			const regionCoupledGAMGInterfaceField&
 		);
 
 
 		//- Destructor
-		virtual ~regionCoupledGAMGInterfaceField();
+		FoamFvMesh_EXPORT virtual ~regionCoupledGAMGInterfaceField();
 
 
 		// Member Functions
@@ -118,7 +122,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const regionCoupledGAMGInterfaceField&) = delete;
+		FoamFvMesh_EXPORT void operator=(const regionCoupledGAMGInterfaceField&) = delete;
 	};
 
 

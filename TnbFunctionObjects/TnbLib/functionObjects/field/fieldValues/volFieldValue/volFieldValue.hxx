@@ -150,7 +150,7 @@ namespace tnbLib
 				};
 
 				//- Operation type names
-				static const NamedEnum<operationType, 13> operationTypeNames_;
+				static FoamFunctionObjects_EXPORT const NamedEnum<operationType, 13> operationTypeNames_;
 
 
 			protected:
@@ -167,7 +167,7 @@ namespace tnbLib
 				// Protected Member Functions
 
 					//- Initialise, e.g. cell addressing
-				void initialise(const dictionary& dict);
+				FoamFunctionObjects_EXPORT void initialise(const dictionary& dict);
 
 				//- Return true if the field name is valid
 				template<class Type>
@@ -191,19 +191,23 @@ namespace tnbLib
 				) const;
 
 				//- Output file header information
-				virtual void writeFileHeader(const label i);
+				FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i);
 
 
 			public:
 
 				//- Run-time type information
-				TypeName("volFieldValue");
+				//TypeName("volFieldValue");
+				static const char* typeName_() { return "volFieldValue"; }
+				static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+				static FoamFunctionObjects_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from name, Time and dictionary
-				volFieldValue
+				FoamFunctionObjects_EXPORT volFieldValue
 				(
 					const word& name,
 					const Time& runTime,
@@ -211,7 +215,7 @@ namespace tnbLib
 				);
 
 				//- Construct from name, objectRegistry and dictionary
-				volFieldValue
+				FoamFunctionObjects_EXPORT volFieldValue
 				(
 					const word& name,
 					const objectRegistry& obr,
@@ -220,7 +224,7 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~volFieldValue();
+				FoamFunctionObjects_EXPORT virtual ~volFieldValue();
 
 
 				// Public Member Functions
@@ -234,10 +238,10 @@ namespace tnbLib
 				tmp<Field<Type>> filterField(const Field<Type>& field) const;
 
 				//- Read from dictionary
-				virtual bool read(const dictionary&);
+				FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 				//- Calculate and write
-				virtual bool write();
+				FoamFunctionObjects_EXPORT virtual bool write();
 			};
 
 
@@ -250,8 +254,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <volFieldValueTemplates.cxx>
+//#include <volFieldValueTemplates.cxx>
 #endif
+
+#include <volFieldValueTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

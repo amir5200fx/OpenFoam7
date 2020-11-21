@@ -61,13 +61,17 @@ namespace tnbLib
 		public:
 
 			// Runtime type information
-			TypeName("halfCosineRamp");
+			//TypeName("halfCosineRamp");
+			static const char* typeName_() { return "halfCosineRamp"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from entry name and dictionary
-			halfCosineRamp
+			FoamBase_EXPORT halfCosineRamp
 			(
 				const word& entryName,
 				const dictionary& dict
@@ -75,7 +79,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~halfCosineRamp();
+			FoamBase_EXPORT virtual ~halfCosineRamp();
 
 
 			// Member Functions

@@ -125,7 +125,7 @@ namespace tnbLib
 			faceList& patchShapes
 		) const;
 
-		void readPatches
+		FoamFvMesh_EXPORT void readPatches
 		(
 			const dictionary& meshDescription,
 			faceListList& tmpBlocksPatches,
@@ -134,7 +134,7 @@ namespace tnbLib
 			wordList& nbrPatchNames
 		);
 
-		void readBoundary
+		FoamFvMesh_EXPORT void readBoundary
 		(
 			const dictionary& meshDescription,
 			wordList& patchNames,
@@ -142,21 +142,21 @@ namespace tnbLib
 			PtrList<dictionary>& patchDicts
 		);
 
-		void createCellShapes(cellShapeList& tmpBlockCells);
+		FoamFvMesh_EXPORT void createCellShapes(cellShapeList& tmpBlockCells);
 
-		polyMesh* createTopology(const IOdictionary&, const word& regionName);
+		FoamFvMesh_EXPORT polyMesh* createTopology(const IOdictionary&, const word& regionName);
 
-		void check(const polyMesh&, const dictionary&) const;
-
-		//- Determine the merge info and the final number of cells/points
-		void calcMergeInfo();
+		FoamFvMesh_EXPORT void check(const polyMesh&, const dictionary&) const;
 
 		//- Determine the merge info and the final number of cells/points
-		void calcMergeInfoFast();
+		FoamFvMesh_EXPORT void calcMergeInfo();
 
-		faceList createPatchFaces(const polyPatch& patchTopologyFaces) const;
+		//- Determine the merge info and the final number of cells/points
+		FoamFvMesh_EXPORT void calcMergeInfoFast();
 
-		Pair<scalar> xCellSizes
+		FoamFvMesh_EXPORT faceList createPatchFaces(const polyPatch& patchTopologyFaces) const;
+
+		FoamFvMesh_EXPORT Pair<scalar> xCellSizes
 		(
 			const block& b,
 			const pointField& blockPoints,
@@ -164,7 +164,7 @@ namespace tnbLib
 			const label k
 		) const;
 
-		Pair<scalar> yCellSizes
+		FoamFvMesh_EXPORT Pair<scalar> yCellSizes
 		(
 			const block& b,
 			const pointField& blockPoints,
@@ -172,7 +172,7 @@ namespace tnbLib
 			const label k
 		) const;
 
-		Pair<scalar> zCellSizes
+		FoamFvMesh_EXPORT Pair<scalar> zCellSizes
 		(
 			const block& b,
 			const pointField& blockPoints,
@@ -180,37 +180,40 @@ namespace tnbLib
 			const label j
 		) const;
 
-		void printCellSizeRange(const Pair<scalar>& cellSizes) const;
+		FoamFvMesh_EXPORT void printCellSizeRange(const Pair<scalar>& cellSizes) const;
 
-		void printCellSizeRanges
+		FoamFvMesh_EXPORT void printCellSizeRanges
 		(
 			const direction d,
 			const FixedList<Pair<scalar>, 4>& cellSizes
 		) const;
 
-		void createPoints() const;
-		void createCells() const;
-		void createPatches() const;
+		FoamFvMesh_EXPORT void createPoints() const;
+		FoamFvMesh_EXPORT void createCells() const;
+		FoamFvMesh_EXPORT void createPatches() const;
 
 		//- As copy (not implemented)
-		blockMesh(const blockMesh&);
+		FoamFvMesh_EXPORT blockMesh(const blockMesh&);
 
 
 	public:
 
 		// Static Data Members
 
-		ClassName("blockMesh");
+		//ClassName("blockMesh");
+		static const char* typeName_() { return "blockMesh"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from IOdictionary
-		blockMesh(const IOdictionary&, const word& regionName);
+		FoamFvMesh_EXPORT blockMesh(const IOdictionary&, const word& regionName);
 
 
 		//- Destructor
-		~blockMesh();
+		FoamFvMesh_EXPORT ~blockMesh();
 
 
 		// Member Functions
@@ -231,10 +234,10 @@ namespace tnbLib
 
 		//- Reference to point field defining the blockMesh
 		//  these points have not been scaled by scaleFactor
-		const pointField& vertices() const;
+		FoamFvMesh_EXPORT const pointField& vertices() const;
 
 		//- Return the blockMesh topology as a polyMesh
-		const polyMesh& topology() const;
+		FoamFvMesh_EXPORT const polyMesh& topology() const;
 
 		//- Return the curved edges
 		const blockEdgeList& edges() const
@@ -249,38 +252,38 @@ namespace tnbLib
 		}
 
 		//- The scaling factor used to convert to meters
-		scalar scaleFactor() const;
+		FoamFvMesh_EXPORT scalar scaleFactor() const;
 
 		//- The points for the entire mesh
 		//  these points have been scaled by scaleFactor
-		const pointField& points() const;
+		FoamFvMesh_EXPORT const pointField& points() const;
 
 		//- Return cell shapes list
-		const cellShapeList& cells() const;
+		FoamFvMesh_EXPORT const cellShapeList& cells() const;
 
 		//- Return the patch face lists
-		const faceListList& patches() const;
+		FoamFvMesh_EXPORT const faceListList& patches() const;
 
 		//- Get patch information from the topology mesh
-		PtrList<dictionary> patchDicts() const;
+		FoamFvMesh_EXPORT PtrList<dictionary> patchDicts() const;
 
 		//- Return patch names
-		wordList patchNames() const;
+		FoamFvMesh_EXPORT wordList patchNames() const;
 
 		//- Number of blocks with specified zones
-		label numZonedBlocks() const;
+		FoamFvMesh_EXPORT label numZonedBlocks() const;
 
 
 		// Edit
 
 			//- Enable/disable verbose information about the progress
-		void verbose(const bool on = true);
+		FoamFvMesh_EXPORT void verbose(const bool on = true);
 
 
 		// Write
 
 			//- Writes edges of blockMesh in OBJ format.
-		void writeTopology(Ostream&) const;
+		FoamFvMesh_EXPORT void writeTopology(Ostream&) const;
 	};
 
 

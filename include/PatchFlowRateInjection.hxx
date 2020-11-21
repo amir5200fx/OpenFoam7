@@ -52,6 +52,16 @@ SourceFiles
 #include <patchInjectionBase.hxx>
 #include <TimeFunction1.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamPatchFlowRateInjection_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPatchFlowRateInjection_EXPORT_DEFINE
+#define FoamPatchFlowRateInjection_EXPORT __declspec(dllexport)
+#else
+#define FoamPatchFlowRateInjection_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -93,7 +103,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("patchFlowRateInjection");
+		//TypeName("patchFlowRateInjection");
+		static const char* typeName_() { return "patchFlowRateInjection"; }
+		static FoamPatchFlowRateInjection_EXPORT const ::tnbLib::word typeName;
+		static FoamPatchFlowRateInjection_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

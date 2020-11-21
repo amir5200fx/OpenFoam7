@@ -128,10 +128,10 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- File header information
-			virtual void writeFileHeader(const label i);
+			FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i);
 
 			//- Calculate the heat transfer coefficient
-			tmp<volScalarField> calcHeatTransferCoeff
+			FoamFunctionObjects_EXPORT tmp<volScalarField> calcHeatTransferCoeff
 			(
 				const volScalarField& nu,
 				const volScalarField& nut
@@ -141,13 +141,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("wallHeatTransferCoeff");
+			//TypeName("wallHeatTransferCoeff");
+			static const char* typeName_() { return "wallHeatTransferCoeff"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			wallHeatTransferCoeff
+			FoamFunctionObjects_EXPORT wallHeatTransferCoeff
 			(
 				const word& name,
 				const Time& runTime,
@@ -155,29 +159,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			wallHeatTransferCoeff(const wallHeatTransferCoeff&) = delete;
+			FoamFunctionObjects_EXPORT wallHeatTransferCoeff(const wallHeatTransferCoeff&) = delete;
 
 
 			//- Destructor
-			virtual ~wallHeatTransferCoeff();
+			FoamFunctionObjects_EXPORT virtual ~wallHeatTransferCoeff();
 
 
 			// Member Functions
 
 				//- Read the wallHeatTransferCoeff data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate the wall heat transfer coefficient
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the wall heat transfer coefficient
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const wallHeatTransferCoeff&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const wallHeatTransferCoeff&) = delete;
 		};
 
 

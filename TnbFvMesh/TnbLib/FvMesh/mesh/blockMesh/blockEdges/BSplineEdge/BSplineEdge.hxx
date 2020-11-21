@@ -58,13 +58,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("BSpline");
+			//TypeName("BSpline");
+			static const char* typeName_() { return "BSpline"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			BSplineEdge
+			FoamFvMesh_EXPORT BSplineEdge
 			(
 				const pointField&,
 				const label start,
@@ -73,7 +77,7 @@ namespace tnbLib
 			);
 
 			//- Construct from Istream, setting pointsList
-			BSplineEdge
+			FoamFvMesh_EXPORT BSplineEdge
 			(
 				const dictionary& dict,
 				const label index,
@@ -83,27 +87,27 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			BSplineEdge(const BSplineEdge&) = delete;
+			FoamFvMesh_EXPORT BSplineEdge(const BSplineEdge&) = delete;
 
 
 			//- Destructor
-			virtual ~BSplineEdge();
+			FoamFvMesh_EXPORT virtual ~BSplineEdge();
 
 
 			// Member Functions
 
 				//- Return the point position corresponding to the curve parameter
 				//  0 <= lambda <= 1
-			virtual point position(const scalar) const;
+			FoamFvMesh_EXPORT virtual point position(const scalar) const;
 
 			//- Return the length of the spline curve (not implemented)
-			virtual scalar length() const;
+			FoamFvMesh_EXPORT virtual scalar length() const;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const BSplineEdge&) = delete;
+			FoamFvMesh_EXPORT void operator=(const BSplineEdge&) = delete;
 		};
 
 

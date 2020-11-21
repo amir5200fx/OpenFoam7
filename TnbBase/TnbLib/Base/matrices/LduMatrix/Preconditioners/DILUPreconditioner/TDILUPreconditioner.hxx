@@ -65,7 +65,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("DILU");
+		//TypeName("DILU");
+		static const char* typeName_() { return "DILU"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -1,3 +1,5 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <zeroFixedValuePointPatchFields.hxx>
 
 #include <pointPatchFields.hxx>

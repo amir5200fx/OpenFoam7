@@ -45,6 +45,16 @@ SourceFiles
 #include <vector.hxx>  // added by amir
 #include <Random.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamAtomizationModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamAtomizationModel_EXPORT_DEFINE
+#define FoamAtomizationModel_EXPORT __declspec(dllexport)
+#else
+#define FoamAtomizationModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -62,10 +72,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("atomizationModel");
+		//TypeName("atomizationModel");
+		static const char* typeName_() { return "atomizationModel"; }
+		static FoamAtomizationModel_EXPORT const ::tnbLib::word typeName;
+		static FoamAtomizationModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			AtomizationModel,
@@ -75,7 +89,59 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<AtomizationModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamAtomizationModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamAtomizationModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamAtomizationModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class AtomizationModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<AtomizationModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<AtomizationModel>(new AtomizationModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = AtomizationModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "AtomizationModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class AtomizationModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<AtomizationModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<AtomizationModel>(new AtomizationModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = AtomizationModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

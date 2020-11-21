@@ -98,13 +98,16 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			ClassName("includeFunc");
+			//ClassName("includeFunc");
+			static const char* typeName_() { return "includeFunc"; } 
+			static FoamBase_EXPORT const ::tnbLib::word typeName; 
+			static FoamBase_EXPORT int debug;
 
 
 			// Member Functions
 
 				//- Execute the functionEntry in a sub-dict context
-			static bool execute(dictionary& parentDict, Istream&);
+			static FoamBase_EXPORT bool execute(dictionary& parentDict, Istream&);
 		};
 
 

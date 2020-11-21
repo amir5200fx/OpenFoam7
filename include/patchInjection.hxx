@@ -72,26 +72,30 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("patchInjection");
+				//TypeName("patchInjection");
+				static const char* typeName_() { return "patchInjection"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				patchInjection(surfaceFilmRegionModel& film, const dictionary& dict);
+				FoamLagrangian_EXPORT patchInjection(surfaceFilmRegionModel& film, const dictionary& dict);
 
 				//- Disallow default bitwise copy construction
-				patchInjection(const patchInjection&) = delete;
+				FoamLagrangian_EXPORT patchInjection(const patchInjection&) = delete;
 
 
 				//- Destructor
-				virtual ~patchInjection();
+				FoamLagrangian_EXPORT virtual ~patchInjection();
 
 
 				// Member Functions
 
 					//- Correct
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					scalarField& availableMass,
 					scalarField& massToInject,
@@ -100,7 +104,7 @@ namespace tnbLib
 
 				//- Accumulate the total mass injected for the patches into the
 				//  scalarField provided
-				virtual void patchInjectedMassTotals
+				FoamLagrangian_EXPORT virtual void patchInjectedMassTotals
 				(
 					scalarField& patchMasses
 				) const;
@@ -109,7 +113,7 @@ namespace tnbLib
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const patchInjection&) = delete;
+				FoamLagrangian_EXPORT void operator=(const patchInjection&) = delete;
 			};
 
 

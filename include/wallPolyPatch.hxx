@@ -54,13 +54,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("wall");
+		//TypeName("wall");
+		static const char* typeName_() { return "wall"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		wallPolyPatch
+		FoamBase_EXPORT wallPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -71,7 +75,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		wallPolyPatch
+		FoamBase_EXPORT wallPolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -81,11 +85,11 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		wallPolyPatch(const wallPolyPatch&, const polyBoundaryMesh&);
+		FoamBase_EXPORT wallPolyPatch(const wallPolyPatch&, const polyBoundaryMesh&);
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		wallPolyPatch
+		FoamBase_EXPORT wallPolyPatch
 		(
 			const wallPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -95,7 +99,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		wallPolyPatch
+		FoamBase_EXPORT wallPolyPatch
 		(
 			const wallPolyPatch& pp,
 			const polyBoundaryMesh& bm,

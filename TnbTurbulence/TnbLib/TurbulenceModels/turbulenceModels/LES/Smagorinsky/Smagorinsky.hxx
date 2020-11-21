@@ -73,6 +73,16 @@ SourceFiles
 #include <LESModel.hxx>
 #include <LESeddyViscosity.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamSmagorinsky_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSmagorinsky_EXPORT_DEFINE
+#define FoamSmagorinsky_EXPORT __declspec(dllexport)
+#else
+#define FoamSmagorinsky_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -114,7 +124,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("Smagorinsky");
+			//TypeName("Smagorinsky");
+			static const char* typeName_() { return "Smagorinsky"; }
+			static FoamSmagorinsky_EXPORT const ::tnbLib::word typeName;
+			static FoamSmagorinsky_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

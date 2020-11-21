@@ -54,7 +54,7 @@ namespace tnbLib
 
 	class dictionaryListEntry;
 
-	Ostream& operator<<(Ostream&, const dictionaryListEntry&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const dictionaryListEntry&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -68,10 +68,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Returns size of dictionary without FoamFile
-		static label realSize(const dictionary&);
+		static FoamBase_EXPORT label realSize(const dictionary&);
 
 		//- Dissallow bitwise copy
-		dictionaryListEntry(const dictionary&);
+		FoamBase_EXPORT dictionaryListEntry(const dictionary&);
 
 
 	public:
@@ -79,10 +79,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from the parent dictionary and Istream
-		dictionaryListEntry(const dictionary& parentDict, Istream&);
+		FoamBase_EXPORT dictionaryListEntry(const dictionary& parentDict, Istream&);
 
 		//- Construct as copy for the given parent dictionary
-		dictionaryListEntry
+		FoamBase_EXPORT dictionaryListEntry
 		(
 			const dictionary& parentDict,
 			const dictionaryListEntry&
@@ -97,7 +97,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Write
-		virtual void write(Ostream&) const;
+		FoamBase_EXPORT virtual void write(Ostream&) const;
 
 		//- Return info proxy.
 		//  Used to print token information to a stream
@@ -109,12 +109,12 @@ namespace tnbLib
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const dictionaryListEntry&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const dictionaryListEntry&);
 	};
 
 
 	template<>
-	Ostream& operator<<(Ostream&, const InfoProxy<dictionaryListEntry>&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<dictionaryListEntry>&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -76,13 +76,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("writeCellCentres");
+			//TypeName("writeCellCentres");
+			static const char* typeName_() { return "writeCellCentres"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			writeCellCentres
+			FoamFunctionObjects_EXPORT writeCellCentres
 			(
 				const word& name,
 				const Time& runTime,
@@ -90,26 +94,26 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			writeCellCentres(const writeCellCentres&) = delete;
+			FoamFunctionObjects_EXPORT writeCellCentres(const writeCellCentres&) = delete;
 
 
 			//- Destructor
-			virtual ~writeCellCentres();
+			FoamFunctionObjects_EXPORT virtual ~writeCellCentres();
 
 
 			// Member Functions
 
 				//- Do nothing
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the cell-centre fields
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const writeCellCentres&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const writeCellCentres&) = delete;
 		};
 
 

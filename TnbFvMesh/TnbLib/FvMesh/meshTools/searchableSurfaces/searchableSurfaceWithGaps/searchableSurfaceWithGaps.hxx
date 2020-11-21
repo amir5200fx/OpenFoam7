@@ -73,9 +73,9 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		Pair<vector> offsetVecs(const point&, const point&) const;
+		FoamFvMesh_EXPORT Pair<vector> offsetVecs(const point&, const point&) const;
 
-		void offsetVecs
+		FoamFvMesh_EXPORT void offsetVecs
 		(
 			const pointField& start,
 			const pointField& end,
@@ -83,13 +83,13 @@ namespace tnbLib
 			pointField& offset1
 		) const;
 
-		static label countMisses
+		static FoamFvMesh_EXPORT label countMisses
 		(
 			const List<pointIndexHit>& info,
 			labelList& missMap
 		);
 
-		static label countMisses
+		static FoamFvMesh_EXPORT label countMisses
 		(
 			const List<pointIndexHit>& plusInfo,
 			const List<pointIndexHit>& minInfo,
@@ -100,24 +100,28 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("searchableSurfaceWithGaps");
+		/*TypeName("searchableSurfaceWithGaps");*/
+		static const char* typeName_() { return "searchableSurfaceWithGaps"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from dictionary (used by searchableSurface)
-		searchableSurfaceWithGaps
+		FoamFvMesh_EXPORT searchableSurfaceWithGaps
 		(
 			const IOobject& io,
 			const dictionary& dict
 		);
 
 		//- Disallow default bitwise copy construction
-		searchableSurfaceWithGaps(const searchableSurfaceWithGaps&) = delete;
+		FoamFvMesh_EXPORT searchableSurfaceWithGaps(const searchableSurfaceWithGaps&) = delete;
 
 
 		//- Destructor
-		virtual ~searchableSurfaceWithGaps();
+		FoamFvMesh_EXPORT virtual ~searchableSurfaceWithGaps();
 
 
 		// Member Functions
@@ -197,14 +201,14 @@ namespace tnbLib
 			);
 		}
 
-		virtual void findLine
+		FoamFvMesh_EXPORT virtual void findLine
 		(
 			const pointField& start,
 			const pointField& end,
 			List<pointIndexHit>&
 		) const;
 
-		virtual void findLineAny
+		FoamFvMesh_EXPORT virtual void findLineAny
 		(
 			const pointField& start,
 			const pointField& end,
@@ -212,7 +216,7 @@ namespace tnbLib
 		) const;
 
 		//- Get all intersections in order from start to end.
-		virtual void findLineAll
+		FoamFvMesh_EXPORT virtual void findLineAll
 		(
 			const pointField& start,
 			const pointField& end,
@@ -297,7 +301,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const searchableSurfaceWithGaps&) = delete;
+		FoamFvMesh_EXPORT void operator=(const searchableSurfaceWithGaps&) = delete;
 	};
 
 

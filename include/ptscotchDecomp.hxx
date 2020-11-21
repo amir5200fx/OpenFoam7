@@ -68,10 +68,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Check and print error message
-		static void check(const int, const char*);
+		static FoamParallel_EXPORT void check(const int, const char*);
 
 		//- Decompose. Handles size 0 arrays
-		label decompose
+		FoamParallel_EXPORT label decompose
 		(
 			const fileName& meshPath,
 			const List<label>& adjncy,
@@ -81,7 +81,7 @@ namespace tnbLib
 		) const;
 
 		//- Low level decompose
-		label decompose
+		FoamParallel_EXPORT label decompose
 		(
 			const fileName& meshPath,
 			const label adjncySize,
@@ -96,16 +96,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("ptscotch");
+		//TypeName("ptscotch");
+		static const char* typeName_() { return "ptscotch"; }
+		static FoamParallel_EXPORT const ::tnbLib::word typeName;
+		static FoamParallel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given the decomposition dictionary and mesh
-		ptscotchDecomp(const dictionary& decompositionDict);
+		FoamParallel_EXPORT ptscotchDecomp(const dictionary& decompositionDict);
 
 		//- Disallow default bitwise copy construction
-		ptscotchDecomp(const ptscotchDecomp&) = delete;
+		FoamParallel_EXPORT ptscotchDecomp(const ptscotchDecomp&) = delete;
 
 
 		//- Destructor
@@ -126,7 +130,7 @@ namespace tnbLib
 
 		//- Return for every coordinate the wanted processor number. Use the
 		//  mesh connectivity (if needed). See note on weights in scotchDecomp.H
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const polyMesh& mesh,
 			const pointField& points,
@@ -137,7 +141,7 @@ namespace tnbLib
 		//  passed agglomeration map (from fine to coarse cells) and coarse cell
 		//  location. Can be overridden by decomposers that provide this
 		//  functionality natively. See note on weights in scotchDecomp.H
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const polyMesh& mesh,
 			const labelList& agglom,
@@ -153,7 +157,7 @@ namespace tnbLib
 		//    processors)
 		//  - the connections are across coupled patches
 		//  See note on weights in scotchDecomp.H
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const labelListList& globalCellCells,
 			const pointField& cc,
@@ -164,7 +168,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const ptscotchDecomp&) = delete;
+		FoamParallel_EXPORT void operator=(const ptscotchDecomp&) = delete;
 	};
 
 

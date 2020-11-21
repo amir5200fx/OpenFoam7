@@ -56,7 +56,11 @@ namespace tnbLib
 	public:
 
 		//- Run time type information
-		TypeName("basicSpecieMixture");
+		//TypeName("basicSpecieMixture");
+		static const char* typeName_() { return "basicSpecieMixture"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- The base class of the mixture
 		typedef basicSpecieMixture basicMixtureType;
@@ -65,7 +69,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from dictionary, species names, mesh and phase name
-		basicSpecieMixture
+		FoamThermophysicalModels_EXPORT basicSpecieMixture
 		(
 			const dictionary&,
 			const wordList& specieNames,
@@ -84,13 +88,13 @@ namespace tnbLib
 			// Per specie properties
 
 				//- Molecular weight of the given specie [kg/kmol]
-		virtual scalar Wi(const label speciei) const = 0;
+		FoamThermophysicalModels_EXPORT virtual scalar Wi(const label speciei) const = 0;
 
 
 		// Per specie thermo properties
 
 			//- Heat capacity at constant pressure [J/kg/K]
-		virtual scalar Cp
+		FoamThermophysicalModels_EXPORT virtual scalar Cp
 		(
 			const label speciei,
 			const scalar p,
@@ -98,7 +102,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Heat capacity at constant volume [J/kg/K]
-		virtual scalar Cv
+		FoamThermophysicalModels_EXPORT virtual scalar Cv
 		(
 			const label speciei,
 			const scalar p,
@@ -106,7 +110,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Absolute enthalpy [J/kg]
-		virtual scalar Ha
+		FoamThermophysicalModels_EXPORT virtual scalar Ha
 		(
 			const label speciei,
 			const scalar p,
@@ -114,7 +118,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Sensible enthalpy [J/kg]
-		virtual scalar Hs
+		FoamThermophysicalModels_EXPORT virtual scalar Hs
 		(
 			const label speciei,
 			const scalar p,
@@ -122,10 +126,10 @@ namespace tnbLib
 		) const = 0;
 
 		//- Chemical enthalpy [J/kg]
-		virtual scalar Hc(const label speciei) const = 0;
+		FoamThermophysicalModels_EXPORT virtual scalar Hc(const label speciei) const = 0;
 
 		//- Entropy [J/kg/K]
-		virtual scalar S
+		FoamThermophysicalModels_EXPORT virtual scalar S
 		(
 			const label speciei,
 			const scalar p,
@@ -133,7 +137,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Sensible internal energy [J/kg]
-		virtual scalar Es
+		FoamThermophysicalModels_EXPORT virtual scalar Es
 		(
 			const label speciei,
 			const scalar p,
@@ -141,7 +145,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Gibbs free energy [J/kg]
-		virtual scalar G
+		FoamThermophysicalModels_EXPORT virtual scalar G
 		(
 			const label speciei,
 			const scalar p,
@@ -149,7 +153,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Helmholtz free energy [J/kg]
-		virtual scalar A
+		FoamThermophysicalModels_EXPORT virtual scalar A
 		(
 			const label speciei,
 			const scalar p,
@@ -160,7 +164,7 @@ namespace tnbLib
 		// Per specie transport properties
 
 			//- Dynamic viscosity [kg/m/s]
-		virtual scalar mu
+		FoamThermophysicalModels_EXPORT virtual scalar mu
 		(
 			const label speciei,
 			const scalar p,
@@ -168,7 +172,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Thermal conductivity [W/m/K]
-		virtual scalar kappa
+		FoamThermophysicalModels_EXPORT virtual scalar kappa
 		(
 			const label speciei,
 			const scalar p,
@@ -176,7 +180,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Thermal diffusivity of enthalpy [kg/m/s]
-		virtual scalar alphah
+		FoamThermophysicalModels_EXPORT virtual scalar alphah
 		(
 			const label speciei,
 			const scalar p,
@@ -184,7 +188,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Density [kg/m^3]
-		virtual scalar rho
+		FoamThermophysicalModels_EXPORT virtual scalar rho
 		(
 			const label speciei,
 			const scalar p,

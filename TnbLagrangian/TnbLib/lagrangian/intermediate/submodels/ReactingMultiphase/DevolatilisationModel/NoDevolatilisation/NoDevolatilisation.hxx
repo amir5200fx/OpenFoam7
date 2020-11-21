@@ -36,6 +36,16 @@ Description
 #include <DevolatilisationModel.hxx>
 #include <primitiveFieldsFwd.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamNoDevolatilisation_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNoDevolatilisation_EXPORT_DEFINE
+#define FoamNoDevolatilisation_EXPORT __declspec(dllexport)
+#else
+#define FoamNoDevolatilisation_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -53,7 +63,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamNoDevolatilisation_EXPORT const ::tnbLib::word typeName;
+		static FoamNoDevolatilisation_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

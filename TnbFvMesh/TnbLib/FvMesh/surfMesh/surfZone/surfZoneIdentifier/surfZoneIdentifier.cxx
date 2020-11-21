@@ -99,7 +99,7 @@ void tnbLib::surfZoneIdentifier::write(Ostream& os) const
 // }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfZoneIdentifier& p)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfZoneIdentifier& p)
 {
 	p.write(os);
 	os.check

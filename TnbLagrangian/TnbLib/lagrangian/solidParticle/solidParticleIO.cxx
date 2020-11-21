@@ -89,7 +89,7 @@ void tnbLib::solidParticle::writeFields(const Cloud<solidParticle>& c)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const solidParticle& p)
+FoamLagrangian_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const solidParticle& p)
 {
 	if (os.format() == IOstream::ASCII)
 	{

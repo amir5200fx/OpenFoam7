@@ -359,7 +359,7 @@ void tnbLib::blockDescriptor::write
 
 // * * * * * * * * * * * * * * Friend Operators * * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const blockDescriptor& bd)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const blockDescriptor& bd)
 {
 	const cellShape& bshape = bd.blockShape();
 	const labelList& blockLabels = bshape;

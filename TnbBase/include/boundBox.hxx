@@ -49,8 +49,8 @@ namespace tnbLib
 	bool operator==(const boundBox&, const boundBox&);
 	bool operator!=(const boundBox&, const boundBox&);
 
-	Istream& operator>>(Istream&, boundBox&);
-	Ostream& operator<<(Ostream&, const boundBox&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, boundBox&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const boundBox&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -68,20 +68,20 @@ namespace tnbLib
 
 			//- Calculate the bounding box from the given points.
 			//  Does parallel communication (doReduce = true)
-		void calculate(const UList<point>&, const bool doReduce = true);
+		FoamBase_EXPORT void calculate(const UList<point>&, const bool doReduce = true);
 
 	public:
 
 		// Static Data Members
 
 			//- The great value used for greatBox and invertedBox
-		static const scalar great;
+		static FoamBase_EXPORT const scalar great;
 
 		//- A very large boundBox: min/max == -/+ vGreat
-		static const boundBox greatBox;
+		static FoamBase_EXPORT const boundBox greatBox;
 
 		//- A very large inverted boundBox: min/max == +/- vGreat
-		static const boundBox invertedBox;
+		static FoamBase_EXPORT const boundBox invertedBox;
 
 
 		// Constructors
@@ -94,16 +94,16 @@ namespace tnbLib
 
 		//- Construct as the bounding box of the given points
 		//  Does parallel communication (doReduce = true)
-		boundBox(const UList<point>&, const bool doReduce = true);
+		FoamBase_EXPORT boundBox(const UList<point>&, const bool doReduce = true);
 
 		//- Construct as the bounding box of the given temporary pointField.
 		//  Does parallel communication (doReduce = true)
-		boundBox(const tmp<pointField>&, const bool doReduce = true);
+		FoamBase_EXPORT boundBox(const tmp<pointField>&, const bool doReduce = true);
 
 		//- Construct bounding box as subset of the pointField.
 		//  The indices could be from cell/face etc.
 		//  Does parallel communication (doReduce = true)
-		boundBox
+		FoamBase_EXPORT boundBox
 		(
 			const UList<point>&,
 			const labelUList& indices,
@@ -163,16 +163,16 @@ namespace tnbLib
 		inline scalar avgDim() const;
 
 		//- Return corner points in an order corresponding to a 'hex' cell
-		tmp<pointField> points() const;
+		FoamBase_EXPORT tmp<pointField> points() const;
 
 		//- Return faces with correct point order
-		static faceList faces();
+		static FoamBase_EXPORT faceList faces();
 
 
 		// Manipulate
 
 			//- Inflate box by factor*mag(span) in all dimensions
-		void inflate(const scalar s);
+		FoamBase_EXPORT void inflate(const scalar s);
 
 
 		// Query
@@ -193,10 +193,10 @@ namespace tnbLib
 		inline bool containsInside(const point&) const;
 
 		//- Contains all of the points? (inside or on edge)
-		bool contains(const UList<point>&) const;
+		FoamBase_EXPORT bool contains(const UList<point>&) const;
 
 		//- Contains all of the points? (inside or on edge)
-		bool contains
+		FoamBase_EXPORT bool contains
 		(
 			const UList<point>&,
 			const labelUList& indices
@@ -212,10 +212,10 @@ namespace tnbLib
 
 
 		//- Contains any of the points? (inside or on edge)
-		bool containsAny(const UList<point>&) const;
+		FoamBase_EXPORT bool containsAny(const UList<point>&) const;
 
 		//- Contains any of the points? (inside or on edge)
-		bool containsAny
+		FoamBase_EXPORT bool containsAny
 		(
 			const UList<point>&,
 			const labelUList& indices
@@ -232,7 +232,7 @@ namespace tnbLib
 		//- Return the nearest point on the boundBox to the supplied point.
 		//  If point is inside the boundBox then the point is returned
 		//  unchanged.
-		point nearest(const point&) const;
+		FoamBase_EXPORT point nearest(const point&) const;
 
 
 		// Friend Operators
@@ -243,8 +243,8 @@ namespace tnbLib
 
 		// IOstream operator
 
-		friend Istream& operator>>(Istream&, boundBox&);
-		friend Ostream& operator<<(Ostream&, const boundBox&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, boundBox&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const boundBox&);
 	};
 
 

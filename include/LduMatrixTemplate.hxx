@@ -165,7 +165,7 @@ namespace tnbLib
 
 			// Declare run-time constructor selection tables
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				solver,
@@ -180,9 +180,63 @@ namespace tnbLib
 						matrix,
 						solverDict
 						)
-			);
+			);*/
 
-			declareRunTimeSelectionTable
+			typedef autoPtr<solver> (*symMatrixConstructorPtr)(const word& fieldName,
+			                                                   const LduMatrix<Type, DType, LUType>& matrix,
+			                                                   const dictionary& solverDict);
+			typedef HashTable<symMatrixConstructorPtr, word, string::hash> symMatrixConstructorTable;
+			static FoamBase_EXPORT symMatrixConstructorTable* symMatrixConstructorTablePtr_;
+			static FoamBase_EXPORT void constructsymMatrixConstructorTables();
+			static FoamBase_EXPORT void destroysymMatrixConstructorTables();
+
+			template <class solverType>
+			class addsymMatrixConstructorToTable
+			{
+			public:
+				static autoPtr<solver> New(const word& fieldName, const LduMatrix<Type, DType, LUType>& matrix,
+				                           const dictionary& solverDict)
+				{
+					return autoPtr<solver>(new solverType(fieldName, matrix, solverDict));
+				}
+
+				addsymMatrixConstructorToTable(const word& lookup = solverType::typeName)
+				{
+					constructsymMatrixConstructorTables();
+					if (!symMatrixConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "solver" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addsymMatrixConstructorToTable() { destroysymMatrixConstructorTables(); }
+			};
+
+			template <class solverType>
+			class addRemovablesymMatrixConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<solver> New(const word& fieldName, const LduMatrix<Type, DType, LUType>& matrix,
+				                           const dictionary& solverDict)
+				{
+					return autoPtr<solver>(new solverType(fieldName, matrix, solverDict));
+				}
+
+				addRemovablesymMatrixConstructorToTable(const word& lookup = solverType::typeName) : lookup_(lookup)
+				{
+					constructsymMatrixConstructorTables();
+					symMatrixConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovablesymMatrixConstructorToTable()
+				{
+					if (symMatrixConstructorTablePtr_) { symMatrixConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
+
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				solver,
@@ -197,7 +251,61 @@ namespace tnbLib
 						matrix,
 						solverDict
 						)
-			);
+			);*/
+
+			typedef autoPtr<solver> (*asymMatrixConstructorPtr)(const word& fieldName,
+			                                                    const LduMatrix<Type, DType, LUType>& matrix,
+			                                                    const dictionary& solverDict);
+			typedef HashTable<asymMatrixConstructorPtr, word, string::hash> asymMatrixConstructorTable;
+			static FoamBase_EXPORT asymMatrixConstructorTable* asymMatrixConstructorTablePtr_;
+			static FoamBase_EXPORT void constructasymMatrixConstructorTables();
+			static FoamBase_EXPORT void destroyasymMatrixConstructorTables();
+
+			template <class solverType>
+			class addasymMatrixConstructorToTable
+			{
+			public:
+				static autoPtr<solver> New(const word& fieldName, const LduMatrix<Type, DType, LUType>& matrix,
+				                           const dictionary& solverDict)
+				{
+					return autoPtr<solver>(new solverType(fieldName, matrix, solverDict));
+				}
+
+				addasymMatrixConstructorToTable(const word& lookup = solverType::typeName)
+				{
+					constructasymMatrixConstructorTables();
+					if (!asymMatrixConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "solver" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addasymMatrixConstructorToTable() { destroyasymMatrixConstructorTables(); }
+			};
+
+			template <class solverType>
+			class addRemovableasymMatrixConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<solver> New(const word& fieldName, const LduMatrix<Type, DType, LUType>& matrix,
+				                           const dictionary& solverDict)
+				{
+					return autoPtr<solver>(new solverType(fieldName, matrix, solverDict));
+				}
+
+				addRemovableasymMatrixConstructorToTable(const word& lookup = solverType::typeName) : lookup_(lookup)
+				{
+					constructasymMatrixConstructorTables();
+					asymMatrixConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovableasymMatrixConstructorToTable()
+				{
+					if (asymMatrixConstructorTablePtr_) { asymMatrixConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors
@@ -463,7 +571,10 @@ namespace tnbLib
 		// Static data
 
 			// Declare name of the class and its debug switch
-		ClassName("LduMatrix");
+		//ClassName("LduMatrix");
+		static const char* typeName_() { return "LduMatrix"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors

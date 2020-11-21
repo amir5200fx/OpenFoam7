@@ -49,6 +49,16 @@ SourceFiles
 #include <ParticleForce.hxx>
 #include <Random.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamBrownianMotionForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamBrownianMotionForce_EXPORT_DEFINE
+#define FoamBrownianMotionForce_EXPORT __declspec(dllexport)
+#else
+#define FoamBrownianMotionForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -93,7 +103,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("BrownianMotion");
+		//TypeName("BrownianMotion");
+		static const char* typeName_() { return "BrownianMotion"; }
+		static FoamBrownianMotionForce_EXPORT const ::tnbLib::word typeName;
+		static FoamBrownianMotionForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

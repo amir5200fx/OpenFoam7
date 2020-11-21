@@ -90,7 +90,7 @@ namespace tnbLib
 
 
 			//- String representation of temperatureMode enums
-			static const NamedEnum<temperatureMode, 2> temperatureModeNames_;
+			static FoamFvOptions_EXPORT const NamedEnum<temperatureMode, 2> temperatureModeNames_;
 
 
 		protected:
@@ -110,13 +110,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("fixedTemperatureConstraint");
+			//TypeName("fixedTemperatureConstraint");
+			static const char* typeName_() { return "fixedTemperatureConstraint"; }
+			static FoamFvOptions_EXPORT const ::tnbLib::word typeName;
+			static FoamFvOptions_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			fixedTemperatureConstraint
+			FoamFvOptions_EXPORT fixedTemperatureConstraint
 			(
 				const word& name,
 				const word& modelType,
@@ -125,7 +129,7 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			fixedTemperatureConstraint(const fixedTemperatureConstraint&) = delete;
+			FoamFvOptions_EXPORT fixedTemperatureConstraint(const fixedTemperatureConstraint&) = delete;
 
 
 			//- Destructor
@@ -136,16 +140,16 @@ namespace tnbLib
 			// Member Functions
 
 				//- Constrain energy equation to fix the temperature
-			virtual void constrain(fvMatrix<scalar>& eqn, const label fieldi);
+			FoamFvOptions_EXPORT virtual void constrain(fvMatrix<scalar>& eqn, const label fieldi);
 
 			//- Read dictionary
-			virtual bool read(const dictionary& dict);
+			FoamFvOptions_EXPORT virtual bool read(const dictionary& dict);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const fixedTemperatureConstraint&) = delete;
+			FoamFvOptions_EXPORT void operator=(const fixedTemperatureConstraint&) = delete;
 		};
 
 

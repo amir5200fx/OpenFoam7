@@ -41,6 +41,16 @@ SourceFiles
 #include <Switch.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamchemistryTabulationMethod_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamchemistryTabulationMethod_EXPORT_DEFINE
+#define FoamchemistryTabulationMethod_EXPORT __declspec(dllexport)
+#else
+#define FoamchemistryTabulationMethod_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -79,11 +89,15 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("chemistryTabulationMethod");
+		//TypeName("chemistryTabulationMethod");
+		static const char* typeName_() { return "chemistryTabulationMethod"; }
+		static FoamchemistryTabulationMethod_EXPORT const ::tnbLib::word typeName;
+		static FoamchemistryTabulationMethod_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			chemistryTabulationMethod,
@@ -93,7 +107,62 @@ namespace tnbLib
 				TDACChemistryModel<CompType, ThermoType>& chemistry
 				),
 				(dict, chemistry)
-		);
+		);*/
+
+		typedef autoPtr<chemistryTabulationMethod> (*dictionaryConstructorPtr)(
+			const dictionary& dict, TDACChemistryModel<CompType, ThermoType>& chemistry);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamchemistryTabulationMethod_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamchemistryTabulationMethod_EXPORT void constructdictionaryConstructorTables();
+		static FoamchemistryTabulationMethod_EXPORT void destroydictionaryConstructorTables();
+
+		template <class chemistryTabulationMethodType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<chemistryTabulationMethod> New(const dictionary& dict,
+			                                              TDACChemistryModel<CompType, ThermoType>& chemistry)
+			{
+				return autoPtr<chemistryTabulationMethod>(new chemistryTabulationMethodType(dict, chemistry));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = chemistryTabulationMethodType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"chemistryTabulationMethod" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class chemistryTabulationMethodType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<chemistryTabulationMethod> New(const dictionary& dict,
+			                                              TDACChemistryModel<CompType, ThermoType>& chemistry)
+			{
+				return autoPtr<chemistryTabulationMethod>(new chemistryTabulationMethodType(dict, chemistry));
+			}
+
+			addRemovabledictionaryConstructorToTable(
+				const word& lookup = chemistryTabulationMethodType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

@@ -62,18 +62,66 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("tableReader");
+		//TypeName("tableReader");
+		static const char* typeName_() { return "tableReader"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			tableReader,
 			dictionary,
 			(const dictionary& dict),
 			(dict)
-		);
+		);*/
+
+		typedef autoPtr<tableReader> (*dictionaryConstructorPtr)(const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamBase_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamBase_EXPORT void constructdictionaryConstructorTables();
+		static FoamBase_EXPORT void destroydictionaryConstructorTables();
+
+		template <class tableReaderType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<tableReader> New(const dictionary& dict) { return autoPtr<tableReader>(new tableReaderType(dict)); }
+
+			adddictionaryConstructorToTable(const word& lookup = tableReaderType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "tableReader" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class tableReaderType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<tableReader> New(const dictionary& dict) { return autoPtr<tableReader>(new tableReaderType(dict)); }
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = tableReaderType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

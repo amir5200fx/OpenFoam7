@@ -100,16 +100,19 @@ namespace tnbLib
 		// Static data
 
 			// Declare name of the class and its debug switch
-		ClassName("SolverPerformance");
+		//ClassName("SolverPerformance");
+		static const char* typeName_() { return "SolverPerformance"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 		//- Large Type for the use in solvers
-		static const scalar great_;
+		static FoamBase_EXPORT const scalar great_;
 
 		//- Small Type for the use in solvers
-		static const scalar small_;
+		static FoamBase_EXPORT const scalar small_;
 
 		//- Very small Type for the use in solvers
-		static const scalar vsmall_;
+		static FoamBase_EXPORT const scalar vsmall_;
 
 
 		// Constructors

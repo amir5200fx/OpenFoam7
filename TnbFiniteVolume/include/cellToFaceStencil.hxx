@@ -69,7 +69,7 @@ namespace tnbLib
 
 		//- Merge two lists.
 		//  Guarantee global0, global1 are first.
-		static void merge
+		static FoamFiniteVolume_EXPORT void merge
 		(
 			const label global0,
 			const label global1,
@@ -78,7 +78,7 @@ namespace tnbLib
 		);
 
 		//- Merge two lists and guarantee globalI is first.
-		static void merge
+		static FoamFiniteVolume_EXPORT void merge
 		(
 			const label globalI,
 			const labelList& pGlobals,
@@ -86,20 +86,20 @@ namespace tnbLib
 		);
 
 		//- Valid boundary faces (not empty and not coupled)
-		void validBoundaryFaces(boolList& isValidBFace) const;
+		FoamFiniteVolume_EXPORT void validBoundaryFaces(boolList& isValidBFace) const;
 
 		//- Return patch of all coupled faces.
-		autoPtr<indirectPrimitivePatch> allCoupledFacesPatch() const;
+		FoamFiniteVolume_EXPORT autoPtr<indirectPrimitivePatch> allCoupledFacesPatch() const;
 
 		//- Combine operator for labelLists
 		class unionEqOp
 		{
 		public:
-			void operator()(labelList& x, const labelList& y) const;
+			FoamFiniteVolume_EXPORT void operator()(labelList& x, const labelList& y) const;
 		};
 
 		//- Collect cell neighbours of faces in global numbering
-		void insertFaceCells
+		FoamFiniteVolume_EXPORT void insertFaceCells
 		(
 			const label exclude0,
 			const label exclude1,
@@ -109,7 +109,7 @@ namespace tnbLib
 		) const;
 
 		//- Collect cell neighbours of faces in global numbering
-		labelList calcFaceCells
+		FoamFiniteVolume_EXPORT labelList calcFaceCells
 		(
 			const boolList& nonEmptyFace,
 			const labelList& faceLabels,
@@ -118,7 +118,7 @@ namespace tnbLib
 
 
 		//- Collect cell neighbours into extended stencil
-		void calcFaceStencil
+		FoamFiniteVolume_EXPORT void calcFaceStencil
 		(
 			const labelListList& globalCellCells,
 			labelListList& faceStencil
@@ -130,7 +130,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mesh
-		explicit cellToFaceStencil(const polyMesh&);
+		FoamFiniteVolume_EXPORT explicit cellToFaceStencil(const polyMesh&);
 
 
 		// Member Functions

@@ -55,7 +55,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Fraction of face area below which face is considered disconnected
-		static const scalar tolerance_;
+		static FoamFvMesh_EXPORT const scalar tolerance_;
 
 		//- Name of non-overlapping patch
 		const word nonOverlapPatchName_;
@@ -78,31 +78,35 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Reset the AMI interpolator
-		virtual void resetAMI() const;
+		FoamFvMesh_EXPORT virtual void resetAMI() const;
 
 		//- Initialise the calculation of the patch geometry
-		virtual void initGeometry(PstreamBuffers&);
+		FoamFvMesh_EXPORT virtual void initGeometry(PstreamBuffers&);
 
 		//- Initialise the patches for moving points
-		virtual void initMovePoints(PstreamBuffers& pBufs, const pointField&);
+		FoamFvMesh_EXPORT virtual void initMovePoints(PstreamBuffers& pBufs, const pointField&);
 
 		//- Return the mask/weighting for the source patch
-		virtual const scalarField& srcMask() const;
+		FoamFvMesh_EXPORT virtual const scalarField& srcMask() const;
 
 		//- Return the mask/weighting for the target patch
-		virtual const scalarField& tgtMask() const;
+		FoamFvMesh_EXPORT virtual const scalarField& tgtMask() const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("cyclicACMI");
+		//TypeName("cyclicACMI");
+		static const char* typeName_() { return "cyclicACMI"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from (base couped patch) components
-		cyclicACMIPolyPatch
+		FoamFvMesh_EXPORT cyclicACMIPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -114,7 +118,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		cyclicACMIPolyPatch
+		FoamFvMesh_EXPORT cyclicACMIPolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -124,7 +128,7 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		cyclicACMIPolyPatch
+		FoamFvMesh_EXPORT cyclicACMIPolyPatch
 		(
 			const cyclicACMIPolyPatch&,
 			const polyBoundaryMesh&
@@ -132,7 +136,7 @@ namespace tnbLib
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		cyclicACMIPolyPatch
+		FoamFvMesh_EXPORT cyclicACMIPolyPatch
 		(
 			const cyclicACMIPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -144,7 +148,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		cyclicACMIPolyPatch
+		FoamFvMesh_EXPORT cyclicACMIPolyPatch
 		(
 			const cyclicACMIPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -210,7 +214,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~cyclicACMIPolyPatch();
+		FoamFvMesh_EXPORT virtual ~cyclicACMIPolyPatch();
 
 
 		// Member Functions
@@ -224,13 +228,13 @@ namespace tnbLib
 		inline bool updated() const;
 
 		//- Return a reference to the neighbour patch
-		virtual const cyclicACMIPolyPatch& neighbPatch() const;
+		FoamFvMesh_EXPORT virtual const cyclicACMIPolyPatch& neighbPatch() const;
 
 		//- Non-overlapping patch name
 		inline const word& nonOverlapPatchName() const;
 
 		//- Non-overlapping patch ID
-		virtual label nonOverlapPatchID() const;
+		FoamFvMesh_EXPORT virtual label nonOverlapPatchID() const;
 
 		//- Return a const reference to the non-overlapping patch
 		inline const polyPatch& nonOverlapPatch() const;
@@ -246,7 +250,7 @@ namespace tnbLib
 
 
 		//- Calculate the patch geometry
-		virtual void calcGeometry
+		FoamFvMesh_EXPORT virtual void calcGeometry
 		(
 			const primitivePatch& referPatch,
 			const pointField& thisCtrs,
@@ -259,7 +263,7 @@ namespace tnbLib
 
 		//- Initialize ordering for primitivePatch. Does not
 		//  refer to *this (except for name() and type() etc.)
-		virtual void initOrder
+		FoamFvMesh_EXPORT virtual void initOrder
 		(
 			PstreamBuffers&,
 			const primitivePatch&
@@ -270,7 +274,7 @@ namespace tnbLib
 		//  index of the new face -rotation:for every new face the clockwise
 		//  shift of the original face. Return false if nothing changes
 		//  (faceMap is identity, rotation is 0), true otherwise.
-		virtual bool order
+		FoamFvMesh_EXPORT virtual bool order
 		(
 			PstreamBuffers&,
 			const primitivePatch&,
@@ -279,7 +283,7 @@ namespace tnbLib
 		) const;
 
 		//- Write the polyPatch data as a dictionary
-		virtual void write(Ostream&) const;
+		FoamFvMesh_EXPORT virtual void write(Ostream&) const;
 	};
 
 

@@ -69,11 +69,11 @@ namespace tnbLib
 
 			// Protected Data
 
-			static const char* const defaultBoundaryName;
-			static const char* const defaultSolidBoundaryName;
+			static FoamConversion_EXPORT const char* const defaultBoundaryName;
+			static FoamConversion_EXPORT const char* const defaultSolidBoundaryName;
 
 			//- Face addressing from pro-STAR faces -> OpenFOAM faces
-			static const int starToFoamFaceAddr[4][6];
+			static FoamConversion_EXPORT const int starToFoamFaceAddr[4][6];
 
 			//- Cell shapes
 			cellShapeList cellShapes_;
@@ -91,28 +91,28 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Read the mesh from the file(s)
-			virtual bool readGeometry(const scalar scaleFactor = 1.0);
+			FoamConversion_EXPORT virtual bool readGeometry(const scalar scaleFactor = 1.0);
 
 			//- Read points from file
-			void readPoints(const fileName&, const scalar scaleFactor);
+			FoamConversion_EXPORT void readPoints(const fileName&, const scalar scaleFactor);
 
 			//- Read cell connectivities from file
-			virtual void readCells(const fileName&);
+			FoamConversion_EXPORT virtual void readCells(const fileName&);
 
 			//- Remove unused points
-			void cullPoints();
+			FoamConversion_EXPORT void cullPoints();
 
 			//- Read boundary (cell/face) definitions
-			void readBoundary(const fileName&);
+			FoamConversion_EXPORT void readBoundary(const fileName&);
 
 			//- Read auxiliary data from constant/{boundaryRegion,cellTable}
-			void readAux(const objectRegistry&);
+			FoamConversion_EXPORT void readAux(const objectRegistry&);
 
 			//- Read and discard to newline
-			static void readToNewline(IFstream&);
+			static FoamConversion_EXPORT void readToNewline(IFstream&);
 
 			//- Read header
-			static bool readHeader(IFstream&, word fileSignature);
+			static FoamConversion_EXPORT bool readHeader(IFstream&, word fileSignature);
 
 
 		protected:
@@ -145,13 +145,13 @@ namespace tnbLib
 			// Static data
 
 				//- Keep solids (default false)
-			static bool keepSolids;
+			static FoamConversion_EXPORT bool keepSolids;
 
 
 			// Constructors
 
 				//- Construct from case name
-			STARCD
+			FoamConversion_EXPORT STARCD
 			(
 				const fileName& prefix,
 				const objectRegistry&,
@@ -159,17 +159,17 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			STARCD(const STARCD&) = delete;
+			FoamConversion_EXPORT STARCD(const STARCD&) = delete;
 
 
 			//- Destructor
-			virtual ~STARCD();
+			FoamConversion_EXPORT virtual ~STARCD();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const STARCD&) = delete;
+			FoamConversion_EXPORT void operator=(const STARCD&) = delete;
 		};
 
 

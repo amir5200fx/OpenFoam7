@@ -1,3 +1,5 @@
+#define FoamNamedEnum_EXPORT_DEFINE
+
 #include <meshToMesh.hxx>
 
 #include <Time.hxx>

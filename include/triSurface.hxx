@@ -58,7 +58,7 @@ namespace tnbLib
 
 	class triSurface;
 
-	Ostream& operator<<(Ostream&, const triSurface&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const triSurface&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -100,27 +100,27 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate sorted edgeFaces
-		void calcSortedEdgeFaces() const;
+		FoamFvMesh_EXPORT void calcSortedEdgeFaces() const;
 
 		//- Calculate owner
-		void calcEdgeOwner() const;
+		FoamFvMesh_EXPORT void calcEdgeOwner() const;
 
 		//- Sort faces according to region. Returns patch list
 		//  and sets faceMap to index of labelledTri inside *this.
-		surfacePatchList calcPatches(labelList& faceMap) const;
+		FoamFvMesh_EXPORT surfacePatchList calcPatches(labelList& faceMap) const;
 
 		//- Sets default values for patches
-		void setDefaultPatches();
+		FoamFvMesh_EXPORT void setDefaultPatches();
 
 		//- Function to stitch the triangles by removing duplicate points.
 		//  Returns true if any points merged
-		bool stitchTriangles
+		FoamFvMesh_EXPORT bool stitchTriangles
 		(
 			const scalar tol = small,
 			const bool verbose = false
 		);
 
-		scalar pointNormalWeight
+		FoamFvMesh_EXPORT scalar pointNormalWeight
 		(
 			const triFace& f,
 			const label pi,
@@ -129,85 +129,85 @@ namespace tnbLib
 		) const;
 
 		//- Return the surface point normals
-		tmp<vectorField> weightedPointNormals() const;
+		FoamFvMesh_EXPORT tmp<vectorField> weightedPointNormals() const;
 
 		//- Return the curvature of surface at the points
-		tmp<triadField> pointCoordSys(const vectorField& pointNormals) const;
+		FoamFvMesh_EXPORT tmp<triadField> pointCoordSys(const vectorField& pointNormals) const;
 
 
 		//- Read in tnbLib format
-		bool read(Istream&);
+		FoamFvMesh_EXPORT bool read(Istream&);
 
 		//- Generic read routine. Chooses reader based on extension.
-		bool read(const fileName&, const word& ext, const bool check = true);
+		FoamFvMesh_EXPORT bool read(const fileName&, const word& ext, const bool check = true);
 
-		bool readSTL(const fileName&);
-		bool readSTLASCII(const fileName&);
-		bool readSTLBINARY(const fileName&);
-		bool readGTS(const fileName&);
-		bool readOBJ(const fileName&);
-		bool readOFF(const fileName&);
-		bool readTRI(const fileName&);
-		bool readAC(const fileName&);
-		bool readNAS(const fileName&);
-		bool readVTK(const fileName&);
+		FoamFvMesh_EXPORT bool readSTL(const fileName&);
+		FoamFvMesh_EXPORT bool readSTLASCII(const fileName&);
+		FoamFvMesh_EXPORT bool readSTLBINARY(const fileName&);
+		FoamFvMesh_EXPORT bool readGTS(const fileName&);
+		FoamFvMesh_EXPORT bool readOBJ(const fileName&);
+		FoamFvMesh_EXPORT bool readOFF(const fileName&);
+		FoamFvMesh_EXPORT bool readTRI(const fileName&);
+		FoamFvMesh_EXPORT bool readAC(const fileName&);
+		FoamFvMesh_EXPORT bool readNAS(const fileName&);
+		FoamFvMesh_EXPORT bool readVTK(const fileName&);
 
 		//- Generic write routine. Chooses writer based on extension.
-		void write(const fileName&, const word& ext, const bool sort) const;
+		FoamFvMesh_EXPORT void write(const fileName&, const word& ext, const bool sort) const;
 
 		//- Write to Ostream in ASCII STL format.
 		//  Each region becomes 'solid' 'endsolid' block.
-		void writeSTLASCII(const bool writeSorted, Ostream&) const;
+		FoamFvMesh_EXPORT void writeSTLASCII(const bool writeSorted, Ostream&) const;
 
 		//- Write to std::ostream in BINARY STL format
-		void writeSTLBINARY(std::ostream&) const;
+		FoamFvMesh_EXPORT void writeSTLBINARY(std::ostream&) const;
 
 		//- Write to Ostream in GTS (Gnu Tri Surface library)
 		//  format.
-		void writeGTS(const bool writeSorted, Ostream&) const;
+		FoamFvMesh_EXPORT void writeGTS(const bool writeSorted, Ostream&) const;
 
 		//- Write to Ostream in OBJ (Lightwave) format.
 		//  writeSorted=true: sort faces acc. to region and write as single
 		//  group. =false: write in normal order.
-		void writeOBJ(const bool writeSorted, Ostream&) const;
+		FoamFvMesh_EXPORT void writeOBJ(const bool writeSorted, Ostream&) const;
 
 		//- Write to Ostream in OFF (Geomview) format.
 		//  writeSorted=true: sort faces acc. to region and write as single
 		//  group. =false: write in normal order.
-		void writeOFF(const bool writeSorted, Ostream&) const;
+		FoamFvMesh_EXPORT void writeOFF(const bool writeSorted, Ostream&) const;
 
 		//- Write to VTK legacy format.
-		void writeVTK(const bool writeSorted, Ostream&) const;
+		FoamFvMesh_EXPORT void writeVTK(const bool writeSorted, Ostream&) const;
 
 		//- Write to Ostream in TRI (AC3D) format
 		//  Ac3d .tri format (unmerged triangle format)
-		void writeTRI(const bool writeSorted, Ostream&) const;
+		FoamFvMesh_EXPORT void writeTRI(const bool writeSorted, Ostream&) const;
 
 		//- Write to Ostream in SMESH (tetgen) format
-		void writeSMESH(const bool writeSorted, Ostream&) const;
+		FoamFvMesh_EXPORT void writeSMESH(const bool writeSorted, Ostream&) const;
 
 		//- Write to Ostream in AC3D format. Always sorted by patch.
-		void writeAC(Ostream&) const;
+		FoamFvMesh_EXPORT void writeAC(Ostream&) const;
 
 
 		// Static private functions
 
 			//- Convert faces to labelledTri. All get same region.
-		static List<labelledTri> convertToTri
+		static FoamFvMesh_EXPORT List<labelledTri> convertToTri
 		(
 			const faceList&,
 			const label defaultRegion = 0
 		);
 
 		//- Convert triFaces to labelledTri. All get same region.
-		static List<labelledTri> convertToTri
+		static FoamFvMesh_EXPORT List<labelledTri> convertToTri
 		(
 			const triFaceList&,
 			const label defaultRegion = 0
 		);
 
 		//- Helper function to print triangle info
-		static void printTriangle
+		static FoamFvMesh_EXPORT void printTriangle
 		(
 			Ostream&,
 			const tnbLib::string& pre,
@@ -216,7 +216,7 @@ namespace tnbLib
 		);
 
 		//- Read non-comment line
-		static string getLineNoComment(IFstream&);
+		static FoamFvMesh_EXPORT string getLineNoComment(IFstream&);
 
 
 	protected:
@@ -245,22 +245,25 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		ClassName("triSurface");
+		/*ClassName("triSurface");*/
+		static const char* typeName_() { return "triSurface"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Static
 
 			//- Name of triSurface directory to use.
-		static fileName triSurfInstance(const Time&);
+		static FoamFvMesh_EXPORT fileName triSurfInstance(const Time&);
 
 
 		// Constructors
 
 			//- Construct null
-		triSurface();
+		FoamFvMesh_EXPORT triSurface();
 
 		//- Construct from triangles, patches, points.
-		triSurface
+		FoamFvMesh_EXPORT triSurface
 		(
 			const List<labelledTri>&,
 			const geometricSurfacePatchList&,
@@ -268,7 +271,7 @@ namespace tnbLib
 		);
 
 		//- Construct from triangles, patches, points. Reuse storage.
-		triSurface
+		FoamFvMesh_EXPORT triSurface
 		(
 			List<labelledTri>&,
 			const geometricSurfacePatchList&,
@@ -277,7 +280,7 @@ namespace tnbLib
 		);
 
 		//- Construct from triangles, patches, points.
-		triSurface
+		FoamFvMesh_EXPORT triSurface
 		(
 			List<labelledTri>&&,
 			const geometricSurfacePatchList&,
@@ -285,36 +288,36 @@ namespace tnbLib
 		);
 
 		//- Construct from triangles, points. Set patchnames to default.
-		triSurface(const List<labelledTri>&, const pointField&);
+		FoamFvMesh_EXPORT triSurface(const List<labelledTri>&, const pointField&);
 
 		//- Construct from triangles, points. Set region to 0 and default
 		//  patchName.
-		triSurface(const triFaceList&, const pointField&);
+		FoamFvMesh_EXPORT triSurface(const triFaceList&, const pointField&);
 
 		//- Construct from file name (uses extension to determine type)
-		triSurface(const fileName&);
+		FoamFvMesh_EXPORT triSurface(const fileName&);
 
 		//- Construct from Istream
-		triSurface(Istream&);
+		FoamFvMesh_EXPORT triSurface(Istream&);
 
 		//- Construct from objectRegistry
-		triSurface(const Time& d);
+		FoamFvMesh_EXPORT triSurface(const Time& d);
 
 		//- Copy constructor
-		triSurface(const triSurface&);
+		FoamFvMesh_EXPORT triSurface(const triSurface&);
 
 		//- Move constructor
-		triSurface(triSurface&&);
+		FoamFvMesh_EXPORT triSurface(triSurface&&);
 
 
 		//- Destructor
-		~triSurface();
+		FoamFvMesh_EXPORT ~triSurface();
 
-		void clearOut();
+		FoamFvMesh_EXPORT void clearOut();
 
-		void clearTopology();
+		FoamFvMesh_EXPORT void clearTopology();
 
-		void clearPatchMeshAddr();
+		FoamFvMesh_EXPORT void clearPatchMeshAddr();
 
 
 		// Member Functions
@@ -335,36 +338,36 @@ namespace tnbLib
 		//  2 faces) according to the angle around the edge.
 		//  Orientation is anticlockwise looking from
 		//  edge.vec(localPoints())
-		const labelListList& sortedEdgeFaces() const;
+		FoamFvMesh_EXPORT const labelListList& sortedEdgeFaces() const;
 
 		//- If 2 face neighbours: label of face where ordering of edge
 		//  is consistent with righthand walk.
 		//  If 1 neighbour: label of only face.
 		//  If >2 neighbours: undetermined.
-		const labelList& edgeOwner() const;
+		FoamFvMesh_EXPORT const labelList& edgeOwner() const;
 
 
 		// Edit
 
 			//- Move points
-		virtual void movePoints(const pointField&);
+		FoamFvMesh_EXPORT virtual void movePoints(const pointField&);
 
 		//- Scale points. A non-positive factor is ignored
-		virtual void scalePoints(const scalar);
+		FoamFvMesh_EXPORT virtual void scalePoints(const scalar);
 
 		//- Check/remove duplicate/degenerate triangles
-		void checkTriangles(const bool verbose);
+		FoamFvMesh_EXPORT void checkTriangles(const bool verbose);
 
 		//- Check triply (or more) connected edges.
-		void checkEdges(const bool verbose);
+		FoamFvMesh_EXPORT void checkEdges(const bool verbose);
 
 		//- Remove non-valid triangles
-		void cleanup(const bool verbose);
+		FoamFvMesh_EXPORT void cleanup(const bool verbose);
 
 		//- Fill faceZone with currentZone for every face reachable
 		//  from facei without crossing edge marked in borderEdge.
 		//  Note: faceZone has to be sized nFaces before calling this fun.
-		void markZone
+		FoamFvMesh_EXPORT void markZone
 		(
 			const boolList& borderEdge,
 			const label facei,
@@ -375,7 +378,7 @@ namespace tnbLib
 		//- (size and) fills faceZone with zone of face. Zone is area
 		//  reachable by edge crossing without crossing borderEdge
 		//  (bool for every edge in surface). Returns number of zones.
-		label markZones
+		FoamFvMesh_EXPORT label markZones
 		(
 			const boolList& borderEdge,
 			labelList& faceZone
@@ -385,7 +388,7 @@ namespace tnbLib
 		//  boolList entry is true
 		//  Sets: pointMap: from new to old localPoints
 		//        faceMap: new to old faces
-		void subsetMeshMap
+		FoamFvMesh_EXPORT void subsetMeshMap
 		(
 			const boolList& include,
 			labelList& pointMap,
@@ -394,7 +397,7 @@ namespace tnbLib
 
 		//- Return new surface. Returns pointMap, faceMap from
 		//  subsetMeshMap
-		triSurface subsetMesh
+		FoamFvMesh_EXPORT triSurface subsetMesh
 		(
 			const boolList& include,
 			labelList& pointMap,
@@ -405,39 +408,39 @@ namespace tnbLib
 		// Conversion
 
 			//- Return the list of triangles as a faceList
-		faceList faces() const;
+		FoamFvMesh_EXPORT faceList faces() const;
 
 
 		// Analysis
 
 			//- Return the curvature of surface at the points
-		tmp<scalarField> curvature() const;
+		FoamFvMesh_EXPORT tmp<scalarField> curvature() const;
 
 
 		// Write
 
 			//- Write to Ostream in simple FOAM format
-		void write(Ostream&) const;
+		FoamFvMesh_EXPORT void write(Ostream&) const;
 
 		//- Generic write routine. Chooses writer based on extension.
-		void write(const fileName&, const bool sortByRegion = false) const;
+		FoamFvMesh_EXPORT void write(const fileName&, const bool sortByRegion = false) const;
 
 		//- Write to database
-		void write(const Time&) const;
+		FoamFvMesh_EXPORT void write(const Time&) const;
 
 		//- Write some statistics
-		void writeStats(Ostream&) const;
+		FoamFvMesh_EXPORT void writeStats(Ostream&) const;
 
 
 		// Member Operators
 
-		void operator=(const triSurface&);
-		void operator=(triSurface&&);
+		FoamFvMesh_EXPORT void operator=(const triSurface&);
+		FoamFvMesh_EXPORT void operator=(triSurface&&);
 
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const triSurface&);
+		FoamFvMesh_EXPORT friend Ostream& operator<<(Ostream&, const triSurface&);
 	};
 
 

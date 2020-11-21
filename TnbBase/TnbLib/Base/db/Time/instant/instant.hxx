@@ -50,15 +50,15 @@ namespace tnbLib
 
 	// Friend Operators
 
-	bool operator==(const instant&, const instant&);
-	bool operator!=(const instant&, const instant&);
-	bool operator<(const instant&, const instant&);
-	bool operator>(const instant&, const instant&);
+	FoamBase_EXPORT bool operator==(const instant&, const instant&);
+	FoamBase_EXPORT bool operator!=(const instant&, const instant&);
+	FoamBase_EXPORT bool operator<(const instant&, const instant&);
+	FoamBase_EXPORT bool operator>(const instant&, const instant&);
 
 	// IOstream Operators
 
-	Istream& operator>>(Istream&, instant&);
-	Ostream& operator<<(Ostream&, const instant&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, instant&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const instant&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -90,22 +90,22 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
+		static FoamBase_EXPORT const char* const typeName;
 
 
 		// Constructors
 
 			//- Construct null
-		instant();
+		FoamBase_EXPORT instant();
 
 		//- Construct from components
-		instant(const scalar, const word&);
+		FoamBase_EXPORT instant(const scalar, const word&);
 
 		//- Construct from time value
-		explicit instant(const scalar);
+		FoamBase_EXPORT explicit instant(const scalar);
 
 		//- Construct from word
-		explicit instant(const word&);
+		FoamBase_EXPORT explicit instant(const word&);
 
 
 		// Member Functions
@@ -137,21 +137,21 @@ namespace tnbLib
 		}
 
 		//- Comparison used for instants to be equal
-		bool equal(const scalar) const;
+		FoamBase_EXPORT bool equal(const scalar) const;
 
 
 		// Friend Operators
 
-		friend bool operator==(const instant&, const instant&);
-		friend bool operator!=(const instant&, const instant&);
-		friend bool operator<(const instant&, const instant&);
-		friend bool operator>(const instant&, const instant&);
+		friend FoamBase_EXPORT bool operator==(const instant&, const instant&);
+		friend FoamBase_EXPORT bool operator!=(const instant&, const instant&);
+		friend FoamBase_EXPORT bool operator<(const instant&, const instant&);
+		friend FoamBase_EXPORT bool operator>(const instant&, const instant&);
 
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, instant&);
-		friend Ostream& operator<<(Ostream&, const instant&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, instant&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const instant&);
 	};
 
 

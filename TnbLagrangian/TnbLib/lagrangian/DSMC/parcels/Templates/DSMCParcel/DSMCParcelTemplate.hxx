@@ -44,6 +44,16 @@ SourceFiles
 #include <contiguous.hxx>
 #include <DSMCCloudTemplate.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamDSMCParcel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDSMCParcel_EXPORT_DEFINE
+#define FoamDSMCParcel_EXPORT __declspec(dllexport)
+#else
+#define FoamDSMCParcel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -152,7 +162,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("DSMCParcel");
+		//TypeName("DSMCParcel");
+		static const char* typeName_() { return "DSMCParcel"; }
+		static FoamDSMCParcel_EXPORT const ::tnbLib::word typeName;
+		static FoamDSMCParcel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		friend class Cloud<ParcelType>;
 

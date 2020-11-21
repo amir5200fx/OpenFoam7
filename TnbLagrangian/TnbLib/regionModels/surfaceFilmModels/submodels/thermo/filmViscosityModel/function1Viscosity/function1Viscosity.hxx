@@ -60,10 +60,10 @@ namespace tnbLib
 				// Private Member Functions
 
 					//- Disallow default bitwise copy construction
-				function1Viscosity(const function1Viscosity&) = delete;
+				FoamLagrangian_EXPORT function1Viscosity(const function1Viscosity&) = delete;
 
 				//- Disallow default bitwise assignment
-				void operator=(const function1Viscosity&) = delete;
+				FoamLagrangian_EXPORT void operator=(const function1Viscosity&) = delete;
 
 
 			protected:
@@ -80,13 +80,17 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("function1");
+				//TypeName("function1");
+				static const char* typeName_() { return "function1"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				function1Viscosity
+				FoamLagrangian_EXPORT function1Viscosity
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict,
@@ -95,13 +99,13 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~function1Viscosity();
+				FoamLagrangian_EXPORT virtual ~function1Viscosity();
 
 
 				// Member Functions
 
 					//- Correct
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					const volScalarField& p,
 					const volScalarField& T

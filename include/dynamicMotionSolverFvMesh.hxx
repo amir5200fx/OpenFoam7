@@ -66,35 +66,39 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("dynamicMotionSolverFvMesh");
+		//TypeName("dynamicMotionSolverFvMesh");
+		static const char* typeName_() { return "dynamicMotionSolverFvMesh"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from IOobject
-		dynamicMotionSolverFvMesh(const IOobject& io);
+		FoamDynamicMesh_EXPORT dynamicMotionSolverFvMesh(const IOobject& io);
 
 		//- Disallow default bitwise copy construction
-		dynamicMotionSolverFvMesh(const dynamicMotionSolverFvMesh&) = delete;
+		FoamDynamicMesh_EXPORT dynamicMotionSolverFvMesh(const dynamicMotionSolverFvMesh&) = delete;
 
 
 		//- Destructor
-		~dynamicMotionSolverFvMesh();
+		FoamDynamicMesh_EXPORT ~dynamicMotionSolverFvMesh();
 
 
 		// Member Functions
 
 			//- Return the motionSolver
-		const motionSolver& motion() const;
+		FoamDynamicMesh_EXPORT const motionSolver& motion() const;
 
 		//- Update the mesh for both mesh motion and topology change
-		virtual bool update();
+		FoamDynamicMesh_EXPORT virtual bool update();
 
 
 		// Write
 
 			//- Write the underlying polyMesh and other data
-		virtual bool writeObject
+		FoamDynamicMesh_EXPORT virtual bool writeObject
 		(
 			IOstream::streamFormat fmt,
 			IOstream::versionNumber ver,

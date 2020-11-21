@@ -107,7 +107,7 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Read the coefficients from the given dictionary
-			void read(const dictionary& coeffs);
+			FoamBase_EXPORT void read(const dictionary& coeffs);
 
 
 		public:
@@ -115,7 +115,7 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from entry name and dictionary
-			ramp
+			FoamBase_EXPORT ramp
 			(
 				const word& entryName,
 				const dictionary& dict
@@ -123,7 +123,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~ramp();
+			FoamBase_EXPORT virtual ~ramp();
 
 
 			// Member Functions
@@ -132,7 +132,7 @@ namespace tnbLib
 			virtual scalar value(const scalar t) const = 0;
 
 			//- Write in dictionary format
-			virtual void writeData(Ostream& os) const;
+			FoamBase_EXPORT virtual void writeData(Ostream& os) const;
 
 
 			// Member Operators

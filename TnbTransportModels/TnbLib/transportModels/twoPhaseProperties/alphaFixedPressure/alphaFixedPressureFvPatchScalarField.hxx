@@ -60,20 +60,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("alphaFixedPressure");
+		//TypeName("alphaFixedPressure");
+		static const char* typeName_() { return "alphaFixedPressure"; }
+		static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+		static FoamTransportModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		alphaFixedPressureFvPatchScalarField
+		FoamTransportModels_EXPORT alphaFixedPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		alphaFixedPressureFvPatchScalarField
+		FoamTransportModels_EXPORT alphaFixedPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -82,7 +86,7 @@ namespace tnbLib
 
 		//- Construct by mapping given alphaFixedPressureFvPatchScalarField
 		//  onto a new patch
-		alphaFixedPressureFvPatchScalarField
+		FoamTransportModels_EXPORT alphaFixedPressureFvPatchScalarField
 		(
 			const alphaFixedPressureFvPatchScalarField&,
 			const fvPatch&,
@@ -91,7 +95,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		alphaFixedPressureFvPatchScalarField
+		FoamTransportModels_EXPORT alphaFixedPressureFvPatchScalarField
 		(
 			const alphaFixedPressureFvPatchScalarField&
 		);
@@ -106,7 +110,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		alphaFixedPressureFvPatchScalarField
+		FoamTransportModels_EXPORT alphaFixedPressureFvPatchScalarField
 		(
 			const alphaFixedPressureFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -146,21 +150,21 @@ namespace tnbLib
 
 			//- Map (and resize as needed) from self given a mapping object
 			//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		FoamTransportModels_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchScalarField&, const labelList&);
+		FoamTransportModels_EXPORT virtual void rmap(const fvPatchScalarField&, const labelList&);
 
 
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamTransportModels_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamTransportModels_EXPORT virtual void write(Ostream&) const;
 	};
 
 

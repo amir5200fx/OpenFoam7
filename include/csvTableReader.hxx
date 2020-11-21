@@ -74,7 +74,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("csv");
+		//TypeName("csv");
+		static const char* typeName_() { return "csv"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -122,9 +126,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <csvTableReader.cxx>
-#endif
+//#ifdef NoRepository
+//#include <csvTableReader.cxx>
+//#endif
+
+#include <csvTableReaderI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

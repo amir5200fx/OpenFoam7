@@ -38,6 +38,16 @@ SourceFiles
 
 #include <Reaction.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamIrreversibleReaction_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamIrreversibleReaction_EXPORT_DEFINE
+#define FoamIrreversibleReaction_EXPORT __declspec(dllexport)
+#else
+#define FoamIrreversibleReaction_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -65,7 +75,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("irreversible");
+		//TypeName("irreversible");
+		static const char* typeName_() { return "irreversible"; }
+		static FoamIrreversibleReaction_EXPORT const ::tnbLib::word typeName;
+		static FoamIrreversibleReaction_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

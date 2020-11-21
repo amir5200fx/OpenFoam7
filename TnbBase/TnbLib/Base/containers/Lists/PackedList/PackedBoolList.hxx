@@ -70,7 +70,7 @@ namespace tnbLib
 
 			//- Preparation, resizing before a bitor operation
 			//  returns true if the later result needs trimming
-		bool bitorPrepare(const PackedList<1>& lst, label& maxPackLen);
+		FoamBase_EXPORT bool bitorPrepare(const PackedList<1>& lst, label& maxPackLen);
 
 		//- Set the listed indices. Return number of elements changed.
 		//  Does auto-vivify for non-existent entries.
@@ -95,7 +95,7 @@ namespace tnbLib
 		inline PackedBoolList();
 
 		//- Construct from Istream
-		PackedBoolList(Istream&);
+		FoamBase_EXPORT PackedBoolList(Istream&);
 
 		//- Construct with given size, initializes list to 0
 		explicit inline PackedBoolList(const label size);
@@ -132,40 +132,40 @@ namespace tnbLib
 		using PackedList<1>::unset;
 
 		//- Set specified bits.
-		void set(const PackedList<1>&);
+		FoamBase_EXPORT void set(const PackedList<1>&);
 
 		//- Set the listed indices. Return number of elements changed.
 		//  Does auto-vivify for non-existent entries.
-		label set(const labelUList& indices);
+		FoamBase_EXPORT label set(const labelUList& indices);
 
 		//- Set the listed indices. Return number of elements changed.
 		//  Does auto-vivify for non-existent entries.
-		label set(const UIndirectList<label>& indices);
+		FoamBase_EXPORT label set(const UIndirectList<label>& indices);
 
 		//- Unset specified bits.
-		void unset(const PackedList<1>&);
+		FoamBase_EXPORT void unset(const PackedList<1>&);
 
 		//- Unset the listed indices. Return number of elements changed.
 		//  Never auto-vivify entries.
-		label unset(const labelUList& indices);
+		FoamBase_EXPORT label unset(const labelUList& indices);
 
 		//- Unset the listed indices. Return number of elements changed.
 		//  Never auto-vivify entries.
-		label unset(const UIndirectList<label>& indices);
+		FoamBase_EXPORT label unset(const UIndirectList<label>& indices);
 
 		//- Subset with the specified list.
-		void subset(const PackedList<1>&);
+		FoamBase_EXPORT void subset(const PackedList<1>&);
 
 		//- Subset with the listed indices.
 		//  Return number of elements subsetted.
-		label subset(const labelUList& indices);
+		FoamBase_EXPORT label subset(const labelUList& indices);
 
 		//- Subset with the listed indices.
 		//  Return number of elements subsetted.
-		label subset(const UIndirectList<label>& indices);
+		FoamBase_EXPORT label subset(const UIndirectList<label>& indices);
 
 		//- Return indices of the used (true) elements as a list of labels
-		labelList used() const;
+		FoamBase_EXPORT labelList used() const;
 
 
 		// Edit
@@ -191,7 +191,7 @@ namespace tnbLib
 		inline void operator=(const PackedList<1>&);
 
 		//- Assignment operator.
-		void operator=(const tnbLib::UList<bool>&);
+		FoamBase_EXPORT void operator=(const tnbLib::UList<bool>&);
 
 		//- Assignment operator,
 		//  using the labels as indices to indicate which bits are set
@@ -217,7 +217,7 @@ namespace tnbLib
 
 		//- Xor operator (lists may be dissimilar sizes)
 		//  Retains unique entries
-		PackedBoolList& operator^=(const PackedList<1>&);
+		FoamBase_EXPORT PackedBoolList& operator^=(const PackedList<1>&);
 
 		//- Or operator (lists may be dissimilar sizes)
 		inline PackedBoolList& operator|=(const PackedList<1>&);
@@ -254,7 +254,7 @@ namespace tnbLib
 	// Global Operators
 
 	//- Intersect lists - the result is trimmed to the smallest intersecting size
-	PackedBoolList operator&
+	FoamBase_EXPORT PackedBoolList operator&
 		(
 			const PackedBoolList& lst1,
 			const PackedBoolList& lst2
@@ -263,7 +263,7 @@ namespace tnbLib
 
 	//- Combine to form a unique list (xor)
 	//  The result is trimmed to the smallest intersecting size
-	PackedBoolList operator^
+	FoamBase_EXPORT PackedBoolList operator^
 		(
 			const PackedBoolList& lst1,
 			const PackedBoolList& lst2
@@ -271,7 +271,7 @@ namespace tnbLib
 
 
 	//- Combine lists
-	PackedBoolList operator|
+	FoamBase_EXPORT PackedBoolList operator|
 		(
 			const PackedBoolList& lst1,
 			const PackedBoolList& lst2

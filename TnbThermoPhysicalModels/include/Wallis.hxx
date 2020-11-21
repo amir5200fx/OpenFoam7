@@ -66,13 +66,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("Wallis");
+			//TypeName("Wallis");
+			static const char* typeName_() { return "Wallis"; }
+			static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+			static FoamThermophysicalModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			Wallis
+			FoamThermophysicalModels_EXPORT Wallis
 			(
 				const dictionary& compressibilityProperties,
 				const volScalarField& gamma,
@@ -88,10 +92,10 @@ namespace tnbLib
 			// Member Functions
 
 				//- Correct the Wallis compressibility
-			void correct();
+			FoamThermophysicalModels_EXPORT void correct();
 
 			//- Read transportProperties dictionary
-			bool read(const dictionary& compressibilityProperties);
+			FoamThermophysicalModels_EXPORT bool read(const dictionary& compressibilityProperties);
 		};
 
 

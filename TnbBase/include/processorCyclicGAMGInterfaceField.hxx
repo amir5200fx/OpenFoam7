@@ -54,32 +54,36 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Disallow default bitwise copy construction
-		processorCyclicGAMGInterfaceField
+		FoamBase_EXPORT processorCyclicGAMGInterfaceField
 		(
 			const processorCyclicGAMGInterfaceField&
 		);
 
 		//- Disallow default bitwise assignment
-		void operator=(const processorCyclicGAMGInterfaceField&) = delete;
+		FoamBase_EXPORT void operator=(const processorCyclicGAMGInterfaceField&) = delete;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("processorCyclic");
+		//TypeName("processorCyclic");
+		static const char* typeName_() { return "processorCyclic"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from GAMG interface and fine level interface field
-		processorCyclicGAMGInterfaceField
+		FoamBase_EXPORT processorCyclicGAMGInterfaceField
 		(
 			const GAMGInterface& GAMGCp,
 			const lduInterfaceField& fineInterface
 		);
 
 		//- Construct from GAMG interface and fine level interface field
-		processorCyclicGAMGInterfaceField
+		FoamBase_EXPORT processorCyclicGAMGInterfaceField
 		(
 			const GAMGInterface& GAMGCp,
 			const bool doTransform,
@@ -89,7 +93,7 @@ namespace tnbLib
 
 		// Destructor
 
-		virtual ~processorCyclicGAMGInterfaceField();
+		FoamBase_EXPORT virtual ~processorCyclicGAMGInterfaceField();
 	};
 
 

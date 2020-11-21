@@ -78,52 +78,54 @@ namespace tnbLib
 			};
 
 			//- The current input mode
-			static inputMode mode_;
+			static FoamBase_EXPORT inputMode mode_;
 
 
 			// Private Member Functions
 
 				//- Read the mode as a word and set enum appropriately
-			static void setMode(Istream&);
+			static FoamBase_EXPORT void setMode(Istream&);
 
 
 		public:
 
 			//- Runtime type information
-			ClassName("inputMode");
+			static const char* typeName_() { return "inputMode"; } 
+			static FoamBase_EXPORT const ::tnbLib::word typeName; 
+			static FoamBase_EXPORT int debug;
 
 
 			// Constructors
 
 				//- Disallow default bitwise copy construction
-			inputModeEntry(const inputModeEntry&) = delete;
+			FoamBase_EXPORT inputModeEntry(const inputModeEntry&) = delete;
 
 
 			// Member Functions
 
 				//- Execute the functionEntry in a sub-dict context
-			static bool execute(dictionary& parentDict, Istream&);
+			static FoamBase_EXPORT bool execute(dictionary& parentDict, Istream&);
 
 			//- Reset the inputMode to %default (ie, %merge)
-			static void clear();
+			static FoamBase_EXPORT void clear();
 
 			//- Return true if the inputMode is %merge
-			static bool merge();
+			static FoamBase_EXPORT bool merge();
 
 			//- Return true if the inputMode is %overwrite
-			static bool overwrite();
+			static FoamBase_EXPORT bool overwrite();
 
 			//- Return true if the inputMode is %protect
-			static bool protect();
+			static FoamBase_EXPORT bool protect();
 
 			//- Return true if the inputMode is %error
-			static bool error();
+			static FoamBase_EXPORT bool error();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const inputModeEntry&) = delete;
+			FoamBase_EXPORT void operator=(const inputModeEntry&) = delete;
 		};
 
 

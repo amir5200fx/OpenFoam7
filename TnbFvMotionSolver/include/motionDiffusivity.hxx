@@ -58,12 +58,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("motionDiffusivity");
+		//TypeName("motionDiffusivity");
+		static const char* typeName_() { return "motionDiffusivity"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			motionDiffusivity,
@@ -73,13 +77,65 @@ namespace tnbLib
 				Istream& mdData
 				),
 				(mesh, mdData)
-		);
+		);*/
+
+		typedef autoPtr<motionDiffusivity> (*IstreamConstructorPtr)(const fvMesh& mesh, Istream& mdData);
+		typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
+		static FoamFvMotionSolver_EXPORT IstreamConstructorTable* IstreamConstructorTablePtr_;
+		static FoamFvMotionSolver_EXPORT void constructIstreamConstructorTables();
+		static FoamFvMotionSolver_EXPORT void destroyIstreamConstructorTables();
+
+		template <class motionDiffusivityType>
+		class addIstreamConstructorToTable
+		{
+		public:
+			static autoPtr<motionDiffusivity> New(const fvMesh& mesh, Istream& mdData)
+			{
+				return autoPtr<motionDiffusivity>(new motionDiffusivityType(mesh, mdData));
+			}
+
+			addIstreamConstructorToTable(const word& lookup = motionDiffusivityType::typeName)
+			{
+				constructIstreamConstructorTables();
+				if (!IstreamConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "motionDiffusivity"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
+		};
+
+		template <class motionDiffusivityType>
+		class addRemovableIstreamConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<motionDiffusivity> New(const fvMesh& mesh, Istream& mdData)
+			{
+				return autoPtr<motionDiffusivity>(new motionDiffusivityType(mesh, mdData));
+			}
+
+			addRemovableIstreamConstructorToTable(const word& lookup = motionDiffusivityType::typeName) : lookup_(
+				lookup)
+			{
+				constructIstreamConstructorTables();
+				IstreamConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableIstreamConstructorToTable()
+			{
+				if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Selectors
 
 			//- Select null constructed
-		static autoPtr<motionDiffusivity> New
+		static FoamFvMotionSolver_EXPORT autoPtr<motionDiffusivity> New
 		(
 			const fvMesh& mesh,
 			Istream& mdData
@@ -89,11 +145,11 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct for the given fvMesh
-		motionDiffusivity(const fvMesh& mesh);
+		FoamFvMotionSolver_EXPORT motionDiffusivity(const fvMesh& mesh);
 
 
 		//- Destructor
-		virtual ~motionDiffusivity();
+		FoamFvMotionSolver_EXPORT virtual ~motionDiffusivity();
 
 
 		// Member Functions
@@ -112,7 +168,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Return diffusivity field
-		virtual tmp<surfaceScalarField> operator()() const = 0;
+		FoamFvMotionSolver_EXPORT virtual tmp<surfaceScalarField> operator()() const = 0;
 	};
 
 

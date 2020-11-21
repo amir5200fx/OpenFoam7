@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <blended.hxx>
 
 #include <fvMesh.hxx>

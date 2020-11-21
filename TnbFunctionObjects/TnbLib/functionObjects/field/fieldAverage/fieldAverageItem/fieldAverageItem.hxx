@@ -68,8 +68,8 @@ namespace tnbLib
 
 		// Forward declaration of friend functions and operators
 		class fieldAverageItem;
-		Istream& operator>>(Istream&, fieldAverageItem&);
-		Ostream& operator<<(Ostream&, const fieldAverageItem&);
+		FoamFunctionObjects_EXPORT Istream& operator>>(Istream&, fieldAverageItem&);
+		FoamFunctionObjects_EXPORT Ostream& operator<<(Ostream&, const fieldAverageItem&);
 
 		/*---------------------------------------------------------------------------*\
 							  Class fieldAverageItem Declaration
@@ -84,10 +84,10 @@ namespace tnbLib
 				// File and field name extensions
 
 					//- Mean average
-			static const word EXT_MEAN;
+			static FoamFunctionObjects_EXPORT const word EXT_MEAN;
 
 			//- Prime-squared average
-			static const word EXT_PRIME2MEAN;
+			static FoamFunctionObjects_EXPORT const word EXT_PRIME2MEAN;
 
 			//- Enumeration defining the averaging base type
 			enum class baseType
@@ -117,7 +117,7 @@ namespace tnbLib
 			word prime2MeanFieldName_;
 
 			//- Averaging base type names
-			static const NamedEnum<baseType, 2> baseTypeNames_;
+			static FoamFunctionObjects_EXPORT const NamedEnum<baseType, 2> baseTypeNames_;
 
 			//- Averaging base type
 			baseType base_;
@@ -134,17 +134,17 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct null
-			fieldAverageItem();
+			FoamFunctionObjects_EXPORT fieldAverageItem();
 
 			//- Construct from Istream
-			fieldAverageItem(Istream&);
+			FoamFunctionObjects_EXPORT fieldAverageItem(Istream&);
 
 			//- Copy constructor
-			fieldAverageItem(const fieldAverageItem&);
+			FoamFunctionObjects_EXPORT fieldAverageItem(const fieldAverageItem&);
 
 
 			//- Destructor
-			~fieldAverageItem();
+			FoamFunctionObjects_EXPORT ~fieldAverageItem();
 
 
 			// Member Functions
@@ -224,7 +224,7 @@ namespace tnbLib
 
 			// Member Operators
 
-			void operator=(const fieldAverageItem&);
+			FoamFunctionObjects_EXPORT void operator=(const fieldAverageItem&);
 
 
 			// Friend Operators
@@ -258,8 +258,8 @@ namespace tnbLib
 
 			// IOstream Operators
 
-			friend Istream& operator>>(Istream&, fieldAverageItem&);
-			friend Ostream& operator<<(Ostream&, const fieldAverageItem&);
+			friend FoamFunctionObjects_EXPORT Istream& operator>>(Istream&, fieldAverageItem&);
+			friend FoamFunctionObjects_EXPORT Ostream& operator<<(Ostream&, const fieldAverageItem&);
 		};
 
 

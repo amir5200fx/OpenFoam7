@@ -66,7 +66,7 @@ namespace tnbLib
 
 		// Protected data
 
-			//- The per-region pimple controls
+		//- The per-region pimple controls
 		PtrList<pimpleNoLoopControl> pimpleControls_;
 
 		//- The per-region solid controls
@@ -75,8 +75,8 @@ namespace tnbLib
 
 		// Protected Static Functions
 
-			//- Get the time from the region meshes
-		static const Time& time
+		//- Get the time from the region meshes
+		static FoamFiniteVolume_EXPORT const Time& time
 		(
 			const PtrList<fvMesh>& pimpleMeshes,
 			const PtrList<fvMesh>& solidMeshes
@@ -87,14 +87,18 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("pimpleMultiRegionControl");
+		//- Run-time type information
+		//TypeName("pimpleMultiRegionControl");
+		static const char* typeName_() { return "pimpleMultiRegionControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from meshes and the algorithm name
-		pimpleMultiRegionControl
+		FoamFiniteVolume_EXPORT pimpleMultiRegionControl
 		(
 			PtrList<fvMesh>& pimpleMeshes,
 			PtrList<fvMesh>& solidMeshes,
@@ -103,7 +107,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~pimpleMultiRegionControl();
+		FoamFiniteVolume_EXPORT virtual ~pimpleMultiRegionControl();
 
 
 		// Member Functions
@@ -111,7 +115,7 @@ namespace tnbLib
 			// IO
 
 				//- Read controls
-		virtual bool read();
+		FoamFiniteVolume_EXPORT virtual bool read();
 
 		// Access
 
@@ -127,31 +131,31 @@ namespace tnbLib
 		// Evolution
 
 			//- Return true if residual controls are present
-		virtual bool hasResidualControls() const;
+		FoamFiniteVolume_EXPORT virtual bool hasResidualControls() const;
 
 		//- Return true if corrector residual controls are present
-		virtual bool hasCorrResidualControls() const;
+		FoamFiniteVolume_EXPORT virtual bool hasCorrResidualControls() const;
 
 		//- Return true if all convergence checks are satisfied
-		virtual bool criteriaSatisfied() const;
+		FoamFiniteVolume_EXPORT virtual bool criteriaSatisfied() const;
 
 		//- Return true if all correction convergence checks are satisfied
-		virtual bool corrCriteriaSatisfied() const;
+		FoamFiniteVolume_EXPORT virtual bool corrCriteriaSatisfied() const;
 
 		//- Reset the solve index in the correction residual control data
-		virtual void resetCorrSolveIndex();
+		FoamFiniteVolume_EXPORT virtual void resetCorrSolveIndex();
 
 		//- Update the solve index in the correction residual control data
-		virtual void updateCorrSolveIndex();
+		FoamFiniteVolume_EXPORT virtual void updateCorrSolveIndex();
 
 		//- Pimple loop
-		bool loop();
+		FoamFiniteVolume_EXPORT bool loop();
 
 		//- Time run loop
-		bool run(Time& time);
+		FoamFiniteVolume_EXPORT bool run(Time& time);
 
 		//- Time loop loop
-		bool loop(Time& time);
+		FoamFiniteVolume_EXPORT bool loop(Time& time);
 	};
 
 

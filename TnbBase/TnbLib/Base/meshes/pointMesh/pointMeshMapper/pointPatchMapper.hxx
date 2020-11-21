@@ -90,10 +90,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate addressing for mapping with inserted cells
-		void calcAddressing() const;
+		FoamBase_EXPORT void calcAddressing() const;
 
 		//- Clear out local storage
-		void clearOut();
+		FoamBase_EXPORT void clearOut();
 
 
 	public:
@@ -101,7 +101,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mappers
-		pointPatchMapper
+		FoamBase_EXPORT pointPatchMapper
 		(
 			const pointPatch& patch,
 			const pointMapper& pointMap,
@@ -109,14 +109,14 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		pointPatchMapper
+		FoamBase_EXPORT pointPatchMapper
 		(
 			const pointPatchMapper&
 		);
 
 
 		//- Destructor
-		virtual ~pointPatchMapper();
+		FoamBase_EXPORT virtual ~pointPatchMapper();
 
 
 		// Member Functions
@@ -139,19 +139,19 @@ namespace tnbLib
 		}
 
 		//- Return direct addressing
-		virtual const labelUList& directAddressing() const;
+		FoamBase_EXPORT virtual const labelUList& directAddressing() const;
 
 		//- Return interpolated addressing
-		virtual const labelListList& addressing() const;
+		FoamBase_EXPORT virtual const labelListList& addressing() const;
 
 		//- Return interpolaion weights
-		virtual const scalarListList& weights() const;
+		FoamBase_EXPORT virtual const scalarListList& weights() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const pointPatchMapper&) = delete;
+		FoamBase_EXPORT void operator=(const pointPatchMapper&) = delete;
 	};
 
 

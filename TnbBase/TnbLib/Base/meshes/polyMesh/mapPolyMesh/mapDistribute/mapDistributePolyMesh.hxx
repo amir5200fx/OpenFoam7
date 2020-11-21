@@ -57,8 +57,8 @@ namespace tnbLib
 
 	class mapDistributePolyMesh;
 
-	Istream& operator>>(Istream&, mapDistributePolyMesh&);
-	Ostream& operator<<(Ostream&, const mapDistributePolyMesh&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, mapDistributePolyMesh&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const mapDistributePolyMesh&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -103,7 +103,7 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void calcPatchSizes();
+		FoamBase_EXPORT void calcPatchSizes();
 
 
 	public:
@@ -111,12 +111,12 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		mapDistributePolyMesh();
+		FoamBase_EXPORT mapDistributePolyMesh();
 
 		//- Move constructor from components.
 		//  Note that mesh has to be changed already
 		//  since uses mesh.nPoints etc as the new size.
-		mapDistributePolyMesh
+		FoamBase_EXPORT mapDistributePolyMesh
 		(
 			const polyMesh& mesh,
 
@@ -144,7 +144,7 @@ namespace tnbLib
 		);
 
 		//- Move constructor from components
-		mapDistributePolyMesh
+		FoamBase_EXPORT mapDistributePolyMesh
 		(
 			// mesh before changes
 			const label nOldPoints,
@@ -161,13 +161,13 @@ namespace tnbLib
 		);
 
 		//- Move constructor
-		mapDistributePolyMesh(mapDistributePolyMesh&&);
+		FoamBase_EXPORT mapDistributePolyMesh(mapDistributePolyMesh&&);
 
 		//- Construct from Istream
-		mapDistributePolyMesh(Istream&);
+		FoamBase_EXPORT mapDistributePolyMesh(Istream&);
 
 		//- Disallow default bitwise copy construction
-		mapDistributePolyMesh(const mapDistributePolyMesh&) = delete;
+		FoamBase_EXPORT mapDistributePolyMesh(const mapDistributePolyMesh&) = delete;
 
 
 		// Member Functions
@@ -238,7 +238,7 @@ namespace tnbLib
 		// Other
 
 			//- Transfer the contents of the argument and annul the argument.
-		void transfer(mapDistributePolyMesh&);
+		FoamBase_EXPORT void transfer(mapDistributePolyMesh&);
 
 		//- Distribute list of point data
 		template<class T>
@@ -271,11 +271,11 @@ namespace tnbLib
 
 		//- Distribute list of point/face/cell/patch indices.
 		//  (Converts to boolList, distributes boolList and reconstructs)
-		void distributePointIndices(labelList& pointIDs) const;
+		FoamBase_EXPORT void distributePointIndices(labelList& pointIDs) const;
 
-		void distributeFaceIndices(labelList& faceIDs) const;
-		void distributeCellIndices(labelList& cellIDs) const;
-		void distributePatchIndices(labelList& patchIDs) const;
+		FoamBase_EXPORT void distributeFaceIndices(labelList& faceIDs) const;
+		FoamBase_EXPORT void distributeCellIndices(labelList& cellIDs) const;
+		FoamBase_EXPORT void distributePatchIndices(labelList& patchIDs) const;
 
 
 		//- Correct for topo change.
@@ -287,18 +287,18 @@ namespace tnbLib
 
 		// Member Operators
 
-		void operator=(const mapDistributePolyMesh&);
+		FoamBase_EXPORT void operator=(const mapDistributePolyMesh&);
 
-		void operator=(mapDistributePolyMesh&&);
+		FoamBase_EXPORT void operator=(mapDistributePolyMesh&&);
 
 
 		// IOstream Operators
 
 			//- Read dictionary from Istream
-		friend Istream& operator>>(Istream&, mapDistributePolyMesh&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, mapDistributePolyMesh&);
 
 		//- Write dictionary to Ostream
-		friend Ostream& operator<<(Ostream&, const mapDistributePolyMesh&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const mapDistributePolyMesh&);
 	};
 
 

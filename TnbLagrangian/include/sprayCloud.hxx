@@ -53,25 +53,29 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("sprayCloud");
+		//TypeName("sprayCloud");
+		static const char* typeName_() { return "sprayCloud"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Null constructor
-		sprayCloud();
+		FoamLagrangian_EXPORT sprayCloud();
 
 		//- Disallow default bitwise copy construction
-		sprayCloud(const sprayCloud&) = delete;
+		FoamLagrangian_EXPORT sprayCloud(const sprayCloud&) = delete;
 
 
 		//- Destructor
-		virtual ~sprayCloud();
+		FoamLagrangian_EXPORT virtual ~sprayCloud();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const sprayCloud&) = delete;
+		FoamLagrangian_EXPORT void operator=(const sprayCloud&) = delete;
 	};
 
 

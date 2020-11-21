@@ -44,6 +44,16 @@ SourceFiles
 #include <gradScheme.hxx>
 #include <Field.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCellLimitedGrad_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCellLimitedGrad_EXPORT_DEFINE
+#define FoamCellLimitedGrad_EXPORT __declspec(dllexport)
+#else
+#define FoamCellLimitedGrad_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -88,7 +98,11 @@ namespace tnbLib
 		public:
 
 			//- RunTime type information
-			TypeName("cellLimited");
+			/*TypeName("cellLimited");*/
+			static const char* typeName_() { return "cellLimited"; }
+			static FoamCellLimitedGrad_EXPORT const ::tnbLib::word typeName;
+			static FoamCellLimitedGrad_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

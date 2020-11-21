@@ -1,3 +1,5 @@
+#define FoamNamedEnum_EXPORT_DEFINE
+
 #include <temperatureCoupledBase.hxx>
 
 #include <volFields.hxx>

@@ -51,6 +51,16 @@ SourceFiles
 #include <Switch.hxx>
 #include <GlobalIOField.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamManualInjection_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamManualInjection_EXPORT_DEFINE
+#define FoamManualInjection_EXPORT __declspec(dllexport)
+#else
+#define FoamManualInjection_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -98,7 +108,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("manualInjection");
+		//TypeName("manualInjection");
+		static const char* typeName_() { return "manualInjection"; }
+		static FoamManualInjection_EXPORT const ::tnbLib::word typeName;
+		static FoamManualInjection_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

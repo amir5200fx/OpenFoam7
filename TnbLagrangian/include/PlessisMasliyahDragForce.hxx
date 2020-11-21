@@ -43,6 +43,16 @@ Description
 
 #include <DenseDragForce.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamPlessisMasliyahDragForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPlessisMasliyahDragForce_EXPORT_DEFINE
+#define FoamPlessisMasliyahDragForce_EXPORT __declspec(dllexport)
+#else
+#define FoamPlessisMasliyahDragForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -60,7 +70,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("PlessisMasliyahDrag");
+		//TypeName("PlessisMasliyahDrag");
+		static const char* typeName_() { return "PlessisMasliyahDrag"; }
+		static FoamPlessisMasliyahDragForce_EXPORT const ::tnbLib::word typeName;
+		static FoamPlessisMasliyahDragForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -54,14 +54,18 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("regionCoupledWall");
+		/*TypeName("regionCoupledWall");*/
+		static const char* typeName_() { return "regionCoupledWall"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from fine level interface,
 			//  local and neighbour restrict addressing
-		regionCoupledWallGAMGInterface
+		FoamFvMesh_EXPORT regionCoupledWallGAMGInterface
 		(
 			const label index,
 			const lduInterfacePtrsList& coarseInterfaces,
@@ -73,14 +77,14 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		regionCoupledWallGAMGInterface
+		FoamFvMesh_EXPORT regionCoupledWallGAMGInterface
 		(
 			const regionCoupledWallGAMGInterface&
 		) = delete;
 
 
 		//- Destructor
-		virtual ~regionCoupledWallGAMGInterface();
+		FoamFvMesh_EXPORT virtual ~regionCoupledWallGAMGInterface();
 
 
 		// Member Functions
@@ -99,7 +103,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const regionCoupledWallGAMGInterface&) = delete;
+		FoamFvMesh_EXPORT void operator=(const regionCoupledWallGAMGInterface&) = delete;
 	};
 
 

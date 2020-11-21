@@ -87,7 +87,7 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Check given temperature is within the range of the fitted coeffs
-			void checkT(const scalar T) const;
+			FoamRadiationModels_EXPORT void checkT(const scalar T) const;
 
 
 		public:
@@ -100,16 +100,16 @@ namespace tnbLib
 
 
 			//- Destructor
-			~absorptionCoeffs();
+			FoamRadiationModels_EXPORT ~absorptionCoeffs();
 
 
 			// Member Functions
 
 				//- Return the coefficients corresponding to the given temperature
-			const coeffArray& coeffs(const scalar T) const;
+			FoamRadiationModels_EXPORT const coeffArray& coeffs(const scalar T) const;
 
 			// Initialise from a dictionary
-			void initialise(const dictionary&);
+			FoamRadiationModels_EXPORT void initialise(const dictionary&);
 
 
 			// Access Functions

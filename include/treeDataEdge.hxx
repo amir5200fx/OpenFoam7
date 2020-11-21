@@ -57,7 +57,7 @@ namespace tnbLib
 		// Static data
 
 			//- Tolerance on linear dimensions
-		static scalar tol;
+		static FoamFvMesh_EXPORT scalar tol;
 
 
 		// Private Data
@@ -81,10 +81,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate edge bounding box
-		treeBoundBox calcBb(const label edgeI) const;
+		FoamFvMesh_EXPORT treeBoundBox calcBb(const label edgeI) const;
 
 		//- Initialise all member data
-		void update();
+		FoamFvMesh_EXPORT void update();
 
 	public:
 
@@ -95,9 +95,9 @@ namespace tnbLib
 
 		public:
 
-			findNearestOp(const indexedOctree<treeDataEdge>& tree);
+			FoamFvMesh_EXPORT findNearestOp(const indexedOctree<treeDataEdge>& tree);
 
-			void operator()
+			FoamFvMesh_EXPORT void operator()
 				(
 					const labelUList& indices,
 					const point& sample,
@@ -107,7 +107,7 @@ namespace tnbLib
 					point& nearestPoint
 					) const;
 
-			void operator()
+			FoamFvMesh_EXPORT void operator()
 				(
 					const labelUList& indices,
 					const linePointRef& ln,
@@ -124,11 +124,11 @@ namespace tnbLib
 		{
 		public:
 
-			findIntersectOp(const indexedOctree<treeDataEdge>& tree);
+			FoamFvMesh_EXPORT findIntersectOp(const indexedOctree<treeDataEdge>& tree);
 
 			//- Calculate intersection of triangle with ray. Sets result
 			//  accordingly
-			bool operator()
+			FoamFvMesh_EXPORT bool operator()
 				(
 					const label index,
 					const point& start,
@@ -139,13 +139,16 @@ namespace tnbLib
 
 
 		// Declare name of the class and its debug switch
-		ClassName("treeDataEdge");
+		/*ClassName("treeDataEdge");*/
+		static const char* typeName_() { return "treeDataEdge"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from selected edges. !Holds references to edges and points
-		treeDataEdge
+		FoamFvMesh_EXPORT treeDataEdge
 		(
 			const bool cacheBb,
 			const edgeList& edges,
@@ -155,7 +158,7 @@ namespace tnbLib
 
 		//- Construct from selected edges, transferring contents.
 		// !Holds references to edges and points
-		treeDataEdge
+		FoamFvMesh_EXPORT treeDataEdge
 		(
 			const bool cacheBb,
 			const edgeList& edges,
@@ -190,28 +193,28 @@ namespace tnbLib
 
 		//- Get representative point cloud for all shapes inside
 		//  (one point per shape)
-		pointField shapePoints() const;
+		FoamFvMesh_EXPORT pointField shapePoints() const;
 
 
 		// Search
 
 			//- Get type (inside,outside,mixed,unknown) of point w.r.t. surface.
 			//  Only makes sense for closed surfaces.
-		volumeType getVolumeType
+		FoamFvMesh_EXPORT volumeType getVolumeType
 		(
 			const indexedOctree<treeDataEdge>&,
 			const point&
 		) const;
 
 		//- Does (bb of) shape at index overlap bb
-		bool overlaps
+		FoamFvMesh_EXPORT bool overlaps
 		(
 			const label index,
 			const treeBoundBox& sampleBb
 		) const;
 
 		//- Does (bb of) shape at index overlap bb
-		bool overlaps
+		FoamFvMesh_EXPORT bool overlaps
 		(
 			const label index,
 			const point& centre,

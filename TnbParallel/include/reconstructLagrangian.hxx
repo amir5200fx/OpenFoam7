@@ -49,7 +49,7 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	void reconstructLagrangianPositions
+	FoamParallel_EXPORT void reconstructLagrangianPositions
 	(
 		const polyMesh& mesh,
 		const word& cloudName,

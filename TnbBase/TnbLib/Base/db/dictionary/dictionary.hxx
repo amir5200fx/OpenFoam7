@@ -74,8 +74,8 @@ namespace tnbLib
 
 	class ITstream;  // added by amir
 
-	Istream& operator>>(Istream&, dictionary&);
-	Ostream& operator<<(Ostream&, const dictionary&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, dictionary&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const dictionary&);
 
 	/*---------------------------------------------------------------------------*\
 							Class dictionaryName Declaration
@@ -168,7 +168,7 @@ namespace tnbLib
 
 			//- If true write optional keywords and values
 			//  if not present in dictionary
-		static bool writeOptionalEntries;
+		static FoamBase_EXPORT bool writeOptionalEntries;
 
 		//- HashTable of the entries held on the DL-list for quick lookup
 		HashTable<tnbLib::entry*> hashedEntries_;
@@ -187,7 +187,7 @@ namespace tnbLib
 
 			 //- Find and return an entry data stream pointer if present
 			 //  otherwise return nullptr. Allows scoping using '.'
-		const tnbLib::entry* lookupScopedSubEntryPtr
+		FoamBase_EXPORT const tnbLib::entry* lookupScopedSubEntryPtr
 		(
 			const word&,
 			bool recursive,
@@ -195,7 +195,7 @@ namespace tnbLib
 		) const;
 
 		//- Search patterns table for exact match or regular expression match
-		bool findInPatterns
+		FoamBase_EXPORT bool findInPatterns
 		(
 			const bool patternMatch,
 			const word& Keyword,
@@ -204,7 +204,7 @@ namespace tnbLib
 		) const;
 
 		//- Search patterns table for exact match or regular expression match
-		bool findInPatterns
+		FoamBase_EXPORT bool findInPatterns
 		(
 			const bool patternMatch,
 			const word& Keyword,
@@ -220,24 +220,27 @@ namespace tnbLib
 
 
 		// Declare name of the class and its debug switch
-		ClassName("dictionary");
+		//ClassName("dictionary");
+		static const char* typeName_() { return "dictionary"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		//- Null dictionary
-		static const dictionary null;
+		static FoamBase_EXPORT const dictionary null;
 
 
 		// Constructors
 
 			//- Construct top-level dictionary null
-		dictionary();
+		FoamBase_EXPORT dictionary();
 
 		//- Construct top-level empty dictionary with given name
-		dictionary(const fileName& name);
+		FoamBase_EXPORT dictionary(const fileName& name);
 
 		//- Construct given the entry name, parent dictionary and Istream,
 		//  reading entries until lastEntry or EOF
-		dictionary
+		FoamBase_EXPORT dictionary
 		(
 			const fileName& name,
 			const dictionary& parentDict,
@@ -246,38 +249,38 @@ namespace tnbLib
 
 		//- Construct top-level dictionary from Istream,
 		//  reading entries until EOF
-		dictionary(Istream&);
+		FoamBase_EXPORT dictionary(Istream&);
 
 		//- Construct top-level dictionary from Istream,
 		//  reading entries until EOF, optionally keeping the header
-		dictionary(Istream&, const bool keepHeader);
+		FoamBase_EXPORT dictionary(Istream&, const bool keepHeader);
 
 		//- Construct as copy given the parent dictionary
-		dictionary(const dictionary& parentDict, const dictionary&);
+		FoamBase_EXPORT dictionary(const dictionary& parentDict, const dictionary&);
 
 		//- Construct top-level dictionary as copy
-		dictionary(const dictionary&);
+		FoamBase_EXPORT dictionary(const dictionary&);
 
 		//- Construct top-level dictionary as copy from pointer to dictionary.
 		//  A null pointer is treated like an empty dictionary.
-		dictionary(const dictionary*);
+		FoamBase_EXPORT dictionary(const dictionary*);
 
 		//- Move constructor transferring parameter contents
 		//  given parent dictionary
-		dictionary(const dictionary& parentDict, dictionary&&);
+		FoamBase_EXPORT dictionary(const dictionary& parentDict, dictionary&&);
 
 		//- Move constructor
-		dictionary(dictionary&&);
+		FoamBase_EXPORT dictionary(dictionary&&);
 
 		//- Construct and return clone
-		autoPtr<dictionary> clone() const;
+		FoamBase_EXPORT autoPtr<dictionary> clone() const;
 
 		//- Construct top-level dictionary on freestore from Istream
-		static autoPtr<dictionary> New(Istream&);
+		static FoamBase_EXPORT autoPtr<dictionary> New(Istream&);
 
 
 		//- Destructor
-		virtual ~dictionary();
+		FoamBase_EXPORT virtual ~dictionary();
 
 
 		// Member Functions
@@ -295,19 +298,19 @@ namespace tnbLib
 		}
 
 		//- Return the top of the tree
-		const dictionary& topDict() const;
+		FoamBase_EXPORT const dictionary& topDict() const;
 
 		//- Return line number of first token in dictionary
-		label startLineNumber() const;
+		FoamBase_EXPORT label startLineNumber() const;
 
 		//- Return line number of last token in dictionary
-		label endLineNumber() const;
+		FoamBase_EXPORT label endLineNumber() const;
 
 		//- Return the SHA1 digest of the dictionary contents
-		SHA1Digest digest() const;
+		FoamBase_EXPORT SHA1Digest digest() const;
 
 		//- Return the dictionary as a list of tokens
-		tokenList tokens() const;
+		FoamBase_EXPORT tokenList tokens() const;
 
 
 		// Search and lookup
@@ -315,7 +318,7 @@ namespace tnbLib
 			//- Search dictionary for given keyword
 			//  If recursive, search parent dictionaries
 			//  If patternMatch, use regular expressions
-		bool found
+		FoamBase_EXPORT bool found
 		(
 			const word&,
 			bool recursive = false,
@@ -326,7 +329,7 @@ namespace tnbLib
 		//  otherwise return nullptr.
 		//  If recursive, search parent dictionaries.
 		//  If patternMatch, use regular expressions
-		const tnbLib::entry* lookupEntryPtr
+		FoamBase_EXPORT const tnbLib::entry* lookupEntryPtr
 		(
 			const word&,
 			bool recursive,
@@ -337,7 +340,7 @@ namespace tnbLib
 		//  if present otherwise return nullptr.
 		//  If recursive, search parent dictionaries.
 		//  If patternMatch, use regular expressions.
-		tnbLib::entry* lookupEntryPtr
+		FoamBase_EXPORT tnbLib::entry* lookupEntryPtr
 		(
 			const word&,
 			bool recursive,
@@ -347,7 +350,7 @@ namespace tnbLib
 		//- Find and return an entry data stream if present otherwise error.
 		//  If recursive, search parent dictionaries.
 		//  If patternMatch, use regular expressions.
-		const tnbLib::entry& lookupEntry
+		FoamBase_EXPORT const tnbLib::entry& lookupEntry
 		(
 			const word&,
 			bool recursive,
@@ -357,7 +360,7 @@ namespace tnbLib
 		//- Find and return an entry data stream
 		//  If recursive, search parent dictionaries.
 		//  If patternMatch, use regular expressions.
-		ITstream& lookup
+		FoamBase_EXPORT ITstream& lookup
 		(
 			const word&,
 			bool recursive = false,
@@ -418,7 +421,7 @@ namespace tnbLib
 		//- Find and return an entry data stream pointer if present
 		//  otherwise return nullptr. Allows scoping using '.'.
 		//  Special handling for ':' at start of keyword and '..'.
-		const tnbLib::entry* lookupScopedEntryPtr
+		FoamBase_EXPORT const tnbLib::entry* lookupScopedEntryPtr
 		(
 			const word&,
 			bool recursive,
@@ -426,25 +429,25 @@ namespace tnbLib
 		) const;
 
 		//- Check if entry is a sub-dictionary
-		bool isDict(const word&) const;
+		FoamBase_EXPORT bool isDict(const word&) const;
 
 		//- Find and return a sub-dictionary pointer if present
 		//  otherwise return nullptr.
-		const dictionary* subDictPtr(const word&) const;
+		FoamBase_EXPORT const dictionary* subDictPtr(const word&) const;
 
 		//- Find and return a sub-dictionary pointer if present
 		//  otherwise return nullptr.
-		dictionary* subDictPtr(const word&);
+		FoamBase_EXPORT dictionary* subDictPtr(const word&);
 
 		//- Find and return a sub-dictionary
-		const dictionary& subDict(const word&) const;
+		FoamBase_EXPORT const dictionary& subDict(const word&) const;
 
 		//- Find and return a sub-dictionary for manipulation
-		dictionary& subDict(const word&);
+		FoamBase_EXPORT dictionary& subDict(const word&);
 
 		//- Find and return a sub-dictionary as a copy, or
 		//  return an empty dictionary if the sub-dictionary does not exist
-		dictionary subOrEmptyDict
+		FoamBase_EXPORT dictionary subOrEmptyDict
 		(
 			const word&,
 			const bool mustRead = false
@@ -452,57 +455,57 @@ namespace tnbLib
 
 		//- Find and return a sub-dictionary if found
 		//  otherwise return this dictionary
-		const dictionary& optionalSubDict(const word&) const;
+		FoamBase_EXPORT const dictionary& optionalSubDict(const word&) const;
 
 		//- Return the table of contents
-		wordList toc() const;
+		FoamBase_EXPORT wordList toc() const;
 
 		//- Return the sorted table of contents
-		wordList sortedToc() const;
+		FoamBase_EXPORT wordList sortedToc() const;
 
 		//- Return the list of available keys or patterns
-		List<keyType> keys(bool patterns = false) const;
+		FoamBase_EXPORT List<keyType> keys(bool patterns = false) const;
 
 
 		// Editing
 
 			//- Substitute the given keyword prepended by '$' with the
 			//  corresponding sub-dictionary entries
-		bool substituteKeyword(const word& keyword);
+		FoamBase_EXPORT bool substituteKeyword(const word& keyword);
 
 		//- Substitute the given scoped keyword prepended by '$' with the
 		//  corresponding sub-dictionary entries
-		bool substituteScopedKeyword(const word& keyword);
+		FoamBase_EXPORT bool substituteScopedKeyword(const word& keyword);
 
 		//- Add a new entry
 		//  With the merge option, dictionaries are interwoven and
 		//  primitive entries are overwritten
-		bool add(entry*, bool mergeEntry = false);
+		FoamBase_EXPORT bool add(entry*, bool mergeEntry = false);
 
 		//- Add an entry
 		//  With the merge option, dictionaries are interwoven and
 		//  primitive entries are overwritten
-		void add(const entry&, bool mergeEntry = false);
+		FoamBase_EXPORT void add(const entry&, bool mergeEntry = false);
 
 		//- Add a word entry
 		//  optionally overwrite an existing entry
-		void add(const keyType&, const word&, bool overwrite = false);
+		FoamBase_EXPORT void add(const keyType&, const word&, bool overwrite = false);
 
 		//- Add a string entry
 		//  optionally overwrite an existing entry
-		void add(const keyType&, const string&, bool overwrite = false);
+		FoamBase_EXPORT void add(const keyType&, const string&, bool overwrite = false);
 
 		//- Add a label entry
 		//  optionally overwrite an existing entry
-		void add(const keyType&, const label, bool overwrite = false);
+		FoamBase_EXPORT void add(const keyType&, const label, bool overwrite = false);
 
 		//- Add a scalar entry
 		//  optionally overwrite an existing entry
-		void add(const keyType&, const scalar, bool overwrite = false);
+		FoamBase_EXPORT void add(const keyType&, const scalar, bool overwrite = false);
 
 		//- Add a dictionary entry
 		//  optionally merge with an existing sub-dictionary
-		void add
+		FoamBase_EXPORT void add
 		(
 			const keyType&,
 			const dictionary&,
@@ -515,24 +518,24 @@ namespace tnbLib
 		void add(const keyType&, const T&, bool overwrite = false);
 
 		//- Assign a new entry, overwrite any existing entry
-		void set(entry*);
+		FoamBase_EXPORT void set(entry*);
 
 		//- Assign a new entry, overwrite any existing entry
-		void set(const entry&);
+		FoamBase_EXPORT void set(const entry&);
 
 		//- Assign a dictionary entry, overwrite any existing entry
-		void set(const keyType&, const dictionary&);
+		FoamBase_EXPORT void set(const keyType&, const dictionary&);
 
 		//- Assign a T entry, overwrite any existing entry
 		template<class T>
 		void set(const keyType&, const T&);
 
 		//- Remove an entry specified by keyword
-		bool remove(const word&);
+		FoamBase_EXPORT bool remove(const word&);
 
 		//- Change the keyword for an entry,
 		//  optionally forcing overwrite of an existing entry
-		bool changeKeyword
+		FoamBase_EXPORT bool changeKeyword
 		(
 			const keyType& oldKeyword,
 			const keyType& newKeyword,
@@ -541,59 +544,59 @@ namespace tnbLib
 
 		//- Merge entries from the given dictionary.
 		//  Also merge sub-dictionaries as required.
-		bool merge(const dictionary&);
+		FoamBase_EXPORT bool merge(const dictionary&);
 
 		//- Clear the dictionary
-		void clear();
+		FoamBase_EXPORT void clear();
 
 		//- Transfer the contents of the argument and annul the argument.
-		void transfer(dictionary&);
+		FoamBase_EXPORT void transfer(dictionary&);
 
 
 		// Read
 
 			//- Read dictionary from Istream
-		bool read(Istream&);
+		FoamBase_EXPORT bool read(Istream&);
 
 		//- Read dictionary from Istream, optionally keeping the header
-		bool read(Istream&, const bool keepHeader);
+		FoamBase_EXPORT bool read(Istream&, const bool keepHeader);
 
 
 		// Write
 
 			//- Write dictionary, normally with sub-dictionary formatting
-		void write(Ostream&, const bool subDict = true) const;
+		FoamBase_EXPORT void write(Ostream&, const bool subDict = true) const;
 
 
 		// Member Operators
 
 			//- Find and return entry
-		ITstream& operator[](const word&) const;
+		FoamBase_EXPORT ITstream& operator[](const word&) const;
 
-		void operator=(const dictionary&);
+		FoamBase_EXPORT void operator=(const dictionary&);
 
-		void operator=(dictionary&&);
+		FoamBase_EXPORT void operator=(dictionary&&);
 
 		//- Include entries from the given dictionary.
 		//  Warn, but do not overwrite existing entries.
-		void operator+=(const dictionary&);
+		FoamBase_EXPORT void operator+=(const dictionary&);
 
 		//- Conditionally include entries from the given dictionary.
 		//  Do not overwrite existing entries.
-		void operator|=(const dictionary&);
+		FoamBase_EXPORT void operator|=(const dictionary&);
 
 		//- Unconditionally include entries from the given dictionary.
 		//  Overwrite existing entries.
-		void operator<<=(const dictionary&);
+		FoamBase_EXPORT void operator<<=(const dictionary&);
 
 
 		// IOstream Operators
 
 			//- Read dictionary from Istream
-		friend Istream& operator>>(Istream&, dictionary&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, dictionary&);
 
 		//- Write dictionary to Ostream
-		friend Ostream& operator<<(Ostream&, const dictionary&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const dictionary&);
 	};
 
 
@@ -602,18 +605,18 @@ namespace tnbLib
 	//- Combine dictionaries.
 	//  Starting from the entries in dict1 and then including those from dict2.
 	//  Warn, but do not overwrite the entries from dict1.
-	dictionary operator+(const dictionary& dict1, const dictionary& dict2);
+	FoamBase_EXPORT dictionary operator+(const dictionary& dict1, const dictionary& dict2);
 
 	//- Combine dictionaries.
 	//  Starting from the entries in dict1 and then including those from dict2.
 	//  Do not overwrite the entries from dict1.
-	dictionary operator|(const dictionary& dict1, const dictionary& dict2);
+	FoamBase_EXPORT dictionary operator|(const dictionary& dict1, const dictionary& dict2);
 
 
 	// Global Functions
 
 	//- Write a dictionary entry
-	void writeEntry(Ostream& os, const dictionary& dict);
+	FoamBase_EXPORT void writeEntry(Ostream& os, const dictionary& dict);
 
 	//- Helper function to write the keyword and entry
 	template<class EntryType>

@@ -84,7 +84,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mesh and dictionary
-		dynamicMeshPointInterpolator
+		FoamDynamicMesh_EXPORT dynamicMeshPointInterpolator
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
@@ -92,16 +92,16 @@ namespace tnbLib
 
 
 		//- Destructor
-		~dynamicMeshPointInterpolator();
+		FoamDynamicMesh_EXPORT ~dynamicMeshPointInterpolator();
 
 
 		// Member Functions
 
 			//- Return interpolated pointField for the currentTime
-		tmp<pointVectorField> curPointField() const;
+		FoamDynamicMesh_EXPORT tmp<pointVectorField> curPointField() const;
 
 		//- Write
-		void write(Ostream&) const;
+		FoamDynamicMesh_EXPORT void write(Ostream&) const;
 	};
 
 

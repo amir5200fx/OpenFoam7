@@ -52,31 +52,31 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	 
-	void mag(Field<label>& res, const UList<label>& f);
-	tmp<Field<label>> mag(const UList<label>& f);
-	tmp<Field<label>> mag(const tmp<Field<label>>& tf);	
+	FoamBase_EXPORT void mag(Field<label>& res, const UList<label>& f);
+	FoamBase_EXPORT tmp<Field<label>> mag(const UList<label>& f);
+	FoamBase_EXPORT tmp<Field<label>> mag(const tmp<Field<label>>& tf);	
 	 
-	void add(Field<label>& f, const label& s1, const UList<label>& f2);
-	tmp<Field<label>> operator +(const label& s1, const UList<label>& f2);
-	tmp<Field<label>> operator +(const label& s1, const tmp<Field<label>>& tf2);
-	void add(Field<label>& f, const UList<label>& f1, const label& s2);
-	tmp<Field<label>> operator +(const UList<label>& f1, const label& s2);
-	tmp<Field<label>> operator +(const tmp<Field<label>>& tf1, const label& s2);
+	FoamBase_EXPORT void add(Field<label>& f, const label& s1, const UList<label>& f2);
+	FoamBase_EXPORT tmp<Field<label>> operator +(const label& s1, const UList<label>& f2);
+	FoamBase_EXPORT tmp<Field<label>> operator +(const label& s1, const tmp<Field<label>>& tf2);
+	FoamBase_EXPORT void add(Field<label>& f, const UList<label>& f1, const label& s2);
+	FoamBase_EXPORT tmp<Field<label>> operator +(const UList<label>& f1, const label& s2);
+	FoamBase_EXPORT tmp<Field<label>> operator +(const tmp<Field<label>>& tf1, const label& s2);
 		
-	void subtract(Field<label>& f, const label& s1, const UList<label>& f2);
-	tmp<Field<label>> operator -(const label& s1, const UList<label>& f2);
-	tmp<Field<label>> operator -(const label& s1, const tmp<Field<label>>& tf2);
-	void subtract(Field<label>& f, const UList<label>& f1, const label& s2);
-	tmp<Field<label>> operator -(const UList<label>& f1, const label& s2);
-	tmp<Field<label>> operator -(const tmp<Field<label>>& tf1, const label& s2);
+	FoamBase_EXPORT void subtract(Field<label>& f, const label& s1, const UList<label>& f2);
+	FoamBase_EXPORT tmp<Field<label>> operator -(const label& s1, const UList<label>& f2);
+	FoamBase_EXPORT tmp<Field<label>> operator -(const label& s1, const tmp<Field<label>>& tf2);
+	FoamBase_EXPORT void subtract(Field<label>& f, const UList<label>& f1, const label& s2);
+	FoamBase_EXPORT tmp<Field<label>> operator -(const UList<label>& f1, const label& s2);
+	FoamBase_EXPORT tmp<Field<label>> operator -(const tmp<Field<label>>& tf1, const label& s2);
 
 
 		
 	template<>
-	tmp<labelField> labelField::component(const direction) const;
+	FoamBase_EXPORT tmp<labelField> labelField::component(const direction) const;
 
 	template<>
-	void component
+	FoamBase_EXPORT void component
 	(
 		labelField& lf,
 		const labelUList& f,
@@ -84,7 +84,7 @@ namespace tnbLib
 	);
 
 	template<>
-	void labelField::replace(const direction, const labelUList& lf);
+	FoamBase_EXPORT void labelField::replace(const direction, const labelUList& lf);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

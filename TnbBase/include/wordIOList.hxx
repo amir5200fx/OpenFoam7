@@ -44,8 +44,8 @@ namespace tnbLib
 	typedef IOList<wordList> wordListIOList;
 
 	// Print word list list as a table
-	void printTable(const List<wordList>&, List<string::size_type>&, Ostream&);
-	void printTable(const List<wordList>&, Ostream&);
+	FoamBase_EXPORT void printTable(const List<wordList>&, List<string::size_type>&, Ostream&);
+	FoamBase_EXPORT void printTable(const List<wordList>&, Ostream&);
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

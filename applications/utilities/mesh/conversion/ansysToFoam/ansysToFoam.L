@@ -31,6 +31,10 @@ License
    ------ local definitions
  \* ------------------------------------------------------------------------- */
 
+ #include <Base_Module.hxx>
+ #include <FiniteVolume_Module.hxx>
+ #include <FvMesh_Module.hxx>
+
 #include <sstream>
 // For EOF only
 #include <cstdio>

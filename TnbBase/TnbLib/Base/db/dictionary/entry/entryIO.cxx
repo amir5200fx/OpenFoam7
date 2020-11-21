@@ -326,7 +326,7 @@ tnbLib::autoPtr<tnbLib::entry> tnbLib::entry::New(Istream& is)
 
 // * * * * * * * * * * * * * Ostream operator  * * * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const entry& e)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const entry& e)
 {
 	e.write(os);
 	return os;

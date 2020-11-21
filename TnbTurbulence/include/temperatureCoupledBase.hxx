@@ -99,7 +99,7 @@ namespace tnbLib
 
 		// Protected data
 
-		static const NamedEnum<KMethodType, 4> KMethodTypeNames_;
+		static FoamTurbulence_EXPORT const NamedEnum<KMethodType, 4> KMethodTypeNames_;
 
 		//- Underlying patch
 		const fvPatch& patch_;
@@ -119,7 +119,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from patch and K name
-		temperatureCoupledBase
+		FoamTurbulence_EXPORT temperatureCoupledBase
 		(
 			const fvPatch& patch,
 			const word& calculationMethod,
@@ -128,14 +128,14 @@ namespace tnbLib
 		);
 
 		//- Construct from patch and dictionary
-		temperatureCoupledBase
+		FoamTurbulence_EXPORT temperatureCoupledBase
 		(
 			const fvPatch& patch,
 			const dictionary& dict
 		);
 
 		//- Construct from patch and temperatureCoupledBase
-		temperatureCoupledBase
+		FoamTurbulence_EXPORT temperatureCoupledBase
 		(
 			const fvPatch& patch,
 			const temperatureCoupledBase& base
@@ -157,10 +157,10 @@ namespace tnbLib
 		}
 
 		//- Given patch temperature calculate corresponding K field
-		tmp<scalarField> kappa(const scalarField& Tp) const;
+		FoamTurbulence_EXPORT tmp<scalarField> kappa(const scalarField& Tp) const;
 
 		//- Write
-		void write(Ostream&) const;
+		FoamTurbulence_EXPORT void write(Ostream&) const;
 	};
 
 

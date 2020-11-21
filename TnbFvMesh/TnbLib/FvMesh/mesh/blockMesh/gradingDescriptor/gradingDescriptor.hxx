@@ -59,8 +59,8 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 	class gradingDescriptor;
 	class gradingDescriptors;
-	Istream& operator>>(Istream&, gradingDescriptor&);
-	Ostream& operator<<(Ostream&, const gradingDescriptor&);
+	FoamFvMesh_EXPORT Istream& operator>>(Istream&, gradingDescriptor&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const gradingDescriptor&);
 
 	/*---------------------------------------------------------------------------*\
 						 Class gradingDescriptor Declaration
@@ -83,10 +83,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Default constructor
-		gradingDescriptor();
+		FoamFvMesh_EXPORT gradingDescriptor();
 
 		//- Construct from components
-		gradingDescriptor
+		FoamFvMesh_EXPORT gradingDescriptor
 		(
 			const scalar blockFraction,
 			const scalar nDivFraction,
@@ -94,17 +94,17 @@ namespace tnbLib
 		);
 
 		//- Construct from expansionRatio
-		gradingDescriptor
+		FoamFvMesh_EXPORT gradingDescriptor
 		(
 			const scalar expansionRatio
 		);
 
 		//- Construct from Istream
-		gradingDescriptor(Istream&);
+		FoamFvMesh_EXPORT gradingDescriptor(Istream&);
 
 
 		//- Destructor
-		~gradingDescriptor();
+		FoamFvMesh_EXPORT ~gradingDescriptor();
 
 
 		// Member Functions
@@ -130,21 +130,21 @@ namespace tnbLib
 		// Member Functions
 
 			//- Return the inverse gradingDescriptor with 1/expansionRatio
-		gradingDescriptor inv() const;
+		FoamFvMesh_EXPORT gradingDescriptor inv() const;
 
 
 		// Member Operators
 
-		bool operator==(const gradingDescriptor&) const;
-		bool operator!=(const gradingDescriptor&) const;
+		FoamFvMesh_EXPORT bool operator==(const gradingDescriptor&) const;
+		FoamFvMesh_EXPORT bool operator!=(const gradingDescriptor&) const;
 
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, gradingDescriptor&);
-		friend Ostream& operator<<(Ostream&, const gradingDescriptor&);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream&, gradingDescriptor&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const gradingDescriptor&);
 
-		friend Istream& operator>>(Istream&, gradingDescriptors&);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream&, gradingDescriptors&);
 	};
 
 

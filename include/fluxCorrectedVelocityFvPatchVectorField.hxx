@@ -106,20 +106,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("fluxCorrectedVelocity");
+		//TypeName("fluxCorrectedVelocity");
+		static const char* typeName_() { return "fluxCorrectedVelocity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		fluxCorrectedVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT fluxCorrectedVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		fluxCorrectedVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT fluxCorrectedVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -128,7 +132,7 @@ namespace tnbLib
 
 		//- Construct by mapping given fluxCorrectedVelocityFvPatchVectorField
 		//  onto a new patch
-		fluxCorrectedVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT fluxCorrectedVelocityFvPatchVectorField
 		(
 			const fluxCorrectedVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -146,7 +150,7 @@ namespace tnbLib
 		}
 
 		//- Construct as copy setting internal field reference
-		fluxCorrectedVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT fluxCorrectedVelocityFvPatchVectorField
 		(
 			const fluxCorrectedVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -168,13 +172,13 @@ namespace tnbLib
 		// Member Functions
 
 			//- Evaluate the patch field
-		virtual void evaluate
+		FoamFiniteVolume_EXPORT virtual void evaluate
 		(
 			const Pstream::commsTypes commsType = Pstream::commsTypes::blocking
 		);
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

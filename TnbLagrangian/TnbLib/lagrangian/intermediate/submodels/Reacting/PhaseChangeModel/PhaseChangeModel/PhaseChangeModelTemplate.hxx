@@ -44,6 +44,16 @@ SourceFiles
 
 #include <primitiveFieldsFwd.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamPhaseChangeModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPhaseChangeModel_EXPORT_DEFINE
+#define FoamPhaseChangeModel_EXPORT __declspec(dllexport)
+#else
+#define FoamPhaseChangeModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -99,10 +109,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("phaseChangeModel");
+		//TypeName("phaseChangeModel");
+		static const char* typeName_() { return "phaseChangeModel"; }
+		static FoamPhaseChangeModel_EXPORT const ::tnbLib::word typeName;
+		static FoamPhaseChangeModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			PhaseChangeModel,
@@ -112,7 +126,59 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<PhaseChangeModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamPhaseChangeModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamPhaseChangeModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamPhaseChangeModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class PhaseChangeModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<PhaseChangeModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<PhaseChangeModel>(new PhaseChangeModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = PhaseChangeModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "PhaseChangeModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class PhaseChangeModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<PhaseChangeModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<PhaseChangeModel>(new PhaseChangeModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = PhaseChangeModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

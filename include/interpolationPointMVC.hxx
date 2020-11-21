@@ -37,6 +37,16 @@ Description
 #include <interpolation.hxx>
 #include <pointMVCWeight.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamInterpolationPointMVC_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamInterpolationPointMVC_EXPORT_DEFINE
+#define FoamInterpolationPointMVC_EXPORT __declspec(dllexport)
+#else
+#define FoamInterpolationPointMVC_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -62,7 +72,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pointMVC");
+		/*TypeName("pointMVC");*/
+		static const char* typeName_() { return "pointMVC"; }
+		static FoamInterpolationPointMVC_EXPORT const ::tnbLib::word typeName;
+		static FoamInterpolationPointMVC_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

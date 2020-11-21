@@ -120,19 +120,19 @@ namespace tnbLib
 
 			//- Determine all of the independent basic transforms of the
 			//  geometry by analysing the coupledPolyPatches
-		void determineTransforms();
+		FoamBase_EXPORT void determineTransforms();
 
 		//- Generate all of the transformation permutations
-		void determineTransformPermutations();
+		FoamBase_EXPORT void determineTransformPermutations();
 
 		//- Determine which patch uses which transform (if any) and which
 		//  sign to use
-		void determinePatchTransformSign();
+		FoamBase_EXPORT void determinePatchTransformSign();
 
 		//- Test a list of reference transforms to see if the test
 		//  transform matches one.  Return +1 or -1 depending on the
 		//  sign of the match, or 0 if none matches.
-		label matchTransform
+		FoamBase_EXPORT label matchTransform
 		(
 			const List<vectorTensorTransform>& refTransforms,
 			label& matchedRefTransformI,
@@ -143,7 +143,7 @@ namespace tnbLib
 
 		//- Return true if transform is not yet present in trafos. Issues
 		//  warning if too many transforms
-		bool uniqueTransform
+		FoamBase_EXPORT bool uniqueTransform
 		(
 			const point& pt,
 			labelPairList& trafos,
@@ -161,7 +161,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		globalIndexAndTransform(const polyMesh& mesh);
+		FoamBase_EXPORT globalIndexAndTransform(const polyMesh& mesh);
 
 		//- Disallow default bitwise copy construction
 		globalIndexAndTransform(const globalIndexAndTransform&) = delete;

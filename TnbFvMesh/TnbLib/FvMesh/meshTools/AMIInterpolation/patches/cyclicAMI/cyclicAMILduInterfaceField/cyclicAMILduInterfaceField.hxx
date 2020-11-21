@@ -55,7 +55,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cyclicAMILduInterfaceField");
+		//TypeName("cyclicAMILduInterfaceField");
+		static const char* typeName_() { return "cyclicAMILduInterfaceField"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -66,7 +70,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~cyclicAMILduInterfaceField();
+		FoamFvMesh_EXPORT virtual ~cyclicAMILduInterfaceField();
 
 
 		// Member Functions
@@ -74,16 +78,16 @@ namespace tnbLib
 			// Access
 
 				//- Is the transform required
-		virtual bool doTransform() const = 0;
+		FoamFvMesh_EXPORT virtual bool doTransform() const = 0;
 
 		//- Return face transformation tensor
-		virtual const tensorField& forwardT() const = 0;
+		FoamFvMesh_EXPORT virtual const tensorField& forwardT() const = 0;
 
 		//- Return neighbour-cell transformation tensor
-		virtual const tensorField& reverseT() const = 0;
+		FoamFvMesh_EXPORT virtual const tensorField& reverseT() const = 0;
 
 		//- Return rank of component for transform
-		virtual int rank() const = 0;
+		FoamFvMesh_EXPORT virtual int rank() const = 0;
 
 
 		//- Transform given patch field
@@ -91,7 +95,7 @@ namespace tnbLib
 		void transformCoupleField(Field<Type>& f) const;
 
 		//- Transform given patch internal field
-		void transformCoupleField
+		FoamFvMesh_EXPORT void transformCoupleField
 		(
 			scalarField& psiInternal,
 			const direction cmpt

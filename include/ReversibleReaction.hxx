@@ -39,6 +39,16 @@ SourceFiles
 
 #include <Reaction.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamReversibleReaction_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamReversibleReaction_EXPORT_DEFINE
+#define FoamReversibleReaction_EXPORT __declspec(dllexport)
+#else
+#define FoamReversibleReaction_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -66,7 +76,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("reversible");
+		//TypeName("reversible");
+		static const char* typeName_() { return "reversible"; }
+		static FoamReversibleReaction_EXPORT const ::tnbLib::word typeName;
+		static FoamReversibleReaction_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

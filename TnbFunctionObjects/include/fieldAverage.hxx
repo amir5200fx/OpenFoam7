@@ -183,14 +183,14 @@ namespace tnbLib
 
 					//- Checkout fields (causes deletion) from the database
 					//  and reset lists
-			void resetFields();
+			FoamFunctionObjects_EXPORT void resetFields();
 
 			//- Reset lists (clear existing values) and initialize averaging.
 			//  Check requested field averages are valid, populate field lists
-			void initialize();
+			FoamFunctionObjects_EXPORT void initialize();
 
 			//- Restart averaging for restartOnOutput
-			void restart();
+			FoamFunctionObjects_EXPORT void restart();
 
 			//- Add mean average field to database
 			template<class Type>
@@ -212,7 +212,7 @@ namespace tnbLib
 			// Calculation functions
 
 				//- Main calculation routine
-			virtual void calcAverages();
+			FoamFunctionObjects_EXPORT virtual void calcAverages();
 
 			//- Calculate mean average fields
 			template<class Type>
@@ -242,7 +242,7 @@ namespace tnbLib
 			// I-O
 
 				//- Write averages
-			virtual void writeAverages() const;
+			FoamFunctionObjects_EXPORT virtual void writeAverages() const;
 
 			//- Write fields
 			template<class Type>
@@ -253,22 +253,26 @@ namespace tnbLib
 			void writeFields() const;
 
 			//- Write averaging properties - steps and time
-			void writeAveragingProperties() const;
+			FoamFunctionObjects_EXPORT void writeAveragingProperties() const;
 
 			//- Read averaging properties - steps and time
-			void readAveragingProperties();
+			FoamFunctionObjects_EXPORT void readAveragingProperties();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("fieldAverage");
+			//TypeName("fieldAverage");
+			static const char* typeName_() { return "fieldAverage"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			fieldAverage
+			FoamFunctionObjects_EXPORT fieldAverage
 			(
 				const word& name,
 				const Time& runTime,
@@ -276,29 +280,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			fieldAverage(const fieldAverage&) = delete;
+			FoamFunctionObjects_EXPORT fieldAverage(const fieldAverage&) = delete;
 
 
 			//- Destructor
-			virtual ~fieldAverage();
+			FoamFunctionObjects_EXPORT virtual ~fieldAverage();
 
 
 			// Member Functions
 
 				//- Read the field average data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate the field averages
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the field averages
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const fieldAverage&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const fieldAverage&) = delete;
 		};
 
 
@@ -310,8 +314,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <fieldAverageTemplates.cxx>
+//#include <fieldAverageTemplates.cxx>
 #endif
+
+#include <fieldAverageTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

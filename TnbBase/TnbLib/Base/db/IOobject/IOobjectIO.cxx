@@ -5,7 +5,7 @@
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 template<>
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const InfoProxy<IOobject>& ip)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const InfoProxy<IOobject>& ip)
 {
 	const IOobject& io = ip.t_;
 

@@ -46,6 +46,16 @@ SourceFiles
 
 #include <interpolation.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamThermoParcel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamThermoParcel_EXPORT_DEFINE
+#define FoamThermoParcel_EXPORT __declspec(dllexport)
+#else
+#define FoamThermoParcel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -280,15 +290,25 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Runtime type information
-		TypeName("ThermoParcel");
+		//TypeName("ThermoParcel");
+		static const char* typeName_() { return "ThermoParcel"; }
+		static FoamThermoParcel_EXPORT const ::tnbLib::word typeName;
+		static FoamThermoParcel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- String representation of properties
-		AddToPropertyList
+		/*AddToPropertyList
 		(
 			ParcelType,
 			" T"
 			+ " Cp"
-		);
+		);*/
+		
+		static string propertyList_;
+		static string propertyList()
+		{
+			return ParcelType::propertyList() + " T" + " Cp";
+		};
 
 
 		// Constructors
@@ -476,7 +496,7 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <ThermoParcel.cxx>
+//#include <ThermoParcel.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

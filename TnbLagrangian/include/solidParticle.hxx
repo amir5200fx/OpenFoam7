@@ -57,7 +57,7 @@ namespace tnbLib
 
 	class solidParticle;
 
-	Ostream& operator<<(Ostream&, const solidParticle&);
+	FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const solidParticle&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -71,7 +71,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Size in bytes of the fields
-		static const std::size_t sizeofFields_;
+		static FoamLagrangian_EXPORT const std::size_t sizeofFields_;
 
 		//- Diameter
 		scalar d_;
@@ -140,7 +140,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		solidParticle
+		FoamLagrangian_EXPORT solidParticle
 		(
 			const polyMesh& mesh,
 			Istream& is,
@@ -190,41 +190,41 @@ namespace tnbLib
 		// Tracking
 
 			//- Move
-		bool move(solidParticleCloud&, trackingData&, const scalar);
+		FoamLagrangian_EXPORT bool move(solidParticleCloud&, trackingData&, const scalar);
 
 
 		// Patch interactions
 
 			//- Overridable function to handle the particle hitting a patch
 			//  Executed before other patch-hitting functions
-		bool hitPatch(solidParticleCloud& cloud, trackingData& td);
+		FoamLagrangian_EXPORT bool hitPatch(solidParticleCloud& cloud, trackingData& td);
 
 		//- Overridable function to handle the particle hitting a
 		//  processorPatch
-		void hitProcessorPatch(solidParticleCloud& cloud, trackingData& td);
+		FoamLagrangian_EXPORT void hitProcessorPatch(solidParticleCloud& cloud, trackingData& td);
 
 		//- Overridable function to handle the particle hitting a wallPatch
-		void hitWallPatch(solidParticleCloud& cloud, trackingData& td);
+		FoamLagrangian_EXPORT void hitWallPatch(solidParticleCloud& cloud, trackingData& td);
 
 		//- Transform the physical properties of the particle
 		//  according to the given transformation tensor
-		virtual void transformProperties(const tensor& T);
+		FoamLagrangian_EXPORT virtual void transformProperties(const tensor& T);
 
 		//- Transform the physical properties of the particle
 		//  according to the given separation vector
-		virtual void transformProperties(const vector& separation);
+		FoamLagrangian_EXPORT virtual void transformProperties(const vector& separation);
 
 
 		// I-O
 
-		static void readFields(Cloud<solidParticle>& c);
+		static FoamLagrangian_EXPORT void readFields(Cloud<solidParticle>& c);
 
-		static void writeFields(const Cloud<solidParticle>& c);
+		static FoamLagrangian_EXPORT void writeFields(const Cloud<solidParticle>& c);
 
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const solidParticle&);
+		friend FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const solidParticle&);
 	};
 
 

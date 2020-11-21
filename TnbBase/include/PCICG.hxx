@@ -57,7 +57,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("PCICG");
+		//TypeName("PCICG");
+		static const char* typeName_() { return "PCICG"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

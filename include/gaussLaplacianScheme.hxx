@@ -38,6 +38,16 @@ SourceFiles
 
 #include <laplacianScheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamGaussLaplacianScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamGaussLaplacianScheme_EXPORT_DEFINE
+#define FoamGaussLaplacianScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamGaussLaplacianScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -75,7 +85,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("Gauss");
+			/*TypeName("Gauss");*/
+			static const char* typeName_() { return "Gauss"; }
+			static FoamGaussLaplacianScheme_EXPORT const ::tnbLib::word typeName;
+			static FoamGaussLaplacianScheme_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

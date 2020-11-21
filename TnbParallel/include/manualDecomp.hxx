@@ -57,16 +57,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("manual");
+		//TypeName("manual");
+		static const char* typeName_() { return "manual"; }
+		static FoamParallel_EXPORT const ::tnbLib::word typeName;
+		static FoamParallel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given the decomposition dictionary
-		manualDecomp(const dictionary& decompositionDict);
+		FoamParallel_EXPORT manualDecomp(const dictionary& decompositionDict);
 
 		//- Disallow default bitwise copy construction
-		manualDecomp(const manualDecomp&) = delete;
+		FoamParallel_EXPORT manualDecomp(const manualDecomp&) = delete;
 
 
 		//- Destructor
@@ -85,7 +89,7 @@ namespace tnbLib
 
 		//- Return for every coordinate the wanted processor number. Use the
 		//  mesh connectivity (if needed)
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const polyMesh& mesh,
 			const pointField& cc,
@@ -114,7 +118,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const manualDecomp&) = delete;
+		FoamParallel_EXPORT void operator=(const manualDecomp&) = delete;
 	};
 
 

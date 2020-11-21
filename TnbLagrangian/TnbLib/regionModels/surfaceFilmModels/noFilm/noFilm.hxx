@@ -65,13 +65,17 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("none");
+				//TypeName("none");
+				static const char* typeName_() { return "none"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				noFilm
+				FoamLagrangian_EXPORT noFilm
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -80,11 +84,11 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				noFilm(const noFilm&) = delete;
+				FoamLagrangian_EXPORT noFilm(const noFilm&) = delete;
 
 
 				//- Destructor
-				virtual ~noFilm();
+				FoamLagrangian_EXPORT virtual ~noFilm();
 
 
 				// Member Functions
@@ -92,34 +96,34 @@ namespace tnbLib
 					// Solution parameters
 
 						//- Courant number evaluation
-				virtual scalar CourantNumber() const;
+				FoamLagrangian_EXPORT virtual scalar CourantNumber() const;
 
 
 				// Primary region source fields
 
 					//- Return total mass source - Eulerian phase only
-				virtual tmp<volScalarField::Internal> Srho() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField::Internal> Srho() const;
 
 				//- Return mass source for specie i - Eulerian phase only
-				virtual tmp<volScalarField::Internal> Srho
+				FoamLagrangian_EXPORT virtual tmp<volScalarField::Internal> Srho
 				(
 					const label i
 				) const;
 
 				//- Return enthalpy source - Eulerian phase only
-				virtual tmp<volScalarField::Internal> Sh() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField::Internal> Sh() const;
 
 
 				// Evolution
 
 					//- Main driver routing to evolve the region - calls other evolves
-				virtual void evolve();
+				FoamLagrangian_EXPORT virtual void evolve();
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const noFilm&) = delete;
+				FoamLagrangian_EXPORT void operator=(const noFilm&) = delete;
 			};
 
 

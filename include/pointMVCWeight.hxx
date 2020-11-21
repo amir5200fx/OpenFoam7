@@ -82,7 +82,7 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Calculate weights from single face's vertices only
-		void calcWeights
+		FoamFiniteVolume_EXPORT void calcWeights
 		(
 			const Map<label>& toLocal,
 			const face& f,
@@ -92,7 +92,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculate weights from all cell's vertices
-		void calcWeights
+		FoamFiniteVolume_EXPORT void calcWeights
 		(
 			const polyMesh& mesh,
 			const labelList& toGlobal,
@@ -106,17 +106,17 @@ namespace tnbLib
 	public:
 
 		//- Debug switch
-		static int debug;
+		static FoamFiniteVolume_EXPORT int debug;
 
 		//- Tolerance used in calculating barycentric co-ordinates
 		//  (applied to normalised values)
-		static scalar tol;
+		static FoamFiniteVolume_EXPORT scalar tol;
 
 
 		// Constructors
 
 			//- Construct from components
-		pointMVCWeight
+		FoamFiniteVolume_EXPORT pointMVCWeight
 		(
 			const polyMesh& mesh,
 			const vector& position,

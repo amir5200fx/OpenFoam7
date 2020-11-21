@@ -53,7 +53,7 @@ namespace tnbLib
 
 	class lduMesh;
 
-	Ostream& operator<<(Ostream&, const InfoProxy<lduMesh>&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<lduMesh>&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -66,7 +66,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("lduMesh");
+		//TypeName("lduMesh");
+		static const char* typeName_() { return "lduMesh"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -81,17 +85,17 @@ namespace tnbLib
 			// Access
 
 				//- Return the object registry
-		virtual const objectRegistry& thisDb() const;
+		FoamBase_EXPORT virtual const objectRegistry& thisDb() const;
 
 		//- Return ldu addressing
-		virtual const lduAddressing& lduAddr() const = 0;
+		FoamBase_EXPORT virtual const lduAddressing& lduAddr() const = 0;
 
 		//- Return a list of pointers for each patch
 		//  with only those pointing to interfaces being set
-		virtual lduInterfacePtrsList interfaces() const = 0;
+		FoamBase_EXPORT virtual lduInterfacePtrsList interfaces() const = 0;
 
 		//- Return communicator used for parallel communication
-		virtual label comm() const = 0;
+		FoamBase_EXPORT virtual label comm() const = 0;
 
 		//- Helper: reduce with current communicator
 		template<class T, class BinaryOp>
@@ -106,7 +110,7 @@ namespace tnbLib
 
 			//- Return info proxy.
 			//  Used to print mesh information to a stream
-		InfoProxy<lduMesh> info() const
+		FoamBase_EXPORT InfoProxy<lduMesh> info() const
 		{
 			return *this;
 		}
@@ -114,7 +118,7 @@ namespace tnbLib
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const InfoProxy<lduMesh>&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<lduMesh>&);
 	};
 
 

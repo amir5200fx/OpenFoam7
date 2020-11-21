@@ -56,7 +56,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(regionCoupledWallPolyPatch::typeName_());
+		/*TypeName(regionCoupledWallPolyPatch::typeName_());*/
+		static const char* typeName_() { return regionCoupledWallPolyPatch::typeName_(); }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

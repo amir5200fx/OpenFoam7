@@ -56,6 +56,16 @@ SourceFiles
 
 #include <transformFvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamFixedNormalSlipFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFixedNormalSlipFvPatchField_EXPORT_DEFINE
+#define FoamFixedNormalSlipFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamFixedNormalSlipFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -72,14 +82,18 @@ namespace tnbLib
 	{
 		// Private Data
 
-			//- Value the normal component of which the boundary is set to
+		//- Value the normal component of which the boundary is set to
 		Field<Type> fixedValue_;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("fixedNormalSlip");
+		//TypeName("fixedNormalSlip");
+		static const char* typeName_() { return "fixedNormalSlip"; }
+		static FoamFixedNormalSlipFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamFixedNormalSlipFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -56,13 +56,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("PCG");
+		//TypeName("PCG");
+		static const char* typeName_() { return "PCG"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from matrix components and solver controls
-		PCG
+		FoamBase_EXPORT PCG
 		(
 			const word& fieldName,
 			const lduMatrix& matrix,
@@ -73,7 +77,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		PCG(const PCG&) = delete;
+		FoamBase_EXPORT PCG(const PCG&) = delete;
 
 
 		//- Destructor
@@ -84,7 +88,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Solve the matrix with this solver
-		virtual solverPerformance solve
+		FoamBase_EXPORT virtual solverPerformance solve
 		(
 			scalarField& psi,
 			const scalarField& source,
@@ -95,7 +99,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const PCG&) = delete;
+		FoamBase_EXPORT void operator=(const PCG&) = delete;
 	};
 
 

@@ -58,7 +58,7 @@ namespace tnbLib
 	class polyPatch;
 	class PstreamBuffers;
 
-	Ostream& operator<<(Ostream&, const polyPatch&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const polyPatch&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -111,31 +111,35 @@ namespace tnbLib
 		{}
 
 		//- Correct patches after moving points
-		virtual void movePoints(PstreamBuffers&, const pointField& p);
+		FoamBase_EXPORT virtual void movePoints(PstreamBuffers&, const pointField& p);
 
 		//- Initialise the update of the patch topology
 		virtual void initUpdateMesh(PstreamBuffers&)
 		{}
 
 		//- Update of the patch topology
-		virtual void updateMesh(PstreamBuffers&);
+		FoamBase_EXPORT virtual void updateMesh(PstreamBuffers&);
 
 		//- Clear geometry
-		virtual void clearGeom();
+		FoamBase_EXPORT virtual void clearGeom();
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("patch");
+		//TypeName("patch");
+		static const char* typeName_() { return "patch"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Debug switch to disallow the use of genericPolyPatch
-		static int disallowGenericPolyPatch;
+		static FoamBase_EXPORT int disallowGenericPolyPatch;
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			polyPatch,
@@ -149,9 +153,60 @@ namespace tnbLib
 				const word& patchType
 				),
 				(name, size, start, index, bm, patchType)
-		);
+		);*/
 
-		declareRunTimeSelectionTable
+		typedef autoPtr<polyPatch> (*wordConstructorPtr)(const word& name, const label size, const label start,
+		                                                 const label index, const polyBoundaryMesh& bm,
+		                                                 const word& patchType);
+		typedef HashTable<wordConstructorPtr, word, string::hash> wordConstructorTable;
+		static FoamBase_EXPORT wordConstructorTable* wordConstructorTablePtr_;
+		static FoamBase_EXPORT void constructwordConstructorTables();
+		static FoamBase_EXPORT void destroywordConstructorTables();
+
+		template <class polyPatchType>
+		class addwordConstructorToTable
+		{
+		public:
+			static autoPtr<polyPatch> New(const word& name, const label size, const label start, const label index,
+			                              const polyBoundaryMesh& bm, const word& patchType)
+			{
+				return autoPtr<polyPatch>(new polyPatchType(name, size, start, index, bm, patchType));
+			}
+
+			addwordConstructorToTable(const word& lookup = polyPatchType::typeName)
+			{
+				constructwordConstructorTables();
+				if (!wordConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "polyPatch" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addwordConstructorToTable() { destroywordConstructorTables(); }
+		};
+
+		template <class polyPatchType>
+		class addRemovablewordConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<polyPatch> New(const word& name, const label size, const label start, const label index,
+			                              const polyBoundaryMesh& bm, const word& patchType)
+			{
+				return autoPtr<polyPatch>(new polyPatchType(name, size, start, index, bm, patchType));
+			}
+
+			addRemovablewordConstructorToTable(const word& lookup = polyPatchType::typeName) : lookup_(lookup)
+			{
+				constructwordConstructorTables();
+				wordConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablewordConstructorToTable() { if (wordConstructorTablePtr_) { wordConstructorTablePtr_->erase(lookup_); } }
+		};;
+
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			polyPatch,
@@ -164,13 +219,66 @@ namespace tnbLib
 				const word& patchType
 				),
 				(name, dict, index, bm, patchType)
-		);
+		);*/
+
+		typedef autoPtr<polyPatch> (*dictionaryConstructorPtr)(const word& name, const dictionary& dict, const label index,
+		                                                       const polyBoundaryMesh& bm, const word& patchType);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamBase_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamBase_EXPORT void constructdictionaryConstructorTables();
+		static FoamBase_EXPORT void destroydictionaryConstructorTables();
+
+		template <class polyPatchType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<polyPatch> New(const word& name, const dictionary& dict, const label index,
+			                              const polyBoundaryMesh& bm, const word& patchType)
+			{
+				return autoPtr<polyPatch>(new polyPatchType(name, dict, index, bm, patchType));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = polyPatchType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "polyPatch" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class polyPatchType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<polyPatch> New(const word& name, const dictionary& dict, const label index,
+			                              const polyBoundaryMesh& bm, const word& patchType)
+			{
+				return autoPtr<polyPatch>(new polyPatchType(name, dict, index, bm, patchType));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = polyPatchType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from components
-		polyPatch
+		FoamBase_EXPORT polyPatch
 		(
 			const word& name,
 			const label size,
@@ -181,7 +289,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		polyPatch
+		FoamBase_EXPORT polyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -191,11 +299,11 @@ namespace tnbLib
 		);
 
 		//- Copy constructor, resetting the boundary mesh
-		polyPatch(const polyPatch&, const polyBoundaryMesh&);
+		FoamBase_EXPORT polyPatch(const polyPatch&, const polyBoundaryMesh&);
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		polyPatch
+		FoamBase_EXPORT polyPatch
 		(
 			const polyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -205,7 +313,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		polyPatch
+		FoamBase_EXPORT polyPatch
 		(
 			const polyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -215,7 +323,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		polyPatch(const polyPatch&);
+		FoamBase_EXPORT polyPatch(const polyPatch&);
 
 		// To avoid irritating warnings from clang
 		using primitivePatch::clone;
@@ -263,7 +371,7 @@ namespace tnbLib
 
 			//- Return a pointer to a new patch created on freestore from
 			//  components
-		static autoPtr<polyPatch> New
+		static FoamBase_EXPORT autoPtr<polyPatch> New
 		(
 			const word& patchType,
 			const word& name,
@@ -275,7 +383,7 @@ namespace tnbLib
 
 		//- Return a pointer to a new patch created on freestore from
 		//  dictionary
-		static autoPtr<polyPatch> New
+		static FoamBase_EXPORT autoPtr<polyPatch> New
 		(
 			const word& name,
 			const dictionary& dict,
@@ -285,7 +393,7 @@ namespace tnbLib
 
 		//- Return a pointer to a new patch created on freestore from
 		//  dictionary
-		static autoPtr<polyPatch> New
+		static FoamBase_EXPORT autoPtr<polyPatch> New
 		(
 			const word& patchType,
 			const word& name,
@@ -296,7 +404,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~polyPatch();
+		FoamBase_EXPORT virtual ~polyPatch();
 
 
 		// Member Functions
@@ -308,7 +416,7 @@ namespace tnbLib
 		}
 
 		//- Return boundaryMesh reference
-		const polyBoundaryMesh& boundaryMesh() const;
+		FoamBase_EXPORT const polyBoundaryMesh& boundaryMesh() const;
 
 		//- Return true if this patch is geometrically coupled (i.e. faces and
 		//  points correspondence)
@@ -318,10 +426,10 @@ namespace tnbLib
 		}
 
 		//- Return true if the given type is a constraint type
-		static bool constraintType(const word& pt);
+		static FoamBase_EXPORT bool constraintType(const word& pt);
 
 		//- Return a list of all the constraint patch types
-		static wordList constraintTypes();
+		static FoamBase_EXPORT wordList constraintTypes();
 
 		//- Extract face cell data
 		template<class T>
@@ -349,31 +457,31 @@ namespace tnbLib
 
 
 		//- Write the polyPatch data as a dictionary
-		virtual void write(Ostream&) const;
+		FoamBase_EXPORT virtual void write(Ostream&) const;
 
 
 		// Geometric data; point list required
 
 			//- Return face centres
-		const vectorField::subField faceCentres() const;
+		FoamBase_EXPORT const vectorField::subField faceCentres() const;
 
 		//- Return face normals
-		const vectorField::subField faceAreas() const;
+		FoamBase_EXPORT const vectorField::subField faceAreas() const;
 
 		//- Return face cell centres
-		tmp<vectorField> faceCellCentres() const;
+		FoamBase_EXPORT tmp<vectorField> faceCellCentres() const;
 
 
 		// Addressing into mesh
 
 			//- Return face-cell addressing
-		const labelUList& faceCells() const;
+		FoamBase_EXPORT const labelUList& faceCells() const;
 
 		//- Return global edge index for local edges
-		const labelList& meshEdges() const;
+		FoamBase_EXPORT const labelList& meshEdges() const;
 
 		//- Clear addressing
-		virtual void clearAddressing();
+		FoamBase_EXPORT virtual void clearAddressing();
 
 
 		// Other patch operations
@@ -387,14 +495,14 @@ namespace tnbLib
 
 		//- Initialize ordering for primitivePatch. Does not
 		//  refer to *this (except for name() and type() etc.)
-		virtual void initOrder(PstreamBuffers&, const primitivePatch&) const;
+		FoamBase_EXPORT virtual void initOrder(PstreamBuffers&, const primitivePatch&) const;
 
 		//- Return new ordering for primitivePatch.
 		//  Ordering is -faceMap: for every face
 		//  index of the new face -rotation:for every new face the clockwise
 		//  shift of the original face. Return false if nothing changes
 		//  (faceMap is identity, rotation is 0), true otherwise.
-		virtual bool order
+		FoamBase_EXPORT virtual bool order
 		(
 			PstreamBuffers&,
 			const primitivePatch&,
@@ -406,12 +514,12 @@ namespace tnbLib
 		// Member Operators
 
 			//- Assignment
-		void operator=(const polyPatch&);
+		FoamBase_EXPORT void operator=(const polyPatch&);
 
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const polyPatch&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const polyPatch&);
 	};
 
 

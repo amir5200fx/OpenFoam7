@@ -37,6 +37,16 @@ Description
 #include <CollisionRecordList.hxx>
 #include <mathematicalConstants.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamPairSpringSliderDashpot_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPairSpringSliderDashpot_EXPORT_DEFINE
+#define FoamPairSpringSliderDashpot_EXPORT __declspec(dllexport)
+#else
+#define FoamPairSpringSliderDashpot_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -116,7 +126,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pairSpringSliderDashpot");
+		//TypeName("pairSpringSliderDashpot");
+		static const char* typeName_() { return "pairSpringSliderDashpot"; }
+		static FoamPairSpringSliderDashpot_EXPORT const ::tnbLib::word typeName;
+		static FoamPairSpringSliderDashpot_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

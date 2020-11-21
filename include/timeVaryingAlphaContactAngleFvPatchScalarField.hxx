@@ -64,20 +64,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("timeVaryingAlphaContactAngle");
+		//TypeName("timeVaryingAlphaContactAngle");
+		static const char* typeName_() { return "timeVaryingAlphaContactAngle"; }
+		static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+		static FoamTransportModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		timeVaryingAlphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT timeVaryingAlphaContactAngleFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		timeVaryingAlphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT timeVaryingAlphaContactAngleFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -86,7 +90,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		//  timeVaryingAlphaContactAngleFvPatchScalarField onto a new patch
-		timeVaryingAlphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT timeVaryingAlphaContactAngleFvPatchScalarField
 		(
 			const timeVaryingAlphaContactAngleFvPatchScalarField&,
 			const fvPatch&,
@@ -104,7 +108,7 @@ namespace tnbLib
 		}
 
 		//- Construct as copy setting internal field reference
-		timeVaryingAlphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT timeVaryingAlphaContactAngleFvPatchScalarField
 		(
 			const timeVaryingAlphaContactAngleFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -126,14 +130,14 @@ namespace tnbLib
 		// Member Functions
 
 			//- Evaluate and return the time-varying equilibrium contact-angle
-		virtual tmp<scalarField> theta
+		FoamTransportModels_EXPORT virtual tmp<scalarField> theta
 		(
 			const fvPatchVectorField& Up,
 			const fvsPatchVectorField& nHat
 		) const;
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamTransportModels_EXPORT virtual void write(Ostream&) const;
 	};
 
 

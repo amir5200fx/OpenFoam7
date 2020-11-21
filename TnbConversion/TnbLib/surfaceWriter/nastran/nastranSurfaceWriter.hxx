@@ -76,7 +76,7 @@ namespace tnbLib
 			wfFree
 		};
 
-		static const NamedEnum<writeFormat, 3> writeFormatNames_;
+		static FoamConversion_EXPORT const NamedEnum<writeFormat, 3> writeFormatNames_;
 
 
 	private:
@@ -96,10 +96,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Initialise the output stream format params
-		void formatOS(OFstream& os) const;
+		FoamConversion_EXPORT void formatOS(OFstream& os) const;
 
 		//- Write a co-ordinate
-		void writeCoord
+		FoamConversion_EXPORT void writeCoord
 		(
 			const point& p,
 			const label pointi,
@@ -107,7 +107,7 @@ namespace tnbLib
 		) const;
 
 		//- Write a face element (CTRIA3 or CQUAD4)
-		void writeFace
+		FoamConversion_EXPORT void writeFace
 		(
 			const word& faceType,
 			const labelList& facePts,
@@ -116,7 +116,7 @@ namespace tnbLib
 		) const;
 
 		//- Main driver to write the surface mesh geometry
-		void writeGeometry
+		FoamConversion_EXPORT void writeGeometry
 		(
 			const pointField& points,
 			const faceList& faces,
@@ -152,20 +152,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("nastran");
+		//TypeName("nastran");
+		static const char* typeName_() { return "nastran"; }
+		static FoamConversion_EXPORT const ::tnbLib::word typeName;
+		static FoamConversion_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct null
-		nastranSurfaceWriter();
+		FoamConversion_EXPORT nastranSurfaceWriter();
 
 		//- Construct with some output options
-		nastranSurfaceWriter(const dictionary& options);
+		FoamConversion_EXPORT nastranSurfaceWriter(const dictionary& options);
 
 
 		//- Destructor
-		virtual ~nastranSurfaceWriter();
+		FoamConversion_EXPORT virtual ~nastranSurfaceWriter();
 
 
 		// Member Functions
@@ -178,7 +182,7 @@ namespace tnbLib
 		}
 
 		//- Write single surface geometry to file.
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,
 			const fileName& surfaceName,
@@ -189,7 +193,7 @@ namespace tnbLib
 
 		//- Write scalarField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,
 			const fileName& surfaceName,
@@ -203,7 +207,7 @@ namespace tnbLib
 
 		//- Write vectorField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,
 			const fileName& surfaceName,
@@ -217,7 +221,7 @@ namespace tnbLib
 
 		//- Write sphericalTensorField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,
 			const fileName& surfaceName,
@@ -231,7 +235,7 @@ namespace tnbLib
 
 		//- Write symmTensorField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,
 			const fileName& surfaceName,
@@ -245,7 +249,7 @@ namespace tnbLib
 
 		//- Write tensorField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,
 			const fileName& surfaceName,
@@ -266,9 +270,11 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <nastranSurfaceWriterTemplates.cxx>
+//#include <nastranSurfaceWriterTemplates.cxx>
 #endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include <nastranSurfaceWriterI.hxx>
 
 #endif // !_nastranSurfaceWriter_Header

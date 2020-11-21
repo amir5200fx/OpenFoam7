@@ -70,7 +70,7 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Lookup variable, negate and return as a string
-			static string negateVariable
+			static FoamBase_EXPORT string negateVariable
 			(
 				const dictionary& parentDict,
 				Istream& is
@@ -80,22 +80,25 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			ClassName("neg");
+			//ClassName("neg");
+			static const char* typeName_() { return "neg"; } 
+			static FoamBase_EXPORT const ::tnbLib::word typeName; 
+			static FoamBase_EXPORT int debug;
 
 
 			// Constructors
 
 				//- Disallow default bitwise copy construction
-			negEntry(const negEntry&) = delete;
+			FoamBase_EXPORT negEntry(const negEntry&) = delete;
 
 
 			// Member Functions
 
 				//- Execute the functionEntry in a sub-dict context
-			static bool execute(dictionary& parentDict, Istream&);
+			static FoamBase_EXPORT bool execute(dictionary& parentDict, Istream&);
 
 			//- Execute the functionEntry in a primitiveEntry context
-			static bool execute
+			static FoamBase_EXPORT bool execute
 			(
 				const dictionary& parentDict,
 				primitiveEntry&,
@@ -106,7 +109,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const negEntry&) = delete;
+			FoamBase_EXPORT void operator=(const negEntry&) = delete;
 		};
 
 

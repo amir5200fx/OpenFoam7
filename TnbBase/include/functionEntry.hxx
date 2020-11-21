@@ -69,7 +69,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Read line as string token
-		static token readLine(const word& key, Istream& is);
+		static FoamBase_EXPORT token readLine(const word& key, Istream& is);
 
 
 	public:
@@ -77,10 +77,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from keyword, parent dictionary and Istream
-		functionEntry(const word&, const dictionary&, Istream&);
+		FoamBase_EXPORT functionEntry(const word&, const dictionary&, Istream&);
 
 		//- Disallow default bitwise copy construction
-		functionEntry(const functionEntry&) = delete;
+		FoamBase_EXPORT functionEntry(const functionEntry&) = delete;
 
 
 		// Member Function Selectors
@@ -101,7 +101,7 @@ namespace tnbLib
 		typedef bool (*executedictionaryIstreamMemberFunctionPtr)(dictionary& parentDict, Istream& is);
 		typedef HashTable<executedictionaryIstreamMemberFunctionPtr, word, string::hash>
 		executedictionaryIstreamMemberFunctionTable;
-		static executedictionaryIstreamMemberFunctionTable* executedictionaryIstreamMemberFunctionTablePtr_;
+		static FoamBase_EXPORT executedictionaryIstreamMemberFunctionTable* executedictionaryIstreamMemberFunctionTablePtr_;
 
 		template <class functionEntryType>
 		class addexecutedictionaryIstreamMemberFunctionToTable
@@ -116,11 +116,11 @@ namespace tnbLib
 			~addexecutedictionaryIstreamMemberFunctionToTable() { destroyexecutedictionaryIstreamMemberFunctionTables(); }
 		};
 
-		static void constructexecutedictionaryIstreamMemberFunctionTables();
-		static void destroyexecutedictionaryIstreamMemberFunctionTables();
+		static FoamBase_EXPORT void constructexecutedictionaryIstreamMemberFunctionTables();
+		static FoamBase_EXPORT void destroyexecutedictionaryIstreamMemberFunctionTables();
 
 		//- Execute the functionEntry in a sub-dict context
-		static bool execute
+		static FoamBase_EXPORT bool execute
 		(
 			const word& functionName,
 			dictionary& parentDict,
@@ -145,7 +145,7 @@ namespace tnbLib
 		                                                              Istream& is);
 		typedef HashTable<executeprimitiveEntryIstreamMemberFunctionPtr, word, string::hash>
 		executeprimitiveEntryIstreamMemberFunctionTable;
-		static executeprimitiveEntryIstreamMemberFunctionTable* executeprimitiveEntryIstreamMemberFunctionTablePtr_;
+		static FoamBase_EXPORT executeprimitiveEntryIstreamMemberFunctionTable* executeprimitiveEntryIstreamMemberFunctionTablePtr_;
 
 		template <class functionEntryType>
 		class addexecuteprimitiveEntryIstreamMemberFunctionToTable
@@ -153,8 +153,6 @@ namespace tnbLib
 		public:
 			addexecuteprimitiveEntryIstreamMemberFunctionToTable(const word& lookup = functionEntryType::typeName)
 			{
-				std::cout << "typename = " << lookup << std::endl;
-				system("pause");
 				constructexecuteprimitiveEntryIstreamMemberFunctionTables();
 				executeprimitiveEntryIstreamMemberFunctionTablePtr_->insert(lookup, functionEntryType::execute);
 			}
@@ -165,11 +163,11 @@ namespace tnbLib
 			}
 		};
 
-		static void constructexecuteprimitiveEntryIstreamMemberFunctionTables();
-		static void destroyexecuteprimitiveEntryIstreamMemberFunctionTables();
+		static FoamBase_EXPORT void constructexecuteprimitiveEntryIstreamMemberFunctionTables();
+		static FoamBase_EXPORT void destroyexecuteprimitiveEntryIstreamMemberFunctionTables();
 
 		//- Execute the functionEntry in a primitiveEntry context
-		static bool execute
+		static FoamBase_EXPORT bool execute
 		(
 			const word& functionName,
 			const dictionary& parentDict,
@@ -178,13 +176,13 @@ namespace tnbLib
 		);
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamBase_EXPORT virtual void write(Ostream&) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const functionEntry&) = delete;
+		FoamBase_EXPORT void operator=(const functionEntry&) = delete;
 	};
 
 

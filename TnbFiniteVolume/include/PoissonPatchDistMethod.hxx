@@ -129,14 +129,18 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("Poisson");
+			/*TypeName("Poisson");*/
+			static const char* typeName_() { return "Poisson"; }
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+			static FoamFiniteVolume_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
-				//- Construct from coefficients dictionary, mesh
-				//  and fixed-value patch set
-			Poisson
+			//- Construct from coefficients dictionary, mesh
+			//  and fixed-value patch set
+			FoamFiniteVolume_EXPORT Poisson
 			(
 				const dictionary& dict,
 				const fvMesh& mesh,
@@ -144,29 +148,29 @@ namespace tnbLib
 			);
 
 			//- Construct from mesh and fixed-value patch set
-			Poisson
+			FoamFiniteVolume_EXPORT Poisson
 			(
 				const fvMesh& mesh,
 				const labelHashSet& patchIDs
 			);
 
 			//- Disallow default bitwise copy construction
-			Poisson(const Poisson&) = delete;
+			FoamFiniteVolume_EXPORT Poisson(const Poisson&) = delete;
 
 
 			// Member Functions
 
 				//- Correct the given distance-to-patch field
-			virtual bool correct(volScalarField& y);
+			FoamFiniteVolume_EXPORT virtual bool correct(volScalarField& y);
 
 			//- Correct the given distance-to-patch and normal-to-patch fields
-			virtual bool correct(volScalarField& y, volVectorField& n);
+			FoamFiniteVolume_EXPORT virtual bool correct(volScalarField& y, volVectorField& n);
 
 
 			// Member Operators
 
-				//- Disallow default bitwise assignment
-			void operator=(const Poisson&) = delete;
+			//- Disallow default bitwise assignment
+			FoamFiniteVolume_EXPORT void operator=(const Poisson&) = delete;
 		};
 
 

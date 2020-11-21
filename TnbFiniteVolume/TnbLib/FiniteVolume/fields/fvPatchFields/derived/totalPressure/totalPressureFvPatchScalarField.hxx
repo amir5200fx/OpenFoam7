@@ -159,20 +159,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("totalPressure");
+		/*TypeName("totalPressure");*/
+		static const char* typeName_() { return "totalPressure"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		totalPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT totalPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		totalPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT totalPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -181,7 +185,7 @@ namespace tnbLib
 
 		//- Construct by mapping given totalPressureFvPatchScalarField
 		//  onto a new patch
-		totalPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT totalPressureFvPatchScalarField
 		(
 			const totalPressureFvPatchScalarField&,
 			const fvPatch&,
@@ -190,7 +194,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		totalPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT totalPressureFvPatchScalarField
 		(
 			const totalPressureFvPatchScalarField&
 		);
@@ -205,7 +209,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		totalPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT totalPressureFvPatchScalarField
 		(
 			const totalPressureFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -307,34 +311,34 @@ namespace tnbLib
 
 		// Mapping functions
 
-			//- Map (and resize as needed) from self given a mapping object
-			//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		//- Map (and resize as needed) from self given a mapping object
+		//  Used to update fields following mesh topology change
+		FoamFiniteVolume_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchScalarField&, const labelList&);
+		FoamFiniteVolume_EXPORT virtual void rmap(const fvPatchScalarField&, const labelList&);
 
 
 		// Evaluation functions
 
-			//- Inherit updateCoeffs from fixedValueFvPatchScalarField
+		//- Inherit updateCoeffs from fixedValueFvPatchScalarField
 		using fixedValueFvPatchScalarField::updateCoeffs;
 
 		//- Update the coefficients associated with the patch field
 		//  using the given patch total pressure and velocity fields
-		virtual void updateCoeffs
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs
 		(
 			const scalarField& p0p,
 			const vectorField& Up
 		);
 
 		//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

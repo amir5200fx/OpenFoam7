@@ -57,9 +57,9 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Constants for this shape
-		static const label vertPerCell;
-		static const label facePerCell;
-		static const label maxVertPerFace;
+		static FoamBase_EXPORT const label vertPerCell;
+		static FoamBase_EXPORT const label facePerCell;
+		static FoamBase_EXPORT const label maxVertPerFace;
 
 
 	public:
@@ -67,14 +67,14 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		pyrMatcher();
+		FoamBase_EXPORT pyrMatcher();
 
 		//- Disallow default bitwise copy construction
-		pyrMatcher(const pyrMatcher&) = delete;
+		FoamBase_EXPORT pyrMatcher(const pyrMatcher&) = delete;
 
 
 		//- Destructor
-		~pyrMatcher();
+		FoamBase_EXPORT ~pyrMatcher();
 
 
 		// Member Functions
@@ -94,11 +94,11 @@ namespace tnbLib
 			return maxVertPerFace;
 		}
 
-		virtual label faceHashValue() const;
+		FoamBase_EXPORT virtual label faceHashValue() const;
 
-		virtual bool faceSizeMatch(const faceList&, const labelList&) const;
+		FoamBase_EXPORT virtual bool faceSizeMatch(const faceList&, const labelList&) const;
 
-		virtual bool matchShape
+		FoamBase_EXPORT virtual bool matchShape
 		(
 			const bool checkOnly,
 			const faceList& faces,
@@ -107,11 +107,11 @@ namespace tnbLib
 			const labelList& myFaces
 		);
 
-		virtual bool isA(const primitiveMesh& mesh, const label celli);
+		FoamBase_EXPORT virtual bool isA(const primitiveMesh& mesh, const label celli);
 
-		virtual bool isA(const faceList&);
+		FoamBase_EXPORT virtual bool isA(const faceList&);
 
-		virtual bool matches
+		FoamBase_EXPORT virtual bool matches
 		(
 			const primitiveMesh& mesh,
 			const label celli,
@@ -122,7 +122,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const pyrMatcher&) = delete;
+		FoamBase_EXPORT void operator=(const pyrMatcher&) = delete;
 	};
 
 

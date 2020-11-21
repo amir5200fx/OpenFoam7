@@ -60,14 +60,14 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	//- Return a word representation of an int64
-	word name(const int64_t);
+	FoamBase_EXPORT word name(const int64_t);
 
 	// * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-	int64_t readInt64(Istream&);
-	bool read(const char*, int64_t&);
-	Istream& operator>>(Istream&, int64_t&);
-	Ostream& operator<<(Ostream&, const int64_t);
+	FoamBase_EXPORT int64_t readInt64(Istream&);
+	FoamBase_EXPORT bool read(const char*, int64_t&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, int64_t&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const int64_t);
 
 	inline void writeEntry(Ostream& os, const int64_t value)
 	{
@@ -90,34 +90,34 @@ namespace tnbLib
 		// Member constants
 
 			//- Dimensionality of space
-		static const direction dim = 3;
+		static FoamBase_EXPORT const direction dim = 3;
 
 		//- Rank of int64_t is 0
-		static const direction rank = 0;
+		static FoamBase_EXPORT const direction rank = 0;
 
 		//- Number of components in int64_t is 1
-		static const direction nComponents = 1;
+		static FoamBase_EXPORT const direction nComponents = 1;
 
 
 		// Static Data Members
 
-		static const char* const typeName;
-		static const char* const componentNames[];
-		static const int64_t zero;
-		static const int64_t one;
-		static const int64_t min;
-		static const int64_t max;
-		static const int64_t rootMax;
-		static const int64_t rootMin;
+		static FoamBase_EXPORT const char* const typeName;
+		static FoamBase_EXPORT const char* const componentNames[];
+		static FoamBase_EXPORT const int64_t zero;
+		static FoamBase_EXPORT const int64_t one;
+		static FoamBase_EXPORT const int64_t min;
+		static FoamBase_EXPORT const int64_t max;
+		static FoamBase_EXPORT const int64_t rootMax;
+		static FoamBase_EXPORT const int64_t rootMin;
 
 
 		// Constructors
 
 			//- Construct from primitive
-		explicit pTraits(const int64_t&);
+		FoamBase_EXPORT explicit pTraits(const int64_t&);
 
 		//- Construct from Istream
-		pTraits(Istream&);
+		FoamBase_EXPORT pTraits(Istream&);
 
 
 		// Member Functions

@@ -124,22 +124,22 @@ namespace tnbLib
 
 namespace tnbLib
 {
-	scalar readScalar(Istream& is);
+	FoamBase_EXPORT scalar readScalar(Istream& is);
 
 	//- Inverse normalized incomplete gamma function
-	scalar invIncGamma(const scalar a, const scalar P);
+	FoamBase_EXPORT scalar invIncGamma(const scalar a, const scalar P);
 
 	//- Normalized upper incomplete gamma function
-	scalar incGammaRatio_Q(const scalar a, const scalar x);
+	FoamBase_EXPORT scalar incGammaRatio_Q(const scalar a, const scalar x);
 
 	//- Normalized lower incomplete gamma function
-	scalar incGammaRatio_P(const scalar a, const scalar x);
+	FoamBase_EXPORT scalar incGammaRatio_P(const scalar a, const scalar x);
 
 	//- Upper incomplete gamma function
-	scalar incGamma_Q(const scalar a, const scalar x);
+	FoamBase_EXPORT scalar incGamma_Q(const scalar a, const scalar x);
 
 	//- Lower incomplete gamma function
-	scalar incGamma_P(const scalar a, const scalar x);
+	FoamBase_EXPORT scalar incGamma_P(const scalar a, const scalar x);
 }
 
 

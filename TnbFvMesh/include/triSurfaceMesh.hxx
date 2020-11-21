@@ -93,11 +93,11 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Return fileName to load IOobject from
-		static fileName checkFile(const regIOobject& io, const bool isGlobal);
+		static FoamFvMesh_EXPORT fileName checkFile(const regIOobject& io, const bool isGlobal);
 
 		//- Return fileName. If fileName is relative gets treated local to
 		//  IOobject
-		static fileName relativeFilePath
+		static FoamFvMesh_EXPORT fileName relativeFilePath
 		(
 			const regIOobject&,
 			const fileName&,
@@ -105,7 +105,7 @@ namespace tnbLib
 		);
 
 		//- Return fileName to load IOobject from. Optional override of fileName
-		static fileName checkFile
+		static FoamFvMesh_EXPORT fileName checkFile
 		(
 			const regIOobject&,
 			const dictionary&,
@@ -113,7 +113,7 @@ namespace tnbLib
 		);
 
 		//- Helper function for isSurfaceClosed
-		static bool addFaceToEdge
+		static FoamFvMesh_EXPORT bool addFaceToEdge
 		(
 			const edge&,
 			EdgeMap<label>&
@@ -121,11 +121,11 @@ namespace tnbLib
 
 		//- Check whether surface is closed without calculating any permanent
 		//  addressing.
-		bool isSurfaceClosed() const;
+		FoamFvMesh_EXPORT bool isSurfaceClosed() const;
 
 		//- Steps to next intersection. Adds smallVec and starts tracking
 		//  from there.
-		static void getNextIntersections
+		static FoamFvMesh_EXPORT void getNextIntersections
 		(
 			const indexedOctree<treeDataTriSurface>& octree,
 			const point& start,
@@ -134,7 +134,7 @@ namespace tnbLib
 			DynamicList<pointIndexHit, 1, 1>& hits
 		);
 
-		void drawHitProblem
+		FoamFvMesh_EXPORT void drawHitProblem
 		(
 			const label fi,
 			const point& start,
@@ -143,7 +143,7 @@ namespace tnbLib
 			const pointIndexHitList& hitInfo
 		) const;
 
-		void processHit
+		FoamFvMesh_EXPORT void processHit
 		(
 			scalar& internalCloseness,
 			scalar& externalCloseness,
@@ -162,20 +162,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("triSurfaceMesh");
+		/*TypeName("triSurfaceMesh");*/
+		static const char* typeName_() { return "triSurfaceMesh"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from triSurface
-		triSurfaceMesh(const IOobject&, const triSurface&);
+		FoamFvMesh_EXPORT triSurfaceMesh(const IOobject&, const triSurface&);
 
 		//- Construct read
-		triSurfaceMesh(const IOobject& io);
+		FoamFvMesh_EXPORT triSurfaceMesh(const IOobject& io);
 
 		//- Construct from IO and dictionary (used by searchableSurface).
 		//  Dictionary may contain a 'scale' entry (eg, 0.001: mm -> m)
-		triSurfaceMesh
+		FoamFvMesh_EXPORT triSurfaceMesh
 		(
 			const IOobject& io,
 			const dictionary& dict
@@ -185,9 +189,9 @@ namespace tnbLib
 		// Special constructors for use by distributedTriSurface. File search
 		// status (local/global) supplied.
 
-		triSurfaceMesh(const IOobject& io, const bool isGlobal);
+		FoamFvMesh_EXPORT triSurfaceMesh(const IOobject& io, const bool isGlobal);
 
-		triSurfaceMesh
+		FoamFvMesh_EXPORT triSurfaceMesh
 		(
 			const IOobject& io,
 			const dictionary& dict,
@@ -195,31 +199,31 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		triSurfaceMesh(const triSurfaceMesh&) = delete;
+		FoamFvMesh_EXPORT triSurfaceMesh(const triSurfaceMesh&) = delete;
 
 
 		//- Destructor
-		virtual ~triSurfaceMesh();
+		FoamFvMesh_EXPORT virtual ~triSurfaceMesh();
 
 
 		// Member Functions
 
 			//- Clear storage
-		void clearOut();
+		FoamFvMesh_EXPORT void clearOut();
 
 		//- Move points
-		virtual void movePoints(const pointField&);
+		FoamFvMesh_EXPORT virtual void movePoints(const pointField&);
 
 		//- Demand driven construction of octree for boundary edges
-		const indexedOctree<treeDataEdge>& edgeTree() const;
+		FoamFvMesh_EXPORT const indexedOctree<treeDataEdge>& edgeTree() const;
 
 
 		// searchableSurface implementation
 
-		virtual const wordList& regions() const;
+		FoamFvMesh_EXPORT virtual const wordList& regions() const;
 
 		//- Whether supports volume type below. I.e. whether is closed.
-		virtual bool hasVolumeType() const;
+		FoamFvMesh_EXPORT virtual bool hasVolumeType() const;
 
 		//- Range of local indices that can be returned.
 		virtual label size() const
@@ -229,30 +233,30 @@ namespace tnbLib
 
 		//- Get representative set of element coordinates
 		//  Usually the element centres (should be of length size()).
-		virtual tmp<pointField> coordinates() const;
+		FoamFvMesh_EXPORT virtual tmp<pointField> coordinates() const;
 
 		//- Get bounding spheres (centre and radius squared). Any point
 		//  on surface is guaranteed to be inside.
-		virtual void boundingSpheres
+		FoamFvMesh_EXPORT virtual void boundingSpheres
 		(
 			pointField& centres,
 			scalarField& radiusSqr
 		) const;
 
 		//- Get the points that define the surface.
-		virtual tmp<pointField> points() const;
+		FoamFvMesh_EXPORT virtual tmp<pointField> points() const;
 
 		// Does any part of the surface overlap the supplied bound box?
-		virtual bool overlaps(const boundBox& bb) const;
+		FoamFvMesh_EXPORT virtual bool overlaps(const boundBox& bb) const;
 
-		virtual void findNearest
+		FoamFvMesh_EXPORT virtual void findNearest
 		(
 			const pointField& sample,
 			const scalarField& nearestDistSqr,
 			List<pointIndexHit>&
 		) const;
 
-		virtual void findNearest
+		FoamFvMesh_EXPORT virtual void findNearest
 		(
 			const pointField& sample,
 			const scalarField& nearestDistSqr,
@@ -260,14 +264,14 @@ namespace tnbLib
 			List<pointIndexHit>&
 		) const;
 
-		virtual void findLine
+		FoamFvMesh_EXPORT virtual void findLine
 		(
 			const pointField& start,
 			const pointField& end,
 			List<pointIndexHit>&
 		) const;
 
-		virtual void findLineAny
+		FoamFvMesh_EXPORT virtual void findLineAny
 		(
 			const pointField& start,
 			const pointField& end,
@@ -275,7 +279,7 @@ namespace tnbLib
 		) const;
 
 		//- Get all intersections in order from start to end.
-		virtual void findLineAll
+		FoamFvMesh_EXPORT virtual void findLineAll
 		(
 			const pointField& start,
 			const pointField& end,
@@ -283,14 +287,14 @@ namespace tnbLib
 		) const;
 
 		//- From a set of points and indices get the region
-		virtual void getRegion
+		FoamFvMesh_EXPORT virtual void getRegion
 		(
 			const List<pointIndexHit>&,
 			labelList& region
 		) const;
 
 		//- From a set of points and indices get the normal
-		virtual void getNormal
+		FoamFvMesh_EXPORT virtual void getNormal
 		(
 			const List<pointIndexHit>&,
 			vectorField& normal
@@ -298,7 +302,7 @@ namespace tnbLib
 
 		//- Determine type (inside/outside/mixed) for point. unknown if
 		//  cannot be determined (e.g. non-manifold surface)
-		virtual void getVolumeType
+		FoamFvMesh_EXPORT virtual void getVolumeType
 		(
 			const pointField&,
 			List<volumeType>&
@@ -308,15 +312,15 @@ namespace tnbLib
 		// Other
 
 			//- WIP. Store element-wise field.
-		virtual void setField(const labelList& values);
+		FoamFvMesh_EXPORT virtual void setField(const labelList& values);
 
 		//- WIP. From a set of hits (points and
 		//  indices) get the specified field. Misses do not get set.
-		virtual void getField(const List<pointIndexHit>&, labelList&) const;
+		FoamFvMesh_EXPORT virtual void getField(const List<pointIndexHit>&, labelList&) const;
 
 		//- Return a pair of triSurfaceScalarFields representing the
 		//  internal and external closeness of regions of the surface
-		Pair<tmp<triSurfaceScalarField>> extractCloseness
+		FoamFvMesh_EXPORT Pair<tmp<triSurfaceScalarField>> extractCloseness
 		(
 			const scalar internalAngleTolerance = 80,
 			const scalar externalAngleTolerance = 10
@@ -324,7 +328,7 @@ namespace tnbLib
 
 		//- Return a pair of triSurfaceScalarPointFields representing the
 		//  internal and external closeness of regions of the surface
-		Pair<tmp<triSurfacePointScalarField>> extractPointCloseness
+		FoamFvMesh_EXPORT Pair<tmp<triSurfacePointScalarField>> extractPointCloseness
 		(
 			const scalar internalAngleTolerance = 80,
 			const scalar externalAngleTolerance = 10
@@ -340,7 +344,7 @@ namespace tnbLib
 		}
 
 		//- Write using given format, version and compression
-		virtual bool writeObject
+		FoamFvMesh_EXPORT virtual bool writeObject
 		(
 			IOstream::streamFormat fmt,
 			IOstream::versionNumber ver,
@@ -365,7 +369,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const triSurfaceMesh&) = delete;
+		FoamFvMesh_EXPORT void operator=(const triSurfaceMesh&) = delete;
 	};
 
 

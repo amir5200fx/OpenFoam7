@@ -39,6 +39,16 @@ Description
 
 #include <volFieldsFwd.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamLocalInteraction_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLocalInteraction_EXPORT_DEFINE
+#define FoamLocalInteraction_EXPORT __declspec(dllexport)
+#else
+#define FoamLocalInteraction_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -86,7 +96,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("localInteraction");
+		//TypeName("localInteraction");
+		static const char* typeName_() { return "localInteraction"; }
+		static FoamLocalInteraction_EXPORT const ::tnbLib::word typeName;
+		static FoamLocalInteraction_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

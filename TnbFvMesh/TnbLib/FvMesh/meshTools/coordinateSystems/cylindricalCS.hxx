@@ -64,11 +64,11 @@ namespace tnbLib
 
 			//- Convert from local coordinate system to the global Cartesian system
 			//  with optional translation for the origin
-		virtual vector localToGlobal(const vector&, bool translate) const;
+		FoamFvMesh_EXPORT virtual vector localToGlobal(const vector&, bool translate) const;
 
 		//- Convert from local coordinate system to the global Cartesian system
 		//  with optional translation for the origin
-		virtual tmp<vectorField> localToGlobal
+		FoamFvMesh_EXPORT virtual tmp<vectorField> localToGlobal
 		(
 			const vectorField&,
 			bool translate
@@ -76,11 +76,11 @@ namespace tnbLib
 
 		//- Convert from global Cartesian system to the local coordinate system
 		//  with optional translation for the origin
-		virtual vector globalToLocal(const vector&, bool translate) const;
+		FoamFvMesh_EXPORT virtual vector globalToLocal(const vector&, bool translate) const;
 
 		//- Convert from global Cartesian system to the local coordinate system
 		//  with optional translation for the origin
-		virtual tmp<vectorField> globalToLocal
+		FoamFvMesh_EXPORT virtual tmp<vectorField> globalToLocal
 		(
 			const vectorField&,
 			bool translate
@@ -93,17 +93,17 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		cylindricalCS(const bool inDegrees = true);
+		FoamFvMesh_EXPORT cylindricalCS(const bool inDegrees = true);
 
 		//- Construct copy
-		cylindricalCS
+		FoamFvMesh_EXPORT cylindricalCS
 		(
 			const coordinateSystem&,
 			const bool inDegrees = true
 		);
 
 		//- Construct copy with a different name
-		cylindricalCS
+		FoamFvMesh_EXPORT cylindricalCS
 		(
 			const word& name,
 			const coordinateSystem&,
@@ -111,7 +111,7 @@ namespace tnbLib
 		);
 
 		//- Construct from origin and rotation
-		cylindricalCS
+		FoamFvMesh_EXPORT cylindricalCS
 		(
 			const word& name,
 			const point& origin,
@@ -120,7 +120,7 @@ namespace tnbLib
 		);
 
 		//- Construct from origin and 2 axes
-		cylindricalCS
+		FoamFvMesh_EXPORT cylindricalCS
 		(
 			const word& name,
 			const point& origin,
@@ -130,23 +130,23 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary and name
-		cylindricalCS(const word&, const dictionary&);
+		FoamFvMesh_EXPORT cylindricalCS(const word&, const dictionary&);
 
 		//- Construct from dictionary and objectRegistry
-		cylindricalCS(const objectRegistry&, const dictionary&);
+		FoamFvMesh_EXPORT cylindricalCS(const objectRegistry&, const dictionary&);
 
 
 		//- Destructor
-		virtual ~cylindricalCS();
+		FoamFvMesh_EXPORT virtual ~cylindricalCS();
 
 
 		// Member Functions
 
 			//- Are angles in degrees?
-		bool  inDegrees() const;
+		FoamFvMesh_EXPORT bool  inDegrees() const;
 
 		//- Non-const access to inDegrees
-		bool& inDegrees();
+		FoamFvMesh_EXPORT bool& inDegrees();
 	};
 
 

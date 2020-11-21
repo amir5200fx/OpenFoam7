@@ -1,3 +1,5 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <solidParticle.hxx>
 
 #include <solidParticleCloud.hxx>  // added by amir

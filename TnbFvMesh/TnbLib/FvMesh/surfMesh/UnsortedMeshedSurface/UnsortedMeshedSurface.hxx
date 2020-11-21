@@ -55,6 +55,16 @@ SourceFiles
 #include <memberFunctionSelectionTables.hxx>
 #include <HashSet.hxx>
 
+#ifdef FoamFvMesh_EXPORT_DEFINE
+#define FoamUnsortedMeshedSurface_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamUnsortedMeshedSurface_EXPORT_DEFINE
+#define FoamUnsortedMeshedSurface_EXPORT __declspec(dllexport)
+#else
+#define FoamUnsortedMeshedSurface_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -139,7 +149,11 @@ namespace tnbLib
 		typedef Face FaceType;
 
 		//- Runtime type information
-		TypeName("UnsortedMeshedSurface");
+		/*TypeName("UnsortedMeshedSurface");*/
+		static const char* typeName_() { return "UnsortedMeshedSurface"; }
+		static FoamUnsortedMeshedSurface_EXPORT const ::tnbLib::word typeName;
+		static FoamUnsortedMeshedSurface_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Static
@@ -206,7 +220,7 @@ namespace tnbLib
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			UnsortedMeshedSurface,
@@ -215,7 +229,59 @@ namespace tnbLib
 				const fileName& name
 				),
 				(name)
-		);
+		);*/
+
+		typedef autoPtr<UnsortedMeshedSurface> (*fileExtensionConstructorPtr)(const fileName& name);
+		typedef HashTable<fileExtensionConstructorPtr, word, string::hash> fileExtensionConstructorTable;
+		static FoamUnsortedMeshedSurface_EXPORT fileExtensionConstructorTable* fileExtensionConstructorTablePtr_;
+		static FoamUnsortedMeshedSurface_EXPORT void constructfileExtensionConstructorTables();
+		static FoamUnsortedMeshedSurface_EXPORT void destroyfileExtensionConstructorTables();
+
+		template <class UnsortedMeshedSurfaceType>
+		class addfileExtensionConstructorToTable
+		{
+		public:
+			static autoPtr<UnsortedMeshedSurface> New(const fileName& name)
+			{
+				return autoPtr<UnsortedMeshedSurface>(new UnsortedMeshedSurfaceType(name));
+			}
+
+			addfileExtensionConstructorToTable(const word& lookup = UnsortedMeshedSurfaceType::typeName)
+			{
+				constructfileExtensionConstructorTables();
+				if (!fileExtensionConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"UnsortedMeshedSurface" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addfileExtensionConstructorToTable() { destroyfileExtensionConstructorTables(); }
+		};
+
+		template <class UnsortedMeshedSurfaceType>
+		class addRemovablefileExtensionConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<UnsortedMeshedSurface> New(const fileName& name)
+			{
+				return autoPtr<UnsortedMeshedSurface>(new UnsortedMeshedSurfaceType(name));
+			}
+
+			addRemovablefileExtensionConstructorToTable(
+				const word& lookup = UnsortedMeshedSurfaceType::typeName) : lookup_(lookup)
+			{
+				constructfileExtensionConstructorTables();
+				fileExtensionConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablefileExtensionConstructorToTable()
+			{
+				if (fileExtensionConstructorTablePtr_) { fileExtensionConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Selectors
@@ -237,7 +303,7 @@ namespace tnbLib
 
 		// Member Function Selectors
 
-		declareMemberFunctionSelectionTable
+		/*declareMemberFunctionSelectionTable
 		(
 			void,
 			UnsortedMeshedSurface,
@@ -248,7 +314,29 @@ namespace tnbLib
 				const UnsortedMeshedSurface<Face>& surf
 				),
 				(name, surf)
-		);
+		);*/
+
+		typedef void (*writefileExtensionMemberFunctionPtr)(const fileName& name,
+		                                                    const UnsortedMeshedSurface<Face>& surf);
+		typedef HashTable<writefileExtensionMemberFunctionPtr, word, string::hash>
+		writefileExtensionMemberFunctionTable;
+		static FoamUnsortedMeshedSurface_EXPORT writefileExtensionMemberFunctionTable* writefileExtensionMemberFunctionTablePtr_;
+
+		template <class UnsortedMeshedSurfaceType>
+		class addwritefileExtensionMemberFunctionToTable
+		{
+		public:
+			addwritefileExtensionMemberFunctionToTable(const word& lookup = UnsortedMeshedSurfaceType::typeName)
+			{
+				constructwritefileExtensionMemberFunctionTables();
+				writefileExtensionMemberFunctionTablePtr_->insert(lookup, UnsortedMeshedSurfaceType::write);
+			}
+
+			~addwritefileExtensionMemberFunctionToTable() { destroywritefileExtensionMemberFunctionTables(); }
+		};
+
+		static FoamUnsortedMeshedSurface_EXPORT void constructwritefileExtensionMemberFunctionTables();
+		static FoamUnsortedMeshedSurface_EXPORT void destroywritefileExtensionMemberFunctionTables();
 
 		//- Write to file
 		static void write(const fileName&, const UnsortedMeshedSurface<Face>&);

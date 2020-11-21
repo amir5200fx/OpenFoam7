@@ -62,36 +62,36 @@ namespace tnbLib
 		// Private data
 
 			//- Saved old signal trapping setting
-		static __p_sig_fn_t oldAction_;
+		static FoamBase_EXPORT __p_sig_fn_t oldAction_;
 
 
 		// Static data members
 
 			//- Handler for caught signals
-		static void sigFpeHandler(int);
+		static FoamBase_EXPORT void sigFpeHandler(int);
 
 	public:
 
 
 		// Constructors
 
-		sigFpe();
+		FoamBase_EXPORT sigFpe();
 
 
 		// Destructor
 
-		~sigFpe();
+		FoamBase_EXPORT ~sigFpe();
 
 
 		// Member functions
 
-		void set(const bool verbose);
+		FoamBase_EXPORT void set(const bool verbose);
 
 		//- Flag to indicate mallocNan is enabled
-		static bool mallocNanActive_;
+		static FoamBase_EXPORT bool mallocNanActive_;
 
 		//- Fill block of data with NaN
-		static void fillNan(UList<scalar>&);
+		static FoamBase_EXPORT void fillNan(UList<scalar>&);
 	};
 
 

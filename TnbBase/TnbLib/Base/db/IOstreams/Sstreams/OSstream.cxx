@@ -37,7 +37,7 @@ tnbLib::Ostream& tnbLib::OSstream::write(const char c)
 
 tnbLib::Ostream& tnbLib::OSstream::write(const char* str)
 {
-	lineNumber_ += string(str).count(token::NL);
+	lineNumber_ += (label)string(str).count(token::NL);  // '(label)' is added by amir
 	os_ << str;
 	setState(os_.rdstate());
 	return *this;
@@ -150,7 +150,7 @@ tnbLib::Ostream& tnbLib::OSstream::writeQuoted
 	else
 	{
 		// output unquoted string, only advance line number on newline
-		lineNumber_ += string(str).count(token::NL);
+		lineNumber_ += (label)string(str).count(token::NL);	//- modified by amir
 		os_ << str;
 	}
 
@@ -256,25 +256,25 @@ std::ios_base::fmtflags tnbLib::OSstream::flags(const ios_base::fmtflags f)
 
 int tnbLib::OSstream::width() const
 {
-	return os_.width();
+	return (int)os_.width();	//- modified by amir
 }
 
 
 int tnbLib::OSstream::width(const int w)
 {
-	return os_.width(w);
+	return (int)os_.width(w);	//- modified by amir
 }
 
 
 int tnbLib::OSstream::precision() const
 {
-	return os_.precision();
+	return (int)os_.precision();	//- modified by amir
 }
 
 
 int tnbLib::OSstream::precision(const int p)
 {
-	return os_.precision(p);
+	return (int)os_.precision(p);	//- modified by amir
 }
 
 

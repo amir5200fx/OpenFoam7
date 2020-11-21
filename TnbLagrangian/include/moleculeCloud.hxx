@@ -76,14 +76,14 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void buildConstProps();
+		FoamLagrangian_EXPORT void buildConstProps();
 
-		void setSiteSizesAndPositions();
+		FoamLagrangian_EXPORT void setSiteSizesAndPositions();
 
 		//- Determine which molecules are in which cells
-		void buildCellOccupancy();
+		FoamLagrangian_EXPORT void buildCellOccupancy();
 
-		void calculatePairForce();
+		FoamLagrangian_EXPORT void calculatePairForce();
 
 		inline void evaluatePair
 		(
@@ -97,18 +97,18 @@ namespace tnbLib
 			molecule& molJ
 		) const;
 
-		void calculateTetherForce();
+		FoamLagrangian_EXPORT void calculateTetherForce();
 
-		void calculateExternalForce();
+		FoamLagrangian_EXPORT void calculateExternalForce();
 
-		void removeHighEnergyOverlaps();
+		FoamLagrangian_EXPORT void removeHighEnergyOverlaps();
 
-		void initialiseMolecules
+		FoamLagrangian_EXPORT void initialiseMolecules
 		(
 			const IOdictionary& mdInitialiseDict
 		);
 
-		void createMolecule
+		FoamLagrangian_EXPORT void createMolecule
 		(
 			const point& position,
 			label cell,
@@ -118,7 +118,7 @@ namespace tnbLib
 			const vector& bulkVelocity
 		);
 
-		label nSites() const;
+		FoamLagrangian_EXPORT label nSites() const;
 
 		inline vector equipartitionLinearVelocity
 		(
@@ -138,7 +138,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct given mesh and potential references
-		moleculeCloud
+		FoamLagrangian_EXPORT moleculeCloud
 		(
 			const polyMesh& mesh,
 			const potential& pot,
@@ -146,7 +146,7 @@ namespace tnbLib
 		);
 
 		//- Construct given mesh, potential and mdInitialiseDict
-		moleculeCloud
+		FoamLagrangian_EXPORT moleculeCloud
 		(
 			const polyMesh& mesh,
 			const potential& pot,
@@ -155,17 +155,17 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		moleculeCloud(const moleculeCloud&) = delete;
+		FoamLagrangian_EXPORT moleculeCloud(const moleculeCloud&) = delete;
 
 
 		// Member Functions
 
 			//- Evolve the molecules (move, calculate forces, control state etc)
-		void evolve();
+		FoamLagrangian_EXPORT void evolve();
 
-		void calculateForce();
+		FoamLagrangian_EXPORT void calculateForce();
 
-		void applyConstraintsAndThermostats
+		FoamLagrangian_EXPORT void applyConstraintsAndThermostats
 		(
 			const scalar targetTemperature,
 			const scalar measuredTemperature
@@ -193,13 +193,13 @@ namespace tnbLib
 		// Member Functions
 
 			//- Write molecule sites in XYZ format
-		void writeXYZ(const fileName& fName) const;
+		FoamLagrangian_EXPORT void writeXYZ(const fileName& fName) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const moleculeCloud&) = delete;
+		FoamLagrangian_EXPORT void operator=(const moleculeCloud&) = delete;
 	};
 
 

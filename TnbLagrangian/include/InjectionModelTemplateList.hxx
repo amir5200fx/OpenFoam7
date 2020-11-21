@@ -138,8 +138,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <InjectionModelList.cxx>
+//#include <InjectionModelList.cxx>
 #endif
+
+#include <InjectionModelTemplateListI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -58,10 +58,10 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Read header
-			static bool readHeader(IFstream&, const word& fileSignature);
+			static FoamFvMesh_EXPORT bool readHeader(IFstream&, const word& fileSignature);
 
 			//- Write header for fileType (CELL|VERTEX|BOUNDARY)
-			static void writeHeader(Ostream&, const word& fileType);
+			static FoamFvMesh_EXPORT void writeHeader(Ostream&, const word& fileType);
 
 
 		protected:
@@ -105,16 +105,16 @@ namespace tnbLib
 				// Body:
 				//   {vertexId}  {x}  {y}  {z}  newline
 				// \endverbatim
-			static bool readPoints(IFstream&, pointField&, labelList& ids);
+			static FoamFvMesh_EXPORT bool readPoints(IFstream&, pointField&, labelList& ids);
 
 			//- Write header and points to (.vrt) file
-			static void writePoints(Ostream&, const pointField&);
+			static FoamFvMesh_EXPORT void writePoints(Ostream&, const pointField&);
 
 
 			// Constructors
 
 				//- Construct null
-			STARCDCore();
+			FoamFvMesh_EXPORT STARCDCore();
 
 		};
 

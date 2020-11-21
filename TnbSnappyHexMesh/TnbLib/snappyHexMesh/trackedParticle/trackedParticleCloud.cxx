@@ -1,3 +1,7 @@
+#define FoamNamedEnum_EXPORT_DEFINE
+#define FoamCloud_EXPORT_DEFINE
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <trackedParticle.hxx>
 
 #include <CloudTemplate.hxx>

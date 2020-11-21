@@ -77,8 +77,8 @@ namespace tnbLib
 
 	class extendedEdgeMesh;
 
-	Istream& operator>>(Istream&, extendedEdgeMesh&);
-	Ostream& operator<<(Ostream&, const extendedEdgeMesh&);
+	FoamFvMesh_EXPORT Istream& operator>>(Istream&, extendedEdgeMesh&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const extendedEdgeMesh&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -93,7 +93,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("extendedEdgeMesh");
+		/*TypeName("extendedEdgeMesh");*/
+		static const char* typeName_() { return "extendedEdgeMesh"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		enum pointStatus
 		{
@@ -103,7 +107,7 @@ namespace tnbLib
 			NONFEATURE  // Not a feature point
 		};
 
-		static const tnbLib::NamedEnum<pointStatus, 4> pointStatusNames_;
+		static FoamFvMesh_EXPORT const tnbLib::NamedEnum<pointStatus, 4> pointStatusNames_;
 
 		enum edgeStatus
 		{
@@ -116,7 +120,7 @@ namespace tnbLib
 						// surfaceFeatures)
 		};
 
-		static const tnbLib::NamedEnum<edgeStatus, 6> edgeStatusNames_;
+		static FoamFvMesh_EXPORT const tnbLib::NamedEnum<edgeStatus, 6> edgeStatusNames_;
 
 		//- Normals point to the outside
 		enum sideVolumeType
@@ -127,10 +131,10 @@ namespace tnbLib
 			NEITHER = 3   // not sure when this may be used
 		};
 
-		static const tnbLib::NamedEnum<sideVolumeType, 4> sideVolumeTypeNames_;
+		static FoamFvMesh_EXPORT const tnbLib::NamedEnum<sideVolumeType, 4> sideVolumeTypeNames_;
 
 		//- Angular closeness tolerance for treating normals as the same
-		static scalar cosNormalAngleTol_;
+		static FoamFvMesh_EXPORT scalar cosNormalAngleTol_;
 
 
 	protected:
@@ -138,10 +142,10 @@ namespace tnbLib
 		// Static data
 
 			//- Index of the start of the convex feature points - static as 0
-		static label convexStart_;
+		static FoamFvMesh_EXPORT label convexStart_;
 
 		//- Index of the start of the external feature edges - static as 0
-		static label externalStart_;
+		static FoamFvMesh_EXPORT label externalStart_;
 
 
 		// Protected data
@@ -210,7 +214,7 @@ namespace tnbLib
 
 			//- Classify the type of feature point.  Requires valid stored member
 			//  data for edges and normals.
-		pointStatus classifyFeaturePoint(label ptI) const;
+		FoamFvMesh_EXPORT pointStatus classifyFeaturePoint(label ptI) const;
 
 		template<class Patch>
 		void sortPointsAndEdges
@@ -226,46 +230,46 @@ namespace tnbLib
 		// Static data
 
 			//- Number of possible point types (i.e. number of slices)
-		static label nPointTypes;
+		static FoamFvMesh_EXPORT label nPointTypes;
 
 		//- Number of possible feature edge types (i.e. number of slices)
-		static label nEdgeTypes;
+		static FoamFvMesh_EXPORT label nEdgeTypes;
 
 		//- Can we read this file format?
-		static bool canRead(const fileName&, const bool verbose = false);
+		static FoamFvMesh_EXPORT bool canRead(const fileName&, const bool verbose = false);
 
 		//- Can we read this file format?
-		static bool canReadType(const word& ext, const bool verbose = false);
+		static FoamFvMesh_EXPORT bool canReadType(const word& ext, const bool verbose = false);
 
 		//- Can we write this file format type?
-		static bool canWriteType(const word& ext, const bool verbose = false);
+		static FoamFvMesh_EXPORT bool canWriteType(const word& ext, const bool verbose = false);
 
-		static wordHashSet readTypes();
-		static wordHashSet writeTypes();
+		static FoamFvMesh_EXPORT wordHashSet readTypes();
+		static FoamFvMesh_EXPORT wordHashSet writeTypes();
 
 
 		// Constructors
 
 			//- Construct null
-		extendedEdgeMesh();
+		FoamFvMesh_EXPORT extendedEdgeMesh();
 
 		//- Copy constructor
-		explicit extendedEdgeMesh(const extendedEdgeMesh&);
+		FoamFvMesh_EXPORT explicit extendedEdgeMesh(const extendedEdgeMesh&);
 
 		//- Move constructor
-		explicit extendedEdgeMesh(extendedEdgeMesh&&);
+		FoamFvMesh_EXPORT  extendedEdgeMesh(extendedEdgeMesh&&);
 
 		//- Construct from file name (uses extension to determine type)
-		extendedEdgeMesh(const fileName&);
+		FoamFvMesh_EXPORT extendedEdgeMesh(const fileName&);
 
 		//- Construct from file name (uses extension to determine type)
-		extendedEdgeMesh(const fileName&, const word& ext);
+		FoamFvMesh_EXPORT extendedEdgeMesh(const fileName&, const word& ext);
 
 		//- Construct from Istream
-		extendedEdgeMesh(Istream&);
+		FoamFvMesh_EXPORT extendedEdgeMesh(Istream&);
 
 		//- Construct by transferring components (points, edges)
-		extendedEdgeMesh
+		FoamFvMesh_EXPORT extendedEdgeMesh
 		(
 			pointField&&,
 			edgeList&&
@@ -274,14 +278,14 @@ namespace tnbLib
 		//- Construct given a surface with selected edges,points
 		//  (surfaceFeatures)
 		//  Extracts, classifies and reorders the data from surfaceFeatures.
-		extendedEdgeMesh
+		FoamFvMesh_EXPORT extendedEdgeMesh
 		(
 			const surfaceFeatures& sFeat,
 			const boolList& surfBaffleRegions
 		);
 
 		//- Construct from PrimitivePatch
-		extendedEdgeMesh
+		FoamFvMesh_EXPORT extendedEdgeMesh
 		(
 			const PrimitivePatch<faceList, pointField>& surf,
 			const labelList& featureEdges,
@@ -290,7 +294,7 @@ namespace tnbLib
 		);
 
 		//- Construct from all components
-		extendedEdgeMesh
+		FoamFvMesh_EXPORT extendedEdgeMesh
 		(
 			const pointField& pts,
 			const edgeList& eds,
@@ -314,7 +318,7 @@ namespace tnbLib
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			extendedEdgeMesh,
@@ -323,24 +327,74 @@ namespace tnbLib
 				const fileName& name
 				),
 				(name)
-		);
+		);*/
+
+		typedef autoPtr<extendedEdgeMesh> (*fileExtensionConstructorPtr)(const fileName& name);
+		typedef HashTable<fileExtensionConstructorPtr, word, string::hash> fileExtensionConstructorTable;
+		static FoamFvMesh_EXPORT fileExtensionConstructorTable* fileExtensionConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructfileExtensionConstructorTables();
+		static FoamFvMesh_EXPORT void destroyfileExtensionConstructorTables();
+
+		template <class extendedEdgeMeshType>
+		class addfileExtensionConstructorToTable
+		{
+		public:
+			static autoPtr<extendedEdgeMesh> New(const fileName& name)
+			{
+				return autoPtr<extendedEdgeMesh>(new extendedEdgeMeshType(name));
+			}
+
+			addfileExtensionConstructorToTable(const word& lookup = extendedEdgeMeshType::typeName)
+			{
+				constructfileExtensionConstructorTables();
+				if (!fileExtensionConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "extendedEdgeMesh" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addfileExtensionConstructorToTable() { destroyfileExtensionConstructorTables(); }
+		};
+
+		template <class extendedEdgeMeshType>
+		class addRemovablefileExtensionConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<extendedEdgeMesh> New(const fileName& name)
+			{
+				return autoPtr<extendedEdgeMesh>(new extendedEdgeMeshType(name));
+			}
+
+			addRemovablefileExtensionConstructorToTable(const word& lookup = extendedEdgeMeshType::typeName) : lookup_(lookup)
+			{
+				constructfileExtensionConstructorTables();
+				fileExtensionConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablefileExtensionConstructorToTable()
+			{
+				if (fileExtensionConstructorTablePtr_) { fileExtensionConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Selectors
 
 			//- Select constructed from filename (explicit extension)
-		static autoPtr<extendedEdgeMesh> New
+		static FoamFvMesh_EXPORT autoPtr<extendedEdgeMesh> New
 		(
 			const fileName&,
 			const word& ext
 		);
 
 		//- Select constructed from filename (implicit extension)
-		static autoPtr<extendedEdgeMesh> New(const fileName&);
+		static FoamFvMesh_EXPORT autoPtr<extendedEdgeMesh> New(const fileName&);
 
 
 		//- Destructor
-		~extendedEdgeMesh();
+		FoamFvMesh_EXPORT ~extendedEdgeMesh();
 
 
 		// Member Functions
@@ -348,7 +402,7 @@ namespace tnbLib
 			// Find
 
 				//- Find nearest surface edge for the sample point.
-		void nearestFeaturePoint
+		FoamFvMesh_EXPORT void nearestFeaturePoint
 		(
 			const point& sample,
 			scalar searchDistSqr,
@@ -356,7 +410,7 @@ namespace tnbLib
 		) const;
 
 		//- Find nearest surface edge for the sample point.
-		void nearestFeatureEdge
+		FoamFvMesh_EXPORT void nearestFeatureEdge
 		(
 			const point& sample,
 			scalar searchDistSqr,
@@ -364,7 +418,7 @@ namespace tnbLib
 		) const;
 
 		//- Find nearest surface edge for each sample point.
-		void nearestFeatureEdge
+		FoamFvMesh_EXPORT void nearestFeatureEdge
 		(
 			const pointField& samples,
 			const scalarField& searchDistSqr,
@@ -372,7 +426,7 @@ namespace tnbLib
 		) const;
 
 		//- Find the nearest point on each type of feature edge
-		void nearestFeatureEdgeByType
+		FoamFvMesh_EXPORT void nearestFeatureEdgeByType
 		(
 			const point& sample,
 			const scalarField& searchDistSqr,
@@ -380,7 +434,7 @@ namespace tnbLib
 		) const;
 
 		//- Find all the feature points within searchDistSqr of sample
-		void allNearestFeaturePoints
+		FoamFvMesh_EXPORT void allNearestFeaturePoints
 		(
 			const point& sample,
 			scalar searchRadiusSqr,
@@ -388,7 +442,7 @@ namespace tnbLib
 		) const;
 
 		//- Find all the feature edges within searchDistSqr of sample
-		void allNearestFeatureEdges
+		FoamFvMesh_EXPORT void allNearestFeatureEdges
 		(
 			const point& sample,
 			const scalar searchRadiusSqr,
@@ -396,7 +450,7 @@ namespace tnbLib
 		) const;
 
 		//- Return the minimum distance between disconnected edges
-		scalar minDisconnectedDist(const pointIndexHitList& hitList) const;
+		FoamFvMesh_EXPORT scalar minDisconnectedDist(const pointIndexHitList& hitList) const;
 
 
 		// Access
@@ -484,60 +538,60 @@ namespace tnbLib
 		inline PackedList<2> edgeBaffles(label edgeI) const;
 
 		//- Demand driven construction of octree for feature points
-		const indexedOctree<treeDataPoint>& pointTree() const;
+		FoamFvMesh_EXPORT const indexedOctree<treeDataPoint>& pointTree() const;
 
 		//- Demand driven construction of octree for boundary edges
-		const indexedOctree<treeDataEdge>& edgeTree() const;
+		FoamFvMesh_EXPORT const indexedOctree<treeDataEdge>& edgeTree() const;
 
 		//- Demand driven construction of octree for boundary edges by type
-		const PtrList<indexedOctree<treeDataEdge>>&
+		FoamFvMesh_EXPORT const PtrList<indexedOctree<treeDataEdge>>&
 			edgeTreesByType() const;
 
 
 		// Edit
 
 			//- Transfer the contents of the argument and annul the argument
-		void transfer(extendedEdgeMesh&);
+		FoamFvMesh_EXPORT void transfer(extendedEdgeMesh&);
 
 		//- Clear all storage
-		virtual void clear();
+		FoamFvMesh_EXPORT virtual void clear();
 
 		//- Add extendedEdgeMesh. No filtering of duplicates.
-		void add(const extendedEdgeMesh&);
+		FoamFvMesh_EXPORT void add(const extendedEdgeMesh&);
 
 		//- Flip normals. All concave become convex, all internal external
 		//  etc.
-		void flipNormals();
+		FoamFvMesh_EXPORT void flipNormals();
 
 
 		// Read
 
 			//- Read from file. Chooses reader based on explicit extension
-		bool read(const fileName&, const word& ext);
+		FoamFvMesh_EXPORT bool read(const fileName&, const word& ext);
 
 		//- Read from file. Chooses reader based on detected extension
-		virtual bool read(const fileName&);
+		FoamFvMesh_EXPORT virtual bool read(const fileName&);
 
 
 		// Write
 
 			//- Write all components of the extendedEdgeMesh as obj files
-		void writeObj
+		FoamFvMesh_EXPORT void writeObj
 		(
 			const fileName& prefix,
 			const bool verbose = true
 		) const;
 
 		//- Dump some information
-		virtual void writeStats(Ostream& os) const;
+		FoamFvMesh_EXPORT virtual void writeStats(Ostream& os) const;
 
-		friend Istream& operator>>(Istream& is, sideVolumeType& vt);
-		friend Ostream& operator<<(Ostream& os, const sideVolumeType& vt);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream& is, sideVolumeType& vt);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream& os, const sideVolumeType& vt);
 
 
 		//- Classify the type of feature edge.  Requires face centre 0 to face
 		//  centre 1 vector to distinguish internal from external
-		static edgeStatus classifyEdge
+		static FoamFvMesh_EXPORT edgeStatus classifyEdge
 		(
 			const List<vector>& norms,
 			const labelList& edNorms,
@@ -547,13 +601,13 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const extendedEdgeMesh&);
-		friend Istream& operator>>(Istream&, extendedEdgeMesh&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const extendedEdgeMesh&);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream&, extendedEdgeMesh&);
 	};
 
 
-	Istream& operator>>(Istream& is, extendedEdgeMesh::sideVolumeType& vt);
-	Ostream& operator<<(Ostream& os, const extendedEdgeMesh::sideVolumeType& vt);
+	FoamFvMesh_EXPORT Istream& operator>>(Istream& is, extendedEdgeMesh::sideVolumeType& vt);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream& os, const extendedEdgeMesh::sideVolumeType& vt);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

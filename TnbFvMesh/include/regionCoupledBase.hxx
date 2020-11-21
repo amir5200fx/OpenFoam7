@@ -85,36 +85,40 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Reset the AMI interpolator
-		void resetAMI() const;
+		FoamFvMesh_EXPORT void resetAMI() const;
 
 
 	protected:
 
 
 		//- Clear geometry
-		virtual void clearGeom();
+		FoamFvMesh_EXPORT virtual void clearGeom();
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("regionCoupledBase");
+		/*TypeName("regionCoupledBase");*/
+		static const char* typeName_() { return "regionCoupledBase"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch
-		regionCoupledBase(const polyPatch&);
+		FoamFvMesh_EXPORT regionCoupledBase(const polyPatch&);
 
 		//- Construct from dictionary
-		regionCoupledBase(const polyPatch&, const dictionary&);
+		FoamFvMesh_EXPORT regionCoupledBase(const polyPatch&, const dictionary&);
 
 		//- Construct as copy, resetting patch
-		regionCoupledBase(const polyPatch&, const regionCoupledBase&);
+		FoamFvMesh_EXPORT regionCoupledBase(const polyPatch&, const regionCoupledBase&);
 
 
 		//- Destructor
-		virtual ~regionCoupledBase();
+		FoamFvMesh_EXPORT virtual ~regionCoupledBase();
 
 
 		// Member Functions
@@ -141,19 +145,19 @@ namespace tnbLib
 		}
 
 		//- Neighbour patch ID
-		label neighbPatchID() const;
+		FoamFvMesh_EXPORT label neighbPatchID() const;
 
 		//- Does this side own the patch?
-		bool owner() const;
+		FoamFvMesh_EXPORT bool owner() const;
 
 		//- Return a reference to the neighbour patch
-		const regionCoupledBase& neighbPatch() const;
+		FoamFvMesh_EXPORT const regionCoupledBase& neighbPatch() const;
 
 		//- Return a reference to the projection surface
-		const autoPtr<searchableSurface>& surfPtr() const;
+		FoamFvMesh_EXPORT const autoPtr<searchableSurface>& surfPtr() const;
 
 		//- Return a reference to the AMI interpolator
-		const AMIInterpolation& AMI() const;
+		FoamFvMesh_EXPORT const AMIInterpolation& AMI() const;
 
 
 		// Interpolations
@@ -184,7 +188,7 @@ namespace tnbLib
 		//  index of the new face -rotation:for every new face the clockwise
 		//  shift of the original face. Return false if nothing changes
 		//  (faceMap is identity, rotation is 0), true otherwise.
-		virtual bool order
+		FoamFvMesh_EXPORT virtual bool order
 		(
 			PstreamBuffers&,
 			const primitivePatch&,
@@ -194,10 +198,10 @@ namespace tnbLib
 
 
 		//- Return the type
-		virtual const word& regionCoupleType() const = 0;
+		FoamFvMesh_EXPORT virtual const word& regionCoupleType() const = 0;
 
 		//- Write the polyPatch data as a dictionary
-		virtual void write(Ostream&) const;
+		FoamFvMesh_EXPORT virtual void write(Ostream&) const;
 	};
 
 

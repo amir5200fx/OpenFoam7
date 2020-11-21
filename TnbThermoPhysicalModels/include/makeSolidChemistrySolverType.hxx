@@ -33,6 +33,62 @@ Description
 
 #include <addToRunTimeSelectionTable.hxx>
 
+#include <noChemistrySolver.hxx>
+#include <EulerImplicit.hxx>
+#include <ode.hxx>
 
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+namespace tnbLib
+{
+
+    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#define makeSolidChemistrySolverType(SS, Schem, Comp, SThermo, GThermo)        \
+                                                                               \
+    typedef SS<Schem<Comp, SThermo, GThermo>>                                  \
+        SS##Schem##Comp##SThermo##GThermo;                                     \
+                                                                               \
+    defineTemplateTypeNameAndDebugWithName                                     \
+    (                                                                          \
+        SS##Schem##Comp##SThermo##GThermo,                                     \
+        (#SS"<" + word(Schem<Comp, SThermo, GThermo>::typeName_())             \
+      + "<"#Comp"," + SThermo::typeName()                                      \
+      + ","  + GThermo::typeName() + ">>").c_str(),                            \
+        0                                                                      \
+    );                                                                         \
+                                                                               \
+    addToRunTimeSelectionTable                                                 \
+    (                                                                          \
+        Comp,                                                                  \
+        SS##Schem##Comp##SThermo##GThermo,                                     \
+        thermo                                                                 \
+    );
+
+
+#define makeSolidChemistrySolverTypes(SolidChem, Comp, SThermo, GThermo)       \
+                                                                               \
+    makeSolidChemistrySolverType                                               \
+    (                                                                          \
+        noChemistrySolver,                                                     \
+        SolidChem,                                                             \
+        Comp,                                                                  \
+        SThermo,                                                               \
+        GThermo                                                                \
+    );                                                                         \
+                                                                               \
+    makeSolidChemistrySolverType                                               \
+    (                                                                          \
+        ode,                                                                   \
+        SolidChem,                                                             \
+        Comp,                                                                  \
+        SThermo,                                                               \
+        GThermo                                                                \
+    );
+
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+} // End namespace tnbLib
 
 #endif // !_makeSolidChemistrySolverType_header

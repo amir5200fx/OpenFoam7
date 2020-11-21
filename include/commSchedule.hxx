@@ -80,12 +80,15 @@ namespace tnbLib
 
 			//- Count the number of outstanding communications for a single
 			//  processor
-		label outstandingComms(const labelList&, DynamicList<label>&) const;
+		FoamBase_EXPORT label outstandingComms(const labelList&, DynamicList<label>&) const;
 
 
 	public:
 
-		ClassName("commSchedule");
+		//ClassName("commSchedule");
+		static const char* typeName_() { return "commSchedule"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 		// Constructors
 
@@ -96,7 +99,7 @@ namespace tnbLib
 			//  to one other at a time. After construction:
 			//  - schedule is the order in which comms is done.
 			//  - procSchedule[proci] is for proci the order in which comms is done.
-		commSchedule(const label nProcs, const List<labelPair>& comms);
+		FoamBase_EXPORT commSchedule(const label nProcs, const List<labelPair>& comms);
 
 
 		// Member Functions

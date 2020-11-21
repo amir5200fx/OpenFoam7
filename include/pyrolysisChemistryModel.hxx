@@ -42,6 +42,16 @@ SourceFiles
 #include <DimensionedField.hxx>
 #include <solidChemistryModel.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoampyrolysisChemistryModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoampyrolysisChemistryModel_EXPORT_DEFINE
+#define FoampyrolysisChemistryModel_EXPORT __declspec(dllexport)
+#else
+#define FoampyrolysisChemistryModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -95,7 +105,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pyrolysis");
+		//TypeName("pyrolysis");
+		static const char* typeName_() { return "pyrolysis"; }
+		static FoampyrolysisChemistryModel_EXPORT const ::tnbLib::word typeName;
+		static FoampyrolysisChemistryModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

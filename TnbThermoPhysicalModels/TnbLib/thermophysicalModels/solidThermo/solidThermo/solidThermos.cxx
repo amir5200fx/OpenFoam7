@@ -1,3 +1,5 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <makeSolidThermo.hxx>
 
 #include <solidThermo.hxx>

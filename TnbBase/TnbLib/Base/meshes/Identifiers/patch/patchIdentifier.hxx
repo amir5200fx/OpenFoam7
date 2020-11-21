@@ -49,7 +49,7 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 
 	class patchIdentifier;
-	Ostream& operator<<(Ostream&, const patchIdentifier&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const patchIdentifier&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -78,7 +78,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		patchIdentifier
+		FoamBase_EXPORT patchIdentifier
 		(
 			const word& name,
 			const label index,
@@ -87,7 +87,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		patchIdentifier
+		FoamBase_EXPORT patchIdentifier
 		(
 			const word& name,
 			const dictionary&,
@@ -95,7 +95,7 @@ namespace tnbLib
 		);
 
 		//- Construct from geometric patch, resetting the index
-		patchIdentifier
+		FoamBase_EXPORT patchIdentifier
 		(
 			const patchIdentifier&,
 			const label index
@@ -103,7 +103,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~patchIdentifier();
+		FoamBase_EXPORT virtual ~patchIdentifier();
 
 
 		// Member Functions
@@ -157,15 +157,15 @@ namespace tnbLib
 		}
 
 		//- Test if in group
-		bool inGroup(const word&) const;
+		FoamBase_EXPORT bool inGroup(const word&) const;
 
 		//- Write patchIdentifier as a dictionary
-		void write(Ostream&) const;
+		FoamBase_EXPORT void write(Ostream&) const;
 
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const patchIdentifier&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const patchIdentifier&);
 	};
 
 

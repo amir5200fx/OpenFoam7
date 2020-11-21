@@ -15,7 +15,7 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
-	template<>
+	/*template<>
 	const char*
 		NamedEnum<surfaceSlipDisplacementPointPatchVectorField::projectMode, 3>::
 		names[] =
@@ -23,7 +23,7 @@ namespace tnbLib
 		"nearest",
 		"pointNormal",
 		"fixedNormal"
-	};
+	};*/
 
 	const NamedEnum<surfaceSlipDisplacementPointPatchVectorField::projectMode, 3>
 		surfaceSlipDisplacementPointPatchVectorField::projectModeNames_;

@@ -71,13 +71,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("PBiCGStab");
+		//TypeName("PBiCGStab");
+		static const char* typeName_() { return "PBiCGStab"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from matrix components and solver data stream
-		PBiCGStab
+		FoamBase_EXPORT PBiCGStab
 		(
 			const word& fieldName,
 			const lduMatrix& matrix,
@@ -88,7 +92,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		PBiCGStab(const PBiCGStab&) = delete;
+		FoamBase_EXPORT PBiCGStab(const PBiCGStab&) = delete;
 
 
 		//- Destructor
@@ -99,7 +103,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Solve the matrix with this solver
-		virtual solverPerformance solve
+		FoamBase_EXPORT virtual solverPerformance solve
 		(
 			scalarField& psi,
 			const scalarField& source,
@@ -110,7 +114,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const PBiCGStab&) = delete;
+		FoamBase_EXPORT void operator=(const PBiCGStab&) = delete;
 	};
 
 

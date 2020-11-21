@@ -491,7 +491,7 @@ void tnbLib::mapDistribute::transfer(mapDistribute& rhs)
 
 // * * * * * * * * * * * * * * * Member Operators  * * * * * * * * * * * * * //
 
-void tnbLib::mapDistribute::operator=(const mapDistribute& rhs)
+FoamBase_EXPORT void tnbLib::mapDistribute::operator=(const mapDistribute& rhs)
 {
 	// Check for assignment to self
 	if (this == &rhs)
@@ -508,7 +508,7 @@ void tnbLib::mapDistribute::operator=(const mapDistribute& rhs)
 
 // * * * * * * * * * * * * * * Istream Operator  * * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, mapDistribute& map)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, mapDistribute& map)
 {
 	is.fatalCheck("operator>>(Istream&, mapDistribute&)");
 
@@ -521,7 +521,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, mapDistribute& map)
 
 // * * * * * * * * * * * * * * Ostream Operator  * * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const mapDistribute& map)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const mapDistribute& map)
 {
 	os << static_cast<const mapDistributeBase&>(map) << token::NL
 		<< map.transformElements_ << token::NL

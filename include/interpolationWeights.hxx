@@ -66,12 +66,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("interpolationWeights");
+		//TypeName("interpolationWeights");
+		static const char* typeName_() { return "interpolationWeights"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			interpolationWeights,
@@ -80,22 +84,69 @@ namespace tnbLib
 				const scalarField& samples
 				),
 				(samples)
-		);
+		);*/
+
+		typedef autoPtr<interpolationWeights> (*wordConstructorPtr)(const scalarField& samples);
+		typedef HashTable<wordConstructorPtr, word, string::hash> wordConstructorTable;
+		static FoamBase_EXPORT wordConstructorTable* wordConstructorTablePtr_;
+		static FoamBase_EXPORT void constructwordConstructorTables();
+		static FoamBase_EXPORT void destroywordConstructorTables();
+
+		template <class interpolationWeightsType>
+		class addwordConstructorToTable
+		{
+		public:
+			static autoPtr<interpolationWeights> New(const scalarField& samples)
+			{
+				return autoPtr<interpolationWeights>(new interpolationWeightsType(samples));
+			}
+
+			addwordConstructorToTable(const word& lookup = interpolationWeightsType::typeName)
+			{
+				constructwordConstructorTables();
+				if (!wordConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "interpolationWeights" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addwordConstructorToTable() { destroywordConstructorTables(); }
+		};
+
+		template <class interpolationWeightsType>
+		class addRemovablewordConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<interpolationWeights> New(const scalarField& samples)
+			{
+				return autoPtr<interpolationWeights>(new interpolationWeightsType(samples));
+			}
+
+			addRemovablewordConstructorToTable(const word& lookup = interpolationWeightsType::typeName) : lookup_(lookup)
+			{
+				constructwordConstructorTables();
+				wordConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablewordConstructorToTable() { if (wordConstructorTablePtr_) { wordConstructorTablePtr_->erase(lookup_); } }
+		};;
 
 
 		// Constructors
 
 			//- Construct from components
-		interpolationWeights(const scalarField& samples);
+		FoamBase_EXPORT interpolationWeights(const scalarField& samples);
 
 		//- Disallow default bitwise copy construction
-		interpolationWeights(const interpolationWeights&) = delete;
+		FoamBase_EXPORT interpolationWeights(const interpolationWeights&) = delete;
 
 
 		// Selectors
 
 			//- Return a reference to the selected interpolationWeights
-		static autoPtr<interpolationWeights> New
+		static FoamBase_EXPORT autoPtr<interpolationWeights> New
 		(
 			const word& type,
 			const scalarField& samples
@@ -103,14 +154,14 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~interpolationWeights();
+		FoamBase_EXPORT virtual ~interpolationWeights();
 
 
 		// Member Functions
 
 			//- Calculate weights and indices to calculate t from samples.
 			//  Returns true if indices changed.
-		virtual bool valueWeights
+		FoamBase_EXPORT virtual bool valueWeights
 		(
 			const scalar t,
 			labelList& indices,
@@ -119,7 +170,7 @@ namespace tnbLib
 
 		//- Calculate weights and indices to calculate integrand of t1..t2
 		//  from samples. Returns true if indices changed.
-		virtual bool integrationWeights
+		FoamBase_EXPORT virtual bool integrationWeights
 		(
 			const scalar t1,
 			const scalar t2,
@@ -140,7 +191,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const interpolationWeights&) = delete;
+		FoamBase_EXPORT void operator=(const interpolationWeights&) = delete;
 	};
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

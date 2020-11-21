@@ -2,6 +2,10 @@
 #ifndef _smoluchowskiJumpTFvPatchScalarField_Header
 #define _smoluchowskiJumpTFvPatchScalarField_Header
 
+#include <Base_Module.hxx>
+#include <FiniteVolume_Module.hxx>
+#include <ThermophysicalModels_Module.hxx>
+
 #include <mixedFvPatchFields.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

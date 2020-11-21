@@ -59,7 +59,7 @@ void tnbLib::surfaceLocation::write(Ostream& os, const triSurface& s) const
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, surfaceLocation& sl)
+FoamFvMesh_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, surfaceLocation& sl)
 {
 	label elType;
 	is >> static_cast<pointIndexHit&>(sl)
@@ -69,7 +69,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, surfaceLocation& sl)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfaceLocation& sl)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfaceLocation& sl)
 {
 	return os
 		<< static_cast<const pointIndexHit&>(sl)
@@ -78,7 +78,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfaceLocation& sl)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	Ostream& os,
 	const InfoProxy<surfaceLocation>& ip

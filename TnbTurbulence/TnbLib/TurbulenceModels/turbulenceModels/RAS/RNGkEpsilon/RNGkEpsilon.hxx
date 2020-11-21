@@ -69,6 +69,16 @@ SourceFiles
 #include <RASModel.hxx>
 #include <eddyViscosity.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamRNGkEpsilon_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamRNGkEpsilon_EXPORT_DEFINE
+#define FoamRNGkEpsilon_EXPORT __declspec(dllexport)
+#else
+#define FoamRNGkEpsilon_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -122,7 +132,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("RNGkEpsilon");
+			//TypeName("RNGkEpsilon");
+			static const char* typeName_() { return "RNGkEpsilon"; }
+			static FoamRNGkEpsilon_EXPORT const ::tnbLib::word typeName;
+			static FoamRNGkEpsilon_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

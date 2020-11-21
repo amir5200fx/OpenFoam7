@@ -82,6 +82,9 @@
     <Filter Include="TnbLib\parallel\reconstruct\reconstruct">
       <UniqueIdentifier>{6a6f9236-1693-4852-98fb-df751d32371c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\parallel\module">
+      <UniqueIdentifier>{08aad694-1aa6-42a8-9da6-81f623559953}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\parallel\decompose\decompositionMethods\decompositionMethod\decompositionMethod.hxx">
@@ -170,6 +173,9 @@
     </ClInclude>
     <ClInclude Include="TnbLib\parallel\reconstruct\reconstruct\reconstructLagrangianFieldsI.hxx">
       <Filter>TnbLib\parallel\reconstruct\reconstruct</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\parallel\module\Parallel_Module.hxx">
+      <Filter>TnbLib\parallel\module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -48,6 +48,16 @@ SourceFiles
 #include <pointMesh.hxx>
 #include <tetIndices.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamMoment_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMoment_EXPORT_DEFINE
+#define FoamMoment_EXPORT __declspec(dllexport)
+#else
+#define FoamMoment_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -104,7 +114,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("moment");
+			//TypeName("moment");
+			static const char* typeName_() { return "moment"; }
+			static FoamMoment_EXPORT const ::tnbLib::word typeName;
+			static FoamMoment_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			//- Constructors

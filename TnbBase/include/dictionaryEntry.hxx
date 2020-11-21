@@ -56,7 +56,7 @@ namespace tnbLib
 
 	class dictionaryEntry;
 
-	Ostream& operator<<(Ostream&, const dictionaryEntry&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const dictionaryEntry&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -70,10 +70,10 @@ namespace tnbLib
 	{
 		// Private Member Functions
 
-		void readData(Istream&);
+		FoamBase_EXPORT void readData(Istream&);
 
 		//- Dissallow bitwise copy
-		dictionaryEntry(const dictionary&);
+		FoamBase_EXPORT dictionaryEntry(const dictionary&);
 
 
 	public:
@@ -81,10 +81,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from the parent dictionary and Istream
-		dictionaryEntry(const dictionary& parentDict, Istream&);
+		FoamBase_EXPORT dictionaryEntry(const dictionary& parentDict, Istream&);
 
 		//- Construct from the keyword, parent dictionary and a Istream
-		dictionaryEntry
+		FoamBase_EXPORT dictionaryEntry
 		(
 			const keyType&,
 			const dictionary& parentDict,
@@ -92,7 +92,7 @@ namespace tnbLib
 		);
 
 		//- Construct from the keyword, parent dictionary and a dictionary
-		dictionaryEntry
+		FoamBase_EXPORT dictionaryEntry
 		(
 			const keyType&,
 			const dictionary& parentDict,
@@ -100,7 +100,7 @@ namespace tnbLib
 		);
 
 		//- Construct as copy for the given parent dictionary
-		dictionaryEntry
+		FoamBase_EXPORT dictionaryEntry
 		(
 			const dictionary& parentDict,
 			const dictionaryEntry&
@@ -133,14 +133,14 @@ namespace tnbLib
 		}
 
 		//- Return line number of first token in dictionary
-		label startLineNumber() const;
+		FoamBase_EXPORT label startLineNumber() const;
 
 		//- Return line number of last token in dictionary
-		label endLineNumber() const;
+		FoamBase_EXPORT label endLineNumber() const;
 
 		//- This entry is not a primitive,
 		//  calling this function generates a FatalError
-		ITstream& stream() const;
+		FoamBase_EXPORT ITstream& stream() const;
 
 		//- Return true because this entry is a dictionary
 		bool isDict() const
@@ -149,13 +149,13 @@ namespace tnbLib
 		}
 
 		//- Return dictionary
-		const dictionary& dict() const;
+		FoamBase_EXPORT const dictionary& dict() const;
 
 		//- Return non-const access to dictionary
-		dictionary& dict();
+		FoamBase_EXPORT dictionary& dict();
 
 		//- Write
-		void write(Ostream&) const;
+		FoamBase_EXPORT void write(Ostream&) const;
 
 		//- Return info proxy.
 		//  Used to print token information to a stream
@@ -167,12 +167,12 @@ namespace tnbLib
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const dictionaryEntry&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const dictionaryEntry&);
 	};
 
 
 	template<>
-	Ostream& operator<<(Ostream&, const InfoProxy<dictionaryEntry>&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<dictionaryEntry>&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

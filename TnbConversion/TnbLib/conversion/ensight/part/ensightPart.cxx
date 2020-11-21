@@ -1,3 +1,6 @@
+#define FoamIOPtrList_EXPORT_DEFINE
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <ensightPart.hxx>
 
 #include <dictionary.hxx>

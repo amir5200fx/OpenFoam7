@@ -70,6 +70,16 @@ SourceFiles
 
 #include <mixedFvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamOutletInletFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamOutletInletFvPatchField_EXPORT_DEFINE
+#define FoamOutletInletFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamOutletInletFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -96,7 +106,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("outletInlet");
+		/*TypeName("outletInlet");*/
+		static const char* typeName_() { return "outletInlet"; }
+		static FoamOutletInletFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamOutletInletFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

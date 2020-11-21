@@ -61,13 +61,17 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		TypeName("meshSearchFACE_CENTRE_TRISMeshObject");
+		/*TypeName("meshSearchFACE_CENTRE_TRISMeshObject");*/
+		static const char* typeName_() { return "meshSearchFACE_CENTRE_TRISMeshObject"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Constructor given polyMesh
-		explicit meshSearchFACE_CENTRE_TRISMeshObject(const polyMesh& mesh);
+		FoamFvMesh_EXPORT explicit meshSearchFACE_CENTRE_TRISMeshObject(const polyMesh& mesh);
 
 		//- Destructor
 		virtual ~meshSearchFACE_CENTRE_TRISMeshObject()

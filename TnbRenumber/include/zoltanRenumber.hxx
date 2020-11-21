@@ -57,16 +57,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("zoltan");
+		//TypeName("zoltan");
+		static const char* typeName_() { return "zoltan"; }
+		static FoamRenumber_EXPORT const ::tnbLib::word typeName;
+		static FoamRenumber_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given the renumber dictionary
-		zoltanRenumber(const dictionary& renumberDict);
+		FoamRenumber_EXPORT zoltanRenumber(const dictionary& renumberDict);
 
 		//- Disallow default bitwise copy construction
-		zoltanRenumber(const zoltanRenumber&) = delete;
+		FoamRenumber_EXPORT zoltanRenumber(const zoltanRenumber&) = delete;
 
 
 		//- Destructor
@@ -88,7 +92,7 @@ namespace tnbLib
 		//- Return the order in which cells need to be visited, i.e.
 		//  from ordered back to original cell label.
 		//  Use the mesh connectivity (if needed)
-		virtual labelList renumber
+		FoamRenumber_EXPORT virtual labelList renumber
 		(
 			const polyMesh& mesh,
 			const pointField& cc
@@ -112,7 +116,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const zoltanRenumber&) = delete;
+		FoamRenumber_EXPORT void operator=(const zoltanRenumber&) = delete;
 	};
 
 

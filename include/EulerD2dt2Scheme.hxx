@@ -39,6 +39,16 @@ SourceFiles
 
 #include <d2dt2Scheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamEulerD2dt2Scheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamEulerD2dt2Scheme_EXPORT_DEFINE
+#define FoamEulerD2dt2Scheme_EXPORT __declspec(dllexport)
+#else
+#define FoamEulerD2dt2Scheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -61,7 +71,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("Euler");
+			/*TypeName("Euler");*/
+			static const char* typeName_() { return "Euler"; }
+			static FoamEulerD2dt2Scheme_EXPORT const ::tnbLib::word typeName;
+			static FoamEulerD2dt2Scheme_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

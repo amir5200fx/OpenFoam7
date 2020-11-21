@@ -54,7 +54,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- Name of set to use
 		word setName_;
@@ -62,26 +62,30 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("setToPointZone");
+		/*TypeName("setToPointZone");*/
+		static const char* typeName_() { return "setToPointZone"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		setToPointZone
+		FoamFvMesh_EXPORT setToPointZone
 		(
 			const polyMesh& mesh,
 			const word& setName
 		);
 
 		//- Construct from dictionary
-		setToPointZone
+		FoamFvMesh_EXPORT setToPointZone
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		setToPointZone
+		FoamFvMesh_EXPORT setToPointZone
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -89,7 +93,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~setToPointZone();
+		FoamFvMesh_EXPORT virtual ~setToPointZone();
 
 
 		// Member Functions
@@ -99,7 +103,7 @@ namespace tnbLib
 			return POINTZONESOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

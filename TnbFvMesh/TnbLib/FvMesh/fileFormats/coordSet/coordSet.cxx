@@ -2,22 +2,22 @@
 
 // * * * * * * * * * * * * * Static Member Data  * * * * * * * * * * * * * * //
 
-namespace tnbLib
-{
-	template<>
-	const char* tnbLib::NamedEnum
-		<
-		tnbLib::coordSet::coordFormat,
-		5
-		>::names[] =
-	{
-		"xyz",
-		"x",
-		"y",
-		"z",
-		"distance"
-	};
-}
+//namespace tnbLib
+//{
+//	template<>
+//	const char* tnbLib::NamedEnum
+//		<
+//		tnbLib::coordSet::coordFormat,
+//		5
+//		>::names[] =
+//	{
+//		"xyz",
+//		"x",
+//		"y",
+//		"z",
+//		"distance"
+//	};
+//}
 
 
 const tnbLib::NamedEnum<tnbLib::coordSet::coordFormat, 5>

@@ -73,34 +73,132 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("solid");
+		//TypeName("solid");
+		static const char* typeName_() { return "solid"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			solidProperties,
 			,
 			(),
 			()
-		);
+		);*/
 
-		declareRunTimeSelectionTable
+		typedef autoPtr<solidProperties> (*ConstructorPtr)();
+		typedef HashTable<ConstructorPtr, word, string::hash> ConstructorTable;
+		static FoamThermophysicalModels_EXPORT ConstructorTable* ConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroyConstructorTables();
+
+		template <class solidPropertiesType>
+		class addConstructorToTable
+		{
+		public:
+			static autoPtr<solidProperties> New() { return autoPtr<solidProperties>(new solidPropertiesType()); }
+
+			addConstructorToTable(const word& lookup = solidPropertiesType::typeName)
+			{
+				constructConstructorTables();
+				if (!ConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "solidProperties" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addConstructorToTable() { destroyConstructorTables(); }
+		};
+
+		template <class solidPropertiesType>
+		class addRemovableConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<solidProperties> New() { return autoPtr<solidProperties>(new solidPropertiesType()); }
+
+			addRemovableConstructorToTable(const word& lookup = solidPropertiesType::typeName) : lookup_(lookup)
+			{
+				constructConstructorTables();
+				ConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableConstructorToTable() { if (ConstructorTablePtr_) { ConstructorTablePtr_->erase(lookup_); } }
+		};
+
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			solidProperties,
 			dictionary,
 			(const dictionary& dict),
 			(dict)
-		);
+		);*/
+
+		typedef autoPtr<solidProperties> (*dictionaryConstructorPtr)(const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamThermophysicalModels_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructdictionaryConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroydictionaryConstructorTables();
+
+		template <class solidPropertiesType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<solidProperties> New(const dictionary& dict)
+			{
+				return autoPtr<solidProperties>(new solidPropertiesType(dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = solidPropertiesType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "solidProperties" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class solidPropertiesType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<solidProperties> New(const dictionary& dict)
+			{
+				return autoPtr<solidProperties>(new solidPropertiesType(dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = solidPropertiesType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors
 
 			//- Construct from components
-		solidProperties
+		FoamThermophysicalModels_EXPORT solidProperties
 		(
 			scalar rho,
 			scalar Cp,
@@ -110,7 +208,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		solidProperties(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT solidProperties(const dictionary& dict);
 
 		//- Construct and return clone
 		virtual autoPtr<solidProperties> clone() const
@@ -122,10 +220,10 @@ namespace tnbLib
 		// Selectors
 
 			//- Return a pointer to a new solidProperties created from name
-		static autoPtr<solidProperties> New(const word& name);
+		static FoamThermophysicalModels_EXPORT autoPtr<solidProperties> New(const word& name);
 
 		//- Return a pointer to a new solidProperties created from dictionary
-		static autoPtr<solidProperties> New(const dictionary& dict);
+		static FoamThermophysicalModels_EXPORT autoPtr<solidProperties> New(const dictionary& dict);
 
 
 		//- Destructor
@@ -159,17 +257,17 @@ namespace tnbLib
 		// I-O
 
 			//- Read and set the properties present it the given dictionary
-		void readIfPresent(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT void readIfPresent(const dictionary& dict);
 
 		//- Write the solidProperties properties
-		virtual void writeData(Ostream& os) const;
+		FoamThermophysicalModels_EXPORT virtual void writeData(Ostream& os) const;
 
 		//- Ostream Operator
-		friend Ostream& operator<<(Ostream& os, const solidProperties& s);
+		friend FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const solidProperties& s);
 	};
 
 
-	Ostream& operator<<(Ostream&, const solidProperties&);
+	FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream&, const solidProperties&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -72,6 +72,16 @@ SourceFiles
 #include <RASModel.hxx>
 #include <eddyViscosity.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamSpalartAllmaras_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSpalartAllmaras_EXPORT_DEFINE
+#define FoamSpalartAllmaras_EXPORT __declspec(dllexport)
+#else
+#define FoamSpalartAllmaras_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -148,7 +158,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("SpalartAllmaras");
+			//TypeName("SpalartAllmaras");
+			static const char* typeName_() { return "SpalartAllmaras"; }
+			static FoamSpalartAllmaras_EXPORT const ::tnbLib::word typeName;
+			static FoamSpalartAllmaras_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

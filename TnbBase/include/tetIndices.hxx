@@ -72,8 +72,8 @@ namespace tnbLib
 
 	class tetIndices;
 
-	Istream& operator>>(Istream&, tetIndices&);
-	Ostream& operator<<(Ostream&, const tetIndices&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, tetIndices&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const tetIndices&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -100,14 +100,14 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		tetIndices();
+		FoamBase_EXPORT tetIndices();
 
 		//- Construct from components
-		tetIndices(label celli, label facei, label tetPtI);
+		FoamBase_EXPORT tetIndices(label celli, label facei, label tetPtI);
 
 
 		//- Destructor
-		~tetIndices();
+		FoamBase_EXPORT ~tetIndices();
 
 
 		// Member Functions
@@ -156,8 +156,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, tetIndices&);
-		friend Ostream& operator<<(Ostream&, const tetIndices&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, tetIndices&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const tetIndices&);
 	};
 
 

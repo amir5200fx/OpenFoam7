@@ -62,23 +62,27 @@ namespace tnbLib
 		{
 			// Private Member Functions
 
-			tmp<pointScalarField> calc(const surfaceScalarField& phi) const;
+			FoamFunctionObjects_EXPORT tmp<pointScalarField> calc(const surfaceScalarField& phi) const;
 
 			//- Calculate the stream-function and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("streamFunction");
+			//TypeName("streamFunction");
+			static const char* typeName_() { return "streamFunction"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct for given objectRegistry and dictionary.
 				//  Allow the possibility to load fields from files
-			streamFunction
+			FoamFunctionObjects_EXPORT streamFunction
 			(
 				const word& name,
 				const Time& runTime,
@@ -87,7 +91,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~streamFunction();
+			FoamFunctionObjects_EXPORT virtual ~streamFunction();
 		};
 
 

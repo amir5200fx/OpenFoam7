@@ -55,72 +55,72 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	 
-	void sqr(Field<symmTensor>& res, const UList<vector>& f);
-	tmp<Field<symmTensor>> sqr(const UList<vector>& f);
-	tmp<Field<symmTensor>> sqr(const tmp<Field<vector>>& tf);
+	FoamBase_EXPORT void sqr(Field<symmTensor>& res, const UList<vector>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> sqr(const UList<vector>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> sqr(const tmp<Field<vector>>& tf);
 		
-	void innerSqr(Field<symmTensor>& res, const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> innerSqr(const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> innerSqr(const tmp<Field<symmTensor>>& tf);
+	FoamBase_EXPORT void innerSqr(Field<symmTensor>& res, const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> innerSqr(const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> innerSqr(const tmp<Field<symmTensor>>& tf);
 
 		
-	void tr(Field<scalar>& res, const UList<symmTensor>& f);
-	tmp<Field<scalar>> tr(const UList<symmTensor>& f);
-	tmp<Field<scalar>> tr(const tmp<Field<symmTensor>>& tf);
+	FoamBase_EXPORT void tr(Field<scalar>& res, const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<scalar>> tr(const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<scalar>> tr(const tmp<Field<symmTensor>>& tf);
 		
-	void sph(Field<sphericalTensor>& res, const UList<symmTensor>& f);
-	tmp<Field<sphericalTensor>> sph(const UList<symmTensor>& f);
-	tmp<Field<sphericalTensor>> sph(const tmp<Field<symmTensor>>& tf);
+	FoamBase_EXPORT void sph(Field<sphericalTensor>& res, const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<sphericalTensor>> sph(const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<sphericalTensor>> sph(const tmp<Field<symmTensor>>& tf);
 		
-	void symm(Field<symmTensor>& res, const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> symm(const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> symm(const tmp<Field<symmTensor>>& tf);
+	FoamBase_EXPORT void symm(Field<symmTensor>& res, const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> symm(const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> symm(const tmp<Field<symmTensor>>& tf);
 		
-	void twoSymm(Field<symmTensor>& res, const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> twoSymm(const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> twoSymm(const tmp<Field<symmTensor>>& tf);
+	FoamBase_EXPORT void twoSymm(Field<symmTensor>& res, const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> twoSymm(const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> twoSymm(const tmp<Field<symmTensor>>& tf);
 		
-	void dev(Field<symmTensor>& res, const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> dev(const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> dev(const tmp<Field<symmTensor>>& tf);
+	FoamBase_EXPORT void dev(Field<symmTensor>& res, const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> dev(const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> dev(const tmp<Field<symmTensor>>& tf);
 		
-	void dev2(Field<symmTensor>& res, const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> dev2(const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> dev2(const tmp<Field<symmTensor>>& tf);
+	FoamBase_EXPORT void dev2(Field<symmTensor>& res, const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> dev2(const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> dev2(const tmp<Field<symmTensor>>& tf);
 		
-	void det(Field<scalar>& res, const UList<symmTensor>& f);
-	tmp<Field<scalar>> det(const UList<symmTensor>& f);
-	tmp<Field<scalar>> det(const tmp<Field<symmTensor>>& tf);
+	FoamBase_EXPORT void det(Field<scalar>& res, const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<scalar>> det(const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<scalar>> det(const tmp<Field<symmTensor>>& tf);
 		
-	void cof(Field<symmTensor>& res, const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> cof(const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> cof(const tmp<Field<symmTensor>>& tf);
+	FoamBase_EXPORT void cof(Field<symmTensor>& res, const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> cof(const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> cof(const tmp<Field<symmTensor>>& tf);
 		
-	void inv(Field<symmTensor>& res, const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> inv(const UList<symmTensor>& f);
-	tmp<Field<symmTensor>> inv(const tmp<Field<symmTensor>>& tf);
+	FoamBase_EXPORT void inv(Field<symmTensor>& res, const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> inv(const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<symmTensor>> inv(const tmp<Field<symmTensor>>& tf);
 
 
 		// * * * * * * * * * * * * * * * global operators  * * * * * * * * * * * * * //
 
 		
-	void hdual(Field<vector>& res, const UList<symmTensor>& f);
-	tmp<Field<vector>> operator *(const UList<symmTensor>& f);
-	tmp<Field<vector>> operator *(const tmp<Field<symmTensor>>& tf);
+	FoamBase_EXPORT void hdual(Field<vector>& res, const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<vector>> operator *(const UList<symmTensor>& f);
+	FoamBase_EXPORT tmp<Field<vector>> operator *(const tmp<Field<symmTensor>>& tf);
 
 		
-	void dot(Field<tensor>& f, const UList<symmTensor>& f1, const UList<symmTensor>& f2);
-	tmp<Field<tensor>> operator &(const UList<symmTensor>& f1, const UList<symmTensor>& f2);
-	tmp<Field<tensor>> operator &(const UList<symmTensor>& f1, const tmp<Field<symmTensor>>& tf2);
-	tmp<Field<tensor>> operator &(const tmp<Field<symmTensor>>& tf1, const UList<symmTensor>& f2);
-	tmp<Field<tensor>> operator &(const tmp<Field<symmTensor>>& tf1, const tmp<Field<symmTensor>>& tf2);
+	FoamBase_EXPORT void dot(Field<tensor>& f, const UList<symmTensor>& f1, const UList<symmTensor>& f2);
+	FoamBase_EXPORT tmp<Field<tensor>> operator &(const UList<symmTensor>& f1, const UList<symmTensor>& f2);
+	FoamBase_EXPORT tmp<Field<tensor>> operator &(const UList<symmTensor>& f1, const tmp<Field<symmTensor>>& tf2);
+	FoamBase_EXPORT tmp<Field<tensor>> operator &(const tmp<Field<symmTensor>>& tf1, const UList<symmTensor>& f2);
+	FoamBase_EXPORT tmp<Field<tensor>> operator &(const tmp<Field<symmTensor>>& tf1, const tmp<Field<symmTensor>>& tf2);
 		
-	void dot(Field<tensor>& f, const symmTensor& s1, const UList<symmTensor>& f2);
-	tmp<Field<tensor>> operator &(const symmTensor& s1, const UList<symmTensor>& f2);
-	tmp<Field<tensor>> operator &(const symmTensor& s1, const tmp<Field<symmTensor>>& tf2);
-	void dot(Field<tensor>& f, const UList<symmTensor>& f1, const symmTensor& s2);
-	tmp<Field<tensor>> operator &(const UList<symmTensor>& f1, const symmTensor& s2);
-	tmp<Field<tensor>> operator &(const tmp<Field<symmTensor>>& tf1, const symmTensor& s2);
+	FoamBase_EXPORT void dot(Field<tensor>& f, const symmTensor& s1, const UList<symmTensor>& f2);
+	FoamBase_EXPORT tmp<Field<tensor>> operator &(const symmTensor& s1, const UList<symmTensor>& f2);
+	FoamBase_EXPORT tmp<Field<tensor>> operator &(const symmTensor& s1, const tmp<Field<symmTensor>>& tf2);
+	FoamBase_EXPORT void dot(Field<tensor>& f, const UList<symmTensor>& f1, const symmTensor& s2);
+	FoamBase_EXPORT tmp<Field<tensor>> operator &(const UList<symmTensor>& f1, const symmTensor& s2);
+	FoamBase_EXPORT tmp<Field<tensor>> operator &(const tmp<Field<symmTensor>>& tf1, const symmTensor& s2);
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

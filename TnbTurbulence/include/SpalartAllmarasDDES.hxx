@@ -48,6 +48,16 @@ SourceFiles
 
 #include <SpalartAllmarasDES.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamSpalartAllmarasDDES_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSpalartAllmarasDDES_EXPORT_DEFINE
+#define FoamSpalartAllmarasDDES_EXPORT __declspec(dllexport)
+#else
+#define FoamSpalartAllmarasDDES_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -92,7 +102,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("SpalartAllmarasDDES");
+			//TypeName("SpalartAllmarasDDES");
+			static const char* typeName_() { return "SpalartAllmarasDDES"; }
+			static FoamSpalartAllmarasDDES_EXPORT const ::tnbLib::word typeName;
+			static FoamSpalartAllmarasDDES_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

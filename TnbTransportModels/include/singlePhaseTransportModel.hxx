@@ -67,45 +67,49 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("singlePhaseTransportModel");
+		//TypeName("singlePhaseTransportModel");
+		static const char* typeName_() { return "singlePhaseTransportModel"; }
+		static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+		static FoamTransportModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		singlePhaseTransportModel
+		FoamTransportModels_EXPORT singlePhaseTransportModel
 		(
 			const volVectorField& U,
 			const surfaceScalarField& phi
 		);
 
 		//- Disallow default bitwise copy construction
-		singlePhaseTransportModel(const singlePhaseTransportModel&);
+		FoamTransportModels_EXPORT singlePhaseTransportModel(const singlePhaseTransportModel&);
 
 
 		//- Destructor
-		virtual ~singlePhaseTransportModel();
+		FoamTransportModels_EXPORT virtual ~singlePhaseTransportModel();
 
 
 		// Member Functions
 
 			//- Return the laminar viscosity
-		virtual tmp<volScalarField> nu() const;
+		FoamTransportModels_EXPORT virtual tmp<volScalarField> nu() const;
 
 		//- Return the laminar viscosity for patch
-		virtual tmp<scalarField> nu(const label patchi) const;
+		FoamTransportModels_EXPORT virtual tmp<scalarField> nu(const label patchi) const;
 
 		//- Correct the laminar viscosity
-		virtual void correct();
+		FoamTransportModels_EXPORT virtual void correct();
 
 		//- Read transportProperties dictionary
-		virtual bool read();
+		FoamTransportModels_EXPORT virtual bool read();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const singlePhaseTransportModel&) = delete;
+		FoamTransportModels_EXPORT void operator=(const singlePhaseTransportModel&) = delete;
 	};
 
 

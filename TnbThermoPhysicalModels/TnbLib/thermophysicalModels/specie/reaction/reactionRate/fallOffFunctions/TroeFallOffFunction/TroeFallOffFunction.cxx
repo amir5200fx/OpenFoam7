@@ -160,7 +160,7 @@ inline void tnbLib::TroeFallOffFunction::write(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Ostream Operator  * * * * * * * * * * * * * //
 
-inline tnbLib::Ostream& tnbLib::operator<<
+FoamThermophysicalModels_EXPORT inline tnbLib::Ostream& tnbLib::operator<<
 (
 	tnbLib::Ostream& os,
 	const tnbLib::TroeFallOffFunction& tfof

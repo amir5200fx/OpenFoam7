@@ -80,39 +80,39 @@ namespace tnbLib
 
 
 	template<>
-	tmp<Field<sphericalTensor>> transformFieldMask<sphericalTensor>
+	FoamBase_EXPORT tmp<Field<sphericalTensor>> transformFieldMask<sphericalTensor>
 		(
 			const symmTensorField&
 			);
 
 	template<>
-	tmp<Field<sphericalTensor>> transformFieldMask<sphericalTensor>
+	FoamBase_EXPORT tmp<Field<sphericalTensor>> transformFieldMask<sphericalTensor>
 		(
 			const tmp<symmTensorField>&
 			);
 
 
 	template<>
-	tmp<Field<symmTensor>> transformFieldMask<symmTensor>
+	FoamBase_EXPORT tmp<Field<symmTensor>> transformFieldMask<symmTensor>
 		(
 			const symmTensorField&
 			);
 
 	template<>
-	tmp<Field<symmTensor>> transformFieldMask<symmTensor>
+	FoamBase_EXPORT tmp<Field<symmTensor>> transformFieldMask<symmTensor>
 		(
 			const tmp<symmTensorField>&
 			);
 
 
 	template<>
-	tmp<Field<tensor>> transformFieldMask<tensor>
+	FoamBase_EXPORT tmp<Field<tensor>> transformFieldMask<tensor>
 		(
 			const symmTensorField&
 			);
 
 	template<>
-	tmp<Field<tensor>> transformFieldMask<tensor>
+	FoamBase_EXPORT tmp<Field<tensor>> transformFieldMask<tensor>
 		(
 			const tmp<symmTensorField>&
 			);

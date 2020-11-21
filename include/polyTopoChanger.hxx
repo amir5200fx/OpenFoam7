@@ -56,7 +56,7 @@ namespace tnbLib
 
 	class polyTopoChanger;
 
-	Ostream& operator<<(Ostream&, const polyTopoChanger&);
+	FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const polyTopoChanger&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -70,7 +70,7 @@ namespace tnbLib
 	{
 		// Private Member Functions
 
-		void readModifiers();
+		FoamDynamicMesh_EXPORT void readModifiers();
 
 
 	protected:
@@ -83,16 +83,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("polyTopoChanger");
+		//TypeName("polyTopoChanger");
+		static const char* typeName_() { return "polyTopoChanger"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Read constructor given IOobject and a polyMesh
-		polyTopoChanger(const IOobject&, polyMesh&);
+		FoamDynamicMesh_EXPORT polyTopoChanger(const IOobject&, polyMesh&);
 
 		//- Read constructor for given polyMesh
-		explicit polyTopoChanger(polyMesh&);
+		explicit FoamDynamicMesh_EXPORT polyTopoChanger(polyMesh&);
 
 		//- Disallow default bitwise copy construction
 		polyTopoChanger(const polyTopoChanger&) = delete;
@@ -112,21 +116,21 @@ namespace tnbLib
 		}
 
 		//- Return a list of patch types
-		wordList types() const;
+		FoamDynamicMesh_EXPORT wordList types() const;
 
 		//- Return a list of patch names
-		wordList names() const;
+		FoamDynamicMesh_EXPORT wordList names() const;
 
 		//- Is topology change required
-		bool changeTopology() const;
+		FoamDynamicMesh_EXPORT bool changeTopology() const;
 
 		//- Return topology change request
-		autoPtr<polyTopoChange> topoChangeRequest() const;
+		FoamDynamicMesh_EXPORT autoPtr<polyTopoChange> topoChangeRequest() const;
 
 		//- Modify point motion
-		void modifyMotionPoints(pointField&) const;
+		FoamDynamicMesh_EXPORT void modifyMotionPoints(pointField&) const;
 
-		autoPtr<mapPolyMesh> changeMesh
+		FoamDynamicMesh_EXPORT autoPtr<mapPolyMesh> changeMesh
 		(
 			const bool inflate,
 			const bool syncParallel = true,
@@ -135,17 +139,17 @@ namespace tnbLib
 		);
 
 		//- Force recalculation of locally stored data on topological change
-		void update(const mapPolyMesh& m);
+		FoamDynamicMesh_EXPORT void update(const mapPolyMesh& m);
 
 		//- Add given set of topology modifiers to the topoChanger
-		void addTopologyModifiers(const List<polyMeshModifier*>& tm);
+		FoamDynamicMesh_EXPORT void addTopologyModifiers(const List<polyMeshModifier*>& tm);
 
 		//- Find modifier given a name
-		label findModifierID(const word& modName) const;
+		FoamDynamicMesh_EXPORT label findModifierID(const word& modName) const;
 
 
 		//- writeData member function required by regIOobject
-		bool writeData(Ostream&) const;
+		FoamDynamicMesh_EXPORT bool writeData(Ostream&) const;
 
 
 		// Member Operators
@@ -159,7 +163,7 @@ namespace tnbLib
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const polyTopoChanger&);
+		FoamDynamicMesh_EXPORT friend Ostream& operator<<(Ostream&, const polyTopoChanger&);
 	};
 
 

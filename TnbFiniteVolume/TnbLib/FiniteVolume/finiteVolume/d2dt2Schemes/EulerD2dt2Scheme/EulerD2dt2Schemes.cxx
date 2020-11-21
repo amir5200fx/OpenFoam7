@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <EulerD2dt2Scheme.hxx>
 
 #include <fvMesh.hxx>

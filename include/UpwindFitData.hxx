@@ -41,6 +41,16 @@ SourceFiles
 
 #include <FitData.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamUpwindFitData_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamUpwindFitData_EXPORT_DEFINE
+#define FoamUpwindFitData_EXPORT __declspec(dllexport)
+#else
+#define FoamUpwindFitData_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -82,7 +92,11 @@ namespace tnbLib
 
 	public:
 
-		TypeName("UpwindFitData");
+		/*TypeName("UpwindFitData");*/
+		static const char* typeName_() { return "UpwindFitData"; }
+		static FoamUpwindFitData_EXPORT const ::tnbLib::word typeName;
+		static FoamUpwindFitData_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

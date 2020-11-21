@@ -40,6 +40,16 @@ SourceFiles
 #include <scalar.hxx> // added by amir
 #include <typeInfo.hxx>  // added by amir
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamEFA_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamEFA_EXPORT_DEFINE
+#define FoamEFA_EXPORT __declspec(dllexport)
+#else
+#define FoamEFA_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -64,7 +74,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("EFA");
+			//TypeName("EFA");
+			static const char* typeName_() { return "EFA"; }
+			static FoamEFA_EXPORT const ::tnbLib::word typeName;
+			static FoamEFA_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

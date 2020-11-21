@@ -231,7 +231,7 @@ bool tnbLib::SHA1Digest::operator!=(const char* rhs) const
 
 // * * * * * * * * * * * * * * Friend Operators * * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, SHA1Digest& dig)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, SHA1Digest& dig)
 {
 	unsigned char *v = dig.v_;
 
@@ -248,7 +248,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, SHA1Digest& dig)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const SHA1Digest& dig)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const SHA1Digest& dig)
 {
 	return dig.write(os);
 }

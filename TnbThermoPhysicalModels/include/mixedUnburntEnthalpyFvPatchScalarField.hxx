@@ -55,20 +55,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("mixedUnburntEnthalpy");
+		//TypeName("mixedUnburntEnthalpy");
+		static const char* typeName_() { return "mixedUnburntEnthalpy"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		mixedUnburntEnthalpyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT mixedUnburntEnthalpyFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		mixedUnburntEnthalpyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT mixedUnburntEnthalpyFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -77,7 +81,7 @@ namespace tnbLib
 
 		//- Construct by mapping given mixedUnburntEnthalpyFvPatchScalarField
 		// onto a new patch
-		mixedUnburntEnthalpyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT mixedUnburntEnthalpyFvPatchScalarField
 		(
 			const mixedUnburntEnthalpyFvPatchScalarField&,
 			const fvPatch&,
@@ -86,7 +90,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		mixedUnburntEnthalpyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT mixedUnburntEnthalpyFvPatchScalarField
 		(
 			const mixedUnburntEnthalpyFvPatchScalarField&
 		);
@@ -101,7 +105,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		mixedUnburntEnthalpyFvPatchScalarField
+		FoamThermophysicalModels_EXPORT mixedUnburntEnthalpyFvPatchScalarField
 		(
 			const mixedUnburntEnthalpyFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -125,7 +129,7 @@ namespace tnbLib
 			// Evaluation functions
 
 				//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamThermophysicalModels_EXPORT virtual void updateCoeffs();
 	};
 
 

@@ -40,6 +40,16 @@ SourceFiles
 #include <ParticleForce.hxx>
 #include <interpolation.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamParamagneticForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamParamagneticForce_EXPORT_DEFINE
+#define FoamParamagneticForce_EXPORT __declspec(dllexport)
+#else
+#define FoamParamagneticForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -71,7 +81,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("paramagnetic");
+		//TypeName("paramagnetic");
+		static const char* typeName_() { return "paramagnetic"; }
+		static FoamParamagneticForce_EXPORT const ::tnbLib::word typeName;
+		static FoamParamagneticForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

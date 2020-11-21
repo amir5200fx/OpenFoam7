@@ -59,26 +59,29 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Create IO object if dictionary is present
-			IOobject createIOobject(const fvMesh& mesh) const;
+			FoamFiniteVolume_EXPORT IOobject createIOobject(const fvMesh& mesh) const;
 
 
 		public:
 
 			// Declare name of the class and its debug switch
-			ClassName("fvOptions");
+			//ClassName("fvOptions");
+			static const char* typeName_() { return "fvOptions"; } 
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName; 
+			static FoamFiniteVolume_EXPORT int debug;
 
 
 			// Constructors
 
 				//- Construct from components with list of field names
-			options(const fvMesh& mesh);
+			FoamFiniteVolume_EXPORT options(const fvMesh& mesh);
 
 			//- Disallow default bitwise copy construction
-			options(const options&) = delete;
+			FoamFiniteVolume_EXPORT options(const options&) = delete;
 
 			//- Construct fvOptions and register to datbase if not present
 			//  otherwise lookup and return
-			static options& New(const fvMesh& mesh);
+			static FoamFiniteVolume_EXPORT options& New(const fvMesh& mesh);
 
 
 			//- Destructor
@@ -92,13 +95,13 @@ namespace tnbLib
 			using optionList::read;
 
 			//- Read dictionary
-			virtual bool read();
+			FoamFiniteVolume_EXPORT virtual bool read();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const options&) = delete;
+			FoamFiniteVolume_EXPORT void operator=(const options&) = delete;
 		};
 
 

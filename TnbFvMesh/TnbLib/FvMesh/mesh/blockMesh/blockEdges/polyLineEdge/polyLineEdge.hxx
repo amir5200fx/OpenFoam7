@@ -58,13 +58,17 @@ namespace tnbLib
 		public:
 
 			// Static Data Members
-			TypeName("polyLine");
+			//TypeName("polyLine");
+			static const char* typeName_() { return "polyLine"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			polyLineEdge
+			FoamFvMesh_EXPORT polyLineEdge
 			(
 				const pointField&,
 				const label start,
@@ -73,7 +77,7 @@ namespace tnbLib
 			);
 
 			//- Construct from Istream
-			polyLineEdge
+			FoamFvMesh_EXPORT polyLineEdge
 			(
 				const dictionary& dict,
 				const label index,
@@ -83,27 +87,27 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			polyLineEdge(const polyLineEdge&) = delete;
+			FoamFvMesh_EXPORT polyLineEdge(const polyLineEdge&) = delete;
 
 
 			//- Destructor
-			virtual ~polyLineEdge();
+			FoamFvMesh_EXPORT virtual ~polyLineEdge();
 
 
 			// Member Functions
 
 				//- Return the point position corresponding to the curve parameter
 				//  0 <= lambda <= 1
-			point position(const scalar lambda) const;
+			FoamFvMesh_EXPORT point position(const scalar lambda) const;
 
 			//- Return the length of the curve
-			scalar length() const;
+			FoamFvMesh_EXPORT scalar length() const;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const polyLineEdge&) = delete;
+			FoamFvMesh_EXPORT void operator=(const polyLineEdge&) = delete;
 		};
 
 

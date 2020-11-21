@@ -57,7 +57,7 @@ bool tnbLib::referredWallFace::operator!=(const referredWallFace& rhs) const
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, referredWallFace& rWF)
+FoamLagrangian_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, referredWallFace& rWF)
 {
 	is >> static_cast<face&>(rWF) >> rWF.pts_ >> rWF.patchi_;
 
@@ -72,7 +72,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, referredWallFace& rWF)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const referredWallFace& rWF)
+FoamLagrangian_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const referredWallFace& rWF)
 {
 	os << static_cast<const face&>(rWF) << token::SPACE
 		<< rWF.pts_ << token::SPACE

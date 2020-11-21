@@ -56,7 +56,18 @@ namespace tnbLib
 					Class PatchToPatchInterpolationName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(PatchToPatchInterpolation);
+	//TemplateName(PatchToPatchInterpolation);
+	class PatchToPatchInterpolationName
+	{
+	public:
+		PatchToPatchInterpolationName()
+		{
+		}
+
+		static const char* typeName_() { return "PatchToPatchInterpolation"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\

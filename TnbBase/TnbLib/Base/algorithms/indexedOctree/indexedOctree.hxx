@@ -60,7 +60,18 @@ namespace tnbLib
 							Class indexedOctreeName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(indexedOctree);
+	//TemplateName(indexedOctree);
+	class indexedOctreeName
+	{
+	public:
+		indexedOctreeName()
+		{
+		}
+
+		static const char* typeName_() { return "indexedOctree"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\

@@ -41,6 +41,16 @@ Description
 #include <scalarList.hxx>  // added by amir
 #include <boolList.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamWallLocalSpringSliderDashpot_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamWallLocalSpringSliderDashpot_EXPORT_DEFINE
+#define FoamWallLocalSpringSliderDashpot_EXPORT __declspec(dllexport)
+#else
+#define FoamWallLocalSpringSliderDashpot_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -135,7 +145,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("wallLocalSpringSliderDashpot");
+		//TypeName("wallLocalSpringSliderDashpot");
+		static const char* typeName_() { return "wallLocalSpringSliderDashpot"; }
+		static FoamWallLocalSpringSliderDashpot_EXPORT const ::tnbLib::word typeName;
+		static FoamWallLocalSpringSliderDashpot_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

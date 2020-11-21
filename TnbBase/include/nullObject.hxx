@@ -39,6 +39,8 @@ SourceFiles
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <includeModule.hxx>
+
 namespace tnbLib
 {
 
@@ -55,7 +57,7 @@ namespace tnbLib
 	public:
 
 		//- The unique null object
-		static const NullObject nullObject;
+		static FoamBase_EXPORT const NullObject nullObject;
 
 		//- Disallow default bitwise copy construction
 		NullObject(const NullObject&) = delete;
@@ -66,7 +68,7 @@ namespace tnbLib
 
 
 	//- Pointer to the unique nullObject
-	extern const NullObject* nullObjectPtr;
+	FoamBase_EXPORT extern const NullObject* nullObjectPtr;
 
 
 	//- Return reference to the nullObject of type T

@@ -55,8 +55,8 @@ namespace tnbLib
 
 	class keyType;
 
-	Istream& operator>>(Istream&, keyType&);
-	Ostream& operator<<(Ostream&, const keyType&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, keyType&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const keyType&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -82,7 +82,7 @@ namespace tnbLib
 		// Static Data Members
 
 			//- An empty keyType
-		static const keyType null;
+		static FoamBase_EXPORT const keyType null;
 
 
 		// Constructors
@@ -108,7 +108,7 @@ namespace tnbLib
 
 		//- Construct from Istream
 		//  Treat as regular expression if surrounded by quotation marks.
-		keyType(Istream&);
+		FoamBase_EXPORT keyType(Istream&);
 
 
 		// Member Functions
@@ -118,7 +118,7 @@ namespace tnbLib
 
 		//- Smart match as regular expression or as a string
 		//  Optionally force a literal match only
-		bool match(const std::string&, bool literalMatch = false) const;
+		FoamBase_EXPORT bool match(const std::string&, bool literalMatch = false) const;
 
 		// Member Operators
 
@@ -139,8 +139,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, keyType&);
-		friend Ostream& operator<<(Ostream&, const keyType&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, keyType&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const keyType&);
 	};
 
 

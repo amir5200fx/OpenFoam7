@@ -62,63 +62,67 @@ namespace tnbLib
 
 	protected:  // added by amir
 
-		static bool writeDictionaries;
+		static FoamBase_EXPORT bool writeDictionaries;
 
 	public:
 
-		TypeName("dictionary");
+		//TypeName("dictionary");
+		static const char* typeName_() { return "dictionary"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given an IOobject
-		baseIOdictionary(const IOobject&);
+		FoamBase_EXPORT baseIOdictionary(const IOobject&);
 
 		//- Construct given an IOobject and dictionary
-		baseIOdictionary(const IOobject&, const dictionary&);
+		FoamBase_EXPORT baseIOdictionary(const IOobject&, const dictionary&);
 
 		//- Construct given an IOobject and Istream
-		baseIOdictionary(const IOobject&, Istream&);
+		FoamBase_EXPORT baseIOdictionary(const IOobject&, Istream&);
 
 		//- Copy constructor
-		baseIOdictionary(const baseIOdictionary&);
+		FoamBase_EXPORT baseIOdictionary(const baseIOdictionary&);
 
 		//- Move constructor
-		baseIOdictionary(baseIOdictionary&&);
+		FoamBase_EXPORT baseIOdictionary(baseIOdictionary&&);
 
 
 		//- Destructor
-		virtual ~baseIOdictionary();
+		FoamBase_EXPORT virtual ~baseIOdictionary();
 
 
 		// Member Functions
 
 			//- Return complete path + object name if the file exists
 			//  either in the case/processor or case otherwise null
-		virtual fileName filePath() const = 0;
+		FoamBase_EXPORT virtual fileName filePath() const = 0;
 
 		//- Name function is needed to disambiguate those inherited
 		//  from regIOobject and dictionary
-		const word& name() const;
+		FoamBase_EXPORT const word& name() const;
 
 		//- ReadData function required for regIOobject read operation
-		virtual bool readData(Istream&);
+		FoamBase_EXPORT virtual bool readData(Istream&);
 
 		//- WriteData function required for regIOobject write operation
-		virtual bool writeData(Ostream&) const;
+		FoamBase_EXPORT virtual bool writeData(Ostream&) const;
 
 		//- Is object global
-		virtual bool global() const = 0;
+		FoamBase_EXPORT virtual bool global() const = 0;
 
 
 		// Member Operators
 
 			//- Assignment of other baseIOdictionary's entries to this
 			//  baseIOdictionary
-		void operator=(const baseIOdictionary&);
+		FoamBase_EXPORT void operator=(const baseIOdictionary&);
 
 		//- Move assignment
-		void operator=(baseIOdictionary&&);
+		FoamBase_EXPORT void operator=(baseIOdictionary&&);
 	};
 
 

@@ -169,45 +169,49 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Return the name of the derived pressure field
-			word resultName() const;
+			FoamFunctionObjects_EXPORT word resultName() const;
 
 			//- Multiply the static pressure p by rhoInf if necessary and return
-			tmp<volScalarField> rhoScale(const volScalarField& p) const;
+			FoamFunctionObjects_EXPORT tmp<volScalarField> rhoScale(const volScalarField& p) const;
 
 			//- Multiply the given field by rho or rhoInf as appropriate and return
-			tmp<volScalarField> rhoScale
+			FoamFunctionObjects_EXPORT tmp<volScalarField> rhoScale
 			(
 				const volScalarField& p,
 				const tmp<volScalarField>& tsf
 			) const;
 
 			//- Return the reference pressure
-			tmp<volScalarField> pRef(const tmp<volScalarField>& tp) const;
+			FoamFunctionObjects_EXPORT tmp<volScalarField> pRef(const tmp<volScalarField>& tp) const;
 
 			//- Calculate and return the dynamic pressure
-			tmp<volScalarField> pDyn
+			FoamFunctionObjects_EXPORT tmp<volScalarField> pDyn
 			(
 				const volScalarField& p,
 				const tmp<volScalarField>& tp
 			) const;
 
 			//- Convert to coeff by applying the freestream dynamic pressure scaling
-			tmp<volScalarField> coeff(const tmp<volScalarField>& tp) const;
+			FoamFunctionObjects_EXPORT tmp<volScalarField> coeff(const tmp<volScalarField>& tp) const;
 
 			//- Calculate the derived pressure field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("pressure");
+			//TypeName("pressure");
+			static const char* typeName_() { return "pressure"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			pressure
+			FoamFunctionObjects_EXPORT pressure
 			(
 				const word& name,
 				const Time& runTime,
@@ -216,13 +220,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~pressure();
+			FoamFunctionObjects_EXPORT virtual ~pressure();
 
 
 			// Member Functions
 
 				//- Read the pressure data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 		};
 
 

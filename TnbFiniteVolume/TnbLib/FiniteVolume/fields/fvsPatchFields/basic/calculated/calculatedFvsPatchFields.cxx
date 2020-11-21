@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <calculatedFvsPatchFields.hxx>
 
 #include <fvsPatchFields.hxx>

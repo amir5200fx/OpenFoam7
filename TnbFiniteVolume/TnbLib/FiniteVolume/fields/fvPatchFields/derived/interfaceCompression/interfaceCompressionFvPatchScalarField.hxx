@@ -64,20 +64,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("interfaceCompression");
+		//TypeName("interfaceCompression");
+		static const char* typeName_() { return "interfaceCompression"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		interfaceCompressionFvPatchScalarField
+		FoamFiniteVolume_EXPORT interfaceCompressionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		interfaceCompressionFvPatchScalarField
+		FoamFiniteVolume_EXPORT interfaceCompressionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -86,7 +90,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		//  interfaceCompressionFvPatchScalarField onto a new patch
-		interfaceCompressionFvPatchScalarField
+		FoamFiniteVolume_EXPORT interfaceCompressionFvPatchScalarField
 		(
 			const interfaceCompressionFvPatchScalarField&,
 			const fvPatch&,
@@ -95,7 +99,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		interfaceCompressionFvPatchScalarField
+		FoamFiniteVolume_EXPORT interfaceCompressionFvPatchScalarField
 		(
 			const interfaceCompressionFvPatchScalarField&
 		);
@@ -110,7 +114,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		interfaceCompressionFvPatchScalarField
+		FoamFiniteVolume_EXPORT interfaceCompressionFvPatchScalarField
 		(
 			const interfaceCompressionFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -134,11 +138,11 @@ namespace tnbLib
 			// Evaluation functions
 
 				//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

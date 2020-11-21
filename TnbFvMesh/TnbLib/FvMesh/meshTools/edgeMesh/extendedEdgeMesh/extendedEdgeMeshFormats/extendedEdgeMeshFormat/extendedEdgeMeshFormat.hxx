@@ -59,10 +59,10 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from file name
-			extendedEdgeMeshFormat(const fileName&);
+			FoamFvMesh_EXPORT extendedEdgeMeshFormat(const fileName&);
 
 			//- Disallow default bitwise copy construction
-			extendedEdgeMeshFormat(const extendedEdgeMeshFormat&) = delete;
+			FoamFvMesh_EXPORT extendedEdgeMeshFormat(const extendedEdgeMeshFormat&) = delete;
 
 
 			//- Destructor
@@ -73,13 +73,13 @@ namespace tnbLib
 			// Member Functions
 
 				//- Read from file
-			virtual bool read(const fileName&);
+			FoamFvMesh_EXPORT virtual bool read(const fileName&);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const extendedEdgeMeshFormat&) = delete;
+			FoamFvMesh_EXPORT void operator=(const extendedEdgeMeshFormat&) = delete;
 		};
 
 

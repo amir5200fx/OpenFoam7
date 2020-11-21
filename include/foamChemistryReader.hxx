@@ -44,6 +44,16 @@ SourceFiles
 #include <speciesTable.hxx>
 #include <atomicWeights.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamfoamChemistryReader_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamfoamChemistryReader_EXPORT_DEFINE
+#define FoamfoamChemistryReader_EXPORT __declspec(dllexport)
+#else
+#define FoamfoamChemistryReader_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -95,13 +105,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("foamChemistryReader");
+		//TypeName("foamChemistryReader");
+		static const char* typeName_() { return "foamChemistryReader"; }
+		static FoamfoamChemistryReader_EXPORT const ::tnbLib::word typeName;
+		static FoamfoamChemistryReader_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from foamChemistry and thermodynamics file names
-		foamChemistryReader
+		FoamfoamChemistryReader_EXPORT foamChemistryReader
 		(
 			const fileName& reactionsFileName,
 			speciesTable& species,
@@ -110,14 +124,14 @@ namespace tnbLib
 
 		//- Construct by getting the foamChemistry and thermodynamics file names
 		//  from dictionary
-		foamChemistryReader
+		FoamfoamChemistryReader_EXPORT foamChemistryReader
 		(
 			const dictionary& thermoDict,
 			speciesTable& species
 		);
 
 		//- Disallow default bitwise copy construction
-		foamChemistryReader(const foamChemistryReader&) = delete;
+		FoamfoamChemistryReader_EXPORT foamChemistryReader(const foamChemistryReader&) = delete;
 
 
 		//- Destructor
@@ -167,7 +181,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const foamChemistryReader&) = delete;
+		FoamfoamChemistryReader_EXPORT void operator=(const foamChemistryReader&) = delete;
 	};
 
 

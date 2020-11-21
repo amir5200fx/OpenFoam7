@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <QUICK.hxx>
 
 #include <LimitedScheme.hxx>

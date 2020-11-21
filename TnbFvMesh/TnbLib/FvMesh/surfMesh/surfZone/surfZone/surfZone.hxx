@@ -54,8 +54,8 @@ namespace tnbLib
 
 	class surfZone;
 
-	Istream& operator>>(Istream&, surfZone&);
-	Ostream& operator<<(Ostream&, const surfZone&);
+	FoamFvMesh_EXPORT Istream& operator>>(Istream&, surfZone&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const surfZone&);
 
 	/*---------------------------------------------------------------------------*\
 							  Class surfZone Declaration
@@ -77,16 +77,19 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("surfZone");
+		/*ClassName("surfZone");*/
+		static const char* typeName_() { return "surfZone"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct null
-		surfZone();
+		FoamFvMesh_EXPORT surfZone();
 
 		//- Construct from components
-		surfZone
+		FoamFvMesh_EXPORT surfZone
 		(
 			const word& name,
 			const label size,
@@ -96,10 +99,10 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		surfZone(Istream& is, const label index);
+		FoamFvMesh_EXPORT surfZone(Istream& is, const label index);
 
 		//- Construct from dictionary
-		surfZone
+		FoamFvMesh_EXPORT surfZone
 		(
 			const word& name,
 			const dictionary& dict,
@@ -107,7 +110,7 @@ namespace tnbLib
 		);
 
 		//- Construct from another zone, resetting the index
-		surfZone(const surfZone&, const label index);
+		FoamFvMesh_EXPORT surfZone(const surfZone&, const label index);
 
 		//- Return clone
 		autoPtr<surfZone> clone() const
@@ -152,24 +155,24 @@ namespace tnbLib
 		}
 
 		//- Write
-		void write(Ostream&) const;
+		FoamFvMesh_EXPORT void write(Ostream&) const;
 
 		//- Write dictionary
-		void writeDict(Ostream&) const;
+		FoamFvMesh_EXPORT void writeDict(Ostream&) const;
 
 
 		// Member Operators
 
-		bool operator!=(const surfZone&) const;
+		FoamFvMesh_EXPORT bool operator!=(const surfZone&) const;
 
 		//- compare.
-		bool operator==(const surfZone&) const;
+		FoamFvMesh_EXPORT bool operator==(const surfZone&) const;
 
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, surfZone&);
-		friend Ostream& operator<<(Ostream&, const surfZone&);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream&, surfZone&);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const surfZone&);
 	};
 
 

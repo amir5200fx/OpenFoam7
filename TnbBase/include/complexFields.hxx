@@ -55,26 +55,26 @@ namespace tnbLib
 
 	typedef Field<complex> complexField;
 
-	complexField ComplexField(const UList<scalar>&, const UList<scalar>&);
-	complexField ReComplexField(const UList<scalar>&);
-	complexField ImComplexField(const UList<scalar>&);
-	scalarField Re(const UList<complex>&);
-	scalarField Im(const UList<complex>&);
-	scalarField ReImSum(const UList<complex>&);
+	FoamBase_EXPORT complexField ComplexField(const UList<scalar>&, const UList<scalar>&);
+	FoamBase_EXPORT complexField ReComplexField(const UList<scalar>&);
+	FoamBase_EXPORT complexField ImComplexField(const UList<scalar>&);
+	FoamBase_EXPORT scalarField Re(const UList<complex>&);
+	FoamBase_EXPORT scalarField Im(const UList<complex>&);
+	FoamBase_EXPORT scalarField ReImSum(const UList<complex>&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	typedef Field<complexVector> complexVectorField;
 
-	complexVectorField ComplexField(const UList<vector>&, const UList<vector>&);
-	complexVectorField ReComplexField(const UList<vector>&);
-	complexVectorField ImComplexField(const UList<vector>&);
-	vectorField Re(const UList<complexVector>&);
-	vectorField Im(const UList<complexVector>&);
-	vectorField ReImSum(const UList<complexVector>&);
+	FoamBase_EXPORT complexVectorField ComplexField(const UList<vector>&, const UList<vector>&);
+	FoamBase_EXPORT complexVectorField ReComplexField(const UList<vector>&);
+	FoamBase_EXPORT complexVectorField ImComplexField(const UList<vector>&);
+	FoamBase_EXPORT vectorField Re(const UList<complexVector>&);
+	FoamBase_EXPORT vectorField Im(const UList<complexVector>&);
+	FoamBase_EXPORT vectorField ReImSum(const UList<complexVector>&);
 
-	complexVectorField operator^
+	FoamBase_EXPORT complexVectorField operator^
 		(
 			const UList<vector>&,
 			const UList<complexVector>&

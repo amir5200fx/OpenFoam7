@@ -26,7 +26,7 @@ void tnbLib::writeEntry(Ostream& os, const string& value)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, string& s)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, string& s)
 {
 	token t(is);
 
@@ -40,8 +40,12 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, string& s)
 	{
 		s = t.stringToken();
 	}
-	else
+	else if(t.isWord()) // added by Amin
 	{
+		s = t.wordToken();
+	}
+	else
+	{	
 		is.setBad();
 		FatalIOErrorInFunction(is)
 			<< "wrong token type - expected string, found " << t.info()
@@ -57,7 +61,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, string& s)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const string& s)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const string& s)
 {
 	os.write(s);
 	os.check("Ostream& operator<<(Ostream&, const string&)");
@@ -65,7 +69,7 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const string& s)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const std::string& s)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const std::string& s)
 {
 	os.write(string(s));
 	os.check("Ostream& operator<<(Ostream&, const std::string&)");

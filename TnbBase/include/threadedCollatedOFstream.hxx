@@ -69,7 +69,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct and set stream status
-		threadedCollatedOFstream
+		FoamBase_EXPORT threadedCollatedOFstream
 		(
 			OFstreamCollator&,
 			const fileName& pathname,
@@ -81,7 +81,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~threadedCollatedOFstream();
+		FoamBase_EXPORT ~threadedCollatedOFstream();
 	};
 
 

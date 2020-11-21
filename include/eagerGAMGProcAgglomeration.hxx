@@ -67,39 +67,43 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("eager");
+		//TypeName("eager");
+		static const char* typeName_() { return "eager"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given agglomerator and controls
-		eagerGAMGProcAgglomeration
+		FoamBase_EXPORT eagerGAMGProcAgglomeration
 		(
 			GAMGAgglomeration& agglom,
 			const dictionary& controlDict
 		);
 
 		//- Disallow default bitwise copy construction
-		eagerGAMGProcAgglomeration
+		FoamBase_EXPORT eagerGAMGProcAgglomeration
 		(
 			const eagerGAMGProcAgglomeration&
 		);
 
 
 		//- Destructor
-		virtual ~eagerGAMGProcAgglomeration();
+		FoamBase_EXPORT virtual ~eagerGAMGProcAgglomeration();
 
 
 		// Member Functions
 
 		   //- Modify agglomeration. Return true if modified
-		virtual bool agglomerate();
+		FoamBase_EXPORT virtual bool agglomerate();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const eagerGAMGProcAgglomeration&) = delete;
+		FoamBase_EXPORT void operator=(const eagerGAMGProcAgglomeration&) = delete;
 	};
 
 

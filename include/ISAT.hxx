@@ -50,6 +50,16 @@ Description
 #include <chemPointISAT.hxx>  // added by amir
 #include <autoPtr.hxx>  // added by amir
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamISAT_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamISAT_EXPORT_DEFINE
+#define FoamISAT_EXPORT __declspec(dllexport)
+#else
+#define FoamISAT_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -183,7 +193,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("ISAT");
+			//TypeName("ISAT");
+			static const char* typeName_() { return "ISAT"; }
+			static FoamISAT_EXPORT const ::tnbLib::word typeName;
+			static FoamISAT_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

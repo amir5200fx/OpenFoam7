@@ -66,6 +66,16 @@ SourceFiles
 #include <LESModel.hxx>
 #include <ReynoldsStress.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamDeardorffDiffStress_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDeardorffDiffStress_EXPORT_DEFINE
+#define FoamDeardorffDiffStress_EXPORT __declspec(dllexport)
+#else
+#define FoamDeardorffDiffStress_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -108,7 +118,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("DeardorffDiffStress");
+			//TypeName("DeardorffDiffStress");
+			static const char* typeName_() { return "DeardorffDiffStress"; }
+			static FoamDeardorffDiffStress_EXPORT const ::tnbLib::word typeName;
+			static FoamDeardorffDiffStress_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

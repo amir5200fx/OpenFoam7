@@ -1,3 +1,5 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <mixedFixedValueSlipFvPatchFields.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>

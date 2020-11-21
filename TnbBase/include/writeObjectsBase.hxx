@@ -106,16 +106,16 @@ namespace tnbLib
 
 				//- Reset the list of object names to be written to a single regular
 				//  expression
-			void resetWriteObjectName(const wordRe& name);
+			FoamBase_EXPORT void resetWriteObjectName(const wordRe& name);
 
 			//- Reset the list of object names to be written
-			void resetWriteObjectNames(const wordReList& names);
+			FoamBase_EXPORT void resetWriteObjectNames(const wordReList& names);
 
 			//- Get the list of field names to be written
-			virtual wordList objectNames();
+			FoamBase_EXPORT virtual wordList objectNames();
 
 			//- Write the requested registered IO object
-			virtual void writeObject(const regIOobject& obj);
+			FoamBase_EXPORT virtual void writeObject(const regIOobject& obj);
 
 
 		public:
@@ -123,36 +123,36 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from objectRegistry and inheriting function object
-			writeObjectsBase
+			FoamBase_EXPORT writeObjectsBase
 			(
 				const objectRegistry& obr,
 				const Switch& logRef
 			);
 
 			//- Disallow default bitwise copy construction
-			writeObjectsBase(const writeObjectsBase&) = delete;
+			FoamBase_EXPORT writeObjectsBase(const writeObjectsBase&) = delete;
 
 
 			//- Destructor
-			virtual ~writeObjectsBase();
+			FoamBase_EXPORT virtual ~writeObjectsBase();
 
 
 			// Member Functions
 
 				//- Return const access to the object names requested to be written
-			const wordReList& writeObjectNames() const;
+			FoamBase_EXPORT const wordReList& writeObjectNames() const;
 
 			//- Read the list of objects to be written
-			virtual bool read(const dictionary&);
+			FoamBase_EXPORT virtual bool read(const dictionary&);
 
 			//- Write function
-			virtual bool write();
+			FoamBase_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const writeObjectsBase&) = delete;
+			FoamBase_EXPORT void operator=(const writeObjectsBase&) = delete;
 		};
 
 

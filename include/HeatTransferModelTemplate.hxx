@@ -44,6 +44,16 @@ SourceFiles
 
 #include <Switch.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamHeatTransferModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamHeatTransferModel_EXPORT_DEFINE
+#define FoamHeatTransferModel_EXPORT __declspec(dllexport)
+#else
+#define FoamHeatTransferModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -67,10 +77,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("heatTransferModel");
+		//TypeName("heatTransferModel");
+		static const char* typeName_() { return "heatTransferModel"; }
+		static FoamHeatTransferModel_EXPORT const ::tnbLib::word typeName;
+		static FoamHeatTransferModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			HeatTransferModel,
@@ -80,7 +94,59 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<HeatTransferModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamHeatTransferModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamHeatTransferModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamHeatTransferModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class HeatTransferModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<HeatTransferModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<HeatTransferModel>(new HeatTransferModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = HeatTransferModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "HeatTransferModel"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class HeatTransferModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<HeatTransferModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<HeatTransferModel>(new HeatTransferModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = HeatTransferModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

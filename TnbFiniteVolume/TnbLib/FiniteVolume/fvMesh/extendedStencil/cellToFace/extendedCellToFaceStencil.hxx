@@ -76,7 +76,7 @@ namespace tnbLib
 		// Protected member functions
 
 			//- Write some statistics about stencil
-		static void writeStencilStats
+		static FoamFiniteVolume_EXPORT void writeStencilStats
 		(
 			Ostream& os,
 			const labelListList& stencil,
@@ -93,7 +93,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mesh
-		explicit extendedCellToFaceStencil(const polyMesh&);
+		FoamFiniteVolume_EXPORT explicit extendedCellToFaceStencil(const polyMesh&);
 
 
 		// Member Functions
@@ -127,9 +127,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <extendedCellToFaceStencilTemplates.cxx>
-#endif
+//#ifdef NoRepository
+//#include <extendedCellToFaceStencilTemplates.cxx>
+//#endif
+
+#include <extendedCellToFaceStencilI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

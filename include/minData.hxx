@@ -187,8 +187,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const minData&);
-		friend Istream& operator>>(Istream&, minData&);
+		friend inline Ostream& operator<<(Ostream&, const minData&);
+		friend inline Istream& operator>>(Istream&, minData&);
 	};
 
 

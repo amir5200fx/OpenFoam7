@@ -73,12 +73,12 @@ namespace tnbLib
 		// Private Member Functions
 
 		template<class Type>
-		static inline void writeData(Ostream&, const Type&);
+		static FoamConversion_EXPORT void writeData(Ostream&, const Type&);
 
 
 		//- Templated write operation
 		template<class Type>
-		void writeTemplate
+		FoamConversion_EXPORT void writeTemplate
 		(
 			const fileName& outputDir,
 			const fileName& surfaceName,
@@ -94,17 +94,21 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("starcd");
+		//TypeName("starcd");
+		static const char* typeName_() { return "starcd"; }
+		static FoamConversion_EXPORT const ::tnbLib::word typeName;
+		static FoamConversion_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct null
-		starcdSurfaceWriter();
+		FoamConversion_EXPORT starcdSurfaceWriter();
 
 
 		//- Destructor
-		virtual ~starcdSurfaceWriter();
+		FoamConversion_EXPORT virtual ~starcdSurfaceWriter();
 
 
 		// Member Functions
@@ -117,7 +121,7 @@ namespace tnbLib
 		}
 
 		//- Write single surface geometry to file.
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,
 			const fileName& surfaceName,
@@ -128,7 +132,7 @@ namespace tnbLib
 
 		//- Write scalarField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,      // <case>/surface/TIME
 			const fileName& surfaceName,    // name of surface
@@ -142,7 +146,7 @@ namespace tnbLib
 
 		//- Write vectorField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,      // <case>/surface/TIME
 			const fileName& surfaceName,    // name of surface
@@ -156,7 +160,7 @@ namespace tnbLib
 
 		//- Write sphericalTensorField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,      // <case>/surface/TIME
 			const fileName& surfaceName,    // name of surface
@@ -170,7 +174,7 @@ namespace tnbLib
 
 		//- Write symmTensorField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,      // <case>/surface/TIME
 			const fileName& surfaceName,    // name of surface
@@ -185,7 +189,7 @@ namespace tnbLib
 
 		//- Write tensorField for a single surface to file.
 		//  One value per face or vertex (isNodeValues = true)
-		virtual void write
+		FoamConversion_EXPORT virtual void write
 		(
 			const fileName& outputDir,      // <case>/surface/TIME
 			const fileName& surfaceName,    // name of surface

@@ -51,7 +51,7 @@ namespace tnbLib
 
 	class ensightParts;
 
-	ensightGeoFile& operator<<(ensightGeoFile&, const ensightParts&);
+	FoamConversion_EXPORT ensightGeoFile& operator<<(ensightGeoFile&, const ensightParts&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -71,26 +71,26 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from polyMesh
-		ensightParts(const polyMesh&);
+		FoamConversion_EXPORT ensightParts(const polyMesh&);
 
 		//- Construct from IOobject
-		ensightParts(const IOobject&);
+		FoamConversion_EXPORT ensightParts(const IOobject&);
 
 		//- Disallow default bitwise copy construction
-		ensightParts(const ensightParts&) = delete;
+		FoamConversion_EXPORT ensightParts(const ensightParts&) = delete;
 
 
 		//- Destructor
-		~ensightParts();
+		FoamConversion_EXPORT ~ensightParts();
 
 
 		// Member Functions
 
 			//- Clear old information and construct anew from polyMesh
-		void recalculate(const polyMesh&);
+		FoamConversion_EXPORT void recalculate(const polyMesh&);
 
 		//- Renumber elements
-		void renumber
+		FoamConversion_EXPORT void renumber
 		(
 			const labelUList& origCellId,
 			const labelUList& origFaceId
@@ -103,18 +103,18 @@ namespace tnbLib
 		}
 
 		//- Write the geometry
-		void writeGeometry(ensightGeoFile&) const;
+		FoamConversion_EXPORT void writeGeometry(ensightGeoFile&) const;
 
 		//- Write summary information about the objects
-		bool writeSummary(Ostream&) const;
+		FoamConversion_EXPORT bool writeSummary(Ostream&) const;
 
 		//- Write the lists
-		void writeData(Ostream&) const;
+		FoamConversion_EXPORT void writeData(Ostream&) const;
 
 		//- Write (volume) scalar field
 		//  optionally write data for face parts
 		//  optionally write data per node
-		void writeScalarField
+		FoamConversion_EXPORT void writeScalarField
 		(
 			ensightFile&,
 			const List<scalar>& field,
@@ -125,7 +125,7 @@ namespace tnbLib
 		//- Write (volume) vector field components
 		//  optionally write data for face parts
 		//  optionally write data per node
-		void writeVectorField
+		FoamConversion_EXPORT void writeVectorField
 		(
 			ensightFile&,
 			const List<scalar>& field0,
@@ -149,13 +149,13 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const ensightParts&) = delete;
+		FoamConversion_EXPORT void operator=(const ensightParts&) = delete;
 
 
 		// Friend Operators
 
 			//- Write geometry
-		friend ensightGeoFile& operator<<(ensightGeoFile&, const ensightParts&);
+		friend FoamConversion_EXPORT ensightGeoFile& operator<<(ensightGeoFile&, const ensightParts&);
 	};
 
 

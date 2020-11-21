@@ -94,7 +94,7 @@ namespace tnbLib
 
 			//- Construct given process index to send to and optional buffer size,
 			//  write format and IO version
-		UOPstream
+		FoamBase_EXPORT UOPstream
 		(
 			const commsTypes commsType,
 			const int toProcNo,
@@ -107,11 +107,11 @@ namespace tnbLib
 		);
 
 		//- Construct given buffers
-		UOPstream(const int toProcNo, PstreamBuffers&);
+		FoamBase_EXPORT UOPstream(const int toProcNo, PstreamBuffers&);
 
 
 		//- Destructor
-		~UOPstream();
+		FoamBase_EXPORT ~UOPstream();
 
 
 		// Member Functions
@@ -128,7 +128,7 @@ namespace tnbLib
 		// Write functions
 
 			//- Write given buffer to given processor
-		static bool write
+		static FoamBase_EXPORT bool write
 		(
 			const commsTypes commsType,
 			const int toProcNo,
@@ -139,45 +139,45 @@ namespace tnbLib
 		);
 
 		//- Write next token to stream
-		Ostream& write(const token&);
+		FoamBase_EXPORT Ostream& write(const token&);
 
 		//- Write character
-		Ostream& write(const char);
+		FoamBase_EXPORT Ostream& write(const char);
 
 		//- Write character string
-		Ostream& write(const char*);
+		FoamBase_EXPORT Ostream& write(const char*);
 
 		//- Write word
-		Ostream& write(const word&);
+		FoamBase_EXPORT Ostream& write(const word&);
 
 		//- Write string
-		Ostream& write(const string&);
+		FoamBase_EXPORT Ostream& write(const string&);
 
 		//- Write std::string surrounded by quotes.
 		//  Optional write without quotes.
-		Ostream& writeQuoted
+		FoamBase_EXPORT Ostream& writeQuoted
 		(
 			const std::string&,
 			const bool quoted = true
 		);
 
 		//- Write int32_t
-		virtual Ostream& write(const int32_t);
+		FoamBase_EXPORT virtual Ostream& write(const int32_t);
 
 		//- Write int64_t
-		Ostream& write(const int64_t);
+		FoamBase_EXPORT Ostream& write(const int64_t);
 
 		//- Write floatScalar
-		Ostream& write(const floatScalar);
+		FoamBase_EXPORT Ostream& write(const floatScalar);
 
 		//- Write doubleScalar
-		Ostream& write(const doubleScalar);
+		FoamBase_EXPORT Ostream& write(const doubleScalar);
 
 		//- Write longDoubleScalar
-		Ostream& write(const longDoubleScalar);
+		FoamBase_EXPORT Ostream& write(const longDoubleScalar);
 
 		//- Write binary block
-		Ostream& write(const char*, std::streamsize);
+		FoamBase_EXPORT Ostream& write(const char*, std::streamsize);
 
 		//- Add indentation characters
 		void indent()
@@ -231,7 +231,7 @@ namespace tnbLib
 		// Print
 
 			//- Print description of IOstream to Ostream
-		void print(Ostream&) const;
+		FoamBase_EXPORT void print(Ostream&) const;
 	};
 
 

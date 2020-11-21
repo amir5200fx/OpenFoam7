@@ -143,3 +143,144 @@ inline bool tnbLib::operator!=
 
 
 // ************************************************************************* //
+
+// IO.cxx
+#include <IOstreams.hxx>
+
+// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+template<class Type>
+tnbLib::WallCollisionRecord<Type>::WallCollisionRecord(Istream& is)
+	:
+	accessed_(is),
+	pRel_(is),
+	data_(is)
+{
+	// Check state of Istream
+	is.check
+	(
+		"tnbLib::WallCollisionRecord<Type>::WallCollisionRecord(tnbLib::Istream&)"
+	);
+}
+
+
+// * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
+
+template<class Type>
+tnbLib::Istream& tnbLib::operator>>(Istream& is, WallCollisionRecord<Type>& wCR)
+{
+	is >> wCR.accessed_ >> wCR.pRel_ >> wCR.data_;
+
+	// Check state of Istream
+	is.check
+	(
+		"tnbLib::Istream&"
+		"tnbLib::operator>>(tnbLib::Istream&, tnbLib::WallCollisionRecord<Type>&)"
+	);
+
+	return is;
+}
+
+
+template<class Type>
+tnbLib::Ostream& tnbLib::operator<<
+(
+	Ostream& os,
+	const WallCollisionRecord<Type>& wCR
+	)
+{
+	os << wCR.accessed_
+		<< token::SPACE << wCR.pRel_
+		<< token::SPACE << wCR.data_;
+
+	// Check state of Ostream
+	os.check
+	(
+		"tnbLib::Ostream& tnbLib::operator<<(tnbLib::Ostream&, "
+		"const tnbLib::WallCollisionRecord<Type>&)"
+	);
+
+	return os;
+}
+
+
+// ************************************************************************* //
+// .cxx
+// * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
+
+template<class Type>
+const tnbLib::scalar tnbLib::WallCollisionRecord<Type>::errorCosAngle(1.0 + 1e-6);
+
+
+// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+template<class Type>
+tnbLib::WallCollisionRecord<Type>::WallCollisionRecord()
+	:
+	accessed_(false),
+	pRel_(),
+	data_(Zero)
+{}
+
+
+template<class Type>
+tnbLib::WallCollisionRecord<Type>::WallCollisionRecord
+(
+	bool accessed,
+	const vector& pRel,
+	const Type& data
+)
+	:
+	accessed_(accessed),
+	pRel_(pRel),
+	data_(data)
+{}
+
+
+template<class Type>
+tnbLib::WallCollisionRecord<Type>::WallCollisionRecord
+(
+	const WallCollisionRecord<Type>& wCR
+)
+	:
+	accessed_(wCR.accessed_),
+	pRel_(wCR.pRel_),
+	data_(wCR.data_)
+{}
+
+
+// * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
+
+template<class Type>
+tnbLib::WallCollisionRecord<Type>::~WallCollisionRecord()
+{}
+
+
+// * * * * * * * * * * * * * * Member Operators  * * * * * * * * * * * * * * //
+
+template<class Type>
+void tnbLib::WallCollisionRecord<Type>::operator=
+(
+	const WallCollisionRecord<Type>& rhs
+	)
+{
+	// Check for assignment to self
+	if (this == &rhs)
+	{
+		FatalErrorInFunction
+			<< "Attempted assignment to self"
+			<< abort(FatalError);
+	}
+
+	accessed_ = rhs.accessed_;
+	pRel_ = rhs.pRel_;
+	data_ = rhs.data_;
+}
+
+
+// * * * * * * * * * * * * * *  IOStream operators * * * * * * * * * * * * * //
+
+//#include <WallCollisionRecordIO.cxx>
+
+
+// ************************************************************************* //

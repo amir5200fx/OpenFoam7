@@ -39,6 +39,7 @@ SourceFiles
 
 #include <DynamicList.hxx>
 
+#define MPI_hpux
 #include <mpi.h>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -52,20 +53,20 @@ namespace tnbLib
 
 	namespace PstreamGlobals
 	{
-		extern MPI_Comm MPI_COMM_FOAM;
+		FoamBase_EXPORT extern MPI_Comm MPI_COMM_FOAM;
 
-		extern DynamicList<MPI_Request> outstandingRequests_;
+		FoamBase_EXPORT extern DynamicList<MPI_Request> outstandingRequests_;
 
-		extern int nTags_;
+		FoamBase_EXPORT extern int nTags_;
 
-		extern DynamicList<int> freedTags_;
+		FoamBase_EXPORT extern DynamicList<int> freedTags_;
 
 		// Current communicators. First element will be MPI_COMM_FOAM
-		extern DynamicList<MPI_Comm> MPICommunicators_;
+		FoamBase_EXPORT extern DynamicList<MPI_Comm> MPICommunicators_;
 
-		extern DynamicList<MPI_Group> MPIGroups_;
+		FoamBase_EXPORT extern DynamicList<MPI_Group> MPIGroups_;
 
-		void checkCommunicator(const label, const label procNo);
+		FoamBase_EXPORT void checkCommunicator(const label, const label procNo);
 	};
 
 

@@ -2,12 +2,12 @@
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(tnbLib::Ostream& os, const tnbLib::cellInfo& wDist)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(tnbLib::Ostream& os, const tnbLib::cellInfo& wDist)
 {
 	return os << wDist.type_;
 }
 
-tnbLib::Istream& tnbLib::operator>>(tnbLib::Istream& is, tnbLib::cellInfo& wDist)
+FoamFvMesh_EXPORT tnbLib::Istream& tnbLib::operator>>(tnbLib::Istream& is, tnbLib::cellInfo& wDist)
 {
 	return is >> wDist.type_;
 }

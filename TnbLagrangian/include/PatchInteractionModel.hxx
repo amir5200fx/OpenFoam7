@@ -45,6 +45,16 @@ SourceFiles
 #include <tetIndices.hxx>
 #include <CloudSubModelBase.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamPatchInteractionModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPatchInteractionModel_EXPORT_DEFINE
+#define FoamPatchInteractionModel_EXPORT __declspec(dllexport)
+#else
+#define FoamPatchInteractionModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -87,10 +97,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("patchInteractionModel");
+		//TypeName("patchInteractionModel");
+		static const char* typeName_() { return "patchInteractionModel"; }
+		static FoamPatchInteractionModel_EXPORT const ::tnbLib::word typeName;
+		static FoamPatchInteractionModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			PatchInteractionModel,
@@ -100,7 +114,59 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<PatchInteractionModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamPatchInteractionModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamPatchInteractionModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamPatchInteractionModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class PatchInteractionModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<PatchInteractionModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<PatchInteractionModel>(new PatchInteractionModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = PatchInteractionModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"PatchInteractionModel" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class PatchInteractionModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<PatchInteractionModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<PatchInteractionModel>(new PatchInteractionModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(
+				const word& lookup = PatchInteractionModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

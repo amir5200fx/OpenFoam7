@@ -37,6 +37,16 @@ Description
 
 #include <fvsPatchField.hxx>  // added by amir
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamInterpolationCellPointFace_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamInterpolationCellPointFace_EXPORT_DEFINE
+#define FoamInterpolationCellPointFace_EXPORT __declspec(dllexport)
+#else
+#define FoamInterpolationCellPointFace_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -84,7 +94,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cellPointFace");
+		/*TypeName("cellPointFace");*/
+		static const char* typeName_() { return "cellPointFace"; }
+		static FoamInterpolationCellPointFace_EXPORT const ::tnbLib::word typeName;
+		static FoamInterpolationCellPointFace_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

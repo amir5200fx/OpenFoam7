@@ -54,8 +54,8 @@ namespace tnbLib
 
 	class refinementData;
 
-	Istream& operator>>(Istream&, refinementData&);
-	Ostream& operator<<(Ostream&, const refinementData&);
+	FoamDynamicMesh_EXPORT Istream& operator>>(Istream&, refinementData&);
+	FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const refinementData&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -213,8 +213,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const refinementData&);
-		friend Istream& operator>>(Istream&, refinementData&);
+		FoamDynamicMesh_EXPORT friend Ostream& operator<<(Ostream&, const refinementData&);
+		FoamDynamicMesh_EXPORT friend Istream& operator>>(Istream&, refinementData&);
 	};
 
 

@@ -59,7 +59,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct and set prefactor
-		electrostaticPotential();
+		FoamLagrangian_EXPORT electrostaticPotential();
 
 
 		//- Destructor
@@ -69,9 +69,9 @@ namespace tnbLib
 
 		// Member Functions
 
-		scalar energy(const scalar r) const;
+		FoamLagrangian_EXPORT scalar energy(const scalar r) const;
 
-		scalar force(const scalar r) const;
+		FoamLagrangian_EXPORT scalar force(const scalar r) const;
 	};
 
 

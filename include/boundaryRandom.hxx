@@ -85,7 +85,7 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Sample all points
-			void calcSamples
+			FoamSampling_EXPORT void calcSamples
 			(
 				DynamicList<point>& samplingPts,
 				DynamicList<label>& samplingCells,
@@ -95,19 +95,23 @@ namespace tnbLib
 			) const;
 
 			//- Use calcSamples to obtain samples and copy them into *this
-			void genSamples();
+			FoamSampling_EXPORT void genSamples();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("boundaryRandom");
+			//TypeName("boundaryRandom");
+			static const char* typeName_() { return "boundaryRandom"; }
+			static FoamSampling_EXPORT const ::tnbLib::word typeName;
+			static FoamSampling_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from dictionary
-			boundaryRandom
+			FoamSampling_EXPORT boundaryRandom
 			(
 				const word& name,
 				const polyMesh& mesh,
@@ -117,7 +121,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~boundaryRandom();
+			FoamSampling_EXPORT virtual ~boundaryRandom();
 		};
 
 

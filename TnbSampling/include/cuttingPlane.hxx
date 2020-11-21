@@ -78,7 +78,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Determine cut cells, possibly restricted to a list of cells
-		void calcCutCells
+		FoamSampling_EXPORT void calcCutCells
 		(
 			const primitiveMesh&,
 			const scalarField& dotProducts,
@@ -86,7 +86,7 @@ namespace tnbLib
 		);
 
 		//- Determine intersection points (cutPoints).
-		void intersectEdges
+		FoamSampling_EXPORT void intersectEdges
 		(
 			const primitiveMesh&,
 			const scalarField& dotProducts,
@@ -95,7 +95,7 @@ namespace tnbLib
 
 		//- Walk circumference of cell, starting from startEdgeI crossing
 		//  only cut edges. Record cutPoint labels in faceVerts.
-		static bool walkCell
+		static FoamSampling_EXPORT bool walkCell
 		(
 			const primitiveMesh&,
 			const labelUList& edgePoint,
@@ -105,7 +105,7 @@ namespace tnbLib
 		);
 
 		//- Determine cuts for all cut cells.
-		void walkCellCuts
+		FoamSampling_EXPORT void walkCellCuts
 		(
 			const primitiveMesh& mesh,
 			const bool triangulate,
@@ -118,13 +118,13 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct plane description without cutting
-		cuttingPlane(const plane&);
+		FoamSampling_EXPORT cuttingPlane(const plane&);
 
 
 		// Protected Member Functions
 
 			//- Recut mesh with existing planeDesc, restricted to a list of cells
-		void reCut
+		FoamSampling_EXPORT void reCut
 		(
 			const primitiveMesh&,
 			const bool triangulate,
@@ -132,7 +132,7 @@ namespace tnbLib
 		);
 
 		//- Remap action on triangulation or cleanup
-		virtual void remapFaces(const labelUList& faceMap);
+		FoamSampling_EXPORT virtual void remapFaces(const labelUList& faceMap);
 
 
 	public:
@@ -141,7 +141,7 @@ namespace tnbLib
 
 			//- Construct from plane and mesh reference,
 			//  possibly restricted to a list of cells
-		cuttingPlane
+		FoamSampling_EXPORT cuttingPlane
 		(
 			const plane&,
 			const primitiveMesh&,

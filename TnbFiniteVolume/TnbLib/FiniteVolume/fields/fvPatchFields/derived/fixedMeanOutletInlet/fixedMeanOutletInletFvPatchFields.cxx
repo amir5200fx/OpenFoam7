@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <fixedMeanOutletInletFvPatchFields.hxx>
 
 #include <volMesh.hxx>

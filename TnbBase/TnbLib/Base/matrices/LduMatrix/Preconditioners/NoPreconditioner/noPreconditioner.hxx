@@ -55,20 +55,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from matrix components and preconditioner solver controls
-		noPreconditioner
+		FoamBase_EXPORT noPreconditioner
 		(
 			const lduMatrix::solver&,
 			const dictionary& solverControlsUnused
 		);
 
 		//- Disallow default bitwise copy construction
-		noPreconditioner(const noPreconditioner&) = delete;
+		FoamBase_EXPORT noPreconditioner(const noPreconditioner&) = delete;
 
 
 		//- Destructor
@@ -79,7 +83,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Return wA the preconditioned form of residual rA
-		virtual void precondition
+		FoamBase_EXPORT virtual void precondition
 		(
 			scalarField& wA,
 			const scalarField& rA,
@@ -101,7 +105,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const noPreconditioner&) = delete;
+		FoamBase_EXPORT void operator=(const noPreconditioner&) = delete;
 	};
 
 

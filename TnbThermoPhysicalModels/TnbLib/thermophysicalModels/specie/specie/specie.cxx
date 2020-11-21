@@ -36,7 +36,7 @@ void tnbLib::specie::write(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Ostream Operator  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const specie& st)
+FoamThermophysicalModels_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const specie& st)
 {
 	st.write(os);
 	os.check("Ostream& operator<<(Ostream& os, const specie& st)");

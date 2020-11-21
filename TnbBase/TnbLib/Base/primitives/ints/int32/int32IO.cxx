@@ -70,7 +70,7 @@ bool tnbLib::read(const char* buf, int32_t& s)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const int32_t i)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const int32_t i)
 {
 	os.write(label(i));
 	os.check("Ostream& operator<<(Ostream&, const int32_t)");
@@ -79,12 +79,12 @@ tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const int32_t i)
 
 
 #if WM_ARCH_OPTION == 32
-tnbLib::Istream& tnbLib::operator>>(Istream& is, long& i)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, long& i)
 {
 	return operator>>(is, reinterpret_cast<int32_t&>(i));
 }
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const long i)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const long i)
 {
 	os << int32_t(i);
 	return os;

@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <limitedSurfaceInterpolationScheme.hxx>
 
 #include <surfaceFields.hxx>  // added by amir

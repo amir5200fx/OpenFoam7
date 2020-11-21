@@ -38,6 +38,16 @@ SourceFiles
 
 #include <CompositionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamSingleMixtureFraction_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSingleMixtureFraction_EXPORT_DEFINE
+#define FoamSingleMixtureFraction_EXPORT __declspec(dllexport)
+#else
+#define FoamSingleMixtureFraction_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -82,7 +92,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("singleMixtureFraction");
+		//TypeName("singleMixtureFraction");
+		static const char* typeName_() { return "singleMixtureFraction"; }
+		static FoamSingleMixtureFraction_EXPORT const ::tnbLib::word typeName;
+		static FoamSingleMixtureFraction_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -58,6 +58,16 @@ SourceFiles
 
 #include <transformFvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamPartialSlipFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPartialSlipFvPatchField_EXPORT_DEFINE
+#define FoamPartialSlipFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamPartialSlipFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -81,7 +91,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("partialSlip");
+		/*TypeName("partialSlip");*/
+		static const char* typeName_() { return "partialSlip"; }
+		static FoamPartialSlipFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamPartialSlipFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

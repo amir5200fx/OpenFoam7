@@ -76,8 +76,18 @@ namespace tnbLib
 							Class PointEdgeWaveName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(PointEdgeWave);
+	//TemplateName(PointEdgeWave);
+	class PointEdgeWaveName
+	{
+	public:
+		PointEdgeWaveName()
+		{
+		}
 
+		static const char* typeName_() { return "PointEdgeWave"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+	};
 
 	/*---------------------------------------------------------------------------*\
 							   Class PointEdgeWave Declaration

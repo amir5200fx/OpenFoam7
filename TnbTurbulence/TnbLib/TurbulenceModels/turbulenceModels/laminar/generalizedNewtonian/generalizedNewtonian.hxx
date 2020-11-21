@@ -40,6 +40,16 @@ SourceFiles
 #include <linearViscousStress.hxx>
 #include <generalizedNewtonianViscosityModel.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamgeneralizedNewtonian_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamgeneralizedNewtonian_EXPORT_DEFINE
+#define FoamgeneralizedNewtonian_EXPORT __declspec(dllexport)
+#else
+#define FoamgeneralizedNewtonian_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -81,7 +91,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("generalizedNewtonian");
+			//TypeName("generalizedNewtonian");
+			static const char* typeName_() { return "generalizedNewtonian"; }
+			static FoamgeneralizedNewtonian_EXPORT const ::tnbLib::word typeName;
+			static FoamgeneralizedNewtonian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

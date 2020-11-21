@@ -71,20 +71,23 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("decompositionModel");
+		//ClassName("decompositionModel");
+		static const char* typeName_() { return "decompositionModel"; }
+		static FoamParallel_EXPORT const ::tnbLib::word typeName;
+		static FoamParallel_EXPORT int debug;
 
 
 		// Selectors
 
 			//- Read (optionally from absolute path) & register on mesh
-		static const decompositionModel& New
+		static FoamParallel_EXPORT const decompositionModel& New
 		(
 			const polyMesh& mesh,
 			const fileName& decompDictFile = ""
 		);
 
 		//- Read (optionally from supplied dictionary) & register on mesh
-		static const decompositionModel& New
+		static FoamParallel_EXPORT const decompositionModel& New
 		(
 			const polyMesh& mesh,
 			const dictionary& dict,
@@ -95,11 +98,11 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from typeName or optional path to controlDictionary
-		decompositionModel(const polyMesh&, const fileName& = "");
+		FoamParallel_EXPORT decompositionModel(const polyMesh&, const fileName& = "");
 
 
 		//- Construct from typeName or optional path to controlDictionary
-		decompositionModel
+		FoamParallel_EXPORT decompositionModel
 		(
 			const polyMesh&,
 			const dictionary& dict,
@@ -119,7 +122,7 @@ namespace tnbLib
 		}
 
 		//- Helper: return IOobject with optionally absolute path provided
-		static IOobject selectIO(const IOobject&, const fileName&);
+		static FoamParallel_EXPORT IOobject selectIO(const IOobject&, const fileName&);
 
 
 		// UpdateableMeshObject

@@ -60,7 +60,11 @@ namespace tnbLib
 
 	public:
 
-		TypeName("upwindCECCellToFaceStencil");
+		/*TypeName("upwindCECCellToFaceStencil");*/
+		static const char* typeName_() { return "upwindCECCellToFaceStencil"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 

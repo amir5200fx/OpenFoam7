@@ -78,7 +78,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Read settings from the dictionary
-		void read(const dictionary&);
+		FoamBase_EXPORT void read(const dictionary&);
 
 
 	public:
@@ -86,23 +86,23 @@ namespace tnbLib
 		//- Update from older solver controls syntax
 		//  Usually verbose, since we want to know about the changes
 		//  Returns the number of settings changed
-		static label upgradeSolverDict(dictionary& dict, const bool verbose = true);
+		static FoamBase_EXPORT label upgradeSolverDict(dictionary& dict, const bool verbose = true);
 
 		//- Debug switch
-		static int debug;
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct for given objectRegistry and dictionary
-		solution
+		FoamBase_EXPORT solution
 		(
 			const objectRegistry& obr,
 			const fileName& dictName
 		);
 
 		//- Disallow default bitwise copy construction
-		solution(const solution&) = delete;
+		FoamBase_EXPORT solution(const solution&) = delete;
 
 
 		// Member Functions
@@ -110,7 +110,7 @@ namespace tnbLib
 			// Access
 
 				//- Return true if the given field should be cached
-		bool cache(const word& name) const;
+		FoamBase_EXPORT bool cache(const word& name) const;
 
 		//- Helper for printing cache message
 		template<class FieldType>
@@ -122,34 +122,34 @@ namespace tnbLib
 		);
 
 		//- Return true if the relaxation factor is given for the field
-		bool relaxField(const word& name) const;
+		FoamBase_EXPORT bool relaxField(const word& name) const;
 
 		//- Return true if the relaxation factor is given for the equation
-		bool relaxEquation(const word& name) const;
+		FoamBase_EXPORT bool relaxEquation(const word& name) const;
 
 		//- Return the relaxation factor for the given field
-		scalar fieldRelaxationFactor(const word& name) const;
+		FoamBase_EXPORT scalar fieldRelaxationFactor(const word& name) const;
 
 		//- Return the relaxation factor for the given eqation
-		scalar equationRelaxationFactor(const word& name) const;
+		FoamBase_EXPORT scalar equationRelaxationFactor(const word& name) const;
 
 		//- Return the selected sub-dictionary of solvers if the "select"
 		//  keyword is given, otherwise return the complete dictionary
-		const dictionary& solutionDict() const;
+		FoamBase_EXPORT const dictionary& solutionDict() const;
 
 		//- Return the solver controls dictionary for the given field
-		const dictionary& solverDict(const word& name) const;
+		FoamBase_EXPORT const dictionary& solverDict(const word& name) const;
 
 
 		// Read
 
 			//- Read the solution dictionary
-		bool read();
+		FoamBase_EXPORT bool read();
 
 
 		// Member Operators
 
-		void operator=(const solution&) = delete;
+		FoamBase_EXPORT void operator=(const solution&) = delete;
 	};
 
 

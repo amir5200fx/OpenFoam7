@@ -58,7 +58,7 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class error;
-	Ostream& operator<<(Ostream&, const error&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const error&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -89,22 +89,22 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from title string
-		error(const string& title);
+		FoamBase_EXPORT error(const string& title);
 
 		//- Construct from dictionary
-		error(const dictionary&);
+		FoamBase_EXPORT error(const dictionary&);
 
 		//- Copy constructor
-		error(const error&);
+		FoamBase_EXPORT error(const error&);
 
 
 		//- Destructor
-		virtual ~error() throw();
+		FoamBase_EXPORT virtual ~error() throw();
 
 
 		// Member Functions
 
-		string message() const;
+		FoamBase_EXPORT string message() const;
 
 		const string& functionName() const
 		{
@@ -133,7 +133,7 @@ namespace tnbLib
 
 		//- Convert to OSstream
 		//  Prints basic message and returns OSstream for further info.
-		OSstream& operator()
+		FoamBase_EXPORT OSstream& operator()
 			(
 				const char* functionName,
 				const char* sourceFileName,
@@ -142,7 +142,7 @@ namespace tnbLib
 
 		//- Convert to OSstream
 		//  Prints basic message and returns OSstream for further info.
-		OSstream& operator()
+		FoamBase_EXPORT OSstream& operator()
 			(
 				const string& functionName,
 				const char* sourceFileName,
@@ -151,43 +151,43 @@ namespace tnbLib
 
 		//- Convert to OSstream
 		//  Prints basic message and returns OSstream for further info.
-		operator OSstream&();
+		FoamBase_EXPORT operator OSstream&();
 
 		//- Explicitly convert to OSstream for << operations
-		OSstream& operator()()
+		FoamBase_EXPORT OSstream& operator()()
 		{
 			return operator OSstream&();
 		}
 
 		//- Create and return a dictionary
-		operator dictionary() const;
+		FoamBase_EXPORT operator dictionary() const;
 
 
 		//- Helper function to print a stack (if OpenFOAM IO not yet
 		//  initialised)
-		static void safePrintStack(std::ostream&);
+		static FoamBase_EXPORT void safePrintStack(std::ostream&);
 
 		//- Helper function to print a stack
-		static void printStack(Ostream&);
+		static FoamBase_EXPORT void printStack(Ostream&);
 
 		//- Exit : can be called for any error to exit program.
 		//  Prints stack before exiting.
-		void exit(const int errNo = 1);
+		FoamBase_EXPORT void exit(const int errNo = 1);
 
 		//- Abort : used to stop code for fatal errors.
 		//  Prints stack before exiting.
-		void abort();
+		FoamBase_EXPORT void abort();
 
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const error&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const error&);
 	};
 
 
 	// Forward declaration of friend functions and operators
 	class IOerror;
-	Ostream& operator<<(Ostream&, const IOerror&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const IOerror&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -211,14 +211,14 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from title string
-		IOerror(const string& title);
+		FoamBase_EXPORT IOerror(const string& title);
 
 		//- Construct from dictionary
-		IOerror(const dictionary&);
+		FoamBase_EXPORT IOerror(const dictionary&);
 
 
 		//- Destructor
-		virtual ~IOerror() throw();
+		FoamBase_EXPORT virtual ~IOerror() throw();
 
 
 		// Member Functions
@@ -240,7 +240,7 @@ namespace tnbLib
 
 		//- Convert to OSstream
 		//  Prints basic message and returns OSstream for further info.
-		OSstream& operator()
+		FoamBase_EXPORT OSstream& operator()
 			(
 				const char* functionName,
 				const char* sourceFileName,
@@ -252,7 +252,7 @@ namespace tnbLib
 
 		//- Convert to OSstream
 		//  Prints basic message and returns OSstream for further info.
-		OSstream& operator()
+		FoamBase_EXPORT OSstream& operator()
 			(
 				const char* functionName,
 				const char* sourceFileName,
@@ -262,7 +262,7 @@ namespace tnbLib
 
 		//- Convert to OSstream
 		//  Prints basic message and returns OSstream for further info.
-		OSstream& operator()
+		FoamBase_EXPORT OSstream& operator()
 			(
 				const char* functionName,
 				const char* sourceFileName,
@@ -272,7 +272,7 @@ namespace tnbLib
 
 		//- Print basic message and exit. Uses cerr if streams not constructed
 		//  yet (at startup). Use in startup parsing instead of FatalError.
-		static void SafeFatalIOError
+		static FoamBase_EXPORT void SafeFatalIOError
 		(
 			const char* functionName,
 			const char* sourceFileName,
@@ -282,27 +282,27 @@ namespace tnbLib
 		);
 
 		//- Create and return a dictionary
-		operator dictionary() const;
+		FoamBase_EXPORT operator dictionary() const;
 
 
 		//- Exit : can be called for any error to exit program
-		void exit(const int errNo = 1);
+		FoamBase_EXPORT void exit(const int errNo = 1);
 
 		//- Abort : used to stop code for fatal errors
-		void abort();
+		FoamBase_EXPORT void abort();
 
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const IOerror&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const IOerror&);
 	};
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 	// Global error declarations: defined in error.C
 
-	extern error   FatalError;
-	extern IOerror FatalIOError;
+	FoamBase_EXPORT extern error   FatalError;
+	FoamBase_EXPORT extern IOerror FatalIOError;
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

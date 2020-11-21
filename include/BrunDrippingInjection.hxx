@@ -102,30 +102,34 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("BrunDrippingInjection");
+				//TypeName("BrunDrippingInjection");
+				static const char* typeName_() { return "BrunDrippingInjection"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				BrunDrippingInjection
+				FoamLagrangian_EXPORT BrunDrippingInjection
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
 				);
 
 				//- Disallow default bitwise copy construction
-				BrunDrippingInjection(const BrunDrippingInjection&) = delete;
+				FoamLagrangian_EXPORT BrunDrippingInjection(const BrunDrippingInjection&) = delete;
 
 
 				//- Destructor
-				virtual ~BrunDrippingInjection();
+				FoamLagrangian_EXPORT virtual ~BrunDrippingInjection();
 
 
 				// Member Functions
 
 					//- Correct
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					scalarField& availableMass,
 					scalarField& massToInject,
@@ -136,7 +140,7 @@ namespace tnbLib
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const BrunDrippingInjection&) = delete;
+				FoamLagrangian_EXPORT void operator=(const BrunDrippingInjection&) = delete;
 			};
 
 

@@ -54,29 +54,33 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("uniform");
+		//TypeName("uniform");
+		static const char* typeName_() { return "uniform"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct for the given fvMesh and data Istream
-		uniformDiffusivity(const fvMesh& mesh, Istream& mdData);
+		FoamFvMotionSolver_EXPORT uniformDiffusivity(const fvMesh& mesh, Istream& mdData);
 
 		//- Disallow default bitwise copy construction
-		uniformDiffusivity(const uniformDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT uniformDiffusivity(const uniformDiffusivity&) = delete;
 
 
 		//- Destructor
-		virtual ~uniformDiffusivity();
+		FoamFvMotionSolver_EXPORT virtual ~uniformDiffusivity();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const uniformDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT void operator=(const uniformDiffusivity&) = delete;
 
 		//- Return diffusivity field
-		virtual tmp<surfaceScalarField> operator()() const;
+		FoamFvMotionSolver_EXPORT virtual tmp<surfaceScalarField> operator()() const;
 	};
 
 

@@ -52,8 +52,8 @@ namespace tnbLib
 
 	class quaternion;
 	template<class T> class UList; // added by amir
-	Istream& operator>>(Istream& is, quaternion&);
-	Ostream& operator<<(Ostream& os, const quaternion& C);
+	FoamBase_EXPORT Istream& operator>>(Istream& is, quaternion&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const quaternion& C);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -110,15 +110,15 @@ namespace tnbLib
 		// Member constants
 
 			//- Rank of quaternion is 1
-		static const direction rank = 1;
+		static FoamBase_EXPORT const direction rank = 1;
 
 
 		// Static Data Members
 
-		static const char* const typeName;
+		static FoamBase_EXPORT const char* const typeName;
 
-		static const quaternion zero;
-		static const quaternion I;
+		static FoamBase_EXPORT const quaternion zero;
+		static FoamBase_EXPORT const quaternion I;
 
 
 		// Constructors
@@ -230,8 +230,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream& is, quaternion&);
-		friend Ostream& operator<<(Ostream& os, const quaternion& C);
+		friend FoamBase_EXPORT Istream& operator>>(Istream& is, quaternion&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const quaternion& C);
 	};
 
 
@@ -250,10 +250,10 @@ namespace tnbLib
 	inline quaternion inv(const quaternion& q);
 
 	//- Return a string representation of a quaternion
-	word name(const quaternion&);
+	FoamBase_EXPORT word name(const quaternion&);
 
 	//- Spherical linear interpolation of quaternions
-	quaternion slerp
+	FoamBase_EXPORT quaternion slerp
 	(
 		const quaternion& qa,
 		const quaternion& qb,
@@ -261,20 +261,20 @@ namespace tnbLib
 	);
 
 	//- Simple weighted average with sign change
-	quaternion average
+	FoamBase_EXPORT quaternion average
 	(
 		const UList<quaternion>& qs,
 		const UList<scalar> w
 	);
 
 	//- Exponent of a quaternion
-	quaternion exp(const quaternion& q);
+	FoamBase_EXPORT quaternion exp(const quaternion& q);
 
 	//- Power of a quaternion
-	quaternion pow(const quaternion& q, const label power);
+	FoamBase_EXPORT quaternion pow(const quaternion& q, const label power);
 
 	//- Power of a quaternion
-	quaternion pow(const quaternion& q, const scalar power);
+	FoamBase_EXPORT quaternion pow(const quaternion& q, const scalar power);
 
 	//- Data associated with quaternion type are contiguous
 	template<>

@@ -72,7 +72,7 @@ namespace tnbLib
 
 			//- Calculate map from new patch faces to old patch faces. -1 where
 			//  could not map.
-		static labelList calcPatchMap
+		static FoamDynamicMesh_EXPORT labelList calcPatchMap
 		(
 			const label oldStart,
 			const label oldSize,
@@ -126,13 +126,16 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("fvMeshAdder");
+		//ClassName("fvMeshAdder");
+		static const char* typeName_() { return "fvMeshAdder"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Member Functions
 
 			//- Inplace add mesh to fvMesh. Maps all stored fields. Returns map.
-		static autoPtr<mapAddedPolyMesh> add
+		static FoamDynamicMesh_EXPORT autoPtr<mapAddedPolyMesh> add
 		(
 			fvMesh& mesh0,
 			const fvMesh& mesh1,

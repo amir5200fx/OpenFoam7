@@ -50,8 +50,8 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 	class word;
 	inline word operator&(const word&, const word&);
-	Istream& operator>>(Istream&, word&);
-	Ostream& operator<<(Ostream&, const word&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, word&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const word&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -72,11 +72,11 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
-		static int debug;
+		static FoamBase_EXPORT const char* const typeName;
+		static FoamBase_EXPORT int debug;
 
 		//- An empty word
-		static const word null;
+		static FoamBase_EXPORT const word null;
 
 
 		// Constructors
@@ -105,7 +105,7 @@ namespace tnbLib
 		inline word(const std::string&, const bool doStripInvalid = true);
 
 		//- Construct from Istream
-		word(Istream&);
+		FoamBase_EXPORT word(Istream&);
 
 
 		// Member Functions
@@ -126,17 +126,17 @@ namespace tnbLib
 
 		// Friend Operators
 
-		friend word operator&(const word&, const word&);
+		friend inline word operator&(const word&, const word&);
 
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, word&);
-		friend Ostream& operator<<(Ostream&, const word&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, word&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const word&);
 	};
 
 
-	void writeEntry(Ostream& os, const word& value);
+	FoamBase_EXPORT void writeEntry(Ostream& os, const word& value);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

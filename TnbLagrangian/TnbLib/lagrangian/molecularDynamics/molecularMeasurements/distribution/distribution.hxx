@@ -52,7 +52,7 @@ namespace tnbLib
 
 	class distribution;
 
-	Ostream& operator<<(Ostream&, const distribution&);
+	FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const distribution&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -72,13 +72,17 @@ namespace tnbLib
 
 		//- Runtime type information
 
-		TypeName("distribution");
+		//TypeName("distribution");
+		static const char* typeName_() { return "distribution"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Static functions
 
 			//- Write to file
 
-		static void write
+		static FoamLagrangian_EXPORT void write
 		(
 			const fileName& file,
 			const List<Pair<scalar>>& pairs
@@ -88,43 +92,43 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		distribution();
+		FoamLagrangian_EXPORT distribution();
 
 		//- Construct from binWidth
-		distribution(const scalar binWidth);
+		FoamLagrangian_EXPORT distribution(const scalar binWidth);
 
 		//- Copy constructor
-		distribution(const distribution&);
+		FoamLagrangian_EXPORT distribution(const distribution&);
 
 
 		//- Destructor
-		virtual ~distribution();
+		FoamLagrangian_EXPORT virtual ~distribution();
 
 
 		// Member Functions
 
-		label totalEntries() const;
+		FoamLagrangian_EXPORT label totalEntries() const;
 
-		scalar approxTotalEntries() const;
+		FoamLagrangian_EXPORT scalar approxTotalEntries() const;
 
-		scalar mean() const;
+		FoamLagrangian_EXPORT scalar mean() const;
 
-		scalar median();
+		FoamLagrangian_EXPORT scalar median();
 
 		//- Add a value to the appropriate bin of the distribution.
-		void add(const scalar valueToAdd);
+		FoamLagrangian_EXPORT void add(const scalar valueToAdd);
 
-		void add(const label valueToAdd);
+		FoamLagrangian_EXPORT void add(const label valueToAdd);
 
-		void insertMissingKeys();
+		FoamLagrangian_EXPORT void insertMissingKeys();
 
-		List<Pair<scalar>> normalised();
+		FoamLagrangian_EXPORT List<Pair<scalar>> normalised();
 
-		List<Pair<scalar>> normalisedMinusMean();
+		FoamLagrangian_EXPORT List<Pair<scalar>> normalisedMinusMean();
 
-		List<Pair<scalar>> normalisedShifted(scalar shiftValue);
+		FoamLagrangian_EXPORT List<Pair<scalar>> normalisedShifted(scalar shiftValue);
 
-		List<Pair<scalar>> raw();
+		FoamLagrangian_EXPORT List<Pair<scalar>> raw();
 
 
 		// Access
@@ -134,12 +138,12 @@ namespace tnbLib
 
 		// Member Operators
 
-		void operator=(const distribution&);
+		FoamLagrangian_EXPORT void operator=(const distribution&);
 
 
 		// IOstream Operators
 
-		friend Ostream& operator<<(Ostream&, const distribution&);
+		friend FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const distribution&);
 	};
 
 

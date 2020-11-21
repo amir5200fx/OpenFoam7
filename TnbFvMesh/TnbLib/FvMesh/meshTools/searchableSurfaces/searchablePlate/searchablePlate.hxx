@@ -77,40 +77,44 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate normal direction from span
-		static direction calcNormal(const point&);
+		static FoamFvMesh_EXPORT direction calcNormal(const point&);
 
 		//- Inherit findNearest from searchableSurface
 		using searchableSurface::findNearest;
 
-		pointIndexHit findNearest
+		FoamFvMesh_EXPORT pointIndexHit findNearest
 		(
 			const point& sample,
 			const scalar nearestDistSqr
 		) const;
 
-		pointIndexHit findLine
+		FoamFvMesh_EXPORT pointIndexHit findLine
 		(
 			const point& start,
 			const point& end
 		) const;
 
 		//- Disallow default bitwise copy construction
-		searchablePlate(const searchablePlate&) = delete;
+		FoamFvMesh_EXPORT searchablePlate(const searchablePlate&) = delete;
 
 		//- Disallow default bitwise assignment
-		void operator=(const searchablePlate&) = delete;
+		FoamFvMesh_EXPORT void operator=(const searchablePlate&) = delete;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("searchablePlate");
+		/*TypeName("searchablePlate");*/
+		static const char* typeName_() { return "searchablePlate"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		searchablePlate
+		FoamFvMesh_EXPORT searchablePlate
 		(
 			const IOobject& io,
 			const point& origin,
@@ -118,7 +122,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary (used by searchableSurface)
-		searchablePlate
+		FoamFvMesh_EXPORT searchablePlate
 		(
 			const IOobject& io,
 			const dictionary& dict
@@ -126,12 +130,12 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~searchablePlate();
+		FoamFvMesh_EXPORT virtual ~searchablePlate();
 
 
 		// Member Functions
 
-		virtual const wordList& regions() const;
+		FoamFvMesh_EXPORT virtual const wordList& regions() const;
 
 		//- Whether supports volume type below
 		virtual bool hasVolumeType() const
@@ -147,40 +151,40 @@ namespace tnbLib
 
 		//- Get representative set of element coordinates
 		//  Usually the element centres (should be of length size()).
-		virtual tmp<pointField> coordinates() const;
+		FoamFvMesh_EXPORT virtual tmp<pointField> coordinates() const;
 
 		//- Get bounding spheres (centre and radius squared), one per element.
 		//  Any point on element is guaranteed to be inside.
-		virtual void boundingSpheres
+		FoamFvMesh_EXPORT virtual void boundingSpheres
 		(
 			pointField& centres,
 			scalarField& radiusSqr
 		) const;
 
 		//- Get the points that define the surface.
-		virtual tmp<pointField> points() const;
+		FoamFvMesh_EXPORT virtual tmp<pointField> points() const;
 
 		//- Does any part of the surface overlap the supplied bound box?
-		virtual bool overlaps(const boundBox& bb) const;
+		FoamFvMesh_EXPORT virtual bool overlaps(const boundBox& bb) const;
 
 
 		// Multiple point queries.
 
-		virtual void findNearest
+		FoamFvMesh_EXPORT virtual void findNearest
 		(
 			const pointField& sample,
 			const scalarField& nearestDistSqr,
 			List<pointIndexHit>&
 		) const;
 
-		virtual void findLine
+		FoamFvMesh_EXPORT virtual void findLine
 		(
 			const pointField& start,
 			const pointField& end,
 			List<pointIndexHit>&
 		) const;
 
-		virtual void findLineAny
+		FoamFvMesh_EXPORT virtual void findLineAny
 		(
 			const pointField& start,
 			const pointField& end,
@@ -188,7 +192,7 @@ namespace tnbLib
 		) const;
 
 		//- Get all intersections in order from start to end.
-		virtual void findLineAll
+		FoamFvMesh_EXPORT virtual void findLineAll
 		(
 			const pointField& start,
 			const pointField& end,
@@ -196,14 +200,14 @@ namespace tnbLib
 		) const;
 
 		//- From a set of points and indices get the region
-		virtual void getRegion
+		FoamFvMesh_EXPORT virtual void getRegion
 		(
 			const List<pointIndexHit>&,
 			labelList& region
 		) const;
 
 		//- From a set of points and indices get the normal
-		virtual void getNormal
+		FoamFvMesh_EXPORT virtual void getNormal
 		(
 			const List<pointIndexHit>&,
 			vectorField& normal
@@ -211,7 +215,7 @@ namespace tnbLib
 
 		//- Determine type (inside/outside/mixed) for point. unknown if
 		//  cannot be determined (e.g. non-manifold surface)
-		virtual void getVolumeType
+		FoamFvMesh_EXPORT virtual void getVolumeType
 		(
 			const pointField&,
 			List<volumeType>&

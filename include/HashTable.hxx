@@ -85,17 +85,20 @@ namespace tnbLib
 	struct HashTableCore
 	{
 		//- Return a canonical (power-of-two) size
-		static label canonicalSize(const label);
+		static FoamBase_EXPORT label canonicalSize(const label);
 
 		//- Maximum allowable table size
-		static const label maxTableSize;
+		static FoamBase_EXPORT const label maxTableSize;
 
 		//- Construct null
 		HashTableCore()
 		{}
 
 		//- Define template name and debug
-		ClassName("HashTable");
+		//ClassName("HashTable");
+		static const char* typeName_() { return "HashTable"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 		//- A zero-sized end iterator
 		struct iteratorEnd

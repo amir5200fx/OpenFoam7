@@ -74,7 +74,7 @@ namespace tnbLib
 		//  Supply per field the new patchField per field as a
 		//  subdictionary or a default type. If validBoundary call is parallel
 		//  synced and all add the same patch with same settings.
-		static label addPatch
+		static FoamDynamicMesh_EXPORT label addPatch
 		(
 			fvMesh& mesh,
 			const polyPatch& patch,
@@ -84,7 +84,7 @@ namespace tnbLib
 		);
 
 		//- Change patchField on registered fields according to dictionary
-		static void setPatchFields
+		static FoamDynamicMesh_EXPORT void setPatchFields
 		(
 			fvMesh& mesh,
 			const label patchi,
@@ -92,11 +92,11 @@ namespace tnbLib
 		);
 
 		//- Change patchField to zero on registered fields
-		static void zeroPatchFields(fvMesh& mesh, const label patchi);
+		static FoamDynamicMesh_EXPORT void zeroPatchFields(fvMesh& mesh, const label patchi);
 
 		//- Reorder and remove trailing patches. If validBoundary call is parallel
 		//  synced and all add the same patch with same settings
-		static void reorderPatches
+		static FoamDynamicMesh_EXPORT void reorderPatches
 		(
 			fvMesh&,
 			const labelList& oldToNew,

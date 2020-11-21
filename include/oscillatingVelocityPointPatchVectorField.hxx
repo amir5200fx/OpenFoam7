@@ -62,20 +62,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("oscillatingVelocity");
+		//TypeName("oscillatingVelocity");
+		static const char* typeName_() { return "oscillatingVelocity"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		oscillatingVelocityPointPatchVectorField
+		FoamFvMotionSolver_EXPORT oscillatingVelocityPointPatchVectorField
 		(
 			const pointPatch&,
 			const DimensionedField<vector, pointMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		oscillatingVelocityPointPatchVectorField
+		FoamFvMotionSolver_EXPORT oscillatingVelocityPointPatchVectorField
 		(
 			const pointPatch&,
 			const DimensionedField<vector, pointMesh>&,
@@ -83,7 +87,7 @@ namespace tnbLib
 		);
 
 		//- Construct by mapping given patchField<vector> onto a new patch
-		oscillatingVelocityPointPatchVectorField
+		FoamFvMotionSolver_EXPORT oscillatingVelocityPointPatchVectorField
 		(
 			const oscillatingVelocityPointPatchVectorField&,
 			const pointPatch&,
@@ -104,7 +108,7 @@ namespace tnbLib
 		}
 
 		//- Construct as copy setting internal field reference
-		oscillatingVelocityPointPatchVectorField
+		FoamFvMotionSolver_EXPORT oscillatingVelocityPointPatchVectorField
 		(
 			const oscillatingVelocityPointPatchVectorField&,
 			const DimensionedField<vector, pointMesh>&
@@ -133,21 +137,21 @@ namespace tnbLib
 
 				//- Map (and resize as needed) from self given a mapping object
 				//  Used to update fields following mesh topology change
-		virtual void autoMap(const pointPatchFieldMapper&);
+		FoamFvMotionSolver_EXPORT virtual void autoMap(const pointPatchFieldMapper&);
 
 		//- Reverse map the given pointPatchField onto this pointPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const pointPatchField<vector>&, const labelList&);
+		FoamFvMotionSolver_EXPORT virtual void rmap(const pointPatchField<vector>&, const labelList&);
 
 
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFvMotionSolver_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFvMotionSolver_EXPORT virtual void write(Ostream&) const;
 	};
 
 

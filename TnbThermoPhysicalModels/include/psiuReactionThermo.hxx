@@ -64,25 +64,81 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("psiuReactionThermo");
+		//TypeName("psiuReactionThermo");
+		static const char* typeName_() { return "psiuReactionThermo"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			psiuReactionThermo,
 			fvMesh,
 			(const fvMesh& mesh, const word& phaseName),
 			(mesh, phaseName)
-		);
+		);*/
+
+		typedef autoPtr<psiuReactionThermo> (*fvMeshConstructorPtr)(const fvMesh& mesh, const word& phaseName);
+		typedef HashTable<fvMeshConstructorPtr, word, string::hash> fvMeshConstructorTable;
+		static FoamThermophysicalModels_EXPORT fvMeshConstructorTable* fvMeshConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructfvMeshConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroyfvMeshConstructorTables();
+
+		template <class psiuReactionThermoType>
+		class addfvMeshConstructorToTable
+		{
+		public:
+			static autoPtr<psiuReactionThermo> New(const fvMesh& mesh, const word& phaseName)
+			{
+				return autoPtr<psiuReactionThermo>(new psiuReactionThermoType(mesh, phaseName));
+			}
+
+			addfvMeshConstructorToTable(const word& lookup = psiuReactionThermoType::typeName)
+			{
+				constructfvMeshConstructorTables();
+				if (!fvMeshConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "psiuReactionThermo"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addfvMeshConstructorToTable() { destroyfvMeshConstructorTables(); }
+		};
+
+		template <class psiuReactionThermoType>
+		class addRemovablefvMeshConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<psiuReactionThermo> New(const fvMesh& mesh, const word& phaseName)
+			{
+				return autoPtr<psiuReactionThermo>(new psiuReactionThermoType(mesh, phaseName));
+			}
+
+			addRemovablefvMeshConstructorToTable(const word& lookup = psiuReactionThermoType::typeName) : lookup_(
+				lookup)
+			{
+				constructfvMeshConstructorTables();
+				fvMeshConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablefvMeshConstructorToTable()
+			{
+				if (fvMeshConstructorTablePtr_) { fvMeshConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from mesh and phase name
-		psiuReactionThermo
+		FoamThermophysicalModels_EXPORT psiuReactionThermo
 		(
 			const fvMesh&,
 			const word& phaseName
@@ -91,7 +147,7 @@ namespace tnbLib
 
 		// Selectors
 
-		static autoPtr<psiuReactionThermo> New
+		static FoamThermophysicalModels_EXPORT autoPtr<psiuReactionThermo> New
 		(
 			const fvMesh&,
 			const word& phaseName = word::null
@@ -99,29 +155,29 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~psiuReactionThermo();
+		FoamThermophysicalModels_EXPORT virtual ~psiuReactionThermo();
 
 
 		// Member Functions
 
 			//- Update properties
-		virtual void correct() = 0;
+		FoamThermophysicalModels_EXPORT virtual void correct() = 0;
 
 
 		// Access to thermodynamic state variables.
 
 			//- Unburnt gas enthalpy [J/kg]
 			//  Non-const access allowed for transport equations
-		virtual volScalarField& heu() = 0;
+		FoamThermophysicalModels_EXPORT virtual volScalarField& heu() = 0;
 
 		//- Unburnt gas enthalpy [J/kg]
-		virtual const volScalarField& heu() const = 0;
+		FoamThermophysicalModels_EXPORT virtual const volScalarField& heu() const = 0;
 
 
 		// Fields derived from thermodynamic state variables
 
 			//- Unburnt gas enthalpy for cell-set [J/kg]
-		virtual tmp<scalarField> heu
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> heu
 		(
 			const scalarField& p,
 			const scalarField& T,
@@ -129,7 +185,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Unburnt gas enthalpy for patch [J/kg]
-		virtual tmp<scalarField> heu
+		FoamThermophysicalModels_EXPORT virtual tmp<scalarField> heu
 		(
 			const scalarField& p,
 			const scalarField& T,
@@ -137,10 +193,10 @@ namespace tnbLib
 		) const = 0;
 
 		//- Unburnt gas temperature [K]
-		virtual const volScalarField& Tu() const = 0;
+		FoamThermophysicalModels_EXPORT virtual const volScalarField& Tu() const = 0;
 
 		//- Burnt gas temperature [K]
-		virtual tmp<volScalarField> Tb() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> Tb() const = 0;
 
 		//- Unburnt gas density [kg/m^3]
 		virtual tmp<volScalarField> rhou() const
@@ -155,16 +211,16 @@ namespace tnbLib
 		}
 
 		//- Unburnt gas compressibility [s^2/m^2]
-		virtual tmp<volScalarField> psiu() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> psiu() const = 0;
 
 		//- Burnt gas compressibility [s^2/m^2]
-		virtual tmp<volScalarField> psib() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> psib() const = 0;
 
 		//- Dynamic viscosity of unburnt gas [kg/m/s]
-		virtual tmp<volScalarField> muu() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> muu() const = 0;
 
 		//- Dynamic viscosity of burnt gas [kg/m/s]
-		virtual tmp<volScalarField> mub() const = 0;
+		FoamThermophysicalModels_EXPORT virtual tmp<volScalarField> mub() const = 0;
 	};
 
 

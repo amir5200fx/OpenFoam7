@@ -66,13 +66,17 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("HerschelBulkley");
+				//TypeName("HerschelBulkley");
+				static const char* typeName_() { return "HerschelBulkley"; }
+				static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+				static FoamTurbulence_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				HerschelBulkley(const dictionary& viscosityProperties);
+				FoamTurbulence_EXPORT HerschelBulkley(const dictionary& viscosityProperties);
 
 
 				//- Destructor
@@ -83,10 +87,10 @@ namespace tnbLib
 				// Member Functions
 
 					//- Read transportProperties dictionary
-				virtual bool read(const dictionary& viscosityProperties);
+				FoamTurbulence_EXPORT virtual bool read(const dictionary& viscosityProperties);
 
 				//- Return the laminar viscosity
-				virtual tmp<volScalarField> nu
+				FoamTurbulence_EXPORT virtual tmp<volScalarField> nu
 				(
 					const volScalarField& nu0,
 					const volScalarField& strainRate

@@ -66,19 +66,23 @@ namespace tnbLib
 			bool calcGrad();
 
 			//- Calculate the gradient field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("grad");
+			//TypeName("grad");
+			static const char* typeName_() { return "grad"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			grad
+			FoamFunctionObjects_EXPORT grad
 			(
 				const word& name,
 				const Time& runTime,
@@ -87,7 +91,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~grad();
+			FoamFunctionObjects_EXPORT virtual ~grad();
 		};
 
 
@@ -99,8 +103,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <gradTemplates.cxx>
+//#include <gradTemplates.cxx>
 #endif
+
+#include <gradTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

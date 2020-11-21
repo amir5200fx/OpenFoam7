@@ -65,7 +65,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from ODESystem
-		adaptiveSolver(const ODESystem& ode, const dictionary& dict);
+		FoamODE_EXPORT adaptiveSolver(const ODESystem& ode, const dictionary& dict);
 
 
 		//- Destructor
@@ -76,10 +76,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Resize the ODE solver
-		bool resize(const label n);
+		FoamODE_EXPORT bool resize(const label n);
 
 		//- Solve a single step dx and return the error
-		virtual scalar solve
+		FoamODE_EXPORT virtual scalar solve
 		(
 			const scalar x0,
 			const scalarField& y0,
@@ -89,7 +89,7 @@ namespace tnbLib
 		) const = 0;
 
 		//- Solve the ODE system and the update the state
-		void solve
+		FoamODE_EXPORT void solve
 		(
 			const ODESystem& ode,
 			scalar& x,

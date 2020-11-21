@@ -82,20 +82,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("wideBandDiffusiveRadiation");
+		//TypeName("wideBandDiffusiveRadiation");
+		static const char* typeName_() { return "wideBandDiffusiveRadiation"; }
+		static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+		static FoamRadiationModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		wideBandDiffusiveRadiationMixedFvPatchScalarField
+		FoamRadiationModels_EXPORT wideBandDiffusiveRadiationMixedFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		wideBandDiffusiveRadiationMixedFvPatchScalarField
+		FoamRadiationModels_EXPORT wideBandDiffusiveRadiationMixedFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -104,7 +108,7 @@ namespace tnbLib
 
 		//- Construct by mapping given GreyDiffusiveRadiationMixedFvPatchField
 		//  onto a new patch
-		wideBandDiffusiveRadiationMixedFvPatchScalarField
+		FoamRadiationModels_EXPORT wideBandDiffusiveRadiationMixedFvPatchScalarField
 		(
 			const wideBandDiffusiveRadiationMixedFvPatchScalarField&,
 			const fvPatch&,
@@ -113,7 +117,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		wideBandDiffusiveRadiationMixedFvPatchScalarField
+		FoamRadiationModels_EXPORT wideBandDiffusiveRadiationMixedFvPatchScalarField
 		(
 			const wideBandDiffusiveRadiationMixedFvPatchScalarField&
 		);
@@ -128,7 +132,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		wideBandDiffusiveRadiationMixedFvPatchScalarField
+		FoamRadiationModels_EXPORT wideBandDiffusiveRadiationMixedFvPatchScalarField
 		(
 			const wideBandDiffusiveRadiationMixedFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -169,23 +173,23 @@ namespace tnbLib
 
 			//- Map (and resize as needed) from self given a mapping object
 			//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		FoamRadiationModels_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchScalarField&, const labelList&);
+		FoamRadiationModels_EXPORT virtual void rmap(const fvPatchScalarField&, const labelList&);
 
 
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamRadiationModels_EXPORT virtual void updateCoeffs();
 
 
 		// I-O
 
 			//- Write
-		virtual void write(Ostream&) const;
+		FoamRadiationModels_EXPORT virtual void write(Ostream&) const;
 	};
 
 

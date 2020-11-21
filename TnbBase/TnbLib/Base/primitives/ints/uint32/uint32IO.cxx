@@ -16,7 +16,7 @@ tnbLib::word tnbLib::name(const uint32_t val)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, uint32_t& i)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, uint32_t& i)
 {
 	token t(is);
 
@@ -65,7 +65,7 @@ bool tnbLib::read(const char* buf, uint32_t& s)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const uint32_t i)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const uint32_t i)
 {
 	os.write(label(i));
 	os.check("Ostream& operator<<(Ostream&, const uint32_t)");

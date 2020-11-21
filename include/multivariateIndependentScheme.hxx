@@ -45,6 +45,16 @@ SourceFiles
 #include <limitedSurfaceInterpolationScheme.hxx>
 #include <surfaceFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamMultivariateIndependentScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMultivariateIndependentScheme_EXPORT_DEFINE
+#define FoamMultivariateIndependentScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamMultivariateIndependentScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -68,7 +78,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("multivariateIndependent");
+		/*TypeName("multivariateIndependent");*/
+		static const char* typeName_() { return "multivariateIndependent"; }
+		static FoamMultivariateIndependentScheme_EXPORT const ::tnbLib::word typeName;
+		static FoamMultivariateIndependentScheme_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

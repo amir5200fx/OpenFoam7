@@ -66,12 +66,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("decompositionConstraint");
+		//TypeName("decompositionConstraint");
+		static const char* typeName_() { return "decompositionConstraint"; }
+		static FoamParallel_EXPORT const ::tnbLib::word typeName;
+		static FoamParallel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			decompositionConstraint,
@@ -81,26 +85,79 @@ namespace tnbLib
 				const word& type
 				),
 				(constraintsDict, type)
-		);
+		);*/
+
+		typedef autoPtr<decompositionConstraint> (*dictionaryConstructorPtr)(
+			const dictionary& constraintsDict, const word& type);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamParallel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamParallel_EXPORT void constructdictionaryConstructorTables();
+		static FoamParallel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class decompositionConstraintType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<decompositionConstraint> New(const dictionary& constraintsDict, const word& type)
+			{
+				return autoPtr<decompositionConstraint>(new decompositionConstraintType(constraintsDict, type));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = decompositionConstraintType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"decompositionConstraint" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class decompositionConstraintType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<decompositionConstraint> New(const dictionary& constraintsDict, const word& type)
+			{
+				return autoPtr<decompositionConstraint>(new decompositionConstraintType(constraintsDict, type));
+			}
+
+			addRemovabledictionaryConstructorToTable(
+				const word& lookup = decompositionConstraintType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors
 
 			//- Construct with generic dictionary with optional entry for type
-		decompositionConstraint
+		FoamParallel_EXPORT decompositionConstraint
 		(
 			const dictionary& constraintsDict,
 			const word& type
 		);
 
 		//- Disallow default bitwise copy construction
-		decompositionConstraint(const decompositionConstraint&) = delete;
+		FoamParallel_EXPORT decompositionConstraint(const decompositionConstraint&) = delete;
 
 
 		// Selectors
 
 			//- Return a reference to the selected decompositionConstraint
-		static autoPtr<decompositionConstraint> New
+		static FoamParallel_EXPORT autoPtr<decompositionConstraint> New
 		(
 			const dictionary& constraintsDict,
 			const word& type
@@ -108,13 +165,13 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~decompositionConstraint();
+		FoamParallel_EXPORT virtual ~decompositionConstraint();
 
 
 		// Member Functions
 
 			//- Add my constraints to list of constraints
-		virtual void add
+		FoamParallel_EXPORT virtual void add
 		(
 			const polyMesh& mesh,
 			boolList& blockedFace,
@@ -141,7 +198,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const decompositionConstraint&) = delete;
+		FoamParallel_EXPORT void operator=(const decompositionConstraint&) = delete;
 	};
 
 

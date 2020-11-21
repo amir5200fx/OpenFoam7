@@ -48,6 +48,16 @@ SourceFiles
 #include <fvPatchFields.hxx>  // added by amir
 #include <pointPatchFields.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamAveragingMethod_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamAveragingMethod_EXPORT_DEFINE
+#define FoamAveragingMethod_EXPORT __declspec(dllexport)
+#else
+#define FoamAveragingMethod_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -93,10 +103,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("averagingMethod");
+		//TypeName("averagingMethod");
+		static const char* typeName_() { return "averagingMethod"; }
+		static FoamAveragingMethod_EXPORT const ::tnbLib::word typeName;
+		static FoamAveragingMethod_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			AveragingMethod,
@@ -107,7 +121,60 @@ namespace tnbLib
 				const fvMesh& mesh
 				),
 				(io, dict, mesh)
-		);
+		);*/
+		
+		typedef autoPtr<AveragingMethod> (*dictionaryConstructorPtr)(const IOobject& io, const dictionary& dict,
+		                                                             const fvMesh& mesh);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamAveragingMethod_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamAveragingMethod_EXPORT void constructdictionaryConstructorTables();
+		static FoamAveragingMethod_EXPORT void destroydictionaryConstructorTables();
+
+		template <class AveragingMethodType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<AveragingMethod> New(const IOobject& io, const dictionary& dict, const fvMesh& mesh)
+			{
+				return autoPtr<AveragingMethod>(new AveragingMethodType(io, dict, mesh));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = AveragingMethodType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "AveragingMethod" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class AveragingMethodType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<AveragingMethod> New(const IOobject& io, const dictionary& dict, const fvMesh& mesh)
+			{
+				return autoPtr<AveragingMethod>(new AveragingMethodType(io, dict, mesh));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = AveragingMethodType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		//- Constructors

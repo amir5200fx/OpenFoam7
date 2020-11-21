@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <mixedFvPatchFields.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>

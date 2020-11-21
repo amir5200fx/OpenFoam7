@@ -71,26 +71,30 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Calculate the turbulence viscosity
-		virtual tmp<scalarField> nut() const;
+		FoamTurbulence_EXPORT virtual tmp<scalarField> nut() const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("nutLowReWallFunction");
+		//TypeName("nutLowReWallFunction");
+		static const char* typeName_() { return "nutLowReWallFunction"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		nutLowReWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutLowReWallFunctionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		nutLowReWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutLowReWallFunctionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -100,7 +104,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  nutLowReWallFunctionFvPatchScalarField
 		//  onto a new patch
-		nutLowReWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutLowReWallFunctionFvPatchScalarField
 		(
 			const nutLowReWallFunctionFvPatchScalarField&,
 			const fvPatch&,
@@ -109,7 +113,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		nutLowReWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutLowReWallFunctionFvPatchScalarField
 		(
 			const nutLowReWallFunctionFvPatchScalarField&
 		);
@@ -124,7 +128,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		nutLowReWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutLowReWallFunctionFvPatchScalarField
 		(
 			const nutLowReWallFunctionFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -146,7 +150,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Calculate and return the yPlus at the boundary
-		virtual tmp<scalarField> yPlus() const;
+		FoamTurbulence_EXPORT virtual tmp<scalarField> yPlus() const;
 	};
 
 

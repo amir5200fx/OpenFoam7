@@ -54,7 +54,7 @@ namespace tnbLib
 	{
 		// Private Data
 
-			//- Solution instance
+		//- Solution instance
 		const fvSolution solution_;
 
 
@@ -62,26 +62,30 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("multiRegionSolutionControl");
+		//- Run-time type information
+		//TypeName("multiRegionSolutionControl");
+		static const char* typeName_() { return "multiRegionSolutionControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from a time and the name of the algorithm
-		multiRegionSolutionControl(const Time& time, const word& algorithmName);
+		//- Construct from a time and the name of the algorithm
+		FoamFiniteVolume_EXPORT multiRegionSolutionControl(const Time& time, const word& algorithmName);
 
 
 		//- Destructor
-		virtual ~multiRegionSolutionControl();
+		FoamFiniteVolume_EXPORT virtual ~multiRegionSolutionControl();
 
 
 		// Member Functions
 
-			// Access
+		// Access
 
-				//- Return the solution dictionary
-		virtual const dictionary& dict() const;
+		//- Return the solution dictionary
+		FoamFiniteVolume_EXPORT virtual const dictionary& dict() const;
 	};
 
 

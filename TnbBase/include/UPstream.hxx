@@ -76,7 +76,7 @@ namespace tnbLib
 			nonBlocking
 		};
 
-		static const NamedEnum<commsTypes, 3> commsTypeNames;
+		static FoamBase_EXPORT const NamedEnum<commsTypes, 3> commsTypeNames;
 
 		// Public classes
 
@@ -104,10 +104,10 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct null
-			commsStruct();
+			FoamBase_EXPORT commsStruct();
 
 			//- Construct from components
-			commsStruct
+			FoamBase_EXPORT commsStruct
 			(
 				const label,
 				const labelList&,
@@ -116,7 +116,7 @@ namespace tnbLib
 			);
 
 			//- Construct from components; construct allNotBelow_
-			commsStruct
+			FoamBase_EXPORT commsStruct
 			(
 				const label nProcs,
 				const label myProcID,
@@ -153,9 +153,9 @@ namespace tnbLib
 
 			// Member Operators
 
-			bool operator==(const commsStruct&) const;
+			FoamBase_EXPORT bool operator==(const commsStruct&) const;
 
-			bool operator!=(const commsStruct&) const;
+			FoamBase_EXPORT bool operator!=(const commsStruct&) const;
 
 
 			// Ostream Operator
@@ -189,49 +189,49 @@ namespace tnbLib
 		// Private Data
 
 			//- By default this is not a parallel run
-		static bool parRun_;
+		static FoamBase_EXPORT bool parRun_;
 
 		//- Have support for threads?
-		static bool haveThreads_;
+		static FoamBase_EXPORT bool haveThreads_;
 
 		//- Standard transfer message type
-		static int msgType_;
+		static FoamBase_EXPORT int msgType_;
 
 		// Communicator specific data
 
 		//- Free communicators
-		static LIFOStack<label> freeComms_;
+		static FoamBase_EXPORT LIFOStack<label> freeComms_;
 
 		//- My processor number
-		static DynamicList<int> myProcNo_;
+		static FoamBase_EXPORT DynamicList<int> myProcNo_;
 
 		//- List of process IDs
-		static DynamicList<List<int>> procIDs_;
+		static FoamBase_EXPORT DynamicList<List<int>> procIDs_;
 
 		//- Parent communicator
-		static DynamicList<label> parentCommunicator_;
+		static FoamBase_EXPORT DynamicList<label> parentCommunicator_;
 
 		//- Linear communication schedule
-		static DynamicList<List<commsStruct>> linearCommunication_;
+		static FoamBase_EXPORT DynamicList<List<commsStruct>> linearCommunication_;
 
 		//- Multi level communication schedule
-		static DynamicList<List<commsStruct>> treeCommunication_;
+		static FoamBase_EXPORT DynamicList<List<commsStruct>> treeCommunication_;
 
 
 		// Private Member Functions
 
 			//- Set data for parallel running
-		static void setParRun(const label nProcs, const bool haveThreads);
+		static FoamBase_EXPORT void setParRun(const label nProcs, const bool haveThreads);
 
 		//- Calculate linear communication schedule
-		static List<commsStruct> calcLinearComm(const label nProcs);
+		static FoamBase_EXPORT List<commsStruct> calcLinearComm(const label nProcs);
 
 		//- Calculate tree communication schedule
-		static List<commsStruct> calcTreeComm(const label nProcs);
+		static FoamBase_EXPORT List<commsStruct> calcTreeComm(const label nProcs);
 
 		//- Helper function for tree communication schedule determination
 		//  Collects all processorIDs below a processor
-		static void collectReceives
+		static FoamBase_EXPORT void collectReceives
 		(
 			const label procID,
 			const List<DynamicList<label>>& receives,
@@ -239,14 +239,14 @@ namespace tnbLib
 		);
 
 		//- Allocate a communicator with index
-		static void allocatePstreamCommunicator
+		static FoamBase_EXPORT void allocatePstreamCommunicator
 		(
 			const label parentIndex,
 			const label index
 		);
 
 		//- Free a communicator
-		static void freePstreamCommunicator
+		static FoamBase_EXPORT void freePstreamCommunicator
 		(
 			const label index
 		);
@@ -262,7 +262,10 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("UPstream");
+		//ClassName("UPstream");
+		static const char* typeName_() { return "UPstream"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
 
 
 		// Static data
@@ -270,23 +273,23 @@ namespace tnbLib
 			//- Should compact transfer be used in which floats replace doubles
 			//  reducing the bandwidth requirement at the expense of some loss
 			//  in accuracy
-		static bool floatTransfer;
+		static FoamBase_EXPORT bool floatTransfer;
 
 		//- Number of processors at which the sum algorithm changes from linear
 		//  to tree
-		static int nProcsSimpleSum;
+		static FoamBase_EXPORT int nProcsSimpleSum;
 
 		//- Default commsType
-		static commsTypes defaultCommsType;
+		static FoamBase_EXPORT commsTypes defaultCommsType;
 
 		//- Number of polling cycles in processor updates
-		static int nPollProcInterfaces;
+		static FoamBase_EXPORT int nPollProcInterfaces;
 
 		//- Default communicator (all processors)
-		static label worldComm;
+		static FoamBase_EXPORT label worldComm;
 
 		//- Debugging: warn for use of any communicator differing from warnComm
-		static label warnComm;
+		static FoamBase_EXPORT label warnComm;
 
 
 		// Constructors
@@ -301,7 +304,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Allocate a new communicator
-		static label allocateCommunicator
+		static FoamBase_EXPORT label allocateCommunicator
 		(
 			const label parent,
 			const labelList& subRanks,
@@ -309,14 +312,14 @@ namespace tnbLib
 		);
 
 		//- Free a previously allocated communicator
-		static void freeCommunicator
+		static FoamBase_EXPORT void freeCommunicator
 		(
 			const label communicator,
 			const bool doPstream = true
 		);
 
 		//- Free all communicators
-		static void freeCommunicators(const bool doPstream);
+		static FoamBase_EXPORT void freeCommunicators(const bool doPstream);
 
 		//- Helper class for allocating/freeing communicators
 		class communicator
@@ -336,7 +339,7 @@ namespace tnbLib
 			{}
 
 			//- Disallow default bitwise copy construction
-			communicator(const communicator&) = delete;
+			FoamBase_EXPORT communicator(const communicator&) = delete;
 
 			~communicator()
 			{
@@ -349,20 +352,20 @@ namespace tnbLib
 			}
 
 			//- Disallow default bitwise assignment
-			void operator=(const communicator&) = delete;
+			FoamBase_EXPORT void operator=(const communicator&) = delete;
 		};
 
 		//- Return physical processor number (i.e. processor number in
 		//  worldComm) given communicator and procssor
-		static int baseProcNo(const label myComm, const int procID);
+		static FoamBase_EXPORT int baseProcNo(const label myComm, const int procID);
 
 		//- Return processor number in communicator (given physical processor
 		//  number) (= reverse of baseProcNo)
-		static label procNo(const label comm, const int baseProcID);
+		static FoamBase_EXPORT label procNo(const label comm, const int baseProcID);
 
 		//- Return processor number in communicator (given processor number
 		//  and communicator)
-		static label procNo
+		static FoamBase_EXPORT label procNo
 		(
 			const label myComm,
 			const label currentComm,
@@ -371,36 +374,36 @@ namespace tnbLib
 
 		//- Add the valid option this type of communications library
 		//  adds/requires on the command line
-		static void addValidParOptions(HashTable<string>& validParOptions);
+		static FoamBase_EXPORT void addValidParOptions(HashTable<string>& validParOptions);
 
 		//- Initialisation function called from main
 		//  Spawns slave processes and initialises inter-communication
-		static bool init(int& argc, char**& argv, const bool needsThread);
+		static FoamBase_EXPORT bool init(int& argc, char**& argv, const bool needsThread);
 
 		// Non-blocking comms
 
 			//- Get number of outstanding requests
-		static label nRequests();
+		static FoamBase_EXPORT label nRequests();
 
 		//- Truncate number of outstanding requests
-		static void resetRequests(const label sz);
+		static FoamBase_EXPORT void resetRequests(const label sz);
 
 		//- Wait until all requests (from start onwards) have finished.
-		static void waitRequests(const label start = 0);
+		static FoamBase_EXPORT void waitRequests(const label start = 0);
 
 		//- Wait until request i has finished.
-		static void waitRequest(const label i);
+		static FoamBase_EXPORT void waitRequest(const label i);
 
 		//- Non-blocking comms: has request i finished?
-		static bool finishedRequest(const label i);
+		static FoamBase_EXPORT bool finishedRequest(const label i);
 
-		static int allocateTag(const char*);
+		static FoamBase_EXPORT int allocateTag(const char*);
 
-		static int allocateTag(const word&);
+		static FoamBase_EXPORT int allocateTag(const word&);
 
-		static void freeTag(const char*, const int tag);
+		static FoamBase_EXPORT void freeTag(const char*, const int tag);
 
-		static void freeTag(const word&, const int tag);
+		static FoamBase_EXPORT void freeTag(const word&, const int tag);
 
 
 		//- Is this a parallel run?
@@ -503,15 +506,15 @@ namespace tnbLib
 
 
 		//- Exit program
-		static void exit(int errnum = 1);
+		static FoamBase_EXPORT void exit(int errnum = 1);
 
 		//- Abort program
-		static void abort();
+		static FoamBase_EXPORT void abort();
 
 		//- Exchange label with all processors (in the communicator).
 		//  sendData[proci] is the label to send to proci.
 		//  After return recvData contains the data from the other processors.
-		static void allToAll
+		static FoamBase_EXPORT void allToAll
 		(
 			const labelUList& sendData,
 			labelUList& recvData,
@@ -522,7 +525,7 @@ namespace tnbLib
 		//  sendSizes, sendOffsets give (per processor) the slice of
 		//  sendData to send, similarly recvSizes, recvOffsets give the slice
 		//  of recvData to receive
-		static void allToAll
+		static FoamBase_EXPORT void allToAll
 		(
 			const char* sendData,
 			const UList<int>& sendSizes,
@@ -536,7 +539,7 @@ namespace tnbLib
 		);
 
 		//- Receive data from all processors on the master
-		static void gather
+		static FoamBase_EXPORT void gather
 		(
 			const char* sendData,
 			int sendSize,
@@ -548,7 +551,7 @@ namespace tnbLib
 		);
 
 		//- Send data to all processors from the root of the communicator
-		static void scatter
+		static FoamBase_EXPORT void scatter
 		(
 			const char* sendData,
 			const UList<int>& sendSizes,

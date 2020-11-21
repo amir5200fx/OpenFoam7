@@ -61,31 +61,31 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct given an IOobject
-		IOdictionary(const IOobject&);
+		FoamBase_EXPORT IOdictionary(const IOobject&);
 
 		//- Construct given an IOobject and dictionary
-		IOdictionary(const IOobject&, const dictionary&);
+		FoamBase_EXPORT IOdictionary(const IOobject&, const dictionary&);
 
 		//- Construct given an IOobject and Istream
-		IOdictionary(const IOobject&, Istream&);
+		FoamBase_EXPORT IOdictionary(const IOobject&, Istream&);
 
 		//- Copy constructor
-		IOdictionary(const IOdictionary&);
+		FoamBase_EXPORT IOdictionary(const IOdictionary&);
 
 		//- Move constructor
-		IOdictionary(IOdictionary&&);
+		FoamBase_EXPORT IOdictionary(IOdictionary&&);
 
 
 		//- Destructor
-		virtual ~IOdictionary();
+		FoamBase_EXPORT virtual ~IOdictionary();
 
 
 		// Member Functions
 		//- ReadData function required for regIOobject read operation
-		bool readData(Istream&) override;  // added by amir
+		FoamBase_EXPORT bool readData(Istream&) override;  // added by amir
 
 		//- WriteData function required for regIOobject write operation
-		bool writeData(Ostream&) const override;
+		FoamBase_EXPORT bool writeData(Ostream&) const override;
 
 			//- Is object global
 		virtual bool global() const
@@ -104,7 +104,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Move assignment
-		void operator=(IOdictionary&&);
+		FoamBase_EXPORT void operator=(IOdictionary&&);
 	};
 
 

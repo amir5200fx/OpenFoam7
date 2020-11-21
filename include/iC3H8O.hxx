@@ -82,16 +82,20 @@ namespace tnbLib
 		friend class liquidProperties;
 
 		//- Runtime type information
-		TypeName("iC3H8O");
+		//TypeName("iC3H8O");
+		static const char* typeName_() { return "iC3H8O"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct null
-		iC3H8O();
+		FoamThermophysicalModels_EXPORT iC3H8O();
 
 		//- Constrcut from components
-		iC3H8O
+		FoamThermophysicalModels_EXPORT iC3H8O
 		(
 			const liquidProperties& l,
 			const NSRDSfunc5& density,
@@ -110,7 +114,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		iC3H8O(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT iC3H8O(const dictionary& dict);
 
 		//- Construct and return clone
 		virtual autoPtr<liquidProperties> clone() const
@@ -168,14 +172,14 @@ namespace tnbLib
 		// I-O
 
 			//- Write the function coefficients
-		void writeData(Ostream& os) const;
+		FoamThermophysicalModels_EXPORT void writeData(Ostream& os) const;
 
 		//- Ostream Operator
-		friend Ostream& operator<<(Ostream& os, const iC3H8O& l);
+		friend FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const iC3H8O& l);
 	};
 
 
-	Ostream& operator<<(Ostream& os, const iC3H8O& l);
+	FoamThermophysicalModels_EXPORT Ostream& operator<<(Ostream& os, const iC3H8O& l);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

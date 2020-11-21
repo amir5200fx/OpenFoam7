@@ -31,7 +31,7 @@ tnbLib::tetIndices::~tetIndices()
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, tetIndices& tI)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, tetIndices& tI)
 {
 	is >> tI.cell() >> tI.face() >> tI.tetPt();
 
@@ -45,7 +45,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, tetIndices& tI)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const tetIndices& tI)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const tetIndices& tI)
 {
 	os << tI.cell() << token::SPACE
 		<< tI.face() << token::SPACE

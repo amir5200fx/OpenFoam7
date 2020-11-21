@@ -68,21 +68,25 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("linearNormal");
+			//TypeName("linearNormal");
+			static const char* typeName_() { return "linearNormal"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
 				//- Construct from dictionary
-			linearNormal(const dictionary& dict);
+			FoamFvMesh_EXPORT linearNormal(const dictionary& dict);
 
 
 			//- Destructor
-			virtual ~linearNormal();
+			FoamFvMesh_EXPORT virtual ~linearNormal();
 
 
 			// Member Operators
 
-			point operator()
+			FoamFvMesh_EXPORT point operator()
 				(
 					const point& surfacePoint,
 					const vector& surfaceNormal,

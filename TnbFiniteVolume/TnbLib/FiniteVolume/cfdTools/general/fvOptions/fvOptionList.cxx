@@ -156,7 +156,7 @@ bool tnbLib::fv::optionList::writeData(Ostream& os) const
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const fv::optionList& options)
+FoamFiniteVolume_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const fv::optionList& options)
 {
 	options.writeData(os);
 	return os;

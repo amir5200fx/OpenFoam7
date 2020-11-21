@@ -36,6 +36,16 @@ Description
 #include <particle.hxx>
 #include <demandDrivenEntry.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamSprayParcel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSprayParcel_EXPORT_DEFINE
+#define FoamSprayParcel_EXPORT __declspec(dllexport)
+#else
+#define FoamSprayParcel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -184,7 +194,11 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Runtime type information
-		TypeName("SprayParcel");
+		//TypeName("SprayParcel");
+		static const char* typeName_() { return "SprayParcel"; }
+		static FoamSprayParcel_EXPORT const ::tnbLib::word typeName;
+		static FoamSprayParcel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -29,7 +29,11 @@ namespace tnbLib
 		public:
 
 			// Runtime type information
-			TypeName("constant");
+			//TypeName("constant");
+			static const char* typeName_() { return "constant"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
@@ -89,7 +93,7 @@ namespace tnbLib
 
 
 		template<>
-		tmp<Field<label>> Function1Types::Constant<label>::integrate
+		FoamBase_EXPORT tmp<Field<label>> Function1Types::Constant<label>::integrate
 		(
 			const scalarField& x1,
 			const scalarField& x2

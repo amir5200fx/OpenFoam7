@@ -61,20 +61,20 @@ namespace tnbLib
 		// Constructor
 
 			//- Construct null
-		patchInteractionDataList();
+		FoamLagrangian_EXPORT patchInteractionDataList();
 
 		//- Construct copy
-		patchInteractionDataList(const patchInteractionDataList& pidl);
+		FoamLagrangian_EXPORT patchInteractionDataList(const patchInteractionDataList& pidl);
 
 		//- Construct from Istream
-		patchInteractionDataList(const polyMesh& mesh, const dictionary& dict);
+		FoamLagrangian_EXPORT patchInteractionDataList(const polyMesh& mesh, const dictionary& dict);
 
 
 		// Member Functions
 
 			//- Return label of group containing patch id
 			//  Returns -1 if patch id is not present
-		label applyToPatch(const label id) const;
+		FoamLagrangian_EXPORT label applyToPatch(const label id) const;
 	};
 
 

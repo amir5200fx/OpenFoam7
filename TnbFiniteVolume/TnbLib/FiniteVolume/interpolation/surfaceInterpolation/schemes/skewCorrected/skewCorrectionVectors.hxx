@@ -40,6 +40,16 @@ SourceFiles
 #include <fvMesh.hxx>
 #include <surfaceFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamSkewCorrectionVectors_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSkewCorrectionVectors_EXPORT_DEFINE
+#define FoamSkewCorrectionVectors_EXPORT __declspec(dllexport)
+#else
+#define FoamSkewCorrectionVectors_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -69,7 +79,11 @@ namespace tnbLib
 
 	public:
 
-		TypeName("skewCorrectionVectors");
+		/*TypeName("skewCorrectionVectors");*/
+		static const char* typeName_() { return "skewCorrectionVectors"; }
+		static FoamSkewCorrectionVectors_EXPORT const ::tnbLib::word typeName;
+		static FoamSkewCorrectionVectors_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

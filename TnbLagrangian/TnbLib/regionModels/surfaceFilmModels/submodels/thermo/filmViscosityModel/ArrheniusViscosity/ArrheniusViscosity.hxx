@@ -84,13 +84,17 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("Arrhenius");
+				//TypeName("Arrhenius");
+				static const char* typeName_() { return "Arrhenius"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				ArrheniusViscosity
+				FoamLagrangian_EXPORT ArrheniusViscosity
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict,
@@ -98,17 +102,17 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				ArrheniusViscosity(const ArrheniusViscosity&) = delete;
+				FoamLagrangian_EXPORT ArrheniusViscosity(const ArrheniusViscosity&) = delete;
 
 
 				//- Destructor
-				virtual ~ArrheniusViscosity();
+				FoamLagrangian_EXPORT virtual ~ArrheniusViscosity();
 
 
 				// Member Functions
 
 					//- Correct
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					const volScalarField& p,
 					const volScalarField& T
@@ -118,7 +122,7 @@ namespace tnbLib
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const ArrheniusViscosity&) = delete;
+				FoamLagrangian_EXPORT void operator=(const ArrheniusViscosity&) = delete;
 			};
 
 

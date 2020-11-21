@@ -174,13 +174,17 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("wideBand");
+			//	TypeName("wideBand");
+				static const char* typeName_() { return "wideBand"; }
+				static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+				static FoamRadiationModels_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				wideBand
+				FoamRadiationModels_EXPORT wideBand
 				(
 					const dictionary& dict,
 					const fvMesh& mesh,
@@ -189,19 +193,19 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~wideBand();
+				FoamRadiationModels_EXPORT virtual ~wideBand();
 
 
 				// Member Functions
 
 					//- Absorption coefficient for continuous phase
-				tmp<volScalarField> aCont(const label bandi = 0) const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> aCont(const label bandi = 0) const;
 
 				//- Emission coefficient for continuous phase
-				tmp<volScalarField> eCont(const label bandi = 0) const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> eCont(const label bandi = 0) const;
 
 				//- Emission contribution for continuous phase
-				tmp<volScalarField> ECont(const label bandi = 0) const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> ECont(const label bandi = 0) const;
 
 				//-
 				inline bool isGrey() const
@@ -222,7 +226,7 @@ namespace tnbLib
 				}
 
 				//- Correct rays
-				void correct
+				FoamRadiationModels_EXPORT void correct
 				(
 					volScalarField& a,
 					PtrList<volScalarField>& aLambda

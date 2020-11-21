@@ -38,6 +38,16 @@ SourceFiles
 
 #include <fvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamTransformFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamTransformFvPatchField_EXPORT_DEFINE
+#define FoamTransformFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamTransformFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -56,7 +66,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("transform");
+		//TypeName("transform");
+		static const char* typeName_() { return "transform"; }
+		static FoamTransformFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamTransformFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -161,13 +175,13 @@ namespace tnbLib
 	// * * * * * * * * * * * Template Specialisations  * * * * * * * * * * * * * //
 
 	template<>
-	tmp<scalarField> transformFvPatchField<scalar>::valueInternalCoeffs
+	FoamFiniteVolume_EXPORT tmp<scalarField> transformFvPatchField<scalar>::valueInternalCoeffs
 	(
 		const tmp<scalarField>&
 	) const;
 
 	template<>
-	tmp<scalarField> transformFvPatchField<scalar>::gradientInternalCoeffs() const;
+	FoamFiniteVolume_EXPORT tmp<scalarField> transformFvPatchField<scalar>::gradientInternalCoeffs() const;
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

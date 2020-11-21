@@ -35,6 +35,16 @@ Description
 
 #include <PhaseChangeModelTemplate.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamNoPhaseChange_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNoPhaseChange_EXPORT_DEFINE
+#define FoamNoPhaseChange_EXPORT __declspec(dllexport)
+#else
+#define FoamNoPhaseChange_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -51,7 +61,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamNoPhaseChange_EXPORT const ::tnbLib::word typeName;
+		static FoamNoPhaseChange_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

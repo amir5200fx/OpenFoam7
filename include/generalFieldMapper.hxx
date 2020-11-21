@@ -73,73 +73,73 @@ namespace tnbLib
 
 		// Member Functions
 
-		virtual bool direct() const = 0;
+		FoamBase_EXPORT virtual bool direct() const = 0;
 
 		//- Are there unmapped values? I.e. do all size() elements get
 		//  get value
-		virtual bool hasUnmapped() const = 0;
+		FoamBase_EXPORT virtual bool hasUnmapped() const = 0;
 
-		virtual const labelUList& directAddressing() const;
+		FoamBase_EXPORT virtual const labelUList& directAddressing() const;
 
-		virtual const labelListList& addressing() const;
+		FoamBase_EXPORT virtual const labelListList& addressing() const;
 
-		virtual const scalarListList& weights() const;
+		FoamBase_EXPORT virtual const scalarListList& weights() const;
 
 
 		// Member Operators
 
-		virtual void operator()
+		FoamBase_EXPORT virtual void operator()
 			(
 				Field<scalar>& f,
 				const Field<scalar>& mapF
 				) const;
 
-		virtual void operator()
+		FoamBase_EXPORT virtual void operator()
 			(
 				Field<vector>& f,
 				const Field<vector>& mapF
 				) const;
 
-		virtual void operator()
+		FoamBase_EXPORT virtual void operator()
 			(
 				Field<sphericalTensor>& f,
 				const Field<sphericalTensor>& mapF
 				) const;
 
-		virtual void operator()
+		FoamBase_EXPORT virtual void operator()
 			(
 				Field<symmTensor>& f,
 				const Field<symmTensor>& mapF
 				) const;
 
-		virtual void operator()
+		FoamBase_EXPORT virtual void operator()
 			(
 				Field<tensor>& f,
 				const Field<tensor>& mapF
 				) const;
 
 
-		virtual tmp<Field<scalar>> operator()
+		FoamBase_EXPORT virtual tmp<Field<scalar>> operator()
 			(
 				const Field<scalar>& mapF
 				) const;
 
-		virtual tmp<Field<vector>> operator()
+		FoamBase_EXPORT virtual tmp<Field<vector>> operator()
 			(
 				const Field<vector>& mapF
 				) const;
 
-		virtual tmp<Field<sphericalTensor>> operator()
+		FoamBase_EXPORT virtual tmp<Field<sphericalTensor>> operator()
 			(
 				const Field<sphericalTensor>& mapF
 				) const;
 
-		virtual tmp<Field<symmTensor>> operator()
+		FoamBase_EXPORT virtual tmp<Field<symmTensor>> operator()
 			(
 				const Field<symmTensor>& mapF
 				) const;
 
-		virtual tmp<Field<tensor>> operator()
+		FoamBase_EXPORT virtual tmp<Field<tensor>> operator()
 			(
 				const Field<tensor>& mapF
 				) const;

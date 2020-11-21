@@ -123,7 +123,7 @@ bool tnbLib::surfZoneIOList::writeData(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfZoneIOList& L)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfZoneIOList& L)
 {
 	os << L.size() << nl << token::BEGIN_LIST << incrIndent << nl;
 

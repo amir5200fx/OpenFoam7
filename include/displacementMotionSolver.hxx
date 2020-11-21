@@ -65,13 +65,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("displacementMotionSolver");
+		//TypeName("displacementMotionSolver");
+		static const char* typeName_() { return "displacementMotionSolver"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from mesh and dictionary
-		displacementMotionSolver
+		FoamDynamicMesh_EXPORT displacementMotionSolver
 		(
 			const polyMesh&,
 			const dictionary&,
@@ -83,7 +87,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~displacementMotionSolver();
+		FoamDynamicMesh_EXPORT virtual ~displacementMotionSolver();
 
 
 		// Member Functions

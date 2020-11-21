@@ -84,13 +84,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("strainRateFunction");
+			//TypeName("strainRateFunction");
+			static const char* typeName_() { return "strainRateFunction"; }
+			static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+			static FoamTransportModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			strainRateFunction
+			FoamTransportModels_EXPORT strainRateFunction
 			(
 				const word& name,
 				const dictionary& viscosityProperties,
@@ -107,16 +111,16 @@ namespace tnbLib
 			// Member Functions
 
 				//- Return the laminar viscosity
-			virtual tmp<volScalarField> nu() const;
+			FoamTransportModels_EXPORT virtual tmp<volScalarField> nu() const;
 
 			//- Return the laminar viscosity for patch
-			virtual tmp<scalarField> nu(const label patchi) const;
+			FoamTransportModels_EXPORT virtual tmp<scalarField> nu(const label patchi) const;
 
 			//- Correct the laminar viscosity
-			virtual void correct();
+			FoamTransportModels_EXPORT virtual void correct();
 
 			//- Read transportProperties dictionary
-			virtual bool read(const dictionary& viscosityProperties);
+			FoamTransportModels_EXPORT virtual bool read(const dictionary& viscosityProperties);
 		};
 
 

@@ -57,16 +57,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("wedge");
+			//TypeName("wedge");
+			static const char* typeName_() { return "wedge"; }
+			static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+			static FoamFvMesh_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
 				//- Construct from dictionary
-			wedge(const dictionary& dict);
+			FoamFvMesh_EXPORT wedge(const dictionary& dict);
 
 
 			//- Destructor
-			virtual ~wedge();
+			FoamFvMesh_EXPORT virtual ~wedge();
 		};
 
 

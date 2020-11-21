@@ -60,6 +60,16 @@ SourceFiles
 #include <fixedValueFvPatchFields.hxx>
 #include <Function1.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamFixedMeanFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFixedMeanFvPatchField_EXPORT_DEFINE
+#define FoamFixedMeanFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamFixedMeanFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -76,14 +86,18 @@ namespace tnbLib
 	{
 		// Private Data
 
-			//- MeanValue value the field is adjusted to maintain
+		//- MeanValue value the field is adjusted to maintain
 		autoPtr<Function1<Type>> meanValue_;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("fixedMean");
+		//TypeName("fixedMean");
+		static const char* typeName_() { return "fixedMean"; }
+		static FoamFixedMeanFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamFixedMeanFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

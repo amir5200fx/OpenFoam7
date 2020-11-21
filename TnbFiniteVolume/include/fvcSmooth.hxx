@@ -58,13 +58,13 @@ namespace tnbLib
 {
 	namespace fvc
 	{
-		void smooth
+		FoamFiniteVolume_EXPORT void smooth
 		(
 			volScalarField& field,
 			const scalar coeff
 		);
 
-		void spread
+		FoamFiniteVolume_EXPORT void spread
 		(
 			volScalarField& field,
 			const volScalarField& alpha,
@@ -74,7 +74,7 @@ namespace tnbLib
 			const scalar alphaMin = 0.01
 		);
 
-		void sweep
+		FoamFiniteVolume_EXPORT void sweep
 		(
 			volScalarField& field,
 			const volScalarField& alpha,

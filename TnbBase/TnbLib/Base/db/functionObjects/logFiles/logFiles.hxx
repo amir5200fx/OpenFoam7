@@ -75,16 +75,16 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Create the output file
-			virtual void createFiles();
+			FoamBase_EXPORT virtual void createFiles();
 
 			//- Reset the list of names from a wordList
-			virtual void resetNames(const wordList& names);
+			FoamBase_EXPORT virtual void resetNames(const wordList& names);
 
 			//- Reset the list of names to a single name entry
-			virtual void resetName(const word& name);
+			FoamBase_EXPORT virtual void resetName(const word& name);
 
 			//- File header information
-			virtual void writeFileHeader(const label i = 0) = 0;
+			FoamBase_EXPORT virtual void writeFileHeader(const label i = 0) = 0;
 
 
 		public:
@@ -92,42 +92,42 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from objectRegistry and prefix
-			logFiles
+			FoamBase_EXPORT logFiles
 			(
 				const objectRegistry& obr,
 				const word& prefix
 			);
 
 			//- Disallow default bitwise copy construction
-			logFiles(const logFiles&) = delete;
+			FoamBase_EXPORT logFiles(const logFiles&) = delete;
 
 
 			//- Destructor
-			virtual ~logFiles();
+			FoamBase_EXPORT virtual ~logFiles();
 
 
 			// Member Functions
 
 				//- Return const access to the names
-			const wordList& names() const;
+			FoamBase_EXPORT const wordList& names() const;
 
 			//- Return access to the files
-			PtrList<OFstream>& files();
+			FoamBase_EXPORT PtrList<OFstream>& files();
 
 			//- Return access to the file (if only 1)
-			OFstream& file();
+			FoamBase_EXPORT OFstream& file();
 
 			//- Return file 'i'
-			OFstream& file(const label i);
+			FoamBase_EXPORT OFstream& file(const label i);
 
 			//- Write function
-			virtual bool write();
+			FoamBase_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const logFiles&) = delete;
+			FoamBase_EXPORT void operator=(const logFiles&) = delete;
 		};
 
 

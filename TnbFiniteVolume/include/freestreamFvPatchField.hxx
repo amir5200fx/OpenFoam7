@@ -61,6 +61,16 @@ SourceFiles
 
 #include <inletOutletFvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamFreestreamFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFreestreamFvPatchField_EXPORT_DEFINE
+#define FoamFreestreamFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamFreestreamFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -79,7 +89,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("freestream");
+		//TypeName("freestream");
+		static const char* typeName_() { return "freestream"; }
+		static FoamFreestreamFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamFreestreamFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -424,7 +424,7 @@ void tnbLib::streamLineParticle::writeFields(const Cloud<streamLineParticle>& c)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const streamLineParticle& p)
+FoamFunctionObjects_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const streamLineParticle& p)
 {
 	os << static_cast<const particle&>(p)
 		<< token::SPACE << p.lifeTime_

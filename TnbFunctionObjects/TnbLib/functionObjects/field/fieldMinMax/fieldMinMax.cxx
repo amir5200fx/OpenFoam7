@@ -1,3 +1,5 @@
+#define FoamNamedEnum_EXPORT_DEFINE
+
 #include <fieldMinMax.hxx>
 
 #include <fieldTypes.hxx>

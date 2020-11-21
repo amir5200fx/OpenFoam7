@@ -204,18 +204,18 @@ namespace tnbLib
 		) const;
 
 		//- Test synchronisation of points
-		void testSyncPositions(const pointField&, const scalar maxMag) const;
+		FoamDynamicMesh_EXPORT void testSyncPositions(const pointField&, const scalar maxMag) const;
 
-		static void checkFld(const pointScalarField&);
+		static FoamDynamicMesh_EXPORT void checkFld(const pointScalarField&);
 
 		//- Get points used by given faces
-		labelHashSet getPoints(const labelHashSet&) const;
+		FoamDynamicMesh_EXPORT labelHashSet getPoints(const labelHashSet&) const;
 
 		//- Calculate per-edge weight
-		tmp<scalarField> calcEdgeWeights(const pointField&) const;
+		FoamDynamicMesh_EXPORT tmp<scalarField> calcEdgeWeights(const pointField&) const;
 
 		//- Explicit smoothing and min on all affected internal points
-		void minSmooth
+		FoamDynamicMesh_EXPORT void minSmooth
 		(
 			const scalarField& edgeWeights,
 			const PackedBoolList& isAffectedPoint,
@@ -224,7 +224,7 @@ namespace tnbLib
 		) const;
 
 		//- Same but only on selected points (usually patch points)
-		void minSmooth
+		FoamDynamicMesh_EXPORT void minSmooth
 		(
 			const scalarField& edgeWeights,
 			const PackedBoolList& isAffectedPoint,
@@ -234,7 +234,7 @@ namespace tnbLib
 		) const;
 
 		//- Scale certain (internal) points of a field
-		void scaleField
+		FoamDynamicMesh_EXPORT void scaleField
 		(
 			const labelHashSet& pointLabels,
 			const scalar scale,
@@ -243,7 +243,7 @@ namespace tnbLib
 
 		//- As above but points have to be in meshPoints as well
 		//  (usually to scale patch points)
-		void scaleField
+		FoamDynamicMesh_EXPORT void scaleField
 		(
 			const labelList& meshPoints,
 			const labelHashSet& pointLabels,
@@ -252,7 +252,7 @@ namespace tnbLib
 		) const;
 
 		//- Lower on internal points
-		void subtractField
+		FoamDynamicMesh_EXPORT void subtractField
 		(
 			const labelHashSet& pointLabels,
 			const scalar f,
@@ -261,7 +261,7 @@ namespace tnbLib
 
 		//- As above but points have to be in meshPoints as well
 		//  (usually to scale patch points)
-		void subtractField
+		FoamDynamicMesh_EXPORT void subtractField
 		(
 			const labelList& meshPoints,
 			const labelHashSet& pointLabels,
@@ -270,12 +270,12 @@ namespace tnbLib
 		) const;
 
 		//- Helper function. Is point internal?
-		bool isInternalPoint(const label pointi) const;
+		FoamDynamicMesh_EXPORT bool isInternalPoint(const label pointi) const;
 
 		//- Given a set of faces that cause smoothing and a number of
 		//  iterations determine the maximum set of points who are affected
 		//  and the accordingly affected faces.
-		void getAffectedFacesAndPoints
+		FoamDynamicMesh_EXPORT void getAffectedFacesAndPoints
 		(
 			const label nPointIter,
 			const faceSet& wrongFaces,
@@ -287,12 +287,15 @@ namespace tnbLib
 
 	public:
 
-		ClassName("motionSmootherAlgo");
+		//ClassName("motionSmootherAlgo");
+		static const char* typeName_() { return "motionSmootherAlgo"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct from mesh, patches to work on and smoothing parameters.
-		motionSmootherAlgo
+		FoamDynamicMesh_EXPORT motionSmootherAlgo
 		(
 			polyMesh&,
 			pointMesh&,
@@ -309,7 +312,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~motionSmootherAlgo();
+		FoamDynamicMesh_EXPORT ~motionSmootherAlgo();
 
 
 		// Member Functions
@@ -317,30 +320,30 @@ namespace tnbLib
 			// Access
 
 				//- Reference to mesh
-		const polyMesh& mesh() const;
+		FoamDynamicMesh_EXPORT const polyMesh& mesh() const;
 
 		//- Reference to pointMesh
-		const pointMesh& pMesh() const;
+		FoamDynamicMesh_EXPORT const pointMesh& pMesh() const;
 
 		//- Reference to patch
-		const indirectPrimitivePatch& patch() const;
+		FoamDynamicMesh_EXPORT const indirectPrimitivePatch& patch() const;
 
 		//- Patch labels that are being adapted
-		const labelList& adaptPatchIDs() const;
+		FoamDynamicMesh_EXPORT const labelList& adaptPatchIDs() const;
 
-		const dictionary& paramDict() const;
+		FoamDynamicMesh_EXPORT const dictionary& paramDict() const;
 
 
 
 		// Edit
 
 			//- Take over existing mesh position.
-		void correct();
+		FoamDynamicMesh_EXPORT void correct();
 
 
 		//- Set patch fields on patchIDs to be consistent with
 		//  all other boundary conditions
-		static void setDisplacementPatchFields
+		static FoamDynamicMesh_EXPORT void setDisplacementPatchFields
 		(
 			const labelList& patchIDs,
 			pointVectorField& pointDisplacement
@@ -348,7 +351,7 @@ namespace tnbLib
 
 		//- Set patch fields on displacement to be consistent with
 		//  internal values.
-		void setDisplacementPatchFields();
+		FoamDynamicMesh_EXPORT void setDisplacementPatchFields();
 
 		//- Set displacement field from displacement on patch points.
 		//  Modify provided displacement to be consistent with actual
@@ -357,7 +360,7 @@ namespace tnbLib
 		//  to make sure shared points
 		//  partially on pp (on some processors) and partially not
 		//  (on other processors) get the value from pp.
-		static void setDisplacement
+		static FoamDynamicMesh_EXPORT void setDisplacement
 		(
 			const labelList& patchIDs,
 			const indirectPrimitivePatch& pp,
@@ -365,24 +368,24 @@ namespace tnbLib
 			pointVectorField& displacement
 		);
 
-		void setDisplacement(pointField& patchDisp);
+		FoamDynamicMesh_EXPORT void setDisplacement(pointField& patchDisp);
 
 		//- Special correctBoundaryConditions which evaluates fixedValue
 		//  patches first so they get overwritten with any constraint
 		//  bc's.
-		void correctBoundaryConditions(pointVectorField&) const;
+		FoamDynamicMesh_EXPORT void correctBoundaryConditions(pointVectorField&) const;
 
 		//- Apply optional point constraint (2d correction)
-		void modifyMotionPoints(pointField& newPoints) const;
+		FoamDynamicMesh_EXPORT void modifyMotionPoints(pointField& newPoints) const;
 
 		//- Get the current points (oldPoints+scale*displacement)
-		tmp<pointField> curPoints() const;
+		FoamDynamicMesh_EXPORT tmp<pointField> curPoints() const;
 
 		//- Set the errorReduction (by how much to scale the displacement
 		//  at error locations) parameter. Returns the old value.
 		//  Set to 0 (so revert to old mesh) grows out one cell layer
 		//  from error faces.
-		scalar setErrorReduction(const scalar);
+		FoamDynamicMesh_EXPORT scalar setErrorReduction(const scalar);
 
 		//- Move mesh with given scale. Return true if mesh ok or has
 		//  less than nAllow errors, false
@@ -390,7 +393,7 @@ namespace tnbLib
 		//  patch points get moved.
 		//  Parallel ok (as long as displacement field is consistent
 		//  across patches)
-		bool scaleMesh
+		FoamDynamicMesh_EXPORT bool scaleMesh
 		(
 			labelList& checkFaces,
 			const bool smoothMesh = true,
@@ -398,7 +401,7 @@ namespace tnbLib
 		);
 
 		//- Move mesh (with baffles) with given scale.
-		bool scaleMesh
+		FoamDynamicMesh_EXPORT bool scaleMesh
 		(
 			labelList& checkFaces,
 			const List<labelPair>& baffles,
@@ -407,7 +410,7 @@ namespace tnbLib
 		);
 
 		//- Move mesh with externally provided mesh constraints
-		bool scaleMesh
+		FoamDynamicMesh_EXPORT bool scaleMesh
 		(
 			labelList& checkFaces,
 			const List<labelPair>& baffles,
@@ -419,16 +422,16 @@ namespace tnbLib
 
 
 		//- Update for new mesh geometry
-		void movePoints();
+		FoamDynamicMesh_EXPORT void movePoints();
 
 		//- Update for new mesh topology
-		void updateMesh();
+		FoamDynamicMesh_EXPORT void updateMesh();
 
 
 		//- Check mesh with mesh settings in dict. Collects incorrect faces
 		//  in set. Returns true if one or more faces in error.
 		//  Parallel ok.
-		static bool checkMesh
+		static FoamDynamicMesh_EXPORT bool checkMesh
 		(
 			const bool report,
 			const polyMesh& mesh,
@@ -439,7 +442,7 @@ namespace tnbLib
 		//- Check (subset of mesh) with mesh settings in dict.
 		//  Collects incorrect faces in set. Returns true if one
 		//  or more faces in error. Parallel ok.
-		static bool checkMesh
+		static FoamDynamicMesh_EXPORT bool checkMesh
 		(
 			const bool report,
 			const polyMesh& mesh,
@@ -451,7 +454,7 @@ namespace tnbLib
 		//- Check (subset of mesh including baffles) with mesh settings
 		//  in dict. Collects incorrect faces in set. Returns true if one
 		//  or more faces in error. Parallel ok.
-		static bool checkMesh
+		static FoamDynamicMesh_EXPORT bool checkMesh
 		(
 			const bool report,
 			const polyMesh& mesh,
@@ -464,7 +467,7 @@ namespace tnbLib
 		//- Check part of mesh with mesh settings in dict.
 		//  Collects incorrect faces in set. Returns true if one or
 		//  more faces in error. Parallel ok.
-		static bool checkMesh
+		static FoamDynamicMesh_EXPORT bool checkMesh
 		(
 			const bool report,
 			const dictionary& dict,
@@ -476,7 +479,7 @@ namespace tnbLib
 		//- Check part of mesh including baffles with mesh settings in dict.
 		//  Collects incorrect faces in set. Returns true if one or
 		//  more faces in error. Parallel ok.
-		static bool checkMesh
+		static FoamDynamicMesh_EXPORT bool checkMesh
 		(
 			const bool report,
 			const dictionary& dict,

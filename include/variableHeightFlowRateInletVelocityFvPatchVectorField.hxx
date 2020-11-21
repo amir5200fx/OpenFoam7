@@ -97,20 +97,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("variableHeightFlowRateInletVelocity");
+		/*TypeName("variableHeightFlowRateInletVelocity");*/
+		static const char* typeName_() { return "variableHeightFlowRateInletVelocity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			 //- Construct from patch and internal field
-		variableHeightFlowRateInletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT variableHeightFlowRateInletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		variableHeightFlowRateInletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT variableHeightFlowRateInletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -120,7 +124,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  variableHeightFlowRateInletVelocityFvPatchVectorField
 		//  onto a new patch
-		variableHeightFlowRateInletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT variableHeightFlowRateInletVelocityFvPatchVectorField
 		(
 			const variableHeightFlowRateInletVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -129,7 +133,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		variableHeightFlowRateInletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT variableHeightFlowRateInletVelocityFvPatchVectorField
 		(
 			const variableHeightFlowRateInletVelocityFvPatchVectorField&
 		);
@@ -144,7 +148,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		variableHeightFlowRateInletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT variableHeightFlowRateInletVelocityFvPatchVectorField
 		(
 			const variableHeightFlowRateInletVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -170,10 +174,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

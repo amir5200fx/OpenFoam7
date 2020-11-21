@@ -9,7 +9,7 @@
 namespace tnbLib
 {
 	defineTypeNameAndDebug(coordinateSystems, 0);
-	defineTemplateTypeNameAndDebug(IOPtrList<coordinateSystem>, 0);
+	//defineTemplateTypeNameAndDebug(IOPtrList<coordinateSystem>, 0);
 }
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //

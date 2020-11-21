@@ -65,6 +65,16 @@ SourceFiles
 
 #include <gradScheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamLeastSquaresGradStencil_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLeastSquaresGradStencil_EXPORT_DEFINE
+#define FoamLeastSquaresGradStencil_EXPORT __declspec(dllexport)
+#else
+#define FoamLeastSquaresGradStencil_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -93,7 +103,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("LeastSquares");
+			/*TypeName("LeastSquares");*/
+			static const char* typeName_() { return "LeastSquares"; }
+			static FoamLeastSquaresGradStencil_EXPORT const ::tnbLib::word typeName;
+			static FoamLeastSquaresGradStencil_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

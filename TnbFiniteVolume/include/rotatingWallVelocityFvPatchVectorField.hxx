@@ -92,20 +92,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("rotatingWallVelocity");
+		/*TypeName("rotatingWallVelocity");*/
+		static const char* typeName_() { return "rotatingWallVelocity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		rotatingWallVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT rotatingWallVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		rotatingWallVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT rotatingWallVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -114,7 +118,7 @@ namespace tnbLib
 
 		//- Construct by mapping given rotatingWallVelocityFvPatchVectorField
 		//  onto a new patch
-		rotatingWallVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT rotatingWallVelocityFvPatchVectorField
 		(
 			const rotatingWallVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -123,7 +127,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		rotatingWallVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT rotatingWallVelocityFvPatchVectorField
 		(
 			const rotatingWallVelocityFvPatchVectorField&
 		);
@@ -138,7 +142,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		rotatingWallVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT rotatingWallVelocityFvPatchVectorField
 		(
 			const rotatingWallVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -188,10 +192,10 @@ namespace tnbLib
 
 
 		//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

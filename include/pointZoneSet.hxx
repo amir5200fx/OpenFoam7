@@ -65,13 +65,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pointZoneSet");
+		/*TypeName("pointZoneSet");*/
+		static const char* typeName_() { return "pointZoneSet"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from objectRegistry and name
-		pointZoneSet
+		FoamFvMesh_EXPORT pointZoneSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -80,7 +84,7 @@ namespace tnbLib
 		);
 
 		//- Construct from additional size of labelHashSet
-		pointZoneSet
+		FoamFvMesh_EXPORT pointZoneSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -89,7 +93,7 @@ namespace tnbLib
 		);
 
 		//- Construct from existing set
-		pointZoneSet
+		FoamFvMesh_EXPORT pointZoneSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -100,7 +104,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~pointZoneSet();
+		FoamFvMesh_EXPORT virtual ~pointZoneSet();
 
 
 		// Member Functions
@@ -116,26 +120,26 @@ namespace tnbLib
 		}
 
 		//- Sort addressing and make pointSet part consistent with addressing
-		void updateSet();
+		FoamFvMesh_EXPORT void updateSet();
 
 		//- Invert contents. (insert all members 0..maxLen-1 which were not in
 		//  set)
-		virtual void invert(const label maxLen);
+		FoamFvMesh_EXPORT virtual void invert(const label maxLen);
 
 		//- Subset contents. Only elements present in both sets remain.
-		virtual void subset(const topoSet& set);
+		FoamFvMesh_EXPORT virtual void subset(const topoSet& set);
 
 		//- Add elements present in set.
-		virtual void addSet(const topoSet& set);
+		FoamFvMesh_EXPORT virtual void addSet(const topoSet& set);
 
 		//- Delete elements present in set.
-		virtual void deleteSet(const topoSet& set);
+		FoamFvMesh_EXPORT virtual void deleteSet(const topoSet& set);
 
 		//- Sync pointZoneSet across coupled patches.
-		virtual void sync(const polyMesh& mesh);
+		FoamFvMesh_EXPORT virtual void sync(const polyMesh& mesh);
 
 		//- Write maxLen items with label and coordinates.
-		virtual void writeDebug
+		FoamFvMesh_EXPORT virtual void writeDebug
 		(
 			Ostream& os,
 			const primitiveMesh&,
@@ -143,7 +147,7 @@ namespace tnbLib
 		) const;
 
 		//- Write pointZone
-		virtual bool writeObject
+		FoamFvMesh_EXPORT virtual bool writeObject
 		(
 			IOstream::streamFormat,
 			IOstream::versionNumber,
@@ -152,10 +156,10 @@ namespace tnbLib
 		) const;
 
 		//- Update any stored data for new labels
-		virtual void updateMesh(const mapPolyMesh& morphMap);
+		FoamFvMesh_EXPORT virtual void updateMesh(const mapPolyMesh& morphMap);
 
 		//- Return max index+1.
-		virtual label maxSize(const polyMesh& mesh) const;
+		FoamFvMesh_EXPORT virtual label maxSize(const polyMesh& mesh) const;
 	};
 
 

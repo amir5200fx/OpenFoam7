@@ -50,7 +50,7 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 
 	class zone;
-	Ostream& operator<<(Ostream&, const zone&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const zone&);
 
 	/*---------------------------------------------------------------------------*\
 							   Class zone Declaration
@@ -87,13 +87,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("zone");
+		//TypeName("zone");
+		static const char* typeName_() { return "zone"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		zone
+		FoamBase_EXPORT zone
 		(
 			const word& name,
 			const labelUList& addr,
@@ -101,7 +105,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components, moving contents
-		zone
+		FoamBase_EXPORT zone
 		(
 			const word& name,
 			labelList&& addr,
@@ -109,7 +113,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		zone
+		FoamBase_EXPORT zone
 		(
 			const word& name,
 			const dictionary&,
@@ -119,7 +123,7 @@ namespace tnbLib
 
 		//- Construct given the original zone and resetting the
 		//  cell list and zone mesh information
-		zone
+		FoamBase_EXPORT zone
 		(
 			const zone&,
 			const labelUList& addr,
@@ -128,7 +132,7 @@ namespace tnbLib
 
 		//- Construct given the original zone, resetting the
 		//  cell list and zone mesh information
-		zone
+		FoamBase_EXPORT zone
 		(
 			const zone&,
 			labelList&& addr,
@@ -136,11 +140,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		zone(const zone&) = delete;
+		FoamBase_EXPORT zone(const zone&) = delete;
 
 
 		//- Destructor
-		virtual ~zone();
+		FoamBase_EXPORT virtual ~zone();
 
 
 		// Member Functions
@@ -154,7 +158,7 @@ namespace tnbLib
 		//- Map storing the local index for every global index.  Used to find
 		//  the index of the item in the zone from the known global index. If
 		//  the item is not in the zone, returns -1
-		label localID(const label globalID) const;
+		FoamBase_EXPORT label localID(const label globalID) const;
 
 		//- Return the index of this zone in zone list
 		label index() const
@@ -163,16 +167,16 @@ namespace tnbLib
 		}
 
 		//- Return a reference to the look-up map
-		const Map<label>& lookupMap() const;
+		FoamBase_EXPORT const Map<label>& lookupMap() const;
 
 		//- Clear addressing
-		virtual void clearAddressing();
+		FoamBase_EXPORT virtual void clearAddressing();
 
 		//- Check zone definition. Return true if in error.
-		virtual bool checkDefinition(const bool report = false) const = 0;
+		FoamBase_EXPORT virtual bool checkDefinition(const bool report = false) const = 0;
 
 		//- Check zone definition with max size given. Return true if in error.
-		virtual bool checkDefinition
+		FoamBase_EXPORT virtual bool checkDefinition
 		(
 			const label maxSize,
 			const bool report = false
@@ -183,31 +187,31 @@ namespace tnbLib
 		{}
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamBase_EXPORT virtual void write(Ostream&) const;
 
 		//- Write dictionary
-		virtual void writeDict(Ostream&) const = 0;
+		FoamBase_EXPORT virtual void writeDict(Ostream&) const = 0;
 
 
 		// Member Operators
 
 			//- Assignment operator
-		void operator=(const zone&);
+		FoamBase_EXPORT void operator=(const zone&);
 
 		//- Move assignment operator
-		void operator=(zone&&);
+		FoamBase_EXPORT void operator=(zone&&);
 
 		//- Assignment operator to addressing
-		void operator=(const labelUList&);
+		FoamBase_EXPORT void operator=(const labelUList&);
 
 		//- Move assignment of addressing
-		void operator=(labelList&&);
+		FoamBase_EXPORT void operator=(labelList&&);
 
 
 		// I-O
 
 			//- Ostream Operator
-		friend Ostream& operator<<(Ostream&, const zone&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const zone&);
 	};
 
 

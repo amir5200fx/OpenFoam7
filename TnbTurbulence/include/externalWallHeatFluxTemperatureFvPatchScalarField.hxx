@@ -129,7 +129,7 @@ namespace tnbLib
 			fixedHeatTransferCoeff
 		};
 
-		static const NamedEnum<operationMode, 3> operationModeNames;
+		static FoamTurbulence_EXPORT const NamedEnum<operationMode, 3> operationModeNames;
 
 
 	private:
@@ -176,20 +176,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("externalWallHeatFluxTemperature");
+		//TypeName("externalWallHeatFluxTemperature");
+		static const char* typeName_() { return "externalWallHeatFluxTemperature"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		externalWallHeatFluxTemperatureFvPatchScalarField
+		FoamTurbulence_EXPORT externalWallHeatFluxTemperatureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		externalWallHeatFluxTemperatureFvPatchScalarField
+		FoamTurbulence_EXPORT externalWallHeatFluxTemperatureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -199,7 +203,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  externalWallHeatFluxTemperatureFvPatchScalarField
 		//  onto a new patch
-		externalWallHeatFluxTemperatureFvPatchScalarField
+		FoamTurbulence_EXPORT externalWallHeatFluxTemperatureFvPatchScalarField
 		(
 			const externalWallHeatFluxTemperatureFvPatchScalarField&,
 			const fvPatch&,
@@ -208,7 +212,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		externalWallHeatFluxTemperatureFvPatchScalarField
+		FoamTurbulence_EXPORT externalWallHeatFluxTemperatureFvPatchScalarField
 		(
 			const externalWallHeatFluxTemperatureFvPatchScalarField&
 		);
@@ -223,7 +227,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		externalWallHeatFluxTemperatureFvPatchScalarField
+		FoamTurbulence_EXPORT externalWallHeatFluxTemperatureFvPatchScalarField
 		(
 			const externalWallHeatFluxTemperatureFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -257,23 +261,23 @@ namespace tnbLib
 
 			//- Map (and resize as needed) from self given a mapping object
 			//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		FoamTurbulence_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchScalarField&, const labelList&);
+		FoamTurbulence_EXPORT virtual void rmap(const fvPatchScalarField&, const labelList&);
 
 
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamTurbulence_EXPORT virtual void updateCoeffs();
 
 
 		// I-O
 
 			//- Write
-		void write(Ostream&) const;
+		FoamTurbulence_EXPORT void write(Ostream&) const;
 	};
 
 

@@ -38,6 +38,16 @@ SourceFiles
 
 #include <FitData.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCentredFitSnGradData_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCentredFitSnGradData_EXPORT_DEFINE
+#define FoamCentredFitSnGradData_EXPORT __declspec(dllexport)
+#else
+#define FoamCentredFitSnGradData_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -68,7 +78,11 @@ namespace tnbLib
 
 	public:
 
-		TypeName("CentredFitSnGradData");
+		/*TypeName("CentredFitSnGradData");*/
+		static const char* typeName_() { return "CentredFitSnGradData"; }
+		static FoamCentredFitSnGradData_EXPORT const ::tnbLib::word typeName;
+		static FoamCentredFitSnGradData_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

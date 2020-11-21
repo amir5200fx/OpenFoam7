@@ -122,10 +122,10 @@ namespace tnbLib
 		scalar startTime_;
 		mutable scalar endTime_;
 
-		static const NamedEnum<stopAtControl, 4> stopAtControlNames_;
+		static FoamBase_EXPORT const NamedEnum<stopAtControl, 4> stopAtControlNames_;
 		mutable stopAtControl stopAt_;
 
-		static const NamedEnum<writeControl, 5> writeControlNames_;
+		static FoamBase_EXPORT const NamedEnum<writeControl, 5> writeControlNames_;
 		writeControl writeControl_;
 
 		scalar writeInterval_;
@@ -153,22 +153,22 @@ namespace tnbLib
 
 
 		//- Time directory name format
-		static format format_;
+		static FoamBase_EXPORT format format_;
 
 		//- Time directory name precision
-		static int precision_;
+		static FoamBase_EXPORT int precision_;
 
 		//- Maximum time directory name precision
-		static const int maxPrecision_;
+		static FoamBase_EXPORT const int maxPrecision_;
 
 		//- Adjust the time step so that writing occurs at the specified time
-		void adjustDeltaT();
+		FoamBase_EXPORT void adjustDeltaT();
 
 		//- Set the controls from the current controlDict
-		void setControls();
+		FoamBase_EXPORT void setControls();
 
 		//- Read the control dictionary and set the write controls etc.
-		virtual void readDict();
+		FoamBase_EXPORT virtual void readDict();
 
 
 	private:
@@ -194,16 +194,20 @@ namespace tnbLib
 
 	public:
 
-		TypeName("time");
+		//TypeName("time");
+		static const char* typeName_() { return "time"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- The default control dictionary name (normally "controlDict")
-		static word controlDictName;
+		static FoamBase_EXPORT word controlDictName;
 
 
 		// Constructors
 
 			//- Construct given name of dictionary to read and argument list
-		Time
+		FoamBase_EXPORT Time
 		(
 			const word& name,
 			const argList& args,
@@ -212,7 +216,7 @@ namespace tnbLib
 		);
 
 		//- Construct given name of dictionary to read, rootPath and casePath
-		Time
+		FoamBase_EXPORT Time
 		(
 			const word& name,
 			const fileName& rootPath,
@@ -223,7 +227,7 @@ namespace tnbLib
 		);
 
 		//- Construct given dictionary, rootPath and casePath
-		Time
+		FoamBase_EXPORT Time
 		(
 			const dictionary& dict,
 			const fileName& rootPath,
@@ -234,7 +238,7 @@ namespace tnbLib
 		);
 
 		//- Construct given endTime, rootPath and casePath
-		Time
+		FoamBase_EXPORT Time
 		(
 			const fileName& rootPath,
 			const fileName& caseName,
@@ -245,7 +249,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~Time();
+		FoamBase_EXPORT virtual ~Time();
 
 
 		// Member Functions
@@ -317,16 +321,16 @@ namespace tnbLib
 		}
 
 		//- Read control dictionary, update controls and time
-		virtual bool read();
+		FoamBase_EXPORT virtual bool read();
 
 		//- Read the objects that have been modified
-		void readModifiedObjects();
+		FoamBase_EXPORT void readModifiedObjects();
 
 		//- Return the location of "dir" containing the file "name".
 		//  (eg, used in reading mesh data)
 		//  If name is null, search for the directory "dir" only.
 		//  Does not search beyond stopInstance (if set) or constant.
-		word findInstance
+		FoamBase_EXPORT word findInstance
 		(
 			const fileName& dir,
 			const word& name = word::null,
@@ -335,21 +339,21 @@ namespace tnbLib
 		) const;
 
 		//- Search the case for valid time directories
-		instantList times() const;
+		FoamBase_EXPORT instantList times() const;
 
 		//- Search the case for the time directory path
 		//  corresponding to the given instance
-		word findInstancePath(const fileName& path, const instant&) const;
+		FoamBase_EXPORT word findInstancePath(const fileName& path, const instant&) const;
 
 		//- Search the case for the time directory path
 		//  corresponding to the given instance
-		word findInstancePath(const instant&) const;
+		FoamBase_EXPORT word findInstancePath(const instant&) const;
 
 		//- Search the case for the time closest to the given time
-		instant findClosestTime(const scalar) const;
+		FoamBase_EXPORT instant findClosestTime(const scalar) const;
 
 		//- Search instantList for the time index closest to the given time
-		static label findClosestTimeIndex
+		static FoamBase_EXPORT label findClosestTimeIndex
 		(
 			const instantList&,
 			const scalar,
@@ -357,10 +361,10 @@ namespace tnbLib
 		);
 
 		//- Write time dictionary to the \<time\>/uniform directory
-		virtual bool writeTimeDict() const;
+		FoamBase_EXPORT virtual bool writeTimeDict() const;
 
 		//- Write using given format, version and compression
-		virtual bool writeObject
+		FoamBase_EXPORT virtual bool writeObject
 		(
 			IOstream::streamFormat,
 			IOstream::versionNumber,
@@ -370,43 +374,43 @@ namespace tnbLib
 
 		//- Write the objects now (not at end of iteration) and continue
 		//  the run
-		bool writeNow();
+		FoamBase_EXPORT bool writeNow();
 
 		//- Write the objects now (not at end of iteration) and end the run
-		bool writeAndEnd();
+		FoamBase_EXPORT bool writeAndEnd();
 
 		//- Write the objects once (one shot) and continue the run
-		void writeOnce();
+		FoamBase_EXPORT void writeOnce();
 
 
 		// Access
 
 			//- Return time name of given scalar time
 			//  formatted with given precision
-		static word timeName
+		static FoamBase_EXPORT word timeName
 		(
 			const scalar,
 			const int precision = precision_
 		);
 
 		//- Return current time name
-		virtual word timeName() const;
+		FoamBase_EXPORT virtual word timeName() const;
 
 		//- Search a given directory for valid time directories
-		static instantList findTimes
+		static FoamBase_EXPORT instantList findTimes
 		(
 			const fileName&,
 			const word& constantName = "constant"
 		);
 
 		//- Return start time index
-		virtual label startTimeIndex() const;
+		FoamBase_EXPORT virtual label startTimeIndex() const;
 
 		//- Return start time
-		virtual dimensionedScalar startTime() const;
+		FoamBase_EXPORT virtual dimensionedScalar startTime() const;
 
 		//- Return end time
-		virtual dimensionedScalar endTime() const;
+		FoamBase_EXPORT virtual dimensionedScalar endTime() const;
 
 		//- Return the list of function objects
 		const functionObjectList& functionObjects() const
@@ -442,7 +446,7 @@ namespace tnbLib
 		// Check
 
 			//- Return true if run should continue without any side effects
-		virtual bool running() const;
+		FoamBase_EXPORT virtual bool running() const;
 
 		//- Return true if run should continue,
 		//  also invokes the functionObjectList::end() method
@@ -458,7 +462,7 @@ namespace tnbLib
 		//          runTime.write();
 		//      }
 		//  \endcode
-		virtual bool run() const;
+		FoamBase_EXPORT virtual bool run() const;
 
 		//- Return true if run should continue and if so increment time
 		//  also invokes the functionObjectList::end() method
@@ -473,7 +477,7 @@ namespace tnbLib
 		//          runTime.write();
 		//      }
 		//  \endcode
-		virtual bool loop();
+		FoamBase_EXPORT virtual bool loop();
 
 		//- Return true if end of run,
 		//  does not invoke any functionObject methods
@@ -481,7 +485,7 @@ namespace tnbLib
 		//      The rounding heuristics near endTime mean that
 		//      \code run() \endcode and \code !end() \endcode may
 		//      not yield the same result
-		virtual bool end() const;
+		FoamBase_EXPORT virtual bool end() const;
 
 
 		// Edit
@@ -489,45 +493,45 @@ namespace tnbLib
 			//- Adjust the current stopAtControl. Note that this value
 			//  only persists until the next time the dictionary is read.
 			//  Return true if the stopAtControl changed.
-		virtual bool stopAt(const stopAtControl) const;
+		FoamBase_EXPORT virtual bool stopAt(const stopAtControl) const;
 
 		//- Reset the time and time-index to those of the given time
-		virtual void setTime(const Time&);
+		FoamBase_EXPORT virtual void setTime(const Time&);
 
 		//- Reset the time and time-index
-		virtual void setTime(const instant&, const label newIndex);
+		FoamBase_EXPORT virtual void setTime(const instant&, const label newIndex);
 
 		//- Reset the time and time-index
-		virtual void setTime
+		FoamBase_EXPORT virtual void setTime
 		(
 			const dimensionedScalar&,
 			const label newIndex
 		);
 
 		//- Reset the time and time-index
-		virtual void setTime(const scalar, const label newIndex);
+		FoamBase_EXPORT virtual void setTime(const scalar, const label newIndex);
 
 		//- Reset end time
-		virtual void setEndTime(const dimensionedScalar&);
+		FoamBase_EXPORT virtual void setEndTime(const dimensionedScalar&);
 
 		//- Reset end time
-		virtual void setEndTime(const scalar);
+		FoamBase_EXPORT virtual void setEndTime(const scalar);
 
 		//- Reset time step
-		virtual void setDeltaT(const dimensionedScalar&);
+		FoamBase_EXPORT virtual void setDeltaT(const dimensionedScalar&);
 
 		//- Reset time step
-		virtual void setDeltaT(const scalar);
+		FoamBase_EXPORT virtual void setDeltaT(const scalar);
 
 		//- Reset time step without additional adjustment or modification
 		//  by function objects
-		virtual void setDeltaTNoAdjust(const scalar);
+		FoamBase_EXPORT virtual void setDeltaTNoAdjust(const scalar);
 
 		//- Set time to sub-cycle for the given number of steps
-		virtual TimeState subCycle(const label nSubCycles);
+		FoamBase_EXPORT virtual TimeState subCycle(const label nSubCycles);
 
 		//- Reset time after sub-cycling back to previous TimeState
-		virtual void endSubCycle();
+		FoamBase_EXPORT virtual void endSubCycle();
 
 		//- Return non-const access to the list of function objects
 		functionObjectList& functionObjects()
@@ -539,18 +543,18 @@ namespace tnbLib
 		// Member Operators
 
 			//- Set deltaT to that specified and increment time via operator++()
-		virtual Time& operator+=(const dimensionedScalar&);
+		FoamBase_EXPORT virtual Time& operator+=(const dimensionedScalar&);
 
 		//- Set deltaT to that specified and increment time via operator++()
-		virtual Time& operator+=(const scalar);
+		FoamBase_EXPORT virtual Time& operator+=(const scalar);
 
 		//- Prefix increment,
 		//  also invokes the functionObjectList::start() or
 		//  functionObjectList::execute() method, depending on the time-index
-		virtual Time& operator++();
+		FoamBase_EXPORT virtual Time& operator++();
 
 		//- Postfix increment, this is identical to the prefix increment
-		virtual Time& operator++(int);
+		FoamBase_EXPORT virtual Time& operator++(int);
 	};
 
 

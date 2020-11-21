@@ -76,7 +76,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Is edge on face
-		static bool connected
+		static FoamFvMesh_EXPORT bool connected
 		(
 			const triSurface& s,
 			const label edgeI,
@@ -86,13 +86,16 @@ namespace tnbLib
 
 	public:
 
-		ClassName("searchableSurfaces");
+		/*ClassName("searchableSurfaces");*/
+		static const char* typeName_() { return "searchableSurfaces"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct with length specified. Fill later.
-		explicit searchableSurfaces(const label);
+		FoamFvMesh_EXPORT explicit searchableSurfaces(const label);
 
 
 		////- Construct from list of dictionaries
@@ -102,7 +105,7 @@ namespace tnbLib
 		//  as surfaceName "_" regionName (singleRegionName false) or
 		//  for single region surfaces as surfaceName only (singleRegionName
 		//  true)
-		searchableSurfaces
+		FoamFvMesh_EXPORT searchableSurfaces
 		(
 			const IOobject&,
 			const dictionary&,
@@ -110,7 +113,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		searchableSurfaces(const searchableSurfaces&) = delete;
+		FoamFvMesh_EXPORT searchableSurfaces(const searchableSurfaces&) = delete;
 
 
 		// Member Functions
@@ -148,9 +151,9 @@ namespace tnbLib
 		//}
 
 		//- Find index of surface. Return -1 if not found.
-		label findSurfaceID(const word& name) const;
+		FoamFvMesh_EXPORT label findSurfaceID(const word& name) const;
 
-		label findSurfaceRegionID
+		FoamFvMesh_EXPORT label findSurfaceRegionID
 		(
 			const word& surfaceName,
 			const word& regionName
@@ -161,7 +164,7 @@ namespace tnbLib
 			//- Find any intersection. Return hit point information and
 			//  surface number. If multiple surfaces hit the first surface
 			//  is returned, not necessarily the nearest (to start).
-		void findAnyIntersection
+		FoamFvMesh_EXPORT void findAnyIntersection
 		(
 			const pointField& start,
 			const pointField& end,
@@ -171,7 +174,7 @@ namespace tnbLib
 
 		//- Find all intersections in order from start to end. Returns for
 		//  every hit the surface and the hit info.
-		void findAllIntersections
+		FoamFvMesh_EXPORT void findAllIntersections
 		(
 			const pointField& start,
 			const pointField& end,
@@ -180,7 +183,7 @@ namespace tnbLib
 		) const;
 
 		// Find intersections of edge nearest to both endpoints.
-		void findNearestIntersection
+		FoamFvMesh_EXPORT void findNearestIntersection
 		(
 			const pointField& start,
 			const pointField& end,
@@ -192,7 +195,7 @@ namespace tnbLib
 
 		//- Find nearest. Return -1 (and a miss()) or surface and nearest
 		//  point.
-		void findNearest
+		FoamFvMesh_EXPORT void findNearest
 		(
 			const pointField&,
 			const scalarField& nearestDistSqr,
@@ -200,7 +203,7 @@ namespace tnbLib
 			List<pointIndexHit>&
 		) const;
 
-		void findNearest
+		FoamFvMesh_EXPORT void findNearest
 		(
 			const pointField& samples,
 			const scalarField& nearestDistSqr,
@@ -210,21 +213,21 @@ namespace tnbLib
 		) const;
 
 		//- Calculate bounding box
-		boundBox bounds() const;
+		FoamFvMesh_EXPORT boundBox bounds() const;
 
 		// Checking
 
 			//- Are all surfaces closed and manifold
-		bool checkClosed(const bool report) const;
+		FoamFvMesh_EXPORT bool checkClosed(const bool report) const;
 
 		//- Are all (triangulated) surfaces consistent normal orientation
-		bool checkNormalOrientation(const bool report) const;
+		FoamFvMesh_EXPORT bool checkNormalOrientation(const bool report) const;
 
 		//- Are all bounding boxes of similar size
-		bool checkSizes(const scalar maxRatio, const bool report) const;
+		FoamFvMesh_EXPORT bool checkSizes(const scalar maxRatio, const bool report) const;
 
 		//- Do surfaces self-intersect or intersect others
-		bool checkIntersection
+		FoamFvMesh_EXPORT bool checkIntersection
 		(
 			const scalar tol,
 			const autoPtr<writer<scalar>>&,
@@ -232,17 +235,17 @@ namespace tnbLib
 		) const;
 
 		//- Check triangle quality
-		bool checkQuality
+		FoamFvMesh_EXPORT bool checkQuality
 		(
 			const scalar minQuality,
 			const bool report
 		) const;
 
 		//- All topological checks. Return number of failed checks
-		label checkTopology(const bool report) const;
+		FoamFvMesh_EXPORT label checkTopology(const bool report) const;
 
 		//- All geometric checks. Return number of failed checks
-		label checkGeometry
+		FoamFvMesh_EXPORT label checkGeometry
 		(
 			const scalar maxRatio,
 			const scalar tolerance,
@@ -252,7 +255,7 @@ namespace tnbLib
 		) const;
 
 		//- Write some stats
-		void writeStats(const List<wordList>&, Ostream&) const;
+		FoamFvMesh_EXPORT void writeStats(const List<wordList>&, Ostream&) const;
 
 
 		// Member Operators
@@ -261,16 +264,16 @@ namespace tnbLib
 		using PtrList<searchableSurface>::operator[];
 
 		//- Return const reference to searchableSurface by name.
-		const searchableSurface& operator[](const word&) const;
+		FoamFvMesh_EXPORT const searchableSurface& operator[](const word&) const;
 
 		//- Return reference to searchableSurface by name.
-		searchableSurface& operator[](const word&);
+		FoamFvMesh_EXPORT searchableSurface& operator[](const word&);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const searchableSurfaces&) = delete;
+		FoamFvMesh_EXPORT void operator=(const searchableSurfaces&) = delete;
 	};
 
 

@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <uniformFixedValueFvPatchFields.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>

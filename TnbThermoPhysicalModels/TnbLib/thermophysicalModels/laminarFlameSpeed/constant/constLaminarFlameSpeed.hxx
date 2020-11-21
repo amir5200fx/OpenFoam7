@@ -61,20 +61,24 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Construct as copy (not implemented)
-			constant(const constant&);
-			void operator=(const constant&);
+			FoamThermophysicalModels_EXPORT constant(const constant&);
+			FoamThermophysicalModels_EXPORT void operator=(const constant&);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("constant");
+			//TypeName("constant");
+			static const char* typeName_() { return "constant"; }
+			static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+			static FoamThermophysicalModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from dictionary and psiuReactionThermo
-			constant
+			FoamThermophysicalModels_EXPORT constant
 			(
 				const dictionary&,
 				const psiuReactionThermo&
@@ -82,13 +86,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~constant();
+			FoamThermophysicalModels_EXPORT virtual ~constant();
 
 
 			// Member Functions
 
 				//- Return the laminar flame speed [m/s]
-			tmp<volScalarField> operator()() const;
+			FoamThermophysicalModels_EXPORT tmp<volScalarField> operator()() const;
 		};
 
 

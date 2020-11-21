@@ -61,13 +61,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(symmetryPlanePolyPatch::typeName_());
+		//TypeName(symmetryPlanePolyPatch::typeName_());
+		static const char* typeName_() { return symmetryPlanePolyPatch::typeName_(); }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from polyPatch
-		symmetryPlanePointPatch
+		FoamBase_EXPORT symmetryPlanePointPatch
 		(
 			const polyPatch& patch,
 			const pointBoundaryMesh& bm

@@ -94,20 +94,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("freestreamPressure");
+		//TypeName("freestreamPressure");
+		static const char* typeName_() { return "freestreamPressure"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		freestreamPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT freestreamPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		freestreamPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT freestreamPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -116,7 +120,7 @@ namespace tnbLib
 
 		//- Construct by mapping given freestreamPressureFvPatchScalarField onto
 		//  a new patch
-		freestreamPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT freestreamPressureFvPatchScalarField
 		(
 			const freestreamPressureFvPatchScalarField&,
 			const fvPatch&,
@@ -125,7 +129,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		freestreamPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT freestreamPressureFvPatchScalarField
 		(
 			const freestreamPressureFvPatchScalarField&
 		);
@@ -140,7 +144,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		freestreamPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT freestreamPressureFvPatchScalarField
 		(
 			const freestreamPressureFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -175,11 +179,11 @@ namespace tnbLib
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

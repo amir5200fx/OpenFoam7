@@ -86,39 +86,43 @@ namespace tnbLib
 			protected:
 
 				//- Return the contact angle field
-				virtual tmp<volScalarField> theta() const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> theta() const;
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("perturbedTemperatureDependentContactAngle");
+				//TypeName("perturbedTemperatureDependentContactAngle");
+				static const char* typeName_() { return "perturbedTemperatureDependentContactAngle"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model
-				perturbedTemperatureDependentContactAngleForce
+				FoamLagrangian_EXPORT perturbedTemperatureDependentContactAngleForce
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
 				);
 
 				//- Disallow default bitwise copy construction
-				perturbedTemperatureDependentContactAngleForce
+				FoamLagrangian_EXPORT perturbedTemperatureDependentContactAngleForce
 				(
 					const perturbedTemperatureDependentContactAngleForce&
 				) = delete;
 
 
 				//- Destructor
-				virtual ~perturbedTemperatureDependentContactAngleForce();
+				FoamLagrangian_EXPORT virtual ~perturbedTemperatureDependentContactAngleForce();
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=
+				FoamLagrangian_EXPORT void operator=
 					(
 						const perturbedTemperatureDependentContactAngleForce&
 						) = delete;

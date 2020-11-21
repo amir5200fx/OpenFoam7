@@ -101,22 +101,26 @@ namespace tnbLib
 				// Private Member Functions
 
 				   //- Calculate the volumetric fraction of Yj
-				tmp<scalarField> X(const word specie) const;
+				FoamRadiationModels_EXPORT tmp<scalarField> X(const word specie) const;
 
 				//- Calculate the property mixing
-				tmp<volScalarField> calc(const label) const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> calc(const label) const;
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("greyMeanSolid");
+				//TypeName("greyMeanSolid");
+				static const char* typeName_() { return "greyMeanSolid"; }
+				static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+				static FoamRadiationModels_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				greyMeanSolid
+				FoamRadiationModels_EXPORT greyMeanSolid
 				(
 					const dictionary& dict,
 					const fvMesh& mesh
@@ -124,7 +128,7 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~greyMeanSolid();
+				FoamRadiationModels_EXPORT virtual ~greyMeanSolid();
 
 
 				// Member Functions
@@ -134,13 +138,13 @@ namespace tnbLib
 						// Absorption coefficient
 
 							//- Absorption coefficient for continuous phase
-				tmp<volScalarField> aCont(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> aCont(const label bandI = 0) const;
 
 
 				// Emission coefficient
 
 					//- Emission coefficient for continuous phase
-				tmp<volScalarField> eCont(const label bandI = 0) const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> eCont(const label bandI = 0) const;
 
 
 				// Member Functions

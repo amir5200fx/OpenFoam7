@@ -63,7 +63,7 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Write header information
-			static void writeHeader
+			static FoamFvMesh_EXPORT void writeHeader
 			(
 				Ostream&,
 				const pointField&,
@@ -76,10 +76,10 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from file name
-			edgeMeshFormat(const fileName&);
+			FoamFvMesh_EXPORT edgeMeshFormat(const fileName&);
 
 			//- Disallow default bitwise copy construction
-			edgeMeshFormat(const edgeMeshFormat&) = delete;
+			FoamFvMesh_EXPORT edgeMeshFormat(const edgeMeshFormat&) = delete;
 
 
 			// Selectors
@@ -102,7 +102,7 @@ namespace tnbLib
 			// Member Functions
 
 				//- Read edgeMesh components from stream
-			static bool read
+			static FoamFvMesh_EXPORT bool read
 			(
 				Istream&,
 				pointField&,
@@ -110,7 +110,7 @@ namespace tnbLib
 			);
 
 			//- Write edgeMesh components to stream
-			static Ostream& write
+			static FoamFvMesh_EXPORT Ostream& write
 			(
 				Ostream&,
 				const pointField&,
@@ -118,13 +118,13 @@ namespace tnbLib
 			);
 
 			//- Write edgeMesh with a mimicked IOobject header
-			static void write(const fileName&, const edgeMesh&);
+			static FoamFvMesh_EXPORT void write(const fileName&, const edgeMesh&);
 
 			//- Read from file
-			virtual bool read(const fileName&);
+			virtual FoamFvMesh_EXPORT bool read(const fileName&);
 
 			//- Write object
-			virtual void write(const fileName& name) const
+			virtual FoamFvMesh_EXPORT void write(const fileName& name) const
 			{
 				write(name, *this);
 			}
@@ -133,7 +133,7 @@ namespace tnbLib
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const edgeMeshFormat&) = delete;
+			FoamFvMesh_EXPORT void operator=(const edgeMeshFormat&) = delete;
 		};
 
 

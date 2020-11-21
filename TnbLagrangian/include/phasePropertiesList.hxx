@@ -69,10 +69,10 @@ namespace tnbLib
 		// Constructors
 
 		   //- Construct null
-		phasePropertiesList();
+		FoamLagrangian_EXPORT phasePropertiesList();
 
 		//- Construct from components
-		phasePropertiesList
+		FoamLagrangian_EXPORT phasePropertiesList
 		(
 			Istream& is,
 			const wordList& gasNames,
@@ -82,27 +82,27 @@ namespace tnbLib
 
 
 		//- Destructor
-		~phasePropertiesList();
+		FoamLagrangian_EXPORT ~phasePropertiesList();
 
 
 		// Public Member Functions
 
 			//- Return the list of phase properties
-		const List<phaseProperties>& props() const;
+		FoamLagrangian_EXPORT const List<phaseProperties>& props() const;
 
 		//- Return the list of word representation of phase types
-		const wordList& phaseTypes() const;
+		FoamLagrangian_EXPORT const wordList& phaseTypes() const;
 
 		//- Return the list of state labels
-		const wordList& stateLabels() const;
+		FoamLagrangian_EXPORT const wordList& stateLabels() const;
 
 		//- Return the size (number of phases)
-		label size() const;
+		FoamLagrangian_EXPORT label size() const;
 
 
 		// Member Operators
 
-		const phaseProperties& operator[](const label) const;
+		FoamLagrangian_EXPORT const phaseProperties& operator[](const label) const;
 	};
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

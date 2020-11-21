@@ -40,6 +40,16 @@ SourceFiles
 #include <multivariateSurfaceInterpolationScheme.hxx>
 #include <surfaceFields.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamMultivariateSelectionScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamMultivariateSelectionScheme_EXPORT_DEFINE
+#define FoamMultivariateSelectionScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamMultivariateSelectionScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -64,7 +74,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("multivariateSelection");
+		/*TypeName("multivariateSelection");*/
+		static const char* typeName_() { return "multivariateSelection"; }
+		static FoamMultivariateSelectionScheme_EXPORT const ::tnbLib::word typeName;
+		static FoamMultivariateSelectionScheme_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

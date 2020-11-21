@@ -52,10 +52,10 @@ namespace tnbLib
 	namespace fvc
 	{
 		//- Return the face-flux field obtained from the given volVectorField
-		tmp<surfaceScalarField> flux(const volVectorField& vvf);
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> flux(const volVectorField& vvf);
 
 		//- Return the face-flux field obtained from the given tmp volVectorField
-		tmp<surfaceScalarField> flux(const tmp<volVectorField>& tvvf);
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> flux(const tmp<volVectorField>& tvvf);
 
 		template<class Type>
 		tmp<GeometricField<Type, fvsPatchField, surfaceMesh>> flux

@@ -137,10 +137,10 @@ namespace tnbLib
 	// * * * * * * * * * * * Template Specialisations  * * * * * * * * * * * * * //
 
 	template<>
-	tmp<scalarField > basicSymmetryFvPatchField<scalar>::snGrad() const;
+	FoamFiniteVolume_EXPORT tmp<scalarField > basicSymmetryFvPatchField<scalar>::snGrad() const;
 
 	template<>
-	void basicSymmetryFvPatchField<scalar>::evaluate
+	FoamFiniteVolume_EXPORT void basicSymmetryFvPatchField<scalar>::evaluate
 	(
 		const Pstream::commsTypes commsType
 	);

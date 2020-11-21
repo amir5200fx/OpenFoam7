@@ -65,13 +65,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("genericPatch");
+		//TypeName("genericPatch");
+		static const char* typeName_() { return "genericPatch"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		genericPolyPatch
+		FoamBase_EXPORT genericPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -82,7 +86,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		genericPolyPatch
+		FoamBase_EXPORT genericPolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -92,7 +96,7 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		genericPolyPatch
+		FoamBase_EXPORT genericPolyPatch
 		(
 			const genericPolyPatch&,
 			const polyBoundaryMesh&
@@ -100,7 +104,7 @@ namespace tnbLib
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		genericPolyPatch
+		FoamBase_EXPORT genericPolyPatch
 		(
 			const genericPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -110,7 +114,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		genericPolyPatch
+		FoamBase_EXPORT genericPolyPatch
 		(
 			const genericPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -159,13 +163,13 @@ namespace tnbLib
 
 
 		//- Destructor
-		~genericPolyPatch();
+		FoamBase_EXPORT ~genericPolyPatch();
 
 
 		// Member Functions
 
 			//- Write the polyPatch data as a dictionary
-		virtual void write(Ostream&) const;
+		FoamBase_EXPORT virtual void write(Ostream&) const;
 	};
 
 

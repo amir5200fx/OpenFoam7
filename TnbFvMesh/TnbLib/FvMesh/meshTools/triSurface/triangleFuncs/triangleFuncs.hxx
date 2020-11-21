@@ -75,7 +75,7 @@ namespace tnbLib
 
 			//- Helper function for intersect. Sets pt to be anywhere on the edge
 			//  between oppositeSidePt and thisSidePt depending on both signs.
-		static void setIntersection
+		static FoamFvMesh_EXPORT void setIntersection
 		(
 			const point& oppositeSidePt,
 			const scalar oppositeSign,
@@ -86,7 +86,7 @@ namespace tnbLib
 		);
 
 		//- Helper function.
-		static void selectPt
+		static FoamFvMesh_EXPORT void selectPt
 		(
 			const bool select0,
 			const point& p0,
@@ -99,7 +99,7 @@ namespace tnbLib
 		//- Intersect triangle with parallel edges aligned with axis i0.
 		//  Returns true (and intersection in pInter) if any of them intersects
 		//  triangle. Used in intersectBb.
-		static bool intersectAxesBundle
+		static FoamFvMesh_EXPORT bool intersectAxesBundle
 		(
 			const point& V0,
 			const point& V10,
@@ -111,7 +111,7 @@ namespace tnbLib
 		);
 
 		//- Does triangle intersect bounding box.
-		static bool intersectBb
+		static FoamFvMesh_EXPORT bool intersectBb
 		(
 			const point& p0,
 			const point& p1,
@@ -120,7 +120,7 @@ namespace tnbLib
 		);
 
 		//- Does triangle intersect plane. Return bool and set intersection segment.
-		static bool intersect
+		static FoamFvMesh_EXPORT bool intersect
 		(
 			const point& va0,
 			const point& va10,
@@ -134,7 +134,7 @@ namespace tnbLib
 		);
 
 		//- Do triangles intersect. Return bool and set intersection segment.
-		static bool intersect
+		static FoamFvMesh_EXPORT bool intersect
 		(
 			const point& va0,
 			const point& va10,

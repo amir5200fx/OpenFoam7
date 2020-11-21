@@ -37,6 +37,9 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <Base_Module.hxx>
+#include <FiniteVolume_Module.hxx>
+
 #include <mixedFixedValueSlipFvPatchFields.hxx>
 #include <Switch.hxx>
 

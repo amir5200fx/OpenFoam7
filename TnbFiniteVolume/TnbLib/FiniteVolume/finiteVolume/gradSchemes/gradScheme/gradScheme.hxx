@@ -42,6 +42,16 @@ SourceFiles
 #include <typeInfo.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamGradScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamGradScheme_EXPORT_DEFINE
+#define FoamGradScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamGradScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -85,14 +95,64 @@ namespace tnbLib
 
 			// Declare run-time constructor selection tables
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				tmp,
 				gradScheme,
 				Istream,
 				(const fvMesh& mesh, Istream& schemeData),
 				(mesh, schemeData)
-			);
+			);*/
+
+			typedef tmp<gradScheme> (*IstreamConstructorPtr)(const fvMesh& mesh, Istream& schemeData);
+			typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
+			static FoamGradScheme_EXPORT IstreamConstructorTable* IstreamConstructorTablePtr_;
+			static FoamGradScheme_EXPORT void constructIstreamConstructorTables();
+			static FoamGradScheme_EXPORT void destroyIstreamConstructorTables();
+
+			template <class gradSchemeType>
+			class addIstreamConstructorToTable
+			{
+			public:
+				static tmp<gradScheme> New(const fvMesh& mesh, Istream& schemeData)
+				{
+					return tmp<gradScheme>(new gradSchemeType(mesh, schemeData));
+				}
+
+				addIstreamConstructorToTable(const word& lookup = gradSchemeType::typeName)
+				{
+					constructIstreamConstructorTables();
+					if (!IstreamConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "gradScheme" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
+			};
+
+			template <class gradSchemeType>
+			class addRemovableIstreamConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static tmp<gradScheme> New(const fvMesh& mesh, Istream& schemeData)
+				{
+					return tmp<gradScheme>(new gradSchemeType(mesh, schemeData));
+				}
+
+				addRemovableIstreamConstructorToTable(const word& lookup = gradSchemeType::typeName) : lookup_(lookup)
+				{
+					constructIstreamConstructorTables();
+					IstreamConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovableIstreamConstructorToTable()
+				{
+					if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors

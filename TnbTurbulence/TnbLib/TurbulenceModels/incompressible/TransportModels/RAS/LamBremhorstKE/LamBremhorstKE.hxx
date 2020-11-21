@@ -66,11 +66,11 @@ namespace tnbLib
 			{
 				// Private Member Functions
 
-				tmp<volScalarField> Rt() const;
-				tmp<volScalarField> fMu(const volScalarField& Rt) const;
-				tmp<volScalarField> f1(const volScalarField& fMu) const;
-				tmp<volScalarField> f2(const volScalarField& Rt) const;
-				void correctNut(const volScalarField& fMu);
+				FoamTurbulence_EXPORT tmp<volScalarField> Rt() const;
+				FoamTurbulence_EXPORT tmp<volScalarField> fMu(const volScalarField& Rt) const;
+				FoamTurbulence_EXPORT tmp<volScalarField> f1(const volScalarField& fMu) const;
+				FoamTurbulence_EXPORT tmp<volScalarField> f2(const volScalarField& Rt) const;
+				FoamTurbulence_EXPORT void correctNut(const volScalarField& fMu);
 
 
 			protected:
@@ -93,19 +93,23 @@ namespace tnbLib
 
 				// Protected Member Functions
 
-				virtual void correctNut();
+				FoamTurbulence_EXPORT virtual void correctNut();
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("LamBremhorstKE");
+				//TypeName("LamBremhorstKE");
+				static const char* typeName_() { return "LamBremhorstKE"; }
+				static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+				static FoamTurbulence_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				LamBremhorstKE
+				FoamTurbulence_EXPORT LamBremhorstKE
 				(
 					const geometricOneField& alpha,
 					const geometricOneField& rho,
@@ -118,7 +122,7 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				LamBremhorstKE(const LamBremhorstKE&) = delete;
+				FoamTurbulence_EXPORT LamBremhorstKE(const LamBremhorstKE&) = delete;
 
 
 				//- Destructor
@@ -129,7 +133,7 @@ namespace tnbLib
 				// Member Functions
 
 					//- Read RASProperties dictionary
-				virtual bool read();
+				FoamTurbulence_EXPORT virtual bool read();
 
 				//- Return the effective diffusivity for k
 				tmp<volScalarField> DkEff() const
@@ -164,13 +168,13 @@ namespace tnbLib
 				}
 
 				//- Solve the turbulence equations and correct the turbulence viscosity
-				virtual void correct();
+				FoamTurbulence_EXPORT virtual void correct();
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const LamBremhorstKE&) = delete;
+				FoamTurbulence_EXPORT void operator=(const LamBremhorstKE&) = delete;
 			};
 
 

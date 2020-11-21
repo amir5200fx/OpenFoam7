@@ -68,19 +68,23 @@ namespace tnbLib
 
 			//- Calculate the magnitude of the sqr of the field
 			//  and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("magSqr");
+			//TypeName("magSqr");
+			static const char* typeName_() { return "magSqr"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			magSqr
+			FoamFunctionObjects_EXPORT magSqr
 			(
 				const word& name,
 				const Time& runTime,
@@ -89,7 +93,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~magSqr();
+			FoamFunctionObjects_EXPORT virtual ~magSqr();
 		};
 
 
@@ -101,8 +105,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <magSqrTemplates.cxx>
+//#include <magSqrTemplates.cxx>
 #endif
+
+#include <magSqrTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -63,18 +63,18 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		char nextValid();
+		FoamBase_EXPORT char nextValid();
 
-		void readWordToken(token&);
+		FoamBase_EXPORT void readWordToken(token&);
 
 		// Private Member Functions
 
 
 			//- Read a verbatim string (excluding block delimiters).
-		Istream& readVerbatim(string&);
+		FoamBase_EXPORT Istream& readVerbatim(string&);
 
 		//- Read a variable name (includes '{')
-		Istream& readVariable(string&);
+		FoamBase_EXPORT Istream& readVariable(string&);
 
 
 	public:
@@ -116,7 +116,7 @@ namespace tnbLib
 		}
 
 		//- Return flags of output stream
-		virtual ios_base::fmtflags flags() const;
+		FoamBase_EXPORT virtual ios_base::fmtflags flags() const;
 
 
 		// Read functions
@@ -137,42 +137,42 @@ namespace tnbLib
 		inline ISstream& putback(const char&);
 
 		//- Return next token from stream
-		virtual Istream& read(token&);
+		FoamBase_EXPORT virtual Istream& read(token&);
 
 		//- Read a character
-		virtual Istream& read(char&);
+		FoamBase_EXPORT virtual Istream& read(char&);
 
 		//- Read a word
-		virtual Istream& read(word&);
+		FoamBase_EXPORT virtual Istream& read(word&);
 
 		//- Read a string (including enclosing double-quotes).
 		//  Backslashes are retained, except when escaping double-quotes
 		//  and an embedded newline character.
-		virtual Istream& read(string&);
+		FoamBase_EXPORT virtual Istream& read(string&);
 
 		//- Read a label
-		virtual Istream& read(label&);
+		FoamBase_EXPORT virtual Istream& read(label&);
 
 		//- Read a floatScalar
-		virtual Istream& read(floatScalar&);
+		FoamBase_EXPORT virtual Istream& read(floatScalar&);
 
 		//- Read a doubleScalar
-		virtual Istream& read(doubleScalar&);
+		FoamBase_EXPORT virtual Istream& read(doubleScalar&);
 
 		//- Read a longDoubleScalar
-		virtual Istream& read(longDoubleScalar&);
+		FoamBase_EXPORT virtual Istream& read(longDoubleScalar&);
 
 		//- Read binary block
-		virtual Istream& read(char*, std::streamsize);
+		FoamBase_EXPORT virtual Istream& read(char*, std::streamsize);
 
 		//- Rewind and return the stream so that it may be read again
-		virtual Istream& rewind();
+		FoamBase_EXPORT virtual Istream& rewind();
 
 
 		// Stream state functions
 
 			//- Set flags of output stream
-		virtual ios_base::fmtflags flags(const ios_base::fmtflags flags);
+		FoamBase_EXPORT virtual ios_base::fmtflags flags(const ios_base::fmtflags flags);
 
 
 		// STL stream
@@ -193,13 +193,13 @@ namespace tnbLib
 		// Print
 
 			//- Print description of IOstream to Ostream
-		virtual void print(Ostream&) const;
+		FoamBase_EXPORT virtual void print(Ostream&) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const ISstream&) = delete;
+		FoamBase_EXPORT void operator=(const ISstream&) = delete;
 	};
 
 

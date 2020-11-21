@@ -83,13 +83,13 @@ namespace tnbLib
 		}
 
 		//- Disallow default bitwise copy construction
-		pointBoundaryMeshMapper(const pointBoundaryMeshMapper&) = delete;
+		FoamBase_EXPORT pointBoundaryMeshMapper(const pointBoundaryMeshMapper&) = delete;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const pointBoundaryMeshMapper&) = delete;
+		FoamBase_EXPORT void operator=(const pointBoundaryMeshMapper&) = delete;
 	};
 
 

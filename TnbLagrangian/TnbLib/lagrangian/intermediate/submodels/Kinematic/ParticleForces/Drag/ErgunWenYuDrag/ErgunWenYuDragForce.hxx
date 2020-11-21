@@ -43,6 +43,16 @@ Description
 
 #include <WenYuDragForce.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamErgunWenYuDragForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamErgunWenYuDragForce_EXPORT_DEFINE
+#define FoamErgunWenYuDragForce_EXPORT __declspec(dllexport)
+#else
+#define FoamErgunWenYuDragForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -60,7 +70,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("ErgunWenYuDrag");
+		//TypeName("ErgunWenYuDrag");
+		static const char* typeName_() { return "ErgunWenYuDrag"; }
+		static FoamErgunWenYuDragForce_EXPORT const ::tnbLib::word typeName;
+		static FoamErgunWenYuDragForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

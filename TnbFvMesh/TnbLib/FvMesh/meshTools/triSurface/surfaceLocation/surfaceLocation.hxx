@@ -63,9 +63,9 @@ namespace tnbLib
 
 	class surfaceLocation;
 
-	Istream& operator>>(Istream&, surfaceLocation&);
-	Ostream& operator<<(Ostream&, const surfaceLocation&);
-	Ostream& operator<<(Ostream&, const InfoProxy<surfaceLocation>&);
+	FoamFvMesh_EXPORT Istream& operator>>(Istream&, surfaceLocation&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const surfaceLocation&);
+	FoamFvMesh_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<surfaceLocation>&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -140,7 +140,7 @@ namespace tnbLib
 		}
 
 		//- Normal. Approximate for points.
-		vector normal(const triSurface& s) const;
+		FoamFvMesh_EXPORT vector normal(const triSurface& s) const;
 
 		//- Return info proxy.
 		//  Used to print token information to a stream
@@ -150,16 +150,16 @@ namespace tnbLib
 		}
 
 		//- Write info to os
-		void write(Ostream& os, const triSurface& s) const;
+		FoamFvMesh_EXPORT void write(Ostream& os, const triSurface& s) const;
 
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream& is, surfaceLocation& sl);
+		friend FoamFvMesh_EXPORT Istream& operator>>(Istream& is, surfaceLocation& sl);
 
-		friend Ostream& operator<<(Ostream& os, const surfaceLocation& sl);
+		friend FoamFvMesh_EXPORT Ostream& operator<<(Ostream& os, const surfaceLocation& sl);
 
-		friend Ostream& operator<<
+		friend FoamFvMesh_EXPORT Ostream& operator<<
 			(
 				Ostream&,
 				const InfoProxy<surfaceLocation>&

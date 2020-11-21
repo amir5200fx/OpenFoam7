@@ -130,7 +130,7 @@ namespace tnbLib
 			inotifyMaster
 		};
 
-		static const NamedEnum<fileCheckTypes, 4> fileCheckTypesNames;
+		static FoamBase_EXPORT const NamedEnum<fileCheckTypes, 4> fileCheckTypesNames;
 
 	private:
 
@@ -172,13 +172,17 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Set the object state to bad
-		void setBad(const string&);
+		FoamBase_EXPORT void setBad(const string&);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("IOobject");
+		//TypeName("IOobject");
+		static const char* typeName_() { return "IOobject"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Static Member Functions
@@ -192,7 +196,7 @@ namespace tnbLib
 			//  "foo/bar/"          ERROR - no name
 			//  "foo/xxx/bar"       ("foo", "xxx", "bar")
 			//  "foo/xxx/yyy/bar"   ("foo", "xxx/yyy", "bar")
-		static bool fileNameComponents
+		static FoamBase_EXPORT bool fileNameComponents
 		(
 			const fileName& path,
 			fileName& instance,
@@ -204,19 +208,19 @@ namespace tnbLib
 		static inline word groupName(Name name, const word& group);
 
 		//- Return group (extension part of name)
-		static word group(const word& name);
+		static FoamBase_EXPORT word group(const word& name);
 
 		//- Return member (name without the extension)
-		static word member(const word& name);
+		static FoamBase_EXPORT word member(const word& name);
 
 		//- Type of file modification checking
-		static fileCheckTypes fileModificationChecking;
+		static FoamBase_EXPORT fileCheckTypes fileModificationChecking;
 
 
 		// Constructors
 
 			//- Construct from name, instance, registry, io options
-		IOobject
+		FoamBase_EXPORT IOobject
 		(
 			const word& name,
 			const fileName& instance,
@@ -227,7 +231,7 @@ namespace tnbLib
 		);
 
 		//- Construct from name, instance, local, registry, io options
-		IOobject
+		FoamBase_EXPORT IOobject
 		(
 			const word& name,
 			const fileName& instance,
@@ -240,7 +244,7 @@ namespace tnbLib
 
 		//- Construct from path, registry, io options
 		//  Uses fileNameComponents() to split path into components.
-		IOobject
+		FoamBase_EXPORT IOobject
 		(
 			const fileName& path,
 			const objectRegistry& registry,
@@ -250,21 +254,21 @@ namespace tnbLib
 		);
 
 		//- Construct from copy resetting registry
-		IOobject
+		FoamBase_EXPORT IOobject
 		(
 			const IOobject& io,
 			const objectRegistry& registry
 		);
 
 		//- Construct from copy resetting name
-		IOobject
+		FoamBase_EXPORT IOobject
 		(
 			const IOobject& io,
 			const word& name
 		);
 
 		//- Copy constructor
-		IOobject(const IOobject& io) = default;
+		FoamBase_EXPORT IOobject(const IOobject& io) = default;
 
 		//- Clone
 		autoPtr<IOobject> clone() const
@@ -280,7 +284,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~IOobject();
+		FoamBase_EXPORT virtual ~IOobject();
 
 
 		// Member Functions
@@ -288,10 +292,10 @@ namespace tnbLib
 			// General access
 
 				//- Return time
-		const Time& time() const;
+		FoamBase_EXPORT const Time& time() const;
 
 		//- Return the local objectRegistry
-		const objectRegistry& db() const;
+		FoamBase_EXPORT const objectRegistry& db() const;
 
 		//- Return name
 		const word& name() const
@@ -368,14 +372,14 @@ namespace tnbLib
 		// Path components
 
 			//- Return group (extension part of name)
-		word group() const;
+		FoamBase_EXPORT word group() const;
 
 		//- Return member (name without the extension)
-		word member() const;
+		FoamBase_EXPORT word member() const;
 
-		const fileName& rootPath() const;
+		FoamBase_EXPORT const fileName& rootPath() const;
 
-		const fileName& caseName() const;
+		FoamBase_EXPORT const fileName& caseName() const;
 
 		const fileName& instance() const
 		{
@@ -393,10 +397,10 @@ namespace tnbLib
 		}
 
 		//- Return complete path
-		fileName path() const;
+		FoamBase_EXPORT fileName path() const;
 
 		//- Return complete path with alternative instance and local
-		fileName path
+		FoamBase_EXPORT fileName path
 		(
 			const word& instance,
 			const fileName& local = ""
@@ -409,16 +413,16 @@ namespace tnbLib
 		}
 
 		//- Helper for filePath that searches locally.
-		fileName localFilePath(const word& typeName) const;
+		FoamBase_EXPORT fileName localFilePath(const word& typeName) const;
 
 		//- Helper for filePath that searches up if in parallel
-		fileName globalFilePath(const word& typeName) const;
+		FoamBase_EXPORT fileName globalFilePath(const word& typeName) const;
 
 
 		// Reading
 
 			//- Read header
-		bool readHeader(Istream&);
+		FoamBase_EXPORT bool readHeader(Istream&);
 
 		//- Read header (uses typeFilePath to find file) and check header
 		//  info. Optionally checks headerClassName against type
@@ -445,10 +449,10 @@ namespace tnbLib
 		static inline Stream& writeEndDivider(Stream& os);
 
 		//- Write header
-		bool writeHeader(Ostream&) const;
+		FoamBase_EXPORT bool writeHeader(Ostream&) const;
 
 		//- Write header. Allow override of type
-		bool writeHeader(Ostream&, const word& objectType) const;
+		FoamBase_EXPORT bool writeHeader(Ostream&, const word& objectType) const;
 
 
 		// Error Handling
@@ -476,12 +480,12 @@ namespace tnbLib
 
 		// Member Operators
 
-		void operator=(const IOobject&);
+		FoamBase_EXPORT void operator=(const IOobject&);
 	};
 
 
 	template<>
-	Ostream& operator<<(Ostream& os, const InfoProxy<IOobject>& ip);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const InfoProxy<IOobject>& ip);
 
 
 	//- Template function for obtaining global status

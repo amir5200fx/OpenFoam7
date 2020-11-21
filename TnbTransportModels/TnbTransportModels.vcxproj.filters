@@ -103,6 +103,9 @@
     <Filter Include="TnbLib\transportModels\interfaceProperties\surfaceTensionModels\surfaceTensionModel">
       <UniqueIdentifier>{db534d79-001d-45a3-b299-bd6fceba6c44}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\transportModels\module">
+      <UniqueIdentifier>{5ad71c7c-a8ab-46da-8a68-9379af4bd1e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\transportModels\interfaceProperties\interfaceProperties.hxx">
@@ -179,6 +182,9 @@
     </ClInclude>
     <ClInclude Include="TnbLib\transportModels\incompressible\incompressibleTwoPhaseMixture\incompressibleTwoPhaseMixture.hxx">
       <Filter>TnbLib\transportModels\incompressible\incompressibleTwoPhaseMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\transportModels\module\TransportModels_Module.hxx">
+      <Filter>TnbLib\transportModels\module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

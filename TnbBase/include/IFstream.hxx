@@ -68,11 +68,11 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from pathname
-		IFstreamAllocator(const fileName& pathname);
+		FoamBase_EXPORT IFstreamAllocator(const fileName& pathname);
 
 
 		//- Destructor
-		~IFstreamAllocator();
+		FoamBase_EXPORT ~IFstreamAllocator();
 	};
 
 
@@ -92,13 +92,16 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("IFstream");
+		//ClassName("IFstream");
+		static const char* typeName_() { return "IFstream"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from pathname
-		IFstream
+		FoamBase_EXPORT IFstream
 		(
 			const fileName& pathname,
 			streamFormat format = ASCII,
@@ -107,7 +110,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~IFstream();
+		FoamBase_EXPORT ~IFstream();
 
 
 		// Member Functions
@@ -130,16 +133,16 @@ namespace tnbLib
 		// STL stream
 
 			//- Access to underlying std::istream
-		virtual istream& stdStream();
+		FoamBase_EXPORT virtual istream& stdStream();
 
 		//- Const access to underlying std::istream
-		virtual const istream& stdStream() const;
+		FoamBase_EXPORT virtual const istream& stdStream() const;
 
 
 		// Print
 
 			//- Print description of IOstream to Ostream
-		virtual void print(Ostream&) const;
+		FoamBase_EXPORT virtual void print(Ostream&) const;
 
 
 		// Member Operators
@@ -147,7 +150,7 @@ namespace tnbLib
 			//- Return a non-const reference to const IFstream
 			//  Needed for read-constructors where the stream argument is temporary:
 			//  e.g. thing thisThing(IFstream("thingFileName")());
-		IFstream& operator()() const;
+		FoamBase_EXPORT IFstream& operator()() const;
 	};
 
 

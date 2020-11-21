@@ -144,16 +144,16 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Assemble coarse mesh addressing
-		void agglomerateLduAddressing(const label fineLevelIndex);
+		FoamBase_EXPORT void agglomerateLduAddressing(const label fineLevelIndex);
 
 		//- Combine a level with the previous one
-		void combineLevels(const label curLevel);
+		FoamBase_EXPORT void combineLevels(const label curLevel);
 
 		//- Shrink the number of levels to that specified
-		void compactLevels(const label nCreatedLevels);
+		FoamBase_EXPORT void compactLevels(const label nCreatedLevels);
 
 		//- Check the need for further agglomeration
-		bool continueAgglomerating
+		FoamBase_EXPORT bool continueAgglomerating
 		(
 			const label nCells,
 			const label nCoarseCells
@@ -171,7 +171,7 @@ namespace tnbLib
 			const int tag = Pstream::msgType()
 		);
 
-		void clearLevel(const label leveli);
+		FoamBase_EXPORT void clearLevel(const label leveli);
 
 
 		// Processor agglomeration
@@ -183,7 +183,7 @@ namespace tnbLib
 			//        processor (rank in allMeshComm!). Global information.
 			//    - procIDs       : local information: same for all in
 			//        agglomerated processor.
-		void procAgglomerateLduAddressing
+		FoamBase_EXPORT void procAgglomerateLduAddressing
 		(
 			const label comm,
 			const labelList& procAgglomMap,
@@ -196,7 +196,7 @@ namespace tnbLib
 		//
 		//    - nCells_
 		//    - restrictAddressing_
-		void procAgglomerateRestrictAddressing
+		FoamBase_EXPORT void procAgglomerateRestrictAddressing
 		(
 			const label comm,
 			const labelList& procIDs,
@@ -210,13 +210,17 @@ namespace tnbLib
 		friend class GAMGProcAgglomeration;
 
 		//- Runtime type information
-		TypeName("GAMGAgglomeration");
+		//TypeName("GAMGAgglomeration");
+		static const char* typeName_() { return "GAMGAgglomeration"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
 			//- Runtime selection table for pure geometric agglomerators
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			GAMGAgglomeration,
@@ -229,11 +233,61 @@ namespace tnbLib
 					mesh,
 					controlDict
 					)
-		);
+		);*/
+
+		typedef autoPtr<GAMGAgglomeration> (*lduMeshConstructorPtr)(const lduMesh& mesh, const dictionary& controlDict);
+		typedef HashTable<lduMeshConstructorPtr, word, string::hash> lduMeshConstructorTable;
+		static FoamBase_EXPORT lduMeshConstructorTable* lduMeshConstructorTablePtr_;
+		static FoamBase_EXPORT void constructlduMeshConstructorTables();
+		static FoamBase_EXPORT void destroylduMeshConstructorTables();
+
+		template <class GAMGAgglomerationType>
+		class addlduMeshConstructorToTable
+		{
+		public:
+			static autoPtr<GAMGAgglomeration> New(const lduMesh& mesh, const dictionary& controlDict)
+			{
+				return autoPtr<GAMGAgglomeration>(new GAMGAgglomerationType(mesh, controlDict));
+			}
+
+			addlduMeshConstructorToTable(const word& lookup = GAMGAgglomerationType::typeName)
+			{
+				constructlduMeshConstructorTables();
+				if (!lduMeshConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "GAMGAgglomeration" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addlduMeshConstructorToTable() { destroylduMeshConstructorTables(); }
+		};
+
+		template <class GAMGAgglomerationType>
+		class addRemovablelduMeshConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<GAMGAgglomeration> New(const lduMesh& mesh, const dictionary& controlDict)
+			{
+				return autoPtr<GAMGAgglomeration>(new GAMGAgglomerationType(mesh, controlDict));
+			}
+
+			addRemovablelduMeshConstructorToTable(const word& lookup = GAMGAgglomerationType::typeName) : lookup_(lookup)
+			{
+				constructlduMeshConstructorTables();
+				lduMeshConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablelduMeshConstructorToTable()
+			{
+				if (lduMeshConstructorTablePtr_) { lduMeshConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 		//- Runtime selection table for matrix or mixed geometric/matrix
 		//  agglomerators
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			GAMGAgglomeration,
@@ -246,11 +300,61 @@ namespace tnbLib
 					matrix,
 					controlDict
 					)
-		);
+		);*/
+
+		typedef autoPtr<GAMGAgglomeration> (*lduMatrixConstructorPtr)(const lduMatrix& matrix, const dictionary& controlDict);
+		typedef HashTable<lduMatrixConstructorPtr, word, string::hash> lduMatrixConstructorTable;
+		static FoamBase_EXPORT lduMatrixConstructorTable* lduMatrixConstructorTablePtr_;
+		static FoamBase_EXPORT void constructlduMatrixConstructorTables();
+		static FoamBase_EXPORT void destroylduMatrixConstructorTables();
+
+		template <class GAMGAgglomerationType>
+		class addlduMatrixConstructorToTable
+		{
+		public:
+			static autoPtr<GAMGAgglomeration> New(const lduMatrix& matrix, const dictionary& controlDict)
+			{
+				return autoPtr<GAMGAgglomeration>(new GAMGAgglomerationType(matrix, controlDict));
+			}
+
+			addlduMatrixConstructorToTable(const word& lookup = GAMGAgglomerationType::typeName)
+			{
+				constructlduMatrixConstructorTables();
+				if (!lduMatrixConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "GAMGAgglomeration" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addlduMatrixConstructorToTable() { destroylduMatrixConstructorTables(); }
+		};
+
+		template <class GAMGAgglomerationType>
+		class addRemovablelduMatrixConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<GAMGAgglomeration> New(const lduMatrix& matrix, const dictionary& controlDict)
+			{
+				return autoPtr<GAMGAgglomeration>(new GAMGAgglomerationType(matrix, controlDict));
+			}
+
+			addRemovablelduMatrixConstructorToTable(const word& lookup = GAMGAgglomerationType::typeName) : lookup_(lookup)
+			{
+				constructlduMatrixConstructorTables();
+				lduMatrixConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablelduMatrixConstructorToTable()
+			{
+				if (lduMatrixConstructorTablePtr_) { lduMatrixConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 		//- Runtime selection table for matrix or mixed geometric/matrix
 		//  agglomerators
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			GAMGAgglomeration,
@@ -267,40 +371,94 @@ namespace tnbLib
 					faceAreas,
 					controlDict
 					)
-		);
+		);*/
+
+		typedef autoPtr<GAMGAgglomeration> (*geometryConstructorPtr)(const lduMesh& mesh, const scalarField& cellVolumes,
+		                                                             const vectorField& faceAreas,
+		                                                             const dictionary& controlDict);
+		typedef HashTable<geometryConstructorPtr, word, string::hash> geometryConstructorTable;
+		static FoamBase_EXPORT geometryConstructorTable* geometryConstructorTablePtr_;
+		static FoamBase_EXPORT void constructgeometryConstructorTables();
+		static FoamBase_EXPORT void destroygeometryConstructorTables();
+
+		template <class GAMGAgglomerationType>
+		class addgeometryConstructorToTable
+		{
+		public:
+			static autoPtr<GAMGAgglomeration> New(const lduMesh& mesh, const scalarField& cellVolumes,
+			                                      const vectorField& faceAreas, const dictionary& controlDict)
+			{
+				return autoPtr<GAMGAgglomeration>(new GAMGAgglomerationType(mesh, cellVolumes, faceAreas, controlDict));
+			}
+
+			addgeometryConstructorToTable(const word& lookup = GAMGAgglomerationType::typeName)
+			{
+				constructgeometryConstructorTables();
+				if (!geometryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "GAMGAgglomeration" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addgeometryConstructorToTable() { destroygeometryConstructorTables(); }
+		};
+
+		template <class GAMGAgglomerationType>
+		class addRemovablegeometryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<GAMGAgglomeration> New(const lduMesh& mesh, const scalarField& cellVolumes,
+			                                      const vectorField& faceAreas, const dictionary& controlDict)
+			{
+				return autoPtr<GAMGAgglomeration>(new GAMGAgglomerationType(mesh, cellVolumes, faceAreas, controlDict));
+			}
+
+			addRemovablegeometryConstructorToTable(const word& lookup = GAMGAgglomerationType::typeName) : lookup_(lookup)
+			{
+				constructgeometryConstructorTables();
+				geometryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablegeometryConstructorToTable()
+			{
+				if (geometryConstructorTablePtr_) { geometryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct given mesh and controls
-		GAMGAgglomeration
+		FoamBase_EXPORT GAMGAgglomeration
 		(
 			const lduMesh& mesh,
 			const dictionary& controlDict
 		);
 
 		//- Disallow default bitwise copy construction
-		GAMGAgglomeration(const GAMGAgglomeration&) = delete;
+		FoamBase_EXPORT GAMGAgglomeration(const GAMGAgglomeration&) = delete;
 
 
 		// Selectors
 
 			//- Return the selected geometric agglomerator
-		static const GAMGAgglomeration& New
+		static FoamBase_EXPORT const GAMGAgglomeration& New
 		(
 			const lduMesh& mesh,
 			const dictionary& controlDict
 		);
 
 		//- Return the selected matrix agglomerator
-		static const GAMGAgglomeration& New
+		static FoamBase_EXPORT const GAMGAgglomeration& New
 		(
 			const lduMatrix& matrix,
 			const dictionary& controlDict
 		);
 
 		//- Return the selected geometric agglomerator
-		static autoPtr<GAMGAgglomeration> New
+		static FoamBase_EXPORT autoPtr<GAMGAgglomeration> New
 		(
 			const lduMesh& mesh,
 			const scalarField& cellVolumes,
@@ -310,7 +468,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~GAMGAgglomeration();
+		FoamBase_EXPORT ~GAMGAgglomeration();
 
 
 		// Member Functions
@@ -323,13 +481,13 @@ namespace tnbLib
 		}
 
 		//- Return LDU mesh of given level
-		const lduMesh& meshLevel(const label leveli) const;
+		FoamBase_EXPORT const lduMesh& meshLevel(const label leveli) const;
 
 		//- Do we have mesh for given level?
-		bool hasMeshLevel(const label leveli) const;
+		FoamBase_EXPORT bool hasMeshLevel(const label leveli) const;
 
 		//- Return LDU interface addressing of given level
-		const lduInterfacePtrsList& interfaceLevel
+		FoamBase_EXPORT const lduInterfacePtrsList& interfaceLevel
 		(
 			const label leveli
 		) const;
@@ -430,7 +588,7 @@ namespace tnbLib
 			//        processors)
 			//    - for each coarse processor the set of fine processors
 			//        (element 0 is the master processor)
-		static void calculateRegionMaster
+		static FoamBase_EXPORT void calculateRegionMaster
 		(
 			const label comm,
 			const labelList& procAgglomMap,
@@ -448,35 +606,35 @@ namespace tnbLib
 		//  processors have the same information). Note that level is
 		//  the fine, not the coarse, level index. This is to be
 		//  consistent with the way the restriction is stored
-		const labelList& procAgglomMap(const label fineLeveli) const;
+		FoamBase_EXPORT const labelList& procAgglomMap(const label fineLeveli) const;
 
 		//- Set of processors to agglomerate. Element 0 is the
 		//  master processor. (local, same only on those processors that
 		//  agglomerate)
-		const labelList& agglomProcIDs(const label fineLeveli) const;
+		FoamBase_EXPORT const labelList& agglomProcIDs(const label fineLeveli) const;
 
 		//- Check that level has combined mesh
-		bool hasProcMesh(const label fineLeveli) const;
+		FoamBase_EXPORT bool hasProcMesh(const label fineLeveli) const;
 
 		//- Communicator for current level or -1
-		label procCommunicator(const label fineLeveli) const;
+		FoamBase_EXPORT label procCommunicator(const label fineLeveli) const;
 
 		//- Mapping from processor to procMesh cells
-		const labelList& cellOffsets(const label fineLeveli) const;
+		FoamBase_EXPORT const labelList& cellOffsets(const label fineLeveli) const;
 
 		//- Mapping from processor to procMesh face
-		const labelListList& faceMap(const label fineLeveli) const;
+		FoamBase_EXPORT const labelListList& faceMap(const label fineLeveli) const;
 
 		//- Mapping from processor to procMesh boundary
-		const labelListList& boundaryMap(const label fineLeveli) const;
+		FoamBase_EXPORT const labelListList& boundaryMap(const label fineLeveli) const;
 
 		//- Mapping from processor to procMesh boundary face
-		const labelListListList& boundaryFaceMap(const label fineLeveli)
+		FoamBase_EXPORT const labelListListList& boundaryFaceMap(const label fineLeveli)
 			const;
 
 		//- Given restriction determines if coarse cells are connected.
 		//  Return ok is so, otherwise creates new restriction that is
-		static bool checkRestriction
+		static FoamBase_EXPORT bool checkRestriction
 		(
 			labelList& newRestrict,
 			label& nNewCoarse,
@@ -489,7 +647,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const GAMGAgglomeration&) = delete;
+		FoamBase_EXPORT void operator=(const GAMGAgglomeration&) = delete;
 	};
 
 

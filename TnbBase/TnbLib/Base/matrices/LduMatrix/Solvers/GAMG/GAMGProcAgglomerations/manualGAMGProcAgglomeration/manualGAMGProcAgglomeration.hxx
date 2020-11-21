@@ -91,39 +91,42 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("manual");
-
+		//TypeName("manual");
+		static const char* typeName_() { return "manual"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct given agglomerator and controls
-		manualGAMGProcAgglomeration
+		FoamBase_EXPORT manualGAMGProcAgglomeration
 		(
 			GAMGAgglomeration& agglom,
 			const dictionary& controlDict
 		);
 
 		//- Disallow default bitwise copy construction
-		manualGAMGProcAgglomeration
+		FoamBase_EXPORT manualGAMGProcAgglomeration
 		(
 			const manualGAMGProcAgglomeration&
 		);
 
 
 		//- Destructor
-		virtual ~manualGAMGProcAgglomeration();
+		FoamBase_EXPORT virtual ~manualGAMGProcAgglomeration();
 
 
 		// Member Functions
 
 		   //- Modify agglomeration. Return true if modified
-		virtual bool agglomerate();
+		FoamBase_EXPORT virtual bool agglomerate();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const manualGAMGProcAgglomeration&) = delete;
+		FoamBase_EXPORT void operator=(const manualGAMGProcAgglomeration&) = delete;
 	};
 
 

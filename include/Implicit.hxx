@@ -47,6 +47,16 @@ SourceFiles
 #include <volFields.hxx>  // added by amir
 #include <Switch.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamImplicit_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamImplicit_EXPORT_DEFINE
+#define FoamImplicit_EXPORT __declspec(dllexport)
+#else
+#define FoamImplicit_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -90,7 +100,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("implicit");
+			//TypeName("implicit");
+			static const char* typeName_() { return "implicit"; }
+			static FoamImplicit_EXPORT const ::tnbLib::word typeName;
+			static FoamImplicit_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 

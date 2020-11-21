@@ -61,22 +61,26 @@ namespace tnbLib
 				// Protected member functions
 
 					//- Read control parameters from dictionary
-				virtual bool read();
+				FoamLagrangian_EXPORT virtual bool read();
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("none");
+				//TypeName("none");
+				static const char* typeName_() { return "none"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from type name and mesh
-				noThermo(const word& modelType, const fvMesh& mesh);
+				FoamLagrangian_EXPORT noThermo(const word& modelType, const fvMesh& mesh);
 
 				//- Construct from components and dict
-				noThermo
+				FoamLagrangian_EXPORT noThermo
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -84,11 +88,11 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				noThermo(const noThermo&) = delete;
+				FoamLagrangian_EXPORT noThermo(const noThermo&) = delete;
 
 
 				//- Destructor
-				virtual ~noThermo();
+				FoamLagrangian_EXPORT virtual ~noThermo();
 
 
 				// Member Functions
@@ -97,40 +101,40 @@ namespace tnbLib
 					 // Thermo properties
 
 						//- Return const reference to the solidThermo
-				virtual const solidThermo& thermo() const;
+				FoamLagrangian_EXPORT virtual const solidThermo& thermo() const;
 
 
 				// Fields
 
 					//- Return the film specific heat capacity [J/kg/K]
-				virtual const tmp<volScalarField> Cp() const;
+				FoamLagrangian_EXPORT virtual const tmp<volScalarField> Cp() const;
 
 				//- Return solid absortivity [1/m]
-				virtual const volScalarField& kappaRad() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& kappaRad() const;
 
 				//- Return the film mean temperature [K]
-				virtual const volScalarField& T() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& T() const;
 
 				//- Return density [Kg/m^3]
-				virtual const volScalarField& rho() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& rho() const;
 
 				//- Return thermal conductivity [W/m/K]
-				virtual const volScalarField& kappa() const;
+				FoamLagrangian_EXPORT virtual const volScalarField& kappa() const;
 
 
 				// Evolution
 
 					//- Pre-evolve film
-				virtual void preEvolveRegion();
+				FoamLagrangian_EXPORT virtual void preEvolveRegion();
 
 				//- Evolve the film equations
-				virtual void evolveRegion();
+				FoamLagrangian_EXPORT virtual void evolveRegion();
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const noThermo&) = delete;
+				FoamLagrangian_EXPORT void operator=(const noThermo&) = delete;
 
 			};
 

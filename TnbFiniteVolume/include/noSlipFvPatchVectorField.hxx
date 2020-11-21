@@ -67,20 +67,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("noSlip");
+		/*TypeName("noSlip");*/
+		static const char* typeName_() { return "noSlip"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		noSlipFvPatchVectorField
+		FoamFiniteVolume_EXPORT noSlipFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		noSlipFvPatchVectorField
+		FoamFiniteVolume_EXPORT noSlipFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -89,7 +93,7 @@ namespace tnbLib
 
 		//- Construct by mapping given noSlipFvPatchVectorField
 		//  onto a new patch
-		noSlipFvPatchVectorField
+		FoamFiniteVolume_EXPORT noSlipFvPatchVectorField
 		(
 			const noSlipFvPatchVectorField&,
 			const fvPatch&,
@@ -98,7 +102,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		noSlipFvPatchVectorField
+		FoamFiniteVolume_EXPORT noSlipFvPatchVectorField
 		(
 			const noSlipFvPatchVectorField&
 		);
@@ -113,7 +117,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		noSlipFvPatchVectorField
+		FoamFiniteVolume_EXPORT noSlipFvPatchVectorField
 		(
 			const noSlipFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -134,8 +138,8 @@ namespace tnbLib
 
 		// Member Functions
 
-			//- Write
-		virtual void write(Ostream&) const;
+		//- Write
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

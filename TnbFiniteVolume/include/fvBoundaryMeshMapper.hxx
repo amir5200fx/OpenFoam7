@@ -79,13 +79,13 @@ namespace tnbLib
 		}
 
 		//- Disallow default bitwise copy construction
-		fvBoundaryMeshMapper(const fvBoundaryMeshMapper&) = delete;
+		FoamFiniteVolume_EXPORT fvBoundaryMeshMapper(const fvBoundaryMeshMapper&) = delete;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const fvBoundaryMeshMapper&) = delete;
+		FoamFiniteVolume_EXPORT void operator=(const fvBoundaryMeshMapper&) = delete;
 	};
 
 

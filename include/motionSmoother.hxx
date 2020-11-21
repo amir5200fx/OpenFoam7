@@ -98,13 +98,16 @@ namespace tnbLib
 
 	public:
 
-		ClassName("motionSmoother");
+		//ClassName("motionSmoother");
+		static const char* typeName_() { return "motionSmoother"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct from mesh, patches to work on and smoothing parameters.
 			//  Reads displacement field (only boundary conditions used)
-		motionSmoother
+		FoamDynamicMesh_EXPORT motionSmoother
 		(
 			polyMesh&,
 			pointMesh&,
@@ -115,7 +118,7 @@ namespace tnbLib
 
 		//- Construct from mesh, patches to work on and smoothing parameters and
 		//  displacementfield (only boundary conditions used)
-		motionSmoother
+		FoamDynamicMesh_EXPORT motionSmoother
 		(
 			polyMesh&,
 			indirectPrimitivePatch& pp,         // 'outside' points

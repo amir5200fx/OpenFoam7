@@ -43,6 +43,16 @@ SourceFiles
 #include <typeInfo.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamSnGradScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSnGradScheme_EXPORT_DEFINE
+#define FoamSnGradScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamSnGradScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -78,14 +88,64 @@ namespace tnbLib
 
 			// Declare run-time constructor selection tables
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				tmp,
 				snGradScheme,
 				Mesh,
 				(const fvMesh& mesh, Istream& schemeData),
 				(mesh, schemeData)
-			);
+			);*/
+
+			typedef tmp<snGradScheme> (*MeshConstructorPtr)(const fvMesh& mesh, Istream& schemeData);
+			typedef HashTable<MeshConstructorPtr, word, string::hash> MeshConstructorTable;
+			static FoamSnGradScheme_EXPORT MeshConstructorTable* MeshConstructorTablePtr_;
+			static FoamSnGradScheme_EXPORT void constructMeshConstructorTables();
+			static FoamSnGradScheme_EXPORT void destroyMeshConstructorTables();
+
+			template <class snGradSchemeType>
+			class addMeshConstructorToTable
+			{
+			public:
+				static tmp<snGradScheme> New(const fvMesh& mesh, Istream& schemeData)
+				{
+					return tmp<snGradScheme>(new snGradSchemeType(mesh, schemeData));
+				}
+
+				addMeshConstructorToTable(const word& lookup = snGradSchemeType::typeName)
+				{
+					constructMeshConstructorTables();
+					if (!MeshConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "snGradScheme" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addMeshConstructorToTable() { destroyMeshConstructorTables(); }
+			};
+
+			template <class snGradSchemeType>
+			class addRemovableMeshConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static tmp<snGradScheme> New(const fvMesh& mesh, Istream& schemeData)
+				{
+					return tmp<snGradScheme>(new snGradSchemeType(mesh, schemeData));
+				}
+
+				addRemovableMeshConstructorToTable(const word& lookup = snGradSchemeType::typeName) : lookup_(lookup)
+				{
+					constructMeshConstructorTables();
+					MeshConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovableMeshConstructorToTable()
+				{
+					if (MeshConstructorTablePtr_) { MeshConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors

@@ -1203,7 +1203,7 @@ void tnbLib::mapDistributeBase::compact
 
 // * * * * * * * * * * * * * * * Member Operators  * * * * * * * * * * * * * //
 
-void tnbLib::mapDistributeBase::operator=(const mapDistributeBase& rhs)
+FoamBase_EXPORT void tnbLib::mapDistributeBase::operator=(const mapDistributeBase& rhs)
 {
 	// Check for assignment to self
 	if (this == &rhs)
@@ -1223,7 +1223,7 @@ void tnbLib::mapDistributeBase::operator=(const mapDistributeBase& rhs)
 
 // * * * * * * * * * * * * * * Istream Operator  * * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, mapDistributeBase& map)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, mapDistributeBase& map)
 {
 	is.fatalCheck("operator>>(Istream&, mapDistributeBase&)");
 
@@ -1236,7 +1236,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, mapDistributeBase& map)
 
 // * * * * * * * * * * * * * * Ostream Operator  * * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const mapDistributeBase& map)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const mapDistributeBase& map)
 {
 	os << map.constructSize_ << token::NL
 		<< map.subMap_ << token::NL

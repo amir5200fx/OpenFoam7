@@ -58,7 +58,7 @@ namespace tnbLib
 		label mergeLevels_;
 
 		//- Direction of cell loop for the current level
-		static bool forward_;
+		static FoamBase_EXPORT bool forward_;
 
 
 	protected:
@@ -66,7 +66,7 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Agglomerate all levels starting from the given face weights
-		void agglomerate
+		FoamBase_EXPORT void agglomerate
 		(
 			const lduMesh& mesh,
 			const scalarField& faceWeights
@@ -76,23 +76,27 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pair");
+		//TypeName("pair");
+		static const char* typeName_() { return "pair"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given mesh and controls
-		pairGAMGAgglomeration
+		FoamBase_EXPORT pairGAMGAgglomeration
 		(
 			const lduMesh& mesh,
 			const dictionary& controlDict
 		);
 
 		//- Disallow default bitwise copy construction
-		pairGAMGAgglomeration(const pairGAMGAgglomeration&) = delete;
+		FoamBase_EXPORT pairGAMGAgglomeration(const pairGAMGAgglomeration&) = delete;
 
 		//- Calculate and return agglomeration
-		static tmp<labelField> agglomerate
+		static FoamBase_EXPORT tmp<labelField> agglomerate
 		(
 			label& nCoarseCells,
 			const lduAddressing& fineMatrixAddressing,
@@ -103,7 +107,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const pairGAMGAgglomeration&) = delete;
+		FoamBase_EXPORT void operator=(const pairGAMGAgglomeration&) = delete;
 	};
 
 

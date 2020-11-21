@@ -73,20 +73,24 @@ namespace tnbLib
 
 			//- Is the objectRegistry parent_ different from time_
 			//  Used to terminate searching within the ancestors
-		bool parentNotTime() const;
+		FoamBase_EXPORT bool parentNotTime() const;
 
 
 	public:
 
 		//- Declare type name for this IOobject
-		TypeName("objectRegistry");
+		//TypeName("objectRegistry");
+		static const char* typeName_() { return "objectRegistry"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct the time objectRegistry given an initial estimate
 			//  for the number of entries
-		explicit objectRegistry
+		FoamBase_EXPORT explicit objectRegistry
 		(
 			const Time& db,
 			const label nIoObjects = 128
@@ -94,18 +98,18 @@ namespace tnbLib
 
 		//- Construct a sub-registry given an IObject to describe the registry
 		//  and an initial estimate for the number of entries
-		explicit objectRegistry
+		FoamBase_EXPORT explicit objectRegistry
 		(
 			const IOobject& io,
 			const label nIoObjects = 128
 		);
 
 		//- Disallow default bitwise copy construction
-		objectRegistry(const objectRegistry&);
+		FoamBase_EXPORT objectRegistry(const objectRegistry&);
 
 
 		//- Destructor
-		virtual ~objectRegistry();
+		FoamBase_EXPORT virtual ~objectRegistry();
 
 
 		// Member Functions
@@ -131,16 +135,16 @@ namespace tnbLib
 		}
 
 		//- Return the list of names of the IOobjects
-		wordList names() const;
+		FoamBase_EXPORT wordList names() const;
 
 		//- Return the sorted list of names of the IOobjects
-		wordList sortedNames() const;
+		FoamBase_EXPORT wordList sortedNames() const;
 
 		//- Return the list of names of IOobjects of given class name
-		wordList names(const word& className) const;
+		FoamBase_EXPORT wordList names(const word& className) const;
 
 		//- Return the sorted list of names of IOobjects of given class name
-		wordList sortedNames(const word& className) const;
+		FoamBase_EXPORT wordList sortedNames(const word& className) const;
 
 		//- Return the list of names of the IOobjects of given type
 		template<class Type>
@@ -156,7 +160,7 @@ namespace tnbLib
 
 		//- Lookup and return a const sub-objectRegistry. Optionally create
 		//  it if it does not exist.
-		const objectRegistry& subRegistry
+		FoamBase_EXPORT const objectRegistry& subRegistry
 		(
 			const word& name,
 			const bool forceCreate = false
@@ -183,34 +187,34 @@ namespace tnbLib
 		Type& lookupObjectRef(const word& name) const;
 
 		//- Return new event number.
-		label getEvent() const;
+		FoamBase_EXPORT label getEvent() const;
 
 
 		// Edit
 
 			//- Rename
-		virtual void rename(const word& newName);
+		FoamBase_EXPORT virtual void rename(const word& newName);
 
 		//- Add an regIOobject to registry
-		bool checkIn(regIOobject&) const;
+		FoamBase_EXPORT bool checkIn(regIOobject&) const;
 
 		//- Remove an regIOobject from registry
-		bool checkOut(regIOobject&) const;
+		FoamBase_EXPORT bool checkOut(regIOobject&) const;
 
 		//- Remove all regIOobject owned by the registry
-		void clear();
+		FoamBase_EXPORT void clear();
 
 
 		// Reading
 
 			//- Return true if any of the object's files have been modified
-		virtual bool modified() const;
+		FoamBase_EXPORT virtual bool modified() const;
 
 		//- Read the objects that have been modified
-		void readModifiedObjects();
+		FoamBase_EXPORT void readModifiedObjects();
 
 		//- Read object if modified
-		virtual bool readIfModified();
+		FoamBase_EXPORT virtual bool readIfModified();
 
 
 		// Writing
@@ -225,7 +229,7 @@ namespace tnbLib
 		}
 
 		//- Write the objects
-		virtual bool writeObject
+		FoamBase_EXPORT virtual bool writeObject
 		(
 			IOstream::streamFormat fmt,
 			IOstream::versionNumber ver,
@@ -237,7 +241,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const objectRegistry&) = delete;
+		FoamBase_EXPORT void operator=(const objectRegistry&) = delete;
 	};
 
 

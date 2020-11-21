@@ -64,13 +64,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("DILUGaussSeidel");
+		//TypeName("DILUGaussSeidel");
+		static const char* typeName_() { return "DILUGaussSeidel"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from matrix components
-		DILUGaussSeidelSmoother
+		FoamBase_EXPORT DILUGaussSeidelSmoother
 		(
 			const word& fieldName,
 			const lduMatrix& matrix,
@@ -83,7 +87,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Smooth the solution for a given number of sweeps
-		virtual void smooth
+		FoamBase_EXPORT virtual void smooth
 		(
 			scalarField& psi,
 			const scalarField& Source,

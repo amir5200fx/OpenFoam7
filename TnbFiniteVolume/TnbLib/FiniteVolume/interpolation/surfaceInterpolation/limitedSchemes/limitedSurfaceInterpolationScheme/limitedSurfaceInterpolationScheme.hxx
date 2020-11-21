@@ -40,6 +40,16 @@ SourceFiles
 
 #include <fvMesh.hxx>  // added by amir
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamLimitedSurfaceInterpolationScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLimitedSurfaceInterpolationScheme_EXPORT_DEFINE
+#define FoamLimitedSurfaceInterpolationScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamLimitedSurfaceInterpolationScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -65,12 +75,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("limitedSurfaceInterpolationScheme");
+		/*TypeName("limitedSurfaceInterpolationScheme");*/
+		static const char* typeName_() { return "limitedSurfaceInterpolationScheme"; }
+		static FoamLimitedSurfaceInterpolationScheme_EXPORT const ::tnbLib::word typeName;
+		static FoamLimitedSurfaceInterpolationScheme_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			tmp,
 			limitedSurfaceInterpolationScheme,
@@ -93,7 +107,113 @@ namespace tnbLib
 				Istream& schemeData
 				),
 				(mesh, faceFlux, schemeData)
-		);
+		);*/
+
+		typedef tmp<limitedSurfaceInterpolationScheme> (*MeshConstructorPtr)(const fvMesh& mesh, Istream& schemeData);
+		typedef HashTable<MeshConstructorPtr, word, string::hash> MeshConstructorTable;
+		static FoamLimitedSurfaceInterpolationScheme_EXPORT MeshConstructorTable* MeshConstructorTablePtr_;
+		static FoamLimitedSurfaceInterpolationScheme_EXPORT void constructMeshConstructorTables();
+		static FoamLimitedSurfaceInterpolationScheme_EXPORT void destroyMeshConstructorTables();
+
+		template <class limitedSurfaceInterpolationSchemeType>
+		class addMeshConstructorToTable
+		{
+		public:
+			static tmp<limitedSurfaceInterpolationScheme> New(const fvMesh& mesh, Istream& schemeData)
+			{
+				return tmp<limitedSurfaceInterpolationScheme>(new limitedSurfaceInterpolationSchemeType(mesh, schemeData));
+			}
+
+			addMeshConstructorToTable(const word& lookup = limitedSurfaceInterpolationSchemeType::typeName)
+			{
+				constructMeshConstructorTables();
+				if (!MeshConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "limitedSurfaceInterpolationScheme"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addMeshConstructorToTable() { destroyMeshConstructorTables(); }
+		};
+
+		template <class limitedSurfaceInterpolationSchemeType>
+		class addRemovableMeshConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static tmp<limitedSurfaceInterpolationScheme> New(const fvMesh& mesh, Istream& schemeData)
+			{
+				return tmp<limitedSurfaceInterpolationScheme>(new limitedSurfaceInterpolationSchemeType(mesh, schemeData));
+			}
+
+			addRemovableMeshConstructorToTable(const word& lookup = limitedSurfaceInterpolationSchemeType::typeName) : lookup_(
+				lookup)
+			{
+				constructMeshConstructorTables();
+				MeshConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableMeshConstructorToTable() { if (MeshConstructorTablePtr_) { MeshConstructorTablePtr_->erase(lookup_); } }
+		};;
+
+		typedef tmp<limitedSurfaceInterpolationScheme> (*MeshFluxConstructorPtr)(
+			const fvMesh& mesh, const surfaceScalarField& faceFlux, Istream& schemeData);
+		typedef HashTable<MeshFluxConstructorPtr, word, string::hash> MeshFluxConstructorTable;
+		static FoamLimitedSurfaceInterpolationScheme_EXPORT MeshFluxConstructorTable* MeshFluxConstructorTablePtr_;
+		static FoamLimitedSurfaceInterpolationScheme_EXPORT void constructMeshFluxConstructorTables();
+		static FoamLimitedSurfaceInterpolationScheme_EXPORT void destroyMeshFluxConstructorTables();
+
+		template <class limitedSurfaceInterpolationSchemeType>
+		class addMeshFluxConstructorToTable
+		{
+		public:
+			static tmp<limitedSurfaceInterpolationScheme>
+			New(const fvMesh& mesh, const surfaceScalarField& faceFlux, Istream& schemeData)
+			{
+				return tmp<limitedSurfaceInterpolationScheme
+				>(new limitedSurfaceInterpolationSchemeType(mesh, faceFlux, schemeData));
+			}
+
+			addMeshFluxConstructorToTable(const word& lookup = limitedSurfaceInterpolationSchemeType::typeName)
+			{
+				constructMeshFluxConstructorTables();
+				if (!MeshFluxConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "limitedSurfaceInterpolationScheme"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addMeshFluxConstructorToTable() { destroyMeshFluxConstructorTables(); }
+		};
+
+		template <class limitedSurfaceInterpolationSchemeType>
+		class addRemovableMeshFluxConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static tmp<limitedSurfaceInterpolationScheme>
+			New(const fvMesh& mesh, const surfaceScalarField& faceFlux, Istream& schemeData)
+			{
+				return tmp<limitedSurfaceInterpolationScheme
+				>(new limitedSurfaceInterpolationSchemeType(mesh, faceFlux, schemeData));
+			}
+
+			addRemovableMeshFluxConstructorToTable(
+				const word& lookup = limitedSurfaceInterpolationSchemeType::typeName) : lookup_(lookup)
+			{
+				constructMeshFluxConstructorTables();
+				MeshFluxConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableMeshFluxConstructorToTable()
+			{
+				if (MeshFluxConstructorTablePtr_) { MeshFluxConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

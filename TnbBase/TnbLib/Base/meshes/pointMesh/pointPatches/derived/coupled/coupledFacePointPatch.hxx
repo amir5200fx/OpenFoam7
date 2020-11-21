@@ -65,10 +65,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Disallow default bitwise copy construction
-		coupledFacePointPatch(const coupledFacePointPatch&);
+		FoamBase_EXPORT coupledFacePointPatch(const coupledFacePointPatch&);
 
 		//- Disallow default bitwise assignment
-		void operator=(const coupledFacePointPatch&);
+		FoamBase_EXPORT void operator=(const coupledFacePointPatch&);
 
 
 	protected:
@@ -76,19 +76,23 @@ namespace tnbLib
 		// Construction of demand-driven data
 
 			//- Calculate mesh points
-		virtual void calcGeometry(PstreamBuffers&) = 0;
+		FoamBase_EXPORT virtual void calcGeometry(PstreamBuffers&) = 0;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName(coupledPolyPatch::typeName_());
+		//TypeName(coupledPolyPatch::typeName_());
+		static const char* typeName_() { return coupledPolyPatch::typeName_(); }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		coupledFacePointPatch
+		FoamBase_EXPORT coupledFacePointPatch
 		(
 			const polyPatch& patch,
 			const pointBoundaryMesh& bm
@@ -96,7 +100,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~coupledFacePointPatch();
+		FoamBase_EXPORT virtual ~coupledFacePointPatch();
 	};
 
 

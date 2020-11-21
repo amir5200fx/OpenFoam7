@@ -45,6 +45,16 @@ SourceFiles
 
 #include <ddtScheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamBoundedDdtScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamBoundedDdtScheme_EXPORT_DEFINE
+#define FoamBoundedDdtScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamBoundedDdtScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -72,7 +82,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("bounded");
+			/*TypeName("bounded");*/
+			static const char* typeName_() { return "bounded"; }
+			static FoamBoundedDdtScheme_EXPORT const ::tnbLib::word typeName;
+			static FoamBoundedDdtScheme_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

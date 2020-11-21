@@ -61,26 +61,26 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		regionProperties(const Time& runTime);
+		FoamLagrangian_EXPORT regionProperties(const Time& runTime);
 
 		//- Disallow default bitwise copy construction
-		regionProperties(const regionProperties&) = delete;
+		FoamLagrangian_EXPORT regionProperties(const regionProperties&) = delete;
 
 
 		//- Destructor
-		~regionProperties();
+		FoamLagrangian_EXPORT ~regionProperties();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const regionProperties&) = delete;
+		FoamLagrangian_EXPORT void operator=(const regionProperties&) = delete;
 	};
 
 
-	const word& regionDir(const word& regionName);
+	FoamLagrangian_EXPORT const word& regionDir(const word& regionName);
 
-	wordList selectRegionNames(const argList& args, const Time& runTime);
+	FoamLagrangian_EXPORT wordList selectRegionNames(const argList& args, const Time& runTime);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

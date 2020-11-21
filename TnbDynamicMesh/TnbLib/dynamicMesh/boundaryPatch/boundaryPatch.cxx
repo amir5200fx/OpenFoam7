@@ -65,7 +65,7 @@ void tnbLib::boundaryPatch::write(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const boundaryPatch& p)
+FoamDynamicMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const boundaryPatch& p)
 {
 	p.write(os);
 	os.check("Ostream& operator<<(Ostream& f, const boundaryPatch&)");

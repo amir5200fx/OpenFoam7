@@ -47,7 +47,7 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 
 	class cell;
-	bool operator==(const cell&, const cell&);
+	FoamBase_EXPORT bool operator==(const cell&, const cell&);
 	inline bool operator!=(const cell&, const cell&);
 
 
@@ -91,23 +91,23 @@ namespace tnbLib
 		inline label nFaces() const;
 
 		//- Return labels of cell vertices
-		labelList labels(const faceUList&) const;
+		FoamBase_EXPORT labelList labels(const faceUList&) const;
 
 		//- Return the cell vertices
-		pointField points(const faceUList&, const pointField&) const;
+		FoamBase_EXPORT pointField points(const faceUList&, const pointField&) const;
 
 		//- Return cell edges
-		edgeList edges(const faceUList&) const;
+		FoamBase_EXPORT edgeList edges(const faceUList&) const;
 
 		//- Return index of opposite face
-		label opposingFaceLabel
+		FoamBase_EXPORT label opposingFaceLabel
 		(
 			const label masterFaceLabel,
 			const faceUList& meshFaces
 		) const;
 
 		//- Return opposite face oriented the same way as the master face
-		oppositeFace opposingFace
+		FoamBase_EXPORT oppositeFace opposingFace
 		(
 			const label masterFaceLabel,
 			const faceUList& meshFaces
@@ -123,10 +123,10 @@ namespace tnbLib
 		// future.
 
 		//- Returns cell centre
-		point centre(const pointField&, const faceUList&) const;
+		FoamBase_EXPORT point centre(const pointField&, const faceUList&) const;
 
 		//- Returns cell volume
-		scalar mag(const pointField&, const faceUList&) const;
+		FoamBase_EXPORT scalar mag(const pointField&, const faceUList&) const;
 
 
 		// Member Operators
@@ -137,7 +137,7 @@ namespace tnbLib
 
 		// Friend Operators
 
-		friend bool operator==(const cell&, const cell&);
+		friend FoamBase_EXPORT bool operator==(const cell&, const cell&);
 		friend bool operator!=(const cell&, const cell&);
 	};
 

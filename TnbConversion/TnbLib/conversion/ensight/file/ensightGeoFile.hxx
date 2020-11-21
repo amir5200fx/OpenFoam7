@@ -53,31 +53,31 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from pathname
-		ensightGeoFile
+		FoamConversion_EXPORT ensightGeoFile
 		(
 			const fileName& pathname,
 			IOstream::streamFormat format = IOstream::BINARY
 		);
 
 		//- Disallow default bitwise copy construction
-		ensightGeoFile(const ensightGeoFile&);
+		FoamConversion_EXPORT ensightGeoFile(const ensightGeoFile&);
 
 
 
 		//- Destructor
-		~ensightGeoFile();
+		FoamConversion_EXPORT ~ensightGeoFile();
 
 
 		// Output
 
 			//- Write keyword with trailing newline
-		virtual Ostream& writeKeyword(const string& key);
+		FoamConversion_EXPORT virtual Ostream& writeKeyword(const string& key);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const ensightGeoFile&) = delete;
+		FoamConversion_EXPORT void operator=(const ensightGeoFile&) = delete;
 	};
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

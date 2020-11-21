@@ -1,3 +1,6 @@
+#define FoamCloud_EXPORT_DEFINE
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+
 #include <streamLineParticleCloud.hxx>
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //

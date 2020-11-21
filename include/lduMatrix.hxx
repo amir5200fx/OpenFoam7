@@ -72,8 +72,8 @@ namespace tnbLib
 
 	class lduMatrix;
 
-	Ostream& operator<<(Ostream&, const lduMatrix&);
-	Ostream& operator<<(Ostream&, const InfoProxy<lduMatrix>&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const lduMatrix&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<lduMatrix>&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -110,7 +110,7 @@ namespace tnbLib
 			dictionary controlDict_;
 
 			//- Default maximum number of iterations in the solver
-			static const label defaultMaxIter_;
+			static FoamBase_EXPORT const label defaultMaxIter_;
 
 			//- Maximum number of iterations in the solver
 			label maxIter_;
@@ -128,18 +128,18 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Read the control parameters from the controlDict_
-			virtual void readControls();
+			FoamBase_EXPORT virtual void readControls();
 
 
 		public:
 
 			//- Runtime type information
-			virtual const word& type() const = 0;
+			FoamBase_EXPORT virtual const word& type() const = 0;
 
 
 			// Declare run-time constructor selection tables
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				solver,
@@ -160,9 +160,71 @@ namespace tnbLib
 						interfaces,
 						solverControls
 						)
-			);
+			);*/
 
-			declareRunTimeSelectionTable
+			typedef autoPtr<solver>(*symMatrixConstructorPtr)(const word& fieldName, const lduMatrix& matrix,
+				const FieldField<Field, scalar>& interfaceBouCoeffs,
+				const FieldField<Field, scalar>& interfaceIntCoeffs,
+				const lduInterfaceFieldPtrsList& interfaces,
+				const dictionary& solverControls);
+			typedef HashTable<symMatrixConstructorPtr, word, string::hash> symMatrixConstructorTable;
+			static FoamBase_EXPORT symMatrixConstructorTable* symMatrixConstructorTablePtr_;
+			static FoamBase_EXPORT void constructsymMatrixConstructorTables();
+			static FoamBase_EXPORT void destroysymMatrixConstructorTables();
+
+			template <class solverType>
+			class addsymMatrixConstructorToTable
+			{
+			public:
+				static autoPtr<solver> New(const word& fieldName, const lduMatrix& matrix,
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces, const dictionary& solverControls)
+				{
+					return autoPtr<solver>(new solverType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces,
+						solverControls));
+				}
+
+				addsymMatrixConstructorToTable(const word& lookup = solverType::typeName)
+				{
+					constructsymMatrixConstructorTables();
+					if (!symMatrixConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "solver" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addsymMatrixConstructorToTable() { destroysymMatrixConstructorTables(); }
+			};
+
+			template <class solverType>
+			class addRemovablesymMatrixConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<solver> New(const word& fieldName, const lduMatrix& matrix,
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces, const dictionary& solverControls)
+				{
+					return autoPtr<solver>(new solverType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces,
+						solverControls));
+				}
+
+				addRemovablesymMatrixConstructorToTable(const word& lookup = solverType::typeName) : lookup_(lookup)
+				{
+					constructsymMatrixConstructorTables();
+					symMatrixConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovablesymMatrixConstructorToTable()
+				{
+					if (symMatrixConstructorTablePtr_) { symMatrixConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
+
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				solver,
@@ -183,12 +245,74 @@ namespace tnbLib
 						interfaces,
 						solverControls
 						)
-			);
+			);*/
+
+			typedef autoPtr<solver>(*asymMatrixConstructorPtr)(const word& fieldName, const lduMatrix& matrix,
+				const FieldField<Field, scalar>& interfaceBouCoeffs,
+				const FieldField<Field, scalar>& interfaceIntCoeffs,
+				const lduInterfaceFieldPtrsList& interfaces,
+				const dictionary& solverControls);
+			typedef HashTable<asymMatrixConstructorPtr, word, string::hash> asymMatrixConstructorTable;
+			static FoamBase_EXPORT asymMatrixConstructorTable* asymMatrixConstructorTablePtr_;
+			static FoamBase_EXPORT void constructasymMatrixConstructorTables();
+			static FoamBase_EXPORT void destroyasymMatrixConstructorTables();
+
+			template <class solverType>
+			class addasymMatrixConstructorToTable
+			{
+			public:
+				static autoPtr<solver> New(const word& fieldName, const lduMatrix& matrix,
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces, const dictionary& solverControls)
+				{
+					return autoPtr<solver>(new solverType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces,
+						solverControls));
+				}
+
+				addasymMatrixConstructorToTable(const word& lookup = solverType::typeName)
+				{
+					constructasymMatrixConstructorTables();
+					if (!asymMatrixConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "solver" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addasymMatrixConstructorToTable() { destroyasymMatrixConstructorTables(); }
+			};
+
+			template <class solverType>
+			class addRemovableasymMatrixConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<solver> New(const word& fieldName, const lduMatrix& matrix,
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces, const dictionary& solverControls)
+				{
+					return autoPtr<solver>(new solverType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces,
+						solverControls));
+				}
+
+				addRemovableasymMatrixConstructorToTable(const word& lookup = solverType::typeName) : lookup_(lookup)
+				{
+					constructasymMatrixConstructorTables();
+					asymMatrixConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovableasymMatrixConstructorToTable()
+				{
+					if (asymMatrixConstructorTablePtr_) { asymMatrixConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors
 
-			solver
+			FoamBase_EXPORT solver
 			(
 				const word& fieldName,
 				const lduMatrix& matrix,
@@ -201,7 +325,7 @@ namespace tnbLib
 			// Selectors
 
 				//- Return a new solver
-			static autoPtr<solver> New
+			static FoamBase_EXPORT autoPtr<solver> New
 			(
 				const word& fieldName,
 				const lduMatrix& matrix,
@@ -249,9 +373,9 @@ namespace tnbLib
 
 
 			//- Read and reset the solver parameters from the given stream
-			virtual void read(const dictionary&);
+			FoamBase_EXPORT virtual void read(const dictionary&);
 
-			virtual solverPerformance solve
+			FoamBase_EXPORT virtual solverPerformance solve
 			(
 				scalarField& psi,
 				const scalarField& source,
@@ -260,7 +384,7 @@ namespace tnbLib
 
 			//- Return the matrix norm used to normalise the residual for the
 			//  stopping criterion
-			scalar normFactor
+			FoamBase_EXPORT scalar normFactor
 			(
 				const scalarField& psi,
 				const scalarField& source,
@@ -287,15 +411,15 @@ namespace tnbLib
 		public:
 
 			//- Find the smoother name (directly or from a sub-dictionary)
-			static word getName(const dictionary&);
+			static FoamBase_EXPORT word getName(const dictionary&);
 
 			//- Runtime type information
-			virtual const word& type() const = 0;
+			FoamBase_EXPORT virtual const word& type() const = 0;
 
 
 			// Declare run-time constructor selection tables
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				smoother,
@@ -314,9 +438,68 @@ namespace tnbLib
 						interfaceIntCoeffs,
 						interfaces
 						)
-			);
+			);*/
 
-			declareRunTimeSelectionTable
+			typedef autoPtr<smoother>(*symMatrixConstructorPtr)(const word& fieldName, const lduMatrix& matrix,
+				const FieldField<Field, scalar>& interfaceBouCoeffs,
+				const FieldField<Field, scalar>& interfaceIntCoeffs,
+				const lduInterfaceFieldPtrsList& interfaces);
+			typedef HashTable<symMatrixConstructorPtr, word, string::hash> symMatrixConstructorTable;
+			static FoamBase_EXPORT symMatrixConstructorTable* symMatrixConstructorTablePtr_;
+			static FoamBase_EXPORT void constructsymMatrixConstructorTables();
+			static FoamBase_EXPORT void destroysymMatrixConstructorTables();
+
+			template <class smootherType>
+			class addsymMatrixConstructorToTable
+			{
+			public:
+				static autoPtr<smoother> New(const word& fieldName, const lduMatrix& matrix,
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces)
+				{
+					return autoPtr<smoother>(new smootherType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces));
+				}
+
+				addsymMatrixConstructorToTable(const word& lookup = smootherType::typeName)
+				{
+					constructsymMatrixConstructorTables();
+					if (!symMatrixConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "smoother" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addsymMatrixConstructorToTable() { destroysymMatrixConstructorTables(); }
+			};
+
+			template <class smootherType>
+			class addRemovablesymMatrixConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<smoother> New(const word& fieldName, const lduMatrix& matrix,
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces)
+				{
+					return autoPtr<smoother>(new smootherType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces));
+				}
+
+				addRemovablesymMatrixConstructorToTable(const word& lookup = smootherType::typeName) : lookup_(lookup)
+				{
+					constructsymMatrixConstructorTables();
+					symMatrixConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovablesymMatrixConstructorToTable()
+				{
+					if (symMatrixConstructorTablePtr_) { symMatrixConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
+
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				smoother,
@@ -335,12 +518,71 @@ namespace tnbLib
 						interfaceIntCoeffs,
 						interfaces
 						)
-			);
+			);*/
+
+			typedef autoPtr<smoother>(*asymMatrixConstructorPtr)(const word& fieldName, const lduMatrix& matrix,
+				const FieldField<Field, scalar>& interfaceBouCoeffs,
+				const FieldField<Field, scalar>& interfaceIntCoeffs,
+				const lduInterfaceFieldPtrsList& interfaces);
+			typedef HashTable<asymMatrixConstructorPtr, word, string::hash> asymMatrixConstructorTable;
+			static FoamBase_EXPORT asymMatrixConstructorTable* asymMatrixConstructorTablePtr_;
+			static FoamBase_EXPORT void constructasymMatrixConstructorTables();
+			static FoamBase_EXPORT void destroyasymMatrixConstructorTables();
+
+			template <class smootherType>
+			class addasymMatrixConstructorToTable
+			{
+			public:
+				static autoPtr<smoother> New(const word& fieldName, const lduMatrix& matrix,
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces)
+				{
+					return autoPtr<smoother>(new smootherType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces));
+				}
+
+				addasymMatrixConstructorToTable(const word& lookup = smootherType::typeName)
+				{
+					constructasymMatrixConstructorTables();
+					if (!asymMatrixConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "smoother" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addasymMatrixConstructorToTable() { destroyasymMatrixConstructorTables(); }
+			};
+
+			template <class smootherType>
+			class addRemovableasymMatrixConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<smoother> New(const word& fieldName, const lduMatrix& matrix,
+					const FieldField<Field, scalar>& interfaceBouCoeffs,
+					const FieldField<Field, scalar>& interfaceIntCoeffs,
+					const lduInterfaceFieldPtrsList& interfaces)
+				{
+					return autoPtr<smoother>(new smootherType(fieldName, matrix, interfaceBouCoeffs, interfaceIntCoeffs, interfaces));
+				}
+
+				addRemovableasymMatrixConstructorToTable(const word& lookup = smootherType::typeName) : lookup_(lookup)
+				{
+					constructasymMatrixConstructorTables();
+					asymMatrixConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovableasymMatrixConstructorToTable()
+				{
+					if (asymMatrixConstructorTablePtr_) { asymMatrixConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors
 
-			smoother
+			FoamBase_EXPORT smoother
 			(
 				const word& fieldName,
 				const lduMatrix& matrix,
@@ -353,7 +595,7 @@ namespace tnbLib
 			// Selectors
 
 				//- Return a new smoother
-			static autoPtr<smoother> New
+			static FoamBase_EXPORT autoPtr<smoother> New
 			(
 				const word& fieldName,
 				const lduMatrix& matrix,
@@ -400,7 +642,7 @@ namespace tnbLib
 
 
 			//- Smooth the solution for a given number of sweeps
-			virtual void smooth
+			FoamBase_EXPORT virtual void smooth
 			(
 				scalarField& psi,
 				const scalarField& source,
@@ -424,15 +666,15 @@ namespace tnbLib
 		public:
 
 			//- Find the preconditioner name (directly or from a sub-dictionary)
-			static word getName(const dictionary&);
+			static FoamBase_EXPORT word getName(const dictionary&);
 
 			//- Runtime type information
-			virtual const word& type() const = 0;
+			FoamBase_EXPORT virtual const word& type() const = 0;
 
 
 			// Declare run-time constructor selection tables
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				preconditioner,
@@ -442,9 +684,59 @@ namespace tnbLib
 					const dictionary& solverControls
 					),
 					(sol, solverControls)
-			);
+			);*/
 
-			declareRunTimeSelectionTable
+			typedef autoPtr<preconditioner>(*symMatrixConstructorPtr)(const solver& sol, const dictionary& solverControls);
+			typedef HashTable<symMatrixConstructorPtr, word, string::hash> symMatrixConstructorTable;
+			static FoamBase_EXPORT symMatrixConstructorTable* symMatrixConstructorTablePtr_;
+			static FoamBase_EXPORT void constructsymMatrixConstructorTables();
+			static FoamBase_EXPORT void destroysymMatrixConstructorTables();
+
+			template <class preconditionerType>
+			class addsymMatrixConstructorToTable
+			{
+			public:
+				static autoPtr<preconditioner> New(const solver& sol, const dictionary& solverControls)
+				{
+					return autoPtr<preconditioner>(new preconditionerType(sol, solverControls));
+				}
+
+				addsymMatrixConstructorToTable(const word& lookup = preconditionerType::typeName)
+				{
+					constructsymMatrixConstructorTables();
+					if (!symMatrixConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "preconditioner" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addsymMatrixConstructorToTable() { destroysymMatrixConstructorTables(); }
+			};
+
+			template <class preconditionerType>
+			class addRemovablesymMatrixConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<preconditioner> New(const solver& sol, const dictionary& solverControls)
+				{
+					return autoPtr<preconditioner>(new preconditionerType(sol, solverControls));
+				}
+
+				addRemovablesymMatrixConstructorToTable(const word& lookup = preconditionerType::typeName) : lookup_(lookup)
+				{
+					constructsymMatrixConstructorTables();
+					symMatrixConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovablesymMatrixConstructorToTable()
+				{
+					if (symMatrixConstructorTablePtr_) { symMatrixConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
+
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				preconditioner,
@@ -454,7 +746,57 @@ namespace tnbLib
 					const dictionary& solverControls
 					),
 					(sol, solverControls)
-			);
+			);*/
+
+			typedef autoPtr<preconditioner>(*asymMatrixConstructorPtr)(const solver& sol, const dictionary& solverControls);
+			typedef HashTable<asymMatrixConstructorPtr, word, string::hash> asymMatrixConstructorTable;
+			static FoamBase_EXPORT asymMatrixConstructorTable* asymMatrixConstructorTablePtr_;
+			static FoamBase_EXPORT void constructasymMatrixConstructorTables();
+			static FoamBase_EXPORT void destroyasymMatrixConstructorTables();
+
+			template <class preconditionerType>
+			class addasymMatrixConstructorToTable
+			{
+			public:
+				static autoPtr<preconditioner> New(const solver& sol, const dictionary& solverControls)
+				{
+					return autoPtr<preconditioner>(new preconditionerType(sol, solverControls));
+				}
+
+				addasymMatrixConstructorToTable(const word& lookup = preconditionerType::typeName)
+				{
+					constructasymMatrixConstructorTables();
+					if (!asymMatrixConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "preconditioner" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addasymMatrixConstructorToTable() { destroyasymMatrixConstructorTables(); }
+			};
+
+			template <class preconditionerType>
+			class addRemovableasymMatrixConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<preconditioner> New(const solver& sol, const dictionary& solverControls)
+				{
+					return autoPtr<preconditioner>(new preconditionerType(sol, solverControls));
+				}
+
+				addRemovableasymMatrixConstructorToTable(const word& lookup = preconditionerType::typeName) : lookup_(lookup)
+				{
+					constructasymMatrixConstructorTables();
+					asymMatrixConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovableasymMatrixConstructorToTable()
+				{
+					if (asymMatrixConstructorTablePtr_) { asymMatrixConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors
@@ -471,7 +813,7 @@ namespace tnbLib
 			// Selectors
 
 				//- Return a new preconditioner
-			static autoPtr<preconditioner> New
+			static FoamBase_EXPORT autoPtr<preconditioner> New
 			(
 				const solver& sol,
 				const dictionary& solverControls
@@ -491,7 +833,7 @@ namespace tnbLib
 			{}
 
 			//- Return wA the preconditioned form of residual rA
-			virtual void precondition
+			FoamBase_EXPORT virtual void precondition
 			(
 				scalarField& wA,
 				const scalarField& rA,
@@ -516,28 +858,31 @@ namespace tnbLib
 		// Static data
 
 			// Declare name of the class and its debug switch
-		ClassName("lduMatrix");
+		//ClassName("lduMatrix");
+		static const char* typeName_() { return "lduMatrix"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct given an LDU addressed mesh.
 			//  The coefficients are initially empty for subsequent setting.
-		lduMatrix(const lduMesh&);
+		FoamBase_EXPORT lduMatrix(const lduMesh&);
 
 		//- Copy constructor
-		lduMatrix(const lduMatrix&);
+		FoamBase_EXPORT lduMatrix(const lduMatrix&);
 
 		//- Copy constructor or re-use as specified.
-		lduMatrix(lduMatrix&, bool reuse);
+		FoamBase_EXPORT lduMatrix(lduMatrix&, bool reuse);
 
 		//- Construct given an LDU addressed mesh and an Istream
 		//  from which the coefficients are read
-		lduMatrix(const lduMesh&, Istream&);
+		FoamBase_EXPORT lduMatrix(const lduMesh&, Istream&);
 
 
 		//- Destructor
-		~lduMatrix();
+		FoamBase_EXPORT ~lduMatrix();
 
 
 		// Member Functions
@@ -565,21 +910,21 @@ namespace tnbLib
 
 		// Access to coefficients
 
-		scalarField& lower();
-		scalarField& diag();
-		scalarField& upper();
+		FoamBase_EXPORT scalarField& lower();
+		FoamBase_EXPORT scalarField& diag();
+		FoamBase_EXPORT scalarField& upper();
 
 		// Size with externally provided sizes (for constructing with 'fake'
 		// mesh in GAMG)
 
-		scalarField& lower(const label size);
-		scalarField& diag(const label nCoeffs);
-		scalarField& upper(const label nCoeffs);
+		FoamBase_EXPORT scalarField& lower(const label size);
+		FoamBase_EXPORT scalarField& diag(const label nCoeffs);
+		FoamBase_EXPORT scalarField& upper(const label nCoeffs);
 
 
-		const scalarField& lower() const;
-		const scalarField& diag() const;
-		const scalarField& upper() const;
+		FoamBase_EXPORT const scalarField& lower() const;
+		FoamBase_EXPORT const scalarField& diag() const;
+		FoamBase_EXPORT const scalarField& upper() const;
 
 		bool hasDiag() const
 		{
@@ -614,13 +959,13 @@ namespace tnbLib
 
 		// operations
 
-		void sumDiag();
-		void negSumDiag();
+		FoamBase_EXPORT void sumDiag();
+		FoamBase_EXPORT void negSumDiag();
 
-		void sumMagOffDiag(scalarField& sumOff) const;
+		FoamBase_EXPORT void sumMagOffDiag(scalarField& sumOff) const;
 
 		//- Matrix multiplication with updated interfaces.
-		void Amul
+		FoamBase_EXPORT void Amul
 		(
 			scalarField&,
 			const tmp<scalarField>&,
@@ -630,7 +975,7 @@ namespace tnbLib
 		) const;
 
 		//- Matrix transpose multiplication with updated interfaces.
-		void Tmul
+		FoamBase_EXPORT void Tmul
 		(
 			scalarField&,
 			const tmp<scalarField>&,
@@ -641,7 +986,7 @@ namespace tnbLib
 
 
 		//- Sum the coefficients on each row of the matrix
-		void sumA
+		FoamBase_EXPORT void sumA
 		(
 			scalarField&,
 			const FieldField<Field, scalar>&,
@@ -649,7 +994,7 @@ namespace tnbLib
 		) const;
 
 
-		void residual
+		FoamBase_EXPORT void residual
 		(
 			scalarField& rA,
 			const scalarField& psi,
@@ -659,7 +1004,7 @@ namespace tnbLib
 			const direction cmpt
 		) const;
 
-		tmp<scalarField> residual
+		FoamBase_EXPORT tmp<scalarField> residual
 		(
 			const scalarField& psi,
 			const scalarField& source,
@@ -671,7 +1016,7 @@ namespace tnbLib
 
 		//- Initialise the update of interfaced interfaces
 		//  for matrix operations
-		void initMatrixInterfaces
+		FoamBase_EXPORT void initMatrixInterfaces
 		(
 			const FieldField<Field, scalar>& interfaceCoeffs,
 			const lduInterfaceFieldPtrsList& interfaces,
@@ -681,7 +1026,7 @@ namespace tnbLib
 		) const;
 
 		//- Update interfaced interfaces for matrix operations
-		void updateMatrixInterfaces
+		FoamBase_EXPORT void updateMatrixInterfaces
 		(
 			const FieldField<Field, scalar>& interfaceCoeffs,
 			const lduInterfaceFieldPtrsList& interfaces,
@@ -697,7 +1042,7 @@ namespace tnbLib
 		template<class Type>
 		tmp<Field<Type>> H(const tmp<Field<Type>>&) const;
 
-		tmp<scalarField> H1() const;
+		FoamBase_EXPORT tmp<scalarField> H1() const;
 
 		template<class Type>
 		tmp<Field<Type>> faceH(const Field<Type>&) const;
@@ -718,21 +1063,21 @@ namespace tnbLib
 
 		// Member Operators
 
-		void operator=(const lduMatrix&);
+		FoamBase_EXPORT void operator=(const lduMatrix&);
 
-		void negate();
+		FoamBase_EXPORT void negate();
 
-		void operator+=(const lduMatrix&);
-		void operator-=(const lduMatrix&);
+		FoamBase_EXPORT void operator+=(const lduMatrix&);
+		FoamBase_EXPORT void operator-=(const lduMatrix&);
 
-		void operator*=(const scalarField&);
-		void operator*=(scalar);
+		FoamBase_EXPORT void operator*=(const scalarField&);
+		FoamBase_EXPORT void operator*=(scalar);
 
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const lduMatrix&);
-		friend Ostream& operator<<(Ostream&, const InfoProxy<lduMatrix>&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const lduMatrix&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<lduMatrix>&);
 	};
 
 

@@ -64,7 +64,7 @@ bool tnbLib::memInfo::valid() const
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, memInfo& m)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, memInfo& m)
 {
 	is.readBegin("memInfo");
 
@@ -82,7 +82,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, memInfo& m)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const memInfo& m)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const memInfo& m)
 {
 	os << token::BEGIN_LIST
 		<< m.peak_ << token::SPACE << m.size_ << token::SPACE << m.rss_

@@ -36,6 +36,8 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <includeModule.hxx>
+
 #include <ctime>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -63,7 +65,7 @@ namespace tnbLib
 		mutable time_t newTime_;
 
 		//- Names of the months
-		static const char *monthNames[];
+		static FoamBase_EXPORT const char *monthNames[];
 
 
 	public:
@@ -71,32 +73,32 @@ namespace tnbLib
 		// Constructors
 
 			//- Null constructor which stores the start time
-		clock();
+		FoamBase_EXPORT clock();
 
 
 		// Member Functions
 
 			//- Get the current clock time in seconds
-		static time_t getTime();
+		static FoamBase_EXPORT time_t getTime();
 
 		//- Return the current wall-clock date as a raw struct
-		static const struct tm rawDate();
+		static FoamBase_EXPORT const struct tm rawDate();
 
 		//- Return the current wall-clock date/time as a string
 		//  format according to ISO-8601 (yyyy-mm-ddThh:mm:ss)
-		static string dateTime();
+		static FoamBase_EXPORT string dateTime();
 
 		//- Return the current wall-clock date as a string
-		static string date();
+		static FoamBase_EXPORT string date();
 
 		//- Return the current wall-clock time as a string
-		static string clockTime();
+		static FoamBase_EXPORT string clockTime();
 
 		//- Returns wall-clock time from clock instantiation
-		time_t elapsedClockTime() const;
+		FoamBase_EXPORT time_t elapsedClockTime() const;
 
 		//- Returns wall-clock time from last call of clockTimeIncrement()
-		time_t clockTimeIncrement() const;
+		FoamBase_EXPORT time_t clockTimeIncrement() const;
 	};
 
 

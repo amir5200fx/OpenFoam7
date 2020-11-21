@@ -66,19 +66,23 @@ namespace tnbLib
 			bool calcDiv();
 
 			//- Calculate the divergence field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("div");
+			//TypeName("div");
+			static const char* typeName_() { return "div"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			div
+			FoamFunctionObjects_EXPORT div
 			(
 				const word& name,
 				const Time& runTime,
@@ -87,7 +91,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~div();
+			FoamFunctionObjects_EXPORT virtual ~div();
 		};
 
 
@@ -99,8 +103,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <divTemplates.cxx>
+//#include <divTemplates.cxx>
 #endif
+
+#include <divTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

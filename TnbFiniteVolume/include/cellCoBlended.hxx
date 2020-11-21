@@ -77,6 +77,16 @@ SourceFiles
 #include <extrapolatedCalculatedFvPatchFields.hxx>
 #include <fvcSurfaceIntegrate.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCellCoBlended_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCellCoBlended_EXPORT_DEFINE
+#define FoamCellCoBlended_EXPORT __declspec(dllexport)
+#else
+#define FoamCellCoBlended_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -113,7 +123,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cellCoBlended");
+		/*TypeName("cellCoBlended");*/
+		static const char* typeName_() { return "cellCoBlended"; }
+		static FoamCellCoBlended_EXPORT const ::tnbLib::word typeName;
+		static FoamCellCoBlended_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

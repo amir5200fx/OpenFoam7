@@ -41,6 +41,16 @@ SourceFiles
 #include <DynamicList.hxx>  // added by amir
 #include <labelList.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamPatchPostProcessing_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPatchPostProcessing_EXPORT_DEFINE
+#define FoamPatchPostProcessing_EXPORT __declspec(dllexport)
+#else
+#define FoamPatchPostProcessing_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -89,7 +99,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("patchPostProcessing");
+		//TypeName("patchPostProcessing");
+		static const char* typeName_() { return "patchPostProcessing"; }
+		static FoamPatchPostProcessing_EXPORT const ::tnbLib::word typeName;
+		static FoamPatchPostProcessing_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -71,6 +71,16 @@ SourceFiles
 #include <fixedJumpAMIFvPatchField.hxx>
 #include <Function1.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamUniformJumpAMIFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamUniformJumpAMIFvPatchField_EXPORT_DEFINE
+#define FoamUniformJumpAMIFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamUniformJumpAMIFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -97,11 +107,15 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("uniformJumpAMI");
+		/*TypeName("uniformJumpAMI");*/
+		static const char* typeName_() { return "uniformJumpAMI"; }
+		static FoamUniformJumpAMIFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamUniformJumpAMIFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
-			//- Construct from patch and internal field
+		//- Construct from patch and internal field
 		uniformJumpAMIFvPatchField
 		(
 			const fvPatch&,

@@ -98,7 +98,7 @@ namespace tnbLib
 	protected:
 
 		//- A table of usage strings
-		static HashTable<string>* usageTablePtr_;
+		static FoamFvMesh_EXPORT HashTable<string>* usageTablePtr_;
 
 		//- Class with constructor to add usage string to table
 		class addToUsageTable
@@ -130,20 +130,24 @@ namespace tnbLib
 		const polyMesh& mesh_;
 
 		//- Add (if bool) celli to set or delete celli from set.
-		void addOrDelete(topoSet& set, const label celli, const bool) const;
+		FoamFvMesh_EXPORT void addOrDelete(topoSet& set, const label celli, const bool) const;
 
 
 	private:
 
-		static const NamedEnum<setAction, 8> actionNames_;
+		static FoamFvMesh_EXPORT const NamedEnum<setAction, 8> actionNames_;
 
-		static const string illegalSource_;
+		static FoamFvMesh_EXPORT const string illegalSource_;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("topoSetSource");
+		/*TypeName("topoSetSource");*/
+		static const char* typeName_() { return "topoSetSource"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Static Functions
@@ -155,12 +159,12 @@ namespace tnbLib
 		}
 
 		//- Check state of stream.
-		static Istream& checkIs(Istream& is);
+		static FoamFvMesh_EXPORT Istream& checkIs(Istream& is);
 
 		// Declare run-time constructor selection table
 
 			// For the dictionary constructor
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			topoSetSource,
@@ -170,10 +174,57 @@ namespace tnbLib
 				const dictionary& dict
 				),
 				(mesh, dict)
-		);
+		);*/
+
+		typedef autoPtr<topoSetSource> (*wordConstructorPtr)(const polyMesh& mesh, const dictionary& dict);
+		typedef HashTable<wordConstructorPtr, word, string::hash> wordConstructorTable;
+		static FoamFvMesh_EXPORT wordConstructorTable* wordConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructwordConstructorTables();
+		static FoamFvMesh_EXPORT void destroywordConstructorTables();
+
+		template <class topoSetSourceType>
+		class addwordConstructorToTable
+		{
+		public:
+			static autoPtr<topoSetSource> New(const polyMesh& mesh, const dictionary& dict)
+			{
+				return autoPtr<topoSetSource>(new topoSetSourceType(mesh, dict));
+			}
+
+			addwordConstructorToTable(const word& lookup = topoSetSourceType::typeName)
+			{
+				constructwordConstructorTables();
+				if (!wordConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "topoSetSource" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addwordConstructorToTable() { destroywordConstructorTables(); }
+		};
+
+		template <class topoSetSourceType>
+		class addRemovablewordConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<topoSetSource> New(const polyMesh& mesh, const dictionary& dict)
+			{
+				return autoPtr<topoSetSource>(new topoSetSourceType(mesh, dict));
+			}
+
+			addRemovablewordConstructorToTable(const word& lookup = topoSetSourceType::typeName) : lookup_(lookup)
+			{
+				constructwordConstructorTables();
+				wordConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablewordConstructorToTable() { if (wordConstructorTablePtr_) { wordConstructorTablePtr_->erase(lookup_); } }
+		};;
 
 		// For the Istream constructor
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			topoSetSource,
@@ -183,7 +234,57 @@ namespace tnbLib
 				Istream& is
 				),
 				(mesh, is)
-		);
+		);*/
+
+		typedef autoPtr<topoSetSource> (*istreamConstructorPtr)(const polyMesh& mesh, Istream& is);
+		typedef HashTable<istreamConstructorPtr, word, string::hash> istreamConstructorTable;
+		static FoamFvMesh_EXPORT istreamConstructorTable* istreamConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructistreamConstructorTables();
+		static FoamFvMesh_EXPORT void destroyistreamConstructorTables();
+
+		template <class topoSetSourceType>
+		class addistreamConstructorToTable
+		{
+		public:
+			static autoPtr<topoSetSource> New(const polyMesh& mesh, Istream& is)
+			{
+				return autoPtr<topoSetSource>(new topoSetSourceType(mesh, is));
+			}
+
+			addistreamConstructorToTable(const word& lookup = topoSetSourceType::typeName)
+			{
+				constructistreamConstructorTables();
+				if (!istreamConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "topoSetSource" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addistreamConstructorToTable() { destroyistreamConstructorTables(); }
+		};
+
+		template <class topoSetSourceType>
+		class addRemovableistreamConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<topoSetSource> New(const polyMesh& mesh, Istream& is)
+			{
+				return autoPtr<topoSetSource>(new topoSetSourceType(mesh, is));
+			}
+
+			addRemovableistreamConstructorToTable(const word& lookup = topoSetSourceType::typeName) : lookup_(lookup)
+			{
+				constructistreamConstructorTables();
+				istreamConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableistreamConstructorToTable()
+			{
+				if (istreamConstructorTablePtr_) { istreamConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		//- Class used for the read-construction of
@@ -231,10 +332,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		topoSetSource(const polyMesh& mesh);
+		FoamFvMesh_EXPORT topoSetSource(const polyMesh& mesh);
 
 		//- Disallow default bitwise copy construction
-		topoSetSource(const topoSetSource&) = delete;
+		FoamFvMesh_EXPORT topoSetSource(const topoSetSource&) = delete;
 
 		//- Clone
 		autoPtr<topoSetSource> clone() const
@@ -247,7 +348,7 @@ namespace tnbLib
 		// Selectors
 
 			//- Return a reference to the selected topoSetSource
-		static autoPtr<topoSetSource> New
+		static FoamFvMesh_EXPORT autoPtr<topoSetSource> New
 		(
 			const word& topoSetSourceType,
 			const polyMesh& mesh,
@@ -255,7 +356,7 @@ namespace tnbLib
 		);
 
 		//- Return a reference to the selected topoSetSource
-		static autoPtr<topoSetSource> New
+		static FoamFvMesh_EXPORT autoPtr<topoSetSource> New
 		(
 			const word& topoSetSourceType,
 			const polyMesh& mesh,
@@ -264,7 +365,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~topoSetSource();
+		FoamFvMesh_EXPORT virtual ~topoSetSource();
 
 
 		// Member Functions
@@ -277,15 +378,15 @@ namespace tnbLib
 
 		// Member Functions
 
-		virtual sourceType setType() const = 0;
+		FoamFvMesh_EXPORT virtual sourceType setType() const = 0;
 
-		virtual void applyToSet(const setAction action, topoSet&) const = 0;
+		FoamFvMesh_EXPORT virtual void applyToSet(const setAction action, topoSet&) const = 0;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const topoSetSource&) = delete;
+		FoamFvMesh_EXPORT void operator=(const topoSetSource&) = delete;
 	};
 
 

@@ -57,23 +57,27 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("none");
+			//TypeName("none");
+			static const char* typeName_() { return "none"; }
+			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+			static FoamRadiationModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			noRadiation(const volScalarField& T);
+			FoamRadiationModels_EXPORT noRadiation(const volScalarField& T);
 
 			//- Construct from components
-			noRadiation(const dictionary& dict, const volScalarField& T);
+			FoamRadiationModels_EXPORT noRadiation(const dictionary& dict, const volScalarField& T);
 
 			//- Disallow default bitwise copy construction
-			noRadiation(const noRadiation&) = delete;
+			FoamRadiationModels_EXPORT noRadiation(const noRadiation&) = delete;
 
 
 			//- Destructor
-			virtual ~noRadiation();
+			FoamRadiationModels_EXPORT virtual ~noRadiation();
 
 
 			// Member Functions
@@ -81,25 +85,25 @@ namespace tnbLib
 				// Edit
 
 					//- Main update/correction routine
-			void correct();
+			FoamRadiationModels_EXPORT void correct();
 
 			//- Solve radiation equation(s)
-			void calculate();
+			FoamRadiationModels_EXPORT void calculate();
 
 			//- Read radiationProperties dictionary
-			bool read();
+			FoamRadiationModels_EXPORT bool read();
 
 			//- Source term component (for power of T^4)
-			tmp<volScalarField> Rp() const;
+			FoamRadiationModels_EXPORT tmp<volScalarField> Rp() const;
 
 			//- Source term component (constant)
-			tmp<volScalarField::Internal> Ru() const;
+			FoamRadiationModels_EXPORT tmp<volScalarField::Internal> Ru() const;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const noRadiation&) = delete;
+			FoamRadiationModels_EXPORT void operator=(const noRadiation&) = delete;
 		};
 
 

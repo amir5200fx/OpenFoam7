@@ -126,20 +126,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("dynamicAlphaContactAngle");
+		//TypeName("dynamicAlphaContactAngle");
+		static const char* typeName_() { return "dynamicAlphaContactAngle"; }
+		static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+		static FoamTransportModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		dynamicAlphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT dynamicAlphaContactAngleFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		dynamicAlphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT dynamicAlphaContactAngleFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -149,7 +153,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  dynamicAlphaContactAngleFvPatchScalarField
 		//  onto a new patch
-		dynamicAlphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT dynamicAlphaContactAngleFvPatchScalarField
 		(
 			const dynamicAlphaContactAngleFvPatchScalarField&,
 			const fvPatch&,
@@ -158,7 +162,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		dynamicAlphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT dynamicAlphaContactAngleFvPatchScalarField
 		(
 			const dynamicAlphaContactAngleFvPatchScalarField&
 		);
@@ -173,7 +177,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		dynamicAlphaContactAngleFvPatchScalarField
+		FoamTransportModels_EXPORT dynamicAlphaContactAngleFvPatchScalarField
 		(
 			const dynamicAlphaContactAngleFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -195,14 +199,14 @@ namespace tnbLib
 		// Member Functions
 
 			//- Evaluate and return dynamic contact-angle
-		virtual tmp<scalarField> theta
+		FoamTransportModels_EXPORT virtual tmp<scalarField> theta
 		(
 			const fvPatchVectorField& Up,
 			const fvsPatchVectorField& nHat
 		) const;
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamTransportModels_EXPORT virtual void write(Ostream&) const;
 	};
 
 

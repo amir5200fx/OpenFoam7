@@ -247,7 +247,7 @@ void tnbLib::primitiveEntry::write(Ostream& os) const
 // * * * * * * * * * * * * * Ostream operator  * * * * * * * * * * * * * * * //
 
 template<>
-tnbLib::Ostream& tnbLib::operator<<
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	Ostream& os,
 	const InfoProxy<primitiveEntry>& ip

@@ -71,20 +71,23 @@ namespace tnbLib
 
 			//- Search for element in first n elements of labelList. Return index
 			//  or -1.
-		static label findIndex(const label n, const labelList&, const label);
+		static FoamFvMesh_EXPORT label findIndex(const label n, const labelList&, const label);
 
 
 	public:
 
-		ClassName("cellDistFuncs");
+		//ClassName("cellDistFuncs");
+		static const char* typeName_() { return "cellDistFuncs"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct from mesh
-		cellDistFuncs(const polyMesh& mesh);
+		FoamFvMesh_EXPORT cellDistFuncs(const polyMesh& mesh);
 
 		//- Disallow default bitwise copy construction
-		cellDistFuncs(const cellDistFuncs&) = delete;
+		FoamFvMesh_EXPORT cellDistFuncs(const cellDistFuncs&) = delete;
 
 
 		// Member Functions
@@ -96,7 +99,7 @@ namespace tnbLib
 		}
 
 		//- Return the set of patch IDs corresponding to the given names
-		labelHashSet getPatchIDs(const wordReList& patchNames) const;
+		FoamFvMesh_EXPORT labelHashSet getPatchIDs(const wordReList& patchNames) const;
 
 		//- Get patchIDs of/derived off certain type (e.g. 'processorPolyPatch')
 		//  Uses isA, not isType
@@ -107,7 +110,7 @@ namespace tnbLib
 		//  from pt to faces wallFaces.
 		//  For efficiency reasons we still pass in patch instead of extracting
 		//  it from mesh_
-		scalar smallestDist
+		FoamFvMesh_EXPORT scalar smallestDist
 		(
 			const point& p,
 			const polyPatch& patch,
@@ -117,7 +120,7 @@ namespace tnbLib
 		) const;
 
 		//- Get faces sharing point with face on patch
-		label getPointNeighbours
+		FoamFvMesh_EXPORT label getPointNeighbours
 		(
 			const primitivePatch&,
 			const label patchFacei,
@@ -125,15 +128,15 @@ namespace tnbLib
 		) const;
 
 		//- Size of largest patch (out of supplied subset of patches)
-		label maxPatchSize(const labelHashSet& patchIDs) const;
+		FoamFvMesh_EXPORT label maxPatchSize(const labelHashSet& patchIDs) const;
 
 		//- Sum of patch sizes (out of supplied subset of patches).
 		//  Used in sizing arrays.
-		label sumPatchSize(const labelHashSet& patchIDs) const;
+		FoamFvMesh_EXPORT label sumPatchSize(const labelHashSet& patchIDs) const;
 
 		//- Correct all cells connected to boundary (via face). Sets values in
 		//  wallDistCorrected. Sets nearest wallface in nearestFace.
-		void correctBoundaryFaceCells
+		FoamFvMesh_EXPORT void correctBoundaryFaceCells
 		(
 			const labelHashSet& patchIDs,
 			scalarField& wallDistCorrected,
@@ -143,7 +146,7 @@ namespace tnbLib
 
 		//- Correct all cells connected to wall (via point). Sets values in
 		//  wallDistCorrected. Uses/sets nearest wallFace in nearestFace.
-		void correctBoundaryPointCells
+		FoamFvMesh_EXPORT void correctBoundaryPointCells
 		(
 			const labelHashSet& patchIDs,
 			scalarField& wallDistCorrected,
@@ -154,7 +157,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const cellDistFuncs&) = delete;
+		FoamFvMesh_EXPORT void operator=(const cellDistFuncs&) = delete;
 	};
 
 

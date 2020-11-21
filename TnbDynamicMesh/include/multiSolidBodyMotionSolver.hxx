@@ -68,13 +68,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("multiSolidBodyMotionSolver");
+		//TypeName("multiSolidBodyMotionSolver");
+		static const char* typeName_() { return "multiSolidBodyMotionSolver"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from mesh and dictionary
-		multiSolidBodyMotionSolver
+		FoamDynamicMesh_EXPORT multiSolidBodyMotionSolver
 		(
 			const polyMesh&,
 			const dictionary&
@@ -85,13 +89,13 @@ namespace tnbLib
 
 
 		//- Destructor
-		~multiSolidBodyMotionSolver();
+		FoamDynamicMesh_EXPORT ~multiSolidBodyMotionSolver();
 
 
 		// Member Functions
 
 			//- Return point location obtained from the current motion field
-		virtual tmp<pointField> curPoints() const;
+		FoamDynamicMesh_EXPORT virtual tmp<pointField> curPoints() const;
 
 		//- Solve for motion
 		virtual void solve()

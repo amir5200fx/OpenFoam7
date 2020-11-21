@@ -53,9 +53,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <ReadHex.cxx>
-#endif
+#include <ReadHexI.hxx>
+
+//#ifdef NoRepository
+//#include <ReadHex.cxx>
+//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

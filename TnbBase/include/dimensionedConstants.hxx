@@ -50,10 +50,10 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	dictionary& dimensionedConstants();
+	FoamBase_EXPORT dictionary& dimensionedConstants();
 
 
-	dimensionedScalar dimensionedConstant(const word& group, const word& varName);
+	FoamBase_EXPORT dimensionedScalar dimensionedConstant(const word& group, const word& varName);
 
 
 	template<class T>

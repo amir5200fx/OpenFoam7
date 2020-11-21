@@ -112,7 +112,7 @@ namespace tnbLib
 			//- Find index of nearest triangle to point. Returns triangle or -1 if
 			//  not found within search span.
 			//  Cache result under pointi.
-		static label getNearest
+		static FoamFvMesh_EXPORT label getNearest
 		(
 			const triSurfaceSearch& querySurf,
 			const label pointi,
@@ -124,7 +124,7 @@ namespace tnbLib
 		//- Return true if surface normal of nearest points to vertices on
 		//  cell differ from that on cell centre. Points cached in
 		//  pointToNearest.
-		bool differingPointNormals
+		FoamFvMesh_EXPORT bool differingPointNormals
 		(
 			const triSurfaceSearch& querySurf,
 			const vector& span,
@@ -135,10 +135,10 @@ namespace tnbLib
 
 
 		//- Depending on surface add to or delete from cellSet.
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 		//- Check values at construction time.
-		void checkSettings() const;
+		FoamFvMesh_EXPORT void checkSettings() const;
 
 		const triSurfaceSearch& querySurf() const
 		{
@@ -149,12 +149,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("surfaceToCell");
+		/*TypeName("surfaceToCell");*/
+		static const char* typeName_() { return "surfaceToCell"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		surfaceToCell
+		FoamFvMesh_EXPORT surfaceToCell
 		(
 			const polyMesh& mesh,
 			const fileName& surfName,
@@ -168,7 +172,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components (supplied surface, surfaceSearch)
-		surfaceToCell
+		FoamFvMesh_EXPORT surfaceToCell
 		(
 			const polyMesh& mesh,
 			const fileName& surfName,
@@ -184,14 +188,14 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		surfaceToCell
+		FoamFvMesh_EXPORT surfaceToCell
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		surfaceToCell
+		FoamFvMesh_EXPORT surfaceToCell
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -199,7 +203,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~surfaceToCell();
+		FoamFvMesh_EXPORT virtual ~surfaceToCell();
 
 
 		// Member Functions
@@ -209,7 +213,7 @@ namespace tnbLib
 			return CELLSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

@@ -39,6 +39,16 @@ Description
 #include <InflowBoundaryModel.hxx>
 #include <polyMesh.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamFreeStream_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFreeStream_EXPORT_DEFINE
+#define FoamFreeStream_EXPORT __declspec(dllexport)
+#else
+#define FoamFreeStream_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -75,7 +85,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("FreeStream");
+		//TypeName("FreeStream");
+		static const char* typeName_() { return "FreeStream"; }
+		static FoamFreeStream_EXPORT const ::tnbLib::word typeName;
+		static FoamFreeStream_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

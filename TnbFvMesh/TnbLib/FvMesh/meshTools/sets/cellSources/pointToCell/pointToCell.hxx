@@ -64,9 +64,9 @@ namespace tnbLib
 	private:
 
 		//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
-		static const NamedEnum<pointAction, 2> pointActionNames_;
+		static FoamFvMesh_EXPORT const NamedEnum<pointAction, 2> pointActionNames_;
 
 		//- Name of set to use
 		word setName_;
@@ -78,18 +78,22 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Depending on point-to-cell option add to or delete from cellSet.
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("pointToCell");
+		/*TypeName("pointToCell");*/
+		static const char* typeName_() { return "pointToCell"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		pointToCell
+		FoamFvMesh_EXPORT pointToCell
 		(
 			const polyMesh& mesh,
 			const word& setName,
@@ -97,14 +101,14 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		pointToCell
+		FoamFvMesh_EXPORT pointToCell
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		pointToCell
+		FoamFvMesh_EXPORT pointToCell
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -112,7 +116,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~pointToCell();
+		FoamFvMesh_EXPORT virtual ~pointToCell();
 
 
 		// Member Functions
@@ -122,7 +126,7 @@ namespace tnbLib
 			return CELLSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

@@ -58,16 +58,16 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Disallow default bitwise copy construction
-			regionModel1D(const regionModel1D&) = delete;
+			FoamLagrangian_EXPORT regionModel1D(const regionModel1D&) = delete;
 
 			//- Disallow default bitwise assignment
-			void operator=(const regionModel1D&) = delete;
+			FoamLagrangian_EXPORT void operator=(const regionModel1D&) = delete;
 
 			//- Construct region mesh and fields
-			void constructMeshObjects();
+			FoamLagrangian_EXPORT void constructMeshObjects();
 
 			//- Initialise the region
-			void initialise();
+			FoamLagrangian_EXPORT void initialise();
 
 
 		protected:
@@ -101,14 +101,14 @@ namespace tnbLib
 			// Protected member functions
 
 				//- Read control parameters from dictionary
-			virtual bool read();
+			FoamLagrangian_EXPORT virtual bool read();
 
 			//- Read control parameters from dictionary
-			virtual bool read(const dictionary& dict);
+			FoamLagrangian_EXPORT virtual bool read(const dictionary& dict);
 
 			//- Move mesh points according to change in cell volumes
 			//  Returns map ordered by cell where 1 = cell moved, 0 = cell unchanged
-			tmp<labelField> moveMesh
+			FoamLagrangian_EXPORT tmp<labelField> moveMesh
 			(
 				const scalarList& deltaV,
 				const scalar minDelta = 0.0
@@ -118,20 +118,24 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("regionModel1D");
+			//TypeName("regionModel1D");
+			static const char* typeName_() { return "regionModel1D"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct null
-			regionModel1D
+			FoamLagrangian_EXPORT regionModel1D
 			(
 				const fvMesh& mesh,
 				const word& regionType
 			);
 
 			//- Construct from mesh, region type and name
-			regionModel1D
+			FoamLagrangian_EXPORT regionModel1D
 			(
 				const fvMesh& mesh,
 				const word& regionType,
@@ -140,7 +144,7 @@ namespace tnbLib
 			);
 
 			//- Construct from mesh, region type and name and dict
-			regionModel1D
+			FoamLagrangian_EXPORT regionModel1D
 			(
 				const fvMesh& mesh,
 				const word& regionType,
@@ -152,7 +156,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~regionModel1D();
+			FoamLagrangian_EXPORT virtual ~regionModel1D();
 
 
 			// Member Functions

@@ -40,6 +40,16 @@ SourceFiles
 #include <stringList.hxx>
 #include <wordList.hxx>
 
+#ifdef FoamBase_EXPORT_DEFINE
+#define FoamNamedEnum_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNamedEnum_EXPORT_DEFINE
+#define FoamNamedEnum_EXPORT __declspec(dllexport)
+#else
+#define FoamNamedEnum_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -68,7 +78,7 @@ namespace tnbLib
 		// Static Data Members
 
 			//- The set of names corresponding to the enumeration Enum
-		static const char* names[nEnum];
+		static FoamNamedEnum_EXPORT const char* names[nEnum];
 
 
 		// Constructors

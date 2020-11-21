@@ -60,32 +60,36 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("inverseFaceDistance");
+		//TypeName("inverseFaceDistance");
+		static const char* typeName_() { return "inverseFaceDistance"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct for the given fvMesh and data Istream
-		inverseFaceDistanceDiffusivity(const fvMesh& mesh, Istream& mdData);
+		FoamFvMotionSolver_EXPORT inverseFaceDistanceDiffusivity(const fvMesh& mesh, Istream& mdData);
 
 		//- Disallow default bitwise copy construction
-		inverseFaceDistanceDiffusivity
+		FoamFvMotionSolver_EXPORT inverseFaceDistanceDiffusivity
 		(
 			const inverseFaceDistanceDiffusivity&
 		) = delete;
 
 
 		//- Destructor
-		virtual ~inverseFaceDistanceDiffusivity();
+		FoamFvMotionSolver_EXPORT virtual ~inverseFaceDistanceDiffusivity();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const inverseFaceDistanceDiffusivity&) = delete;
+		FoamFvMotionSolver_EXPORT void operator=(const inverseFaceDistanceDiffusivity&) = delete;
 
 		//- Return diffusivity field
-		virtual tmp<surfaceScalarField> operator()() const;
+		FoamFvMotionSolver_EXPORT virtual tmp<surfaceScalarField> operator()() const;
 	};
 
 

@@ -69,15 +69,15 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 
-	Ostream& operator<<
+	FoamLagrangian_EXPORT Ostream& operator<<
 		(
 			Ostream&,
 			const particle&
 			);
 
-	bool operator==(const particle&, const particle&);
+	FoamLagrangian_EXPORT bool operator==(const particle&, const particle&);
 
-	bool operator!=(const particle&, const particle&);
+	FoamLagrangian_EXPORT bool operator!=(const particle&, const particle&);
 
 	/*---------------------------------------------------------------------------*\
 							  Class Particle Declaration
@@ -90,14 +90,14 @@ namespace tnbLib
 		// Private member data
 
 			//- Size in bytes of the position data
-		static const std::size_t sizeofPosition_;
+		static FoamLagrangian_EXPORT const std::size_t sizeofPosition_;
 
 		//- Size in bytes of the fields
-		static const std::size_t sizeofFields_;
+		static FoamLagrangian_EXPORT const std::size_t sizeofFields_;
 
 		//- The value of nBehind_ at which tracking is abandoned. See the
 		//  description of nBehind_.
-		static const label maxNBehind_;
+		static FoamLagrangian_EXPORT const label maxNBehind_;
 
 
 	public:
@@ -198,7 +198,7 @@ namespace tnbLib
 		//  multiplied by its determinant, detA. This separation allows
 		//  the barycentric tracking algorithm to function on inverted or
 		//  degenerate tetrahedra.
-		void stationaryTetReverseTransform
+		FoamLagrangian_EXPORT void stationaryTetReverseTransform
 		(
 			vector& centre,
 			scalar& detA,
@@ -232,7 +232,7 @@ namespace tnbLib
 		//  returned for each component. The functions are higher order than
 		//  for the forward transform; the determinant is cubic, and the
 		//  tensor is quadratic.
-		void movingTetReverseTransform
+		FoamLagrangian_EXPORT void movingTetReverseTransform
 		(
 			const scalar endStepFraction,
 			Pair<vector>& centre,
@@ -247,38 +247,38 @@ namespace tnbLib
 			//  moves between two tets which share a base vertex, but for which
 			//  the other two non cell-centre vertices are reversed. All hits
 			//  which retain the same face behave this way, as do face hits.
-		void reflect();
+		FoamLagrangian_EXPORT void reflect();
 
 		//- Rotation transform. Corrects the coordinates when the particle
 		//  moves between two tets with different base vertices, but are
 		//  otherwise similarly oriented. Hits which change the face within
 		//  the cell make use of both this and the reflect transform.
-		void rotate(const bool direction);
+		FoamLagrangian_EXPORT void rotate(const bool direction);
 
 
 		// Topology changes
 
 			//- Change tet within a cell. Called after a triangle is hit.
-		void changeTet(const label tetTriI);
+		FoamLagrangian_EXPORT void changeTet(const label tetTriI);
 
 		//- Change tet face within a cell. Called by changeTet.
-		void changeFace(const label tetTriI);
+		FoamLagrangian_EXPORT void changeFace(const label tetTriI);
 
 		//- Change cell. Called when the particle hits an internal face.
-		void changeCell();
+		FoamLagrangian_EXPORT void changeCell();
 
 		//- Put the particle on the lowest indexed patch for the current set
 		//  of coincident faces. In the case of an ACMI-wall pair, this will
 		//  move the particle from the wall face to the ACMI face, because
 		//  ACMI patches are always listed before their associated non-
 		//  overlapping patch.
-		void changeToMasterPatch();
+		FoamLagrangian_EXPORT void changeToMasterPatch();
 
 
 		// Geometry changes
 
 			//- Locate the particle at the given position
-		void locate
+		FoamLagrangian_EXPORT void locate
 		(
 			const vector& position,
 			label celli,
@@ -359,24 +359,36 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Runtime type information
-		TypeName("particle");
+		//TypeName("particle");
+		static const char* typeName_() { return "particle"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- String representation of properties
-		DefinePropertyList
+		/*DefinePropertyList
 		(
 			"(coordinatesa coordinatesb coordinatesc coordinatesd) "
 			"celli tetFacei tetPti facei stepFraction "
 			"behind nBehind origProc origId"
-		);
+		);*/
+		
+		static FoamLagrangian_EXPORT string propertyList_;
+
+		static string propertyList()
+		{
+			return "(coordinatesa coordinatesb coordinatesc coordinatesd) " "celli tetFacei tetPti facei stepFraction "
+				"behind nBehind origProc origId";
+		};
 
 		//- Cumulative particle counter - used to provide unique ID
-		static label particleCount_;
+		static FoamLagrangian_EXPORT label particleCount_;
 
 
 		// Constructors
 
 			//- Construct from components
-		particle
+		FoamLagrangian_EXPORT particle
 		(
 			const polyMesh& mesh,
 			const barycentric& coordinates,
@@ -387,7 +399,7 @@ namespace tnbLib
 
 		//- Construct from a position and a cell, searching for the rest of the
 		//  required topology
-		particle
+		FoamLagrangian_EXPORT particle
 		(
 			const polyMesh& mesh,
 			const vector& position,
@@ -395,13 +407,13 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		particle(const polyMesh& mesh, Istream&, bool readFields = true);
+		FoamLagrangian_EXPORT particle(const polyMesh& mesh, Istream&, bool readFields = true);
 
 		//- Construct as a copy
-		particle(const particle& p);
+		FoamLagrangian_EXPORT particle(const particle& p);
 
 		//- Construct as a copy with references to a new mesh
-		particle(const particle& p, const polyMesh& mesh);
+		FoamLagrangian_EXPORT particle(const particle& p, const polyMesh& mesh);
 
 		//- Construct a clone
 		virtual autoPtr<particle> clone() const
@@ -531,21 +543,21 @@ namespace tnbLib
 		//  face that was hit, or -1 if the track completed within a cell.
 		//  The proportion of the displacement still to be completed is
 		//  returned.
-		scalar track
+		FoamLagrangian_EXPORT scalar track
 		(
 			const vector& displacement,
 			const scalar fraction
 		);
 
 		//- As particle::track, but stops when a new cell is reached.
-		scalar trackToCell
+		FoamLagrangian_EXPORT scalar trackToCell
 		(
 			const vector& displacement,
 			const scalar fraction
 		);
 
 		//- As particle::track, but stops when a face is hit.
-		scalar trackToFace
+		FoamLagrangian_EXPORT scalar trackToFace
 		(
 			const vector& displacement,
 			const scalar fraction
@@ -554,7 +566,7 @@ namespace tnbLib
 		//- As particle::trackToFace, but stops when a tet triangle is hit. On
 		//  exit, tetTriI is set to the index of the tet triangle that was hit,
 		//  or -1 if the end position was reached.
-		scalar trackToTri
+		FoamLagrangian_EXPORT scalar trackToTri
 		(
 			const vector& displacement,
 			const scalar fraction,
@@ -562,7 +574,7 @@ namespace tnbLib
 		);
 
 		//- As particle::trackToTri, but for stationary meshes
-		scalar trackToStationaryTri
+		FoamLagrangian_EXPORT scalar trackToStationaryTri
 		(
 			const vector& displacement,
 			const scalar fraction,
@@ -570,7 +582,7 @@ namespace tnbLib
 		);
 
 		//- As particle::trackToTri, but for moving meshes
-		scalar trackToMovingTri
+		FoamLagrangian_EXPORT scalar trackToMovingTri
 		(
 			const vector& displacement,
 			const scalar fraction,
@@ -613,7 +625,7 @@ namespace tnbLib
 		//- Get the displacement from the mesh centre. Used to correct the
 		//  particle position in cases with reduced dimensionality. Returns a
 		//  zero vector for three-dimensional cases.
-		vector deviationFromMeshCentre() const;
+		FoamLagrangian_EXPORT vector deviationFromMeshCentre() const;
 
 
 		// Patch data
@@ -626,42 +638,42 @@ namespace tnbLib
 
 			//- Transform the physical properties of the particle
 			//  according to the given transformation tensor
-		virtual void transformProperties(const tensor& T);
+		FoamLagrangian_EXPORT virtual void transformProperties(const tensor& T);
 
 		//- Transform the physical properties of the particle
 		//  according to the given separation vector
-		virtual void transformProperties(const vector& separation);
+		FoamLagrangian_EXPORT virtual void transformProperties(const vector& separation);
 
 
 		// Parallel transfer
 
 			//- Convert global addressing to the processor patch local equivalents
-		void prepareForParallelTransfer();
+		FoamLagrangian_EXPORT void prepareForParallelTransfer();
 
 		//- Convert processor patch addressing to the global equivalents
 		//  and set the celli to the face-neighbour
-		void correctAfterParallelTransfer(const label patchi, trackingData& td);
+		FoamLagrangian_EXPORT void correctAfterParallelTransfer(const label patchi, trackingData& td);
 
 
 		// Interaction list referral
 
 			//- Break the topology and store the particle position so that the
 			//  particle can be referred.
-		void prepareForInteractionListReferral
+		FoamLagrangian_EXPORT void prepareForInteractionListReferral
 		(
 			const vectorTensorTransform& transform
 		);
 
 		//- Correct the topology after referral. The particle may still be
 		//  outside the stored tet and therefore not track-able.
-		void correctAfterInteractionListReferral(const label celli);
+		FoamLagrangian_EXPORT void correctAfterInteractionListReferral(const label celli);
 
 
 		// Decompose and reconstruct
 
 			//- Return the tet point appropriate for decomposition or reconstruction
 			//  to or from the given mesh.
-		label procTetPt
+		FoamLagrangian_EXPORT label procTetPt
 		(
 			const polyMesh& procMesh,
 			const label procCell,
@@ -672,7 +684,7 @@ namespace tnbLib
 		// Mapping
 
 			//- Map after a topology change
-		void autoMap(const vector& position, const mapPolyMesh& mapper);
+		FoamLagrangian_EXPORT void autoMap(const vector& position, const mapPolyMesh& mapper);
 
 
 		// I-O
@@ -686,16 +698,16 @@ namespace tnbLib
 		static void writeFields(const TrackCloudType& c);
 
 		//- Write the particle position and cell
-		void writePosition(Ostream&) const;
+		FoamLagrangian_EXPORT void writePosition(Ostream&) const;
 
 
 		// Friend Operators
 
-		friend Ostream& operator<<(Ostream&, const particle&);
+		friend FoamLagrangian_EXPORT Ostream& operator<<(Ostream&, const particle&);
 
-		friend bool operator==(const particle& pA, const particle& pB);
+		friend FoamLagrangian_EXPORT bool operator==(const particle& pA, const particle& pB);
 
-		friend bool operator!=(const particle& pA, const particle& pB);
+		friend FoamLagrangian_EXPORT bool operator!=(const particle& pA, const particle& pB);
 	};
 
 

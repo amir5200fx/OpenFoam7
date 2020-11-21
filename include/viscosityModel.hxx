@@ -80,12 +80,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("viscosityModel");
+		//TypeName("viscosityModel");
+		static const char* typeName_() { return "viscosityModel"; }
+		static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+		static FoamTransportModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			viscosityModel,
@@ -97,13 +101,70 @@ namespace tnbLib
 				const surfaceScalarField& phi
 				),
 				(name, viscosityProperties, U, phi)
-		);
+		);*/
+
+		typedef autoPtr<viscosityModel> (*dictionaryConstructorPtr)(const word& name,
+		                                                            const dictionary& viscosityProperties,
+		                                                            const volVectorField& U,
+		                                                            const surfaceScalarField& phi);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamTransportModels_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamTransportModels_EXPORT void constructdictionaryConstructorTables();
+		static FoamTransportModels_EXPORT void destroydictionaryConstructorTables();
+
+		template <class viscosityModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<viscosityModel> New(const word& name, const dictionary& viscosityProperties,
+			                                   const volVectorField& U, const surfaceScalarField& phi)
+			{
+				return autoPtr<viscosityModel>(new viscosityModelType(name, viscosityProperties, U, phi));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = viscosityModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "viscosityModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class viscosityModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<viscosityModel> New(const word& name, const dictionary& viscosityProperties,
+			                                   const volVectorField& U, const surfaceScalarField& phi)
+			{
+				return autoPtr<viscosityModel>(new viscosityModelType(name, viscosityProperties, U, phi));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = viscosityModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from components
-		viscosityModel
+		FoamTransportModels_EXPORT viscosityModel
 		(
 			const word& name,
 			const dictionary& viscosityProperties,
@@ -112,13 +173,13 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		viscosityModel(const viscosityModel&);
+		FoamTransportModels_EXPORT viscosityModel(const viscosityModel&);
 
 
 		// Selectors
 
 			//- Return a reference to the selected viscosity model
-		static autoPtr<viscosityModel> New
+		static FoamTransportModels_EXPORT autoPtr<viscosityModel> New
 		(
 			const word& name,
 			const dictionary& viscosityProperties,
@@ -141,25 +202,25 @@ namespace tnbLib
 		}
 
 		//- Return the strain rate
-		tmp<volScalarField> strainRate() const;
+		FoamTransportModels_EXPORT tmp<volScalarField> strainRate() const;
 
 		//- Return the laminar viscosity
-		virtual tmp<volScalarField> nu() const = 0;
+		FoamTransportModels_EXPORT virtual tmp<volScalarField> nu() const = 0;
 
 		//- Return the laminar viscosity for patch
-		virtual tmp<scalarField> nu(const label patchi) const = 0;
+		FoamTransportModels_EXPORT virtual tmp<scalarField> nu(const label patchi) const = 0;
 
 		//- Correct the laminar viscosity
-		virtual void correct() = 0;
+		FoamTransportModels_EXPORT virtual void correct() = 0;
 
 		//- Read transportProperties dictionary
-		virtual bool read(const dictionary& viscosityProperties) = 0;
+		FoamTransportModels_EXPORT virtual bool read(const dictionary& viscosityProperties) = 0;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const viscosityModel&) = delete;
+		FoamTransportModels_EXPORT void operator=(const viscosityModel&) = delete;
 	};
 
 

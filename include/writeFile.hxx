@@ -71,54 +71,54 @@ namespace tnbLib
 		public:
 
 			//- Directory prefix
-			static const word outputPrefix;
+			static FoamBase_EXPORT const word outputPrefix;
 
 			//- Additional characters for writing
-			static label addChars;
+			static FoamBase_EXPORT label addChars;
 
 
 			// Constructors
 
 				//- Construct from objectRegistry and prefix
-			writeFile
+			FoamBase_EXPORT writeFile
 			(
 				const objectRegistry& obr,
 				const word& prefix
 			);
 
 			//- Disallow default bitwise copy construction
-			writeFile(const writeFile&) = delete;
+			FoamBase_EXPORT writeFile(const writeFile&) = delete;
 
 
 			//- Destructor
-			~writeFile();
+			FoamBase_EXPORT ~writeFile();
 
 
 			// Member Functions
 
 				//- Initialise the output stream for writing
-			void initStream(Ostream& os) const;
+			FoamBase_EXPORT void initStream(Ostream& os) const;
 
 			//- Return the base directory for output
-			fileName baseFileDir() const;
+			FoamBase_EXPORT fileName baseFileDir() const;
 
 			//- Return the base directory for the current time value
-			fileName baseTimeDir() const;
+			FoamBase_EXPORT fileName baseTimeDir() const;
 
 			//- Return the value width when writing to stream with optional offset
-			Omanip<int> valueWidth(const label offset = 0) const;
+			FoamBase_EXPORT Omanip<int> valueWidth(const label offset = 0) const;
 
 			//- Write a commented string to stream
-			void writeCommented(Ostream& os, const string& str) const;
+			FoamBase_EXPORT void writeCommented(Ostream& os, const string& str) const;
 
 			//- Write a tabbed string to stream
-			void writeTabbed(Ostream& os, const string& str) const;
+			FoamBase_EXPORT void writeTabbed(Ostream& os, const string& str) const;
 
 			//- Write a commented header to stream
-			void writeHeader(Ostream& os, const string& str) const;
+			FoamBase_EXPORT void writeHeader(Ostream& os, const string& str) const;
 
 			//- Write the current time to stream
-			void writeTime(Ostream& os) const;
+			FoamBase_EXPORT void writeTime(Ostream& os) const;
 
 			//- Write a (commented) header property and value pair
 			template<class Type>
@@ -130,13 +130,13 @@ namespace tnbLib
 			) const;
 
 			//- Return width of character stream output
-			label charWidth() const;
+			FoamBase_EXPORT label charWidth() const;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const writeFile&) = delete;
+			FoamBase_EXPORT void operator=(const writeFile&) = delete;
 		};
 
 

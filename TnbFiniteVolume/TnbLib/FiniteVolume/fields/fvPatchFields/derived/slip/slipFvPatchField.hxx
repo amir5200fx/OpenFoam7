@@ -47,6 +47,16 @@ SourceFiles
 
 #include <basicSymmetryFvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamSlipFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSlipFvPatchField_EXPORT_DEFINE
+#define FoamSlipFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamSlipFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -65,7 +75,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("slip");
+		//TypeName("slip");
+		static const char* typeName_() { return "slip"; }
+		static FoamSlipFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamSlipFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

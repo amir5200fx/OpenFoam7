@@ -43,6 +43,16 @@ SourceFiles
 #include <cyclicFvPatchField.hxx>
 #include <nonuniformTransformCyclicFvPatch.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamNonuniformTransformCyclicFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNonuniformTransformCyclicFvPatchField_EXPORT_DEFINE
+#define FoamNonuniformTransformCyclicFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamNonuniformTransformCyclicFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -62,7 +72,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(nonuniformTransformCyclicFvPatch::typeName_());
+		//TypeName(nonuniformTransformCyclicFvPatch::typeName_());
+		static const char* typeName_() { return nonuniformTransformCyclicFvPatch::typeName_(); }
+		static FoamNonuniformTransformCyclicFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamNonuniformTransformCyclicFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

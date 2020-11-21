@@ -49,6 +49,16 @@ SourceFiles
 #include <processorLduInterfaceField.hxx>
 #include <processorFvPatch.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamProcessorFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamProcessorFvPatchField_EXPORT_DEFINE
+#define FoamProcessorFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamProcessorFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -92,7 +102,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(processorFvPatch::typeName_());
+		//TypeName(processorFvPatch::typeName_());
+		static const char* typeName_() { return processorFvPatch::typeName_(); }
+		static FoamProcessorFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamProcessorFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -290,6 +304,7 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <processorFvPatchFieldI.hxx>
+#include <processorFvPatchScalarField.hxx>  // added by amir
 
 //#ifdef NoRepository
 //#include <processorFvPatchField.cxx>

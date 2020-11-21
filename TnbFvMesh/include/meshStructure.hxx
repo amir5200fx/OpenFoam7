@@ -85,7 +85,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			 //- Is cell structured
-		bool isStructuredCell
+		FoamFvMesh_EXPORT bool isStructuredCell
 		(
 			const polyMesh& mesh,
 			const label layerI,
@@ -93,7 +93,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculate all maps.
-		void correct
+		FoamFvMesh_EXPORT void correct
 		(
 			const polyMesh& mesh,
 			const uindirectPrimitivePatch& pp
@@ -103,12 +103,15 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("meshStructure");
+		/*ClassName("meshStructure");*/
+		static const char* typeName_() { return "meshStructure"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct null
-		meshStructure(const polyMesh& mesh, const uindirectPrimitivePatch&);
+		FoamFvMesh_EXPORT meshStructure(const polyMesh& mesh, const uindirectPrimitivePatch&);
 
 
 		// Member Functions

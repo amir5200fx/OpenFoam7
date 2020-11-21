@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <interpolationPointMVC.hxx>
 
 #include <fvBoundaryMesh.hxx>  // added by amir

@@ -94,20 +94,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pressureNormalInletOutletVelocity");
+		//TypeName("pressureNormalInletOutletVelocity");
+		static const char* typeName_() { return "pressureNormalInletOutletVelocity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		pressureNormalInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureNormalInletOutletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		pressureNormalInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureNormalInletOutletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -117,7 +121,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  pressureNormalInletOutletVelocityFvPatchVectorField
 		//  onto a new patch
-		pressureNormalInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureNormalInletOutletVelocityFvPatchVectorField
 		(
 			const pressureNormalInletOutletVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -126,7 +130,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		pressureNormalInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureNormalInletOutletVelocityFvPatchVectorField
 		(
 			const pressureNormalInletOutletVelocityFvPatchVectorField&
 		);
@@ -144,7 +148,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		pressureNormalInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT pressureNormalInletOutletVelocityFvPatchVectorField
 		(
 			const pressureNormalInletOutletVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -207,15 +211,15 @@ namespace tnbLib
 
 
 		//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 
 
 		// Member Operators
 
-		virtual void operator=(const fvPatchField<vector>& pvf);
+		FoamFiniteVolume_EXPORT virtual void operator=(const fvPatchField<vector>& pvf);
 	};
 
 

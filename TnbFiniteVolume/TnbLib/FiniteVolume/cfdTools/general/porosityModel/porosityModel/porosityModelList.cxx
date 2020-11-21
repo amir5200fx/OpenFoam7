@@ -141,7 +141,7 @@ void tnbLib::porosityModelList::addResistance
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamFiniteVolume_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	Ostream& os,
 	const porosityModelList& models

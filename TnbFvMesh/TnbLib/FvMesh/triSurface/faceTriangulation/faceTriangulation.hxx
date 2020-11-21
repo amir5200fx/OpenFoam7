@@ -71,23 +71,23 @@ namespace tnbLib
 		// Static Data
 
 			//- Relative tolerance on edge.
-		static const scalar edgeRelTol;
+		static FoamFvMesh_EXPORT const scalar edgeRelTol;
 
 
 		// Static Member Functions
 
 			//- Edge to the right of face vertex i
-		static label right(const label size, label i);
+		static FoamFvMesh_EXPORT label right(const label size, label i);
 
 		//- Edge to the left of face vertex i
-		static label left(const label size, label i);
+		static FoamFvMesh_EXPORT label left(const label size, label i);
 
 		//- Calculate normalized edge vectors
-		static tmp<vectorField> calcEdges(const face&, const pointField&);
+		static FoamFvMesh_EXPORT tmp<vectorField> calcEdges(const face&, const pointField&);
 
 		//- Calculates half angle components of angle from e0 to e1
 		//  in plane given by normal.
-		static void calcHalfAngle
+		static FoamFvMesh_EXPORT void calcHalfAngle
 		(
 			const vector& normal,
 			const vector& e0,
@@ -98,7 +98,7 @@ namespace tnbLib
 
 		//- Calculate intersection point between edge p1-p2 and ray (in 2D).
 		// Return true and intersection point if intersection between p1 and p2.
-		static pointHit rayEdgeIntersect
+		static FoamFvMesh_EXPORT pointHit rayEdgeIntersect
 		(
 			const vector& normal,
 			const point& rayOrigin,
@@ -110,7 +110,7 @@ namespace tnbLib
 
 		// Return true if triangle given its three points
 		// (anticlockwise ordered) contains point
-		static bool triangleContainsPoint
+		static FoamFvMesh_EXPORT bool triangleContainsPoint
 		(
 			const vector& n,
 			const point& p0,
@@ -121,7 +121,7 @@ namespace tnbLib
 
 		//- Starting from startIndex find diagonal. Return in index1, index2.
 		//  Index1 always startIndex except when convex polygon
-		static void findDiagonal
+		static FoamFvMesh_EXPORT void findDiagonal
 		(
 			const pointField& points,
 			const face& f,
@@ -136,7 +136,7 @@ namespace tnbLib
 		//  vertex with edge angle:
 		//     1] flattest concave angle
 		//     2] flattest convex angle if no concave angles.
-		static label findStart
+		static FoamFvMesh_EXPORT label findStart
 		(
 			const face& f,
 			const vectorField& edges,
@@ -148,7 +148,7 @@ namespace tnbLib
 
 			//- Split face f into triangles. Handles all simple (convex & concave)
 			//  polygons. Returns false if could not produce valid split.
-		bool split
+		bool FoamFvMesh_EXPORT split
 		(
 			const bool fallBack,
 			const pointField& points,
@@ -162,13 +162,13 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		faceTriangulation();
+		FoamFvMesh_EXPORT faceTriangulation();
 
 		//- Construct from face and points. Decomposition based on average
 		//  normal. After construction *this is size 0 or holds the triangles.
 		//  If fallBack and triangulation fails does naive triangulation
 		//  and never returns 0 size.
-		faceTriangulation
+		FoamFvMesh_EXPORT faceTriangulation
 		(
 			const pointField& points,
 			const face& f,
@@ -179,7 +179,7 @@ namespace tnbLib
 		//  After construction *this is size 0 or holds the triangles.
 		//  If fallBack and triangulation fails does naive triangulation
 		//  and never returns 0 size.
-		faceTriangulation
+		FoamFvMesh_EXPORT faceTriangulation
 		(
 			const pointField& points,
 			const face& f,
@@ -188,7 +188,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		faceTriangulation(Istream&);
+		FoamFvMesh_EXPORT faceTriangulation(Istream&);
 	};
 
 

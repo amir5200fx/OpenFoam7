@@ -59,7 +59,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		immiscibleIncompressibleTwoPhaseMixture
+		FoamTransportModels_EXPORT immiscibleIncompressibleTwoPhaseMixture
 		(
 			const volVectorField& U,
 			const surfaceScalarField& phi
@@ -81,7 +81,7 @@ namespace tnbLib
 		}
 
 		//- Read base transportProperties dictionary
-		virtual bool read();
+		FoamTransportModels_EXPORT virtual bool read();
 	};
 
 

@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <PureUpwindFitScheme.hxx>
 #include <quadraticLinearUpwindFitPolynomial.hxx>
 #include <upwindCFCCellToFaceStencilObject.hxx>

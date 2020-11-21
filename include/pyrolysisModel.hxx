@@ -66,10 +66,10 @@ namespace tnbLib
 				// Private Member Functions
 
 					//- Construct fields
-				void constructMeshObjects();
+				FoamLagrangian_EXPORT void constructMeshObjects();
 
 				//- Read pyrolysis controls
-				void readPyrolysisControls();
+				FoamLagrangian_EXPORT void readPyrolysisControls();
 
 
 			protected:
@@ -77,21 +77,25 @@ namespace tnbLib
 				// Protected Member Functions
 
 					//- Read control parameters
-				virtual bool read();
+				FoamLagrangian_EXPORT virtual bool read();
 
 				//- Read control parameters from dictionary
-				virtual bool read(const dictionary& dict);
+				FoamLagrangian_EXPORT virtual bool read(const dictionary& dict);
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("pyrolysisModel");
+				//TypeName("pyrolysisModel");
+				static const char* typeName_() { return "pyrolysisModel"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Declare runtime constructor selection table
 
-				declareRunTimeSelectionTable
+				/*declareRunTimeSelectionTable
 				(
 					autoPtr,
 					pyrolysisModel,
@@ -102,9 +106,64 @@ namespace tnbLib
 						const word& regionType
 						),
 						(modelType, mesh, regionType)
-				);
+				);*/
 
-				declareRunTimeSelectionTable
+				typedef autoPtr<pyrolysisModel> (*meshConstructorPtr)(const word& modelType, const fvMesh& mesh,
+				                                                      const word& regionType);
+				typedef HashTable<meshConstructorPtr, word, string::hash> meshConstructorTable;
+				static FoamLagrangian_EXPORT meshConstructorTable* meshConstructorTablePtr_;
+				static FoamLagrangian_EXPORT void constructmeshConstructorTables();
+				static FoamLagrangian_EXPORT void destroymeshConstructorTables();
+
+				template <class pyrolysisModelType>
+				class addmeshConstructorToTable
+				{
+				public:
+					static autoPtr<pyrolysisModel> New(const word& modelType, const fvMesh& mesh,
+					                                   const word& regionType)
+					{
+						return autoPtr<pyrolysisModel>(new pyrolysisModelType(modelType, mesh, regionType));
+					}
+
+					addmeshConstructorToTable(const word& lookup = pyrolysisModelType::typeName)
+					{
+						constructmeshConstructorTables();
+						if (!meshConstructorTablePtr_->insert(lookup, New))
+						{
+							std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+								"pyrolysisModel" << std::endl;
+							error::safePrintStack(std::cerr);
+						}
+					}
+
+					~addmeshConstructorToTable() { destroymeshConstructorTables(); }
+				};
+
+				template <class pyrolysisModelType>
+				class addRemovablemeshConstructorToTable
+				{
+					const word& lookup_;
+				public:
+					static autoPtr<pyrolysisModel> New(const word& modelType, const fvMesh& mesh,
+					                                   const word& regionType)
+					{
+						return autoPtr<pyrolysisModel>(new pyrolysisModelType(modelType, mesh, regionType));
+					}
+
+					addRemovablemeshConstructorToTable(const word& lookup = pyrolysisModelType::typeName) : lookup_(
+						lookup)
+					{
+						constructmeshConstructorTables();
+						meshConstructorTablePtr_->set(lookup, New);
+					}
+
+					~addRemovablemeshConstructorToTable()
+					{
+						if (meshConstructorTablePtr_) { meshConstructorTablePtr_->erase(lookup_); }
+					}
+				};
+
+				/*declareRunTimeSelectionTable
 				(
 					autoPtr,
 					pyrolysisModel,
@@ -116,20 +175,75 @@ namespace tnbLib
 						const word& regionType
 						),
 						(modelType, mesh, dict, regionType)
-				);
+				);*/
+
+				typedef autoPtr<pyrolysisModel> (*dictionaryConstructorPtr)(
+					const word& modelType, const fvMesh& mesh, const dictionary& dict, const word& regionType);
+				typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+				static FoamLagrangian_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+				static FoamLagrangian_EXPORT void constructdictionaryConstructorTables();
+				static FoamLagrangian_EXPORT void destroydictionaryConstructorTables();
+
+				template <class pyrolysisModelType>
+				class adddictionaryConstructorToTable
+				{
+				public:
+					static autoPtr<pyrolysisModel> New(const word& modelType, const fvMesh& mesh,
+					                                   const dictionary& dict, const word& regionType)
+					{
+						return autoPtr<pyrolysisModel>(new pyrolysisModelType(modelType, mesh, dict, regionType));
+					}
+
+					adddictionaryConstructorToTable(const word& lookup = pyrolysisModelType::typeName)
+					{
+						constructdictionaryConstructorTables();
+						if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+						{
+							std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+								"pyrolysisModel" << std::endl;
+							error::safePrintStack(std::cerr);
+						}
+					}
+
+					~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+				};
+
+				template <class pyrolysisModelType>
+				class addRemovabledictionaryConstructorToTable
+				{
+					const word& lookup_;
+				public:
+					static autoPtr<pyrolysisModel> New(const word& modelType, const fvMesh& mesh,
+					                                   const dictionary& dict, const word& regionType)
+					{
+						return autoPtr<pyrolysisModel>(new pyrolysisModelType(modelType, mesh, dict, regionType));
+					}
+
+					addRemovabledictionaryConstructorToTable(
+						const word& lookup = pyrolysisModelType::typeName) : lookup_(lookup)
+					{
+						constructdictionaryConstructorTables();
+						dictionaryConstructorTablePtr_->set(lookup, New);
+					}
+
+					~addRemovabledictionaryConstructorToTable()
+					{
+						if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+					}
+				};
 
 
 				// Constructors
 
 					//- Construct null from mesh
-				pyrolysisModel
+				FoamLagrangian_EXPORT pyrolysisModel
 				(
 					const fvMesh& mesh,
 					const word& regionType
 				);
 
 				//- Construct from type name and mesh
-				pyrolysisModel
+				FoamLagrangian_EXPORT pyrolysisModel
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -137,7 +251,7 @@ namespace tnbLib
 				);
 
 				//- Construct from type name and mesh and dictionary
-				pyrolysisModel
+				FoamLagrangian_EXPORT pyrolysisModel
 				(
 					const word& modelType,
 					const fvMesh& mesh,
@@ -146,7 +260,7 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				pyrolysisModel(const pyrolysisModel&) = delete;
+				FoamLagrangian_EXPORT pyrolysisModel(const pyrolysisModel&) = delete;
 
 				//- Return clone
 				autoPtr<pyrolysisModel> clone() const
@@ -159,14 +273,14 @@ namespace tnbLib
 				// Selectors
 
 					//- Return a reference to the selected pyrolysis model
-				static autoPtr<pyrolysisModel> New
+				static FoamLagrangian_EXPORT autoPtr<pyrolysisModel> New
 				(
 					const fvMesh& mesh,
 					const word& regionType = "pyrolysis"
 				);
 
 				//- Return a reference to a named selected pyrolysis model
-				static autoPtr<pyrolysisModel> New
+				static FoamLagrangian_EXPORT autoPtr<pyrolysisModel> New
 				(
 					const fvMesh& mesh,
 					const dictionary& dict,
@@ -175,7 +289,7 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~pyrolysisModel();
+				FoamLagrangian_EXPORT virtual ~pyrolysisModel();
 
 
 				// Member Functions
@@ -185,28 +299,28 @@ namespace tnbLib
 						// Fields
 
 							//- Return density [kg/m^3]
-				virtual const volScalarField& rho() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& rho() const = 0;
 
 				//- Return const temperature [K]
-				virtual const volScalarField& T() const = 0;
+				FoamLagrangian_EXPORT virtual const volScalarField& T() const = 0;
 
 				//- Return specific heat capacity [J/kg/K]
-				virtual const tmp<volScalarField> Cp() const = 0;
+				FoamLagrangian_EXPORT virtual const tmp<volScalarField> Cp() const = 0;
 
 				//- Return the region absorptivity [1/m]
-				virtual tmp<volScalarField> kappaRad() const = 0;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> kappaRad() const = 0;
 
 				//- Return the region thermal conductivity [W/m/k]
-				virtual tmp<volScalarField> kappa() const = 0;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> kappa() const = 0;
 
 				//- Return the total gas mass flux to primary region [kg/m^2/s]
-				virtual const surfaceScalarField& phiGas() const = 0;
+				FoamLagrangian_EXPORT virtual const surfaceScalarField& phiGas() const = 0;
 
 
 				// Sources
 
 					//- External hook to add mass to the primary region
-				virtual scalar addMassSources
+				FoamLagrangian_EXPORT virtual scalar addMassSources
 				(
 					const label patchi,
 					const label facei
@@ -216,16 +330,16 @@ namespace tnbLib
 				// Helper function
 
 					//- Mean diffusion number of the solid region
-				virtual scalar solidRegionDiffNo() const;
+				FoamLagrangian_EXPORT virtual scalar solidRegionDiffNo() const;
 
 				//- Return max diffusivity allowed in the solid
-				virtual scalar maxDiff() const;
+				FoamLagrangian_EXPORT virtual scalar maxDiff() const;
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const pyrolysisModel&) = delete;
+				FoamLagrangian_EXPORT void operator=(const pyrolysisModel&) = delete;
 			};
 
 

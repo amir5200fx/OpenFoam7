@@ -61,31 +61,31 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from mesh
-		cellQuality(const polyMesh& mesh);
+		FoamFvMesh_EXPORT cellQuality(const polyMesh& mesh);
 
 		//- Disallow default bitwise copy construction
-		cellQuality(const cellQuality&) = delete;
+		FoamFvMesh_EXPORT cellQuality(const cellQuality&) = delete;
 
 
 		// Member Functions
 
 			//- Return cell non-orthogonality
-		tmp<scalarField> nonOrthogonality() const;
+		FoamFvMesh_EXPORT tmp<scalarField> nonOrthogonality() const;
 
 		//- Return cell skewness
-		tmp<scalarField> skewness() const;
+		FoamFvMesh_EXPORT tmp<scalarField> skewness() const;
 
 		//- Return face non-orthogonality
-		tmp<scalarField> faceNonOrthogonality() const;
+		FoamFvMesh_EXPORT tmp<scalarField> faceNonOrthogonality() const;
 
 		//- Return face skewness
-		tmp<scalarField> faceSkewness() const;
+		FoamFvMesh_EXPORT tmp<scalarField> faceSkewness() const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const cellQuality&) = delete;
+		FoamFvMesh_EXPORT void operator=(const cellQuality&) = delete;
 	};
 
 

@@ -68,19 +68,23 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("laplace");
+		//TypeName("laplace");
+		static const char* typeName_() { return "laplace"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		laplaceFilter(const fvMesh& mesh, scalar widthCoeff);
+		FoamTurbulence_EXPORT laplaceFilter(const fvMesh& mesh, scalar widthCoeff);
 
 		//- Construct from IOdictionary
-		laplaceFilter(const fvMesh& mesh, const dictionary&);
+		FoamTurbulence_EXPORT laplaceFilter(const fvMesh& mesh, const dictionary&);
 
 		//- Disallow default bitwise copy construction
-		laplaceFilter(const laplaceFilter&) = delete;
+		FoamTurbulence_EXPORT laplaceFilter(const laplaceFilter&) = delete;
 
 
 		//- Destructor
@@ -91,27 +95,27 @@ namespace tnbLib
 		// Member Functions
 
 			//- Read the LESfilter dictionary
-		virtual void read(const dictionary&);
+		FoamTurbulence_EXPORT virtual void read(const dictionary&);
 
 
 		// Member Operators
 
-		virtual tmp<volScalarField> operator()
+		FoamTurbulence_EXPORT virtual tmp<volScalarField> operator()
 			(
 				const tmp<volScalarField>&
 				) const;
 
-		virtual tmp<volVectorField> operator()
+		FoamTurbulence_EXPORT virtual tmp<volVectorField> operator()
 			(
 				const tmp<volVectorField>&
 				) const;
 
-		virtual tmp<volSymmTensorField> operator()
+		FoamTurbulence_EXPORT virtual tmp<volSymmTensorField> operator()
 			(
 				const tmp<volSymmTensorField>&
 				) const;
 
-		virtual tmp<volTensorField> operator()
+		FoamTurbulence_EXPORT virtual tmp<volTensorField> operator()
 			(
 				const tmp<volTensorField>&
 				) const;
@@ -120,7 +124,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const laplaceFilter&) = delete;
+		FoamTurbulence_EXPORT void operator=(const laplaceFilter&) = delete;
 	};
 
 

@@ -54,8 +54,8 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 	class scalarRange;
-	Istream& operator>>(Istream&, scalarRange&);
-	Ostream& operator<<(Ostream&, const scalarRange&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, scalarRange&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const scalarRange&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -84,52 +84,52 @@ namespace tnbLib
 
 	public:
 
-		static int debug;
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct an empty range
-		scalarRange();
+		FoamBase_EXPORT scalarRange();
 
 		//- Construct a range from lower to upper
-		scalarRange(const scalar lower, const scalar upper);
+		FoamBase_EXPORT scalarRange(const scalar lower, const scalar upper);
 
 		//- Construct from Istream.
 		//  Since commas can be used as list delimiters,
 		//  leading and trailing commas are ignored.
-		scalarRange(Istream&);
+		FoamBase_EXPORT scalarRange(Istream&);
 
 
 		// Member Functions
 
 			//- Is the range empty?
-		bool empty() const;
+		FoamBase_EXPORT bool empty() const;
 
 		//- Is the range non-empty?
-		bool valid() const;
+		FoamBase_EXPORT bool valid() const;
 
 		//- Is the range 'EXACT'?
-		bool isExact() const;
+		FoamBase_EXPORT bool isExact() const;
 
 		//- The value constituting an 'EXACT' match
 		//  or the values for 'UPPER' or 'LOWER' limits
-		scalar value() const;
+		FoamBase_EXPORT scalar value() const;
 
 		//- The lower limit
-		scalar lower() const;
+		FoamBase_EXPORT scalar lower() const;
 
 		//- The upper limit
-		scalar upper() const;
+		FoamBase_EXPORT scalar upper() const;
 
 		//- Return true if the value is within the range
-		bool selected(const scalar) const;
+		FoamBase_EXPORT bool selected(const scalar) const;
 
 
 		// Member Operators
 
-		bool operator==(const scalarRange&) const;
-		bool operator!=(const scalarRange&) const;
+		FoamBase_EXPORT bool operator==(const scalarRange&) const;
+		FoamBase_EXPORT bool operator!=(const scalarRange&) const;
 
 
 		// IOstream Operators

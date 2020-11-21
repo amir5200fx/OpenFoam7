@@ -60,7 +60,7 @@ namespace tnbLib
 		public:
 
 			//- Static table of black body emissive power
-			static const List<Tuple2<scalar, scalar>> emissivePowerTable;
+			static FoamRadiationModels_EXPORT const List<Tuple2<scalar, scalar>> emissivePowerTable;
 
 
 		private:
@@ -85,7 +85,7 @@ namespace tnbLib
 
 			// Private Member Functions
 
-			scalar fLambdaT(const scalar lambdaT) const;
+			FoamRadiationModels_EXPORT scalar fLambdaT(const scalar lambdaT) const;
 
 
 		public:
@@ -93,7 +93,7 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from components
-			blackBodyEmission
+			FoamRadiationModels_EXPORT blackBodyEmission
 			(
 				const label nLambda,
 				const volScalarField& T
@@ -101,7 +101,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			~blackBodyEmission();
+			FoamRadiationModels_EXPORT ~blackBodyEmission();
 
 
 			// Member Functions
@@ -125,14 +125,14 @@ namespace tnbLib
 			}
 
 			//- Proportion of total energy at T from lambda1 to lambda2
-			tmp<tnbLib::volScalarField> deltaLambdaT
+			FoamRadiationModels_EXPORT tmp<tnbLib::volScalarField> deltaLambdaT
 			(
 				const volScalarField& T,
 				const Vector2D<scalar>& band
 			) const;
 
 			//- Integral energy at T from lambda1 to lambda2
-			tmp<tnbLib::volScalarField> EbDeltaLambdaT
+			FoamRadiationModels_EXPORT tmp<tnbLib::volScalarField> EbDeltaLambdaT
 			(
 				const volScalarField& T,
 				const Vector2D<scalar>& band
@@ -141,7 +141,7 @@ namespace tnbLib
 			// Edit
 
 				// Update black body emission
-			void correct(const label lambdaI, const Vector2D<scalar>& band);
+			FoamRadiationModels_EXPORT void correct(const label lambdaI, const Vector2D<scalar>& band);
 		};
 
 

@@ -166,23 +166,23 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
-		static const char* const componentNames[];
-		static const floatScalar zero;
-		static const floatScalar one;
-		static const floatScalar max;
-		static const floatScalar min;
-		static const floatScalar rootMax;
-		static const floatScalar rootMin;
+		static FoamBase_EXPORT const char* const typeName;
+		static FoamBase_EXPORT const char* const componentNames[];
+		static FoamBase_EXPORT const floatScalar zero;
+		static FoamBase_EXPORT const floatScalar one;
+		static FoamBase_EXPORT const floatScalar max;
+		static FoamBase_EXPORT const floatScalar min;
+		static FoamBase_EXPORT const floatScalar rootMax;
+		static FoamBase_EXPORT const floatScalar rootMin;
 
 
 		// Constructors
 
 			//- Construct from primitive
-		explicit pTraits(const floatScalar&);
+		FoamBase_EXPORT explicit pTraits(const floatScalar&);
 
 		//- Construct from Istream
-		pTraits(Istream&);
+		FoamBase_EXPORT pTraits(Istream&);
 
 
 		// Member Functions
@@ -204,7 +204,7 @@ namespace tnbLib
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	//- Return a string representation of a floatScalar
-	word name(const floatScalar);
+	FoamBase_EXPORT word name(const floatScalar);
 
 
 	// Standard C++ transcendental functions
@@ -486,15 +486,15 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * IOstream Functions  * * * * * * * * * * * * //
 
-	floatScalar readFloatScalar(Istream&);
+	FoamBase_EXPORT floatScalar readFloatScalar(Istream&);
 
-	void writeEntry(Ostream& os, const floatScalar value);
+	FoamBase_EXPORT void writeEntry(Ostream& os, const floatScalar value);
 
 
 	// * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-	Istream& operator>>(Istream&, floatScalar&);
-	Ostream& operator<<(Ostream&, const floatScalar);
+	FoamBase_EXPORT Istream& operator>>(Istream&, floatScalar&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const floatScalar);
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -43,7 +43,7 @@ SourceFiles
 namespace tnbLib
 {
 
-	void writePatchGraph
+	FoamSampling_EXPORT void writePatchGraph
 	(
 		const volScalarField& vsf,
 		const label patchLabel,

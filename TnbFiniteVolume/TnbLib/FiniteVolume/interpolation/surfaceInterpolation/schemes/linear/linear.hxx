@@ -42,6 +42,16 @@ SourceFiles
 #include <surfaceMesh.hxx>  // added by amir
 #include <fvBoundaryMesh.hxx>  // added by amir
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamLinear_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLinear_EXPORT_DEFINE
+#define FoamLinear_EXPORT __declspec(dllexport)
+#else
+#define FoamLinear_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -60,7 +70,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("linear");
+		/*TypeName("linear");*/
+		static const char* typeName_() { return "linear"; }
+		static FoamLinear_EXPORT const ::tnbLib::word typeName;
+		static FoamLinear_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

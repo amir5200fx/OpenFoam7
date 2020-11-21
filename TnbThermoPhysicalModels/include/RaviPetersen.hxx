@@ -87,21 +87,21 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Check that input points are ordered
-			void checkPointsMonotonicity
+			FoamThermophysicalModels_EXPORT void checkPointsMonotonicity
 			(
 				const word& name,
 				const List<scalar>& x
 			) const;
 
 			//- Check that the coefficient arrays are of the correct shape
-			void checkCoefficientArrayShape
+			FoamThermophysicalModels_EXPORT void checkCoefficientArrayShape
 			(
 				const word& name,
 				const List<List<List<scalar>>>& x
 			) const;
 
 			//- Find and interpolate a value in the data point arrays
-			inline bool interval
+			FoamThermophysicalModels_EXPORT inline bool interval
 			(
 				const List<scalar>& xPoints,
 				const scalar x,
@@ -111,21 +111,21 @@ namespace tnbLib
 			) const;
 
 			//- Evaluate a polynomial
-			inline scalar polynomial
+			FoamThermophysicalModels_EXPORT inline scalar polynomial
 			(
 				const List<scalar>& coeffs,
 				const scalar x
 			) const;
 
 			//- Evaluate a polynomial differential
-			inline scalar dPolynomial
+			FoamThermophysicalModels_EXPORT inline scalar dPolynomial
 			(
 				const List<scalar>& coeffs,
 				const scalar x
 			) const;
 
 			//- Calculate normalised temperature to the power of the B polynomial
-			inline scalar THatPowB
+			FoamThermophysicalModels_EXPORT inline scalar THatPowB
 			(
 				const label EqRIndex,
 				const label pIndex,
@@ -134,7 +134,7 @@ namespace tnbLib
 			) const;
 
 			//- Return the flame speed within the correlation range
-			inline scalar correlationInRange
+			FoamThermophysicalModels_EXPORT inline scalar correlationInRange
 			(
 				const label EqRIndex,
 				const label pIndex,
@@ -143,7 +143,7 @@ namespace tnbLib
 			) const;
 
 			//- Extrapolate the flame speed correlation outside its range
-			inline scalar correlationOutOfRange
+			FoamThermophysicalModels_EXPORT inline scalar correlationOutOfRange
 			(
 				const label EqRIndex,
 				const label pIndex,
@@ -153,7 +153,7 @@ namespace tnbLib
 			) const;
 
 			//- Return the laminar flame speed [m/s]
-			inline scalar speed
+			FoamThermophysicalModels_EXPORT inline scalar speed
 			(
 				const scalar EqR,
 				const scalar p,
@@ -162,19 +162,23 @@ namespace tnbLib
 
 
 			//- Construct as copy (not implemented)
-			RaviPetersen(const RaviPetersen&);
-			void operator=(const RaviPetersen&);
+			FoamThermophysicalModels_EXPORT RaviPetersen(const RaviPetersen&);
+			FoamThermophysicalModels_EXPORT void operator=(const RaviPetersen&);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("RaviPetersen");
+			//TypeName("RaviPetersen");
+			static const char* typeName_() { return "RaviPetersen"; }
+			static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+			static FoamThermophysicalModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
 				//- Construct from dictionary and psiuReactionThermo
-			RaviPetersen
+			FoamThermophysicalModels_EXPORT RaviPetersen
 			(
 				const dictionary&,
 				const psiuReactionThermo&
@@ -182,13 +186,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~RaviPetersen();
+			FoamThermophysicalModels_EXPORT virtual ~RaviPetersen();
 
 
 			// Member Functions
 
 				//- Return the laminar flame speed [m/s]
-			tmp<volScalarField> operator()() const;
+			FoamThermophysicalModels_EXPORT tmp<volScalarField> operator()() const;
 		};
 
 

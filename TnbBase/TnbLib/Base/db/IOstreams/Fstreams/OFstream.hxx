@@ -64,7 +64,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from pathname
-		OFstreamAllocator
+		FoamBase_EXPORT OFstreamAllocator
 		(
 			const fileName& pathname,
 			IOstream::compressionType compression = IOstream::UNCOMPRESSED,
@@ -72,7 +72,7 @@ namespace tnbLib
 		);
 
 		//- Destructor
-		~OFstreamAllocator();
+		FoamBase_EXPORT ~OFstreamAllocator();
 
 	};
 
@@ -94,13 +94,16 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("OFstream");
+		//ClassName("OFstream");
+		static const char* typeName_() { return "OFstream"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from pathname
-		OFstream
+		FoamBase_EXPORT OFstream
 		(
 			const fileName& pathname,
 			streamFormat format = ASCII,
@@ -111,7 +114,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~OFstream();
+		FoamBase_EXPORT ~OFstream();
 
 
 		// Member Functions
@@ -134,23 +137,23 @@ namespace tnbLib
 		// STL stream
 
 			//- Access to underlying std::ostream
-		virtual ostream& stdStream();
+		FoamBase_EXPORT virtual ostream& stdStream();
 
 		//- Const access to underlying std::ostream
-		virtual const ostream& stdStream() const;
+		FoamBase_EXPORT virtual const ostream& stdStream() const;
 
 
 		// Print
 
 			//- Print description of IOstream to Ostream
-		void print(Ostream&) const;
+		FoamBase_EXPORT void print(Ostream&) const;
 	};
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 	//- Global predefined null output stream "/dev/null"
-	extern OFstream Snull;
+	FoamBase_EXPORT extern OFstream Snull;
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

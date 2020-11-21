@@ -58,23 +58,23 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct given an IOobject
-		localIOdictionary(const IOobject& io);
+		FoamBase_EXPORT localIOdictionary(const IOobject& io);
 
 		//- Construct given an IOobject and dictionary
-		localIOdictionary(const IOobject& io, const dictionary& dict);
+		FoamBase_EXPORT localIOdictionary(const IOobject& io, const dictionary& dict);
 
 		//- Construct given an IOobject and Istream
-		localIOdictionary(const IOobject& io, Istream& is);
+		FoamBase_EXPORT localIOdictionary(const IOobject& io, Istream& is);
 
 		//- Construct given an IOobject, supply wanted typeName
-		localIOdictionary(const IOobject& io, const word& wantedType);
+		FoamBase_EXPORT localIOdictionary(const IOobject& io, const word& wantedType);
 
 		//- Move constructor
-		localIOdictionary(localIOdictionary&&);
+		FoamBase_EXPORT localIOdictionary(localIOdictionary&&);
 
 
 		//- Destructor
-		virtual ~localIOdictionary();
+		FoamBase_EXPORT virtual ~localIOdictionary();
 
 
 		// Member Functions
@@ -97,7 +97,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Move assignment
-		void operator=(localIOdictionary&&);
+		FoamBase_EXPORT void operator=(localIOdictionary&&);
 	};
 
 

@@ -108,7 +108,7 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void readCurves(Istream&);
+		FoamBase_EXPORT void readCurves(Istream&);
 
 
 	public:
@@ -116,7 +116,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from title and labels (no curves)
-		graph
+		FoamBase_EXPORT graph
 		(
 			const string& title,
 			const string& xName,
@@ -125,7 +125,7 @@ namespace tnbLib
 		);
 
 		//- Construct from title, labels and y data for 1 curve
-		graph
+		FoamBase_EXPORT graph
 		(
 			const string& title,
 			const string& xName,
@@ -135,7 +135,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream given title and labels
-		graph
+		FoamBase_EXPORT graph
 		(
 			const string& title,
 			const string& xName,
@@ -144,7 +144,7 @@ namespace tnbLib
 		);
 
 		//- Construct from Istream
-		graph(Istream& is);
+		FoamBase_EXPORT graph(Istream& is);
 
 
 		// Member Functions
@@ -178,9 +178,9 @@ namespace tnbLib
 		}
 
 
-		const scalarField& y() const;
+		FoamBase_EXPORT const scalarField& y() const;
 
-		scalarField& y();
+		FoamBase_EXPORT scalarField& y();
 
 
 		// Write
@@ -191,7 +191,7 @@ namespace tnbLib
 
 		protected:
 
-			void writeXY
+			FoamBase_EXPORT void writeXY
 			(
 				const scalarField& x,
 				const scalarField& y,
@@ -201,23 +201,71 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("writer");
+			//TypeName("writer");
+			static const char* typeName_() { return "writer"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			//- Declare run-time constructor selection table
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				writer,
 				word,
 				(),
 				()
-			);
+			);*/
+
+			typedef autoPtr<writer> (*wordConstructorPtr)();
+			typedef HashTable<wordConstructorPtr, word, string::hash> wordConstructorTable;
+			static FoamBase_EXPORT wordConstructorTable* wordConstructorTablePtr_;
+			static FoamBase_EXPORT void constructwordConstructorTables();
+			static FoamBase_EXPORT void destroywordConstructorTables();
+
+			template <class writerType>
+			class addwordConstructorToTable
+			{
+			public:
+				static autoPtr<writer> New() { return autoPtr<writer>(new writerType()); }
+
+				addwordConstructorToTable(const word& lookup = writerType::typeName)
+				{
+					constructwordConstructorTables();
+					if (!wordConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "writer" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addwordConstructorToTable() { destroywordConstructorTables(); }
+			};
+
+			template <class writerType>
+			class addRemovablewordConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<writer> New() { return autoPtr<writer>(new writerType()); }
+
+				addRemovablewordConstructorToTable(const word& lookup = writerType::typeName) : lookup_(lookup)
+				{
+					constructwordConstructorTables();
+					wordConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovablewordConstructorToTable()
+				{
+					if (wordConstructorTablePtr_) { wordConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Selectors
 
 				//- Return a reference to the selected writer
-			static autoPtr<writer> New
+			static FoamBase_EXPORT autoPtr<writer> New
 			(
 				const word& writeFormat
 			);
@@ -241,26 +289,26 @@ namespace tnbLib
 
 					//- Return the appropriate fileName extension
 					//  for this graph format
-			virtual const word& ext() const = 0;
+			FoamBase_EXPORT virtual const word& ext() const = 0;
 
 
 			// Write
 
 				//- Write graph in appropriate format
-			virtual void write(const graph&, Ostream&) const = 0;
+			FoamBase_EXPORT virtual void write(const graph&, Ostream&) const = 0;
 		};
 
 		//- Write out graph data as a simple table
-		void writeTable(Ostream&) const;
+		FoamBase_EXPORT void writeTable(Ostream&) const;
 
 		//- Write graph to stream in given format
-		void write(Ostream&, const word& format) const;
+		FoamBase_EXPORT void write(Ostream&, const word& format) const;
 
 		//- Write graph to file in given path-name and format
-		void write(const fileName& pName, const word& format) const;
+		FoamBase_EXPORT void write(const fileName& pName, const word& format) const;
 
 		//- Write graph to file in given path, name and format
-		void write
+		FoamBase_EXPORT void write
 		(
 			const fileName& path,
 			const word& name,
@@ -268,7 +316,7 @@ namespace tnbLib
 		) const;
 
 		//- Helper function to convert string name into appropriate word
-		static word wordify(const string& sname);
+		static FoamBase_EXPORT word wordify(const string& sname);
 
 
 		// Friend operators

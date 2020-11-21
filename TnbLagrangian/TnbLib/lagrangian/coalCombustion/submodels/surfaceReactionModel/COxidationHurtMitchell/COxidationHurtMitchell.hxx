@@ -51,6 +51,16 @@ Description
 
 #include <SurfaceReactionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamCOxidationHurtMitchell_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCOxidationHurtMitchell_EXPORT_DEFINE
+#define FoamCOxidationHurtMitchell_EXPORT __declspec(dllexport)
+#else
+#define FoamCOxidationHurtMitchell_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -110,7 +120,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("COxidationHurtMitchell");
+		//TypeName("COxidationHurtMitchell");
+		static const char* typeName_() { return "COxidationHurtMitchell"; }
+		static FoamCOxidationHurtMitchell_EXPORT const ::tnbLib::word typeName;
+		static FoamCOxidationHurtMitchell_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

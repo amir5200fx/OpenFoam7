@@ -111,7 +111,7 @@ namespace tnbLib
 			};
 
 			//- Region type names
-			static const NamedEnum<regionTypes, 2> regionTypeNames_;
+			static FoamFiniteVolume_EXPORT const NamedEnum<regionTypes, 2> regionTypeNames_;
 
 
 		protected:
@@ -131,19 +131,23 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Output file header information
-			void writeFileHeader(const writeFile& wf, Ostream& file);
+			FoamFiniteVolume_EXPORT void writeFileHeader(const writeFile& wf, Ostream& file);
 
 
 		public:
 
 			//- Run-time type information
-			TypeName("volRegion");
+			/*TypeName("volRegion");*/
+			static const char* typeName_() { return "volRegion"; }
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+			static FoamFiniteVolume_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from fvMesh and dictionary
-			volRegion
+			FoamFiniteVolume_EXPORT volRegion
 			(
 				const fvMesh& mesh,
 				const dictionary& dict
@@ -151,25 +155,25 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~volRegion();
+			FoamFiniteVolume_EXPORT virtual ~volRegion();
 
 
 			// Public Member Functions
 
 				//- Read from dictionary
-			bool read(const dictionary&);
+			FoamFiniteVolume_EXPORT bool read(const dictionary&);
 
 			//- Return the region type
 			inline const regionTypes& regionType() const;
 
 			//- Return the local list of cell IDs
-			const labelList& cellIDs() const;
+			FoamFiniteVolume_EXPORT const labelList& cellIDs() const;
 
 			//- Return the number of cells in the region
-			label nCells() const;
+			FoamFiniteVolume_EXPORT label nCells() const;
 
 			//- Return total volume of the region
-			scalar V() const;
+			FoamFiniteVolume_EXPORT scalar V() const;
 		};
 
 

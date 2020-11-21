@@ -60,8 +60,8 @@ namespace tnbLib
 
 	class fileName;
 
-	Istream& operator>>(Istream&, fileName&);
-	Ostream& operator<<(Ostream&, const fileName&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, fileName&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const fileName&);
 
 
 	//- Enumeration of file types
@@ -92,11 +92,11 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
-		static int debug;
+		static FoamBase_EXPORT const char* const typeName;
+		static FoamBase_EXPORT int debug;
 
 		//- An empty fileName
-		static const fileName null;
+		static FoamBase_EXPORT const fileName null;
 
 
 		// Constructors
@@ -123,10 +123,10 @@ namespace tnbLib
 		inline fileName(const char*);
 
 		//- Construct by concatenating elements of wordList separated by '/'
-		explicit fileName(const wordList&);
+		FoamBase_EXPORT explicit fileName(const wordList&);
 
 		//- Construct from Istream
-		fileName(Istream&);
+		FoamBase_EXPORT fileName(Istream&);
 
 
 		// Member Functions
@@ -149,28 +149,28 @@ namespace tnbLib
 		//
 		// * Removes trailing '/'
 		//
-		bool clean();
+		FoamBase_EXPORT bool clean();
 
 		//- Cleanup file name
 		//  eg, remove repeated slashes, etc.
-		fileName clean() const;
+		FoamBase_EXPORT fileName clean() const;
 
 
 		// Interrogation
 
 			//- Return the file type: file, directory, undefined or
 			//  link (only if followLink=false)
-		fileType type
+		FoamBase_EXPORT fileType type
 		(
 			const bool checkVariants = true,
 			const bool followLink = true
 		) const;
 
 		//- Return true if file name is absolute
-		bool isAbsolute() const;
+		FoamBase_EXPORT bool isAbsolute() const;
 
 		//- Convert from relative to absolute
-		fileName& toAbsolute();
+		FoamBase_EXPORT fileName& toAbsolute();
 
 
 		// Decomposition
@@ -186,13 +186,13 @@ namespace tnbLib
 			//    "/foo/bar"      "bar"           "bar"
 			//    "/foo/bar/"     ""              "bar"
 			//
-		word name() const;
+		FoamBase_EXPORT word name() const;
 
 		//- Return file name (part beyond last /), substitute for FOAM_CASE
-		string caseName() const;
+		FoamBase_EXPORT string caseName() const;
 
 		//- Return file name, optionally without extension
-		word name(const bool noExt) const;
+		FoamBase_EXPORT word name(const bool noExt) const;
 
 		//- Return directory path name (part before last /)
 		//
@@ -205,13 +205,13 @@ namespace tnbLib
 		//    "/foo/bar"      "/foo"          "/foo"
 		//    "/foo/bar/"     "/foo/bar/"     "/foo"
 		//
-		fileName path() const;
+		FoamBase_EXPORT fileName path() const;
 
 		//- Return file name without extension (part before last .)
-		fileName lessExt() const;
+		FoamBase_EXPORT fileName lessExt() const;
 
 		//- Return file name extension (part after last .)
-		word ext() const;
+		FoamBase_EXPORT word ext() const;
 
 		//- Return path components as wordList
 		//
@@ -223,33 +223,33 @@ namespace tnbLib
 		//    "foo/bar"       2("foo", "bar")
 		//    "/foo/bar"      2("foo", "bar")
 		//    "/foo/bar/"     2("foo", "bar")
-		wordList components(const char delimiter = '/') const;
+		FoamBase_EXPORT wordList components(const char delimiter = '/') const;
 
 		//- Return a single component of the path
-		word component(const size_type, const char delimiter = '/') const;
+		FoamBase_EXPORT word component(const size_type, const char delimiter = '/') const;
 
 
 		// Member Operators
 
 			// Assignment
 
-		void operator=(const fileName&);
-		void operator=(fileName&&);
-		void operator=(const word&);
-		void operator=(const string&);
-		void operator=(const std::string&);
-		void operator=(const char*);
+		FoamBase_EXPORT void operator=(const fileName&);
+		FoamBase_EXPORT void operator=(fileName&&);
+		FoamBase_EXPORT void operator=(const word&);
+		FoamBase_EXPORT void operator=(const string&);
+		FoamBase_EXPORT void operator=(const std::string&);
+		FoamBase_EXPORT void operator=(const char*);
 
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, fileName&);
-		friend Ostream& operator<<(Ostream&, const fileName&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, fileName&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const fileName&);
 	};
 
 
 	//- Assemble words and fileNames as pathnames by adding a '/' separator
-	fileName operator/(const string&, const string&);
+	FoamBase_EXPORT fileName operator/(const string&, const string&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

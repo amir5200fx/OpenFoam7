@@ -99,7 +99,7 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Output positions
-			void writePositions();
+			FoamFunctionObjects_EXPORT void writePositions();
 
 
 			// Private Enumerations
@@ -124,19 +124,23 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Output file header information
-			virtual void writeFileHeader(const label i = 0);
+			FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i = 0);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("interfaceHeight");
+			//TypeName("interfaceHeight");
+			static const char* typeName_() { return "interfaceHeight"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			interfaceHeight
+			FoamFunctionObjects_EXPORT interfaceHeight
 			(
 				const word& name,
 				const Time& runTime,
@@ -145,22 +149,22 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~interfaceHeight();
+			FoamFunctionObjects_EXPORT virtual ~interfaceHeight();
 
 
 			// Member Functions
 
 				//- Read
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Execute
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Execute at the final time-loop
-			virtual bool end();
+			FoamFunctionObjects_EXPORT virtual bool end();
 
 			//- Write
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 		};
 
 

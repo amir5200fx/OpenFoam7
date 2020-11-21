@@ -418,6 +418,9 @@
     <Filter Include="TnbLib\TurbulenceModels\phaseCompressible\RAS\mixtureKEpsilon">
       <UniqueIdentifier>{137ea4fe-f935-49a5-9304-fa40fc059fbe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\TurbulenceModels\module">
+      <UniqueIdentifier>{779fd64c-252a-4ae1-ba97-efc637c6e026}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\Base\kOmegaSST\kOmegaSSTBase.hxx">
@@ -893,6 +896,12 @@
     </ClInclude>
     <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\TurbulenceModel\TurbulenceModelTemplateI.hxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\TurbulenceModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\module\Turbulence_Module.hxx">
+      <Filter>TnbLib\TurbulenceModels\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\phaseCompressible\LES\continuousGasKEqn\continuousGasKEqnI.hxx">
+      <Filter>TnbLib\TurbulenceModels\phaseCompressible\LES\continuousGasKEqn</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

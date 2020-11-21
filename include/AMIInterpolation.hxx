@@ -89,19 +89,19 @@ namespace tnbLib
 		};
 
 		//- Convert interpolationMethod to word representation
-		static word interpolationMethodToWord
+		static FoamFvMesh_EXPORT word interpolationMethodToWord
 		(
 			const interpolationMethod& method
 		);
 
 		//- Convert word to interpolationMethod
-		static interpolationMethod wordTointerpolationMethod
+		static FoamFvMesh_EXPORT interpolationMethod wordTointerpolationMethod
 		(
 			const word& method
 		);
 
 		//- Calculate the patch face magnitudes for the given tri-mode
-		static tmp<scalarField> patchMagSf
+		static FoamFvMesh_EXPORT tmp<scalarField> patchMagSf
 		(
 			const primitivePatch& patch,
 			const faceAreaIntersect::triangulationMode triMode
@@ -174,20 +174,20 @@ namespace tnbLib
 		// Parallel functionality
 
 			//- Calculate if patches are on multiple processors
-		label calcDistribution
+		FoamFvMesh_EXPORT label calcDistribution
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch
 		) const;
 
-		label calcOverlappingProcs
+		FoamFvMesh_EXPORT label calcOverlappingProcs
 		(
 			const List<treeBoundBoxList>& procBb,
 			const treeBoundBox& bb,
 			boolList& overlaps
 		) const;
 
-		void distributePatches
+		FoamFvMesh_EXPORT void distributePatches
 		(
 			const mapDistribute& map,
 			const primitivePatch& pp,
@@ -197,7 +197,7 @@ namespace tnbLib
 			List<labelList>& tgtFaceIDs
 		) const;
 
-		void distributeAndMergePatches
+		FoamFvMesh_EXPORT void distributeAndMergePatches
 		(
 			const mapDistribute& map,
 			const primitivePatch& tgtPatch,
@@ -207,7 +207,7 @@ namespace tnbLib
 			labelList& tgtFaceIDs
 		) const;
 
-		autoPtr<mapDistribute> calcProcMap
+		FoamFvMesh_EXPORT autoPtr<mapDistribute> calcProcMap
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch
@@ -217,7 +217,7 @@ namespace tnbLib
 		// Initialisation
 
 			//- Project points to surface
-		void projectPointsToSurface
+		FoamFvMesh_EXPORT void projectPointsToSurface
 		(
 			const searchableSurface& surf,
 			pointField& pts
@@ -227,14 +227,14 @@ namespace tnbLib
 		// Manipulation
 
 			//- Sum the weights for each face
-		static void sumWeights
+		static FoamFvMesh_EXPORT void sumWeights
 		(
 			const scalarListList& wght,
 			scalarField& wghtSum
 		);
 
 		//- As above, but for multiple sets of weights
-		static void sumWeights
+		static FoamFvMesh_EXPORT void sumWeights
 		(
 			const UPtrList<scalarListList>& wghts,
 			scalarField& wghtSum
@@ -243,7 +243,7 @@ namespace tnbLib
 		//- Print out information relating to the weights sum. Values close
 		//  to one are ideal. This information acts as a measure of the
 		//  quality of the AMI.
-		static void reportSumWeights
+		static FoamFvMesh_EXPORT void reportSumWeights
 		(
 			const scalarField& patchAreas,
 			const word& patchName,
@@ -253,14 +253,14 @@ namespace tnbLib
 
 		//- Normalise the weights so that they sum to one for each face.
 		//  This may stabilise the solution at the expense of accuracy.
-		static void normaliseWeights
+		static FoamFvMesh_EXPORT void normaliseWeights
 		(
 			scalarListList& wght,
 			const scalarField& wghtSum
 		);
 
 		//- As above but for multiple sets of weights
-		static void normaliseWeights
+		static FoamFvMesh_EXPORT void normaliseWeights
 		(
 			UPtrList<scalarListList>& wghts,
 			const scalarField& wghtSum
@@ -269,7 +269,7 @@ namespace tnbLib
 
 		// Constructor helpers
 
-		static void agglomerate
+		static FoamFvMesh_EXPORT void agglomerate
 		(
 			const autoPtr<mapDistribute>& targetMap,
 			const scalarField& fineSrcMagSf,
@@ -286,7 +286,7 @@ namespace tnbLib
 			autoPtr<mapDistribute>& tgtMap
 		);
 
-		void constructFromSurface
+		FoamFvMesh_EXPORT void constructFromSurface
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -297,13 +297,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cyclicAMI");
+		//TypeName("cyclicAMI");
+		static const char* typeName_() { return "cyclicAMI"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		AMIInterpolation
+		FoamFvMesh_EXPORT AMIInterpolation
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -316,7 +320,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components
-		AMIInterpolation
+		FoamFvMesh_EXPORT AMIInterpolation
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -330,7 +334,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components, with projection surface
-		AMIInterpolation
+		FoamFvMesh_EXPORT AMIInterpolation
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -344,7 +348,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components, with projection surface
-		AMIInterpolation
+		FoamFvMesh_EXPORT AMIInterpolation
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -361,7 +365,7 @@ namespace tnbLib
 		//- Construct from agglomeration of AMIInterpolation.
 		//  Agglomeration passed in as new coarse size and addressing from fine
 		//  from coarse
-		AMIInterpolation
+		FoamFvMesh_EXPORT AMIInterpolation
 		(
 			const AMIInterpolation& fineAMI,
 			const labelList& sourceRestrictAddressing,
@@ -370,11 +374,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		AMIInterpolation(const AMIInterpolation&) = delete;
+		FoamFvMesh_EXPORT AMIInterpolation(const AMIInterpolation&) = delete;
 
 
 		//- Destructor
-		virtual ~AMIInterpolation();
+		FoamFvMesh_EXPORT virtual ~AMIInterpolation();
 
 
 		// Member Functions
@@ -451,7 +455,7 @@ namespace tnbLib
 		// Manipulation
 
 			//- Update addressing and weights
-		void update
+		FoamFvMesh_EXPORT void update
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -459,21 +463,21 @@ namespace tnbLib
 		);
 
 		//- Sum the weights on both sides of an AMI
-		static void sumWeights(AMIInterpolation& AMI);
+		static FoamFvMesh_EXPORT void sumWeights(AMIInterpolation& AMI);
 
 		//- As above, but for multiple AMI-s
-		static void sumWeights(PtrList<AMIInterpolation>& AMIs);
+		static FoamFvMesh_EXPORT void sumWeights(PtrList<AMIInterpolation>& AMIs);
 
 		//- Print out information relating to the weights sum. Values close
 		//  to one are ideal. This information acts as a measure of the
 		//  quality of the AMI.
-		static void reportSumWeights(AMIInterpolation& AMI);
+		static FoamFvMesh_EXPORT void reportSumWeights(AMIInterpolation& AMI);
 
 		//- Normalise the weights on both sides of an AMI
-		static void normaliseWeights(AMIInterpolation& AMI);
+		static FoamFvMesh_EXPORT void normaliseWeights(AMIInterpolation& AMI);
 
 		//- As above, but for multiple AMI-s
-		static void normaliseWeights(UPtrList<AMIInterpolation>& AMIs);
+		static FoamFvMesh_EXPORT void normaliseWeights(UPtrList<AMIInterpolation>& AMIs);
 
 
 		// Evaluation
@@ -575,7 +579,7 @@ namespace tnbLib
 		// Point intersections
 
 			//- Return source patch face index of point on target patch face
-		label srcPointFace
+		FoamFvMesh_EXPORT label srcPointFace
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -586,7 +590,7 @@ namespace tnbLib
 			const;
 
 		//- Return target patch face index of point on source patch face
-		label tgtPointFace
+		FoamFvMesh_EXPORT label tgtPointFace
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -600,7 +604,7 @@ namespace tnbLib
 		// Checks
 
 			//- Write face connectivity as OBJ file
-		void writeFaceConnectivity
+		FoamFvMesh_EXPORT void writeFaceConnectivity
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -611,7 +615,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const AMIInterpolation&) = delete;
+		FoamFvMesh_EXPORT void operator=(const AMIInterpolation&) = delete;
 	};
 
 

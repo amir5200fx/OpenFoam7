@@ -100,7 +100,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("basePatch");
+		//TypeName("basePatch");
+		static const char* typeName_() { return "basePatch"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructor
@@ -125,13 +129,13 @@ namespace tnbLib
 		// Member Functions
 
 			//- Return name
-		virtual const word& name() const = 0;
+		FoamBase_EXPORT virtual const word& name() const = 0;
 
 		//- Return size
-		virtual label size() const = 0;
+		FoamBase_EXPORT virtual label size() const = 0;
 
 		//- Return the index of this patch in the pointBoundaryMesh
-		virtual label index() const = 0;
+		FoamBase_EXPORT virtual label index() const = 0;
 
 		//- Return boundaryMesh reference
 		const pointBoundaryMesh& boundaryMesh() const
@@ -146,13 +150,13 @@ namespace tnbLib
 		}
 
 		//- Return mesh points
-		virtual const labelList& meshPoints() const = 0;
+		FoamBase_EXPORT virtual const labelList& meshPoints() const = 0;
 
 		//- Return mesh points
-		virtual const vectorField& localPoints() const = 0;
+		FoamBase_EXPORT virtual const vectorField& localPoints() const = 0;
 
 		//- Return  point normals
-		virtual const vectorField& pointNormals() const = 0;
+		FoamBase_EXPORT virtual const vectorField& pointNormals() const = 0;
 
 		//- Return the constraint type this pointPatch implements.
 		virtual const word& constraintType() const
@@ -172,7 +176,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const pointPatch&) = delete;
+		FoamBase_EXPORT void operator=(const pointPatch&) = delete;
 	};
 
 

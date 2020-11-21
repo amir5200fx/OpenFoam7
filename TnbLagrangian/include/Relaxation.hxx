@@ -52,6 +52,16 @@ SourceFiles
 
 #include <vector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamRelaxation_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamRelaxation_EXPORT_DEFINE
+#define FoamRelaxation_EXPORT __declspec(dllexport)
+#else
+#define FoamRelaxation_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -85,7 +95,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("relaxation");
+			//TypeName("relaxation");
+			static const char* typeName_() { return "relaxation"; }
+			static FoamRelaxation_EXPORT const ::tnbLib::word typeName;
+			static FoamRelaxation_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 

@@ -67,13 +67,13 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct read
-		motionSmootherData
+		FoamDynamicMesh_EXPORT motionSmootherData
 		(
 			const pointMesh&
 		);
 
 		//- Construct from pointDisplacement
-		motionSmootherData
+		FoamDynamicMesh_EXPORT motionSmootherData
 		(
 			const pointVectorField&
 		);
@@ -82,16 +82,16 @@ namespace tnbLib
 		// Member Functions
 
 			//- Reference to displacement field
-		pointVectorField& displacement();
+		FoamDynamicMesh_EXPORT pointVectorField& displacement();
 
 		//- Reference to displacement field
-		const pointVectorField& displacement() const;
+		FoamDynamicMesh_EXPORT const pointVectorField& displacement() const;
 
 		//- Reference to scale field
-		const pointScalarField& scale() const;
+		FoamDynamicMesh_EXPORT const pointScalarField& scale() const;
 
 		//- Starting mesh position
-		const pointField& oldPoints() const;
+		FoamDynamicMesh_EXPORT const pointField& oldPoints() const;
 
 	};
 

@@ -182,28 +182,32 @@ namespace tnbLib
 
 				//- Return the potential field used to generate the phase flux.
 				//  Constructed on demand.
-			volScalarField& Phi();
+			FoamFunctionObjects_EXPORT volScalarField& Phi();
 
 			//- Return the phase flux. Tries to look it up, and generates it if the
 			//  lookup fails. The generation creates a crude guess for alphaPhi
 			//  then solves a Laplacian to correct the flux to match the time
 			//  derivative of alpha.
-			tmp<surfaceScalarField> alphaPhi();
+			FoamFunctionObjects_EXPORT tmp<surfaceScalarField> alphaPhi();
 
 			//- Return the diffusivity field
-			tmp<volScalarField> D(const surfaceScalarField& alphaPhi) const;
+			FoamFunctionObjects_EXPORT tmp<volScalarField> D(const surfaceScalarField& alphaPhi) const;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("phaseScalarTransport");
+			//TypeName("phaseScalarTransport");
+			static const char* typeName_() { return "phaseScalarTransport"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			phaseScalarTransport
+			FoamFunctionObjects_EXPORT phaseScalarTransport
 			(
 				const word& name,
 				const Time& runTime,
@@ -212,19 +216,19 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~phaseScalarTransport();
+			FoamFunctionObjects_EXPORT virtual ~phaseScalarTransport();
 
 
 			// Member Functions
 
 				//- Read the settings from the given dictionary
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Solve for the evolution of the field
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Do nothing. The field is registered and written automatically.
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 		};
 
 

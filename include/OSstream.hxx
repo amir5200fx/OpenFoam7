@@ -95,81 +95,81 @@ namespace tnbLib
 		}
 
 		//- Return flags of output stream
-		virtual ios_base::fmtflags flags() const;
+		FoamBase_EXPORT virtual ios_base::fmtflags flags() const;
 
 
 		// Write functions
 
 			//- Write next token to stream
-		virtual Ostream& write(const token&);
+		FoamBase_EXPORT virtual Ostream& write(const token&);
 
 		//- Write character
-		virtual Ostream& write(const char);
+		FoamBase_EXPORT virtual Ostream& write(const char);
 
 		//- Write character string
-		virtual Ostream& write(const char*);
+		FoamBase_EXPORT virtual Ostream& write(const char*);
 
 		//- Write word
-		virtual Ostream& write(const word&);
+		FoamBase_EXPORT virtual Ostream& write(const word&);
 
 		//- Write string
 		//  In the rare case that the string contains a final trailing
 		//  backslash, it will be dropped to the appearance of an escaped
 		//  double-quote.
-		virtual Ostream& write(const string&);
+		FoamBase_EXPORT virtual Ostream& write(const string&);
 
 		//- Write std::string surrounded by quotes.
 		//  Optional write without quotes.
-		virtual Ostream& writeQuoted
+		FoamBase_EXPORT virtual Ostream& writeQuoted
 		(
 			const std::string&,
 			const bool quoted = true
 		);
 
 		//- Write int32_t
-		virtual Ostream& write(const int32_t);
+		FoamBase_EXPORT virtual Ostream& write(const int32_t);
 
 		//- Write int64_t
-		virtual Ostream& write(const int64_t);
+		FoamBase_EXPORT virtual Ostream& write(const int64_t);
 
 		//- Write floatScalar
-		virtual Ostream& write(const floatScalar);
+		FoamBase_EXPORT virtual Ostream& write(const floatScalar);
 
 		//- Write doubleScalar
-		virtual Ostream& write(const doubleScalar);
+		FoamBase_EXPORT virtual Ostream& write(const doubleScalar);
 
 		//- Write longDoubleScalar
-		virtual Ostream& write(const longDoubleScalar);
+		FoamBase_EXPORT virtual Ostream& write(const longDoubleScalar);
 
 		//- Write binary block
-		virtual Ostream& write(const char*, std::streamsize);
+		FoamBase_EXPORT virtual Ostream& write(const char*, std::streamsize);
 
 		//- Add indentation characters
-		virtual void indent();
+		FoamBase_EXPORT virtual void indent();
 
 
 		// Stream state functions
 
 			//- Set flags of output stream
-		virtual ios_base::fmtflags flags(const ios_base::fmtflags flags);
+		FoamBase_EXPORT virtual ios_base::fmtflags flags(const ios_base::fmtflags flags);
 
 		//- Flush stream
-		virtual void flush();
+		FoamBase_EXPORT virtual void flush();
 
 		//- Add newline and flush stream
-		virtual void endl();
+		FoamBase_EXPORT virtual void endl();
 
 		//- Get width of output field
-		virtual int width() const;
+		FoamBase_EXPORT virtual int width() const;
 
 		//- Set width of output field (and return old width)
-		virtual int width(const int);
+		FoamBase_EXPORT virtual int width(const int);
 
 		//- Get precision of output field
-		virtual int precision() const;
+		FoamBase_EXPORT virtual int precision() const;
 
 		//- Set precision of output field (and return old precision)
-		virtual int precision(const int);
+		FoamBase_EXPORT virtual int precision(const int);
 
 
 		// STL stream
@@ -190,13 +190,13 @@ namespace tnbLib
 		// Print
 
 			//- Print description of IOstream to Ostream
-		virtual void print(Ostream&) const;
+		FoamBase_EXPORT virtual void print(Ostream&) const;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const OSstream&) = delete;
+		FoamBase_EXPORT void operator=(const OSstream&) = delete;
 	};
 
 

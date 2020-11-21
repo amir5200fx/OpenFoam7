@@ -93,13 +93,13 @@ void tnbLib::surfZone::writeDict(Ostream& os) const
 
 // * * * * * * * * * * * * * * * Member Operators  * * * * * * * * * * * * * //
 
-bool tnbLib::surfZone::operator!=(const surfZone& rhs) const
+FoamFvMesh_EXPORT bool tnbLib::surfZone::operator!=(const surfZone& rhs) const
 {
 	return !(*this == rhs);
 }
 
 
-bool tnbLib::surfZone::operator==(const surfZone& rhs) const
+FoamFvMesh_EXPORT bool tnbLib::surfZone::operator==(const surfZone& rhs) const
 {
 	return
 		(
@@ -112,7 +112,7 @@ bool tnbLib::surfZone::operator==(const surfZone& rhs) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, surfZone& zone)
+FoamFvMesh_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, surfZone& zone)
 {
 	zone = surfZone(is, 0);
 
@@ -121,7 +121,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, surfZone& zone)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfZone& zone)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const surfZone& zone)
 {
 	zone.write(os);
 	os.check("Ostream& operator<<(Ostream&, const surfZone&");

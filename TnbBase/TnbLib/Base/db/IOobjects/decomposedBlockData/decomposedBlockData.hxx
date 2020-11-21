@@ -71,7 +71,7 @@ namespace tnbLib
 
 			//- Helper: determine number of processors whose recvSizes fits
 			//  ito maxBufferSize
-		static label calcNumProcs
+		static FoamBase_EXPORT label calcNumProcs
 		(
 			const label comm,
 			const off_t maxBufferSize,
@@ -80,7 +80,7 @@ namespace tnbLib
 		);
 
 		//- Read data into *this. ISstream is only valid on master.
-		static bool readBlocks
+		static FoamBase_EXPORT bool readBlocks
 		(
 			const label comm,
 			autoPtr<ISstream>& isPtr,
@@ -91,13 +91,17 @@ namespace tnbLib
 
 	public:
 
-		TypeName("decomposedBlockData");
+		//TypeName("decomposedBlockData");
+		static const char* typeName_() { return "decomposedBlockData"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given an IOobject
-		decomposedBlockData
+		FoamBase_EXPORT decomposedBlockData
 		(
 			const label comm,
 			const IOobject&,
@@ -105,7 +109,7 @@ namespace tnbLib
 		);
 
 		//- Construct given an IOobject and for READ_IF_MODIFIED a List<char>
-		decomposedBlockData
+		FoamBase_EXPORT decomposedBlockData
 		(
 			const label comm,
 			const IOobject&,
@@ -114,7 +118,7 @@ namespace tnbLib
 		);
 
 		//- Move construct by transferring the IOList contents
-		decomposedBlockData
+		FoamBase_EXPORT decomposedBlockData
 		(
 			const label comm,
 			const IOobject&,
@@ -124,20 +128,20 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~decomposedBlockData();
+		FoamBase_EXPORT virtual ~decomposedBlockData();
 
 
 		// Member Functions
 
 			//- Read object
-		virtual bool read();
+		FoamBase_EXPORT virtual bool read();
 
 		//- Write separated content. Assumes content is the serialised data
 		//  and that the master data contains a header
-		virtual bool writeData(Ostream&) const;
+		FoamBase_EXPORT virtual bool writeData(Ostream&) const;
 
 		//- Write using given format, version and compression
-		virtual bool writeObject
+		FoamBase_EXPORT virtual bool writeObject
 		(
 			IOstream::streamFormat,
 			IOstream::versionNumber,
@@ -149,10 +153,10 @@ namespace tnbLib
 		// Helpers
 
 			//- Read header. Call only on master.
-		static bool readMasterHeader(IOobject&, Istream&);
+		static FoamBase_EXPORT bool readMasterHeader(IOobject&, Istream&);
 
 		//- Helper: write FoamFile IOobject header
-		static void writeHeader
+		static FoamBase_EXPORT void writeHeader
 		(
 			Ostream& os,
 			const IOstream::versionNumber version,
@@ -164,7 +168,7 @@ namespace tnbLib
 		);
 
 		//- Read selected block (non-seeking) + header information
-		static autoPtr<ISstream> readBlock
+		static FoamBase_EXPORT autoPtr<ISstream> readBlock
 		(
 			const label blocki,
 			Istream& is,
@@ -173,7 +177,7 @@ namespace tnbLib
 
 		//- Read master header information (into headerIO) and return
 		//  data in stream. Note: isPtr is only valid on master.
-		static autoPtr<ISstream> readBlocks
+		static FoamBase_EXPORT autoPtr<ISstream> readBlocks
 		(
 			const label comm,
 			const fileName& fName,
@@ -185,7 +189,7 @@ namespace tnbLib
 		//- Helper: gather single label. Note: using native Pstream.
 		//  datas sized with num procs but undefined contents on
 		//  slaves
-		static void gather
+		static FoamBase_EXPORT void gather
 		(
 			const label comm,
 			const label data,
@@ -195,7 +199,7 @@ namespace tnbLib
 		//- Helper: gather data from (subset of) slaves. Returns
 		//  recvData : received data
 		//  recvOffsets : offset in data. recvOffsets is nProcs+1
-		static void gatherSlaveData
+		static FoamBase_EXPORT void gatherSlaveData
 		(
 			const label comm,
 			const UList<char>& data,
@@ -210,7 +214,7 @@ namespace tnbLib
 
 		//- Write *this. Ostream only valid on master. Returns starts of
 		//  processor blocks
-		static bool writeBlocks
+		static FoamBase_EXPORT bool writeBlocks
 		(
 			const label comm,
 			autoPtr<OSstream>& osPtr,
@@ -227,7 +231,7 @@ namespace tnbLib
 		);
 
 		//- Detect number of blocks in a file
-		static label numBlocks(const fileName&);
+		static FoamBase_EXPORT label numBlocks(const fileName&);
 	};
 
 

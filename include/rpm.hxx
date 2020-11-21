@@ -57,41 +57,45 @@ namespace tnbLib
 
 			// Private Data
 
-				//- Revolutions per minute
+			//- Revolutions per minute
 			scalar rpm_;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("rpm");
+			//TypeName("rpm");
+			static const char* typeName_() { return "rpm"; }
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+			static FoamFiniteVolume_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
-				//- Construct from components
-			rpm(const volVectorField& U);
+			//- Construct from components
+			FoamFiniteVolume_EXPORT rpm(const volVectorField& U);
 
 			//- Disallow default bitwise copy construction
-			rpm(const rpm&) = delete;
+			FoamFiniteVolume_EXPORT rpm(const rpm&) = delete;
 
 
 			//- Destructor
-			~rpm();
+			FoamFiniteVolume_EXPORT ~rpm();
 
 
 			// Member Functions
 
-				// I-O
+			// I-O
 
-					//- Read
-			bool read();
+			//- Read
+			FoamFiniteVolume_EXPORT bool read();
 
 
 			// Member Operators
 
-				//- Disallow default bitwise assignment
-			void operator=(const rpm&) = delete;
+			//- Disallow default bitwise assignment
+			FoamFiniteVolume_EXPORT void operator=(const rpm&) = delete;
 		};
 
 

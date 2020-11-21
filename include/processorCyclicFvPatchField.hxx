@@ -55,6 +55,16 @@ SourceFiles
 #include <processorCyclicFvPatch.hxx>
 #include <processorFvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamProcessorCyclicFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamProcessorCyclicFvPatchField_EXPORT_DEFINE
+#define FoamProcessorCyclicFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamProcessorCyclicFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -71,18 +81,22 @@ namespace tnbLib
 	{
 		// Private Data
 
-			//- Local reference cast into the processor patch
+		//- Local reference cast into the processor patch
 		const processorCyclicFvPatch& procPatch_;
 
 	public:
 
 		//- Runtime type information
-		TypeName(processorCyclicFvPatch::typeName_());
+		//TypeName(processorCyclicFvPatch::typeName_());
+		static const char* typeName_() { return processorCyclicFvPatch::typeName_(); }
+		static FoamProcessorCyclicFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamProcessorCyclicFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from patch and internal field
+		//- Construct from patch and internal field
 		processorCyclicFvPatchField
 		(
 			const fvPatch&,

@@ -35,6 +35,8 @@
 #include <fstream>
 #include <zlib.h>
 
+#include <includeModule.hxx>
+
 //#define GZSTREAM_NAMESPACE gzstream
 
 #ifdef GZSTREAM_NAMESPACE
@@ -68,7 +70,7 @@ namespace GZSTREAM_NAMESPACE {
 
 		//------------------------------------
 
-		int flush_buffer();
+		FoamBase_EXPORT int flush_buffer();
 
 	public:
 
@@ -94,11 +96,11 @@ namespace GZSTREAM_NAMESPACE {
 		{
 			return opened;
 		}
-		gzstreambuf* open(const char* name, int open_mode);
-		gzstreambuf* close();
-		virtual int     overflow(int c = EOF);
-		virtual int     underflow();
-		virtual int     sync();
+		FoamBase_EXPORT gzstreambuf* open(const char* name, int open_mode);
+		FoamBase_EXPORT gzstreambuf* close();
+		FoamBase_EXPORT virtual int     overflow(int c = EOF);
+		FoamBase_EXPORT virtual int     underflow();
+		FoamBase_EXPORT 	virtual int     sync();
 	};
 
 	// ----------------------------------------------------------------------------
@@ -122,13 +124,13 @@ namespace GZSTREAM_NAMESPACE {
 		{
 			init(&buf);
 		}
-		gzstreambase(const char* _name, int _open_mode);
-		~gzstreambase();
+		FoamBase_EXPORT gzstreambase(const char* _name, int _open_mode);
+		FoamBase_EXPORT ~gzstreambase();
 
 		//------------------------------------
 
-		void open(const char* _name, int _open_mode);
-		void close();
+		FoamBase_EXPORT void open(const char* _name, int _open_mode);
+		FoamBase_EXPORT void close();
 		gzstreambuf* rdbuf()
 		{
 			return &buf;

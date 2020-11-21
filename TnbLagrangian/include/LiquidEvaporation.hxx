@@ -37,6 +37,16 @@ Description
 #include <PhaseChangeModelTemplate.hxx>
 #include <liquidMixtureProperties.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamLiquidEvaporation_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLiquidEvaporation_EXPORT_DEFINE
+#define FoamLiquidEvaporation_EXPORT __declspec(dllexport)
+#else
+#define FoamLiquidEvaporation_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -79,7 +89,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("liquidEvaporation");
+		//TypeName("liquidEvaporation");
+		static const char* typeName_() { return "liquidEvaporation"; }
+		static FoamLiquidEvaporation_EXPORT const ::tnbLib::word typeName;
+		static FoamLiquidEvaporation_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

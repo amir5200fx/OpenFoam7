@@ -112,6 +112,8 @@ namespace tnbLib
 	} // End namespace fileFormats
 } // End namespace tnbLib
 
+#include <NASsurfaceFormatI.hxx>
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #endif // !_NASsurfaceFormat_Header

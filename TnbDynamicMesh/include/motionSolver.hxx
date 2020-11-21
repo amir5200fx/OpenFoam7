@@ -68,25 +68,80 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("motionSolver");
+		//TypeName("motionSolver");
+		static const char* typeName_() { return "motionSolver"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			motionSolver,
 			dictionary,
 			(const polyMesh& mesh, const dictionary& dict),
 			(mesh, dict)
-		);
+		);*/
+
+		typedef autoPtr<motionSolver> (*dictionaryConstructorPtr)(const polyMesh& mesh, const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamDynamicMesh_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamDynamicMesh_EXPORT void constructdictionaryConstructorTables();
+		static FoamDynamicMesh_EXPORT void destroydictionaryConstructorTables();
+
+		template <class motionSolverType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<motionSolver> New(const polyMesh& mesh, const dictionary& dict)
+			{
+				return autoPtr<motionSolver>(new motionSolverType(mesh, dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = motionSolverType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "motionSolver" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class motionSolverType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<motionSolver> New(const polyMesh& mesh, const dictionary& dict)
+			{
+				return autoPtr<motionSolver>(new motionSolverType(mesh, dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = motionSolverType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Selectors
 
 			//- Select constructed from polyMesh and dictionary
-		static autoPtr<motionSolver> New(const polyMesh&, const dictionary&);
+		static FoamDynamicMesh_EXPORT autoPtr<motionSolver> New(const polyMesh&, const dictionary&);
 
 		//- Class used for the construction of PtrLists of motionSolvers
 		class iNew
@@ -95,16 +150,16 @@ namespace tnbLib
 
 		public:
 
-			iNew(const polyMesh& mesh);
+			FoamDynamicMesh_EXPORT iNew(const polyMesh& mesh);
 
-			autoPtr<motionSolver> operator()(Istream& is) const;
+			FoamDynamicMesh_EXPORT autoPtr<motionSolver> operator()(Istream& is) const;
 		};
 
 
 		// Constructors
 
 			//- Construct from polyMesh and dictionary and type.
-		motionSolver
+		FoamDynamicMesh_EXPORT motionSolver
 		(
 			const polyMesh& mesh,
 			const dictionary&,
@@ -112,11 +167,11 @@ namespace tnbLib
 		);
 
 		//- Clone function
-		virtual autoPtr<motionSolver> clone() const;
+		FoamDynamicMesh_EXPORT virtual autoPtr<motionSolver> clone() const;
 
 
 		//- Destructor
-		virtual ~motionSolver();
+		FoamDynamicMesh_EXPORT virtual ~motionSolver();
 
 
 		// Member Functions
@@ -134,12 +189,12 @@ namespace tnbLib
 		}
 
 		//- Provide new points for motion.  Solves for motion
-		virtual tmp<pointField> newPoints();
+		FoamDynamicMesh_EXPORT virtual tmp<pointField> newPoints();
 
 		//- Provide current points for motion.  Uses current motion field
 		virtual tmp<pointField> curPoints() const = 0;
 
-		virtual void twoDCorrectPoints(pointField&) const;
+		FoamDynamicMesh_EXPORT virtual void twoDCorrectPoints(pointField&) const;
 
 		//- Solve for motion
 		virtual void solve() = 0;
@@ -151,7 +206,7 @@ namespace tnbLib
 		virtual void updateMesh(const mapPolyMesh&) = 0;
 
 		//- Optionally write motion state information for restart
-		virtual bool write() const;
+		FoamDynamicMesh_EXPORT virtual bool write() const;
 	};
 
 

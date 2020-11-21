@@ -51,23 +51,23 @@ namespace tnbLib
 
 	// global functions
 
-	dimensionedSymmTensor sqr(const dimensionedVector&);
-	dimensionedSymmTensor innerSqr(const dimensionedSymmTensor&);
+	FoamBase_EXPORT dimensionedSymmTensor sqr(const dimensionedVector&);
+	FoamBase_EXPORT dimensionedSymmTensor innerSqr(const dimensionedSymmTensor&);
 
-	dimensionedScalar tr(const dimensionedSymmTensor&);
-	dimensionedSymmTensor symm(const dimensionedSymmTensor&);
-	dimensionedSymmTensor twoSymm(const dimensionedSymmTensor&);
-	dimensionedSymmTensor dev(const dimensionedSymmTensor&);
-	dimensionedSymmTensor dev2(const dimensionedSymmTensor&);
-	dimensionedScalar det(const dimensionedSymmTensor&);
-	dimensionedSymmTensor cof(const dimensionedSymmTensor&);
-	dimensionedSymmTensor inv(const dimensionedSymmTensor&);
+	FoamBase_EXPORT dimensionedScalar tr(const dimensionedSymmTensor&);
+	FoamBase_EXPORT dimensionedSymmTensor symm(const dimensionedSymmTensor&);
+	FoamBase_EXPORT dimensionedSymmTensor twoSymm(const dimensionedSymmTensor&);
+	FoamBase_EXPORT dimensionedSymmTensor dev(const dimensionedSymmTensor&);
+	FoamBase_EXPORT dimensionedSymmTensor dev2(const dimensionedSymmTensor&);
+	FoamBase_EXPORT dimensionedScalar det(const dimensionedSymmTensor&);
+	FoamBase_EXPORT dimensionedSymmTensor cof(const dimensionedSymmTensor&);
+	FoamBase_EXPORT dimensionedSymmTensor inv(const dimensionedSymmTensor&);
 
 
 	// global operators
 
 	//- Hodge Dual operator (tensor -> vector)
-	dimensionedVector operator*(const dimensionedSymmTensor&);
+	FoamBase_EXPORT dimensionedVector operator*(const dimensionedSymmTensor&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

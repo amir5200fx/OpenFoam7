@@ -47,6 +47,16 @@ SourceFiles
 #include <pointMesh.hxx>
 #include <tetIndices.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamBasic_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamBasic_EXPORT_DEFINE
+#define Foam_EXPORT __declspec(dllexport)
+#else
+#define FoamBasic_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -91,7 +101,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("basic");
+			//TypeName("basic");
+			static const char* typeName_() { return "basic"; }
+			static FoamBasic_EXPORT const ::tnbLib::word typeName;
+			static FoamBasic_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			//- Constructors

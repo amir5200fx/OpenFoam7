@@ -88,38 +88,41 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate addressing
-		void calcAddressing() const;
+		FoamFvMesh_EXPORT void calcAddressing() const;
 
 		//- Clear addressing
-		void clearAddressing() const;
+		FoamFvMesh_EXPORT void clearAddressing() const;
 
 		//- Snap a point to the wedge patch(es)
-		void snapToWedge(const vector& n, const point& A, point& p) const;
+		FoamFvMesh_EXPORT void snapToWedge(const vector& n, const point& A, point& p) const;
 
 
 		// Static Data Members
 
 			//- Edge orthogonality tolerance
-		static const scalar edgeOrthogonalityTol;
+		static FoamFvMesh_EXPORT const scalar edgeOrthogonalityTol;
 
 
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("twoDPointCorrector");
+		/*ClassName("twoDPointCorrector");*/
+		static const char* typeName_() { return "twoDPointCorrector"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from components
-		twoDPointCorrector(const polyMesh& mesh);
+		FoamFvMesh_EXPORT twoDPointCorrector(const polyMesh& mesh);
 
 		//- Disallow default bitwise copy construction
-		twoDPointCorrector(const twoDPointCorrector&) = delete;
+		FoamFvMesh_EXPORT twoDPointCorrector(const twoDPointCorrector&) = delete;
 
 
 		//- Destructor
-		~twoDPointCorrector();
+		FoamFvMesh_EXPORT ~twoDPointCorrector();
 
 
 		// Member Functions
@@ -131,31 +134,31 @@ namespace tnbLib
 		}
 
 		//- Return plane normal
-		const vector& planeNormal() const;
+		FoamFvMesh_EXPORT const vector& planeNormal() const;
 
 		//- Return indices of normal edges.
-		const labelList& normalEdgeIndices() const;
+		FoamFvMesh_EXPORT const labelList& normalEdgeIndices() const;
 
 		//- Return direction normal to plane
-		direction normalDir() const;
+		FoamFvMesh_EXPORT direction normalDir() const;
 
 		//- Correct motion points
-		void correctPoints(pointField& p) const;
+		FoamFvMesh_EXPORT void correctPoints(pointField& p) const;
 
 		//- Correct motion displacements
-		void correctDisplacement(const pointField& p, vectorField& disp) const;
+		FoamFvMesh_EXPORT void correctDisplacement(const pointField& p, vectorField& disp) const;
 
 		//- Update topology
-		void updateMesh(const mapPolyMesh&);
+		FoamFvMesh_EXPORT void updateMesh(const mapPolyMesh&);
 
 		//- Correct weighting factors for moving mesh.
-		bool movePoints();
+		FoamFvMesh_EXPORT bool movePoints();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const twoDPointCorrector&) = delete;
+		FoamFvMesh_EXPORT void operator=(const twoDPointCorrector&) = delete;
 	};
 
 

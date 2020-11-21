@@ -86,22 +86,26 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Return the limited denominator of the radial distribution function
-			tmp<Field<scalar>> denominator(const Field<scalar>& alpha) const;
+			FoamLagrangian_EXPORT tmp<Field<scalar>> denominator(const Field<scalar>& alpha) const;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("HarrisCrighton");
+			//TypeName("HarrisCrighton");
+			static const char* typeName_() { return "HarrisCrighton"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			//- Constructors
 
 				//- Construct from components
-			HarrisCrighton(const dictionary& dict);
+			FoamLagrangian_EXPORT HarrisCrighton(const dictionary& dict);
 
 			//- Construct copy
-			HarrisCrighton(const HarrisCrighton& hc);
+			FoamLagrangian_EXPORT HarrisCrighton(const HarrisCrighton& hc);
 
 			//- Clone
 			virtual autoPtr<ParticleStressModel> clone() const
@@ -114,13 +118,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~HarrisCrighton();
+			FoamLagrangian_EXPORT virtual ~HarrisCrighton();
 
 
 			//- Member Functions
 
 				//- Collision stress
-			tmp<Field<scalar>> tau
+			FoamLagrangian_EXPORT tmp<Field<scalar>> tau
 			(
 				const Field<scalar>& alpha,
 				const Field<scalar>& rho,
@@ -128,7 +132,7 @@ namespace tnbLib
 			) const;
 
 			//- Collision stress derivaive w.r.t. the volume fraction
-			tmp<Field<scalar>> dTaudTheta
+			FoamLagrangian_EXPORT tmp<Field<scalar>> dTaudTheta
 			(
 				const Field<scalar>& alpha,
 				const Field<scalar>& rho,

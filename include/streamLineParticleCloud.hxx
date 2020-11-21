@@ -60,7 +60,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct given mesh
-		streamLineParticleCloud
+		FoamFunctionObjects_EXPORT streamLineParticleCloud
 		(
 			const polyMesh&,
 			const word& cloudName = "defaultCloud",
@@ -68,7 +68,7 @@ namespace tnbLib
 		);
 
 		//- Construct from mesh, cloud name, and a list of particles
-		streamLineParticleCloud
+		FoamFunctionObjects_EXPORT streamLineParticleCloud
 		(
 			const polyMesh& mesh,
 			const word& cloudName,
@@ -76,13 +76,13 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		streamLineParticleCloud(const streamLineParticleCloud&) = delete;
+		FoamFunctionObjects_EXPORT streamLineParticleCloud(const streamLineParticleCloud&) = delete;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const streamLineParticleCloud&) = delete;
+		FoamFunctionObjects_EXPORT void operator=(const streamLineParticleCloud&) = delete;
 	};
 
 

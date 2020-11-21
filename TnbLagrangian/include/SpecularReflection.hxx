@@ -35,6 +35,16 @@ Description
 
 #include <WallInteractionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamSpecularReflection_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSpecularReflection_EXPORT_DEFINE
+#define FoamSpecularReflection_EXPORT __declspec(dllexport)
+#else
+#define FoamSpecularReflection_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -51,7 +61,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("SpecularReflection");
+		//TypeName("SpecularReflection");
+		static const char* typeName_() { return "SpecularReflection"; }
+		static FoamSpecularReflection_EXPORT const ::tnbLib::word typeName;
+		static FoamSpecularReflection_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

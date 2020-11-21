@@ -79,27 +79,31 @@ namespace tnbLib
 
 		// Protected data
 
-			//- Static pressure
+		//- Static pressure
 		scalarField p_;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("pressure");
+		/*TypeName("pressure");*/
+		static const char* typeName_() { return "pressure"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		pressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT pressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		pressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT pressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -108,7 +112,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		//  pressureFvPatchScalarField onto a new patch
-		pressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT pressureFvPatchScalarField
 		(
 			const pressureFvPatchScalarField&,
 			const fvPatch&,
@@ -117,7 +121,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		pressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT pressureFvPatchScalarField
 		(
 			const pressureFvPatchScalarField&
 		);
@@ -132,7 +136,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		pressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT pressureFvPatchScalarField
 		(
 			const pressureFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -172,21 +176,21 @@ namespace tnbLib
 
 			//- Map (and resize as needed) from self given a mapping object
 			//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		FoamFiniteVolume_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchScalarField&, const labelList&);
+		FoamFiniteVolume_EXPORT virtual void rmap(const fvPatchScalarField&, const labelList&);
 
 
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

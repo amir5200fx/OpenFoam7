@@ -50,6 +50,16 @@ SourceFiles
 
 #include <fvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCalculatedFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCalculatedFvPatchField_EXPORT_DEFINE
+#define FoamCalculatedFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamCalculatedFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -68,7 +78,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("calculated");
+		//TypeName("calculated");
+		static const char* typeName_() { return "calculated"; }
+		static FoamCalculatedFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamCalculatedFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

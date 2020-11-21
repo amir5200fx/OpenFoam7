@@ -297,7 +297,7 @@ void tnbLib::mapDistributePolyMesh::operator=(mapDistributePolyMesh&& rhs)
 
 // * * * * * * * * * * * * * * Istream Operator  * * * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, mapDistributePolyMesh& map)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, mapDistributePolyMesh& map)
 {
 	is.fatalCheck("operator>>(Istream&, mapDistributePolyMesh&)");
 
@@ -318,7 +318,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, mapDistributePolyMesh& map)
 
 // * * * * * * * * * * * * * * Ostream Operator  * * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const mapDistributePolyMesh& map)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const mapDistributePolyMesh& map)
 {
 	os << map.nOldPoints_
 		<< token::SPACE << map.nOldFaces_

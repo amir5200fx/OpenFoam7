@@ -72,7 +72,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Return true if edge is used in opposite order in faces
-		static bool consistentEdge
+		static FoamFvMesh_EXPORT bool consistentEdge
 		(
 			const edge& e,
 			const triSurface::FaceType& f0,
@@ -80,7 +80,7 @@ namespace tnbLib
 		);
 
 		//- From changed faces get the changed edges
-		static labelList faceToEdge
+		static FoamFvMesh_EXPORT labelList faceToEdge
 		(
 			const triSurface&,
 			const labelList& changedFaces
@@ -88,7 +88,7 @@ namespace tnbLib
 
 		//- From changed edges check the orientation of the connected faces
 		//  and flip them. Return changed faces.
-		static labelList edgeToFace
+		static FoamFvMesh_EXPORT labelList edgeToFace
 		(
 			const triSurface&,
 			const labelList& changedEdges,
@@ -97,7 +97,7 @@ namespace tnbLib
 
 		//- Walk from face across connected faces. Change orientation to be
 		//  consistent with startFacei.
-		static void walkSurface
+		static FoamFvMesh_EXPORT void walkSurface
 		(
 			const triSurface& s,
 			const label startFacei,
@@ -106,7 +106,7 @@ namespace tnbLib
 
 		//- Given nearest point and face check orientation to nearest face
 		//  and flip if necessary (only marked in flipState) and propagate.
-		static void propagateOrientation
+		static FoamFvMesh_EXPORT void propagateOrientation
 		(
 			const triSurface&,
 			const point& outsidePoint,
@@ -118,7 +118,7 @@ namespace tnbLib
 
 		//- Find a face on zoneI and count number of intersections to determine
 		//  orientation
-		static void findZoneSide
+		static FoamFvMesh_EXPORT void findZoneSide
 		(
 			const triSurfaceSearch& surfSearches,
 			const labelList& faceZone,
@@ -130,27 +130,30 @@ namespace tnbLib
 
 		//- Given flipState reverse triangles of *this. Return true if
 		//  anything flipped.
-		static bool flipSurface(triSurface& s, const labelList& flipState);
+		static FoamFvMesh_EXPORT bool flipSurface(triSurface& s, const labelList& flipState);
 
 		//- Make surface surface has consistent orientation across connected
 		//  triangles.
-		static bool orientConsistent(triSurface& s);
+		static FoamFvMesh_EXPORT bool orientConsistent(triSurface& s);
 
 
 	public:
 
-		ClassName("orientedSurface");
+		/*ClassName("orientedSurface");*/
+		static const char* typeName_() { return "orientedSurface"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct null
-		orientedSurface();
+		FoamFvMesh_EXPORT orientedSurface();
 
 		//- Construct from triSurface and sample point which is either
 		//  outside (orientOutside = true) or inside (orientOutside = false).
 		//  Uses orient.
-		orientedSurface
+		FoamFvMesh_EXPORT orientedSurface
 		(
 			const triSurface&,
 			const point& samplePoint,
@@ -159,7 +162,7 @@ namespace tnbLib
 
 		//- Construct from triSurface. Calculates outside point as being
 		//  outside the bounding box of the surface.
-		orientedSurface(const triSurface&, const bool orientOutside = true);
+		FoamFvMesh_EXPORT orientedSurface(const triSurface&, const bool orientOutside = true);
 
 
 		// Member Functions
@@ -169,13 +172,13 @@ namespace tnbLib
 			//  orientOutside=false : point inside surface
 			//  Bases orientation on normal on nearest point (linear search) and
 			//  walks to rest. Surface needs to be manifold.
-		static bool orient(triSurface&, const point&, const bool orientOutside);
+		static FoamFvMesh_EXPORT bool orient(triSurface&, const point&, const bool orientOutside);
 
 		//- Flip faces such that normals are consistent with point:
 		//  orientOutside=true : point outside surface
 		//  orientOutside=false : point inside surface
 		//  Uses intersection count to orient. Handles open surfaces.
-		static bool orient
+		static FoamFvMesh_EXPORT bool orient
 		(
 			triSurface& s,
 			const triSurfaceSearch& querySurf,

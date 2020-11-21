@@ -80,16 +80,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("normal");
+			//TypeName("normal");
+			static const char* typeName_() { return "normal"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			normal(const dictionary& dict, Random& rndGen);
+			FoamLagrangian_EXPORT normal(const dictionary& dict, Random& rndGen);
 
 			//- Construct copy
-			normal(const normal& p);
+			FoamLagrangian_EXPORT normal(const normal& p);
 
 			//- Construct and return a clone
 			virtual autoPtr<distributionModel> clone() const
@@ -99,24 +103,24 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~normal();
+			FoamLagrangian_EXPORT virtual ~normal();
 
 
 			// Member Functions
 
 				//- Sample the distributionModel
-			virtual scalar sample() const;
+			FoamLagrangian_EXPORT virtual scalar sample() const;
 
 			//- Return the minimum value
-			virtual scalar minValue() const;
+			FoamLagrangian_EXPORT virtual scalar minValue() const;
 
 			//- Return the maximum value
-			virtual scalar maxValue() const;
+			FoamLagrangian_EXPORT virtual scalar maxValue() const;
 
 			//- Return the mean value
-			virtual scalar meanValue() const;
+			FoamLagrangian_EXPORT virtual scalar meanValue() const;
 
-			virtual scalar erfInv(const scalar y) const;
+			FoamLagrangian_EXPORT virtual scalar erfInv(const scalar y) const;
 		};
 
 

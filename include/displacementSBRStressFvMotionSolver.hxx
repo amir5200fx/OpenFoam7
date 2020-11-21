@@ -70,27 +70,31 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("displacementSBRStress");
+		//TypeName("displacementSBRStress");
+		static const char* typeName_() { return "displacementSBRStress"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from polyMesh and dictionary
-		displacementSBRStressFvMotionSolver
+		FoamFvMotionSolver_EXPORT displacementSBRStressFvMotionSolver
 		(
 			const polyMesh&,
 			const dictionary&
 		);
 
 		//- Disallow default bitwise copy construction
-		displacementSBRStressFvMotionSolver
+		FoamFvMotionSolver_EXPORT displacementSBRStressFvMotionSolver
 		(
 			const displacementSBRStressFvMotionSolver&
 		);
 
 
 		//- Destructor
-		~displacementSBRStressFvMotionSolver();
+		FoamFvMotionSolver_EXPORT ~displacementSBRStressFvMotionSolver();
 
 
 		// Member Functions
@@ -114,19 +118,19 @@ namespace tnbLib
 		}
 
 		//- Return point location obtained from the current motion field
-		virtual tmp<pointField> curPoints() const;
+		FoamFvMotionSolver_EXPORT virtual tmp<pointField> curPoints() const;
 
 		//- Solve for motion
-		virtual void solve();
+		FoamFvMotionSolver_EXPORT virtual void solve();
 
 		//- Update topology
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamFvMotionSolver_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const displacementSBRStressFvMotionSolver&) = delete;
+		FoamFvMotionSolver_EXPORT void operator=(const displacementSBRStressFvMotionSolver&) = delete;
 	};
 
 

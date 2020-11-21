@@ -50,7 +50,7 @@ tnbLib::kinematicParcelInjectionData::kinematicParcelInjectionData(Istream& is)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamLagrangian_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	Ostream& os,
 	const kinematicParcelInjectionData& data
@@ -62,7 +62,7 @@ tnbLib::Ostream& tnbLib::operator<<
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, kinematicParcelInjectionData& data)
+FoamLagrangian_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, kinematicParcelInjectionData& data)
 {
 	is.check("reading (Px Py Pz)");
 	is >> data.x_;

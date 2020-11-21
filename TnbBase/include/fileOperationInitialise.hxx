@@ -49,18 +49,22 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("fileOperationInitialise");
+			//TypeName("fileOperationInitialise");
+			static const char* typeName_() { return "fileOperationInitialise"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct components
-			fileOperationInitialise(int& argc, char**& argv);
+			FoamBase_EXPORT fileOperationInitialise(int& argc, char**& argv);
 
 
 			// Declare run-time constructor selection table
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				fileOperationInitialise,
@@ -69,26 +73,77 @@ namespace tnbLib
 					int& argc, char**& argv
 					),
 					(argc, argv)
-			);
+			);*/
+
+			typedef autoPtr<fileOperationInitialise> (*wordConstructorPtr)(int& argc, char**& argv);
+			typedef HashTable<wordConstructorPtr, word, string::hash> wordConstructorTable;
+			static FoamBase_EXPORT wordConstructorTable* wordConstructorTablePtr_;
+			static FoamBase_EXPORT void constructwordConstructorTables();
+			static FoamBase_EXPORT void destroywordConstructorTables();
+
+			template <class fileOperationInitialiseType>
+			class addwordConstructorToTable
+			{
+			public:
+				static autoPtr<fileOperationInitialise> New(int& argc, char**& argv)
+				{
+					return autoPtr<fileOperationInitialise>(new fileOperationInitialiseType(argc, argv));
+				}
+
+				addwordConstructorToTable(const word& lookup = fileOperationInitialiseType::typeName)
+				{
+					constructwordConstructorTables();
+					if (!wordConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "fileOperationInitialise" << std::
+							endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~addwordConstructorToTable() { destroywordConstructorTables(); }
+			};
+
+			template <class fileOperationInitialiseType>
+			class addRemovablewordConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<fileOperationInitialise> New(int& argc, char**& argv)
+				{
+					return autoPtr<fileOperationInitialise>(new fileOperationInitialiseType(argc, argv));
+				}
+
+				addRemovablewordConstructorToTable(const word& lookup = fileOperationInitialiseType::typeName) : lookup_(lookup)
+				{
+					constructwordConstructorTables();
+					wordConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovablewordConstructorToTable()
+				{
+					if (wordConstructorTablePtr_) { wordConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Selectors
 
 				//- Select type
-			static autoPtr<fileOperationInitialise> New
+			static FoamBase_EXPORT autoPtr<fileOperationInitialise> New
 			(
 				const word& type, int& argc, char**& argv
 			);
 
 
 			//- Destructor
-			virtual ~fileOperationInitialise();
+			FoamBase_EXPORT virtual ~fileOperationInitialise();
 
 
 			// Member Functions
 
 				//- Needs threading
-			virtual bool needsThreading() const = 0;
+			FoamBase_EXPORT virtual bool needsThreading() const = 0;
 		};
 
 

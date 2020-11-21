@@ -58,42 +58,46 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("transportModel");
+		//TypeName("transportModel");
+		static const char* typeName_() { return "transportModel"; }
+		static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+		static FoamTransportModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		transportModel
+		FoamTransportModels_EXPORT transportModel
 		();
 
 		//- Disallow default bitwise copy construction
-		transportModel(const transportModel&);
+		FoamTransportModels_EXPORT transportModel(const transportModel&);
 
 
 		//- Destructor
-		virtual ~transportModel();
+		FoamTransportModels_EXPORT virtual ~transportModel();
 
 
 		// Member Functions
 
 			//- Return the laminar viscosity
-		virtual tmp<volScalarField> nu() const = 0;
+		FoamTransportModels_EXPORT virtual tmp<volScalarField> nu() const = 0;
 
 		//- Return the laminar viscosity for patch
-		virtual tmp<scalarField> nu(const label patchi) const = 0;
+		FoamTransportModels_EXPORT virtual tmp<scalarField> nu(const label patchi) const = 0;
 
 		//- Correct the laminar viscosity
-		virtual void correct() = 0;
+		FoamTransportModels_EXPORT virtual void correct() = 0;
 
 		//- Read transportProperties dictionary
-		virtual bool read() = 0;
+		FoamTransportModels_EXPORT virtual bool read() = 0;
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const transportModel&) = delete;
+		FoamTransportModels_EXPORT void operator=(const transportModel&) = delete;
 	};
 
 

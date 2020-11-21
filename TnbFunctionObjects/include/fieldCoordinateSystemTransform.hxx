@@ -110,7 +110,7 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Return the name of the transformed field
-			word transformFieldName(const word& fieldName) const;
+			FoamFunctionObjects_EXPORT word transformFieldName(const word& fieldName) const;
 
 			//- Transform the given field
 			template<class FieldType>
@@ -124,13 +124,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("fieldCoordinateSystemTransform");
+			//TypeName("fieldCoordinateSystemTransform");
+			static const char* typeName_() { return "fieldCoordinateSystemTransform"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			fieldCoordinateSystemTransform
+			FoamFunctionObjects_EXPORT fieldCoordinateSystemTransform
 			(
 				const word& name,
 				const Time& runTime,
@@ -139,19 +143,19 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~fieldCoordinateSystemTransform();
+			FoamFunctionObjects_EXPORT virtual ~fieldCoordinateSystemTransform();
 
 
 			// Member Functions
 
 				//- Read the input data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate the transformed fields
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the transformed fields
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 		};
 
 
@@ -163,8 +167,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <fieldCoordinateSystemTransformTemplates.cxx>
+//#include <fieldCoordinateSystemTransformTemplates.cxx>
 #endif
+
+#include <fieldCoordinateSystemTransformTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

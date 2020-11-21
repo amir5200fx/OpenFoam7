@@ -44,49 +44,49 @@ namespace tnbLib
 		namespace universal
 		{
 			//- Speed of light in a vacuum
-			extern const dimensionedScalar c;
+			FoamBase_EXPORT extern const dimensionedScalar c;
 
 			//- Newtonian constant of gravitation
-			extern const dimensionedScalar G;
+			FoamBase_EXPORT extern const dimensionedScalar G;
 
 			//- Planck constant
-			extern const dimensionedScalar h;
+			FoamBase_EXPORT extern const dimensionedScalar h;
 		}
 
 		namespace electromagnetic
 		{
 			//- Elementary charge
-			extern const dimensionedScalar e;
+			FoamBase_EXPORT extern const dimensionedScalar e;
 		}
 
 		namespace atomic
 		{
 			//- Electron mass
-			extern const dimensionedScalar me;
+			FoamBase_EXPORT extern const dimensionedScalar me;
 
 			//- Proton mass
-			extern const dimensionedScalar mp;
+			FoamBase_EXPORT extern const dimensionedScalar mp;
 		}
 
 		namespace physicoChemical
 		{
 			//- Atomic mass unit
-			extern const dimensionedScalar mu;
+			FoamBase_EXPORT extern const dimensionedScalar mu;
 
 			//- Avagadro number
-			extern const dimensionedScalar NA;
+			FoamBase_EXPORT extern const dimensionedScalar NA;
 
 			//- Boltzmann constant
-			extern const dimensionedScalar k;
+			FoamBase_EXPORT extern const dimensionedScalar k;
 		}
 
 		namespace standard
 		{
 			//- Standard pressure
-			extern const dimensionedScalar Pstd;
+			FoamBase_EXPORT extern const dimensionedScalar Pstd;
 
 			//- Standard temperature
-			extern const dimensionedScalar Tstd;
+			FoamBase_EXPORT extern const dimensionedScalar Tstd;
 		}
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

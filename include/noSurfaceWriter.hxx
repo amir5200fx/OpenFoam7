@@ -55,17 +55,21 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamConversion_EXPORT const ::tnbLib::word typeName;
+		static FoamConversion_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct null
-		noSurfaceWriter();
+		FoamConversion_EXPORT noSurfaceWriter();
 
 
 		//- Destructor
-		virtual ~noSurfaceWriter();
+		FoamConversion_EXPORT virtual ~noSurfaceWriter();
 
 
 		// Member Functions

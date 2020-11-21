@@ -72,12 +72,15 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("displacementMotionSolver");
+		//ClassName("displacementMotionSolver");
+		static const char* typeName_() { return "displacementMotionSolver"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
 
 		// Constructors
 
 			//- Construct from polyMesh
-		fvMotionSolver(const polyMesh&);
+		FoamFvMotionSolver_EXPORT fvMotionSolver(const polyMesh&);
 
 
 		// Member Functions

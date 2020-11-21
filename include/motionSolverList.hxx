@@ -63,35 +63,39 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("motionSolverList");
+		//TypeName("motionSolverList");
+		static const char* typeName_() { return "motionSolverList"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from mesh and dictionary
-		motionSolverList(const polyMesh&, const dictionary&);
+		FoamDynamicMesh_EXPORT motionSolverList(const polyMesh&, const dictionary&);
 
 		//- Disallow default bitwise copy construction
 		motionSolverList(const motionSolverList&) = delete;
 
 
 		//- Destructor
-		virtual ~motionSolverList();
+		FoamDynamicMesh_EXPORT virtual ~motionSolverList();
 
 
 		// Member Functions
 
 			//- Provide current points for motion.  Uses current motion field
-		virtual tmp<pointField> curPoints() const;
+		FoamDynamicMesh_EXPORT virtual tmp<pointField> curPoints() const;
 
 		//- Solve for motion
-		virtual void solve();
+		FoamDynamicMesh_EXPORT virtual void solve();
 
 		//- Update local data for geometry changes
-		virtual void movePoints(const pointField&);
+		FoamDynamicMesh_EXPORT virtual void movePoints(const pointField&);
 
 		//-  Update local data for topology changes
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 
 		// Member Operators

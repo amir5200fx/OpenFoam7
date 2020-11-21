@@ -2,7 +2,7 @@
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamSnappyHexMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	tnbLib::Ostream& os,
 	const tnbLib::patchFaceOrientation& wDist
@@ -12,7 +12,7 @@ tnbLib::Ostream& tnbLib::operator<<
 }
 
 
-tnbLib::Istream& tnbLib::operator>>
+FoamSnappyHexMesh_EXPORT tnbLib::Istream& tnbLib::operator>>
 (
 	tnbLib::Istream& is,
 	tnbLib::patchFaceOrientation& wDist

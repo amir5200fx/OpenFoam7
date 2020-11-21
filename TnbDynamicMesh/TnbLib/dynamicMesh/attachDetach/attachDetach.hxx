@@ -109,42 +109,46 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Check validity of construction data
-		void checkDefinition();
+		FoamDynamicMesh_EXPORT void checkDefinition();
 
 		// Topological changes
 
 			//- Attach interface
-		void attachInterface(polyTopoChange&) const;
+		FoamDynamicMesh_EXPORT void attachInterface(polyTopoChange&) const;
 
 		//- Detach interface
-		void detachInterface(polyTopoChange&) const;
+		FoamDynamicMesh_EXPORT void detachInterface(polyTopoChange&) const;
 
 		//- Calculate point match addressing
-		void calcPointMatchMap() const;
+		FoamDynamicMesh_EXPORT void calcPointMatchMap() const;
 
 		//- Return point match map
-		const Map<label>& pointMatchMap() const;
+		FoamDynamicMesh_EXPORT const Map<label>& pointMatchMap() const;
 
 		//- Clear addressing
-		void clearAddressing() const;
+		FoamDynamicMesh_EXPORT void clearAddressing() const;
 
 
 		// Static Data Members
 
 			//- Relative vertex position tolerance
-		static const scalar positionDifference_;
+		static FoamDynamicMesh_EXPORT const scalar positionDifference_;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("attachDetach");
+		//TypeName("attachDetach");
+		static const char* typeName_() { return "attachDetach"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		attachDetach
+		FoamDynamicMesh_EXPORT attachDetach
 		(
 			const word& name,
 			const label index,
@@ -157,7 +161,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		attachDetach
+		FoamDynamicMesh_EXPORT attachDetach
 		(
 			const word& name,
 			const dictionary& dict,
@@ -170,7 +174,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~attachDetach();
+		FoamDynamicMesh_EXPORT virtual ~attachDetach();
 
 
 		// Member Functions
@@ -199,23 +203,23 @@ namespace tnbLib
 		}
 
 		// Manually set attach.  Use only with manual trigger
-		bool setAttach() const;
+		FoamDynamicMesh_EXPORT bool setAttach() const;
 
 		// Manually set detach.  Use only with manual trigger
-		bool setDetach() const;
+		FoamDynamicMesh_EXPORT bool setDetach() const;
 
 		//- Check for topology change
-		virtual bool changeTopology() const;
+		FoamDynamicMesh_EXPORT virtual bool changeTopology() const;
 
 		//- Insert the layer addition/removal instructions
 		//  into the topological change
-		virtual void setRefinement(polyTopoChange&) const;
+		FoamDynamicMesh_EXPORT virtual void setRefinement(polyTopoChange&) const;
 
 		//- Modify motion points to comply with the topological change
-		virtual void modifyMotionPoints(pointField& motionPoints) const;
+		FoamDynamicMesh_EXPORT virtual void modifyMotionPoints(pointField& motionPoints) const;
 
 		//- Force recalculation of locally stored data on topological change
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 		//- Get reference to trigger times
 		const scalarField& triggerTimes() const
@@ -224,10 +228,10 @@ namespace tnbLib
 		}
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamDynamicMesh_EXPORT virtual void write(Ostream&) const;
 
 		//- Write dictionary
-		virtual void writeDict(Ostream&) const;
+		FoamDynamicMesh_EXPORT virtual void writeDict(Ostream&) const;
 
 
 		// Member Operators

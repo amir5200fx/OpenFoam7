@@ -77,7 +77,7 @@ namespace tnbLib
 
 			//- Change elements in cellRegion that are oldRegion to newRegion.
 			//  Recurses to cell neighbours.
-		void changeCellRegion
+		FoamDynamicMesh_EXPORT void changeCellRegion
 		(
 			const label celli,
 			const label oldRegion,
@@ -86,7 +86,7 @@ namespace tnbLib
 		) const;
 
 		//- Changes region of connected set of faces
-		label changeFaceRegion
+		FoamDynamicMesh_EXPORT label changeFaceRegion
 		(
 			const labelList& cellRegion,
 			const boolList& removedFace,
@@ -98,7 +98,7 @@ namespace tnbLib
 		) const;
 
 		//- Get all affected faces (including faces marked for removal)
-		boolList getFacesAffected
+		FoamDynamicMesh_EXPORT boolList getFacesAffected
 		(
 			const labelList& cellRegion,
 			const labelList& cellRegionMaster,
@@ -111,14 +111,14 @@ namespace tnbLib
 		// Topological changes
 
 			//- Debug: write set of faces to file in obj format.
-		static void writeOBJ
+		static FoamDynamicMesh_EXPORT void writeOBJ
 		(
 			const indirectPrimitivePatch&,
 			const fileName&
 		);
 
 		//- Merge faceLabels into single face.
-		void mergeFaces
+		FoamDynamicMesh_EXPORT void mergeFaces
 		(
 			const labelList& cellRegion,
 			const labelList& cellRegionMaster,
@@ -128,7 +128,7 @@ namespace tnbLib
 		) const;
 
 		//- Get patch, zone info for facei
-		void getFaceInfo
+		FoamDynamicMesh_EXPORT void getFaceInfo
 		(
 			const label facei,
 			label& patchID,
@@ -137,10 +137,10 @@ namespace tnbLib
 		) const;
 
 		//- Return face with all pointsToRemove removed.
-		face filterFace(const labelHashSet&, const label) const;
+		FoamDynamicMesh_EXPORT face filterFace(const labelHashSet&, const label) const;
 
 		//- Wrapper for meshMod.modifyFace. Reverses face if own>nei.
-		void modFace
+		FoamDynamicMesh_EXPORT void modFace
 		(
 			const face& f,
 			const label masterFaceID,
@@ -159,7 +159,10 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("removeFaces");
+		//ClassName("removeFaces");
+		static const char* typeName_() { return "removeFaces"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
@@ -167,7 +170,7 @@ namespace tnbLib
 			//- Construct from mesh and min cos of angle for boundary faces
 			//  to be considered aligned. Set to >= 1 to disable checking
 			//  and always merge (if on same patch)
-		removeFaces(const polyMesh&, const scalar minCos);
+		FoamDynamicMesh_EXPORT removeFaces(const polyMesh&, const scalar minCos);
 
 		//- Disallow default bitwise copy construction
 		removeFaces(const removeFaces&) = delete;
@@ -183,7 +186,7 @@ namespace tnbLib
 			//  - new set of faces which contains input set + additional ones
 			//    where cells on both sides would have same mastercell.
 			//  Returns number of regions.
-		label compatibleRemoves
+		FoamDynamicMesh_EXPORT label compatibleRemoves
 		(
 			const labelList& inPiercedFaces,
 			labelList& cellRegion,
@@ -193,7 +196,7 @@ namespace tnbLib
 
 
 		//- Play commands into polyTopoChange to remove faces.
-		void setRefinement
+		FoamDynamicMesh_EXPORT void setRefinement
 		(
 			const labelList& piercedFaces,
 			const labelList& cellRegion,

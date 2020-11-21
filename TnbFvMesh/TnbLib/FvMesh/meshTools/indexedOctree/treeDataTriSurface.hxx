@@ -50,7 +50,7 @@ namespace tnbLib
 
 	//- Template specialisation of getVolumeType for treeDataTriSurface
 	template<>
-	volumeType treeDataPrimitivePatch<triSurface>::getVolumeType
+	FoamFvMesh_EXPORT volumeType treeDataPrimitivePatch<triSurface>::getVolumeType
 	(
 		const indexedOctree<treeDataPrimitivePatch<triSurface>>& oc,
 		const point& sample

@@ -212,7 +212,7 @@ void tnbLib::findCellParticle::hitWallPatch
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const findCellParticle& p)
+FoamFunctionObjects_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const findCellParticle& p)
 {
 	if (os.format() == IOstream::ASCII)
 	{

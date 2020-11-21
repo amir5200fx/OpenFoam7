@@ -55,20 +55,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("faceAreaPair");
+		/*TypeName("faceAreaPair");*/
+		static const char* typeName_() { return "faceAreaPair"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given mesh and controls
-		faceAreaPairGAMGAgglomeration
+		FoamFiniteVolume_EXPORT faceAreaPairGAMGAgglomeration
 		(
 			const lduMesh& mesh,
 			const dictionary& controlDict
 		);
 
 		//- Construct given mesh and controls
-		faceAreaPairGAMGAgglomeration
+		FoamFiniteVolume_EXPORT faceAreaPairGAMGAgglomeration
 		(
 			const lduMesh& mesh,
 			const scalarField& cellVolumes,

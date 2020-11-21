@@ -66,13 +66,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("APIdiffCoefFunc");
+		//TypeName("APIdiffCoefFunc");
+		static const char* typeName_() { return "APIdiffCoefFunc"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		APIdiffCoefFunc
+		FoamThermophysicalModels_EXPORT APIdiffCoefFunc
 		(
 			const scalar a,
 			const scalar b,
@@ -81,7 +85,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		APIdiffCoefFunc(const dictionary& dict);
+		FoamThermophysicalModels_EXPORT APIdiffCoefFunc(const dictionary& dict);
 
 
 		// Member Functions

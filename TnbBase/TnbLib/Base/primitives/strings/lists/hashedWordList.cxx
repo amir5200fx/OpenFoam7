@@ -122,7 +122,7 @@ void tnbLib::hashedWordList::transfer(List<word>& lst)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, hashedWordList& lst)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, hashedWordList& lst)
 {
 	is >> static_cast<List<word>&>(lst);
 	lst.rehash();
@@ -131,7 +131,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, hashedWordList& lst)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const hashedWordList& lst)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const hashedWordList& lst)
 {
 	os << static_cast<const List<word>&>(lst);
 	return os;

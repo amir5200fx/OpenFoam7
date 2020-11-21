@@ -69,7 +69,18 @@ namespace tnbLib
 							Class dynamicIndexedOctreeName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(dynamicIndexedOctree);
+	//TemplateName(dynamicIndexedOctree);
+	class dynamicIndexedOctreeName
+	{
+	public:
+		dynamicIndexedOctreeName()
+		{
+		}
+
+		static const char* typeName_() { return "dynamicIndexedOctree"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\

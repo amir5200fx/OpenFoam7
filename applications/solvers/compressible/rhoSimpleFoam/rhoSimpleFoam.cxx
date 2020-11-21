@@ -29,6 +29,14 @@ Description
 
 \*---------------------------------------------------------------------------*/
 
+#include <Base_Module.hxx>
+#include <DynamicMesh_Module.hxx>
+#include <FiniteVolume_Module.hxx>
+#include <FvMesh_Module.hxx>
+#include <ThermophysicalModels_Module.hxx>
+#include <TransportModels_Module.hxx>
+#include <Turbulence_Module.hxx>
+
 #include <fvCFD.hxx>
 #include <fluidThermo.hxx>
 #include <turbulentFluidThermoModel.hxx>

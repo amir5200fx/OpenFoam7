@@ -59,23 +59,27 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("none");
+				//TypeName("none");
+				static const char* typeName_() { return "none"; }
+				static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+				static FoamRadiationModels_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				noScatter(const dictionary& dict, const fvMesh& mesh);
+				FoamRadiationModels_EXPORT noScatter(const dictionary& dict, const fvMesh& mesh);
 
 
 				//- Destructor
-				virtual ~noScatter();
+				FoamRadiationModels_EXPORT virtual ~noScatter();
 
 
 				// Member Functions
 
 					//- Return scatter coefficient
-				tmp<volScalarField> sigmaEff() const;
+				FoamRadiationModels_EXPORT tmp<volScalarField> sigmaEff() const;
 			};
 
 

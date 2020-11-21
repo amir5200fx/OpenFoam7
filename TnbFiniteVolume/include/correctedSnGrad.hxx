@@ -38,6 +38,16 @@ SourceFiles
 
 #include <snGradScheme.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCorrectedSnGrad_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCorrectedSnGrad_EXPORT_DEFINE
+#define FoamCorrectedSnGrad_EXPORT __declspec(dllexport)
+#else
+#define FoamCorrectedSnGrad_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -66,7 +76,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("corrected");
+			/*TypeName("corrected");*/
+			static const char* typeName_() { return "corrected"; }
+			static FoamCorrectedSnGrad_EXPORT const ::tnbLib::word typeName;
+			static FoamCorrectedSnGrad_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
@@ -124,14 +138,14 @@ namespace tnbLib
 		// * * * * * * * * Template Member Function Specialisations  * * * * * * * * //
 
 		template<>
-		tmp<surfaceScalarField> correctedSnGrad<scalar>::correction
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> correctedSnGrad<scalar>::correction
 		(
 			const volScalarField& vsf
 		) const;
 
 
 		template<>
-		tmp<surfaceVectorField> correctedSnGrad<vector>::correction
+		FoamFiniteVolume_EXPORT tmp<surfaceVectorField> correctedSnGrad<vector>::correction
 		(
 			const volVectorField& vvf
 		) const;

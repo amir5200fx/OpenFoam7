@@ -49,7 +49,7 @@ namespace tnbLib
 
 	class boundaryPatch;
 
-	Ostream& operator<<(Ostream&, const boundaryPatch&);
+	FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const boundaryPatch&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -70,7 +70,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		boundaryPatch
+		FoamDynamicMesh_EXPORT boundaryPatch
 		(
 			const word& name,
 			const label index,
@@ -80,7 +80,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		boundaryPatch
+		FoamDynamicMesh_EXPORT boundaryPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -88,14 +88,14 @@ namespace tnbLib
 		);
 
 		//- Copy constructor, resetting the index
-		boundaryPatch(const boundaryPatch&, const label index);
+		FoamDynamicMesh_EXPORT boundaryPatch(const boundaryPatch&, const label index);
 
 		//- Clone
-		autoPtr<boundaryPatch> clone() const;
+		FoamDynamicMesh_EXPORT autoPtr<boundaryPatch> clone() const;
 
 
 		//- Destructor
-		~boundaryPatch();
+		FoamDynamicMesh_EXPORT ~boundaryPatch();
 
 
 		// Member Functions
@@ -122,12 +122,12 @@ namespace tnbLib
 
 
 		//- Write dictionary
-		virtual void write(Ostream&) const;
+		FoamDynamicMesh_EXPORT virtual void write(Ostream&) const;
 
 
 		// Ostream Operator
 
-		friend Ostream& operator<<(Ostream&, const boundaryPatch&);
+		FoamDynamicMesh_EXPORT friend Ostream& operator<<(Ostream&, const boundaryPatch&);
 	};
 
 

@@ -49,6 +49,16 @@ SourceFiles
 #include <InjectionModelTemplate.hxx>
 #include <distributionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamCellZoneInjection_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCellZoneInjection_EXPORT_DEFINE
+#define FoamCellZoneInjection_EXPORT __declspec(dllexport)
+#else
+#define FoamCellZoneInjection_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -102,7 +112,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("cellZoneInjection");
+		//TypeName("cellZoneInjection");
+		static const char* typeName_() { return "cellZoneInjection"; }
+		static FoamCellZoneInjection_EXPORT const ::tnbLib::word typeName;
+		static FoamCellZoneInjection_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

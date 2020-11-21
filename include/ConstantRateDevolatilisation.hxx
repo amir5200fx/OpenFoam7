@@ -38,6 +38,16 @@ Description
 
 #include <primitiveFieldsFwd.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamConstantRateDevolatilisation_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamConstantRateDevolatilisation_EXPORT_DEFINE
+#define FoamConstantRateDevolatilisation_EXPORT __declspec(dllexport)
+#else
+#define FoamConstantRateDevolatilisation_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -73,7 +83,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("constantRateDevolatilisation");
+		//TypeName("constantRateDevolatilisation");
+		static const char* typeName_() { return "constantRateDevolatilisation"; }
+		static FoamConstantRateDevolatilisation_EXPORT const ::tnbLib::word typeName;
+		static FoamConstantRateDevolatilisation_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

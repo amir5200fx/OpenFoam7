@@ -76,13 +76,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("processorField");
+			//TypeName("processorField");
+			static const char* typeName_() { return "processorField"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			processorField
+			FoamFunctionObjects_EXPORT processorField
 			(
 				const word& name,
 				const Time& runTime,
@@ -90,29 +94,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			processorField(const processorField&) = delete;
+			FoamFunctionObjects_EXPORT processorField(const processorField&) = delete;
 
 
 			//- Destructor
-			virtual ~processorField();
+			FoamFunctionObjects_EXPORT virtual ~processorField();
 
 
 			// Member Functions
 
 				//- Read the input data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate the processorID field
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the processorID field
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const processorField&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const processorField&) = delete;
 		};
 
 

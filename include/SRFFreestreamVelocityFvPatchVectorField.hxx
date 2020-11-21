@@ -95,7 +95,7 @@ namespace tnbLib
 	{
 		// Private Data
 
-			//- Is the supplied inlet value relative to the SRF
+		//- Is the supplied inlet value relative to the SRF
 		Switch relative_;
 
 		//- Velocity of the free stream in the absolute frame [m/s]
@@ -105,20 +105,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("SRFFreestreamVelocity");
+		//TypeName("SRFFreestreamVelocity");
+		static const char* typeName_() { return "SRFFreestreamVelocity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from patch and internal field
-		SRFFreestreamVelocityFvPatchVectorField
+		//- Construct from patch and internal field
+		FoamFiniteVolume_EXPORT SRFFreestreamVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		SRFFreestreamVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT SRFFreestreamVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -127,7 +131,7 @@ namespace tnbLib
 
 		//- Construct by mapping given SRFFreestreamVelocityFvPatchVectorField
 		//  onto a new patch
-		SRFFreestreamVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT SRFFreestreamVelocityFvPatchVectorField
 		(
 			const SRFFreestreamVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -136,7 +140,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		SRFFreestreamVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT SRFFreestreamVelocityFvPatchVectorField
 		(
 			const SRFFreestreamVelocityFvPatchVectorField&
 		);
@@ -151,7 +155,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		SRFFreestreamVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT SRFFreestreamVelocityFvPatchVectorField
 		(
 			const SRFFreestreamVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -190,11 +194,11 @@ namespace tnbLib
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

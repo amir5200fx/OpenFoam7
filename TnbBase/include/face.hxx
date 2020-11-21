@@ -87,20 +87,20 @@ namespace tnbLib
 		inline label left(const label i) const;
 
 		//- Construct list of edge vectors for face
-		tmp<vectorField> calcEdges
+		FoamBase_EXPORT tmp<vectorField> calcEdges
 		(
 			const pointField& points
 		) const;
 
 		//- Cos between neighbouring edges
-		scalar edgeCos
+		FoamBase_EXPORT scalar edgeCos
 		(
 			const vectorField& edges,
 			const label index
 		) const;
 
 		//- Find index of largest internal angle on face
-		label mostConcaveAngle
+		FoamBase_EXPORT label mostConcaveAngle
 		(
 			const pointField& points,
 			const vectorField& edges,
@@ -119,7 +119,7 @@ namespace tnbLib
 		//- Split face into triangles or triangles&quads.
 		//  Stores results quadFaces[quadI], triFaces[triI]
 		//  Returns number of new faces created
-		label split
+		FoamBase_EXPORT label split
 		(
 			const splitMode mode,
 			const pointField& points,
@@ -142,7 +142,7 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
+		static FoamBase_EXPORT const char* const typeName;
 
 
 		// Constructors
@@ -163,7 +163,7 @@ namespace tnbLib
 		explicit inline face(labelList&&);
 
 		//- Copy construct from triFace
-		face(const triFace&);
+		FoamBase_EXPORT face(const triFace&);
 
 		//- Construct from Istream
 		inline face(Istream&);
@@ -173,40 +173,40 @@ namespace tnbLib
 
 			//- Collapse face by removing duplicate point labels
 			//  return the collapsed size
-		label collapse();
+		FoamBase_EXPORT label collapse();
 
 		//- Flip the face in-place.
 		//  The starting points of the original and flipped face are identical.
-		void flip();
+		FoamBase_EXPORT void flip();
 
 		//- Return the points corresponding to this face
 		inline pointField points(const pointField&) const;
 
 		//- Centre point of face
-		point centre(const pointField&) const;
+		FoamBase_EXPORT point centre(const pointField&) const;
 
 		//- Calculate average value at centroid of face
 		template<class Type>
 		Type average(const pointField&, const Field<Type>&) const;
 
 		//- Return vector area
-		vector area(const pointField&) const;
+		FoamBase_EXPORT vector area(const pointField&) const;
 
 		//- Return scalar magnitude
 		inline scalar mag(const pointField&) const;
 
 		//- Return unit normal
-		vector normal(const pointField&) const;
+		FoamBase_EXPORT vector normal(const pointField&) const;
 
 		//- Return face with reverse direction
 		//  The starting points of the original and reverse face are identical.
-		face reverseFace() const;
+		FoamBase_EXPORT face reverseFace() const;
 
 		//- Navigation through face vertices
 
 			//- Which vertex on face (face index given a global index)
 			//  returns -1 if not found
-		label which(const label globalIndex) const;
+		FoamBase_EXPORT label which(const label globalIndex) const;
 
 		//- Next vertex on face
 		inline label nextLabel(const label i) const;
@@ -216,7 +216,7 @@ namespace tnbLib
 
 
 		//- Return the volume swept out by the face when its points move
-		scalar sweptVol
+		FoamBase_EXPORT scalar sweptVol
 		(
 			const pointField& oldPoints,
 			const pointField& newPoints
@@ -224,7 +224,7 @@ namespace tnbLib
 
 		//- Return the inertia tensor, with optional reference
 		//  point and density specification
-		tensor inertia
+		FoamBase_EXPORT tensor inertia
 		(
 			const pointField&,
 			const point& refPt = vector::zero,
@@ -243,7 +243,7 @@ namespace tnbLib
 		//  The half-ray or full-ray intersection and the contact
 		//  sphere adjustment of the projection vector is set by the
 		//  intersection parameters
-		pointHit ray
+		FoamBase_EXPORT pointHit ray
 		(
 			const point& p,
 			const vector& n,
@@ -257,7 +257,7 @@ namespace tnbLib
 		//- Fast intersection with a ray.
 		//  Does face-centre decomposition and returns triangle intersection
 		//  point closest to p. See triangle::intersection for details.
-		pointHit intersection
+		FoamBase_EXPORT pointHit intersection
 		(
 			const point& p,
 			const vector& q,
@@ -268,7 +268,7 @@ namespace tnbLib
 		) const;
 
 		//- Return nearest point to face
-		pointHit nearestPoint
+		FoamBase_EXPORT pointHit nearestPoint
 		(
 			const point& p,
 			const pointField&
@@ -280,7 +280,7 @@ namespace tnbLib
 		//    Note: edges are counted from starting vertex so
 		//    e.g. edge n is from f[n] to f[0], where the face has n + 1
 		//    points
-		pointHit nearestPointClassify
+		FoamBase_EXPORT pointHit nearestPointClassify
 		(
 			const point& p,
 			const pointField&,
@@ -289,7 +289,7 @@ namespace tnbLib
 		) const;
 
 		//- Return contact sphere diameter
-		scalar contactSphereDiameter
+		FoamBase_EXPORT scalar contactSphereDiameter
 		(
 			const point& p,
 			const vector& n,
@@ -297,7 +297,7 @@ namespace tnbLib
 		) const;
 
 		//- Return area in contact, given the displacement in vertices
-		scalar areaInContact
+		FoamBase_EXPORT scalar areaInContact
 		(
 			const pointField&,
 			const scalarField& v
@@ -308,7 +308,7 @@ namespace tnbLib
 
 		//- Return edges in face point ordering,
 		//  i.e. edges()[0] is edge between [0] and [1]
-		edgeList edges() const;
+		FoamBase_EXPORT edgeList edges() const;
 
 		//- Return n-th face edge
 		inline edge faceEdge(const label n) const;
@@ -318,7 +318,7 @@ namespace tnbLib
 		//  -  0: edge not found on the face
 		//  - +1: forward (counter-clockwise) on the face
 		//  - -1: reverse (clockwise) on the face
-		int edgeDirection(const edge&) const;
+		FoamBase_EXPORT int edgeDirection(const edge&) const;
 
 		// Face splitting utilities
 
@@ -326,13 +326,13 @@ namespace tnbLib
 		inline label nTriangles() const;
 
 		//- Number of triangles after splitting
-		label nTriangles(const pointField& points) const;
+		FoamBase_EXPORT label nTriangles(const pointField& points) const;
 
 		//- Split into triangles using existing points.
 		//  Result in triFaces[triI..triI+nTri].
 		//  Splits intelligently to maximize triangle quality.
 		//  Returns number of faces created.
-		label triangles
+		FoamBase_EXPORT label triangles
 		(
 			const pointField& points,
 			label& triI,
@@ -351,7 +351,7 @@ namespace tnbLib
 
 		//- Number of triangles and quads after splitting
 		//  Returns the sum of both
-		label nTrianglesQuads
+		FoamBase_EXPORT label nTrianglesQuads
 		(
 			const pointField& points,
 			label& nTris,
@@ -362,7 +362,7 @@ namespace tnbLib
 		//  Results in triFaces (starting at triI) and quadFaces
 		//  (starting at quadI).
 		//  Returns number of new faces created.
-		label trianglesQuads
+		FoamBase_EXPORT label trianglesQuads
 		(
 			const pointField& points,
 			label& triI,
@@ -375,10 +375,10 @@ namespace tnbLib
 		//   0: different
 		//  +1: identical
 		//  -1: same face, but different orientation
-		static int compare(const face&, const face&);
+		static FoamBase_EXPORT int compare(const face&, const face&);
 
 		//- Return true if the faces have the same vertices
-		static bool sameVertices(const face&, const face&);
+		static FoamBase_EXPORT bool sameVertices(const face&, const face&);
 
 
 		// Member Operators
@@ -426,7 +426,7 @@ namespace tnbLib
 	// Global functions
 
 	//- Find the longest edge on a face. Face point labels index into pts.
-	label longestEdge(const face& f, const pointField& pts);
+	FoamBase_EXPORT label longestEdge(const face& f, const pointField& pts);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

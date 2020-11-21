@@ -58,13 +58,13 @@ namespace tnbLib
 
 		// Protected data
 
-			//- Reference to the mesh
+		//- Reference to the mesh
 		fvMesh& mesh_;
 
 
 		// Protected Member Functions
 
-			//- Store previous iteration for fields
+		//- Store previous iteration for fields
 		template<class Type>
 		void storePrevIterTypeFields() const;
 
@@ -73,44 +73,48 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("singleRegionSolutionControl");
+		//- Run-time type information
+		//TypeName("singleRegionSolutionControl");
+		static const char* typeName_() { return "singleRegionSolutionControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from a mesh and the name of the algorithm
-		singleRegionSolutionControl(fvMesh& mesh, const word& algorithmName);
+		//- Construct from a mesh and the name of the algorithm
+		FoamFiniteVolume_EXPORT singleRegionSolutionControl(fvMesh& mesh, const word& algorithmName);
 
 
 		//- Destructor
-		virtual ~singleRegionSolutionControl();
+		FoamFiniteVolume_EXPORT virtual ~singleRegionSolutionControl();
 
 
 		// Member Functions
 
-			// Access
+		// Access
 
-				//- Return the mesh
+		//- Return the mesh
 		inline const fvMesh& mesh() const;
 
 		//- Return the mesh
 		inline fvMesh& mesh();
 
 		//- Return the solution dictionary
-		virtual const dictionary& dict() const;
+		FoamFiniteVolume_EXPORT virtual const dictionary& dict() const;
 
 		//- Flag to indicate whether in final state
-		virtual bool isFinal() const;
+		FoamFiniteVolume_EXPORT virtual bool isFinal() const;
 
 
 		// Evolution
 
-			//- Update the mesh data for the final state
-		void updateFinal() const;
+		//- Update the mesh data for the final state
+		FoamFiniteVolume_EXPORT void updateFinal() const;
 
 		//- Store previous iteration for fields
-		void storePrevIterFields();
+		FoamFiniteVolume_EXPORT void storePrevIterFields();
 	};
 
 

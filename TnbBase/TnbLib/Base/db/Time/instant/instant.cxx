@@ -40,25 +40,25 @@ bool tnbLib::instant::equal(const scalar b) const
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-bool tnbLib::operator==(const instant& a, const instant& b)
+FoamBase_EXPORT bool tnbLib::operator==(const instant& a, const instant& b)
 {
 	return a.equal(b.value_);
 }
 
 
-bool tnbLib::operator!=(const instant& a, const instant& b)
+FoamBase_EXPORT bool tnbLib::operator!=(const instant& a, const instant& b)
 {
 	return !operator==(a, b);
 }
 
 
-bool tnbLib::operator<(const instant& a, const instant& b)
+FoamBase_EXPORT bool tnbLib::operator<(const instant& a, const instant& b)
 {
 	return a.value_ < b.value_;
 }
 
 
-bool tnbLib::operator>(const instant& a, const instant& b)
+FoamBase_EXPORT bool tnbLib::operator>(const instant& a, const instant& b)
 {
 	return a.value_ > b.value_;
 }
@@ -66,7 +66,7 @@ bool tnbLib::operator>(const instant& a, const instant& b)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Istream& tnbLib::operator>>(Istream& is, instant& I)
+FoamBase_EXPORT tnbLib::Istream& tnbLib::operator>>(Istream& is, instant& I)
 {
 	is >> I.value_ >> I.name_;
 
@@ -74,7 +74,7 @@ tnbLib::Istream& tnbLib::operator>>(Istream& is, instant& I)
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const instant& I)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const instant& I)
 {
 	os << I.value_ << tab << I.name_;
 

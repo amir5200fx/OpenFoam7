@@ -56,7 +56,7 @@ namespace tnbLib
 			//  The tolerance is relative to the object size.
 			//  Used to determine if a half-ray from a point in plane of triangle
 			// intersects the triangle or not.
-		static scalar planarTol_;
+		static FoamBase_EXPORT scalar planarTol_;
 
 	public:
 
@@ -76,10 +76,10 @@ namespace tnbLib
 		// Static Member Functions
 
 			//- Direction names
-		static const NamedEnum<direction, 2> directionNames_;
+		static FoamBase_EXPORT const NamedEnum<direction, 2> directionNames_;
 
 		//- Projection algorithm names
-		static const NamedEnum<algorithm, 3> algorithmNames_;
+		static FoamBase_EXPORT const NamedEnum<algorithm, 3> algorithmNames_;
 
 		//- Return planar tolerance
 		static scalar planarTol()

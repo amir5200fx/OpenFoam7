@@ -56,7 +56,7 @@ namespace tnbLib
 	class cellModel;
 	inline bool operator==(const cellModel&, const cellModel&);
 	inline bool operator!=(const cellModel&, const cellModel&);
-	Ostream& operator<<(Ostream&, const cellModel&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const cellModel&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -88,7 +88,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from Istream
-		cellModel(Istream&);
+		FoamBase_EXPORT cellModel(Istream&);
 
 		//- Return a new cellModel on free-store created from Istream
 		static autoPtr<cellModel> New(Istream& is)
@@ -133,14 +133,14 @@ namespace tnbLib
 
 
 		//- Vector centroid
-		vector centre
+		FoamBase_EXPORT vector centre
 		(
 			const labelList& pointLabels,
 			const pointField& points
 		) const;
 
 		//- Cell volume
-		scalar mag
+		FoamBase_EXPORT scalar mag
 		(
 			const labelList& pointLabels,
 			const pointField& points
@@ -164,20 +164,20 @@ namespace tnbLib
 		// Friend operators
 
 			//- Equality operator: true => ptr to models are equal !
-		friend bool operator==(const cellModel&, const cellModel&);
+		friend inline bool operator==(const cellModel&, const cellModel&);
 
 		//- Inequality operator: true => ptr to models are not equal !
-		friend bool operator!=(const cellModel&, const cellModel&);
+		friend inline bool operator!=(const cellModel&, const cellModel&);
 
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const cellModel&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const cellModel&);
 	};
 
 
 	template<>
-	Ostream& operator<<(Ostream& os, const InfoProxy<cellModel>& ip);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const InfoProxy<cellModel>& ip);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

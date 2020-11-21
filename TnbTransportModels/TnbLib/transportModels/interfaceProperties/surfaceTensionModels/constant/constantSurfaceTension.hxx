@@ -76,13 +76,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("constant");
+			//TypeName("constant");
+			static const char* typeName_() { return "constant"; }
+			static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+			static FoamTransportModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from dictionary and mesh
-			constant
+			FoamTransportModels_EXPORT constant
 			(
 				const dictionary& dict,
 				const fvMesh& mesh
@@ -90,19 +94,19 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~constant();
+			FoamTransportModels_EXPORT virtual ~constant();
 
 
 			// Member Functions
 
 				//- Surface tension coefficient
-			virtual tmp<volScalarField> sigma() const;
+			FoamTransportModels_EXPORT virtual tmp<volScalarField> sigma() const;
 
 			//- Update surface tension coefficient from given dictionary
-			virtual bool readDict(const dictionary& dict);
+			FoamTransportModels_EXPORT virtual bool readDict(const dictionary& dict);
 
 			//- Write in dictionary format
-			virtual bool writeData(Ostream& os) const;
+			FoamTransportModels_EXPORT virtual bool writeData(Ostream& os) const;
 		};
 
 

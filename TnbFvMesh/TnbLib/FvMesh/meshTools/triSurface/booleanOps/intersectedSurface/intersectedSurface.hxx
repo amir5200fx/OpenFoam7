@@ -86,10 +86,10 @@ namespace tnbLib
 	{
 	public:
 
-		static const label UNVISITED;
-		static const label STARTTOEND;
-		static const label ENDTOSTART;
-		static const label BOTH;
+		static FoamFvMesh_EXPORT const label UNVISITED;
+		static FoamFvMesh_EXPORT const label STARTTOEND;
+		static FoamFvMesh_EXPORT const label ENDTOSTART;
+		static FoamFvMesh_EXPORT const label BOTH;
 
 	private:
 
@@ -108,7 +108,7 @@ namespace tnbLib
 		// Static Member Functions
 
 			//- Debug:Dump edges to stream. Maintains vertex numbering
-		static void writeOBJ
+		static FoamFvMesh_EXPORT void writeOBJ
 		(
 			const pointField& points,
 			const edgeList& edges,
@@ -116,7 +116,7 @@ namespace tnbLib
 		);
 
 		//- Debug:Dump selected edges to stream. Maintains vertex numbering
-		static void writeOBJ
+		static FoamFvMesh_EXPORT void writeOBJ
 		(
 			const pointField& points,
 			const edgeList& edges,
@@ -126,7 +126,7 @@ namespace tnbLib
 
 		//- Debug:Dump selected edges to stream. Renumbers vertices to
 		//  local ordering.
-		static void writeLocalOBJ
+		static FoamFvMesh_EXPORT void writeLocalOBJ
 		(
 			const pointField& points,
 			const edgeList& edges,
@@ -135,7 +135,7 @@ namespace tnbLib
 		);
 
 		//- Debug:Write whole pointField and face to stream
-		static void writeOBJ
+		static FoamFvMesh_EXPORT void writeOBJ
 		(
 			const pointField& points,
 			const face& f,
@@ -143,7 +143,7 @@ namespace tnbLib
 		);
 
 		//- Debug:Print visited status
-		static void printVisit
+		static FoamFvMesh_EXPORT void printVisit
 		(
 			const edgeList& edges,
 			const labelList& edgeLabels,
@@ -153,14 +153,14 @@ namespace tnbLib
 
 		//- Check if the two vertices that f0 and f1 share are in the same
 		//  order on both faces.
-		static bool sameEdgeOrder
+		static FoamFvMesh_EXPORT bool sameEdgeOrder
 		(
 			const labelledTri& fA,
 			const labelledTri& fB
 		);
 
 		//- Increment data for key. (start from 0 if not found)
-		static void incCount
+		static FoamFvMesh_EXPORT void incCount
 		(
 			Map<label>& visited,
 			const label key,
@@ -168,7 +168,7 @@ namespace tnbLib
 		);
 
 		//- Calculate point-edge addressing for single face only.
-		static Map<DynamicList<label>> calcPointEdgeAddressing
+		static FoamFvMesh_EXPORT Map<DynamicList<label>> calcPointEdgeAddressing
 		(
 			const edgeSurface&,
 			const label facei
@@ -176,7 +176,7 @@ namespace tnbLib
 
 		//- Choose edge out of candidates (facePointEdges) according to
 		//  angle with previous edge.
-		static label nextEdge
+		static FoamFvMesh_EXPORT label nextEdge
 		(
 			const edgeSurface& eSurf,
 			const Map<label>& visited,
@@ -188,7 +188,7 @@ namespace tnbLib
 		);
 
 		//- Walk path along edges in face. Used by splitFace.
-		static face walkFace
+		static FoamFvMesh_EXPORT face walkFace
 		(
 			const edgeSurface& eSurf,
 			const label facei,
@@ -203,7 +203,7 @@ namespace tnbLib
 
 		//- For resplitFace: find nearest (to pt) fully visited point. Return
 		//  point and distance.
-		static void findNearestVisited
+		static FoamFvMesh_EXPORT void findNearestVisited
 		(
 			const edgeSurface& eSurf,
 			const label facei,
@@ -218,7 +218,7 @@ namespace tnbLib
 
 
 		//- Fallback for if splitFace fails to connect all.
-		static faceList resplitFace
+		static FoamFvMesh_EXPORT faceList resplitFace
 		(
 			const triSurface& surf,
 			const label facei,
@@ -229,7 +229,7 @@ namespace tnbLib
 
 		//- Main face splitting routine. Gets overall points and edges and
 		//  owners and face-local edgeLabels. Returns list of faces.
-		static faceList splitFace
+		static FoamFvMesh_EXPORT faceList splitFace
 		(
 			const triSurface& surf,
 			const label facei,
@@ -242,22 +242,25 @@ namespace tnbLib
 
 	public:
 
-		ClassName("intersectedSurface");
+		/*ClassName("intersectedSurface");*/
+		static const char* typeName_() { return "intersectedSurface"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct null
-		intersectedSurface();
+		FoamFvMesh_EXPORT intersectedSurface();
 
 		//- Construct from surface
-		intersectedSurface(const triSurface& surf);
+		FoamFvMesh_EXPORT intersectedSurface(const triSurface& surf);
 
 		//- Construct from surface and intersection. isFirstSurface is needed
 		//  to determine which side of face pairs stored in the intersection
 		//  to address. Should be in the same order as how the intersection was
 		//  constructed.
-		intersectedSurface
+		FoamFvMesh_EXPORT intersectedSurface
 		(
 			const triSurface& surf,
 			const bool isFirstSurface,

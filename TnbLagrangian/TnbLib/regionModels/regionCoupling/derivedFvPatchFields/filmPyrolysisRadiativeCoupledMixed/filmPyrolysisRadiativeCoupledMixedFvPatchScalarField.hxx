@@ -136,29 +136,33 @@ namespace tnbLib
 		const scalar filmDeltaWet_;
 
 		//- Retrieve film model from the database
-		const filmModelType& filmModel() const;
+		FoamLagrangian_EXPORT const filmModelType& filmModel() const;
 
 		//- Retrieve pyrolysis model from the database
-		const pyrolysisModelType& pyrModel() const;
+		FoamLagrangian_EXPORT const pyrolysisModelType& pyrModel() const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("filmPyrolysisRadiativeCoupledMixed");
+		//TypeName("filmPyrolysisRadiativeCoupledMixed");
+		static const char* typeName_() { return "filmPyrolysisRadiativeCoupledMixed"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		filmPyrolysisRadiativeCoupledMixedFvPatchScalarField
+		FoamLagrangian_EXPORT filmPyrolysisRadiativeCoupledMixedFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		filmPyrolysisRadiativeCoupledMixedFvPatchScalarField
+		FoamLagrangian_EXPORT filmPyrolysisRadiativeCoupledMixedFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -168,7 +172,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  turbulentTemperatureCoupledBaffleMixedFvPatchScalarField onto a
 		//  new patch
-		filmPyrolysisRadiativeCoupledMixedFvPatchScalarField
+		FoamLagrangian_EXPORT filmPyrolysisRadiativeCoupledMixedFvPatchScalarField
 		(
 			const
 			filmPyrolysisRadiativeCoupledMixedFvPatchScalarField&,
@@ -190,7 +194,7 @@ namespace tnbLib
 		}
 
 		//- Construct as copy setting internal field reference
-		filmPyrolysisRadiativeCoupledMixedFvPatchScalarField
+		FoamLagrangian_EXPORT filmPyrolysisRadiativeCoupledMixedFvPatchScalarField
 		(
 			const filmPyrolysisRadiativeCoupledMixedFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -216,13 +220,13 @@ namespace tnbLib
 		// Member Functions
 
 			//- Get corresponding K field
-		tmp<scalarField> K() const;
+		FoamLagrangian_EXPORT tmp<scalarField> K() const;
 
 		//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamLagrangian_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamLagrangian_EXPORT virtual void write(Ostream&) const;
 	};
 
 

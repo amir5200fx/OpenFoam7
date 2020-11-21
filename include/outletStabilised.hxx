@@ -49,6 +49,16 @@ SourceFiles
 #include <mixedFvPatchField.hxx>
 #include <directionMixedFvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamOutletStabilised_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamOutletStabilised_EXPORT_DEFINE
+#define FoamOutletStabilised_EXPORT __declspec(dllexport)
+#else
+#define FoamOutletStabilised_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -72,7 +82,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("outletStabilised");
+		/*TypeName("outletStabilised");*/
+		static const char* typeName_() { return "outletStabilised"; }
+		static FoamOutletStabilised_EXPORT const ::tnbLib::word typeName;
+		static FoamOutletStabilised_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

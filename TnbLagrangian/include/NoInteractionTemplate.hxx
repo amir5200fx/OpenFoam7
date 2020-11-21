@@ -36,6 +36,16 @@ Description
 
 #include <PatchInteractionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamNoInteraction_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNoInteraction_EXPORT_DEFINE
+#define FoamNoInteraction_EXPORT __declspec(dllexport)
+#else
+#define FoamNoInteraction_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -52,7 +62,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamNoInteraction_EXPORT const ::tnbLib::word typeName;
+		static FoamNoInteraction_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -48,7 +48,7 @@ namespace tnbLib
 	class objectRegistry;
 
 	//- Preserve patch types
-	void preservePatchTypes
+	FoamBase_EXPORT void preservePatchTypes
 	(
 		const objectRegistry& obr,
 		const word& meshInstance,

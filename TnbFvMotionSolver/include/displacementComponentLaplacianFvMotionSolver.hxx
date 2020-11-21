@@ -79,33 +79,37 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Return the component corresponding to the given component name
-		direction cmpt(const word& cmptName) const;
+		FoamFvMotionSolver_EXPORT direction cmpt(const word& cmptName) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("displacementComponentLaplacian");
+		//TypeName("displacementComponentLaplacian");
+		static const char* typeName_() { return "displacementComponentLaplacian"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from polyMesh and dictionary
-		displacementComponentLaplacianFvMotionSolver
+		FoamFvMotionSolver_EXPORT displacementComponentLaplacianFvMotionSolver
 		(
 			const polyMesh&,
 			const dictionary&
 		);
 
 		//- Disallow default bitwise copy construction
-		displacementComponentLaplacianFvMotionSolver
+		FoamFvMotionSolver_EXPORT displacementComponentLaplacianFvMotionSolver
 		(
 			const displacementComponentLaplacianFvMotionSolver&
 		) = delete;
 
 
 		//- Destructor
-		~displacementComponentLaplacianFvMotionSolver();
+		FoamFvMotionSolver_EXPORT ~displacementComponentLaplacianFvMotionSolver();
 
 
 		// Member Functions
@@ -118,19 +122,19 @@ namespace tnbLib
 		}
 
 		//- Return point location obtained from the current motion field
-		virtual tmp<pointField> curPoints() const;
+		FoamFvMotionSolver_EXPORT virtual tmp<pointField> curPoints() const;
 
 		//- Solve for motion
-		virtual void solve();
+		FoamFvMotionSolver_EXPORT virtual void solve();
 
 		//- Update topology
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamFvMotionSolver_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=
+		FoamFvMotionSolver_EXPORT void operator=
 			(
 				const displacementComponentLaplacianFvMotionSolver&
 				) = delete;

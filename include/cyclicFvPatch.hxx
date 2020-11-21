@@ -65,13 +65,17 @@ namespace tnbLib
 		// Protected Member functions
 
 			//- Make patch weighting factors
-		void makeWeights(scalarField&) const;
+		FoamFiniteVolume_EXPORT void makeWeights(scalarField&) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName(cyclicPolyPatch::typeName_());
+		/*TypeName(cyclicPolyPatch::typeName_());*/
+		static const char* typeName_() { return cyclicPolyPatch::typeName_(); }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -142,20 +146,20 @@ namespace tnbLib
 
 
 		//- Return delta (P to N) vectors across coupled patch
-		virtual tmp<vectorField> delta() const;
+		FoamFiniteVolume_EXPORT virtual tmp<vectorField> delta() const;
 
 
 		// Interface transfer functions
 
 			//- Return the values of the given internal data adjacent to
 			//  the interface as a field
-		virtual tmp<labelField> interfaceInternalField
+		FoamFiniteVolume_EXPORT virtual tmp<labelField> interfaceInternalField
 		(
 			const labelUList& internalData
 		) const;
 
 		//- Return neighbour field
-		virtual tmp<labelField> internalFieldTransfer
+		FoamFiniteVolume_EXPORT virtual tmp<labelField> internalFieldTransfer
 		(
 			const Pstream::commsTypes commsType,
 			const labelUList& internalData

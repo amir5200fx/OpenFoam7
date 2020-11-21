@@ -65,21 +65,25 @@ namespace tnbLib
 		const processorCyclicPolyPatch& procCycPolyPatch_;
 
 		//- Disallow default bitwise copy construction
-		processorCyclicPointPatch(const processorCyclicPointPatch&);
+		FoamBase_EXPORT processorCyclicPointPatch(const processorCyclicPointPatch&);
 
 		//- Disallow default bitwise assignment
-		void operator=(const processorCyclicPointPatch&);
+		FoamBase_EXPORT void operator=(const processorCyclicPointPatch&);
 
 	public:
 
 		//- Runtime type information
-		TypeName(processorCyclicPolyPatch::typeName_());
+		//TypeName(processorCyclicPolyPatch::typeName_());
+		static const char* typeName_() { return processorCyclicPolyPatch::typeName_(); }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		processorCyclicPointPatch
+		FoamBase_EXPORT processorCyclicPointPatch
 		(
 			const polyPatch& patch,
 			const pointBoundaryMesh& bm
@@ -88,7 +92,7 @@ namespace tnbLib
 
 		// Destructor
 
-		virtual ~processorCyclicPointPatch();
+		FoamBase_EXPORT virtual ~processorCyclicPointPatch();
 
 
 		// Member Functions

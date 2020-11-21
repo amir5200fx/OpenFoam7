@@ -36,7 +36,7 @@ void tnbLib::dynamicCode::checkSecurity
 	const dictionary& dict
 )
 {
-	if (isAdministrator())
+	/*if (isAdministrator())
 	{
 		FatalIOErrorInFunction(dict)
 			<< "This code should not be executed by someone with administrator"
@@ -44,7 +44,7 @@ void tnbLib::dynamicCode::checkSecurity
 			<< "(it writes a shared library which then gets loaded "
 			<< "using dlopen)"
 			<< exit(FatalIOError);
-	}
+	}*/
 
 	if (!allowSystemOperations)
 	{

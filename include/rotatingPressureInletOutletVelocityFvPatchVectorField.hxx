@@ -97,26 +97,30 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate the tangentialVelocity from omega
-		void calcTangentialVelocity();
+		FoamFiniteVolume_EXPORT void calcTangentialVelocity();
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("rotatingPressureInletOutletVelocity");
+		/*TypeName("rotatingPressureInletOutletVelocity");*/
+		static const char* typeName_() { return "rotatingPressureInletOutletVelocity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		rotatingPressureInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT rotatingPressureInletOutletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		rotatingPressureInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT rotatingPressureInletOutletVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -126,7 +130,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  rotatingPressureInletOutletVelocityFvPatchVectorField
 		//  onto a new patch
-		rotatingPressureInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT rotatingPressureInletOutletVelocityFvPatchVectorField
 		(
 			const rotatingPressureInletOutletVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -135,7 +139,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		rotatingPressureInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT rotatingPressureInletOutletVelocityFvPatchVectorField
 		(
 			const rotatingPressureInletOutletVelocityFvPatchVectorField&
 		);
@@ -150,7 +154,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		rotatingPressureInletOutletVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT rotatingPressureInletOutletVelocityFvPatchVectorField
 		(
 			const rotatingPressureInletOutletVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -176,7 +180,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

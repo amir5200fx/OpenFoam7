@@ -65,7 +65,7 @@ namespace tnbLib
 		typedef void(*loaderFunctionType)(bool);
 
 		//- Load specified library and execute globalFuncName(true)
-		void* loadLibrary
+		FoamBase_EXPORT void* loadLibrary
 		(
 			const fileName& libPath,
 			const string& globalFuncName,
@@ -73,7 +73,7 @@ namespace tnbLib
 		) const;
 
 		//- Execute globalFuncName(false) and unload specified library
-		void unloadLibrary
+		FoamBase_EXPORT void unloadLibrary
 		(
 			const fileName& libPath,
 			const string& globalFuncName,
@@ -81,56 +81,59 @@ namespace tnbLib
 		) const;
 
 		//- Create library based on the dynamicCodeContext
-		void createLibrary(dynamicCode&, const dynamicCodeContext&) const;
+		FoamBase_EXPORT void createLibrary(dynamicCode&, const dynamicCodeContext&) const;
 
 
 	protected:
 
 		//- Update library as required
-		void updateLibrary(const word& name) const;
+		FoamBase_EXPORT void updateLibrary(const word& name) const;
 
 		//- Get the loaded dynamic libraries
-		virtual dlLibraryTable& libs() const = 0;
+		FoamBase_EXPORT virtual dlLibraryTable& libs() const = 0;
 
 		//- Adapt the context for the current object
-		virtual void prepare(dynamicCode&, const dynamicCodeContext&) const = 0;
+		FoamBase_EXPORT virtual void prepare(dynamicCode&, const dynamicCodeContext&) const = 0;
 
 		//- Return a description (type + name) for the output
-		virtual string description() const = 0;
+		FoamBase_EXPORT virtual string description() const = 0;
 
 		//- Clear any redirected objects
-		virtual void clearRedirect() const = 0;
+		FoamBase_EXPORT virtual void clearRedirect() const = 0;
 
 		//- Get the dictionary to initialize the codeContext
-		virtual const dictionary& codeDict() const = 0;
+		FoamBase_EXPORT virtual const dictionary& codeDict() const = 0;
 
 		//- Get the keywords associated with source code
-		virtual const wordList& codeKeys() const = 0;
+		FoamBase_EXPORT virtual const wordList& codeKeys() const = 0;
 
 
 	public:
 
 		//- Runtime type information
-		ClassName("codedBase");
+		//ClassName("codedBase");
+		static const char* typeName_() { return "codedBase"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct null
-		codedBase();
+		FoamBase_EXPORT codedBase();
 
 		//- Disallow default bitwise copy construction
-		codedBase(const codedBase&) = delete;
+		FoamBase_EXPORT codedBase(const codedBase&) = delete;
 
 
 		//- Destructor
-		virtual ~codedBase();
+		FoamBase_EXPORT virtual ~codedBase();
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const codedBase&) = delete;
+		FoamBase_EXPORT void operator=(const codedBase&) = delete;
 	};
 
 

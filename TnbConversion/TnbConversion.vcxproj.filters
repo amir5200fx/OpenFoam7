@@ -61,6 +61,9 @@
     <Filter Include="TnbLib\surfaceWriter\none">
       <UniqueIdentifier>{953c1f59-80c9-4ca0-847b-92fb9c90b7a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\conversion\module">
+      <UniqueIdentifier>{31ca074e-944c-4bd7-939e-de49f86f3f4d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\conversion\ensight\file\ensightFile.cxx">
@@ -130,9 +133,6 @@
       <Filter>TnbLib\surfaceWriter\foam</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\surfaceWriter\nastran\nastranSurfaceWriter.cxx">
-      <Filter>TnbLib\surfaceWriter\nastran</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\surfaceWriter\nastran\nastranSurfaceWriterTemplates.cxx">
       <Filter>TnbLib\surfaceWriter\nastran</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\surfaceWriter\none\noSurfaceWriter.cxx">
@@ -229,6 +229,12 @@
     </ClInclude>
     <ClInclude Include="TnbLib\surfaceWriter\vtk\vtkSurfaceWriter.hxx">
       <Filter>TnbLib\surfaceWriter\vtk</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\conversion\module\Conversion_Module.hxx">
+      <Filter>TnbLib\conversion\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceWriter\nastran\nastranSurfaceWriterI.hxx">
+      <Filter>TnbLib\surfaceWriter\nastran</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

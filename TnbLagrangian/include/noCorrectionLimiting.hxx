@@ -55,16 +55,20 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("none");
+			//TypeName("none");
+			static const char* typeName_() { return "none"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			noCorrectionLimiting(const dictionary& dict);
+			FoamLagrangian_EXPORT noCorrectionLimiting(const dictionary& dict);
 
 			//- Copy constructor
-			noCorrectionLimiting(const noCorrectionLimiting& cl);
+			FoamLagrangian_EXPORT noCorrectionLimiting(const noCorrectionLimiting& cl);
 
 			//- Construct and return a clone
 			virtual autoPtr<CorrectionLimitingMethod> clone() const
@@ -77,13 +81,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~noCorrectionLimiting();
+			FoamLagrangian_EXPORT virtual ~noCorrectionLimiting();
 
 
 			// Member Functions
 
 				//- Return the limited velocity
-			virtual vector limitedVelocity
+			FoamLagrangian_EXPORT virtual vector limitedVelocity
 			(
 				const vector uP,
 				const vector dU,

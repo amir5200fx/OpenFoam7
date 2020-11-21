@@ -87,7 +87,7 @@ namespace tnbLib
 			FROZEN = 2
 		};
 
-		static const NamedEnum<distributionType, 3> distributionTypeNames_;
+		static FoamParallel_EXPORT const NamedEnum<distributionType, 3> distributionTypeNames_;
 
 
 	private:
@@ -118,12 +118,12 @@ namespace tnbLib
 			// Read
 
 				//- Read my additional data
-		bool read();
+		FoamParallel_EXPORT bool read();
 
 
 		// Line intersection
 
-		static bool isLocal
+		static FoamParallel_EXPORT bool isLocal
 		(
 			const List<treeBoundBox>& myBbs,
 			const point& start,
@@ -146,7 +146,7 @@ namespace tnbLib
 
 		//- Distribute segments into overlapping processor
 		//  bounding boxes. Sort per processor.
-		void distributeSegment
+		FoamParallel_EXPORT void distributeSegment
 		(
 			const label,
 			const point& start,
@@ -159,7 +159,7 @@ namespace tnbLib
 
 		//- Divide edges into local and remote segments. Construct map to
 		//  distribute and collect data.
-		autoPtr<mapDistribute> distributeSegments
+		FoamParallel_EXPORT autoPtr<mapDistribute> distributeSegments
 		(
 			const pointField& start,
 			const pointField& end,
@@ -169,7 +169,7 @@ namespace tnbLib
 		) const;
 
 		//- Split edges, distribute, test and collect.
-		void findLine
+		FoamParallel_EXPORT void findLine
 		(
 			const bool nearestIntersection,
 			const pointField& start,
@@ -183,7 +183,7 @@ namespace tnbLib
 			//- Obtains global indices from pointIndexHit and swaps them back
 			//  to their original processor. Used to calculate local region
 			//  and normal.
-		autoPtr<mapDistribute> calcLocalQueries
+		FoamParallel_EXPORT autoPtr<mapDistribute> calcLocalQueries
 		(
 			const List<pointIndexHit>&,
 			labelList& triangleIndex
@@ -192,14 +192,14 @@ namespace tnbLib
 
 		// Nearest
 
-		label calcOverlappingProcs
+		FoamParallel_EXPORT label calcOverlappingProcs
 		(
 			const point& centre,
 			const scalar radiusSqr,
 			boolList& overlaps
 		) const;
 
-		autoPtr<mapDistribute> calcLocalQueries
+		FoamParallel_EXPORT autoPtr<mapDistribute> calcLocalQueries
 		(
 			const pointField& centres,
 			const scalarField& radiusSqr,
@@ -213,13 +213,13 @@ namespace tnbLib
 		// Surface redistribution
 
 			//- Finds new bounds based on an independent decomposition.
-		List<List<treeBoundBox>> independentlyDistributedBbs
+		FoamParallel_EXPORT List<List<treeBoundBox>> independentlyDistributedBbs
 		(
 			const triSurface&
 		);
 
 		//- Does any part of triangle overlap bb.
-		static bool overlaps
+		static FoamParallel_EXPORT bool overlaps
 		(
 			const List<treeBoundBox>& bb,
 			const point& p0,
@@ -228,7 +228,7 @@ namespace tnbLib
 		);
 
 		//- Find points used in subset
-		static void subsetMeshMap
+		static FoamParallel_EXPORT void subsetMeshMap
 		(
 			const triSurface& s,
 			const boolList& include,
@@ -239,7 +239,7 @@ namespace tnbLib
 		);
 
 		//- Construct subsetted surface
-		static triSurface subsetMesh
+		static FoamParallel_EXPORT triSurface subsetMesh
 		(
 			const triSurface& s,
 			const labelList& newToOldPoints,
@@ -248,7 +248,7 @@ namespace tnbLib
 		);
 
 		//- Subset given marked faces
-		static triSurface subsetMesh
+		static FoamParallel_EXPORT triSurface subsetMesh
 		(
 			const triSurface& s,
 			const boolList& include,
@@ -257,7 +257,7 @@ namespace tnbLib
 		);
 
 		//- Subset given marked faces
-		static triSurface subsetMesh
+		static FoamParallel_EXPORT triSurface subsetMesh
 		(
 			const triSurface& s,
 			const labelList& newToOldFaces,
@@ -265,7 +265,7 @@ namespace tnbLib
 		);
 
 		//- Find triangle otherF in allFaces.
-		static label findTriangle
+		static FoamParallel_EXPORT label findTriangle
 		(
 			const List<labelledTri>& allFaces,
 			const labelListList& allPointFaces,
@@ -273,7 +273,7 @@ namespace tnbLib
 		);
 
 		//- Merge triSurface (subTris, subPoints) into allTris, allPoints.
-		static void merge
+		static FoamParallel_EXPORT void merge
 		(
 			const scalar mergeDist,
 			const List<labelledTri>& subTris,
@@ -294,13 +294,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("distributedTriSurfaceMesh");
+		//TypeName("distributedTriSurfaceMesh");
+		static const char* typeName_() { return "distributedTriSurfaceMesh"; }
+		static FoamParallel_EXPORT const ::tnbLib::word typeName;
+		static FoamParallel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from triSurface
-		distributedTriSurfaceMesh
+		FoamParallel_EXPORT distributedTriSurfaceMesh
 		(
 			const IOobject&,
 			const triSurface&,
@@ -308,31 +312,31 @@ namespace tnbLib
 		);
 
 		//- Construct read. Does findInstance to find io.local().
-		distributedTriSurfaceMesh(const IOobject& io);
+		FoamParallel_EXPORT distributedTriSurfaceMesh(const IOobject& io);
 
 		//- Construct from dictionary (used by searchableSurface).
 		//  Does read. Does findInstance to find io.local().
-		distributedTriSurfaceMesh
+		FoamParallel_EXPORT distributedTriSurfaceMesh
 		(
 			const IOobject& io,
 			const dictionary& dict
 		);
 
 		//- Disallow default bitwise copy construction
-		distributedTriSurfaceMesh(const distributedTriSurfaceMesh&) = delete;
+		FoamParallel_EXPORT distributedTriSurfaceMesh(const distributedTriSurfaceMesh&) = delete;
 
 
 		//- Destructor
-		virtual ~distributedTriSurfaceMesh();
+		FoamParallel_EXPORT virtual ~distributedTriSurfaceMesh();
 
 		//- Clear storage
-		void clearOut();
+		FoamParallel_EXPORT void clearOut();
 
 
 		// Member Functions
 
 			//- Triangle indexing (demand driven)
-		const globalIndex& globalTris() const;
+		FoamParallel_EXPORT const globalIndex& globalTris() const;
 
 
 		// searchableSurface implementation
@@ -350,21 +354,21 @@ namespace tnbLib
 			return globalTris().size();
 		}
 
-		virtual void findNearest
+		FoamParallel_EXPORT virtual void findNearest
 		(
 			const pointField& sample,
 			const scalarField& nearestDistSqr,
 			List<pointIndexHit>&
 		) const;
 
-		virtual void findLine
+		FoamParallel_EXPORT virtual void findLine
 		(
 			const pointField& start,
 			const pointField& end,
 			List<pointIndexHit>&
 		) const;
 
-		virtual void findLineAny
+		FoamParallel_EXPORT virtual void findLineAny
 		(
 			const pointField& start,
 			const pointField& end,
@@ -372,7 +376,7 @@ namespace tnbLib
 		) const;
 
 		//- Get all intersections in order from start to end.
-		virtual void findLineAll
+		FoamParallel_EXPORT virtual void findLineAll
 		(
 			const pointField& start,
 			const pointField& end,
@@ -380,14 +384,14 @@ namespace tnbLib
 		) const;
 
 		//- From a set of points and indices get the region
-		virtual void getRegion
+		FoamParallel_EXPORT virtual void getRegion
 		(
 			const List<pointIndexHit>&,
 			labelList& region
 		) const;
 
 		//- From a set of points and indices get the normal
-		virtual void getNormal
+		FoamParallel_EXPORT virtual void getNormal
 		(
 			const List<pointIndexHit>&,
 			vectorField& normal
@@ -395,7 +399,7 @@ namespace tnbLib
 
 		//- Determine type (inside/outside/mixed) for point. unknown if
 		//  cannot be determined (e.g. non-manifold surface)
-		virtual void getVolumeType
+		FoamParallel_EXPORT virtual void getVolumeType
 		(
 			const pointField&,
 			List<volumeType>&
@@ -412,7 +416,7 @@ namespace tnbLib
 		//  and one that does actual distribution but determining
 		//  decomposition with duplicate triangle merging requires
 		//  same amount as work as actual distribution.
-		virtual void distribute
+		FoamParallel_EXPORT virtual void distribute
 		(
 			const List<treeBoundBox>&,
 			const bool keepNonLocal,
@@ -425,10 +429,10 @@ namespace tnbLib
 
 			//- WIP. From a set of hits (points and
 			//  indices) get the specified field. Misses do not get set.
-		virtual void getField(const List<pointIndexHit>&, labelList&) const;
+		FoamParallel_EXPORT virtual void getField(const List<pointIndexHit>&, labelList&) const;
 
 		//- Subset the part of surface that is overlapping bounds.
-		static triSurface overlappingSurface
+		static FoamParallel_EXPORT triSurface overlappingSurface
 		(
 			const triSurface&,
 			const List<treeBoundBox>&,
@@ -438,7 +442,7 @@ namespace tnbLib
 
 		//- Print some stats. Parallel aware version of
 		//  triSurface::writeStats.
-		void writeStats(Ostream& os) const;
+		FoamParallel_EXPORT void writeStats(Ostream& os) const;
 
 
 		// regIOobject implementation
@@ -448,7 +452,7 @@ namespace tnbLib
 			//  would filter out empty regions. These need to be preserved
 			//  in case we want to make decisions based on the number of
 			//  regions.
-		virtual bool writeObject
+		FoamParallel_EXPORT virtual bool writeObject
 		(
 			IOstream::streamFormat fmt,
 			IOstream::versionNumber ver,
@@ -473,7 +477,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const distributedTriSurfaceMesh&) = delete;
+		FoamParallel_EXPORT void operator=(const distributedTriSurfaceMesh&) = delete;
 	};
 
 

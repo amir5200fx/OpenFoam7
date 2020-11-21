@@ -76,19 +76,23 @@ namespace tnbLib
 		// Protected member functions
 
 			//- Transform principal
-		symmTensor transformPrincipal(const tensor&, const vector&) const;
+		FoamFvMesh_EXPORT symmTensor transformPrincipal(const tensor&, const vector&) const;
 
 
 	public:
 
 
 		//- Runtime type information
-		TypeName("coordinateRotation");
+		//TypeName("coordinateRotation");
+		static const char* typeName_() { return "coordinateRotation"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 		// for constructors with dictionary and objectRegistry
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			coordinateRotation,
@@ -97,12 +101,63 @@ namespace tnbLib
 				const dictionary& dict, const objectRegistry& obr
 				),
 				(dict, obr)
-		);
+		);*/
+
+		typedef autoPtr<coordinateRotation> (*objectRegistryConstructorPtr
+		)(const dictionary& dict, const objectRegistry& obr);
+		typedef HashTable<objectRegistryConstructorPtr, word, string::hash> objectRegistryConstructorTable;
+		static FoamFvMesh_EXPORT objectRegistryConstructorTable* objectRegistryConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructobjectRegistryConstructorTables();
+		static FoamFvMesh_EXPORT void destroyobjectRegistryConstructorTables();
+
+		template <class coordinateRotationType>
+		class addobjectRegistryConstructorToTable
+		{
+		public:
+			static autoPtr<coordinateRotation> New(const dictionary& dict, const objectRegistry& obr)
+			{
+				return autoPtr<coordinateRotation>(new coordinateRotationType(dict, obr));
+			}
+
+			addobjectRegistryConstructorToTable(const word& lookup = coordinateRotationType::typeName)
+			{
+				constructobjectRegistryConstructorTables();
+				if (!objectRegistryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "coordinateRotation" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addobjectRegistryConstructorToTable() { destroyobjectRegistryConstructorTables(); }
+		};
+
+		template <class coordinateRotationType>
+		class addRemovableobjectRegistryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<coordinateRotation> New(const dictionary& dict, const objectRegistry& obr)
+			{
+				return autoPtr<coordinateRotation>(new coordinateRotationType(dict, obr));
+			}
+
+			addRemovableobjectRegistryConstructorToTable(const word& lookup = coordinateRotationType::typeName) : lookup_(lookup)
+			{
+				constructobjectRegistryConstructorTables();
+				objectRegistryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovableobjectRegistryConstructorToTable()
+			{
+				if (objectRegistryConstructorTablePtr_) { objectRegistryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Declare run-time constructor selection table
 		// for constructors with dictionary
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			coordinateRotation,
@@ -111,19 +166,69 @@ namespace tnbLib
 				const dictionary& dict
 				),
 				(dict)
-		);
+		);*/
+
+		typedef autoPtr<coordinateRotation> (*dictionaryConstructorPtr)(const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamFvMesh_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructdictionaryConstructorTables();
+		static FoamFvMesh_EXPORT void destroydictionaryConstructorTables();
+
+		template <class coordinateRotationType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<coordinateRotation> New(const dictionary& dict)
+			{
+				return autoPtr<coordinateRotation>(new coordinateRotationType(dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = coordinateRotationType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "coordinateRotation" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class coordinateRotationType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<coordinateRotation> New(const dictionary& dict)
+			{
+				return autoPtr<coordinateRotation>(new coordinateRotationType(dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = coordinateRotationType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Selectors
 
 			//- Select constructed from dictionary and objectRegistry
-		static autoPtr<coordinateRotation> New
+		static FoamFvMesh_EXPORT autoPtr<coordinateRotation> New
 		(
 			const dictionary& dict, const objectRegistry& obr
 		);
 
 		//- Select constructed from dictionary
-		static autoPtr<coordinateRotation> New
+		static FoamFvMesh_EXPORT autoPtr<coordinateRotation> New
 		(
 			const dictionary& dict
 		);
@@ -137,32 +242,32 @@ namespace tnbLib
 		// Member Functions
 
 			//- Reset rotation to an identity rotation
-		virtual void clear() = 0;
+		FoamFvMesh_EXPORT virtual void clear() = 0;
 
 		//- Update the rotation for a list of cells
-		virtual void updateCells
+		FoamFvMesh_EXPORT virtual void updateCells
 		(
 			const polyMesh& mesh,
 			const labelList& cells
 		) = 0;
 
 		//- Return local-to-global transformation tensor
-		virtual const tensor& R() const = 0;
+		FoamFvMesh_EXPORT virtual const tensor& R() const = 0;
 
 		//- Return global-to-local transformation tensor
-		virtual const tensor& Rtr() const = 0;
+		FoamFvMesh_EXPORT virtual const tensor& Rtr() const = 0;
 
 		//- Return local Cartesian x-axis
-		virtual const vector e1() const = 0;
+		FoamFvMesh_EXPORT virtual const vector e1() const = 0;
 
 		//- Return local Cartesian y-axis
-		virtual const vector e2() const = 0;
+		FoamFvMesh_EXPORT virtual const vector e2() const = 0;
 
 		//- Return local Cartesian z-axis
-		virtual const vector e3() const = 0;
+		FoamFvMesh_EXPORT virtual const vector e3() const = 0;
 
 		//- Return local-to-global transformation tensor
-		virtual const tensorField& Tr() const = 0;
+		FoamFvMesh_EXPORT virtual const tensorField& Tr() const = 0;
 
 		//- Return true if the rotation tensor is uniform
 		virtual bool uniform() const
@@ -171,49 +276,49 @@ namespace tnbLib
 		}
 
 		//- Transform vectorField using transformation tensor field
-		virtual tmp<vectorField> transform(const vectorField& st) const = 0;
+		FoamFvMesh_EXPORT virtual tmp<vectorField> transform(const vectorField& st) const = 0;
 
 		//- Transform vector using transformation tensor
-		virtual vector transform(const vector& st) const = 0;
+		FoamFvMesh_EXPORT virtual vector transform(const vector& st) const = 0;
 
 		//- Inverse transform vectorField using transformation tensor field
-		virtual tmp<vectorField> invTransform(const vectorField& st) const = 0;
+		FoamFvMesh_EXPORT virtual tmp<vectorField> invTransform(const vectorField& st) const = 0;
 
 		//- Inverse transform vector using transformation tensor
-		virtual vector invTransform(const vector& st) const = 0;
+		FoamFvMesh_EXPORT virtual vector invTransform(const vector& st) const = 0;
 
 		//- Transform tensor field using transformation tensorField
-		virtual tmp<tensorField> transformTensor
+		FoamFvMesh_EXPORT virtual tmp<tensorField> transformTensor
 		(
 			const tensorField& st
 		) const = 0;
 
 		//- Transform tensor sub-field using transformation tensorField
-		virtual tmp<tensorField> transformTensor
+		FoamFvMesh_EXPORT virtual tmp<tensorField> transformTensor
 		(
 			const tensorField& st,
 			const labelList& cellMap
 		) const = 0;
 
 		//- Transform tensor using transformation tensorField
-		virtual tensor transformTensor(const tensor& st) const = 0;
+		FoamFvMesh_EXPORT virtual tensor transformTensor(const tensor& st) const = 0;
 
 		//- Transform vectorField using transformation tensorField and return
 		// symmetrical tensorField
-		virtual tmp<symmTensorField> transformVector
+		FoamFvMesh_EXPORT virtual tmp<symmTensorField> transformVector
 		(
 			const vectorField& st
 		) const = 0;
 
 		//- Transform vector using transformation tensor and return
 		// symmetrical tensor
-		virtual symmTensor transformVector(const vector& st) const = 0;
+		FoamFvMesh_EXPORT virtual symmTensor transformVector(const vector& st) const = 0;
 
 
 		// Write
 
 				//- Write
-		virtual void write(Ostream&) const = 0;
+		FoamFvMesh_EXPORT virtual void write(Ostream&) const = 0;
 
 	};
 

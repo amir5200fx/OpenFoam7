@@ -52,7 +52,7 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 
-	Ostream& operator<<(Ostream&, const polyBoundaryMesh&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const polyBoundaryMesh&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -80,13 +80,13 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate the geometry for the patches (transformation tensors etc.)
-		void calcGeometry();
+		FoamBase_EXPORT void calcGeometry();
 
 		//- Disallow default bitwise copy construction
-		polyBoundaryMesh(const polyBoundaryMesh&);
+		FoamBase_EXPORT polyBoundaryMesh(const polyBoundaryMesh&);
 
 		//- Disallow default bitwise assignment
-		void operator=(const polyBoundaryMesh&);
+		FoamBase_EXPORT void operator=(const polyBoundaryMesh&);
 
 
 	public:
@@ -96,21 +96,25 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName("polyBoundaryMesh");
+		//TypeName("polyBoundaryMesh");
+		static const char* typeName_() { return "polyBoundaryMesh"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Read constructor given IOobject and a polyMesh reference
 			//  Note point pointers are unset, only used in copying meshes
-		polyBoundaryMesh
+		FoamBase_EXPORT polyBoundaryMesh
 		(
 			const IOobject&,
 			const polyMesh&
 		);
 
 		//- Construct given size
-		polyBoundaryMesh
+		FoamBase_EXPORT polyBoundaryMesh
 		(
 			const IOobject&,
 			const polyMesh&,
@@ -118,7 +122,7 @@ namespace tnbLib
 		);
 
 		//- Construct given polyPatchList
-		polyBoundaryMesh
+		FoamBase_EXPORT polyBoundaryMesh
 		(
 			const IOobject&,
 			const polyMesh&,
@@ -127,13 +131,13 @@ namespace tnbLib
 
 
 		//- Destructor
-		~polyBoundaryMesh();
+		FoamBase_EXPORT ~polyBoundaryMesh();
 
 		//- Clear geometry at this level and at patches
-		void clearGeom();
+		FoamBase_EXPORT void clearGeom();
 
 		//- Clear addressing at this level and at patches
-		void clearAddressing();
+		FoamBase_EXPORT void clearAddressing();
 
 
 		// Member Functions
@@ -150,50 +154,50 @@ namespace tnbLib
 		//  it as much as possible consistent with coupled patch addressing
 		//  (where coupling is by local patch face index).
 		//  Only valid for singly connected polyBoundaryMesh and not parallel
-		const List<labelPairList>& neighbourEdges() const;
+		FoamBase_EXPORT const List<labelPairList>& neighbourEdges() const;
 
 		//- Return a list of patch names
-		wordList names() const;
+		FoamBase_EXPORT wordList names() const;
 
 		//- Return a list of patch types
-		wordList types() const;
+		FoamBase_EXPORT wordList types() const;
 
 		//- Return a list of physical types
-		wordList physicalTypes() const;
+		FoamBase_EXPORT wordList physicalTypes() const;
 
 		//- Return patch indices for all matches. Optionally matches patchGroups
-		labelList findIndices
+		FoamBase_EXPORT labelList findIndices
 		(
 			const keyType&,
 			const bool usePatchGroups = true
 		) const;
 
 		//- Return patch index for the first match, return -1 if not found
-		label findIndex(const keyType&) const;
+		FoamBase_EXPORT label findIndex(const keyType&) const;
 
 		//- Find patch index given a name
-		label findPatchID(const word& patchName) const;
+		FoamBase_EXPORT label findPatchID(const word& patchName) const;
 
 		//- Find patch indices for a given polyPatch type
 		template<class Type>
 		labelHashSet findPatchIDs() const;
 
 		//- Return patch index for a given face label
-		label whichPatch(const label faceIndex) const;
+		FoamBase_EXPORT label whichPatch(const label faceIndex) const;
 
 		//- Per boundary face label the patch index
-		const labelList& patchID() const;
+		FoamBase_EXPORT const labelList& patchID() const;
 
 		//- Per patch group the patch indices
-		const HashTable<labelList, word>& groupPatchIDs() const;
+		FoamBase_EXPORT const HashTable<labelList, word>& groupPatchIDs() const;
 
 		//- Set/add group with patches
-		void setGroup(const word& groupName, const labelList& patchIDs);
+		FoamBase_EXPORT void setGroup(const word& groupName, const labelList& patchIDs);
 
 		//- Return the set of patch IDs corresponding to the given names
 		//  By default warns if given names are not found. Optionally
 		//  matches to patchGroups as well as patchNames
-		labelHashSet patchSet
+		FoamBase_EXPORT labelHashSet patchSet
 		(
 			const UList<wordRe>& patchNames,
 			const bool warnNotFound = true,
@@ -202,7 +206,7 @@ namespace tnbLib
 
 		//- Match the patches to groups. Returns all the (fully matched) groups
 		//  and any remaining unmatched patches.
-		void matchGroups
+		FoamBase_EXPORT void matchGroups
 		(
 			const labelUList& patchIDs,
 			wordList& groups,
@@ -211,29 +215,29 @@ namespace tnbLib
 
 		//- Check whether all procs have all patches and in same order. Return
 		//  true if in error.
-		bool checkParallelSync(const bool report = false) const;
+		FoamBase_EXPORT bool checkParallelSync(const bool report = false) const;
 
 		//- Check boundary definition. Return true if in error.
-		bool checkDefinition(const bool report = false) const;
+		FoamBase_EXPORT bool checkDefinition(const bool report = false) const;
 
 		//- Correct polyBoundaryMesh after moving points
-		void movePoints(const pointField&);
+		FoamBase_EXPORT void movePoints(const pointField&);
 
 		//- Correct polyBoundaryMesh after topology update
-		void updateMesh();
+		FoamBase_EXPORT void updateMesh();
 
 		//- Reorders patches. Ordering does not have to be done in
 		//  ascending or descending order. Reordering has to be unique.
 		//  (is shuffle) If validBoundary calls updateMesh()
 		//  after reordering to recalculate data (so call needs to be parallel
 		//  sync in that case)
-		void shuffle(const labelUList& newToOld, const bool validBoundary);
+		FoamBase_EXPORT void shuffle(const labelUList& newToOld, const bool validBoundary);
 
 		//- writeData member function required by regIOobject
-		bool writeData(Ostream&) const;
+		FoamBase_EXPORT bool writeData(Ostream&) const;
 
 		//- Write using given format, version and form uncompression
-		bool writeObject
+		FoamBase_EXPORT bool writeObject
 		(
 			IOstream::streamFormat fmt,
 			IOstream::versionNumber ver,
@@ -248,15 +252,15 @@ namespace tnbLib
 		using polyPatchList::operator[];
 
 		//- Return const reference to polyPatch by name.
-		const polyPatch& operator[](const word&) const;
+		FoamBase_EXPORT const polyPatch& operator[](const word&) const;
 
 		//- Return reference to polyPatch by name.
-		polyPatch& operator[](const word&);
+		FoamBase_EXPORT polyPatch& operator[](const word&);
 
 
 		// Ostream operator
 
-		friend Ostream& operator<<(Ostream&, const polyBoundaryMesh&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const polyBoundaryMesh&);
 	};
 
 

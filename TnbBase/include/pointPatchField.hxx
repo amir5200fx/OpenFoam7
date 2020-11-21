@@ -110,15 +110,19 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName("pointPatchField");
+		//TypeName("pointPatchField");
+		static const char* typeName_() { return "pointPatchField"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Debug switch to disallow the use of genericPointPatchField
-		static int disallowGenericPointPatchField;
+		static FoamBase_EXPORT int disallowGenericPointPatchField;
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			pointPatchField,
@@ -128,9 +132,60 @@ namespace tnbLib
 				const DimensionedField<Type, pointMesh>& iF
 				),
 				(p, iF)
-		);
+		);*/
 
-		declareRunTimeSelectionTable
+		typedef autoPtr<pointPatchField>(*pointPatchConstructorPtr)(const pointPatch& p,
+			const DimensionedField<Type, pointMesh>& iF);
+		typedef HashTable<pointPatchConstructorPtr, word, string::hash> pointPatchConstructorTable;
+		static FoamBase_EXPORT pointPatchConstructorTable* pointPatchConstructorTablePtr_;
+		static FoamBase_EXPORT void constructpointPatchConstructorTables();
+		static FoamBase_EXPORT void destroypointPatchConstructorTables();
+
+		template <class pointPatchFieldType>
+		class addpointPatchConstructorToTable
+		{
+		public:
+			static autoPtr<pointPatchField> New(const pointPatch& p, const DimensionedField<Type, pointMesh>& iF)
+			{
+				return autoPtr<pointPatchField>(new pointPatchFieldType(p, iF));
+			}
+
+			addpointPatchConstructorToTable(const word& lookup = pointPatchFieldType::typeName)
+			{
+				constructpointPatchConstructorTables();
+				if (!pointPatchConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "pointPatchField" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addpointPatchConstructorToTable() { destroypointPatchConstructorTables(); }
+		};
+
+		template <class pointPatchFieldType>
+		class addRemovablepointPatchConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<pointPatchField> New(const pointPatch& p, const DimensionedField<Type, pointMesh>& iF)
+			{
+				return autoPtr<pointPatchField>(new pointPatchFieldType(p, iF));
+			}
+
+			addRemovablepointPatchConstructorToTable(const word& lookup = pointPatchFieldType::typeName) : lookup_(lookup)
+			{
+				constructpointPatchConstructorTables();
+				pointPatchConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablepointPatchConstructorToTable()
+			{
+				if (pointPatchConstructorTablePtr_) { pointPatchConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
+
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			pointPatchField,
@@ -142,9 +197,63 @@ namespace tnbLib
 				const pointPatchFieldMapper& m
 				),
 				(dynamic_cast<const pointPatchFieldType&>(ptf), p, iF, m)
-		);
+		);*/
 
-		declareRunTimeSelectionTable
+		typedef autoPtr<pointPatchField>(*patchMapperConstructorPtr)(const pointPatchField<Type>& ptf, const pointPatch& p,
+			const DimensionedField<Type, pointMesh>& iF,
+			const pointPatchFieldMapper& m);
+		typedef HashTable<patchMapperConstructorPtr, word, string::hash> patchMapperConstructorTable;
+		static FoamBase_EXPORT patchMapperConstructorTable* patchMapperConstructorTablePtr_;
+		static FoamBase_EXPORT void constructpatchMapperConstructorTables();
+		static FoamBase_EXPORT void destroypatchMapperConstructorTables();
+
+		template <class pointPatchFieldType>
+		class addpatchMapperConstructorToTable
+		{
+		public:
+			static autoPtr<pointPatchField> New(const pointPatchField<Type>& ptf, const pointPatch& p,
+				const DimensionedField<Type, pointMesh>& iF, const pointPatchFieldMapper& m)
+			{
+				return autoPtr<pointPatchField>(new pointPatchFieldType(dynamic_cast<const pointPatchFieldType&>(ptf), p, iF, m));
+			}
+
+			addpatchMapperConstructorToTable(const word& lookup = pointPatchFieldType::typeName)
+			{
+				constructpatchMapperConstructorTables();
+				if (!patchMapperConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "pointPatchField" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addpatchMapperConstructorToTable() { destroypatchMapperConstructorTables(); }
+		};
+
+		template <class pointPatchFieldType>
+		class addRemovablepatchMapperConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<pointPatchField> New(const pointPatchField<Type>& ptf, const pointPatch& p,
+				const DimensionedField<Type, pointMesh>& iF, const pointPatchFieldMapper& m)
+			{
+				return autoPtr<pointPatchField>(new pointPatchFieldType(dynamic_cast<const pointPatchFieldType&>(ptf), p, iF, m));
+			}
+
+			addRemovablepatchMapperConstructorToTable(const word& lookup = pointPatchFieldType::typeName) : lookup_(lookup)
+			{
+				constructpatchMapperConstructorTables();
+				patchMapperConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablepatchMapperConstructorToTable()
+			{
+				if (patchMapperConstructorTablePtr_) { patchMapperConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
+
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			pointPatchField,
@@ -155,7 +264,61 @@ namespace tnbLib
 				const dictionary& dict
 				),
 				(p, iF, dict)
-		);
+		);*/
+
+		typedef autoPtr<pointPatchField>(*dictionaryConstructorPtr)(const pointPatch& p,
+			const DimensionedField<Type, pointMesh>& iF,
+			const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamBase_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamBase_EXPORT void constructdictionaryConstructorTables();
+		static FoamBase_EXPORT void destroydictionaryConstructorTables();
+
+		template <class pointPatchFieldType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<pointPatchField> New(const pointPatch& p, const DimensionedField<Type, pointMesh>& iF,
+				const dictionary& dict)
+			{
+				return autoPtr<pointPatchField>(new pointPatchFieldType(p, iF, dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = pointPatchFieldType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "pointPatchField" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class pointPatchFieldType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<pointPatchField> New(const pointPatch& p, const DimensionedField<Type, pointMesh>& iF,
+				const dictionary& dict)
+			{
+				return autoPtr<pointPatchField>(new pointPatchFieldType(p, iF, dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = pointPatchFieldType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

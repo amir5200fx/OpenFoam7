@@ -39,6 +39,16 @@ SourceFiles
 #include <InteractionLists.hxx>
 #include <WallSiteData.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamPairCollision_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPairCollision_EXPORT_DEFINE
+#define FoamPairCollision_EXPORT __declspec(dllexport)
+#else
+#define FoamPairCollision_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -143,7 +153,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("pairCollision");
+		//TypeName("pairCollision");
+		static const char* typeName_() { return "pairCollision"; }
+		static FoamPairCollision_EXPORT const ::tnbLib::word typeName;
+		static FoamPairCollision_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

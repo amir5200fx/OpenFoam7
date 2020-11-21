@@ -197,27 +197,27 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Initialise the polyMesh from the primitive data
-		void initMesh();
+		FoamBase_EXPORT void initMesh();
 
 		//- Initialise the polyMesh from the given set of cells
-		void initMesh(cellList& c);
+		FoamBase_EXPORT void initMesh(cellList& c);
 
 		//- Calculate the valid directions in the mesh from the boundaries
-		void calcDirections() const;
+		FoamBase_EXPORT void calcDirections() const;
 
 		//- Calculate the cell shapes from the primitive
 		//  polyhedral information
-		void calcCellShapes() const;
+		FoamBase_EXPORT void calcCellShapes() const;
 
 		//- Read and return the tetBasePtIs
-		autoPtr<labelIOList> readTetBasePtIs() const;
+		FoamBase_EXPORT autoPtr<labelIOList> readTetBasePtIs() const;
 
 
 		// Helper functions for constructor from cell shapes
 
-		labelListList cellShapePointCells(const cellShapeList&) const;
+		FoamBase_EXPORT labelListList cellShapePointCells(const cellShapeList&) const;
 
-		labelList facePatchFaceCells
+		FoamBase_EXPORT labelList facePatchFaceCells
 		(
 			const faceList& patchFaces,
 			const labelListList& pointCells,
@@ -225,7 +225,7 @@ namespace tnbLib
 			const label patchID
 		) const;
 
-		void setTopology
+		FoamBase_EXPORT void setTopology
 		(
 			const cellShapeList& cellsAsShapes,
 			const faceListList& boundaryFaces,
@@ -241,7 +241,7 @@ namespace tnbLib
 		// Geometry checks
 
 			//- Check non-orthogonality
-		bool checkFaceOrthogonality
+		FoamBase_EXPORT bool checkFaceOrthogonality
 		(
 			const vectorField& fAreas,
 			const vectorField& cellCtrs,
@@ -251,7 +251,7 @@ namespace tnbLib
 		) const;
 
 		//- Check face skewness
-		bool checkFaceSkewness
+		FoamBase_EXPORT bool checkFaceSkewness
 		(
 			const pointField& points,
 			const vectorField& fCtrs,
@@ -262,7 +262,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		) const;
 
-		bool checkEdgeAlignment
+		FoamBase_EXPORT bool checkEdgeAlignment
 		(
 			const pointField& p,
 			const bool report,
@@ -270,7 +270,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		) const;
 
-		bool checkCellDeterminant
+		FoamBase_EXPORT bool checkCellDeterminant
 		(
 			const vectorField& faceAreas,
 			const bool report,
@@ -278,7 +278,7 @@ namespace tnbLib
 			const Vector<label>& meshD
 		) const;
 
-		bool checkFaceWeight
+		FoamBase_EXPORT bool checkFaceWeight
 		(
 			const vectorField& fCtrs,
 			const vectorField& fAreas,
@@ -288,7 +288,7 @@ namespace tnbLib
 			labelHashSet* setPtr
 		) const;
 
-		bool checkVolRatio
+		FoamBase_EXPORT bool checkVolRatio
 		(
 			const scalarField& cellVols,
 			const bool report,
@@ -305,23 +305,27 @@ namespace tnbLib
 
 
 		//- Runtime type information
-		TypeName("polyMesh");
+		//TypeName("polyMesh");
+		static const char* typeName_() { return "polyMesh"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Return the default region name
-		static word defaultRegion;
+		static FoamBase_EXPORT word defaultRegion;
 
 		//- Return the mesh sub-directory name (usually "polyMesh")
-		static word meshSubDir;
+		static FoamBase_EXPORT word meshSubDir;
 
 
 		// Constructors
 
 			//- Construct from IOobject
-		explicit polyMesh(const IOobject& io);
+		FoamBase_EXPORT explicit polyMesh(const IOobject& io);
 
 		//- Move construct from IOobject or from components.
 		//  Boundary is added using addPatches() member function
-		polyMesh
+		FoamBase_EXPORT polyMesh
 		(
 			const IOobject& io,
 			pointField&& points,
@@ -334,7 +338,7 @@ namespace tnbLib
 		//- Move construct without boundary with cells rather than
 		//  owner/neighbour.
 		//  Boundary is added using addPatches() member function
-		polyMesh
+		FoamBase_EXPORT polyMesh
 		(
 			const IOobject& io,
 			pointField&& points,
@@ -344,7 +348,7 @@ namespace tnbLib
 		);
 
 		//- Move construct from cell shapes
-		polyMesh
+		FoamBase_EXPORT polyMesh
 		(
 			const IOobject& io,
 			pointField&& points,
@@ -360,7 +364,7 @@ namespace tnbLib
 
 		//- Move construct from cell shapes with patch information in dictionary
 		//  format.
-		polyMesh
+		FoamBase_EXPORT polyMesh
 		(
 			const IOobject& io,
 			pointField&& points,
@@ -374,11 +378,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		polyMesh(const polyMesh&);
+		FoamBase_EXPORT polyMesh(const polyMesh&);
 
 
 		//- Destructor
-		virtual ~polyMesh();
+		FoamBase_EXPORT virtual ~polyMesh();
 
 
 		// Member Functions
@@ -386,51 +390,51 @@ namespace tnbLib
 			// Database
 
 				//- Override the objectRegistry dbDir for a single-region case
-		virtual const fileName& dbDir() const;
+		FoamBase_EXPORT virtual const fileName& dbDir() const;
 
 		//- Return the local mesh directory (dbDir()/meshSubDir)
-		fileName meshDir() const;
+		FoamBase_EXPORT fileName meshDir() const;
 
 		//- Return the current instance directory for points
 		//  Used in the consruction of gemometric mesh data dependent
 		//  on points
-		const fileName& pointsInstance() const;
+		FoamBase_EXPORT const fileName& pointsInstance() const;
 
 		//- Return the current instance directory for faces
-		const fileName& facesInstance() const;
+		FoamBase_EXPORT const fileName& facesInstance() const;
 
 		//- Set the instance for mesh files
-		void setInstance(const fileName&);
+		FoamBase_EXPORT void setInstance(const fileName&);
 
 
 		// Access
 
 			//- Return raw points
-		virtual const pointField& points() const;
+		FoamBase_EXPORT virtual const pointField& points() const;
 
 		//- Return true if io is up-to-date with points
-		virtual bool upToDatePoints(const regIOobject& io) const;
+		FoamBase_EXPORT virtual bool upToDatePoints(const regIOobject& io) const;
 
 		//- Set io to be up-to-date with points
-		virtual void setUpToDatePoints(regIOobject& io) const;
+		FoamBase_EXPORT virtual void setUpToDatePoints(regIOobject& io) const;
 
 		//- Return raw faces
-		virtual const faceList& faces() const;
+		FoamBase_EXPORT virtual const faceList& faces() const;
 
 		//- Return face owner
-		virtual const labelList& faceOwner() const;
+		FoamBase_EXPORT virtual const labelList& faceOwner() const;
 
 		//- Return face neighbour
-		virtual const labelList& faceNeighbour() const;
+		FoamBase_EXPORT virtual const labelList& faceNeighbour() const;
 
 		//- Return old points for mesh motion
-		virtual const pointField& oldPoints() const;
+		FoamBase_EXPORT virtual const pointField& oldPoints() const;
 
 		//- Return old points for mesh motion
-		virtual const pointField& oldCellCentres() const;
+		FoamBase_EXPORT virtual const pointField& oldCellCentres() const;
 
 		//- Return IO object for points0
-		static IOobject points0IO(const polyMesh& mesh);
+		static FoamBase_EXPORT IOobject points0IO(const polyMesh& mesh);
 
 		//- Return boundary mesh
 		const polyBoundaryMesh& boundaryMesh() const
@@ -448,25 +452,25 @@ namespace tnbLib
 		//  Defined according to the presence of empty and wedge patches.
 		//  1 indicates unconstrained direction and -1 a constrained
 		//  direction.
-		const Vector<label>& geometricD() const;
+		FoamBase_EXPORT const Vector<label>& geometricD() const;
 
 		//- Return the number of valid geometric dimensions in the mesh
-		label nGeometricD() const;
+		FoamBase_EXPORT label nGeometricD() const;
 
 		//- Return the vector of solved-for directions in mesh.
 		//  Differs from geometricD in that it includes for wedge cases
 		//  the circumferential direction in case of swirl.
 		//  1 indicates valid direction and -1 an invalid direction.
-		const Vector<label>& solutionD() const;
+		FoamBase_EXPORT const Vector<label>& solutionD() const;
 
 		//- Return the number of valid solved-for dimensions in the mesh
-		label nSolutionD() const;
+		FoamBase_EXPORT label nSolutionD() const;
 
 		//- Return the tetBasePtIs
-		const labelIOList& tetBasePtIs() const;
+		FoamBase_EXPORT const labelIOList& tetBasePtIs() const;
 
 		//- Return the cell search tree
-		const indexedOctree<treeDataCell>& cellTree() const;
+		FoamBase_EXPORT const indexedOctree<treeDataCell>& cellTree() const;
 
 		//- Return point zone mesh
 		const pointZoneMesh& pointZones() const
@@ -487,13 +491,13 @@ namespace tnbLib
 		}
 
 		//- Return parallel info
-		const globalMeshData& globalData() const;
+		FoamBase_EXPORT const globalMeshData& globalData() const;
 
 		//- Return communicator used for parallel communication
-		label comm() const;
+		FoamBase_EXPORT label comm() const;
 
 		//- Return communicator used for parallel communication
-		label& comm();
+		FoamBase_EXPORT label& comm();
 
 		//- Return the object registry
 		const objectRegistry& thisDb() const
@@ -545,10 +549,10 @@ namespace tnbLib
 		}
 
 		//- Move points, returns volumes swept by faces in motion
-		virtual tmp<scalarField> movePoints(const pointField&);
+		FoamBase_EXPORT virtual tmp<scalarField> movePoints(const pointField&);
 
 		//- Reset motion
-		void resetMotion() const;
+		FoamBase_EXPORT void resetMotion() const;
 
 
 		// Topological change
@@ -572,14 +576,14 @@ namespace tnbLib
 		}
 
 		//- Add boundary patches
-		void addPatches
+		FoamBase_EXPORT void addPatches
 		(
 			const List<polyPatch*>&,
 			const bool validBoundary = true
 		);
 
 		//- Add mesh zones
-		void addZones
+		FoamBase_EXPORT void addZones
 		(
 			const List<pointZone*>& pz,
 			const List<faceZone*>& fz,
@@ -588,7 +592,7 @@ namespace tnbLib
 
 		//- Add/insert single patch. If validBoundary the new situation
 		//  is consistent across processors.
-		virtual void addPatch
+		FoamBase_EXPORT virtual void addPatch
 		(
 			const label insertPatchi,
 			const polyPatch& patch,
@@ -599,7 +603,7 @@ namespace tnbLib
 
 		//- Reorder and trim existing patches. If validBoundary the new
 		//  situation is consistent across processors
-		virtual void reorderPatches
+		FoamBase_EXPORT virtual void reorderPatches
 		(
 			const labelUList& newToOld,
 			const bool validBoundary
@@ -607,18 +611,18 @@ namespace tnbLib
 
 		//- Update the mesh based on the mesh files saved in
 		//  time directories
-		virtual readUpdateState readUpdate();
+		FoamBase_EXPORT virtual readUpdateState readUpdate();
 
 		//- Update the mesh corresponding to given map
-		virtual void updateMesh(const mapPolyMesh& mpm);
+		FoamBase_EXPORT virtual void updateMesh(const mapPolyMesh& mpm);
 
 		//- Remove boundary patches
-		void removeBoundary();
+		FoamBase_EXPORT void removeBoundary();
 
 		//- Reset mesh primitive data. Assumes all patch info correct
 		//  (so does e.g. parallel communication). If not use
 		//  validBoundary=false
-		void resetPrimitives
+		FoamBase_EXPORT void resetPrimitives
 		(
 			pointField&& points,
 			faceList&& faces,
@@ -633,62 +637,62 @@ namespace tnbLib
 		//  Storage management
 
 			//- Clear geometry
-		void clearGeom();
+		FoamBase_EXPORT void clearGeom();
 
 		//- Clear addressing
-		void clearAddressing(const bool isMeshUpdate = false);
+		FoamBase_EXPORT void clearAddressing(const bool isMeshUpdate = false);
 
 		//- Clear all geometry and addressing unnecessary for CFD
-		void clearOut();
+		FoamBase_EXPORT void clearOut();
 
 		//- Clear primitive data (points, faces and cells)
-		void clearPrimitives();
+		FoamBase_EXPORT void clearPrimitives();
 
 		//- Clear tet base points
-		void clearTetBasePtIs();
+		FoamBase_EXPORT void clearTetBasePtIs();
 
 		//- Clear cell tree data
-		void clearCellTree();
+		FoamBase_EXPORT void clearCellTree();
 
 		//- Remove all files from mesh instance
-		void removeFiles(const fileName& instanceDir) const;
+		FoamBase_EXPORT void removeFiles(const fileName& instanceDir) const;
 
 		//- Remove all files from mesh instance()
-		void removeFiles() const;
+		FoamBase_EXPORT void removeFiles() const;
 
 
 		// Geometric checks. Selectively override primitiveMesh functionality.
 
 			//- Check non-orthogonality
-		virtual bool checkFaceOrthogonality
+		FoamBase_EXPORT virtual bool checkFaceOrthogonality
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr
 		) const;
 
 		//- Check face skewness
-		virtual bool checkFaceSkewness
+		FoamBase_EXPORT virtual bool checkFaceSkewness
 		(
 			const bool report = false,
 			labelHashSet* setPtr = nullptr
 		) const;
 
 		//- Check edge alignment for 1D/2D cases
-		virtual bool checkEdgeAlignment
+		FoamBase_EXPORT virtual bool checkEdgeAlignment
 		(
 			const bool report,
 			const Vector<label>& directions,
 			labelHashSet* setPtr
 		) const;
 
-		virtual bool checkCellDeterminant
+		FoamBase_EXPORT virtual bool checkCellDeterminant
 		(
 			const bool report,
 			labelHashSet* setPtr
 		) const;
 
 		//- Check mesh motion for correctness given motion points
-		virtual bool checkMeshMotion
+		FoamBase_EXPORT virtual bool checkMeshMotion
 		(
 			const pointField& newPoints,
 			const bool report = false,
@@ -696,7 +700,7 @@ namespace tnbLib
 		) const;
 
 		//- Check for face weights
-		virtual bool checkFaceWeight
+		FoamBase_EXPORT virtual bool checkFaceWeight
 		(
 			const bool report,
 			const scalar minWeight = 0.05,
@@ -704,7 +708,7 @@ namespace tnbLib
 		) const;
 
 		//- Check for neighbouring cell volumes
-		virtual bool checkVolRatio
+		FoamBase_EXPORT virtual bool checkVolRatio
 		(
 			const bool report,
 			const scalar minRatio = 0.01,
@@ -715,7 +719,7 @@ namespace tnbLib
 		// Position search functions
 
 			//- Find the cell, tetFacei and tetPti for point p
-		void findCellFacePt
+		FoamBase_EXPORT void findCellFacePt
 		(
 			const point& p,
 			label& celli,
@@ -725,7 +729,7 @@ namespace tnbLib
 
 		//- Find the tetFacei and tetPti for point p in celli.
 		//  tetFacei and tetPtI are set to -1 if not found
-		void findTetFacePt
+		FoamBase_EXPORT void findTetFacePt
 		(
 			const label celli,
 			const point& p,
@@ -734,7 +738,7 @@ namespace tnbLib
 		) const;
 
 		//- Test if point p is in the celli
-		bool pointInCell
+		FoamBase_EXPORT bool pointInCell
 		(
 			const point& p,
 			label celli,
@@ -743,7 +747,7 @@ namespace tnbLib
 
 		//- Find cell enclosing this location and return index
 		//  If not found -1 is returned
-		label findCell
+		FoamBase_EXPORT label findCell
 		(
 			const point& p,
 			const cellDecomposition = CELL_TETS
@@ -753,7 +757,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const polyMesh&) = delete;
+		FoamBase_EXPORT void operator=(const polyMesh&) = delete;
 	};
 
 

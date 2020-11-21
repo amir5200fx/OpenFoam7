@@ -65,19 +65,23 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Single point find nearest
-		void findNearest(const point&, point& near, pointConstraint&) const;
+		FoamFvMesh_EXPORT void findNearest(const point&, point& near, pointConstraint&) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("project");
+		//TypeName("project");
+		static const char* typeName_() { return "project"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from Istream setting pointsList
-		projectEdge
+		FoamFvMesh_EXPORT projectEdge
 		(
 			const dictionary& dict,
 			const label index,
@@ -87,7 +91,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		projectEdge(const projectEdge&) = delete;
+		FoamFvMesh_EXPORT projectEdge(const projectEdge&) = delete;
 
 
 		//- Destructor
@@ -99,11 +103,11 @@ namespace tnbLib
 
 			//- Return the point positions corresponding to the curve parameters
 			//  0 <= lambda <= 1
-		virtual point position(const scalar) const;
+		FoamFvMesh_EXPORT virtual point position(const scalar) const;
 
 		//- Return the point positions corresponding to the curve parameters
 		//  0 <= lambda <= 1
-		virtual tmp<pointField> position(const scalarList&) const;
+		FoamFvMesh_EXPORT virtual tmp<pointField> position(const scalarList&) const;
 
 		//- Return the length of the curve
 		virtual scalar length() const
@@ -116,7 +120,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const projectEdge&) = delete;
+		FoamFvMesh_EXPORT void operator=(const projectEdge&) = delete;
 	};
 
 

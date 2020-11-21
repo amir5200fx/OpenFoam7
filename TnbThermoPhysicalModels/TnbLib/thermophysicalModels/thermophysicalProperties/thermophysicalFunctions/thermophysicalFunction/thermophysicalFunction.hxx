@@ -55,19 +55,75 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("thermophysicalFunction");
+		//TypeName("thermophysicalFunction");
+		static const char* typeName_() { return "thermophysicalFunction"; }
+		static FoamThermophysicalModels_EXPORT const ::tnbLib::word typeName;
+		static FoamThermophysicalModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			thermophysicalFunction,
 			dictionary,
 			(const dictionary& dict),
 			(dict)
-		);
+		);*/
+
+		typedef autoPtr<thermophysicalFunction> (*dictionaryConstructorPtr)(const dictionary& dict);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamThermophysicalModels_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamThermophysicalModels_EXPORT void constructdictionaryConstructorTables();
+		static FoamThermophysicalModels_EXPORT void destroydictionaryConstructorTables();
+
+		template <class thermophysicalFunctionType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<thermophysicalFunction> New(const dictionary& dict)
+			{
+				return autoPtr<thermophysicalFunction>(new thermophysicalFunctionType(dict));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = thermophysicalFunctionType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"thermophysicalFunction" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class thermophysicalFunctionType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<thermophysicalFunction> New(const dictionary& dict)
+			{
+				return autoPtr<thermophysicalFunction>(new thermophysicalFunctionType(dict));
+			}
+
+			addRemovabledictionaryConstructorToTable(
+				const word& lookup = thermophysicalFunctionType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors
@@ -77,7 +133,7 @@ namespace tnbLib
 		{}
 
 		//- Return pointer to new thermophysicalFunction created from dict
-		static autoPtr<thermophysicalFunction> New(const dictionary& dict);
+		static FoamThermophysicalModels_EXPORT autoPtr<thermophysicalFunction> New(const dictionary& dict);
 
 
 		//- Destructor
@@ -88,10 +144,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Evaluate the function and return the result
-		virtual scalar f(scalar p, scalar T) const = 0;
+		FoamThermophysicalModels_EXPORT virtual scalar f(scalar p, scalar T) const = 0;
 
 		//- Write the function coefficients
-		virtual void writeData(Ostream& os) const = 0;
+		FoamThermophysicalModels_EXPORT virtual void writeData(Ostream& os) const = 0;
 
 
 		// Ostream Operator

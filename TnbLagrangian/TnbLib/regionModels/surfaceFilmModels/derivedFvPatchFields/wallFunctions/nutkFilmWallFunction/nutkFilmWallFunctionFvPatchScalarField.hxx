@@ -84,29 +84,33 @@ namespace tnbLib
 				// Protected member functions
 
 					//- Calculate the turbulence viscosity
-				virtual tmp<scalarField> nut() const;
+				FoamLagrangian_EXPORT virtual tmp<scalarField> nut() const;
 
 				//- Calculate the friction velocity
-				virtual tmp<scalarField> calcUTau(const scalarField& magGradU) const;
+				FoamLagrangian_EXPORT virtual tmp<scalarField> calcUTau(const scalarField& magGradU) const;
 
 
 			public:
 
 				//- Runtime type information
-				TypeName("nutkFilmWallFunction");
+				//TypeName("nutkFilmWallFunction");
+				static const char* typeName_() { return "nutkFilmWallFunction"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from patch and internal field
-				nutkFilmWallFunctionFvPatchScalarField
+				FoamLagrangian_EXPORT nutkFilmWallFunctionFvPatchScalarField
 				(
 					const fvPatch&,
 					const DimensionedField<scalar, volMesh>&
 				);
 
 				//- Construct from patch, internal field and dictionary
-				nutkFilmWallFunctionFvPatchScalarField
+				FoamLagrangian_EXPORT nutkFilmWallFunctionFvPatchScalarField
 				(
 					const fvPatch&,
 					const DimensionedField<scalar, volMesh>&,
@@ -116,7 +120,7 @@ namespace tnbLib
 				//- Construct by mapping given
 				//  nutkFilmWallFunctionFvPatchScalarField
 				//  onto a new patch
-				nutkFilmWallFunctionFvPatchScalarField
+				FoamLagrangian_EXPORT nutkFilmWallFunctionFvPatchScalarField
 				(
 					const nutkFilmWallFunctionFvPatchScalarField&,
 					const fvPatch&,
@@ -125,7 +129,7 @@ namespace tnbLib
 				);
 
 				//- Copy constructor
-				nutkFilmWallFunctionFvPatchScalarField
+				FoamLagrangian_EXPORT nutkFilmWallFunctionFvPatchScalarField
 				(
 					const nutkFilmWallFunctionFvPatchScalarField&
 				);
@@ -140,7 +144,7 @@ namespace tnbLib
 				}
 
 				//- Copy constructor setting internal field reference
-				nutkFilmWallFunctionFvPatchScalarField
+				FoamLagrangian_EXPORT nutkFilmWallFunctionFvPatchScalarField
 				(
 					const nutkFilmWallFunctionFvPatchScalarField&,
 					const DimensionedField<scalar, volMesh>&
@@ -164,13 +168,13 @@ namespace tnbLib
 					// Evaluation functions
 
 						//- Calculate and return the yPlus at the boundary
-				virtual tmp<scalarField> yPlus() const;
+				FoamLagrangian_EXPORT virtual tmp<scalarField> yPlus() const;
 
 
 				// I-O
 
 					//- Write
-				virtual void write(Ostream& os) const;
+				FoamLagrangian_EXPORT virtual void write(Ostream& os) const;
 			};
 
 

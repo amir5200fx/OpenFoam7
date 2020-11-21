@@ -86,13 +86,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("limitTemperature");
+			//TypeName("limitTemperature");
+			static const char* typeName_() { return "limitTemperature"; }
+			static FoamFvOptions_EXPORT const ::tnbLib::word typeName;
+			static FoamFvOptions_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			limitTemperature
+			FoamFvOptions_EXPORT limitTemperature
 			(
 				const word& name,
 				const word& modelType,
@@ -101,7 +105,7 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			limitTemperature(const limitTemperature&) = delete;
+			FoamFvOptions_EXPORT limitTemperature(const limitTemperature&) = delete;
 
 
 			//- Destructor
@@ -112,16 +116,16 @@ namespace tnbLib
 			// Member Functions
 
 				//- Read dictionary
-			virtual bool read(const dictionary& dict);
+			FoamFvOptions_EXPORT virtual bool read(const dictionary& dict);
 
 			//- Correct the energy field
-			virtual void correct(volScalarField& he);
+			FoamFvOptions_EXPORT virtual void correct(volScalarField& he);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const limitTemperature&) = delete;
+			FoamFvOptions_EXPORT void operator=(const limitTemperature&) = delete;
 		};
 
 

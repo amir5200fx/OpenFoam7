@@ -45,6 +45,16 @@ SourceFiles
 
 #include <Time.hxx>  // added by amir
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamLocalMax_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLocalMax_EXPORT_DEFINE
+#define FoamLocalMax_EXPORT __declspec(dllexport)
+#else
+#define FoamLocalMax_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -68,7 +78,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("localMax");
+		/*TypeName("localMax");*/
+		static const char* typeName_() { return "localMax"; }
+		static FoamLocalMax_EXPORT const ::tnbLib::word typeName;
+		static FoamLocalMax_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

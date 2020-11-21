@@ -39,6 +39,8 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <includeModule.hxx>
+
 #include <signal.h>
 
 typedef	void(*__p_sig_fn_t)(int);
@@ -59,18 +61,18 @@ namespace tnbLib
 		// Private Data
 
 			//- Number of signal to use
-		static int signal_;
+		static FoamBase_EXPORT int signal_;
 
 		//- Pointer to Time
-		static Time const* runTimePtr_;
+		static FoamBase_EXPORT Time const* runTimePtr_;
 
 		//- Saved old signal trapping setting
-		static __p_sig_fn_t oldAction_;
+		static FoamBase_EXPORT __p_sig_fn_t oldAction_;
 
 
 		// Private Member Functions
 
-		static void sigHandler(int);
+		static FoamBase_EXPORT void sigHandler(int);
 
 
 	public:
@@ -82,23 +84,23 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		sigStopAtWriteNow();
+		FoamBase_EXPORT sigStopAtWriteNow();
 
 		//- Construct from components
-		sigStopAtWriteNow(const bool verbose, const Time& runTime);
+		FoamBase_EXPORT sigStopAtWriteNow(const bool verbose, const Time& runTime);
 
 
 		//- Destructor
-		~sigStopAtWriteNow();
+		FoamBase_EXPORT ~sigStopAtWriteNow();
 
 
 		// Member Functions
 
 			//- (re)set signal catcher
-		static void set(const bool verbose);
+		static FoamBase_EXPORT void set(const bool verbose);
 
 		//- Is active?
-		bool active() const;
+		FoamBase_EXPORT bool active() const;
 	};
 
 

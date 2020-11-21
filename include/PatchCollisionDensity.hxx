@@ -51,6 +51,16 @@ SourceFiles
 #include <CloudFunctionObject.hxx>
 #include <volFields.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamPatchCollisionDensity_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPatchCollisionDensity_EXPORT_DEFINE
+#define FoamPatchCollisionDensity_EXPORT __declspec(dllexport)
+#else
+#define FoamPatchCollisionDensity_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -94,7 +104,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("patchCollisionDensity");
+		//TypeName("patchCollisionDensity");
+		static const char* typeName_() { return "patchCollisionDensity"; }
+		static FoamPatchCollisionDensity_EXPORT const ::tnbLib::word typeName;
+		static FoamPatchCollisionDensity_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

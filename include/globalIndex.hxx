@@ -54,8 +54,8 @@ namespace tnbLib
 
 	class globalIndex;
 
-	Istream& operator>>(Istream& is, globalIndex& gi);
-	Ostream& operator<<(Ostream& os, const globalIndex& gi);
+	FoamBase_EXPORT Istream& operator>>(Istream& is, globalIndex& gi);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const globalIndex& gi);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -79,11 +79,11 @@ namespace tnbLib
 
 		//- Construct from local max size. Does communication with default
 		//  communicator and message tag.
-		globalIndex(const label localSize);
+		FoamBase_EXPORT globalIndex(const label localSize);
 
 		//- Construct from local max size. Does communication with given
 		//  communicator and message tag
-		globalIndex
+		FoamBase_EXPORT globalIndex
 		(
 			const label localSize,
 			const int tag,
@@ -92,13 +92,13 @@ namespace tnbLib
 		);
 
 		//- Construct from components
-		globalIndex(const labelList& offsets);
+		FoamBase_EXPORT globalIndex(const labelList& offsets);
 
 		//- Move constructor from components
 		inline globalIndex(labelList&& offsets);
 
 		//- Construct from Istream
-		globalIndex(Istream& is);
+		FoamBase_EXPORT globalIndex(Istream& is);
 
 
 		// Member Functions
@@ -246,8 +246,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream& is, globalIndex& gi);
-		friend Ostream& operator<<(Ostream& os, const globalIndex& gi);
+		friend FoamBase_EXPORT Istream& operator>>(Istream& is, globalIndex& gi);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const globalIndex& gi);
 	};
 
 

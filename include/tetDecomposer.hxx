@@ -69,7 +69,7 @@ namespace tnbLib
 
 							  FACE_DIAG_TRIS    //- Faces decomposed into triangles diagonally
 		};
-		static const NamedEnum<decompositionType, 2> decompositionTypeNames;
+		static FoamDynamicMesh_EXPORT const NamedEnum<decompositionType, 2> decompositionTypeNames;
 
 
 	private:
@@ -97,7 +97,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Modify a face
-		void modifyFace
+		FoamDynamicMesh_EXPORT void modifyFace
 		(
 			polyTopoChange& meshMod,
 			const face& f,
@@ -110,7 +110,7 @@ namespace tnbLib
 		) const;
 
 		//- Add a face
-		void addFace
+		FoamDynamicMesh_EXPORT void addFace
 		(
 			polyTopoChange& meshMod,
 			const face& f,
@@ -125,19 +125,22 @@ namespace tnbLib
 		) const;
 
 		//- Work out triangle index given the starting vertex in the face
-		label triIndex(const label facei, const label fp) const;
+		FoamDynamicMesh_EXPORT label triIndex(const label facei, const label fp) const;
 
 
 	public:
 
 		//- Runtime type information
-		ClassName("tetDecomposer");
+		//ClassName("tetDecomposer");
+		static const char* typeName_() { return "tetDecomposer"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh
-		tetDecomposer(const polyMesh&);
+		FoamDynamicMesh_EXPORT tetDecomposer(const polyMesh&);
 
 		//- Disallow default bitwise copy construction
 		tetDecomposer(const tetDecomposer&) = delete;
@@ -179,14 +182,14 @@ namespace tnbLib
 
 			//- Insert all changes into meshMod to convert the polyMesh into
 			//  tets.
-		void setRefinement
+		FoamDynamicMesh_EXPORT void setRefinement
 		(
 			const decompositionType decomposeType,
 			polyTopoChange& meshMod
 		);
 
 		//- Force recalculation of locally stored data on topological change
-		void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT void updateMesh(const mapPolyMesh&);
 
 
 		// Member Operators

@@ -44,7 +44,18 @@ Description
 namespace tnbLib
 {
 
-	TemplateName(blendedSchemeBase);
+	/*TemplateName(blendedSchemeBase);*/
+	class blendedSchemeBaseName
+	{
+	public:
+		blendedSchemeBaseName()
+		{
+		}
+
+		static const char* typeName_() { return "blendedSchemeBase"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+	};
 
 	/*---------------------------------------------------------------------------*\
 						  Class blendedSchemeBase Declaration

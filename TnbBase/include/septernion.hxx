@@ -58,8 +58,8 @@ namespace tnbLib
 	template<class T> class UList; // added by amir
 
 	class septernion;
-	Istream& operator>>(Istream& is, septernion&);
-	Ostream& operator<<(Ostream& os, const septernion& C);
+	FoamBase_EXPORT Istream& operator>>(Istream& is, septernion&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const septernion& C);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -81,10 +81,10 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const char* const typeName;
+		static FoamBase_EXPORT const char* const typeName;
 
-		static const septernion zero;
-		static const septernion I;
+		static FoamBase_EXPORT const septernion zero;
+		static FoamBase_EXPORT const septernion I;
 
 
 		// Constructors
@@ -105,7 +105,7 @@ namespace tnbLib
 		inline explicit septernion(const spatialTransform& st);
 
 		//- Construct from Istream
-		septernion(Istream&);
+		FoamBase_EXPORT septernion(Istream&);
 
 
 		// Member Functions
@@ -149,8 +149,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream& is, septernion&);
-		friend Ostream& operator<<(Ostream& os, const septernion& C);
+		friend FoamBase_EXPORT Istream& operator>>(Istream& is, septernion&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const septernion& C);
 	};
 
 
@@ -160,10 +160,10 @@ namespace tnbLib
 	inline septernion inv(const septernion& tr);
 
 	//- Return a string representation of a septernion
-	word name(const septernion&);
+	FoamBase_EXPORT word name(const septernion&);
 
 	//- Spherical linear interpolation of septernions. 0 for qa, 1 for qb
-	septernion slerp
+	FoamBase_EXPORT septernion slerp
 	(
 		const septernion& qa,
 		const septernion& qb,
@@ -171,7 +171,7 @@ namespace tnbLib
 	);
 
 	//- Simple weighted average
-	septernion average
+	FoamBase_EXPORT septernion average
 	(
 		const UList<septernion>& ss,
 		const UList<scalar> w

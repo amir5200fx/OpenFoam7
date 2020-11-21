@@ -73,14 +73,18 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("singleRegionCorrectorConvergenceControl");
+		//- Run-time type information
+		//TypeName("singleRegionCorrectorConvergenceControl");
+		static const char* typeName_() { return "singleRegionCorrectorConvergenceControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from a solution control and the loop name
-		singleRegionCorrectorConvergenceControl
+		FoamFiniteVolume_EXPORT singleRegionCorrectorConvergenceControl
 		(
 			const singleRegionSolutionControl& control,
 			const word& loopName
@@ -88,7 +92,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~singleRegionCorrectorConvergenceControl();
+		FoamFiniteVolume_EXPORT virtual ~singleRegionCorrectorConvergenceControl();
 
 
 		// Member Functions
@@ -96,25 +100,25 @@ namespace tnbLib
 			// IO
 
 				//- Read residual controls
-		bool readCorrResidualControls();
+		FoamFiniteVolume_EXPORT bool readCorrResidualControls();
 
 		//- Print the residual controls
-		void printCorrResidualControls(const label n) const;
+		FoamFiniteVolume_EXPORT void printCorrResidualControls(const label n) const;
 
 
 		// Evolution
 
 			//- Return true if corrector residual controls are present
-		virtual bool hasCorrResidualControls() const;
+		FoamFiniteVolume_EXPORT virtual bool hasCorrResidualControls() const;
 
 		//- Return true if all correction convergence checks are satisfied
-		virtual bool corrCriteriaSatisfied() const;
+		FoamFiniteVolume_EXPORT virtual bool corrCriteriaSatisfied() const;
 
 		//- Reset the solve index in the correction residual control data
-		virtual void resetCorrSolveIndex();
+		FoamFiniteVolume_EXPORT virtual void resetCorrSolveIndex();
 
 		//- Update the solve index in the correction residual control data
-		virtual void updateCorrSolveIndex();
+		FoamFiniteVolume_EXPORT virtual void updateCorrSolveIndex();
 	};
 
 

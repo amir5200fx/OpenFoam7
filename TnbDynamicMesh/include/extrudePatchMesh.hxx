@@ -111,13 +111,17 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Extrude mesh using polyPatches
-		void extrudeMesh(const List<polyPatch*>& regionPatches);
+		FoamDynamicMesh_EXPORT void extrudeMesh(const List<polyPatch*>& regionPatches);
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("extrudePatchMesh");
+		//TypeName("extrudePatchMesh");
+		static const char* typeName_() { return "extrudePatchMesh"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -133,7 +137,7 @@ namespace tnbLib
 
 		//- Construct from mesh, patch, dictionary and new mesh
 		//  polyPatch information
-		extrudePatchMesh
+		FoamDynamicMesh_EXPORT extrudePatchMesh
 		(
 			const fvMesh&,
 			const fvPatch&,
@@ -144,7 +148,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~extrudePatchMesh();
+		FoamDynamicMesh_EXPORT virtual ~extrudePatchMesh();
 
 
 		// Member Functions

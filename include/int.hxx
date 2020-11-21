@@ -79,7 +79,7 @@ inline retType min(const type1 s1, const type2 s2) \
 
 		// * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-		int readInt(Istream&);
+	FoamBase_EXPORT int readInt(Istream&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

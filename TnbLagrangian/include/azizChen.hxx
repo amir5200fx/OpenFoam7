@@ -79,13 +79,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("azizChen");
+			//TypeName("azizChen");
+			static const char* typeName_() { return "azizChen"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			azizChen
+			FoamLagrangian_EXPORT azizChen
 			(
 				const word& name,
 				const dictionary& pairPotentialProperties
@@ -99,10 +103,10 @@ namespace tnbLib
 
 			// Member Functions
 
-			scalar unscaledEnergy(const scalar r) const;
+			FoamLagrangian_EXPORT scalar unscaledEnergy(const scalar r) const;
 
 			//- Read dictionary
-			bool read(const dictionary& pairPotentialProperties);
+			FoamLagrangian_EXPORT bool read(const dictionary& pairPotentialProperties);
 		};
 
 

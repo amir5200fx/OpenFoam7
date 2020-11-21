@@ -64,18 +64,22 @@ namespace tnbLib
 		label nSweeps_;
 
 		//- Read the control parameters from the controlDict_
-		virtual void readControls();
+		FoamBase_EXPORT virtual void readControls();
 
 	public:
 
 		//- Runtime type information
-		TypeName("smoothSolver");
+		//TypeName("smoothSolver");
+		static const char* typeName_() { return "smoothSolver"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from matrix components and solver controls
-		smoothSolver
+		FoamBase_EXPORT smoothSolver
 		(
 			const word& fieldName,
 			const lduMatrix& matrix,
@@ -93,7 +97,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Solve the matrix with this solver
-		virtual solverPerformance solve
+		FoamBase_EXPORT virtual solverPerformance solve
 		(
 			scalarField& psi,
 			const scalarField& source,

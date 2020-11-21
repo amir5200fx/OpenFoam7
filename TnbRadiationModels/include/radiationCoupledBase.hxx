@@ -70,7 +70,7 @@ namespace tnbLib
 
 		// Private Data
 
-		static const NamedEnum<emissivityMethodType, 2>
+		static FoamRadiationModels_EXPORT const NamedEnum<emissivityMethodType, 2>
 			emissivityMethodTypeNames_;
 
 		//- Underlying patch
@@ -92,13 +92,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("radiationCoupledBase");
+		//TypeName("radiationCoupledBase");
+		static const char* typeName_() { return "radiationCoupledBase"; }
+		static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+		static FoamRadiationModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch, emissivity mode and emissivity
-		radiationCoupledBase
+		FoamRadiationModels_EXPORT radiationCoupledBase
 		(
 			const fvPatch& patch,
 			const word& calculationMethod,
@@ -106,7 +110,7 @@ namespace tnbLib
 		);
 
 		//- Construct from patch, emissivity mode and emissivity and mapper
-		radiationCoupledBase
+		FoamRadiationModels_EXPORT radiationCoupledBase
 		(
 			const fvPatch& patch,
 			const word& calculationMethod,
@@ -115,7 +119,7 @@ namespace tnbLib
 		);
 
 		//- Construct from patch and dictionary
-		radiationCoupledBase
+		FoamRadiationModels_EXPORT radiationCoupledBase
 		(
 			const fvPatch& patch,
 			const dictionary& dict
@@ -123,7 +127,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~radiationCoupledBase();
+		FoamRadiationModels_EXPORT virtual ~radiationCoupledBase();
 
 
 		// Member Functions
@@ -138,22 +142,22 @@ namespace tnbLib
 
 
 		//- Calculate corresponding emissivity field
-		scalarField emissivity() const;
+		FoamRadiationModels_EXPORT scalarField emissivity() const;
 
 
 		// Mapping functions
 
 			//- Map (and resize as needed) from self given a mapping object
 			//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		FoamRadiationModels_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchScalarField&, const labelList&);
+		FoamRadiationModels_EXPORT virtual void rmap(const fvPatchScalarField&, const labelList&);
 
 
 		//- Write
-		void write(Ostream&) const;
+		FoamRadiationModels_EXPORT void write(Ostream&) const;
 	};
 
 

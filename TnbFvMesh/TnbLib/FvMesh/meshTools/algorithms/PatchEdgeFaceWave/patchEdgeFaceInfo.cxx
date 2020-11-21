@@ -2,7 +2,7 @@
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	tnbLib::Ostream& os,
 	const tnbLib::patchEdgeFaceInfo& wDist
@@ -12,7 +12,7 @@ tnbLib::Ostream& tnbLib::operator<<
 }
 
 
-tnbLib::Istream& tnbLib::operator>>
+FoamFvMesh_EXPORT tnbLib::Istream& tnbLib::operator>>
 (
 	tnbLib::Istream& is,
 	tnbLib::patchEdgeFaceInfo& wDist

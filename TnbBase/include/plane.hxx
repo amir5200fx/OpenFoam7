@@ -50,9 +50,9 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 
 	class plane;
-	bool operator==(const plane&, const plane&);
-	bool operator!=(const plane&, const plane&);
-	Ostream& operator<<(Ostream&, const plane&);
+	FoamBase_EXPORT bool operator==(const plane&, const plane&);
+	FoamBase_EXPORT bool operator!=(const plane&, const plane&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const plane&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -110,11 +110,11 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculates basePoint and normal vector given plane coefficients
-		void calcPntAndVec(const scalarList& C);
+		FoamBase_EXPORT void calcPntAndVec(const scalarList& C);
 
 		//- Calculates basePoint and normal vector given three points
 		//- Normal vector determined using right hand rule
-		void calcPntAndVec
+		FoamBase_EXPORT void calcPntAndVec
 		(
 			const point& point1,
 			const point& point2,
@@ -127,13 +127,13 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from normal vector through the origin
-		explicit plane(const vector& normalVector);
+		FoamBase_EXPORT explicit plane(const vector& normalVector);
 
 		//- Construct from normal vector and point in plane
-		plane(const point& basePoint, const vector& normalVector);
+		FoamBase_EXPORT plane(const point& basePoint, const vector& normalVector);
 
 		//- Construct from three points in plane
-		plane
+		FoamBase_EXPORT plane
 		(
 			const point& point1,
 			const point& point2,
@@ -142,39 +142,39 @@ namespace tnbLib
 
 		//- Construct from coefficients for the
 		//  plane equation: ax + by + cz + d = 0
-		explicit plane(const scalarList& C);
+		FoamBase_EXPORT explicit plane(const scalarList& C);
 
 		//- Construct from dictionary
-		explicit plane(const dictionary& planeDict);
+		FoamBase_EXPORT explicit plane(const dictionary& planeDict);
 
 		//- Construct from Istream. Assumes the base + normal notation.
-		explicit plane(Istream& is);
+		FoamBase_EXPORT explicit plane(Istream& is);
 
 
 		// Member Functions
 
 			//- Return plane normal
-		const vector& normal() const;
+		FoamBase_EXPORT const vector& normal() const;
 
 		//- Return or return plane base point
-		const point& refPoint() const;
+		FoamBase_EXPORT const point& refPoint() const;
 
 		//- Return coefficients for the
 		//  plane equation: ax + by + cz + d = 0
-		FixedList<scalar, 4> planeCoeffs() const;
+		FoamBase_EXPORT FixedList<scalar, 4> planeCoeffs() const;
 
 		//- Return a point on the plane
-		point aPoint() const;
+		FoamBase_EXPORT point aPoint() const;
 
 		//- Return nearest point in the plane for the given point
-		point nearestPoint(const point& p) const;
+		FoamBase_EXPORT point nearestPoint(const point& p) const;
 
 		//- Return distance from the given point to the plane
-		scalar distance(const point& p) const;
+		FoamBase_EXPORT scalar distance(const point& p) const;
 
 		//- Return cut coefficient for plane and line defined by
 		//  origin and direction
-		scalar normalIntersect(const point& pnt0, const vector& dir) const;
+		FoamBase_EXPORT scalar normalIntersect(const point& pnt0, const vector& dir) const;
 
 		//- Return cut coefficient for plane and ray
 		scalar normalIntersect(const ray& r) const
@@ -192,32 +192,32 @@ namespace tnbLib
 
 		//- Return the cutting line between this plane and another.
 		//  Returned as direction vector and point line goes through.
-		ray planeIntersect(const plane&) const;
+		FoamBase_EXPORT ray planeIntersect(const plane&) const;
 
 		//- Return the cutting point between this plane and two other planes
-		point planePlaneIntersect(const plane&, const plane&) const;
+		FoamBase_EXPORT point planePlaneIntersect(const plane&, const plane&) const;
 
 		//- Return the side of the plane that the point is on.
 		//  If the point is on the plane, then returns NORMAL.
-		side sideOfPlane(const point& p) const;
+		FoamBase_EXPORT side sideOfPlane(const point& p) const;
 
 		//- Mirror the supplied point in the plane. Return the mirrored point.
-		point mirror(const point& p) const;
+		FoamBase_EXPORT point mirror(const point& p) const;
 
 		//- Write to dictionary
-		void writeDict(Ostream&) const;
+		FoamBase_EXPORT void writeDict(Ostream&) const;
 
 
 		// friend Operators
 
-		friend bool operator==(const plane&, const plane&);
-		friend bool operator!=(const plane&, const plane&);
+		friend FoamBase_EXPORT bool operator==(const plane&, const plane&);
+		friend FoamBase_EXPORT bool operator!=(const plane&, const plane&);
 
 
 		// IOstream Operators
 
 			//- Write plane properties
-		friend Ostream& operator<<(Ostream&, const plane&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const plane&);
 	};
 
 

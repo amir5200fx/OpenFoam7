@@ -82,20 +82,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("freestreamVelocity");
+		//TypeName("freestreamVelocity");
+		static const char* typeName_() { return "freestreamVelocity"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
-			//- Construct from patch and internal field
-		freestreamVelocityFvPatchVectorField
+		//- Construct from patch and internal field
+		FoamFiniteVolume_EXPORT freestreamVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		freestreamVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT freestreamVelocityFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -104,7 +108,7 @@ namespace tnbLib
 
 		//- Construct by mapping given freestreamVelocityFvPatchVectorField onto
 		//  a new patch
-		freestreamVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT freestreamVelocityFvPatchVectorField
 		(
 			const freestreamVelocityFvPatchVectorField&,
 			const fvPatch&,
@@ -113,7 +117,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		freestreamVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT freestreamVelocityFvPatchVectorField
 		(
 			const freestreamVelocityFvPatchVectorField&
 		);
@@ -128,7 +132,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		freestreamVelocityFvPatchVectorField
+		FoamFiniteVolume_EXPORT freestreamVelocityFvPatchVectorField
 		(
 			const freestreamVelocityFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -163,11 +167,11 @@ namespace tnbLib
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

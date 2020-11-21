@@ -104,6 +104,16 @@ SourceFiles
 #include <RASModel.hxx>
 #include <eddyViscosity.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define Foamv2f_EXPORT __declspec(dllexport)
+#else
+#ifdef Foamv2f_EXPORT_DEFINE
+#define Foamv2f_EXPORT __declspec(dllexport)
+#else
+#define Foamv2f_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -180,7 +190,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("v2f");
+			//TypeName("v2f");
+			static const char* typeName_() { return "v2f"; }
+			static Foamv2f_EXPORT const ::tnbLib::word typeName;
+			static Foamv2f_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

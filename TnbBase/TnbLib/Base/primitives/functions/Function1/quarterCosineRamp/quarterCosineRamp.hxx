@@ -61,13 +61,17 @@ namespace tnbLib
 		public:
 
 			// Runtime type information
-			TypeName("quarterCosineRamp");
+			//TypeName("quarterCosineRamp");
+			static const char* typeName_() { return "quarterCosineRamp"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from entry name and dictionary
-			quarterCosineRamp
+			FoamBase_EXPORT quarterCosineRamp
 			(
 				const word& entryName,
 				const dictionary& dict
@@ -75,7 +79,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~quarterCosineRamp();
+			FoamBase_EXPORT virtual ~quarterCosineRamp();
 
 
 			// Member Functions

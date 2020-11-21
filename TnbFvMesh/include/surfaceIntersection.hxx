@@ -110,10 +110,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Write point in obj format.
-		static void writeOBJ(const point& pt, Ostream& os);
+		static FoamFvMesh_EXPORT void writeOBJ(const point& pt, Ostream& os);
 
 		//- Write points and edges in obj format
-		static void writeOBJ
+		static FoamFvMesh_EXPORT void writeOBJ
 		(
 			const List<point>&,
 			const List<edge>&,
@@ -125,10 +125,10 @@ namespace tnbLib
 		static void transfer(List<DynamicList<T>>&, List<List<T>>&);
 
 		//- Get minimum length of all edges connected to point
-		static scalar minEdgeLen(const triSurface& surf, const label pointi);
+		static FoamFvMesh_EXPORT scalar minEdgeLen(const triSurface& surf, const label pointi);
 
 		//- Get edge label of edge between face vertices fp and fp+1
-		static label getEdge
+		static FoamFvMesh_EXPORT label getEdge
 		(
 			const triSurface& surf,
 			const label facei,
@@ -137,21 +137,21 @@ namespace tnbLib
 
 		//- Remove duplicates from ordered dynamic list. Returns map from old
 		//  to new (-1 if element removed)
-		static void removeDuplicates(const labelList& map, labelList& labels);
+		static FoamFvMesh_EXPORT void removeDuplicates(const labelList& map, labelList& labels);
 
 		//- Apply map to elements of a labelList
-		static void inlineRemap(const labelList& map, labelList& elems);
+		static FoamFvMesh_EXPORT void inlineRemap(const labelList& map, labelList& elems);
 
 		// Remove all duplicate and degenerate elements. Return unique elements
 		// and map from old to new.
-		static edgeList filterEdges(const edgeList&, labelList& map);
+		static FoamFvMesh_EXPORT edgeList filterEdges(const edgeList&, labelList& map);
 
 		//- Remove all duplicate elements.
-		static labelList filterLabels(const labelList& elems, labelList& map);
+		static FoamFvMesh_EXPORT labelList filterLabels(const labelList& elems, labelList& map);
 
 		//- Do some checks if edge and face (resulting from hit)
 		//  should not be considered. Returns true if can be discarded.
-		static bool excludeEdgeHit
+		static FoamFvMesh_EXPORT bool excludeEdgeHit
 		(
 			const triSurface& surf,
 			const label edgeI,
@@ -174,7 +174,7 @@ namespace tnbLib
 
 
 		//- Debugging: Dump intersected edges to stream
-		void writeIntersectedEdges
+		FoamFvMesh_EXPORT void writeIntersectedEdges
 		(
 			const triSurface& surf,
 			const labelListList& edgeCutVerts,
@@ -183,7 +183,7 @@ namespace tnbLib
 
 		//- Detect if point close to edge of end. Returns -1: not close.
 		//  0:close (within startTol) to start, 1:close (within endTol) to end
-		static label classify
+		static FoamFvMesh_EXPORT label classify
 		(
 			const scalar startTol,
 			const scalar endTol,
@@ -194,7 +194,7 @@ namespace tnbLib
 
 		//- Update reference between faceA and faceB. Updates facePairToVertex_
 		//  (first occurrence of face pair) and facePairToEdge_ (second occ.)
-		void storeIntersection
+		FoamFvMesh_EXPORT void storeIntersection
 		(
 			const bool isFirstSurf,
 			const labelList& facesA,
@@ -205,7 +205,7 @@ namespace tnbLib
 
 		//- Investigate pHit to whether is case of point hits point,
 		//  point hits edge, point hits face or edge hits face.
-		void classifyHit
+		FoamFvMesh_EXPORT void classifyHit
 		(
 			const triSurface& surf1,
 			const scalarField& surf1PointTol,
@@ -221,7 +221,7 @@ namespace tnbLib
 		);
 
 		//- Cut edges of surf1 with surface 2.
-		void doCutEdges
+		FoamFvMesh_EXPORT void doCutEdges
 		(
 			const triSurface& surf1,
 			const triSurfaceSearch& querySurf2,
@@ -236,18 +236,21 @@ namespace tnbLib
 
 	public:
 
-		ClassName("surfaceIntersection");
+		/*ClassName("surfaceIntersection");*/
+		static const char* typeName_() { return "surfaceIntersection"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct null
-		surfaceIntersection();
+		FoamFvMesh_EXPORT surfaceIntersection();
 
 		//- Construct from precalculated intersection information.
 		//  Advantage: intersection information is guaranteed to have no
 		//  degenerate cuts.
-		surfaceIntersection
+		FoamFvMesh_EXPORT surfaceIntersection
 		(
 			const triSurface& surf1,
 			const edgeIntersections& intersections1,
@@ -257,7 +260,7 @@ namespace tnbLib
 
 		//- Construct from two surfaces. Does all its own cutting.
 		//  Has problems with degenerate cuts
-		surfaceIntersection
+		FoamFvMesh_EXPORT surfaceIntersection
 		(
 			const triSurfaceSearch& querySurf1,
 			const triSurfaceSearch& querySurf2
@@ -265,26 +268,26 @@ namespace tnbLib
 
 		//- Special: intersect surface with itself. Used to check for
 		//  self-intersection.
-		surfaceIntersection(const triSurfaceSearch& querySurf1);
+		FoamFvMesh_EXPORT surfaceIntersection(const triSurfaceSearch& querySurf1);
 
 
 		// Member Functions
 
-		const pointField& cutPoints() const;
+		FoamFvMesh_EXPORT const pointField& cutPoints() const;
 
-		const edgeList& cutEdges() const;
+		FoamFvMesh_EXPORT const edgeList& cutEdges() const;
 
-		const labelPairLookup& facePairToVertex() const;
+		FoamFvMesh_EXPORT const labelPairLookup& facePairToVertex() const;
 
-		const labelPairLookup& facePairToEdge() const;
+		FoamFvMesh_EXPORT const labelPairLookup& facePairToEdge() const;
 
 		//- Access either surf1EdgeCuts (isFirstSurface = true) or
 		//  surf2EdgeCuts
-		const labelListList& edgeCuts(const bool) const;
+		FoamFvMesh_EXPORT const labelListList& edgeCuts(const bool) const;
 
-		const labelListList& surf1EdgeCuts() const;
+		FoamFvMesh_EXPORT const labelListList& surf1EdgeCuts() const;
 
-		const labelListList& surf2EdgeCuts() const;
+		FoamFvMesh_EXPORT const labelListList& surf2EdgeCuts() const;
 	};
 
 

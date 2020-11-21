@@ -36,6 +36,16 @@ Description
 
 #include <StochasticCollisionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamSuppressionCollision_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSuppressionCollision_EXPORT_DEFINE
+#define FoamSuppressionCollision_EXPORT __declspec(dllexport)
+#else
+#define FoamSuppressionCollision_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -73,7 +83,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("suppressionCollision");
+		//TypeName("suppressionCollision");
+		static const char* typeName_() { return "suppressionCollision"; }
+		static FoamSuppressionCollision_EXPORT const ::tnbLib::word typeName;
+		static FoamSuppressionCollision_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

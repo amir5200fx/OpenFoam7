@@ -131,7 +131,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Calculate region split in non-compact (global) numbering.
-		void calcNonCompactRegionSplit
+		FoamFvMesh_EXPORT void calcNonCompactRegionSplit
 		(
 			const globalIndex& globalFaces,
 			const boolList& blockedFace,
@@ -140,7 +140,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculate global region split. Return globalIndex.
-		autoPtr<globalIndex> calcRegionSplit
+		FoamFvMesh_EXPORT autoPtr<globalIndex> calcRegionSplit
 		(
 			const bool doGlobalRegions,
 			const boolList& blockedFace,
@@ -152,13 +152,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("regionSplit");
+		/*ClassName("regionSplit");*/
+		static const char* typeName_() { return "regionSplit"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh
-		regionSplit
+		FoamFvMesh_EXPORT regionSplit
 		(
 			const polyMesh&,
 			const bool doGlobalRegions = Pstream::parRun()
@@ -166,7 +169,7 @@ namespace tnbLib
 
 		//- Construct from mesh and whether face is blocked
 		//  NOTE: blockedFace has to be consistent across coupled faces!
-		regionSplit
+		FoamFvMesh_EXPORT regionSplit
 		(
 			const polyMesh&,
 			const boolList& blockedFace,
@@ -176,7 +179,7 @@ namespace tnbLib
 		//- Construct from mesh and whether face is blocked. Additional explicit
 		//  connections between normal boundary faces.
 		//  NOTE: blockedFace has to be consistent across coupled faces!
-		regionSplit
+		FoamFvMesh_EXPORT regionSplit
 		(
 			const polyMesh&,
 			const boolList& blockedFace,

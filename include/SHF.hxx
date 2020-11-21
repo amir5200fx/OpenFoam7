@@ -46,6 +46,16 @@ Description
 
 #include <vector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamSHF_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSHF_EXPORT_DEFINE
+#define FoamSHF_EXPORT __declspec(dllexport)
+#else
+#define FoamSHF_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -108,7 +118,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("SHF");
+		//TypeName("SHF");
+		static const char* typeName_() { return "SHF"; }
+		static FoamSHF_EXPORT const ::tnbLib::word typeName;
+		static FoamSHF_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

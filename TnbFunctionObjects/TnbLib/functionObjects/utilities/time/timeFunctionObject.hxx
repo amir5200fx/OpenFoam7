@@ -93,19 +93,23 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- Output file header information
-			virtual void writeFileHeader(const label i);
+			FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("time");
+			//TypeName("time");
+			static const char* typeName_() { return "time"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			time
+			FoamFunctionObjects_EXPORT time
 			(
 				const word& name,
 				const Time& runTime,
@@ -113,29 +117,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			time(const time&) = delete;
+			FoamFunctionObjects_EXPORT time(const time&) = delete;
 
 
 			//- Destructor
-			virtual ~time();
+			FoamFunctionObjects_EXPORT virtual ~time();
 
 
 			// Member Functions
 
 				//- Read the controls
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Execute, currently does nothing
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the time
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const time&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const time&) = delete;
 		};
 
 

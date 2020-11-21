@@ -41,6 +41,16 @@ SourceFiles
 
 #include <GeometricFieldFunctions.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamBlended_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamBlended_EXPORT_DEFINE
+#define FoamBlended_EXPORT __declspec(dllexport)
+#else
+#define FoamBlended_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -64,7 +74,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("blended");
+		/*TypeName("blended");*/
+		static const char* typeName_() { return "blended"; }
+		static FoamBlended_EXPORT const ::tnbLib::word typeName;
+		static FoamBlended_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

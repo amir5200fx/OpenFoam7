@@ -78,10 +78,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Convert ordering string ("xyz") into list of components.
-		void setDecompOrder();
+		FoamParallel_EXPORT void setDecompOrder();
 
 		//- Evaluates the weighted sizes for each sorted point.
-		static void calculateSortedWeightedSizes
+		static FoamParallel_EXPORT void calculateSortedWeightedSizes
 		(
 			const labelList& current,
 			const labelList& indices,
@@ -92,7 +92,7 @@ namespace tnbLib
 		);
 
 		//- Find index of t in list in between indices left and right
-		static label findLower
+		static FoamParallel_EXPORT label findLower
 		(
 			const List<scalar>&,
 			const scalar t,
@@ -103,7 +103,7 @@ namespace tnbLib
 		//- Find midValue (at local index mid) such that the number of
 		//  elements between mid and leftIndex are (globally summed) the
 		//  wantedSize. Binary search.
-		static void findBinary
+		static FoamParallel_EXPORT void findBinary
 		(
 			const label sizeTol,        // size difference considered acceptable
 			const List<scalar>&,
@@ -118,7 +118,7 @@ namespace tnbLib
 		//- Find midValue (at local index mid) such that the number of
 		//  elements between mid and leftIndex are (globally summed) the
 		//  wantedSize. Binary search.
-		static void findBinary
+		static FoamParallel_EXPORT void findBinary
 		(
 			const label sizeTol,        // size difference considered acceptable
 			const List<scalar>& sortedWeightedSizes,
@@ -132,7 +132,7 @@ namespace tnbLib
 		);
 
 		//- Recursively sort in x,y,z (or rather acc. to decompOrder_)
-		void sortComponent
+		FoamParallel_EXPORT void sortComponent
 		(
 			const label sizeTol,
 			const pointField&,
@@ -144,7 +144,7 @@ namespace tnbLib
 
 		//- Recursively sort in x,y,z (or rather acc. to decompOrder_)
 		//- Using weighted points.
-		void sortComponent
+		FoamParallel_EXPORT void sortComponent
 		(
 			const label sizeTol,
 			const scalarField& weights,
@@ -159,16 +159,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("hierarchical");
+		//TypeName("hierarchical");
+		static const char* typeName_() { return "hierarchical"; }
+		static FoamParallel_EXPORT const ::tnbLib::word typeName;
+		static FoamParallel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given the decomposition dictionary
-		hierarchGeomDecomp(const dictionary& decompositionDict);
+		FoamParallel_EXPORT hierarchGeomDecomp(const dictionary& decompositionDict);
 
 		//- Disallow default bitwise copy construction
-		hierarchGeomDecomp(const hierarchGeomDecomp&) = delete;
+		FoamParallel_EXPORT hierarchGeomDecomp(const hierarchGeomDecomp&) = delete;
 
 
 		//- Destructor
@@ -185,7 +189,7 @@ namespace tnbLib
 		}
 
 		//- Return for every coordinate the wanted processor number.
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const pointField&,
 			const scalarField& weights
@@ -193,7 +197,7 @@ namespace tnbLib
 
 		//- Without weights. Code for weighted decomposition is a bit complex
 		//  so kept separate for now.
-		virtual labelList decompose(const pointField&);
+		FoamParallel_EXPORT virtual labelList decompose(const pointField&);
 
 
 		//- Return for every coordinate the wanted processor number. Use the
@@ -245,7 +249,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const hierarchGeomDecomp&) = delete;
+		FoamParallel_EXPORT void operator=(const hierarchGeomDecomp&) = delete;
 	};
 
 

@@ -16,37 +16,37 @@ const char* const tnbLib::floatTensor::vsType::componentNames[] =
 template<>
 const tnbLib::floatTensor tnbLib::floatTensor::vsType::zero
 (
-	floatTensor::uniform(0)
+	tnbLib::floatTensor::uniform(0)
 );
 
 template<>
 const tnbLib::floatTensor tnbLib::floatTensor::vsType::one
 (
-	floatTensor::uniform(1)
+	tnbLib::floatTensor::uniform(1)
 );
 
 template<>
 const tnbLib::floatTensor tnbLib::floatTensor::vsType::max
 (
-	floatTensor::uniform(floatScalarVGreat)
+	tnbLib::floatTensor::uniform(tnbLib::floatScalarVGreat)
 );
 
 template<>
 const tnbLib::floatTensor tnbLib::floatTensor::vsType::min
 (
-	floatTensor::uniform(-floatScalarVGreat)
+	tnbLib::floatTensor::uniform(-tnbLib::floatScalarVGreat)
 );
 
 template<>
 const tnbLib::floatTensor tnbLib::floatTensor::vsType::rootMax
 (
-	floatTensor::uniform(floatScalarRootVGreat)
+	tnbLib::floatTensor::uniform(tnbLib::floatScalarRootVGreat)
 );
 
 template<>
 const tnbLib::floatTensor tnbLib::floatTensor::vsType::rootMin
 (
-	floatTensor::uniform(-floatScalarRootVGreat)
+	tnbLib::floatTensor::uniform(-tnbLib::floatScalarRootVGreat)
 );
 
 template<>

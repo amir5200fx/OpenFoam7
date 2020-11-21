@@ -38,6 +38,16 @@ SourceFiles
 
 #include <LiftForce.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamSaffmanMeiLiftForce_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSaffmanMeiLiftForce_EXPORT_DEFINE
+#define FoamSaffmanMeiLiftForce_EXPORT __declspec(dllexport)
+#else
+#define FoamSaffmanMeiLiftForce_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -70,7 +80,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("SaffmanMeiLiftForce");
+		//TypeName("SaffmanMeiLiftForce");
+		static const char* typeName_() { return "SaffmanMeiLiftForce"; }
+		static FoamSaffmanMeiLiftForce_EXPORT const ::tnbLib::word typeName;
+		static FoamSaffmanMeiLiftForce_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

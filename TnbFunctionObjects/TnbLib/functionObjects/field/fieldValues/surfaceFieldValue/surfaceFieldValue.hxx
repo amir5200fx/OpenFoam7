@@ -201,7 +201,7 @@ namespace tnbLib
 				};
 
 				//- region type names
-				static const NamedEnum<regionTypes, 3> regionTypeNames_;
+				static FoamFunctionObjects_EXPORT const NamedEnum<regionTypes, 3> regionTypeNames_;
 
 
 				//- Operation type enumeration
@@ -227,7 +227,7 @@ namespace tnbLib
 				};
 
 				//- Operation type names
-				static const NamedEnum<operationType, 17> operationTypeNames_;
+				static FoamFunctionObjects_EXPORT const NamedEnum<operationType, 17> operationTypeNames_;
 
 
 			private:
@@ -235,30 +235,30 @@ namespace tnbLib
 				// Private Member Functions
 
 					//- Set faces to evaluate based on a face zone
-				void setFaceZoneFaces();
+				FoamFunctionObjects_EXPORT void setFaceZoneFaces();
 
 				//- Set faces to evaluate based on a patch
-				void setPatchFaces();
+				FoamFunctionObjects_EXPORT void setPatchFaces();
 
 				//- Set faces according to sampledSurface
-				void sampledSurfaceFaces(const dictionary&);
+				FoamFunctionObjects_EXPORT void sampledSurfaceFaces(const dictionary&);
 
 				//- Combine mesh faces and points from multiple processors
-				void combineMeshGeometry
+				FoamFunctionObjects_EXPORT void combineMeshGeometry
 				(
 					faceList& faces,
 					pointField& points
 				) const;
 
 				//- Combine surface faces and points from multiple processors
-				void combineSurfaceGeometry
+				FoamFunctionObjects_EXPORT void combineSurfaceGeometry
 				(
 					faceList& faces,
 					pointField& points
 				) const;
 
 				//- Calculate and return total area of the surfaceFieldValue: sum(magSf)
-				scalar totalArea() const;
+				FoamFunctionObjects_EXPORT scalar totalArea() const;
 
 
 			protected:
@@ -318,7 +318,7 @@ namespace tnbLib
 				// Protected Member Functions
 
 					//- Initialise, e.g. face addressing
-				void initialise(const dictionary& dict);
+				FoamFunctionObjects_EXPORT void initialise(const dictionary& dict);
 
 				//- Return true if the field name is valid
 				template<class Type>
@@ -354,19 +354,23 @@ namespace tnbLib
 				) const;
 
 				//- Output file header information
-				virtual void writeFileHeader(const label i);
+				FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i);
 
 
 			public:
 
 				//- Run-time type information
-				TypeName("surfaceFieldValue");
+				//TypeName("surfaceFieldValue");
+				static const char* typeName_() { return "surfaceFieldValue"; }
+				static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+				static FoamFunctionObjects_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from name, Time and dictionary
-				surfaceFieldValue
+				FoamFunctionObjects_EXPORT surfaceFieldValue
 				(
 					const word& name,
 					const Time& runTime,
@@ -374,7 +378,7 @@ namespace tnbLib
 				);
 
 				//- Construct from name, objectRegistry and dictionary
-				surfaceFieldValue
+				FoamFunctionObjects_EXPORT surfaceFieldValue
 				(
 					const word& name,
 					const objectRegistry& obr,
@@ -383,7 +387,7 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~surfaceFieldValue();
+				FoamFunctionObjects_EXPORT virtual ~surfaceFieldValue();
 
 
 				// Public Member Functions
@@ -429,16 +433,16 @@ namespace tnbLib
 				) const;
 
 				//- Read from dictionary
-				virtual bool read(const dictionary&);
+				FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 				//- Calculate and write
-				virtual bool write();
+				FoamFunctionObjects_EXPORT virtual bool write();
 			};
 
 
 			//- Specialisation for scalar
 			template<>
-			scalar surfaceFieldValue::processValues
+			FoamFunctionObjects_EXPORT scalar surfaceFieldValue::processValues
 			(
 				const Field<scalar>& values,
 				const vectorField& Sf,
@@ -448,7 +452,7 @@ namespace tnbLib
 
 			//- Specialisation for vector
 			template<>
-			vector surfaceFieldValue::processValues
+			FoamFunctionObjects_EXPORT vector surfaceFieldValue::processValues
 			(
 				const Field<vector>& values,
 				const vectorField& Sf,
@@ -469,8 +473,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <surfaceFieldValueTemplates.cxx>
+//#include <surfaceFieldValueTemplates.cxx>
 #endif
+
+#include <surfaceFieldValueTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

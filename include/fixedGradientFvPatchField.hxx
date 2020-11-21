@@ -66,6 +66,16 @@ SourceFiles
 
 #include <fvPatchField.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamFixedGradientFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamFixedGradientFvPatchField_EXPORT_DEFINE
+#define FoamFixedGradientFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamFixedGradientFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -88,7 +98,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("fixedGradient");
+		//TypeName("fixedGradient");
+		static const char* typeName_() { return "fixedGradient"; }
+		static FoamFixedGradientFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamFixedGradientFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

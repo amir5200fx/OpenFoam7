@@ -58,7 +58,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("lduInterface");
+		//TypeName("lduInterface");
+		static const char* typeName_() { return "lduInterface"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
@@ -68,11 +72,11 @@ namespace tnbLib
 		{}
 
 		//- Disallow default bitwise copy construction
-		lduInterface(const lduInterface&) = delete;
+		FoamBase_EXPORT lduInterface(const lduInterface&) = delete;
 
 
 		//- Destructor
-		virtual ~lduInterface();
+		FoamBase_EXPORT virtual ~lduInterface();
 
 
 		// Member Functions
@@ -80,14 +84,14 @@ namespace tnbLib
 			// Access
 
 				//- Return faceCell addressing
-		virtual const labelUList& faceCells() const = 0;
+		FoamBase_EXPORT virtual const labelUList& faceCells() const = 0;
 
 
 		// Interface transfer functions
 
 			//- Return the values of the given internal data adjacent to
 			//  the interface as a field
-		virtual tmp<labelField> interfaceInternalField
+		FoamBase_EXPORT virtual tmp<labelField> interfaceInternalField
 		(
 			const labelUList& internalData
 		) const = 0;
@@ -101,7 +105,7 @@ namespace tnbLib
 		{}
 
 		//- Transfer and return internal field adjacent to the interface
-		virtual tmp<labelField> internalFieldTransfer
+		FoamBase_EXPORT virtual tmp<labelField> internalFieldTransfer
 		(
 			const Pstream::commsTypes commsType,
 			const labelUList& iF
@@ -111,7 +115,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const lduInterface&) = delete;
+		FoamBase_EXPORT void operator=(const lduInterface&) = delete;
 	};
 
 

@@ -85,20 +85,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("surfaceNormalFixedValue");
+		/*TypeName("surfaceNormalFixedValue");*/
+		static const char* typeName_() { return "surfaceNormalFixedValue"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		surfaceNormalFixedValueFvPatchVectorField
+		FoamFiniteVolume_EXPORT surfaceNormalFixedValueFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		surfaceNormalFixedValueFvPatchVectorField
+		FoamFiniteVolume_EXPORT surfaceNormalFixedValueFvPatchVectorField
 		(
 			const fvPatch&,
 			const DimensionedField<vector, volMesh>&,
@@ -108,7 +112,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  surfaceNormalFixedValueFvPatchVectorField
 		//  onto a new patch
-		surfaceNormalFixedValueFvPatchVectorField
+		FoamFiniteVolume_EXPORT surfaceNormalFixedValueFvPatchVectorField
 		(
 			const surfaceNormalFixedValueFvPatchVectorField&,
 			const fvPatch&,
@@ -117,7 +121,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		surfaceNormalFixedValueFvPatchVectorField
+		FoamFiniteVolume_EXPORT surfaceNormalFixedValueFvPatchVectorField
 		(
 			const surfaceNormalFixedValueFvPatchVectorField&
 		);
@@ -132,7 +136,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		surfaceNormalFixedValueFvPatchVectorField
+		FoamFiniteVolume_EXPORT surfaceNormalFixedValueFvPatchVectorField
 		(
 			const surfaceNormalFixedValueFvPatchVectorField&,
 			const DimensionedField<vector, volMesh>&
@@ -157,25 +161,25 @@ namespace tnbLib
 
 		// Member Functions
 
-			// Mapping functions
+		// Mapping functions
 
-				//- Map (and resize as needed) from self given a mapping object
-				//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		//- Map (and resize as needed) from self given a mapping object
+		//  Used to update fields following mesh topology change
+		FoamFiniteVolume_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchVectorField&, const labelList&);
+		FoamFiniteVolume_EXPORT virtual void rmap(const fvPatchVectorField&, const labelList&);
 
 
 		// Evaluation functions
 
-			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		//- Update the coefficients associated with the patch field
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

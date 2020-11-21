@@ -336,7 +336,7 @@ bool tnbLib::polyTopoChanger::operator==(const polyTopoChanger& me) const
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const polyTopoChanger& mme)
+FoamDynamicMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const polyTopoChanger& mme)
 {
 	os << mme.size() << nl << token::BEGIN_LIST;
 

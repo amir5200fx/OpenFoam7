@@ -57,7 +57,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- Wanted volume
 		const scalar vol_;
@@ -71,27 +71,31 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		scalar volumeOfSet(const PackedBoolList&) const;
+		FoamFvMesh_EXPORT scalar volumeOfSet(const PackedBoolList&) const;
 
-		label selectCells
+		FoamFvMesh_EXPORT label selectCells
 		(
 			const scalar normalComp,
 			const PackedBoolList&,
 			PackedBoolList& selected
 		) const;
 
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("targetVolumeToCell");
+		/*TypeName("targetVolumeToCell");*/
+		static const char* typeName_() { return "targetVolumeToCell"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		targetVolumeToCell
+		FoamFvMesh_EXPORT targetVolumeToCell
 		(
 			const polyMesh& mesh,
 			const scalar vol,
@@ -99,14 +103,14 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		targetVolumeToCell
+		FoamFvMesh_EXPORT targetVolumeToCell
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		targetVolumeToCell
+		FoamFvMesh_EXPORT targetVolumeToCell
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -114,7 +118,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~targetVolumeToCell();
+		FoamFvMesh_EXPORT virtual ~targetVolumeToCell();
 
 
 		// Member Functions
@@ -124,7 +128,7 @@ namespace tnbLib
 			return CELLSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

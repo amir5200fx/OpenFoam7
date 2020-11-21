@@ -92,7 +92,7 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Sets sample data
-		void setSamples
+		FoamSampling_EXPORT void setSamples
 		(
 			const List<point>& samplingPts,
 			const labelList& samplingCells,
@@ -105,12 +105,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("sampledSet");
+		//TypeName("sampledSet");
+		static const char* typeName_() { return "sampledSet"; }
+		static FoamSampling_EXPORT const ::tnbLib::word typeName;
+		static FoamSampling_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			sampledSet,
@@ -122,7 +126,61 @@ namespace tnbLib
 				const dictionary& dict
 				),
 				(name, mesh, searchEngine, dict)
-		);
+		);*/
+
+		typedef autoPtr<sampledSet> (*wordConstructorPtr)(const word& name, const polyMesh& mesh,
+		                                                  const meshSearch& searchEngine, const dictionary& dict);
+		typedef HashTable<wordConstructorPtr, word, string::hash> wordConstructorTable;
+		static FoamSampling_EXPORT wordConstructorTable* wordConstructorTablePtr_;
+		static FoamSampling_EXPORT void constructwordConstructorTables();
+		static FoamSampling_EXPORT void destroywordConstructorTables();
+
+		template <class sampledSetType>
+		class addwordConstructorToTable
+		{
+		public:
+			static autoPtr<sampledSet> New(const word& name, const polyMesh& mesh, const meshSearch& searchEngine,
+			                               const dictionary& dict)
+			{
+				return autoPtr<sampledSet>(new sampledSetType(name, mesh, searchEngine, dict));
+			}
+
+			addwordConstructorToTable(const word& lookup = sampledSetType::typeName)
+			{
+				constructwordConstructorTables();
+				if (!wordConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "sampledSet" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addwordConstructorToTable() { destroywordConstructorTables(); }
+		};
+
+		template <class sampledSetType>
+		class addRemovablewordConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<sampledSet> New(const word& name, const polyMesh& mesh, const meshSearch& searchEngine,
+			                               const dictionary& dict)
+			{
+				return autoPtr<sampledSet>(new sampledSetType(name, mesh, searchEngine, dict));
+			}
+
+			addRemovablewordConstructorToTable(const word& lookup = sampledSetType::typeName) : lookup_(lookup)
+			{
+				constructwordConstructorTables();
+				wordConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablewordConstructorToTable()
+			{
+				if (wordConstructorTablePtr_) { wordConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		//- Class used for the read-construction of
@@ -152,7 +210,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		sampledSet
+		FoamSampling_EXPORT sampledSet
 		(
 			const word& name,
 			const polyMesh& mesh,
@@ -161,7 +219,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		sampledSet
+		FoamSampling_EXPORT sampledSet
 		(
 			const word& name,
 			const polyMesh& mesh,
@@ -180,7 +238,7 @@ namespace tnbLib
 		// Selectors
 
 			//- Return a reference to the selected sampledSet
-		static autoPtr<sampledSet> New
+		static FoamSampling_EXPORT autoPtr<sampledSet> New
 		(
 			const word& name,
 			const polyMesh& mesh,
@@ -190,7 +248,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~sampledSet();
+		FoamSampling_EXPORT virtual ~sampledSet();
 
 
 		// Member Functions
@@ -221,7 +279,7 @@ namespace tnbLib
 		}
 
 		//- Output for debugging
-		Ostream& write(Ostream&) const;
+		FoamSampling_EXPORT Ostream& write(Ostream&) const;
 	};
 
 

@@ -69,10 +69,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Append the given tokens starting at the current tokenIndex
-		void append(const UList<token>&);
+		FoamBase_EXPORT void append(const UList<token>&);
 
 		//- Append the given token to this entry
-		void append
+		FoamBase_EXPORT void append
 		(
 			const token& currToken,
 			const dictionary&,
@@ -80,10 +80,10 @@ namespace tnbLib
 		);
 
 		//- Expand the given variable (keyword starts with $)
-		bool expandVariable(const string&, const dictionary&);
+		FoamBase_EXPORT bool expandVariable(const string&, const dictionary&);
 
 		//- Expand the given function (keyword starts with #)
-		bool expandFunction
+		FoamBase_EXPORT bool expandFunction
 		(
 			const word&,
 			const dictionary&,
@@ -91,7 +91,7 @@ namespace tnbLib
 		);
 
 		//- Read the complete entry from the given stream
-		void readEntry(const dictionary&, Istream&);
+		FoamBase_EXPORT void readEntry(const dictionary&, Istream&);
 
 
 	public:
@@ -99,22 +99,22 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from keyword and a Istream
-		primitiveEntry(const keyType&, Istream&);
+		FoamBase_EXPORT primitiveEntry(const keyType&, Istream&);
 
 		//- Construct from keyword, parent dictionary and Istream
-		primitiveEntry(const keyType&, const dictionary& parentDict, Istream&);
+		FoamBase_EXPORT primitiveEntry(const keyType&, const dictionary& parentDict, Istream&);
 
 		//- Construct from keyword and a ITstream
-		primitiveEntry(const keyType&, const ITstream&);
+		FoamBase_EXPORT primitiveEntry(const keyType&, const ITstream&);
 
 		//- Construct from keyword and a single token
-		primitiveEntry(const keyType&, const token&);
+		FoamBase_EXPORT primitiveEntry(const keyType&, const token&);
 
 		//- Construct from keyword and a list of tokens
-		primitiveEntry(const keyType&, const UList<token>&);
+		FoamBase_EXPORT primitiveEntry(const keyType&, const UList<token>&);
 
 		//- Move construct from keyword and by transferring a list of tokens
-		primitiveEntry(const keyType&, List<token>&&);
+		FoamBase_EXPORT primitiveEntry(const keyType&, List<token>&&);
 
 		//- Construct from keyword and a T
 		template<class T>
@@ -144,10 +144,10 @@ namespace tnbLib
 		}
 
 		//- Return line number of first token in dictionary
-		label startLineNumber() const;
+		FoamBase_EXPORT label startLineNumber() const;
 
 		//- Return line number of last token in dictionary
-		label endLineNumber() const;
+		FoamBase_EXPORT label endLineNumber() const;
 
 		//- Return true because this entry is a stream
 		bool isStream() const
@@ -156,24 +156,24 @@ namespace tnbLib
 		}
 
 		//- Return token stream if this entry is a primitive entry
-		ITstream& stream() const;
+		FoamBase_EXPORT ITstream& stream() const;
 
 		//- This entry is not a dictionary,
 		//  calling this function generates a FatalError
-		const dictionary& dict() const;
+		FoamBase_EXPORT const dictionary& dict() const;
 
 		//- This entry is not a dictionary,
 		//  calling this function generates a FatalError
-		dictionary& dict();
+		FoamBase_EXPORT dictionary& dict();
 
 		//- Read tokens from the given stream
-		virtual bool read(const dictionary&, Istream&);
+		FoamBase_EXPORT virtual bool read(const dictionary&, Istream&);
 
 		//- Write
-		void write(Ostream&) const;
+		FoamBase_EXPORT void write(Ostream&) const;
 
 		//- Write, optionally with contents only (no keyword, etc)
-		void write(Ostream&, const bool contentsOnly) const;
+		FoamBase_EXPORT void write(Ostream&, const bool contentsOnly) const;
 
 		//- Return info proxy.
 		//  Used to print token information to a stream
@@ -185,7 +185,7 @@ namespace tnbLib
 
 
 	template<>
-	Ostream& operator<<(Ostream&, const InfoProxy<primitiveEntry>&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const InfoProxy<primitiveEntry>&);
 
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

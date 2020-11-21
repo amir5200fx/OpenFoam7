@@ -63,14 +63,14 @@ namespace tnbLib
 			static Type parse(const string&);
 
 			//- Read cmd, args from IFstream
-			static bool readCmd(IFstream&, string& cmd, string& args);
+			static FoamFvMesh_EXPORT bool readCmd(IFstream&, string& cmd, string& args);
 
 			//- Cue up to cmd, reading args
-			static bool cueTo(IFstream&, const string& cmd, string& args);
+			static FoamFvMesh_EXPORT bool cueTo(IFstream&, const string& cmd, string& args);
 
 			//- Cue up to cmd, reading args or exit with a FatalError
 			//  returns the command args
-			static string cueToOrDie
+			static FoamFvMesh_EXPORT string cueToOrDie
 			(
 				IFstream&,
 				const string& cmd,
@@ -78,7 +78,7 @@ namespace tnbLib
 			);
 
 			//- Write header with materials
-			static void writeHeader(Ostream&, const UList<surfZone>&);
+			static FoamFvMesh_EXPORT void writeHeader(Ostream&, const UList<surfZone>&);
 		};
 
 

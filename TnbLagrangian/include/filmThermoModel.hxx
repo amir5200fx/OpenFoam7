@@ -60,12 +60,16 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("filmThermoModel");
+				//TypeName("filmThermoModel");
+				static const char* typeName_() { return "filmThermoModel"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Declare runtime constructor selection table
 
-				declareRunTimeSelectionTable
+				/*declareRunTimeSelectionTable
 				(
 					autoPtr,
 					filmThermoModel,
@@ -75,15 +79,68 @@ namespace tnbLib
 						const dictionary& dict
 						),
 						(film, dict)
-				);
+				);*/
+
+				typedef autoPtr<filmThermoModel> (*dictionaryConstructorPtr)(
+					surfaceFilmRegionModel& film, const dictionary& dict);
+				typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+				static FoamLagrangian_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+				static FoamLagrangian_EXPORT void constructdictionaryConstructorTables();
+				static FoamLagrangian_EXPORT void destroydictionaryConstructorTables();
+
+				template <class filmThermoModelType>
+				class adddictionaryConstructorToTable
+				{
+				public:
+					static autoPtr<filmThermoModel> New(surfaceFilmRegionModel& film, const dictionary& dict)
+					{
+						return autoPtr<filmThermoModel>(new filmThermoModelType(film, dict));
+					}
+
+					adddictionaryConstructorToTable(const word& lookup = filmThermoModelType::typeName)
+					{
+						constructdictionaryConstructorTables();
+						if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+						{
+							std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+								"filmThermoModel" << std::endl;
+							error::safePrintStack(std::cerr);
+						}
+					}
+
+					~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+				};
+
+				template <class filmThermoModelType>
+				class addRemovabledictionaryConstructorToTable
+				{
+					const word& lookup_;
+				public:
+					static autoPtr<filmThermoModel> New(surfaceFilmRegionModel& film, const dictionary& dict)
+					{
+						return autoPtr<filmThermoModel>(new filmThermoModelType(film, dict));
+					}
+
+					addRemovabledictionaryConstructorToTable(
+						const word& lookup = filmThermoModelType::typeName) : lookup_(lookup)
+					{
+						constructdictionaryConstructorTables();
+						dictionaryConstructorTablePtr_->set(lookup, New);
+					}
+
+					~addRemovabledictionaryConstructorToTable()
+					{
+						if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+					}
+				};
 
 				// Constructors
 
 					//- Construct null
-				filmThermoModel(surfaceFilmRegionModel& film);
+				FoamLagrangian_EXPORT filmThermoModel(surfaceFilmRegionModel& film);
 
 				//- Construct from type name, dictionary and surface film model
-				filmThermoModel
+				FoamLagrangian_EXPORT filmThermoModel
 				(
 					const word& modelType,
 					surfaceFilmRegionModel& film,
@@ -91,13 +148,13 @@ namespace tnbLib
 				);
 
 				//- Disallow default bitwise copy construction
-				filmThermoModel(const filmThermoModel&) = delete;
+				FoamLagrangian_EXPORT filmThermoModel(const filmThermoModel&) = delete;
 
 
 				// Selectors
 
 					//- Return a reference to the selected phase change model
-				static autoPtr<filmThermoModel> New
+				static FoamLagrangian_EXPORT autoPtr<filmThermoModel> New
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
@@ -105,70 +162,70 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~filmThermoModel();
+				FoamLagrangian_EXPORT virtual ~filmThermoModel();
 
 
 				// Member Functions
 
 					//- Return the specie name
-				virtual const word& name() const = 0;
+				FoamLagrangian_EXPORT virtual const word& name() const = 0;
 
 
 				// Elemental access
 
 					//- Return density [kg/m^3]
-				virtual scalar rho(const scalar p, const scalar T) const = 0;
+				FoamLagrangian_EXPORT virtual scalar rho(const scalar p, const scalar T) const = 0;
 
 				//- Return dynamic viscosity [Pa.s]
-				virtual scalar mu(const scalar p, const scalar T) const = 0;
+				FoamLagrangian_EXPORT virtual scalar mu(const scalar p, const scalar T) const = 0;
 
 				//- Return surface tension [kg/s^2]
-				virtual scalar sigma(const scalar p, const scalar T) const = 0;
+				FoamLagrangian_EXPORT virtual scalar sigma(const scalar p, const scalar T) const = 0;
 
 				//- Return specific heat capacity [J/kg/K]
-				virtual scalar Cp(const scalar p, const scalar T) const = 0;
+				FoamLagrangian_EXPORT virtual scalar Cp(const scalar p, const scalar T) const = 0;
 
 				//- Return thermal conductivity [W/m/K]
-				virtual scalar kappa(const scalar p, const scalar T) const = 0;
+				FoamLagrangian_EXPORT virtual scalar kappa(const scalar p, const scalar T) const = 0;
 
 				//- Return diffusivity [m2/s]
-				virtual scalar D(const scalar p, const scalar T) const = 0;
+				FoamLagrangian_EXPORT virtual scalar D(const scalar p, const scalar T) const = 0;
 
 				//- Return latent heat [J/kg]
-				virtual scalar hl(const scalar p, const scalar T) const = 0;
+				FoamLagrangian_EXPORT virtual scalar hl(const scalar p, const scalar T) const = 0;
 
 				//- Return vapour pressure [Pa]
-				virtual scalar pv(const scalar p, const scalar T) const = 0;
+				FoamLagrangian_EXPORT virtual scalar pv(const scalar p, const scalar T) const = 0;
 
 				//- Return molecular weight [kg/kmol]
-				virtual scalar W() const = 0;
+				FoamLagrangian_EXPORT virtual scalar W() const = 0;
 
 				//- Return boiling temperature [K]
-				virtual scalar Tb(const scalar p) const = 0;
+				FoamLagrangian_EXPORT virtual scalar Tb(const scalar p) const = 0;
 
 
 				// Field access
 
 					//- Return density [kg/m^3]
-				virtual tmp<volScalarField> rho() const = 0;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> rho() const = 0;
 
 				//- Return dynamic viscosity [Pa.s]
-				virtual tmp<volScalarField> mu() const = 0;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> mu() const = 0;
 
 				//- Return surface tension [kg/s^2]
-				virtual tmp<volScalarField> sigma() const = 0;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> sigma() const = 0;
 
 				//- Return specific heat capacity [J/kg/K]
-				virtual tmp<volScalarField> Cp() const = 0;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> Cp() const = 0;
 
 				//- Return thermal conductivity [W/m/K]
-				virtual tmp<volScalarField> kappa() const = 0;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> kappa() const = 0;
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const filmThermoModel&) = delete;
+				FoamLagrangian_EXPORT void operator=(const filmThermoModel&) = delete;
 			};
 
 

@@ -46,11 +46,11 @@ Description
 
 namespace tnbLib
 {
-	extern ISstream Sin;
-	extern OSstream Sout;
-	extern OSstream Serr;
-	extern prefixOSstream Pout;
-	extern prefixOSstream Perr;
+	FoamBase_EXPORT extern ISstream Sin;
+	FoamBase_EXPORT extern OSstream Sout;
+	FoamBase_EXPORT extern OSstream Serr;
+	FoamBase_EXPORT extern prefixOSstream Pout;
+	FoamBase_EXPORT extern prefixOSstream Perr;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -38,6 +38,7 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <autoPtr.hxx>  // added by amir
 #include <label.hxx>
 #include <uLabel.hxx>
 #include <scalar.hxx>
@@ -46,11 +47,8 @@ SourceFiles
 #include <refCount.hxx>
 #include <typeInfo.hxx>
 
-#include <HashTable.hxx> //- added by amir
-#include <Istream.hxx> //- added by amir
-
 //#define NoHashTableC
-#include <runTimeSelectionTables.hxx>
+//#include <runTimeSelectionTables.hxx>
 
 #include <iostream>
 
@@ -61,11 +59,13 @@ namespace tnbLib
 
 	// Forward declaration of friend functions and operators
 
+	template<class T, class Key, class Hash>
+	class HashTable;  // added by amir
 	class token; // added by amir
 	class Istream;  // added by amir
 
-	Istream& operator>>(Istream&, token&);
-	Ostream& operator<<(Ostream&, const token&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, token&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const token&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -138,7 +138,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("compound");
+			//TypeName("compound");
+			static const char* typeName_() { return "compound"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			//- Declare run-time constructor selection table
@@ -153,9 +157,9 @@ namespace tnbLib
 
 			typedef autoPtr<compound> (*IstreamConstructorPtr)(Istream& is);
 			typedef HashTable<IstreamConstructorPtr, word, string::hash> IstreamConstructorTable;
-			static IstreamConstructorTable* IstreamConstructorTablePtr_;
-			static void constructIstreamConstructorTables();
-			static void destroyIstreamConstructorTables();
+			static FoamBase_EXPORT IstreamConstructorTable* IstreamConstructorTablePtr_;
+			static FoamBase_EXPORT void constructIstreamConstructorTables();
+			static FoamBase_EXPORT void destroyIstreamConstructorTables();
 
 			template <class compoundType>
 			class addIstreamConstructorToTable
@@ -163,7 +167,8 @@ namespace tnbLib
 			public:
 				static autoPtr<compound> New(Istream& is) { return autoPtr<compound>(new compoundType(is)); }
 
-				addIstreamConstructorToTable(const word& lookup = compoundType::typeName)
+				addIstreamConstructorToTable(const word& lookup = compoundType::typeName);
+				/*addIstreamConstructorToTable(const word& lookup = compoundType::typeName)
 				{
 					constructIstreamConstructorTables();
 					if (!IstreamConstructorTablePtr_->insert(lookup, New))
@@ -171,7 +176,7 @@ namespace tnbLib
 						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "compound" << std::endl;
 						error::safePrintStack(std::cerr);
 					}
-				}
+				}*/
 
 				~addIstreamConstructorToTable() { destroyIstreamConstructorTables(); }
 			};
@@ -183,16 +188,18 @@ namespace tnbLib
 			public:
 				static autoPtr<compound> New(Istream& is) { return autoPtr<compound>(new compoundType(is)); }
 
-				addRemovableIstreamConstructorToTable(const word& lookup = compoundType::typeName) : lookup_(lookup)
+				addRemovableIstreamConstructorToTable(const word& lookup = compoundType::typeName);
+				/*addRemovableIstreamConstructorToTable(const word& lookup = compoundType::typeName) : lookup_(lookup)
 				{
 					constructIstreamConstructorTables();
 					IstreamConstructorTablePtr_->set(lookup, New);
-				}
+				}*/
 
-				~addRemovableIstreamConstructorToTable()
+				~addRemovableIstreamConstructorToTable();
+				/*~addRemovableIstreamConstructorToTable()
 				{
 					if (IstreamConstructorTablePtr_) { IstreamConstructorTablePtr_->erase(lookup_); }
-				}
+				}*/
 			};;
 
 
@@ -205,13 +212,13 @@ namespace tnbLib
 			{}
 
 			//- Disallow default bitwise copy construction
-			compound(const compound&) = delete;
+			FoamBase_EXPORT compound(const compound&) = delete;
 
 
 			// Selectors
 
 				//- Select null constructed
-			static autoPtr<compound> New(const word& type, Istream&);
+			static FoamBase_EXPORT autoPtr<compound> New(const word& type, Istream&);
 
 
 			//- Destructor
@@ -221,7 +228,7 @@ namespace tnbLib
 			// Member Functions
 
 				//- Return true if name is a compound type
-			static bool isCompound(const word& name);
+			static FoamBase_EXPORT bool isCompound(const word& name);
 
 			bool empty() const
 			{
@@ -233,20 +240,20 @@ namespace tnbLib
 				return empty_;
 			}
 
-			virtual label size() const = 0;
+			FoamBase_EXPORT virtual label size() const = 0;
 
-			virtual void write(Ostream&) const = 0;
+			FoamBase_EXPORT virtual void write(Ostream&) const = 0;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const compound&) = delete;
+			FoamBase_EXPORT void operator=(const compound&) = delete;
 
 
 			// IOstream Operators
 
-			friend Ostream& operator<<(Ostream&, const compound&);
+			friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const compound&);
 		};
 
 
@@ -260,7 +267,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("Compound<T>");
+			//TypeName("Compound<T>");
+			static const char* typeName_() { return "Compound<T>"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			Compound(Istream& is)
 				:
@@ -280,7 +291,7 @@ namespace tnbLib
 
 
 		//- Static undefined token
-		static token undefinedToken;
+		static FoamBase_EXPORT token undefinedToken;
 
 
 	private:
@@ -313,14 +324,14 @@ namespace tnbLib
 		inline void clear();
 
 		// Parse error, expected 'expected', found ...
-		void parseError(const char* expected) const;
+		FoamBase_EXPORT void parseError(const char* expected) const;
 
 
 	public:
 
 		// Static Data Members
 
-		static const char* const typeName;
+		static FoamBase_EXPORT const char* const typeName;
 
 
 		// Constructors
@@ -353,7 +364,7 @@ namespace tnbLib
 		inline token(const longDoubleScalar, label lineNumber = 0);
 
 		//- Construct from Istream
-		token(Istream&);
+		FoamBase_EXPORT token(Istream&);
 
 
 		//- Destructor
@@ -402,7 +413,7 @@ namespace tnbLib
 
 		inline bool isCompound() const;
 		inline const compound& compoundToken() const;
-		compound& transferCompoundToken(const Istream& is);
+		FoamBase_EXPORT compound& transferCompoundToken(const Istream& is);
 
 		inline label lineNumber() const;
 		inline label& lineNumber();
@@ -472,24 +483,24 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, token&);
-		friend Ostream& operator<<(Ostream&, const token&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, token&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const token&);
 
-		friend Ostream& operator<<(Ostream&, const punctuationToken&);
-		friend ostream& operator<<(ostream&, const punctuationToken&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const punctuationToken&);
+		friend FoamBase_EXPORT ostream& operator<<(ostream&, const punctuationToken&);
 
-		friend ostream& operator<<(ostream&, const InfoProxy<token>&);
+		friend FoamBase_EXPORT ostream& operator<<(ostream&, const InfoProxy<token>&);
 	};
 
 
-	Ostream& operator<<(Ostream&, const token::punctuationToken&);
-	ostream& operator<<(ostream&, const token::punctuationToken&);
-	Ostream& operator<<(Ostream&, const token::compound&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const token::punctuationToken&);
+	FoamBase_EXPORT ostream& operator<<(ostream&, const token::punctuationToken&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const token::compound&);
 
-	ostream& operator<<(ostream&, const InfoProxy<token>&);
+	FoamBase_EXPORT ostream& operator<<(ostream&, const InfoProxy<token>&);
 
 	template<>
-	Ostream& operator<<(Ostream& os, const InfoProxy<token>& ip);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const InfoProxy<token>& ip);
 
 #define defineCompoundTypeName(Type, Name)                                     \
     defineTemplateTypeNameAndDebugWithName(token::Compound<Type>, #Type, 0);
@@ -506,6 +517,7 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <tokenI.hxx>
-//#include <Istream.hxx>
+#include <token_Imp.hxx>
+#include <Istream.hxx>
 
 #endif // !_token_Header

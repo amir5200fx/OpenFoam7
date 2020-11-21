@@ -56,7 +56,7 @@ namespace tnbLib
 			// Marching front
 
 				//- Find nearest target face for source face srcFacei
-		void findNearestFace
+		FoamFvMesh_EXPORT void findNearestFace
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -65,7 +65,7 @@ namespace tnbLib
 		) const;
 
 		//- Determine next source-target face pair
-		void setNextNearestFaces
+		FoamFvMesh_EXPORT void setNextNearestFaces
 		(
 			boolList& mapFlag,
 			label& startSeedI,
@@ -74,7 +74,7 @@ namespace tnbLib
 		) const;
 
 		//- Find mapped source face
-		label findMappedSrcFace
+		FoamFvMesh_EXPORT label findMappedSrcFace
 		(
 			const label tgtFacei,
 			const List<DynamicList<label>>& tgtToSrc
@@ -84,7 +84,7 @@ namespace tnbLib
 		// Evaluation
 
 			//- Area of intersection between source and target faces
-		scalar interArea
+		FoamFvMesh_EXPORT scalar interArea
 		(
 			const label srcFacei,
 			const label tgtFacei
@@ -94,13 +94,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("mapNearestAMI");
+		//TypeName("mapNearestAMI");
+		static const char* typeName_() { return "mapNearestAMI"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		mapNearestAMI
+		FoamFvMesh_EXPORT mapNearestAMI
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -112,11 +116,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		mapNearestAMI(const mapNearestAMI&) = delete;
+		FoamFvMesh_EXPORT mapNearestAMI(const mapNearestAMI&) = delete;
 
 
 		//- Destructor
-		virtual ~mapNearestAMI();
+		FoamFvMesh_EXPORT virtual ~mapNearestAMI();
 
 
 		// Member Functions
@@ -124,7 +128,7 @@ namespace tnbLib
 			// Manipulation
 
 				//- Update addressing and weights
-		virtual void calculate
+		FoamFvMesh_EXPORT virtual void calculate
 		(
 			labelListList& srcAddress,
 			scalarListList& srcWeights,
@@ -138,7 +142,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const mapNearestAMI&) = delete;
+		FoamFvMesh_EXPORT void operator=(const mapNearestAMI&) = delete;
 	};
 
 

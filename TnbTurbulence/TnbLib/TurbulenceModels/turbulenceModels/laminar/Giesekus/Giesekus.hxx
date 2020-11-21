@@ -49,6 +49,16 @@ SourceFiles
 
 #include <Maxwell.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamGiesekus_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamGiesekus_EXPORT_DEFINE
+#define FoamGiesekus_EXPORT __declspec(dllexport)
+#else
+#define FoamGiesekus_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -87,7 +97,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("Giesekus");
+			//TypeName("Giesekus");
+			static const char* typeName_() { return "Giesekus"; }
+			static FoamGiesekus_EXPORT const ::tnbLib::word typeName;
+			static FoamGiesekus_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

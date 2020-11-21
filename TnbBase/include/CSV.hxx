@@ -96,7 +96,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("csvFile");
+			//TypeName("csvFile");
+			static const char* typeName_() { return "csvFile"; }
+			static FoamBase_EXPORT const ::tnbLib::word typeName;
+			static FoamBase_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
@@ -133,10 +137,10 @@ namespace tnbLib
 
 
 		template<>
-		label CSV<label>::readValue(const List<string>& split);
+		FoamBase_EXPORT label CSV<label>::readValue(const List<string>& split);
 
 		template<>
-		tnbLib::scalar CSV<scalar>::readValue(const List<string>& split);
+		FoamBase_EXPORT tnbLib::scalar CSV<scalar>::readValue(const List<string>& split);
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -146,9 +150,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <CSV.cxx>
-#endif
+//#ifdef NoRepository
+//#include <CSV.cxx>
+//#endif
+
+#include <CSVI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

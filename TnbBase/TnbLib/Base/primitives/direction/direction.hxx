@@ -34,6 +34,8 @@ Description
 
 \*---------------------------------------------------------------------------*/
 
+#include <includeModule.hxx>
+
 #include <cstdint>
 #include <iostream>
 
@@ -49,10 +51,10 @@ namespace tnbLib
 
 	typedef uint8_t direction;
 
-	direction readDirection(Istream&);
-	Istream& operator>>(Istream&, direction&);
-	Ostream& operator<<(Ostream&, const direction);
-	std::ostream& operator<<(std::ostream&, const direction);
+	FoamBase_EXPORT direction readDirection(Istream&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, direction&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const direction);
+	FoamBase_EXPORT std::ostream& operator<<(std::ostream&, const direction);
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

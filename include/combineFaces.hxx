@@ -82,7 +82,7 @@ namespace tnbLib
 
 			//- Test if face is convex. Allow slight concavity through
 			//  minConcaveCos.
-		static bool convexFace
+		static FoamDynamicMesh_EXPORT bool convexFace
 		(
 			const scalar minConcaveCos,
 			const pointField&,
@@ -91,7 +91,7 @@ namespace tnbLib
 
 		//- Test if set of faces (in primitivePatch) can be combined into
 		//  single face. Uses convexFace.
-		static bool validFace
+		static FoamDynamicMesh_EXPORT bool validFace
 		(
 			const scalar minConcaveCos,
 			const indirectPrimitivePatch&
@@ -99,7 +99,7 @@ namespace tnbLib
 
 		//- Create cell-local map from face to region (formed by merging faces
 		//  across edges)
-		void regioniseFaces
+		FoamDynamicMesh_EXPORT void regioniseFaces
 		(
 			const scalar minCos,
 			const labelHashSet& patchIDs,
@@ -109,7 +109,7 @@ namespace tnbLib
 		) const;
 
 		//- Does merging faces invalidate (unmerged) neighbouring faces?
-		bool faceNeighboursValid
+		FoamDynamicMesh_EXPORT bool faceNeighboursValid
 		(
 			const label celli,
 			const Map<label>& faceRegion
@@ -119,13 +119,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("combineFaces");
+		//ClassName("combineFaces");
+		static const char* typeName_() { return "combineFaces"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh
-		combineFaces(const polyMesh& mesh, const bool undoable = false);
+		FoamDynamicMesh_EXPORT combineFaces(const polyMesh& mesh, const bool undoable = false);
 
 		//- Disallow default bitwise copy construction
 		combineFaces(const combineFaces&) = delete;
@@ -152,7 +155,7 @@ namespace tnbLib
 
 			//- Extract lists of all (non-coupled) boundary faces on selected
 			//  patches and cells that can be merged. Uses getFaceRegions.
-		labelListList getMergeSets
+		FoamDynamicMesh_EXPORT labelListList getMergeSets
 		(
 			const scalar featureCos,
 			const scalar minConcaveCos,
@@ -162,7 +165,7 @@ namespace tnbLib
 
 		//- Extract lists of all (non-coupled) boundary faces on selected
 		//  patches that can be merged. Uses getFaceRegions.
-		labelListList getMergeSets
+		FoamDynamicMesh_EXPORT labelListList getMergeSets
 		(
 			const scalar featureCos,
 			const scalar minConcaveCos,
@@ -171,14 +174,14 @@ namespace tnbLib
 
 		//- Extract lists of all (non-coupled) boundary faces that can
 		//  be merged. Uses getFaceRegions.
-		labelListList getMergeSets
+		FoamDynamicMesh_EXPORT labelListList getMergeSets
 		(
 			const scalar featureCos,
 			const scalar minConcaveCos
 		) const;
 
 		//- Gets outside of patch as a face (in mesh point labels)
-		static face getOutsideFace(const indirectPrimitivePatch&);
+		static FoamDynamicMesh_EXPORT face getOutsideFace(const indirectPrimitivePatch&);
 
 
 		// Topology changes
@@ -186,14 +189,14 @@ namespace tnbLib
 			//- Play commands into polyTopoChange to combine faces. Gets
 			//  labelListList of sets of faces to combine. Does no check
 			//  for whether resulting face is legal.
-		void setRefinement
+		FoamDynamicMesh_EXPORT void setRefinement
 		(
 			const labelListList&,
 			polyTopoChange&
 		);
 
 		//- Force recalculation of locally stored data on topological change
-		void updateMesh(const mapPolyMesh&);
+		FoamDynamicMesh_EXPORT void updateMesh(const mapPolyMesh&);
 
 		//- Play commands into polyTopoChange to reinsert original faces.
 		//  No other topo changes can be done in between setRefinement and
@@ -204,7 +207,7 @@ namespace tnbLib
 		//  original point label (i.e. content of savedPointLabels_).
 		//  (only restoredPoints are actually set; rest are just for
 		//   generalness)
-		void setUnrefinement
+		FoamDynamicMesh_EXPORT void setUnrefinement
 		(
 			const labelList& masterFaces,
 			polyTopoChange& meshMod,

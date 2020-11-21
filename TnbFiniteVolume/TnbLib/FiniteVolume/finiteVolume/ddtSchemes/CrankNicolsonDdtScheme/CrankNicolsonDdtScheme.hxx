@@ -94,6 +94,16 @@ SourceFiles
 #include <ddtScheme.hxx>
 #include <Function1.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCrankNicolsonDdtScheme_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCrankNicolsonDdtScheme_EXPORT_DEFINE
+#define FoamCrankNicolsonDdtScheme_EXPORT __declspec(dllexport)
+#else
+#define FoamCrankNicolsonDdtScheme_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -203,7 +213,11 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("CrankNicolson");
+			/*TypeName("CrankNicolson");*/
+			static const char* typeName_() { return "CrankNicolson"; }
+			static FoamCrankNicolsonDdtScheme_EXPORT const ::tnbLib::word typeName;
+			static FoamCrankNicolsonDdtScheme_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

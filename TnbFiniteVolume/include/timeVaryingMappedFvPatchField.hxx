@@ -105,7 +105,10 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("timeVaryingMapped");
+		/*ClassName("timeVaryingMapped");*/
+		static const char* typeName_() { return "timeVaryingMapped"; } 
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName; 
+		static FoamFiniteVolume_EXPORT int debug;
 
 
 		// Constructors
@@ -247,9 +250,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-#include <timeVaryingMappedFvPatchField.cxx>
-#endif
+//#ifdef NoRepository
+//#include <timeVaryingMappedFvPatchField.cxx>
+//#endif
+
+#include <timeVaryingMappedFvPatchFieldI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

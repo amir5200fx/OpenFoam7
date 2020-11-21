@@ -67,29 +67,33 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("cloud");
+				//TypeName("cloud");
+				static const char* typeName_() { return "cloud"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				cloud(const dictionary& dict, const fvMesh& mesh);
+				FoamLagrangian_EXPORT cloud(const dictionary& dict, const fvMesh& mesh);
 
 
 				//- Destructor
-				virtual ~cloud();
+				FoamLagrangian_EXPORT virtual ~cloud();
 
 
 				// Member Functions
 
 					//- Absorption coefficient for dispersed phase
-				virtual tmp<volScalarField> aDisp(const label bandI = 0) const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> aDisp(const label bandI = 0) const;
 
 				//- Emission coefficient for dispersed phase
-				virtual tmp<volScalarField> eDisp(const label bandI = 0) const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> eDisp(const label bandI = 0) const;
 
 				//- Return emission contribution for dispersed phase
-				virtual tmp<volScalarField> EDisp(const label bandI = 0) const;
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> EDisp(const label bandI = 0) const;
 			};
 
 

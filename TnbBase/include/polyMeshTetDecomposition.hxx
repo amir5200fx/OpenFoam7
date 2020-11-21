@@ -63,14 +63,14 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Minimum tetrahedron quality
-		static const scalar minTetQuality;
+		static FoamBase_EXPORT const scalar minTetQuality;
 
 
 		// Member Functions
 
 			//- Given a face and cc and starting index for triangulation determine
 			//  the worst tet quality.
-		static scalar minQuality
+		static FoamBase_EXPORT scalar minQuality
 		(
 			const polyMesh& mesh,
 			const point& cC,
@@ -85,7 +85,7 @@ namespace tnbLib
 		//  whose worst quality tet from either cell is better than
 		//  tolerance.  Neighbour cell centre supplied.  For coupled
 		//  patches.
-		static label findSharedBasePoint
+		static FoamBase_EXPORT label findSharedBasePoint
 		(
 			const polyMesh& mesh,
 			label fI,
@@ -96,7 +96,7 @@ namespace tnbLib
 
 		//- As for findSharedBasePoint, but using neighbour cell
 		//  centre from the mesh.  For internal faces.
-		static label findSharedBasePoint
+		static FoamBase_EXPORT label findSharedBasePoint
 		(
 			const polyMesh& mesh,
 			label fI,
@@ -107,7 +107,7 @@ namespace tnbLib
 		//- Find the base point to use for a minimum triangle
 		//  decomposition of the face, using only the owner
 		//  information.  For non-coupled boundary faces.
-		static label findBasePoint
+		static FoamBase_EXPORT label findBasePoint
 		(
 			const polyMesh& mesh,
 			label fI,
@@ -117,7 +117,7 @@ namespace tnbLib
 
 		//- Find a suitable base point for each face for decomposition
 		//  into tets
-		static labelList findFaceBasePts
+		static FoamBase_EXPORT labelList findFaceBasePts
 		(
 			const polyMesh& mesh,
 			scalar tol = minTetQuality,
@@ -125,7 +125,7 @@ namespace tnbLib
 		);
 
 		//- Check face-decomposition tet volume
-		static bool checkFaceTets
+		static FoamBase_EXPORT bool checkFaceTets
 		(
 			const polyMesh& mesh,
 			scalar tol = minTetQuality,
@@ -135,7 +135,7 @@ namespace tnbLib
 
 		//- Return the tet decomposition of the given face, with
 		//  respect to the given cell
-		static List<tetIndices> faceTetIndices
+		static FoamBase_EXPORT List<tetIndices> faceTetIndices
 		(
 			const polyMesh& mesh,
 			label fI,
@@ -144,14 +144,14 @@ namespace tnbLib
 
 		//- Return the tet decomposition of the given cell, see
 		//  findFacePt for the meaning of the indices
-		static List<tetIndices> cellTetIndices
+		static FoamBase_EXPORT List<tetIndices> cellTetIndices
 		(
 			const polyMesh& mesh,
 			label cI
 		);
 
 		//- Find the tet decomposition of the cell containing the given point
-		static tetIndices findTet
+		static FoamBase_EXPORT tetIndices findTet
 		(
 			const polyMesh& mesh,
 			label cI,

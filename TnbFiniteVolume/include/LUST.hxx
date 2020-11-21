@@ -44,6 +44,16 @@ SourceFiles
 
 #include <linearUpwind.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamLUST_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamLUST_EXPORT_DEFINE
+#define FoamLUST_EXPORT __declspec(dllexport)
+#else
+#define FoamLUST_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -62,7 +72,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("LUST");
+		/*TypeName("LUST");*/
+		static const char* typeName_() { return "LUST"; }
+		static FoamLUST_EXPORT const ::tnbLib::word typeName;
+		static FoamLUST_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

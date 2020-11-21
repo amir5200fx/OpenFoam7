@@ -203,25 +203,29 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Extrude mesh
-			void createPatchMesh();
+			FoamLagrangian_EXPORT void createPatchMesh();
 
 		public:
 
 			//- Runtime type information
-			TypeName("compressible::thermalBaffle");
+			//TypeName("compressible::thermalBaffle");
+			static const char* typeName_() { return "compressible::thermalBaffle"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from patch and internal field
-			thermalBaffleFvPatchScalarField
+			FoamLagrangian_EXPORT thermalBaffleFvPatchScalarField
 			(
 				const fvPatch&,
 				const DimensionedField<scalar, volMesh>&
 			);
 
 			//- Construct from patch, internal field and dictionary
-			thermalBaffleFvPatchScalarField
+			FoamLagrangian_EXPORT thermalBaffleFvPatchScalarField
 			(
 				const fvPatch&,
 				const DimensionedField<scalar, volMesh>&,
@@ -230,7 +234,7 @@ namespace tnbLib
 
 			//- Construct by mapping given
 			//  thermalBaffleFvPatchScalarField onto a new patch
-			thermalBaffleFvPatchScalarField
+			FoamLagrangian_EXPORT thermalBaffleFvPatchScalarField
 			(
 				const thermalBaffleFvPatchScalarField&,
 				const fvPatch&,
@@ -240,7 +244,7 @@ namespace tnbLib
 
 
 			//- Construct and return a clone
-			virtual tmp<fvPatchScalarField> clone() const
+			FoamLagrangian_EXPORT virtual tmp<fvPatchScalarField> clone() const
 			{
 				return tmp<fvPatchScalarField>
 					(
@@ -249,7 +253,7 @@ namespace tnbLib
 			}
 
 			//- Construct as copy setting internal field reference
-			thermalBaffleFvPatchScalarField
+			FoamLagrangian_EXPORT thermalBaffleFvPatchScalarField
 			(
 				const thermalBaffleFvPatchScalarField&,
 				const DimensionedField<scalar, volMesh>&
@@ -275,18 +279,18 @@ namespace tnbLib
 
 					//- Map (and resize as needed) from self given a mapping object
 					//  Used to update fields following mesh topology change
-			virtual void autoMap(const fvPatchFieldMapper&);
+			FoamLagrangian_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 			//- Reverse map the given fvPatchField onto this fvPatchField
 			//  Used to reconstruct fields
-			virtual void rmap(const fvPatchScalarField&, const labelList&);
+			FoamLagrangian_EXPORT virtual void rmap(const fvPatchScalarField&, const labelList&);
 
 
 			//- Update the coefficients associated with the patch field
-			virtual void updateCoeffs();
+			FoamLagrangian_EXPORT virtual void updateCoeffs();
 
 			//- Write
-			virtual void write(Ostream&) const;
+			FoamLagrangian_EXPORT virtual void write(Ostream&) const;
 		};
 
 

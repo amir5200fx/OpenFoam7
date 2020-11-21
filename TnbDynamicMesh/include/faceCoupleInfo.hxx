@@ -161,7 +161,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Angle matching tolerance.
-		static const scalar angleTol_;
+		static FoamDynamicMesh_EXPORT const scalar angleTol_;
 
 		//- Master patch
 		autoPtr<indirectPrimitivePatch> masterPatchPtr_;
@@ -230,7 +230,7 @@ namespace tnbLib
 		);
 
 		//- Write edges
-		static void writeOBJ
+		static FoamDynamicMesh_EXPORT void writeOBJ
 		(
 			const fileName& fName,
 			const edgeList& edges,
@@ -239,7 +239,7 @@ namespace tnbLib
 		);
 
 		//- Write edges
-		static void writeOBJ
+		static FoamDynamicMesh_EXPORT void writeOBJ
 		(
 			const fileName& fName,
 			const pointField& points0,
@@ -248,17 +248,17 @@ namespace tnbLib
 
 		//- Write connections between corresponding points and faces
 		//  as .obj files.
-		void writePointsFaces() const;
+		FoamDynamicMesh_EXPORT void writePointsFaces() const;
 
 		//- Write connections between corresponding edges as .obj files.
-		void writeEdges(const labelList&, const labelList&) const;
+		FoamDynamicMesh_EXPORT void writeEdges(const labelList&, const labelList&) const;
 
 
 		// Edge handling/matching
 
 			//- Find corresponding edges on patch when having only a map for
 			//  the points.
-		labelList findMappedEdges
+		FoamDynamicMesh_EXPORT labelList findMappedEdges
 		(
 			const edgeList& edges,
 			const labelList& pointMap,
@@ -267,10 +267,10 @@ namespace tnbLib
 
 		//- Check if edge on slavePatch corresponds to an edge between faces
 		//  in two different polyPatches on the mesh.
-		bool regionEdge(const polyMesh&, const label slaveEdgeI) const;
+		FoamDynamicMesh_EXPORT bool regionEdge(const polyMesh&, const label slaveEdgeI) const;
 
 		//- Finds edge connected to point most aligned with master edge.
-		label mostAlignedCutEdge
+		FoamDynamicMesh_EXPORT label mostAlignedCutEdge
 		(
 			const bool report,
 			const polyMesh& slaveMesh,
@@ -285,14 +285,14 @@ namespace tnbLib
 		//- From (many-to-one) map of cut edges to master edges determine
 		//  points in between. I.e. just string up the edges. Stores this
 		//  all on cutEdgeToPoints_
-		void setCutEdgeToPoints(const labelList& cutToMasterEdges);
+		FoamDynamicMesh_EXPORT void setCutEdgeToPoints(const labelList& cutToMasterEdges);
 
 		// Face matching
 
 			//- Matches two faces.
 			//  Determines rotation for f1 to match up with f0,
 			//  i.e. the index in f0 of the first point of f1.
-		static label matchFaces
+		static FoamDynamicMesh_EXPORT label matchFaces
 		(
 			const scalar absTol,
 			const pointField& points0,
@@ -303,7 +303,7 @@ namespace tnbLib
 		);
 
 		//- Matches points on patch to points on cut.
-		static bool matchPointsThroughFaces
+		static FoamDynamicMesh_EXPORT bool matchPointsThroughFaces
 		(
 			const scalar absTol,
 			const pointField& cutPoints,
@@ -318,7 +318,7 @@ namespace tnbLib
 		);
 
 		//- Returns max distance to masterF of any point on cutF.
-		static scalar maxDistance
+		static FoamDynamicMesh_EXPORT scalar maxDistance
 		(
 			const face& cutF,
 			const pointField& cutPoints,
@@ -328,7 +328,7 @@ namespace tnbLib
 
 		//- Finds matching (boundary)face centres.
 		//  Since faces identical uses geometric match on face centres.
-		static void findPerfectMatchingFaces
+		static FoamDynamicMesh_EXPORT void findPerfectMatchingFaces
 		(
 			const primitiveMesh& mesh0,
 			const primitiveMesh& mesh1,
@@ -340,7 +340,7 @@ namespace tnbLib
 
 		//- Find matching (boundary)faces. Matching if slave is on top of
 		//  master face (slaves is subdivision of master)
-		static void findSlavesCoveringMaster
+		static FoamDynamicMesh_EXPORT void findSlavesCoveringMaster
 		(
 			const primitiveMesh& mesh0,
 			const primitiveMesh& mesh1,
@@ -351,31 +351,31 @@ namespace tnbLib
 		);
 
 		//- Grow cutToMasterFace across 'internal' edges.
-		label growCutFaces(const labelList&, Map<labelList>&);
+		FoamDynamicMesh_EXPORT label growCutFaces(const labelList&, Map<labelList>&);
 
-		void checkMatch(const labelList& cutToMasterEdges) const;
+		FoamDynamicMesh_EXPORT void checkMatch(const labelList& cutToMasterEdges) const;
 
 		//- Gets a list of cutFaces (that use a master edge) and the
 		// candidate master faces.
 		// Checks among these master faces if there is only one remaining
 		// unmatched one.
-		label matchEdgeFaces(const labelList&, Map<labelList>& candidates);
+		FoamDynamicMesh_EXPORT label matchEdgeFaces(const labelList&, Map<labelList>& candidates);
 
 		//- Gets a list of cutFaces (that use a master edge) and the
 		//  candidate master faces.
 		//  Finds most aligned master face.
-		label geometricMatchEdgeFaces(Map<labelList>& candidates);
+		FoamDynamicMesh_EXPORT label geometricMatchEdgeFaces(Map<labelList>& candidates);
 
 		//- Used by perfectPointMatch. Determine match from cut points to
 		//  slave points (for perfect matching faces)
-		void perfectSlavePointMatch(const scalar absTol);
+		FoamDynamicMesh_EXPORT void perfectSlavePointMatch(const scalar absTol);
 
 		//- Find point and edge correspondence for perfect matching faces
-		void perfectPointMatch(const scalar absTol, const bool);
+		FoamDynamicMesh_EXPORT void perfectPointMatch(const scalar absTol, const bool);
 
 		//- Find point and edge correspondence for slaves being subdivision of
 		//  master.
-		void subDivisionMatch
+		FoamDynamicMesh_EXPORT void subDivisionMatch
 		(
 			const polyMesh& slaveMesh,
 			const bool patchDivision,
@@ -385,7 +385,10 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("faceCoupleInfo");
+		//ClassName("faceCoupleInfo");
+		static const char* typeName_() { return "faceCoupleInfo"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
@@ -398,7 +401,7 @@ namespace tnbLib
 			//                 if this is false then assumes slave is subdivision.
 			//                 Matching then will work only for non-warped faces
 			//                 since does nearest-to-face comparison with absTol.
-		faceCoupleInfo
+		FoamDynamicMesh_EXPORT faceCoupleInfo
 		(
 			const polyMesh& mesh0,
 			const polyMesh& mesh1,
@@ -417,7 +420,7 @@ namespace tnbLib
 		//  patchDivision: faces in slave mesh that originate from the
 		//  same master face have the same patch. Used by some triangulation
 		//  methods.
-		faceCoupleInfo
+		FoamDynamicMesh_EXPORT faceCoupleInfo
 		(
 			const polyMesh& masterMesh,
 			const labelList& masterAddressing,
@@ -431,7 +434,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~faceCoupleInfo();
+		FoamDynamicMesh_EXPORT ~faceCoupleInfo();
 
 
 
@@ -440,11 +443,11 @@ namespace tnbLib
 			//- Utility functions
 
 				//- Get patch face labels
-		static labelList faceLabels(const polyPatch&);
+		static FoamDynamicMesh_EXPORT labelList faceLabels(const polyPatch&);
 
 		//- Create Map from List
-		static Map<label> makeMap(const labelList&);
-		static Map<labelList> makeMap(const labelListList&);
+		static FoamDynamicMesh_EXPORT Map<label> makeMap(const labelList&);
+		static FoamDynamicMesh_EXPORT Map<labelList> makeMap(const labelListList&);
 
 
 		// Access

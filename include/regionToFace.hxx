@@ -57,7 +57,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- Name of set to use
 		word setName_;
@@ -68,7 +68,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Walk edge-face-edge
-		void markZone
+		FoamFvMesh_EXPORT void markZone
 		(
 			const indirectPrimitivePatch& patch,
 			const label proci,
@@ -77,17 +77,21 @@ namespace tnbLib
 			labelList& faceZone
 		) const;
 
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 	public:
 
 		//- Runtime type information
-		TypeName("regionToFace");
+		/*TypeName("regionToFace");*/
+		static const char* typeName_() { return "regionToFace"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		// Constructors
 
 			//- Construct from components
-		regionToFace
+		FoamFvMesh_EXPORT regionToFace
 		(
 			const polyMesh& mesh,
 			const word& setName,
@@ -95,14 +99,14 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		regionToFace
+		FoamFvMesh_EXPORT regionToFace
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		regionToFace
+		FoamFvMesh_EXPORT regionToFace
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -110,7 +114,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~regionToFace();
+		FoamFvMesh_EXPORT virtual ~regionToFace();
 
 
 		// Member Functions
@@ -120,7 +124,7 @@ namespace tnbLib
 			return FACESETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

@@ -108,7 +108,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from dictionary
-		explicit polyMeshFilterSettings(const dictionary& dict);
+		explicit FoamDynamicMesh_EXPORT polyMeshFilterSettings(const dictionary& dict);
 
 
 		//- Destructor
@@ -149,7 +149,7 @@ namespace tnbLib
 		// Write
 
 			//- Write the settings to a stream
-		void writeSettings(Ostream& os) const;
+		FoamDynamicMesh_EXPORT void writeSettings(Ostream& os) const;
 	};
 
 

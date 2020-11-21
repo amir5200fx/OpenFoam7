@@ -115,20 +115,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("phaseHydrostaticPressure");
+		/*TypeName("phaseHydrostaticPressure");*/
+		static const char* typeName_() { return "phaseHydrostaticPressure"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		phaseHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT phaseHydrostaticPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		phaseHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT phaseHydrostaticPressureFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -137,7 +141,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		//  phaseHydrostaticPressureFvPatchScalarField onto a new patch
-		phaseHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT phaseHydrostaticPressureFvPatchScalarField
 		(
 			const phaseHydrostaticPressureFvPatchScalarField&,
 			const fvPatch&,
@@ -146,7 +150,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		phaseHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT phaseHydrostaticPressureFvPatchScalarField
 		(
 			const phaseHydrostaticPressureFvPatchScalarField&
 		);
@@ -161,7 +165,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		phaseHydrostaticPressureFvPatchScalarField
+		FoamFiniteVolume_EXPORT phaseHydrostaticPressureFvPatchScalarField
 		(
 			const phaseHydrostaticPressureFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -245,15 +249,15 @@ namespace tnbLib
 
 
 		//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 
 
 		// Member Operators
 
-		virtual void operator=(const fvPatchScalarField& pvf);
+		FoamFiniteVolume_EXPORT virtual void operator=(const fvPatchScalarField& pvf);
 	};
 
 

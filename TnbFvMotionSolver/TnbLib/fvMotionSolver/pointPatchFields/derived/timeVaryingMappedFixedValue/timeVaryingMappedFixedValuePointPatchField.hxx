@@ -105,20 +105,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("timeVaryingMappedFixedValue");
+		//TypeName("timeVaryingMappedFixedValue");
+		static const char* typeName_() { return "timeVaryingMappedFixedValue"; }
+		static FoamFvMotionSolver_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMotionSolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		timeVaryingMappedFixedValuePointPatchField
+		FoamFvMotionSolver_EXPORT timeVaryingMappedFixedValuePointPatchField
 		(
 			const pointPatch&,
 			const DimensionedField<Type, pointMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		timeVaryingMappedFixedValuePointPatchField
+		FoamFvMotionSolver_EXPORT timeVaryingMappedFixedValuePointPatchField
 		(
 			const pointPatch&,
 			const DimensionedField<Type, pointMesh>&,
@@ -126,7 +130,7 @@ namespace tnbLib
 		);
 
 		//- Construct by mapping given patch field onto a new patch
-		timeVaryingMappedFixedValuePointPatchField
+		FoamFvMotionSolver_EXPORT timeVaryingMappedFixedValuePointPatchField
 		(
 			const timeVaryingMappedFixedValuePointPatchField<Type>&,
 			const pointPatch&,
@@ -135,7 +139,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		timeVaryingMappedFixedValuePointPatchField
+		FoamFvMotionSolver_EXPORT timeVaryingMappedFixedValuePointPatchField
 		(
 			const timeVaryingMappedFixedValuePointPatchField<Type>&
 		);
@@ -150,7 +154,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		timeVaryingMappedFixedValuePointPatchField
+		FoamFvMotionSolver_EXPORT timeVaryingMappedFixedValuePointPatchField
 		(
 			const timeVaryingMappedFixedValuePointPatchField<Type>&,
 			const DimensionedField<Type, pointMesh>&
@@ -174,28 +178,28 @@ namespace tnbLib
 			// Utility functions
 
 				//- Find boundary data in between current time and interpolate
-		void checkTable();
+		FoamFvMotionSolver_EXPORT void checkTable();
 
 
 		// Mapping functions
 
 			//- Map (and resize as needed) from self given a mapping object
 			//  Used to update fields following mesh topology change
-		virtual void autoMap(const pointPatchFieldMapper&);
+		FoamFvMotionSolver_EXPORT virtual void autoMap(const pointPatchFieldMapper&);
 
 		//- Reverse map the given pointPatchField onto this pointPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const pointPatchField<Type>&, const labelList&);
+		FoamFvMotionSolver_EXPORT virtual void rmap(const pointPatchField<Type>&, const labelList&);
 
 
 		// Evaluation functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamFvMotionSolver_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFvMotionSolver_EXPORT virtual void write(Ostream&) const;
 	};
 
 

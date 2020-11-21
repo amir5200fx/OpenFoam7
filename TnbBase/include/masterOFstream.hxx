@@ -66,7 +66,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Open file with checking
-		void checkWrite(const fileName& fName, const string& str);
+		FoamBase_EXPORT void checkWrite(const fileName& fName, const string& str);
 
 
 	public:
@@ -74,7 +74,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct and set stream status
-		masterOFstream
+		FoamBase_EXPORT masterOFstream
 		(
 			const fileName& pathname,
 			streamFormat format = ASCII,
@@ -86,7 +86,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~masterOFstream();
+		FoamBase_EXPORT ~masterOFstream();
 	};
 
 

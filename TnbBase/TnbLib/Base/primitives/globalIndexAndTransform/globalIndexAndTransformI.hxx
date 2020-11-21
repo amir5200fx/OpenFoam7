@@ -435,7 +435,7 @@ tnbLib::labelList tnbLib::globalIndexAndTransform::transformIndicesForPatches
 		}
 	}
 
-	label nUsedTrans = round(sum(mag(permutation)));
+	label nUsedTrans = (label)round(sum(mag(permutation)));  // '(label) is added by amir'
 
 	if (nUsedTrans == 0)
 	{

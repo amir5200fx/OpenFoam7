@@ -96,16 +96,16 @@ namespace tnbLib
 		template<class T>
 		static void copySets(const polyMesh& oldMesh, const polyMesh& newMesh);
 
-		label filterFacesLoop(const label nOriginalBadFaces);
+		FoamDynamicMesh_EXPORT label filterFacesLoop(const label nOriginalBadFaces);
 
-		label filterFaces
+		FoamDynamicMesh_EXPORT label filterFaces
 		(
 			polyMesh& newMesh,
 			scalarField& newMeshFaceFilterFactor,
 			labelList& origToCurrentPointMap
 		);
 
-		label filterEdges
+		FoamDynamicMesh_EXPORT label filterEdges
 		(
 			polyMesh& newMesh,
 			scalarField& newMeshMinEdgeLen,
@@ -113,7 +113,7 @@ namespace tnbLib
 		);
 
 		//- Increment pointErrorCount for points attached to a bad face
-		void updatePointErrorCount
+		FoamDynamicMesh_EXPORT void updatePointErrorCount
 		(
 			const PackedBoolList& isErrorPoint,
 			const labelList& oldToNewMesh,
@@ -123,7 +123,7 @@ namespace tnbLib
 
 		//- Given the new points that are part of bad faces, and a map from the
 		//  old mesh points to the new mesh points, relax minEdgeLen_
-		void checkMeshEdgesAndRelaxEdges
+		FoamDynamicMesh_EXPORT void checkMeshEdgesAndRelaxEdges
 		(
 			const polyMesh& newMesh,
 			const labelList& oldToNewMesh,
@@ -133,7 +133,7 @@ namespace tnbLib
 
 		//- Given the new points that are part of bad faces, and a map from the
 		//  old mesh points to the new mesh points, relax faceFilterFactor_
-		void checkMeshFacesAndRelaxEdges
+		FoamDynamicMesh_EXPORT void checkMeshFacesAndRelaxEdges
 		(
 			const polyMesh& newMesh,
 			const labelList& oldToNewMesh,
@@ -148,14 +148,14 @@ namespace tnbLib
 		// + >0 : point on a processor patch with that ID
 		// TODO: Need to mark boundaryEdges as well, as an edge may have two
 		//       boundary points but not itself lie on a boundary
-		void updatePointPriorities
+		FoamDynamicMesh_EXPORT void updatePointPriorities
 		(
 			const polyMesh& newMesh,
 			const labelList& pointMap
 		);
 
 		//- Print min/mean/max data for a field
-		void printScalarFieldStats
+		FoamDynamicMesh_EXPORT void printScalarFieldStats
 		(
 			const string desc,
 			const scalarField& fld
@@ -163,7 +163,7 @@ namespace tnbLib
 
 		//- Update minEdgeLen_ for the new mesh based upon the movement of the
 		//  old points to the new points
-		void mapOldMeshEdgeFieldToNewMesh
+		FoamDynamicMesh_EXPORT void mapOldMeshEdgeFieldToNewMesh
 		(
 			const polyMesh& newMesh,
 			const labelList& pointMap,
@@ -172,7 +172,7 @@ namespace tnbLib
 
 		//- Update faceFilterFactor_ for the new mesh based upon the movement
 		//  of the old faces to the new faces
-		void mapOldMeshFaceFieldToNewMesh
+		FoamDynamicMesh_EXPORT void mapOldMeshFaceFieldToNewMesh
 		(
 			const polyMesh& newMesh,
 			const labelList& faceMap,
@@ -181,7 +181,7 @@ namespace tnbLib
 
 		//- Maintain a map of the original mesh points to the latest version of
 		//  the filtered mesh.
-		void updateOldToNewPointMap
+		FoamDynamicMesh_EXPORT void updateOldToNewPointMap
 		(
 			const labelList& currToNew,
 			labelList& origToCurrentPointMap
@@ -191,19 +191,22 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("polyMeshFilter");
+		//ClassName("polyMeshFilter");
+		static const char* typeName_() { return "polyMeshFilter"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from fvMesh
-		explicit polyMeshFilter(const fvMesh& mesh);
+		explicit FoamDynamicMesh_EXPORT polyMeshFilter(const fvMesh& mesh);
 
 		//- Construct from fvMesh and a label list of point priorities
-		polyMeshFilter(const fvMesh& mesh, const labelList& pointPriority);
+		FoamDynamicMesh_EXPORT polyMeshFilter(const fvMesh& mesh, const labelList& pointPriority);
 
 		//- Construct from fvMesh and a label list of point priorities
-		polyMeshFilter
+		FoamDynamicMesh_EXPORT polyMeshFilter
 		(
 			const fvMesh& mesh,
 			const labelList& pointPriority,
@@ -215,7 +218,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~polyMeshFilter();
+		FoamDynamicMesh_EXPORT ~polyMeshFilter();
 
 
 		// Member Functions
@@ -224,35 +227,35 @@ namespace tnbLib
 
 				//- Return reference to the filtered mesh. Does not check if the
 				//  mesh has actually been filtered.
-		const autoPtr<fvMesh>& filteredMesh() const;
+		FoamDynamicMesh_EXPORT const autoPtr<fvMesh>& filteredMesh() const;
 
 		//- Return the new pointPriority list.
-		const autoPtr<labelList>& pointPriority() const;
+		FoamDynamicMesh_EXPORT const autoPtr<labelList>& pointPriority() const;
 
 
 		// Edit
 
 			//- Return a copy of an fvMesh
-		static autoPtr<fvMesh> copyMesh(const fvMesh& mesh);
+		static FoamDynamicMesh_EXPORT autoPtr<fvMesh> copyMesh(const fvMesh& mesh);
 
 		//- Copy loaded topoSets from the old mesh to the new mesh
-		static void copySets
+		static FoamDynamicMesh_EXPORT void copySets
 		(
 			const polyMesh& oldMesh,
 			const polyMesh& newMesh
 		);
 
 		//- Update the loaded topoSets
-		static void updateSets(const mapPolyMesh& map);
+		static FoamDynamicMesh_EXPORT void updateSets(const mapPolyMesh& map);
 
 		//- Filter edges and faces
-		label filter(const label nOriginalBadFaces);
+		FoamDynamicMesh_EXPORT label filter(const label nOriginalBadFaces);
 
 		//- Filter all faces that are in the face set
-		label filter(const faceSet& fSet);
+		FoamDynamicMesh_EXPORT label filter(const faceSet& fSet);
 
 		//- Filter edges only.
-		label filterEdges(const label nOriginalBadFaces);
+		FoamDynamicMesh_EXPORT label filterEdges(const label nOriginalBadFaces);
 
 
 		// Member Operators

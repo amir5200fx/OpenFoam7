@@ -69,34 +69,34 @@ namespace tnbLib
 				// Constructors
 
 					//- Construct null
-				transferModelList(surfaceFilmRegionModel& film);
+				FoamLagrangian_EXPORT transferModelList(surfaceFilmRegionModel& film);
 
 				//- Construct from type name, dictionary and surface film model
-				transferModelList
+				FoamLagrangian_EXPORT transferModelList
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
 				);
 
 				//- Disallow default bitwise copy construction
-				transferModelList(const transferModelList&) = delete;
+				FoamLagrangian_EXPORT transferModelList(const transferModelList&) = delete;
 
 
 				//- Destructor
-				virtual ~transferModelList();
+				FoamLagrangian_EXPORT virtual ~transferModelList();
 
 
 				// Member Functions
 
 					//- Correct kinematic transfers
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					scalarField& availableMass,
 					volScalarField& massToTransfer
 				);
 
 				//- Correct kinematic and thermodynamic transfers
-				virtual void correct
+				FoamLagrangian_EXPORT virtual void correct
 				(
 					scalarField& availableMass,
 					volScalarField& massToTransfer,
@@ -104,13 +104,13 @@ namespace tnbLib
 				);
 
 				//- Provide some info
-				virtual void info(Ostream& os);
+				FoamLagrangian_EXPORT virtual void info(Ostream& os);
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const transferModelList&) = delete;
+				FoamLagrangian_EXPORT void operator=(const transferModelList&) = delete;
 			};
 
 

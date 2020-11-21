@@ -43,6 +43,16 @@ SourceFiles
 #include <CloudSubModelBase.hxx>
 #include <scalarField.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamSurfaceReactionModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSurfaceReactionModel_EXPORT_DEFINE
+#define FoamSurfaceReactionModel_EXPORT __declspec(dllexport)
+#else
+#define FoamSurfaceReactionModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -68,11 +78,15 @@ namespace tnbLib
 	public:
 
 		//-Runtime type information
-		TypeName("surfaceReactionModel");
+		//TypeName("surfaceReactionModel");
+		static const char* typeName_() { return "surfaceReactionModel"; }
+		static FoamSurfaceReactionModel_EXPORT const ::tnbLib::word typeName;
+		static FoamSurfaceReactionModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			SurfaceReactionModel,
@@ -82,7 +96,59 @@ namespace tnbLib
 				CloudType& cloud
 				),
 				(dict, cloud)
-		);
+		);*/
+		
+		typedef autoPtr<SurfaceReactionModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& cloud);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamSurfaceReactionModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamSurfaceReactionModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamSurfaceReactionModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class SurfaceReactionModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<SurfaceReactionModel> New(const dictionary& dict, CloudType& cloud)
+			{
+				return autoPtr<SurfaceReactionModel>(new SurfaceReactionModelType(dict, cloud));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = SurfaceReactionModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+						"SurfaceReactionModel" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class SurfaceReactionModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<SurfaceReactionModel> New(const dictionary& dict, CloudType& cloud)
+			{
+				return autoPtr<SurfaceReactionModel>(new SurfaceReactionModelType(dict, cloud));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = SurfaceReactionModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

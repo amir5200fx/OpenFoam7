@@ -36,6 +36,16 @@ Description
 
 #include <ORourkeCollision.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamTrajectoryCollision_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamTrajectoryCollision_EXPORT_DEFINE
+#define FoamTrajectoryCollision_EXPORT __declspec(dllexport)
+#else
+#define FoamTrajectoryCollision_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -86,7 +96,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("trajectory");
+		//TypeName("trajectory");
+		static const char* typeName_() { return "trajectory"; }
+		static FoamTrajectoryCollision_EXPORT const ::tnbLib::word typeName;
+		static FoamTrajectoryCollision_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

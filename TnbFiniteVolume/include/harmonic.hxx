@@ -44,6 +44,16 @@ SourceFiles
 #include <surfaceFields.hxx>
 #include <reverseLinear.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamHarmonic_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamHarmonic_EXPORT_DEFINE
+#define FoamHarmonic_EXPORT __declspec(dllexport)
+#else
+#define FoamHarmonic_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -61,7 +71,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("harmonic");
+		/*TypeName("harmonic");*/
+		static const char* typeName_() { return "harmonic"; }
+		static FoamHarmonic_EXPORT const ::tnbLib::word typeName;
+		static FoamHarmonic_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

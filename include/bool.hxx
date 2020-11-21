@@ -38,6 +38,8 @@ SourceFiles
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <includeModule.hxx>
+
 namespace tnbLib
 {
 
@@ -46,10 +48,10 @@ namespace tnbLib
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	Istream& operator>>(Istream&, bool&);
-	Ostream& operator<<(Ostream&, const bool);
+	FoamBase_EXPORT Istream& operator>>(Istream&, bool&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const bool);
 
-	bool readBool(Istream&);
+	FoamBase_EXPORT bool readBool(Istream&);
 
 	inline void writeEntry(Ostream& os, const bool value)
 	{
@@ -82,30 +84,30 @@ namespace tnbLib
 		// Member constants
 
 			//- Dimensionality of space
-		static const direction dim = 3;
+		static FoamBase_EXPORT const direction dim = 3;
 
 		//- Rank of bool is 0
-		static const direction rank = 0;
+		static FoamBase_EXPORT const direction rank = 0;
 
 		//- Number of components in bool is 1
-		static const direction nComponents = 1;
+		static FoamBase_EXPORT const direction nComponents = 1;
 
 
 		// Static Data Members
 
-		static const char* const typeName;
-		static const char* const componentNames[];
-		static const bool zero;
-		static const bool one;
+		static FoamBase_EXPORT const char* const typeName;
+		static FoamBase_EXPORT const char* const componentNames[];
+		static FoamBase_EXPORT const bool zero;
+		static FoamBase_EXPORT const bool one;
 
 
 		// Constructors
 
 			//- Construct from primitive
-		explicit pTraits(const bool&);
+		FoamBase_EXPORT explicit pTraits(const bool&);
 
 		//- Construct from Istream
-		pTraits(Istream&);
+		FoamBase_EXPORT pTraits(Istream&);
 
 
 		// Member Functions

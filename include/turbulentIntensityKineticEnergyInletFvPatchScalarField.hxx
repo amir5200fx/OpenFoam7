@@ -100,20 +100,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("turbulentIntensityKineticEnergyInlet");
+		/*TypeName("turbulentIntensityKineticEnergyInlet");*/
+		static const char* typeName_() { return "turbulentIntensityKineticEnergyInlet"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		turbulentIntensityKineticEnergyInletFvPatchScalarField
+		FoamFiniteVolume_EXPORT turbulentIntensityKineticEnergyInletFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		turbulentIntensityKineticEnergyInletFvPatchScalarField
+		FoamFiniteVolume_EXPORT turbulentIntensityKineticEnergyInletFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -123,7 +127,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  turbulentIntensityKineticEnergyInletFvPatchScalarField
 		//  onto a new patch
-		turbulentIntensityKineticEnergyInletFvPatchScalarField
+		FoamFiniteVolume_EXPORT turbulentIntensityKineticEnergyInletFvPatchScalarField
 		(
 			const turbulentIntensityKineticEnergyInletFvPatchScalarField&,
 			const fvPatch&,
@@ -132,7 +136,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		turbulentIntensityKineticEnergyInletFvPatchScalarField
+		FoamFiniteVolume_EXPORT turbulentIntensityKineticEnergyInletFvPatchScalarField
 		(
 			const turbulentIntensityKineticEnergyInletFvPatchScalarField&
 		);
@@ -150,7 +154,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		turbulentIntensityKineticEnergyInletFvPatchScalarField
+		FoamFiniteVolume_EXPORT turbulentIntensityKineticEnergyInletFvPatchScalarField
 		(
 			const turbulentIntensityKineticEnergyInletFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -175,11 +179,11 @@ namespace tnbLib
 
 		// Member Functions
 
-			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		//- Update the coefficients associated with the patch field
+		FoamFiniteVolume_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamFiniteVolume_EXPORT virtual void write(Ostream&) const;
 	};
 
 

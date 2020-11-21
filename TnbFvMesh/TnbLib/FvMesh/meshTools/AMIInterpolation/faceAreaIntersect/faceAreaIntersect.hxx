@@ -65,7 +65,7 @@ namespace tnbLib
 			tmMesh
 		};
 
-		static const NamedEnum<triangulationMode, 2> triangulationModeNames_;
+		static FoamFvMesh_EXPORT const NamedEnum<triangulationMode, 2> triangulationModeNames_;
 
 
 	private:
@@ -84,7 +84,7 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static scalar tol;
+		static FoamFvMesh_EXPORT scalar tol;
 
 
 		// Private Member Functions
@@ -121,7 +121,7 @@ namespace tnbLib
 
 
 		//- Slice triangle with plane and generate new cut sub-triangles
-		void triSliceWithPlane
+		FoamFvMesh_EXPORT void triSliceWithPlane
 		(
 			const triPoints& tri,
 			const plane& p,
@@ -131,7 +131,7 @@ namespace tnbLib
 		);
 
 		//- Return area of intersection of triangles src and tgt
-		scalar triangleIntersect
+		FoamFvMesh_EXPORT scalar triangleIntersect
 		(
 			const triPoints& src,
 			const triPoints& tgt,
@@ -144,7 +144,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from components
-		faceAreaIntersect
+		FoamFvMesh_EXPORT faceAreaIntersect
 		(
 			const pointField& pointsA,
 			const pointField& pointsB,
@@ -158,7 +158,7 @@ namespace tnbLib
 		inline static scalar& tolerance();
 
 		//- Triangulate a face using the given triangulation mode
-		static void triangulate
+		static FoamFvMesh_EXPORT void triangulate
 		(
 			const face& f,
 			const pointField& points,
@@ -167,7 +167,7 @@ namespace tnbLib
 		);
 
 		//- Return area of intersection of faceA with faceB
-		scalar calc
+		FoamFvMesh_EXPORT scalar calc
 		(
 			const face& faceA,
 			const face& faceB,

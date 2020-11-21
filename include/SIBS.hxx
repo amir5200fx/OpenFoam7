@@ -64,9 +64,9 @@ namespace tnbLib
 		// Private Data
 
 		static const label kMaxX_ = 7, iMaxX_ = kMaxX_ + 1;
-		static const label nSeq_[iMaxX_];
+		static FoamODE_EXPORT const label nSeq_[iMaxX_];
 
-		static const scalar safe1, safe2, redMax, redMin, scaleMX;
+		static FoamODE_EXPORT const scalar safe1, safe2, redMax, redMin, scaleMX;
 
 		mutable scalarField a_;
 		mutable scalarSquareMatrix alpha_;
@@ -87,7 +87,7 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void SIMPR
+		FoamODE_EXPORT void SIMPR
 		(
 			const scalar xStart,
 			const scalarField& y,
@@ -99,7 +99,7 @@ namespace tnbLib
 			scalarField& yEnd
 		) const;
 
-		void polyExtrapolate
+		FoamODE_EXPORT void polyExtrapolate
 		(
 			const label iest,
 			const scalar xest,
@@ -114,13 +114,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("SIBS");
+		//TypeName("SIBS");
+		static const char* typeName_() { return "SIBS"; }
+		static FoamODE_EXPORT const ::tnbLib::word typeName;
+		static FoamODE_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from ODE system
-		SIBS(const ODESystem& ode, const dictionary& dict);
+		FoamODE_EXPORT SIBS(const ODESystem& ode, const dictionary& dict);
 
 
 		//- Destructor
@@ -131,9 +135,9 @@ namespace tnbLib
 		// Member Functions
 
 			//- Resize the ODE solver
-		virtual bool resize();
+		FoamODE_EXPORT virtual bool resize();
 
-		virtual void solve
+		FoamODE_EXPORT virtual void solve
 		(
 			scalar& x,
 			scalarField& y,

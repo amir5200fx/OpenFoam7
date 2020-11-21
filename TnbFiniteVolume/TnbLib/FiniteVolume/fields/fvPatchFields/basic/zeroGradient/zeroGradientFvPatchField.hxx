@@ -50,6 +50,16 @@ SourceFiles
 
 #include <Pstream.hxx>  // added by amir
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamZeroGradientFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamZeroGradientFvPatchField_EXPORT_DEFINE
+#define FoamZeroGradientFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamZeroGradientFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -68,7 +78,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("zeroGradient");
+		//TypeName("zeroGradient");
+		static const char* typeName_() { return "zeroGradient"; }
+		static FoamZeroGradientFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamZeroGradientFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

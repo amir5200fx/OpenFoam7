@@ -41,6 +41,16 @@ SourceFiles
 #include <autoPtr.hxx>
 #include <runTimeSelectionTables.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamBasicChemistryModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamBasicChemistryModel_EXPORT_DEFINE
+#define FoamBasicChemistryModel_EXPORT __declspec(dllexport)
+#else
+#define FoamBasicChemistryModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -69,7 +79,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("BasicChemistryModel");
+		//TypeName("BasicChemistryModel");
+		static const char* typeName_() { return "BasicChemistryModel"; }
+		static FoamBasicChemistryModel_EXPORT const ::tnbLib::word typeName;
+		static FoamBasicChemistryModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		//- Thermo type
@@ -77,14 +91,66 @@ namespace tnbLib
 
 
 		//- Declare run-time constructor selection tables
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			BasicChemistryModel,
 			thermo,
 			(ReactionThermo& thermo),
 			(thermo)
-		);
+		);*/
+		
+		typedef autoPtr<BasicChemistryModel> (*thermoConstructorPtr)(ReactionThermo& thermo);
+		typedef HashTable<thermoConstructorPtr, word, string::hash> thermoConstructorTable;
+		static FoamBasicChemistryModel_EXPORT thermoConstructorTable* thermoConstructorTablePtr_;
+		static FoamBasicChemistryModel_EXPORT void constructthermoConstructorTables();
+		static FoamBasicChemistryModel_EXPORT void destroythermoConstructorTables();
+
+		template <class BasicChemistryModelType>
+		class addthermoConstructorToTable
+		{
+		public:
+			static autoPtr<BasicChemistryModel> New(ReactionThermo& thermo)
+			{
+				return autoPtr<BasicChemistryModel>(new BasicChemistryModelType(thermo));
+			}
+
+			addthermoConstructorToTable(const word& lookup = BasicChemistryModelType::typeName)
+			{
+				constructthermoConstructorTables();
+				if (!thermoConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "BasicChemistryModel"
+						<< std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addthermoConstructorToTable() { destroythermoConstructorTables(); }
+		};
+
+		template <class BasicChemistryModelType>
+		class addRemovablethermoConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<BasicChemistryModel> New(ReactionThermo& thermo)
+			{
+				return autoPtr<BasicChemistryModel>(new BasicChemistryModelType(thermo));
+			}
+
+			addRemovablethermoConstructorToTable(const word& lookup = BasicChemistryModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructthermoConstructorTables();
+				thermoConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablethermoConstructorToTable()
+			{
+				if (thermoConstructorTablePtr_) { thermoConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors

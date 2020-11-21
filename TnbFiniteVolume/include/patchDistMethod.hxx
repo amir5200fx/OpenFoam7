@@ -72,12 +72,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("patchDistMethod");
+		/*TypeName("patchDistMethod");*/
+		static const char* typeName_() { return "patchDistMethod"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare runtime construction
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			patchDistMethod,
@@ -88,25 +92,76 @@ namespace tnbLib
 				const labelHashSet& patchIDs
 				),
 				(dict, mesh, patchIDs)
-		);
+		);*/
+
+		typedef autoPtr<patchDistMethod> (*dictionaryConstructorPtr)(const dictionary& dict, const fvMesh& mesh,
+		                                                             const labelHashSet& patchIDs);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamFiniteVolume_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamFiniteVolume_EXPORT void constructdictionaryConstructorTables();
+		static FoamFiniteVolume_EXPORT void destroydictionaryConstructorTables();
+
+		template <class patchDistMethodType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<patchDistMethod> New(const dictionary& dict, const fvMesh& mesh, const labelHashSet& patchIDs)
+			{
+				return autoPtr<patchDistMethod>(new patchDistMethodType(dict, mesh, patchIDs));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = patchDistMethodType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "patchDistMethod" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class patchDistMethodType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<patchDistMethod> New(const dictionary& dict, const fvMesh& mesh, const labelHashSet& patchIDs)
+			{
+				return autoPtr<patchDistMethod>(new patchDistMethodType(dict, mesh, patchIDs));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = patchDistMethodType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
-			//- Construct from mesh and patch ID set
-		patchDistMethod
+		//- Construct from mesh and patch ID set
+		FoamFiniteVolume_EXPORT patchDistMethod
 		(
 			const fvMesh& mesh,
 			const labelHashSet& patchIDs
 		);
 
 		//- Disallow default bitwise copy construction
-		patchDistMethod(const patchDistMethod&) = delete;
+		FoamFiniteVolume_EXPORT patchDistMethod(const patchDistMethod&) = delete;
 
 
 		// Selectors
 
-		static autoPtr<patchDistMethod> New
+		static FoamFiniteVolume_EXPORT autoPtr<patchDistMethod> New
 		(
 			const dictionary& dict,
 			const fvMesh& mesh,
@@ -115,13 +170,13 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~patchDistMethod();
+		FoamFiniteVolume_EXPORT virtual ~patchDistMethod();
 
 
 		// Static Functions
 
-			//- Return the patch types for y and n
-			//  These are fixedValue for the set provided otherwise zero-gradient
+		//- Return the patch types for y and n
+		//  These are fixedValue for the set provided otherwise zero-gradient
 		template<class Type>
 		static wordList patchTypes
 		(
@@ -132,7 +187,7 @@ namespace tnbLib
 
 		// Member Functions
 
-			//- Return the patchIDs
+		//- Return the patchIDs
 		const labelHashSet& patchIDs() const
 		{
 			return patchIDs_;
@@ -149,16 +204,16 @@ namespace tnbLib
 		{}
 
 		//- Correct the given distance-to-patch field
-		virtual bool correct(volScalarField& y) = 0;
+		FoamFiniteVolume_EXPORT virtual bool correct(volScalarField& y) = 0;
 
 		//- Correct the given distance-to-patch and normal-to-patch fields
-		virtual bool correct(volScalarField& y, volVectorField& n) = 0;
+		FoamFiniteVolume_EXPORT virtual bool correct(volScalarField& y, volVectorField& n) = 0;
 
 
 		// Member Operators
 
-			//- Disallow default bitwise assignment
-		void operator=(const patchDistMethod&) = delete;
+		//- Disallow default bitwise assignment
+		FoamFiniteVolume_EXPORT void operator=(const patchDistMethod&) = delete;
 	};
 
 

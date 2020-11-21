@@ -55,7 +55,7 @@ namespace tnbLib
 	{
 		// Private Member Functions
 
-		static void mergeHits
+		static FoamFvMesh_EXPORT void mergeHits
 		(
 			const point& start,
 
@@ -70,7 +70,10 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("searchableSurfacesQueries");
+		/*ClassName("searchableSurfacesQueries");*/
+		static const char* typeName_() { return "searchableSurfacesQueries"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Multiple point queries.
@@ -78,7 +81,7 @@ namespace tnbLib
 			//- Find any intersection. Return hit point information and
 			//  index in surfacesToTest. If multiple surfaces hit the first
 			//  surface is returned, not necessarily the nearest (to start).
-		static void findAnyIntersection
+		static FoamFvMesh_EXPORT void findAnyIntersection
 		(
 			const PtrList<searchableSurface>&,
 			const labelList& surfacesToTest,
@@ -90,7 +93,7 @@ namespace tnbLib
 
 		//- Find all intersections in order from start to end. Returns for
 		//  every hit the index in surfacesToTest and the hit info.
-		static void findAllIntersections
+		static FoamFvMesh_EXPORT void findAllIntersections
 		(
 			const PtrList<searchableSurface>&,
 			const labelList& surfacesToTest,
@@ -101,7 +104,7 @@ namespace tnbLib
 		);
 
 		//- Find intersections of edge nearest to both endpoints.
-		static void findNearestIntersection
+		static FoamFvMesh_EXPORT void findNearestIntersection
 		(
 			const PtrList<searchableSurface>& allSurfaces,
 			const labelList& surfacesToTest,
@@ -115,7 +118,7 @@ namespace tnbLib
 
 		//- Find nearest. Return -1 (and a miss()) or surface and nearest
 		//  point.
-		static void findNearest
+		static FoamFvMesh_EXPORT void findNearest
 		(
 			const PtrList<searchableSurface>&,
 			const labelList& surfacesToTest,
@@ -126,7 +129,7 @@ namespace tnbLib
 		);
 
 		//- Find nearest points to a specific region of the surface
-		static void findNearest
+		static FoamFvMesh_EXPORT void findNearest
 		(
 			const PtrList<searchableSurface>& allSurfaces,
 			const labelList& surfacesToTest,
@@ -141,7 +144,7 @@ namespace tnbLib
 		//  (nearest point if single surface; nearest intersection by
 		//   steepst descent if on multiple surfaces). Returns current
 		//   best guess). Wip.
-		static void findNearest
+		static FoamFvMesh_EXPORT void findNearest
 		(
 			const PtrList<searchableSurface>& allSurfaces,
 			const labelList& surfacesToTest,
@@ -157,7 +160,7 @@ namespace tnbLib
 		//      OUTSIDE : treat as outside
 		//      INSIDE  : treat as inside
 		//      UNKNOWN : throw fatal error
-		static void signedDistance
+		static FoamFvMesh_EXPORT void signedDistance
 		(
 			const PtrList<searchableSurface>& allSurfaces,
 			const labelList& surfacesToTest,
@@ -169,7 +172,7 @@ namespace tnbLib
 		);
 
 		//- Find the boundBox of the selected surfaces
-		static boundBox bounds
+		static FoamFvMesh_EXPORT boundBox bounds
 		(
 			const PtrList<searchableSurface>& allSurfaces,
 			const labelList& surfacesToTest

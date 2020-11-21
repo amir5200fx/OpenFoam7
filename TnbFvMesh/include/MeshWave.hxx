@@ -47,7 +47,18 @@ namespace tnbLib
 							Class MeshWaveName Declaration
 	\*---------------------------------------------------------------------------*/
 
-	TemplateName(MeshWave);
+	//TemplateName(MeshWave);
+	class MeshWaveName
+	{
+	public:
+		MeshWaveName()
+		{
+		}
+
+		static const char* typeName_() { return "MeshWave"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+	};
 
 
 	/*---------------------------------------------------------------------------*\

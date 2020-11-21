@@ -75,11 +75,11 @@ namespace tnbLib
 
 	class treeBoundBox;
 
-	bool operator==(const treeBoundBox&, const treeBoundBox&);
-	bool operator!=(const treeBoundBox&, const treeBoundBox&);
+	FoamBase_EXPORT bool operator==(const treeBoundBox&, const treeBoundBox&);
+	FoamBase_EXPORT bool operator!=(const treeBoundBox&, const treeBoundBox&);
 
-	Istream& operator>>(Istream& is, treeBoundBox&);
-	Ostream& operator<<(Ostream& os, const treeBoundBox&);
+	FoamBase_EXPORT Istream& operator>>(Istream& is, treeBoundBox&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream& os, const treeBoundBox&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -91,23 +91,23 @@ namespace tnbLib
 		public boundBox
 	{
 		//- To initialise edges.
-		static edgeList calcEdges(const label[12][2]);
+		static FoamBase_EXPORT edgeList calcEdges(const label[12][2]);
 
 		//- To initialise faceNormals.
-		static FixedList<vector, 6> calcFaceNormals();
+		static FoamBase_EXPORT FixedList<vector, 6> calcFaceNormals();
 
 	public:
 
 		// Static Data Members
 
 			//- The great value used for greatBox and invertedBox
-		static const scalar great;
+		static FoamBase_EXPORT const scalar great;
 
 		//- As per boundBox::greatBox, but with great instead of vGreat
-		static const treeBoundBox greatBox;
+		static FoamBase_EXPORT const treeBoundBox greatBox;
 
 		//- As per boundBox::invertedBox, but with great instead of vGreat
-		static const treeBoundBox invertedBox;
+		static FoamBase_EXPORT const treeBoundBox invertedBox;
 
 		//- Bits used for octant/point coding.
 		//  Every octant/corner point is the combination of three faces.
@@ -174,13 +174,13 @@ namespace tnbLib
 		};
 
 		//- Face to point addressing
-		static const faceList faces;
+		static FoamBase_EXPORT const faceList faces;
 
 		//- Edge to point addressing
-		static const edgeList edges;
+		static FoamBase_EXPORT const edgeList edges;
 
 		//- Per face the unit normal
-		static const FixedList<vector, 6> faceNormals;
+		static FoamBase_EXPORT const FixedList<vector, 6> faceNormals;
 
 
 		// Constructors
@@ -196,11 +196,11 @@ namespace tnbLib
 
 		//- Construct as the bounding box of the given pointField.
 		//  Local processor domain only (no reduce as in boundBox)
-		explicit treeBoundBox(const UList<point>&);
+		FoamBase_EXPORT explicit treeBoundBox(const UList<point>&);
 
 		//- Construct as subset of points
 		//  Local processor domain only (no reduce as in boundBox)
-		treeBoundBox(const UList<point>&, const labelUList& indices);
+		FoamBase_EXPORT treeBoundBox(const UList<point>&, const labelUList& indices);
 
 		//- Construct as subset of points
 		//  The indices could be from edge/triFace etc.
@@ -225,7 +225,7 @@ namespace tnbLib
 		inline scalar typDim() const;
 
 		//- Vertex coordinates. In octant coding.
-		tmp<pointField> points() const;
+		FoamBase_EXPORT tmp<pointField> points() const;
 
 
 		// Check
@@ -234,10 +234,10 @@ namespace tnbLib
 		inline point corner(const direction) const;
 
 		//- Sub box given by octant number. Midpoint calculated.
-		treeBoundBox subBbox(const direction) const;
+		FoamBase_EXPORT treeBoundBox subBbox(const direction) const;
 
 		//- Sub box given by octant number. Midpoint provided.
-		treeBoundBox subBbox(const point& mid, const direction) const;
+		FoamBase_EXPORT treeBoundBox subBbox(const point& mid, const direction) const;
 
 		//- Returns octant number given point and the calculated midpoint.
 		inline direction subOctant
@@ -302,7 +302,7 @@ namespace tnbLib
 		//  e.g. tracking through lots of consecutive boxes
 		// (typical octree) we're not accumulating truncation errors. Set
 		// to start, (end-start) if not used.
-		bool intersects
+		FoamBase_EXPORT bool intersects
 		(
 			const point& overallStart,
 			const vector& overallVec,
@@ -313,7 +313,7 @@ namespace tnbLib
 		) const;
 
 		//- Like above but does not return faces point is on
-		bool intersects
+		FoamBase_EXPORT bool intersects
 		(
 			const point& start,
 			const point& end,
@@ -325,17 +325,17 @@ namespace tnbLib
 
 		//- Contains point (inside or on edge) and moving in direction
 		//  dir would cause it to go inside.
-		bool contains(const vector& dir, const point&) const;
+		FoamBase_EXPORT bool contains(const vector& dir, const point&) const;
 
 		//- Code position of point on bounding box faces
-		direction faceBits(const point&) const;
+		FoamBase_EXPORT direction faceBits(const point&) const;
 
 		//- Position of point relative to bounding box
-		direction posBits(const point&) const;
+		FoamBase_EXPORT direction posBits(const point&) const;
 
 		//- Calculate nearest and furthest (to point) vertex coords of
 		//  bounding box
-		void calcExtremities
+		FoamBase_EXPORT void calcExtremities
 		(
 			const point& pt,
 			point& nearest,
@@ -343,7 +343,7 @@ namespace tnbLib
 		) const;
 
 		//- Returns distance point to furthest away corner.
-		scalar maxDist(const point&) const;
+		FoamBase_EXPORT scalar maxDist(const point&) const;
 
 		//- Compare distance to point with other bounding box
 		//  return:
@@ -352,7 +352,7 @@ namespace tnbLib
 		//  +1 : all vertices of my bounding box are further away than
 		//       any of other
 		//   0 : none of the above.
-		label distanceCmp(const point&, const treeBoundBox& other) const;
+		FoamBase_EXPORT label distanceCmp(const point&, const treeBoundBox& other) const;
 
 		//- Return asymetrically extended bounding box, with guaranteed
 		//  minimum width of s*mag(span) in any direction
@@ -360,19 +360,19 @@ namespace tnbLib
 
 		// Write
 
-		void writeOBJ(const fileName& fName) const;
+		FoamBase_EXPORT void writeOBJ(const fileName& fName) const;
 
 
 		// Friend Operators
 
-		friend bool operator==(const treeBoundBox&, const treeBoundBox&);
-		friend bool operator!=(const treeBoundBox&, const treeBoundBox&);
+		friend FoamBase_EXPORT bool operator==(const treeBoundBox&, const treeBoundBox&);
+		friend FoamBase_EXPORT bool operator!=(const treeBoundBox&, const treeBoundBox&);
 
 
 		// IOstream operator
 
-		friend Istream& operator>>(Istream& is, treeBoundBox&);
-		friend Ostream& operator<<(Ostream& os, const treeBoundBox&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream& is, treeBoundBox&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream& os, const treeBoundBox&);
 	};
 
 

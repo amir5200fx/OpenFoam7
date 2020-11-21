@@ -44,6 +44,16 @@ SourceFiles
 
 #include <vector.hxx> // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamDampingModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDampingModel_EXPORT_DEFINE
+#define FoamDampingModel_EXPORT __declspec(dllexport)
+#else
+#define FoamDampingModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -73,10 +83,14 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("dampingModel");
+		//TypeName("dampingModel");
+		static const char* typeName_() { return "dampingModel"; }
+		static FoamDampingModel_EXPORT const ::tnbLib::word typeName;
+		static FoamDampingModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			DampingModel,
@@ -86,7 +100,58 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+		
+		typedef autoPtr<DampingModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamDampingModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamDampingModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamDampingModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class DampingModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<DampingModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<DampingModel>(new DampingModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = DampingModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "DampingModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class DampingModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<DampingModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<DampingModel>(new DampingModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = DampingModelType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

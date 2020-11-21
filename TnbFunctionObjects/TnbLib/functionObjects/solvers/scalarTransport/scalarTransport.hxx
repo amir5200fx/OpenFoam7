@@ -110,19 +110,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Return the diffusivity field
-			tmp<volScalarField> D(const surfaceScalarField& phi) const;
+			FoamFunctionObjects_EXPORT tmp<volScalarField> D(const surfaceScalarField& phi) const;
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("scalarTransport");
+			//TypeName("scalarTransport");
+			static const char* typeName_() { return "scalarTransport"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			scalarTransport
+			FoamFunctionObjects_EXPORT scalarTransport
 			(
 				const word& name,
 				const Time& runTime,
@@ -130,30 +134,30 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			scalarTransport(const scalarTransport&) = delete;
+			FoamFunctionObjects_EXPORT scalarTransport(const scalarTransport&) = delete;
 
 
 			//- Destructor
-			virtual ~scalarTransport();
+			FoamFunctionObjects_EXPORT virtual ~scalarTransport();
 
 
 			// Member Functions
 
 				//- Read the scalarTransport data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate the scalarTransport
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Do nothing.
 			//  The volScalarField is registered and written automatically
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const scalarTransport&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const scalarTransport&) = delete;
 		};
 
 

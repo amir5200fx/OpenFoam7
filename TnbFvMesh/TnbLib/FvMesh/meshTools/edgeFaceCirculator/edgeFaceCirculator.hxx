@@ -90,10 +90,10 @@ namespace tnbLib
 		// Static Data Members
 
 			//- End iterator primitiveMesh nullptr
-		static const primitiveMesh* const endConstIterMeshPtr;
+		static FoamFvMesh_EXPORT const primitiveMesh* const endConstIterMeshPtr;
 
 		//- End iterator
-		static const edgeFaceCirculator endConstIter;
+		static FoamFvMesh_EXPORT const edgeFaceCirculator endConstIter;
 
 
 		// Private Data

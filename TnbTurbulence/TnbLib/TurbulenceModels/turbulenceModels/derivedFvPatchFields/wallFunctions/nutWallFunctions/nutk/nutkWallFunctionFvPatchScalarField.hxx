@@ -70,26 +70,30 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Calculate the turbulence viscosity
-		virtual tmp<scalarField> nut() const;
+		FoamTurbulence_EXPORT virtual tmp<scalarField> nut() const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("nutkWallFunction");
+		//TypeName("nutkWallFunction");
+		static const char* typeName_() { return "nutkWallFunction"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		nutkWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutkWallFunctionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		nutkWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutkWallFunctionFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -99,7 +103,7 @@ namespace tnbLib
 		//- Construct by mapping given
 		//  nutkWallFunctionFvPatchScalarField
 		//  onto a new patch
-		nutkWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutkWallFunctionFvPatchScalarField
 		(
 			const nutkWallFunctionFvPatchScalarField&,
 			const fvPatch&,
@@ -108,7 +112,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		nutkWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutkWallFunctionFvPatchScalarField
 		(
 			const nutkWallFunctionFvPatchScalarField&
 		);
@@ -123,7 +127,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		nutkWallFunctionFvPatchScalarField
+		FoamTurbulence_EXPORT nutkWallFunctionFvPatchScalarField
 		(
 			const nutkWallFunctionFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -145,7 +149,7 @@ namespace tnbLib
 		// Member Functions
 
 			//- Calculate and return the yPlus at the boundary
-		virtual tmp<scalarField> yPlus() const;
+		FoamTurbulence_EXPORT virtual tmp<scalarField> yPlus() const;
 	};
 
 

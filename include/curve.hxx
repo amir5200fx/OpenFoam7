@@ -48,7 +48,7 @@ namespace tnbLib
 	// Forward declaration of friend functions and operators
 
 	class curve;
-	Ostream& operator<<(Ostream&, const curve&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const curve&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -130,7 +130,7 @@ namespace tnbLib
 			// curve(const curve&, const label);
 
 			//- Construct from name, style and size
-		curve
+		FoamBase_EXPORT curve
 		(
 			const string& name,
 			const curveStyle& style,
@@ -138,7 +138,7 @@ namespace tnbLib
 		);
 
 		//- Construct from the components
-		curve
+		FoamBase_EXPORT curve
 		(
 			const string&,
 			const curveStyle&,

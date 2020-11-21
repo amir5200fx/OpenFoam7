@@ -39,6 +39,16 @@ SourceFiles
 #include <chemistrySolver.hxx>
 #include <ODESolver.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define Foamode_EXPORT __declspec(dllexport)
+#else
+#ifdef Foamode_EXPORT_DEFINE
+#define Foamode_EXPORT __declspec(dllexport)
+#else
+#define Foamode_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -66,7 +76,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("ode");
+		//TypeName("ode");
+		static const char* typeName_() { return "ode"; }
+		static Foamode_EXPORT const ::tnbLib::word typeName;
+		static Foamode_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

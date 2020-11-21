@@ -56,14 +56,14 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Tet overlap volume
-		scalar tetTetOverlapVol
+		FoamFvMesh_EXPORT scalar tetTetOverlapVol
 		(
 			const tetPointRef& tetA,
 			const tetPointRef& tetB
 		) const;
 
 		//- Return a const treeBoundBox
-		treeBoundBox pyrBb
+		FoamFvMesh_EXPORT treeBoundBox pyrBb
 		(
 			const pointField& points,
 			const face& f,
@@ -119,20 +119,23 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		ClassName("tetOverlapVolume");
+		/*ClassName("tetOverlapVolume");*/
+		static const char* typeName_() { return "tetOverlapVolume"; } 
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName; 
+		static FoamFvMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Null constructor
-		tetOverlapVolume();
+		FoamFvMesh_EXPORT tetOverlapVolume();
 
 
 		// Public members
 
 			//- Return a list of cells in meshA which overlaps with cellBI in
 			// meshB
-		labelList overlappingCells
+		FoamFvMesh_EXPORT labelList overlappingCells
 		(
 			const polyMesh& meshA,
 			const polyMesh& meshB,
@@ -140,7 +143,7 @@ namespace tnbLib
 		) const;
 
 		//- Return true if olverlap volume is greater than threshold
-		bool cellCellOverlapMinDecomp
+		FoamFvMesh_EXPORT bool cellCellOverlapMinDecomp
 		(
 			const primitiveMesh& meshA,
 			const label cellAI,
@@ -151,7 +154,7 @@ namespace tnbLib
 		) const;
 
 		//- Calculates the overlap volume
-		scalar cellCellOverlapVolumeMinDecomp
+		FoamFvMesh_EXPORT scalar cellCellOverlapVolumeMinDecomp
 		(
 			const primitiveMesh& meshA,
 			const label cellAI,

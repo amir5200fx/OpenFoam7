@@ -115,10 +115,10 @@ namespace tnbLib
 			// Protected Member Functions
 
 				//- File header information
-			virtual void writeFileHeader(const label i);
+			FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i);
 
 			//- Calculate the shear-stress
-			tmp<volVectorField> calcShearStress
+			FoamFunctionObjects_EXPORT tmp<volVectorField> calcShearStress
 			(
 				const volSymmTensorField& Reff
 			);
@@ -127,13 +127,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("wallShearStress");
+			//TypeName("wallShearStress");
+			static const char* typeName_() { return "wallShearStress"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			wallShearStress
+			FoamFunctionObjects_EXPORT wallShearStress
 			(
 				const word& name,
 				const Time& runTime,
@@ -141,29 +145,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			wallShearStress(const wallShearStress&) = delete;
+			FoamFunctionObjects_EXPORT wallShearStress(const wallShearStress&) = delete;
 
 
 			//- Destructor
-			virtual ~wallShearStress();
+			FoamFunctionObjects_EXPORT virtual ~wallShearStress();
 
 
 			// Member Functions
 
 				//- Read the wallShearStress data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate the wall shear-stress
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the wall shear-stress
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const wallShearStress&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const wallShearStress&) = delete;
 		};
 
 

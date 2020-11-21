@@ -70,7 +70,7 @@ namespace tnbLib
 		// Private Data
 
 			//- The name associated with the zone-labels dictionary entry
-		static const word labelsName_;
+		static FoamBase_EXPORT const word labelsName_;
 
 
 	protected:
@@ -103,16 +103,16 @@ namespace tnbLib
 		// Protected Member Functions
 
 			//- Build primitive patch
-		void calcFaceZonePatch() const;
+		FoamBase_EXPORT void calcFaceZonePatch() const;
 
 		//- Return map of local face indices
-		const Map<label>& faceLookupMap() const;
+		FoamBase_EXPORT const Map<label>& faceLookupMap() const;
 
 		//- Calculate master and slave face layer
-		void calcCellLayers() const;
+		FoamBase_EXPORT void calcCellLayers() const;
 
 		//- Check addressing
-		void checkAddressing() const;
+		FoamBase_EXPORT void checkAddressing() const;
 
 
 	public:
@@ -120,16 +120,20 @@ namespace tnbLib
 		// Static Data Members
 
 			//- The name associated with the zone-labels dictionary entry
-		static const char * const labelsName;
+		static FoamBase_EXPORT const char * const labelsName;
 
 
 		//- Runtime type information
-		TypeName("faceZone");
+		//TypeName("faceZone");
+		static const char* typeName_() { return "faceZone"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare run-time constructor selection tables
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			faceZone,
@@ -141,13 +145,64 @@ namespace tnbLib
 				const faceZoneMesh& zm
 				),
 				(name, dict, index, zm)
-		);
+		);*/
+
+		typedef autoPtr<faceZone> (*dictionaryConstructorPtr)(const word& name, const dictionary& dict, const label index,
+		                                                      const faceZoneMesh& zm);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamBase_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamBase_EXPORT void constructdictionaryConstructorTables();
+		static FoamBase_EXPORT void destroydictionaryConstructorTables();
+
+		template <class faceZoneType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<faceZone> New(const word& name, const dictionary& dict, const label index, const faceZoneMesh& zm)
+			{
+				return autoPtr<faceZone>(new faceZoneType(name, dict, index, zm));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = faceZoneType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "faceZone" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class faceZoneType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<faceZone> New(const word& name, const dictionary& dict, const label index, const faceZoneMesh& zm)
+			{
+				return autoPtr<faceZone>(new faceZoneType(name, dict, index, zm));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = faceZoneType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from components
-		faceZone
+		FoamBase_EXPORT faceZone
 		(
 			const word& name,
 			const labelUList& addr,
@@ -157,7 +212,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components, moving contents
-		faceZone
+		FoamBase_EXPORT faceZone
 		(
 			const word& name,
 			labelList&& addr,
@@ -167,7 +222,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		faceZone
+		FoamBase_EXPORT faceZone
 		(
 			const word& name,
 			const dictionary&,
@@ -177,7 +232,7 @@ namespace tnbLib
 
 		//- Construct given the original zone and resetting the
 		//  face list and zone mesh information
-		faceZone
+		FoamBase_EXPORT faceZone
 		(
 			const faceZone&,
 			const labelUList& addr,
@@ -188,7 +243,7 @@ namespace tnbLib
 
 		//- Construct given the original zone, resetting the
 		//  face list and zone mesh information
-		faceZone
+		FoamBase_EXPORT faceZone
 		(
 			const faceZone&,
 			labelList&& addr,
@@ -198,7 +253,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		faceZone(const faceZone&) = delete;
+		FoamBase_EXPORT faceZone(const faceZone&) = delete;
 
 
 		//- Construct and return a clone, resetting the zone mesh
@@ -231,7 +286,7 @@ namespace tnbLib
 
 			//- Return a pointer to a new face zone
 			//  created on freestore from dictionary
-		static autoPtr<faceZone> New
+		static FoamBase_EXPORT autoPtr<faceZone> New
 		(
 			const word& name,
 			const dictionary&,
@@ -241,7 +296,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~faceZone();
+		FoamBase_EXPORT virtual ~faceZone();
 
 
 		// Member Functions
@@ -253,61 +308,61 @@ namespace tnbLib
 		}
 
 		//- Helper function to re-direct to zone::localID(...)
-		label whichFace(const label globalCellID) const;
+		FoamBase_EXPORT label whichFace(const label globalCellID) const;
 
 		//- Return reference to primitive patch
-		const primitiveFacePatch& operator()() const;
+		FoamBase_EXPORT const primitiveFacePatch& operator()() const;
 
 		//- Return zoneMesh reference
-		const faceZoneMesh& zoneMesh() const;
+		FoamBase_EXPORT const faceZoneMesh& zoneMesh() const;
 
 
 		// Addressing into mesh
 
 			//- Return labels of master cells (cells next to the master face
 			//  zone in the prescribed direction)
-		const labelList& masterCells() const;
+		FoamBase_EXPORT const labelList& masterCells() const;
 
 		//- Return labels of slave cells
-		const labelList& slaveCells() const;
+		FoamBase_EXPORT const labelList& slaveCells() const;
 
 		//- Return global edge index for local edges
-		const labelList& meshEdges() const;
+		FoamBase_EXPORT const labelList& meshEdges() const;
 
 
 		//- Clear addressing
-		virtual void clearAddressing();
+		FoamBase_EXPORT virtual void clearAddressing();
 
 		//- Reset addressing and flip map (clearing demand-driven data)
-		virtual void resetAddressing(const labelUList&, const boolList&);
+		FoamBase_EXPORT virtual void resetAddressing(const labelUList&, const boolList&);
 
 		//- Check zone definition. Return true if in error.
-		virtual bool checkDefinition(const bool report = false) const;
+		FoamBase_EXPORT virtual bool checkDefinition(const bool report = false) const;
 
 		//- Check whether all procs have faces synchronised. Return
 		//  true if in error.
-		virtual bool checkParallelSync(const bool report = false) const;
+		FoamBase_EXPORT virtual bool checkParallelSync(const bool report = false) const;
 
 		//- Correct patch after moving points
-		virtual void movePoints(const pointField&);
+		FoamBase_EXPORT virtual void movePoints(const pointField&);
 
 		//- Update for changes in topology
-		virtual void updateMesh(const mapPolyMesh&);
+		FoamBase_EXPORT virtual void updateMesh(const mapPolyMesh&);
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamBase_EXPORT virtual void write(Ostream&) const;
 
 		//- Write dictionary
-		virtual void writeDict(Ostream&) const;
+		FoamBase_EXPORT virtual void writeDict(Ostream&) const;
 
 
 		// Member Operators
 
 			//- Assignment to zone, clearing demand-driven data
-		void operator=(const faceZone&);
+		FoamBase_EXPORT void operator=(const faceZone&);
 
 		//- Move assignment to zone, clearing demand-driven data
-		void operator=(faceZone&&);
+		FoamBase_EXPORT void operator=(faceZone&&);
 
 
 		// I-O

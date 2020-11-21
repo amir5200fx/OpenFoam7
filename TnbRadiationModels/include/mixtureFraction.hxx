@@ -66,6 +66,16 @@ SourceFiles
 #include <fluidThermo.hxx>
 #include <singleStepReactingMixture.hxx>
 
+#ifdef FoamRadiationModels_EXPORT_DEFINE
+#define FoammixtureFraction_EXPORT __declspec(dllexport)
+#else
+#ifdef FoammixtureFraction_EXPORT_DEFINE
+#define FoammixtureFraction_EXPORT __declspec(dllexport)
+#else
+#define FoammixtureFraction_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -126,7 +136,11 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("mixtureFraction");
+				//TypeName("mixtureFraction");
+				static const char* typeName_() { return "mixtureFraction"; }
+				static FoammixtureFraction_EXPORT const ::tnbLib::word typeName;
+				static FoammixtureFraction_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors

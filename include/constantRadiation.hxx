@@ -80,24 +80,28 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("constantRadiation");
+				//TypeName("constantRadiation");
+				static const char* typeName_() { return "constantRadiation"; }
+				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+				static FoamLagrangian_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from surface film model and dictionary
-				constantRadiation
+				FoamLagrangian_EXPORT constantRadiation
 				(
 					surfaceFilmRegionModel& film,
 					const dictionary& dict
 				);
 
 				//- Disallow default bitwise copy construction
-				constantRadiation(const constantRadiation&) = delete;
+				FoamLagrangian_EXPORT constantRadiation(const constantRadiation&) = delete;
 
 
 				//- Destructor
-				virtual ~constantRadiation();
+				FoamLagrangian_EXPORT virtual ~constantRadiation();
 
 
 				// Member Functions
@@ -105,17 +109,17 @@ namespace tnbLib
 					// Evolution
 
 						//- Correct
-				virtual void correct();
+				FoamLagrangian_EXPORT virtual void correct();
 
 				//- Return the radiation sensible enthalpy source
 				//  Also updates qrNet
-				virtual tmp<volScalarField> Shs();
+				FoamLagrangian_EXPORT virtual tmp<volScalarField> Shs();
 
 
 				// Member Operators
 
 					//- Disallow default bitwise assignment
-				void operator=(const constantRadiation&) = delete;
+				FoamLagrangian_EXPORT void operator=(const constantRadiation&) = delete;
 			};
 
 

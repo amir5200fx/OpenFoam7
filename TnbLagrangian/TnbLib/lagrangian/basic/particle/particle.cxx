@@ -1194,13 +1194,13 @@ void tnbLib::particle::autoMap
 
 // * * * * * * * * * * * * * * Friend Operators * * * * * * * * * * * * * * //
 
-bool tnbLib::operator==(const particle& pA, const particle& pB)
+FoamLagrangian_EXPORT bool tnbLib::operator==(const particle& pA, const particle& pB)
 {
 	return (pA.origProc() == pB.origProc() && pA.origId() == pB.origId());
 }
 
 
-bool tnbLib::operator!=(const particle& pA, const particle& pB)
+FoamLagrangian_EXPORT bool tnbLib::operator!=(const particle& pA, const particle& pB)
 {
 	return !(pA == pB);
 }

@@ -164,11 +164,15 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("solidification");
+			//TypeName("solidification");
+			static const char* typeName_() { return "solidification"; }
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+			static FoamFiniteVolume_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
-			solidification
+			FoamFiniteVolume_EXPORT solidification
 			(
 				const word& name,
 				const word& modelType,
@@ -178,20 +182,20 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			solidification(const solidification&) = delete;
+			FoamFiniteVolume_EXPORT solidification(const solidification&) = delete;
 
 
 			//- Destructor
-			virtual ~solidification();
+			FoamFiniteVolume_EXPORT virtual ~solidification();
 
 
 			// Member Functions
 
 				//- Transform the model data wrt mesh changes
-			virtual void calcTransformModelData();
+			FoamFiniteVolume_EXPORT virtual void calcTransformModelData();
 
 			//- Calculate the porosity force
-			virtual void calcForce
+			FoamFiniteVolume_EXPORT virtual void calcForce
 			(
 				const volVectorField& U,
 				const volScalarField& rho,
@@ -200,10 +204,10 @@ namespace tnbLib
 			) const;
 
 			//- Add resistance
-			virtual void correct(fvVectorMatrix& UEqn) const;
+			FoamFiniteVolume_EXPORT virtual void correct(fvVectorMatrix& UEqn) const;
 
 			//- Add resistance
-			virtual void correct
+			FoamFiniteVolume_EXPORT virtual void correct
 			(
 				fvVectorMatrix& UEqn,
 				const volScalarField& rho,
@@ -211,7 +215,7 @@ namespace tnbLib
 			) const;
 
 			//- Add resistance
-			virtual void correct
+			FoamFiniteVolume_EXPORT virtual void correct
 			(
 				const fvVectorMatrix& UEqn,
 				volTensorField& AU
@@ -221,13 +225,13 @@ namespace tnbLib
 			// I-O
 
 				//- Write
-			bool writeData(Ostream& os) const;
+			FoamFiniteVolume_EXPORT bool writeData(Ostream& os) const;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const solidification&) = delete;
+			FoamFiniteVolume_EXPORT void operator=(const solidification&) = delete;
 		};
 
 

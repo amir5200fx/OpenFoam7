@@ -60,20 +60,24 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- Calculate the Mach number field and return true if successful
-			virtual bool calc();
+			FoamFunctionObjects_EXPORT virtual bool calc();
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("MachNo");
+			//TypeName("MachNo");
+			static const char* typeName_() { return "MachNo"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct for given objectRegistry and dictionary.
 				//  Allow the possibility to load fields from files
-			MachNo
+			FoamFunctionObjects_EXPORT MachNo
 			(
 				const word& name,
 				const Time& runTime,
@@ -82,7 +86,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~MachNo();
+			FoamFunctionObjects_EXPORT virtual ~MachNo();
 		};
 
 

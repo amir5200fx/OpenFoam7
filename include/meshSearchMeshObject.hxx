@@ -56,13 +56,17 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		TypeName("meshSearchMeshObject");
+		/*TypeName("meshSearchMeshObject");*/
+		static const char* typeName_() { return "meshSearchMeshObject"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Constructor given polyMesh
-		explicit meshSearchMeshObject(const polyMesh& mesh);
+		FoamFvMesh_EXPORT explicit meshSearchMeshObject(const polyMesh& mesh);
 
 		//- Destructor
 		virtual ~meshSearchMeshObject()

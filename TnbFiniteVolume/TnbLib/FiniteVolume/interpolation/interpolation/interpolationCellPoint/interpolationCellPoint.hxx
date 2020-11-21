@@ -37,6 +37,16 @@ Description
 #include <interpolation.hxx>
 #include <cellPointWeight.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamInterpolationCellPoint_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamInterpolationCellPoint_EXPORT_DEFINE
+#define FoamInterpolationCellPoint_EXPORT __declspec(dllexport)
+#else
+#define FoamInterpolationCellPoint_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -55,14 +65,18 @@ namespace tnbLib
 
 		// Protected data
 
-			//- Interpolated volfield
+		//- Interpolated volfield
 		const GeometricField<Type, pointPatchField, pointMesh> psip_;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("cellPoint");
+		/*TypeName("cellPoint");*/
+		static const char* typeName_() { return "cellPoint"; }
+		static FoamInterpolationCellPoint_EXPORT const ::tnbLib::word typeName;
+		static FoamInterpolationCellPoint_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

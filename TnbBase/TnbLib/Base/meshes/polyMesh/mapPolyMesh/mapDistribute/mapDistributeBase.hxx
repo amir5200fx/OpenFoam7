@@ -93,8 +93,8 @@ namespace tnbLib
 
 	class mapDistributeBase;
 
-	Istream& operator>>(Istream&, mapDistributeBase&);
-	Ostream& operator<<(Ostream&, const mapDistributeBase&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, mapDistributeBase&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const mapDistributeBase&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -129,7 +129,7 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		static void checkReceivedSize
+		static FoamBase_EXPORT void checkReceivedSize
 		(
 			const label proci,
 			const label expectedSize,
@@ -139,21 +139,21 @@ namespace tnbLib
 		//- Construct per processor compact addressing of the global elements
 		//  needed. The ones from the local processor are not included since
 		//  these are always all needed.
-		void calcCompactAddressing
+		FoamBase_EXPORT void calcCompactAddressing
 		(
 			const globalIndex& globalNumbering,
 			const labelList& elements,
 			List<Map<label>>& compactMap
 		) const;
 
-		void calcCompactAddressing
+		FoamBase_EXPORT void calcCompactAddressing
 		(
 			const globalIndex& globalNumbering,
 			const labelListList& elements,
 			List<Map<label>>& compactMap
 		) const;
 
-		void exchangeAddressing
+		FoamBase_EXPORT void exchangeAddressing
 		(
 			const int tag,
 			const globalIndex& globalNumbering,
@@ -161,7 +161,7 @@ namespace tnbLib
 			List<Map<label>>& compactMap,
 			labelList& compactStart
 		);
-		void exchangeAddressing
+		FoamBase_EXPORT void exchangeAddressing
 		(
 			const int tag,
 			const globalIndex& globalNumbering,
@@ -193,16 +193,19 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("mapDistributeBase");
+		//ClassName("mapDistributeBase");
+		static const char* typeName_() { return "mapDistributeBase"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct null
-		mapDistributeBase();
+		FoamBase_EXPORT mapDistributeBase();
 
 		//- Move construct from components
-		mapDistributeBase
+		FoamBase_EXPORT mapDistributeBase
 		(
 			const label constructSize,
 			const labelListList&& subMap,
@@ -214,7 +217,7 @@ namespace tnbLib
 		//- Construct from reverse addressing: per data item the send
 		//  processor and the receive processor. (note: data is not stored
 		//  sorted per processor so cannot use printLayout).
-		mapDistributeBase
+		FoamBase_EXPORT mapDistributeBase
 		(
 			const labelList& sendProcs,
 			const labelList& recvProcs
@@ -224,7 +227,7 @@ namespace tnbLib
 		//  numbering (or -1). Determines compact numbering (see above) and
 		//  distribute map to get data into this ordering and renumbers the
 		//  elements to be in compact numbering.
-		mapDistributeBase
+		FoamBase_EXPORT mapDistributeBase
 		(
 			const globalIndex&,
 			labelList& elements,
@@ -235,7 +238,7 @@ namespace tnbLib
 		//- Special variant that works with the info sorted into bins
 		//  according to local indices. E.g. think cellCells where
 		//  cellCells[localCellI] is a list of global cells
-		mapDistributeBase
+		FoamBase_EXPORT mapDistributeBase
 		(
 			const globalIndex&,
 			labelListList& cellCells,
@@ -244,13 +247,13 @@ namespace tnbLib
 		);
 
 		//- Construct copy
-		mapDistributeBase(const mapDistributeBase&);
+		FoamBase_EXPORT mapDistributeBase(const mapDistributeBase&);
 
 		//- Move constructor
-		mapDistributeBase(mapDistributeBase&&);
+		FoamBase_EXPORT mapDistributeBase(mapDistributeBase&&);
 
 		//- Construct from Istream
-		mapDistributeBase(Istream&);
+		FoamBase_EXPORT mapDistributeBase(Istream&);
 
 
 		// Member Functions
@@ -318,7 +321,7 @@ namespace tnbLib
 		}
 
 		//- Calculate a schedule. See above.
-		static List<labelPair> schedule
+		static FoamBase_EXPORT List<labelPair> schedule
 		(
 			const labelListList& subMap,
 			const labelListList& constructMap,
@@ -326,17 +329,17 @@ namespace tnbLib
 		);
 
 		//- Return a schedule. Demand driven. See above.
-		const List<labelPair>& schedule() const;
+		FoamBase_EXPORT const List<labelPair>& schedule() const;
 
 
 		// Other
 
 			//- Transfer the contents of the argument and annul the argument.
-		void transfer(mapDistributeBase&);
+		FoamBase_EXPORT void transfer(mapDistributeBase&);
 
 		//- Helper for construct from globalIndex. Renumbers element
 		//  (in globalIndex numbering) into compact indices.
-		static label renumber
+		static FoamBase_EXPORT label renumber
 		(
 			const globalIndex&,
 			const List<Map<label>>& compactMap,
@@ -347,7 +350,7 @@ namespace tnbLib
 		//  and works out itself what this side and sender side can remove
 		//  from maps. Only compacts non-local elements (i.e. the stuff
 		//  that gets sent over), does not change the local layout
-		void compact
+		FoamBase_EXPORT void compact
 		(
 			const boolList& elemIsUsed,
 			const int tag = UPstream::msgType()
@@ -355,7 +358,7 @@ namespace tnbLib
 
 		//- Compact all maps and layout. Returns compaction maps for
 		//  subMap and constructMap
-		void compact
+		FoamBase_EXPORT void compact
 		(
 			const boolList& elemIsUsed,
 			const label localSize,            // max index for subMap
@@ -456,7 +459,7 @@ namespace tnbLib
 
 		//- Debug: print layout. Can only be used on maps with sorted
 		//  storage (local data first, then non-local data)
-		void printLayout(Ostream& os) const;
+		FoamBase_EXPORT void printLayout(Ostream& os) const;
 
 		//- Correct for topo change.
 		void updateMesh(const mapPolyMesh&)
@@ -467,17 +470,17 @@ namespace tnbLib
 
 		// Member Operators
 
-		void operator=(const mapDistributeBase&);
-		void operator=(mapDistributeBase&&);
+		FoamBase_EXPORT void operator=(const mapDistributeBase&);
+		FoamBase_EXPORT void operator=(mapDistributeBase&&);
 
 
 		// IOstream Operators
 
 			//- Read dictionary from Istream
-		friend Istream& operator>>(Istream&, mapDistributeBase&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, mapDistributeBase&);
 
 		//- Write dictionary to Ostream
-		friend Ostream& operator<<(Ostream&, const mapDistributeBase&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const mapDistributeBase&);
 	};
 
 

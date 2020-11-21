@@ -153,8 +153,8 @@ namespace tnbLib
 
 	class mapDistribute;
 
-	Istream& operator>>(Istream&, mapDistribute&);
-	Ostream& operator<<(Ostream&, const mapDistribute&);
+	FoamBase_EXPORT Istream& operator>>(Istream&, mapDistribute&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const mapDistribute&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -319,16 +319,19 @@ namespace tnbLib
 
 
 		// Declare name of the class and its debug switch
-		ClassName("mapDistribute");
+		//ClassName("mapDistribute");
+		static const char* typeName_() { return "mapDistribute"; } 
+		static FoamBase_EXPORT const ::tnbLib::word typeName; 
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct null
-		mapDistribute();
+		FoamBase_EXPORT mapDistribute();
 
 		//- Construct from components
-		mapDistribute
+		FoamBase_EXPORT mapDistribute
 		(
 			const label constructSize,
 			labelListList&& subMap,
@@ -338,7 +341,7 @@ namespace tnbLib
 		);
 
 		//- Construct from components
-		mapDistribute
+		FoamBase_EXPORT mapDistribute
 		(
 			const label constructSize,
 			labelListList&& subMap,
@@ -352,7 +355,7 @@ namespace tnbLib
 		//- Construct from reverse addressing: per data item the send
 		//  processor and the receive processor. (note: data is not stored
 		//  sorted per processor so cannot use printLayout).
-		mapDistribute
+		FoamBase_EXPORT mapDistribute
 		(
 			const labelList& sendProcs,
 			const labelList& recvProcs
@@ -362,7 +365,7 @@ namespace tnbLib
 		//  numbering (or -1). Determines compact numbering (see above) and
 		//  distribute map to get data into this ordering and renumbers the
 		//  elements to be in compact numbering.
-		mapDistribute
+		FoamBase_EXPORT mapDistribute
 		(
 			const globalIndex&,
 			labelList& elements,
@@ -373,7 +376,7 @@ namespace tnbLib
 		//- Special variant that works with the info sorted into bins
 		//  according to local indices. E.g. think cellCells where
 		//  cellCells[localCelli] is a list of global cells
-		mapDistribute
+		FoamBase_EXPORT mapDistribute
 		(
 			const globalIndex&,
 			labelListList& cellCells,
@@ -387,7 +390,7 @@ namespace tnbLib
 		//  Determines compact numbering (see above) and
 		//  distribute map to get data into this ordering and renumbers the
 		//  elements to be in compact numbering.
-		mapDistribute
+		FoamBase_EXPORT mapDistribute
 		(
 			const globalIndex&,
 			labelList& untransformedElements,
@@ -399,7 +402,7 @@ namespace tnbLib
 		);
 
 		//- As above but with ListLists.
-		mapDistribute
+		FoamBase_EXPORT mapDistribute
 		(
 			const globalIndex&,
 			labelListList& cellCells,
@@ -411,17 +414,17 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		mapDistribute(const mapDistribute&);
+		FoamBase_EXPORT mapDistribute(const mapDistribute&);
 
 		//- Move constructor
-		mapDistribute(mapDistribute&&);
+		FoamBase_EXPORT mapDistribute(mapDistribute&&);
 
 		//- Construct from Istream
-		mapDistribute(Istream&);
+		FoamBase_EXPORT mapDistribute(Istream&);
 
 		//- Clone
 		autoPtr<mapDistribute> clone() const;
-
+		FoamBase_EXPORT
 
 		//- Destructor
 		virtual ~mapDistribute()
@@ -446,13 +449,13 @@ namespace tnbLib
 		}
 
 		//- Find transform from transformElements
-		label whichTransform(const label index) const;
+		FoamBase_EXPORT label whichTransform(const label index) const;
 
 
 		// Other
 
 			//- Transfer the contents of the argument and annul the argument.
-		void transfer(mapDistribute&);
+		FoamBase_EXPORT void transfer(mapDistribute&);
 
 		//- Distribute data using default commsType.
 		template<class T>
@@ -540,7 +543,7 @@ namespace tnbLib
 
 		//- Debug: print layout. Can only be used on maps with sorted
 		//  storage (local data first, then non-local data)
-		void printLayout(Ostream& os) const;
+		FoamBase_EXPORT void printLayout(Ostream& os) const;
 
 		//- Correct for topo change.
 		void updateMesh(const mapPolyMesh&)
@@ -553,93 +556,93 @@ namespace tnbLib
 
 		// Member Operators
 
-		void operator=(const mapDistribute&);
+		FoamBase_EXPORT void operator=(const mapDistribute&);
 
 		// IOstream Operators
 
 			//- Read dictionary from Istream
-		friend Istream& operator>>(Istream&, mapDistribute&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, mapDistribute&);
 
 		//- Write dictionary to Ostream
-		friend Ostream& operator<<(Ostream&, const mapDistribute&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const mapDistribute&);
 
 	};
 
 
 	// Template specialisation for primitives that do not need transform
 	template<>
-	void mapDistribute::transform::operator()
+	FoamBase_EXPORT void mapDistribute::transform::operator()
 		(
 			const vectorTensorTransform&,
 			const bool,
 			List<label>&
 			) const;
 	template<>
-	void mapDistribute::transform::operator()
+	FoamBase_EXPORT void mapDistribute::transform::operator()
 		(
 			const coupledPolyPatch&,
 			UList<label>&
 			) const;
 	template<>
-	void mapDistribute::transform::operator()
+	FoamBase_EXPORT void mapDistribute::transform::operator()
 		(
 			const coupledPolyPatch&,
 			Map<label>&
 			) const;
 	template<>
-	void mapDistribute::transform::operator()
+	FoamBase_EXPORT void mapDistribute::transform::operator()
 		(
 			const coupledPolyPatch&,
 			EdgeMap<label>&
 			) const;
 
 	template<>
-	void mapDistribute::transform::operator()
+	FoamBase_EXPORT void mapDistribute::transform::operator()
 		(
 			const coupledPolyPatch&,
 			UList<scalar>&
 			) const;
 	template<>
-	void mapDistribute::transform::operator()
+	FoamBase_EXPORT void mapDistribute::transform::operator()
 		(
 			const vectorTensorTransform&,
 			const bool,
 			List<scalar>&
 			) const;
 	template<>
-	void mapDistribute::transform::operator()
+	FoamBase_EXPORT void mapDistribute::transform::operator()
 		(
 			const coupledPolyPatch&,
 			Map<scalar>&
 			) const;
 	template<>
-	void mapDistribute::transform::operator()
+	FoamBase_EXPORT void mapDistribute::transform::operator()
 		(
 			const coupledPolyPatch&,
 			EdgeMap<scalar>&
 			) const;
 
 	template<>
-	void mapDistribute::transform::operator()
+	FoamBase_EXPORT void mapDistribute::transform::operator()
 		(
 			const coupledPolyPatch& cpp,
 			UList<bool>& fld
 			) const;
 	template<>
-	void mapDistribute::transform::operator()
+	FoamBase_EXPORT void mapDistribute::transform::operator()
 		(
 			const vectorTensorTransform&,
 			const bool,
 			List<bool>&
 			) const;
 	template<>
-	void mapDistribute::transform::operator()
+	FoamBase_EXPORT void mapDistribute::transform::operator()
 		(
 			const coupledPolyPatch&,
 			Map<bool>&
 			) const;
 	template<>
-	void mapDistribute::transform::operator()
+	FoamBase_EXPORT void mapDistribute::transform::operator()
 		(
 			const coupledPolyPatch&,
 			EdgeMap<bool>&

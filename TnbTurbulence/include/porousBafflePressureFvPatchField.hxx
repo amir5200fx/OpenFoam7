@@ -119,20 +119,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("porousBafflePressure");
+		//TypeName("porousBafflePressure");
+		static const char* typeName_() { return "porousBafflePressure"; }
+		static FoamTurbulence_EXPORT const ::tnbLib::word typeName;
+		static FoamTurbulence_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		porousBafflePressureFvPatchField
+		FoamTurbulence_EXPORT porousBafflePressureFvPatchField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		porousBafflePressureFvPatchField
+		FoamTurbulence_EXPORT porousBafflePressureFvPatchField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -141,7 +145,7 @@ namespace tnbLib
 
 		//- Construct by mapping given porousBafflePressureFvPatchField
 		// onto a new patch
-		porousBafflePressureFvPatchField
+		FoamTurbulence_EXPORT porousBafflePressureFvPatchField
 		(
 			const porousBafflePressureFvPatchField&,
 			const fvPatch&,
@@ -150,7 +154,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		porousBafflePressureFvPatchField
+		FoamTurbulence_EXPORT porousBafflePressureFvPatchField
 		(
 			const porousBafflePressureFvPatchField&
 		);
@@ -165,7 +169,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		porousBafflePressureFvPatchField
+		FoamTurbulence_EXPORT porousBafflePressureFvPatchField
 		(
 			const porousBafflePressureFvPatchField&,
 			const DimensionedField<scalar, volMesh>&
@@ -190,11 +194,11 @@ namespace tnbLib
 			// Evaluation functions
 
 				//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamTurbulence_EXPORT virtual void updateCoeffs();
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamTurbulence_EXPORT virtual void write(Ostream&) const;
 	};
 
 

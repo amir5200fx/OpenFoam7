@@ -83,7 +83,7 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		static void inplaceRenumberWithFlip
+		static FoamDynamicMesh_EXPORT void inplaceRenumberWithFlip
 		(
 			const labelUList& oldToNew,
 			const bool oldToNewHasFlip,
@@ -92,7 +92,7 @@ namespace tnbLib
 		);
 
 		//- Find indices with value
-		static labelList select
+		static FoamDynamicMesh_EXPORT labelList select
 		(
 			const bool selectEqual,
 			const labelList& values,
@@ -100,16 +100,16 @@ namespace tnbLib
 		);
 
 		//- Check all procs have same names and in exactly same order.
-		static void checkEqualWordList(const string&, const wordList&);
+		static FoamDynamicMesh_EXPORT void checkEqualWordList(const string&, const wordList&);
 
 		//- Merge wordlists over all processors
-		static wordList mergeWordList(const wordList&);
+		static FoamDynamicMesh_EXPORT wordList mergeWordList(const wordList&);
 
 
 		// Patch handling
 
 			//- Find patch to put exposed faces into.
-		label findNonEmptyPatch() const;
+		FoamDynamicMesh_EXPORT label findNonEmptyPatch() const;
 
 		//- Save boundary fields
 		template<class T, class Mesh>
@@ -158,7 +158,7 @@ namespace tnbLib
 		//  new patchID. constructFaceMap is being adapted for the
 		//  possible new face position (since proc faces get automatically
 		//  matched)
-		autoPtr<mapPolyMesh> repatch
+		FoamDynamicMesh_EXPORT autoPtr<mapPolyMesh> repatch
 		(
 			const labelList& newPatchID,
 			labelListList& constructFaceMap
@@ -166,7 +166,7 @@ namespace tnbLib
 
 		//- Merge any local points that were remotely coupled.
 		//  constructPointMap is adapted for the new point labels.
-		autoPtr<mapPolyMesh> mergeSharedPoints
+		FoamDynamicMesh_EXPORT autoPtr<mapPolyMesh> mergeSharedPoints
 		(
 			const labelList& pointToGlobalMaster,
 			labelListList& constructPointMap
@@ -176,7 +176,7 @@ namespace tnbLib
 		// Coupling information
 
 			//- Construct the local environment of all boundary faces.
-		void getCouplingData
+		FoamDynamicMesh_EXPORT void getCouplingData
 		(
 			const labelList& distribution,
 			labelList& sourceFace,
@@ -187,7 +187,7 @@ namespace tnbLib
 		) const;
 
 		// Subset the neighbourCell/neighbourProc fields
-		static void subsetCouplingData
+		static FoamDynamicMesh_EXPORT void subsetCouplingData
 		(
 			const fvMesh& mesh,
 			const labelList& pointMap,
@@ -214,7 +214,7 @@ namespace tnbLib
 
 		//- Find cells on mesh whose faceID/procID match the neighbour
 		//  cell/proc of domainMesh. Store the matching face.
-		static void findCouples
+		static FoamDynamicMesh_EXPORT void findCouples
 		(
 			const primitiveMesh&,
 			const labelList& sourceFace,
@@ -233,7 +233,7 @@ namespace tnbLib
 
 		//- Map data on boundary faces to new mesh (resulting from adding
 		//  two meshes)
-		static labelList mapBoundaryData
+		static FoamDynamicMesh_EXPORT labelList mapBoundaryData
 		(
 			const primitiveMesh& mesh,      // mesh after adding
 			const mapAddedPolyMesh& map,
@@ -243,7 +243,7 @@ namespace tnbLib
 		);
 
 		//- Map point data to new mesh (resulting from adding two meshes)
-		static labelList mapPointData
+		static FoamDynamicMesh_EXPORT labelList mapPointData
 		(
 			const primitiveMesh& mesh,      // mesh after adding
 			const mapAddedPolyMesh& map,
@@ -254,7 +254,7 @@ namespace tnbLib
 		// Other
 
 			//- Remove cells. Add all exposed faces to patch oldInternalPatchi
-		autoPtr<mapPolyMesh> doRemoveCells
+		FoamDynamicMesh_EXPORT autoPtr<mapPolyMesh> doRemoveCells
 		(
 			const labelList& cellsToRemove,
 			const label oldInternalPatchi
@@ -262,7 +262,7 @@ namespace tnbLib
 
 		//- Add processor patches. Changes mesh and returns per neighbour
 		//  proc the processor patchID.
-		void addProcPatches
+		FoamDynamicMesh_EXPORT void addProcPatches
 		(
 			const labelList&, // processor that neighbour is now on
 			const labelList&, // -1 or patch that face originated from
@@ -270,7 +270,7 @@ namespace tnbLib
 		);
 
 		//- Get boundary faces to be repatched. Is -1 or new patchID
-		static labelList getBoundaryPatch
+		static FoamDynamicMesh_EXPORT labelList getBoundaryPatch
 		(
 			const labelList& neighbourNewProc,  // new processor per b. face
 			const labelList& referPatchID,      // -1 or original patch
@@ -278,7 +278,7 @@ namespace tnbLib
 		);
 
 		//- Send mesh and coupling data.
-		static void sendMesh
+		static FoamDynamicMesh_EXPORT void sendMesh
 		(
 			const label domain,
 			const fvMesh& mesh,
@@ -332,13 +332,16 @@ namespace tnbLib
 
 	public:
 
-		ClassName("fvMeshDistribute");
+		//ClassName("fvMeshDistribute");
+		static const char* typeName_() { return "fvMeshDistribute"; }
+		static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamDynamicMesh_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from mesh and absolute merge tolerance
-		fvMeshDistribute(fvMesh& mesh, const scalar mergeTol);
+		FoamDynamicMesh_EXPORT fvMeshDistribute(fvMesh& mesh, const scalar mergeTol);
 
 		//- Disallow default bitwise copy construction
 		fvMeshDistribute(const fvMeshDistribute&) = delete;
@@ -347,16 +350,16 @@ namespace tnbLib
 		// Member Functions
 
 			//- Helper function: count cells per processor in wanted distribution
-		static labelList countCells(const labelList&);
+		static FoamDynamicMesh_EXPORT labelList countCells(const labelList&);
 
 		//- Send cells to neighbours according to distribution
 		//  (for every cell the new proc)
-		autoPtr<mapDistributePolyMesh> distribute(const labelList& dist);
+		FoamDynamicMesh_EXPORT autoPtr<mapDistributePolyMesh> distribute(const labelList& dist);
 
 		// Debugging
 
 			//- Print some info on coupling data
-		static void printCoupleInfo
+		static FoamDynamicMesh_EXPORT void printCoupleInfo
 		(
 			const primitiveMesh&,
 			const labelList&,
@@ -370,7 +373,7 @@ namespace tnbLib
 		static void printFieldInfo(const fvMesh&);
 
 		//- Print some info on mesh.
-		static void printMeshInfo(const fvMesh&);
+		static FoamDynamicMesh_EXPORT void printMeshInfo(const fvMesh&);
 
 
 		// Member Operators

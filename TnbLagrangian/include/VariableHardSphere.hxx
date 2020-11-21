@@ -35,6 +35,16 @@ Description
 
 #include <BinaryCollisionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamVariableHardSphere_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamVariableHardSphere_EXPORT_DEFINE
+#define FoamVariableHardSphere_EXPORT __declspec(dllexport)
+#else
+#define FoamVariableHardSphere_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -57,7 +67,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("VariableHardSphere");
+		//TypeName("VariableHardSphere");
+		static const char* typeName_() { return "VariableHardSphere"; }
+		static FoamVariableHardSphere_EXPORT const ::tnbLib::word typeName;
+		static FoamVariableHardSphere_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

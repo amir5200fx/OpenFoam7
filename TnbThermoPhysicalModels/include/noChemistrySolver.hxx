@@ -39,6 +39,16 @@ SourceFiles
 
 #include <chemistrySolver.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamnoChemistrySolver_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamnoChemistrySolver_EXPORT_DEFINE
+#define FoamnoChemistrySolver_EXPORT __declspec(dllexport)
+#else
+#define FoamnoChemistrySolver_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -57,7 +67,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("none");
+		//TypeName("none");
+		static const char* typeName_() { return "none"; }
+		static FoamnoChemistrySolver_EXPORT const ::tnbLib::word typeName;
+		static FoamnoChemistrySolver_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

@@ -95,48 +95,48 @@ namespace tnbLib
 			// Write functions
 
 				//- Write next token to stream
-		virtual Ostream& write(const token&) = 0;
+		FoamBase_EXPORT virtual Ostream& write(const token&) = 0;
 
 		//- Write character
-		virtual Ostream& write(const char) = 0;
+		FoamBase_EXPORT virtual Ostream& write(const char) = 0;
 
 		//- Write character string
-		virtual Ostream& write(const char*) = 0;
+		FoamBase_EXPORT virtual Ostream& write(const char*) = 0;
 
 		//- Write word
-		virtual Ostream& write(const word&) = 0;
+		FoamBase_EXPORT virtual Ostream& write(const word&) = 0;
 
 		//- Write keyType
-		virtual Ostream& write(const keyType&);
+		FoamBase_EXPORT virtual Ostream& write(const keyType&);
 
 		//- Write string
-		virtual Ostream& write(const string&) = 0;
+		FoamBase_EXPORT virtual Ostream& write(const string&) = 0;
 
 		//- Write std::string surrounded by quotes.
 		//  Optional write without quotes.
-		virtual Ostream& writeQuoted
+		FoamBase_EXPORT virtual Ostream& writeQuoted
 		(
 			const std::string&,
 			const bool quoted = true
 		) = 0;
 
 		//- Write label
-		virtual Ostream& write(const label) = 0;
+		FoamBase_EXPORT virtual Ostream& write(const label) = 0;
 
 		//- Write floatScalar
-		virtual Ostream& write(const floatScalar) = 0;
+		FoamBase_EXPORT virtual Ostream& write(const floatScalar) = 0;
 
 		//- Write doubleScalar
-		virtual Ostream& write(const doubleScalar) = 0;
+		FoamBase_EXPORT virtual Ostream& write(const doubleScalar) = 0;
 
 		//- Write doubleScalar
-		virtual Ostream& write(const longDoubleScalar) = 0;
+		FoamBase_EXPORT virtual Ostream& write(const longDoubleScalar) = 0;
 
 		//- Write binary block
-		virtual Ostream& write(const char*, std::streamsize) = 0;
+		FoamBase_EXPORT virtual Ostream& write(const char*, std::streamsize) = 0;
 
 		//- Add indentation characters
-		virtual void indent() = 0;
+		FoamBase_EXPORT virtual void indent() = 0;
 
 		//- Return indent level
 		unsigned short indentLevel() const
@@ -157,31 +157,31 @@ namespace tnbLib
 		}
 
 		//- Decrement the indent level
-		void decrIndent();
+		FoamBase_EXPORT void decrIndent();
 
 		//- Write the keyword followed by an appropriate indentation
-		Ostream& writeKeyword(const keyType&);
+		FoamBase_EXPORT Ostream& writeKeyword(const keyType&);
 
 
 		// Stream state functions
 
 			//- Flush stream
-		virtual void flush() = 0;
+		FoamBase_EXPORT virtual void flush() = 0;
 
 		//- Add newline and flush stream
-		virtual void endl() = 0;
+		FoamBase_EXPORT virtual void endl() = 0;
 
 		//- Get width of output field
-		virtual int width() const = 0;
+		FoamBase_EXPORT virtual int width() const = 0;
 
 		//- Set width of output field (and return old width)
-		virtual int width(const int w) = 0;
+		FoamBase_EXPORT virtual int width(const int w) = 0;
 
 		//- Get precision of output field
-		virtual int precision() const = 0;
+		FoamBase_EXPORT virtual int precision() const = 0;
 
 		//- Set precision of output field (and return old precision)
-		virtual int precision(const int p) = 0;
+		FoamBase_EXPORT virtual int precision(const int p) = 0;
 
 
 		// Member operators

@@ -67,13 +67,16 @@ namespace tnbLib
 	public:
 
 		// Declare name of the class and its debug switch
-		ClassName("dynamicTreeDataPoint");
+		//ClassName("dynamicTreeDataPoint");
+		static const char* typeName_() { return "dynamicTreeDataPoint"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
 
 
 		// Constructors
 
 			//- Construct from List. Holds reference!
-		dynamicTreeDataPoint(const DynamicList<point>& points);
+		FoamBase_EXPORT dynamicTreeDataPoint(const DynamicList<point>& points);
 
 
 		// Member Functions
@@ -87,28 +90,28 @@ namespace tnbLib
 
 		//- Get representative point cloud for all shapes inside
 		//  (one point per shape)
-		const DynamicList<point>& shapePoints() const;
+		FoamBase_EXPORT const DynamicList<point>& shapePoints() const;
 
 
 		// Search
 
 			//- Get type (inside,outside,mixed,unknown) of point w.r.t. surface.
 			//  Only makes sense for closed surfaces.
-		volumeType getVolumeType
+		FoamBase_EXPORT volumeType getVolumeType
 		(
 			const dynamicIndexedOctree<dynamicTreeDataPoint>&,
 			const point&
 		) const;
 
 		//- Does (bb of) shape at index overlap bb
-		bool overlaps
+		FoamBase_EXPORT bool overlaps
 		(
 			const label index,
 			const treeBoundBox& sampleBb
 		) const;
 
 		//- Check if any point on shape is inside sphere.
-		bool overlaps
+		FoamBase_EXPORT bool overlaps
 		(
 			const label index,
 			const point& centre,
@@ -117,7 +120,7 @@ namespace tnbLib
 
 		//- Calculates nearest (to sample) point in shape.
 		//  Returns actual point and distance (squared)
-		void findNearest
+		FoamBase_EXPORT void findNearest
 		(
 			const labelUList& indices,
 			const point& sample,
@@ -129,7 +132,7 @@ namespace tnbLib
 
 		//- Calculates nearest (to line) point in shape.
 		//  Returns point and distance (squared)
-		void findNearest
+		FoamBase_EXPORT void findNearest
 		(
 			const labelUList& indices,
 			const linePointRef& ln,

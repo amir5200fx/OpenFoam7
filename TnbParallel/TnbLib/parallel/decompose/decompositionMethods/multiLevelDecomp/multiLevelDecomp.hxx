@@ -60,7 +60,7 @@ namespace tnbLib
 
 			//- Given connectivity across processors work out connectivity
 			//  for a (consistent) subset
-		void subsetGlobalCellCells
+		FoamParallel_EXPORT void subsetGlobalCellCells
 		(
 			const label nDomains,
 			const label domainI,
@@ -73,7 +73,7 @@ namespace tnbLib
 		) const;
 
 		//- Decompose level methodI without addressing
-		void decompose
+		FoamParallel_EXPORT void decompose
 		(
 			const labelListList& pointPoints,
 			const pointField& points,
@@ -88,16 +88,20 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("multiLevel");
+		//TypeName("multiLevel");
+		static const char* typeName_() { return "multiLevel"; }
+		static FoamParallel_EXPORT const ::tnbLib::word typeName;
+		static FoamParallel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct given the decomposition dictionary
-		multiLevelDecomp(const dictionary& decompositionDict);
+		FoamParallel_EXPORT multiLevelDecomp(const dictionary& decompositionDict);
 
 		//- Disallow default bitwise copy construction
-		multiLevelDecomp(const multiLevelDecomp&) = delete;
+		FoamParallel_EXPORT multiLevelDecomp(const multiLevelDecomp&) = delete;
 
 
 		//- Destructor
@@ -109,14 +113,14 @@ namespace tnbLib
 
 			//- Is method parallel aware (i.e. does it synchronize domains across
 			//  proc boundaries)
-		virtual bool parallelAware() const;
+		FoamParallel_EXPORT virtual bool parallelAware() const;
 
 		//- Inherit decompose from decompositionMethod
 		using decompositionMethod::decompose;
 
 		//- Return for every coordinate the wanted processor number. Use the
 		//  mesh connectivity (if needed)
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const polyMesh& mesh,
 			const pointField& points,
@@ -125,7 +129,7 @@ namespace tnbLib
 
 		//- Return for every coordinate the wanted processor number. Explicitly
 		//  provided connectivity - does not use mesh_.
-		virtual labelList decompose
+		FoamParallel_EXPORT virtual labelList decompose
 		(
 			const labelListList& globalCellCells,
 			const pointField& cc,
@@ -136,7 +140,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const multiLevelDecomp&) = delete;
+		FoamParallel_EXPORT void operator=(const multiLevelDecomp&) = delete;
 	};
 
 

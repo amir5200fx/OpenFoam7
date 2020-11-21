@@ -74,13 +74,13 @@ namespace tnbLib
 
 			//- Update map from map. Used to update cell/face labels
 			//  after morphing
-		void updateLabels(const labelList& map);
+		FoamFvMesh_EXPORT void updateLabels(const labelList& map);
 
 		//- Check validity of contents.
-		void check(const label maxLabel);
+		FoamFvMesh_EXPORT void check(const label maxLabel);
 
 		//- Write part of contents nicely formatted. Prints labels only.
-		void writeDebug
+		FoamFvMesh_EXPORT void writeDebug
 		(
 			Ostream& os,
 			const label maxElem,
@@ -90,7 +90,7 @@ namespace tnbLib
 
 		//- Write part of contents nicely formatted. Prints label
 		//  and corresponding coordinate.
-		void writeDebug
+		FoamFvMesh_EXPORT void writeDebug
 		(
 			Ostream& os,
 			const pointField& coords,
@@ -100,7 +100,7 @@ namespace tnbLib
 		) const;
 
 		//- Write labels and coordinates columnwise to os. Truncate to maxLen.
-		void writeDebug
+		FoamFvMesh_EXPORT void writeDebug
 		(
 			Ostream& os,
 			const pointField& coords,
@@ -111,19 +111,23 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("topoSet");
+		/*TypeName("topoSet");*/
+		static const char* typeName_() { return "topoSet"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Static
 
 			//- Name of file set will use.
-		static fileName localPath(const polyMesh& mesh, const word& name);
+		static FoamFvMesh_EXPORT fileName localPath(const polyMesh& mesh, const word& name);
 
 
 		// Declare run-time constructor selection table
 
 			// For the direct constructor
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			topoSet,
@@ -135,10 +139,57 @@ namespace tnbLib
 				writeOption w
 				),
 				(mesh, name, r, w)
-		);
+		);*/
+
+		typedef autoPtr<topoSet> (*wordConstructorPtr)(const polyMesh& mesh, const word& name, readOption r, writeOption w);
+		typedef HashTable<wordConstructorPtr, word, string::hash> wordConstructorTable;
+		static FoamFvMesh_EXPORT wordConstructorTable* wordConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructwordConstructorTables();
+		static FoamFvMesh_EXPORT void destroywordConstructorTables();
+
+		template <class topoSetType>
+		class addwordConstructorToTable
+		{
+		public:
+			static autoPtr<topoSet> New(const polyMesh& mesh, const word& name, readOption r, writeOption w)
+			{
+				return autoPtr<topoSet>(new topoSetType(mesh, name, r, w));
+			}
+
+			addwordConstructorToTable(const word& lookup = topoSetType::typeName)
+			{
+				constructwordConstructorTables();
+				if (!wordConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "topoSet" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addwordConstructorToTable() { destroywordConstructorTables(); }
+		};
+
+		template <class topoSetType>
+		class addRemovablewordConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<topoSet> New(const polyMesh& mesh, const word& name, readOption r, writeOption w)
+			{
+				return autoPtr<topoSet>(new topoSetType(mesh, name, r, w));
+			}
+
+			addRemovablewordConstructorToTable(const word& lookup = topoSetType::typeName) : lookup_(lookup)
+			{
+				constructwordConstructorTables();
+				wordConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablewordConstructorToTable() { if (wordConstructorTablePtr_) { wordConstructorTablePtr_->erase(lookup_); } }
+		};;
 
 		// For the constructor from size
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			topoSet,
@@ -150,10 +201,58 @@ namespace tnbLib
 				writeOption w
 				),
 				(mesh, name, size, w)
-		);
+		);*/
+
+		typedef autoPtr<topoSet> (*sizeConstructorPtr)(const polyMesh& mesh, const word& name, const label size,
+		                                               writeOption w);
+		typedef HashTable<sizeConstructorPtr, word, string::hash> sizeConstructorTable;
+		static FoamFvMesh_EXPORT sizeConstructorTable* sizeConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructsizeConstructorTables();
+		static FoamFvMesh_EXPORT void destroysizeConstructorTables();
+
+		template <class topoSetType>
+		class addsizeConstructorToTable
+		{
+		public:
+			static autoPtr<topoSet> New(const polyMesh& mesh, const word& name, const label size, writeOption w)
+			{
+				return autoPtr<topoSet>(new topoSetType(mesh, name, size, w));
+			}
+
+			addsizeConstructorToTable(const word& lookup = topoSetType::typeName)
+			{
+				constructsizeConstructorTables();
+				if (!sizeConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "topoSet" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addsizeConstructorToTable() { destroysizeConstructorTables(); }
+		};
+
+		template <class topoSetType>
+		class addRemovablesizeConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<topoSet> New(const polyMesh& mesh, const word& name, const label size, writeOption w)
+			{
+				return autoPtr<topoSet>(new topoSetType(mesh, name, size, w));
+			}
+
+			addRemovablesizeConstructorToTable(const word& lookup = topoSetType::typeName) : lookup_(lookup)
+			{
+				constructsizeConstructorTables();
+				sizeConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablesizeConstructorToTable() { if (sizeConstructorTablePtr_) { sizeConstructorTablePtr_->erase(lookup_); } }
+		};;
 
 		// For the constructor as copy
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			topoSet,
@@ -165,7 +264,55 @@ namespace tnbLib
 				writeOption w
 				),
 				(mesh, name, set, w)
-		);
+		);*/
+
+		typedef autoPtr<topoSet> (*setConstructorPtr)(const polyMesh& mesh, const word& name, const topoSet& set,
+		                                              writeOption w);
+		typedef HashTable<setConstructorPtr, word, string::hash> setConstructorTable;
+		static FoamFvMesh_EXPORT setConstructorTable* setConstructorTablePtr_;
+		static FoamFvMesh_EXPORT void constructsetConstructorTables();
+		static FoamFvMesh_EXPORT void destroysetConstructorTables();
+
+		template <class topoSetType>
+		class addsetConstructorToTable
+		{
+		public:
+			static autoPtr<topoSet> New(const polyMesh& mesh, const word& name, const topoSet& set, writeOption w)
+			{
+				return autoPtr<topoSet>(new topoSetType(mesh, name, set, w));
+			}
+
+			addsetConstructorToTable(const word& lookup = topoSetType::typeName)
+			{
+				constructsetConstructorTables();
+				if (!setConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "topoSet" << std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~addsetConstructorToTable() { destroysetConstructorTables(); }
+		};
+
+		template <class topoSetType>
+		class addRemovablesetConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<topoSet> New(const polyMesh& mesh, const word& name, const topoSet& set, writeOption w)
+			{
+				return autoPtr<topoSet>(new topoSetType(mesh, name, set, w));
+			}
+
+			addRemovablesetConstructorToTable(const word& lookup = topoSetType::typeName) : lookup_(lookup)
+			{
+				constructsetConstructorTables();
+				setConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovablesetConstructorToTable() { if (setConstructorTablePtr_) { setConstructorTablePtr_->erase(lookup_); } }
+		};;
 
 
 		// Constructors
@@ -173,11 +320,11 @@ namespace tnbLib
 
 			//- Construct from IOobject as explicitly passed type.
 			//  Can't use typeName info here since subclasses not yet instantiated
-		topoSet(const IOobject&, const word& wantedType);
+		FoamFvMesh_EXPORT topoSet(const IOobject&, const word& wantedType);
 
 		//- Construct from polyMesh and name. Searches for a polyMesh/sets
 		//  directory but not beyond mesh.facesInstance.
-		topoSet
+		FoamFvMesh_EXPORT topoSet
 		(
 			const polyMesh& mesh,
 			const word& wantedType,
@@ -189,7 +336,7 @@ namespace tnbLib
 		//- Construct empty from additional size of labelHashSet.
 		//  Searches for a polyMesh/sets
 		//  directory but not beyond mesh.facesInstance.
-		topoSet
+		FoamFvMesh_EXPORT topoSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -200,7 +347,7 @@ namespace tnbLib
 		//- Construct empty from additional labelHashSet
 		//  Searches for a polyMesh/sets
 		//  directory but not beyond mesh.facesInstance.
-		topoSet
+		FoamFvMesh_EXPORT topoSet
 		(
 			const polyMesh& mesh,
 			const word& name,
@@ -209,13 +356,13 @@ namespace tnbLib
 		);
 
 		//- Construct empty from IOobject and size.
-		topoSet(const IOobject&, const label size);
+		FoamFvMesh_EXPORT topoSet(const IOobject&, const label size);
 
 		//- Construct from IOobject and labelHashSet.
-		topoSet(const IOobject&, const labelHashSet&);
+		FoamFvMesh_EXPORT topoSet(const IOobject&, const labelHashSet&);
 
 		//- Disallow default bitwise copy construction
-		topoSet(const topoSet&) = delete;
+		FoamFvMesh_EXPORT topoSet(const topoSet&) = delete;
 
 
 		//- Clone
@@ -229,7 +376,7 @@ namespace tnbLib
 		// Selectors
 
 			//- Return a pointer to a toposet read from file
-		static autoPtr<topoSet> New
+		static FoamFvMesh_EXPORT autoPtr<topoSet> New
 		(
 			const word& setType,
 			const polyMesh& mesh,
@@ -239,7 +386,7 @@ namespace tnbLib
 		);
 
 		//- Return a pointer to a new toposet of given size
-		static autoPtr<topoSet> New
+		static FoamFvMesh_EXPORT autoPtr<topoSet> New
 		(
 			const word& setType,
 			const polyMesh& mesh,
@@ -249,7 +396,7 @@ namespace tnbLib
 		);
 
 		//- Return a pointer to a new toposet as copy of another toposet
-		static autoPtr<topoSet> New
+		static FoamFvMesh_EXPORT autoPtr<topoSet> New
 		(
 			const word& setType,
 			const polyMesh& mesh,
@@ -260,33 +407,33 @@ namespace tnbLib
 
 
 		//- Destructor
-		virtual ~topoSet();
+		FoamFvMesh_EXPORT virtual ~topoSet();
 
 
 		// Member Functions
 
 			//- Invert contents. (insert all members 0..maxLen-1 which were not in
 			//  set)
-		virtual void invert(const label maxLen);
+		FoamFvMesh_EXPORT virtual void invert(const label maxLen);
 
 		//- Subset contents. Only elements present in both sets remain.
-		virtual void subset(const topoSet& set);
+		FoamFvMesh_EXPORT virtual void subset(const topoSet& set);
 
 		//- Add elements present in set.
-		virtual void addSet(const topoSet& set);
+		FoamFvMesh_EXPORT virtual void addSet(const topoSet& set);
 
 		//- Delete elements present in set.
-		virtual void deleteSet(const topoSet& set);
+		FoamFvMesh_EXPORT virtual void deleteSet(const topoSet& set);
 
 		//- Sync set across coupled patches.
-		virtual void sync(const polyMesh& mesh);
+		FoamFvMesh_EXPORT virtual void sync(const polyMesh& mesh);
 
 		//- Write labels columnwise to os. Truncate to maxLen.
-		virtual void writeDebug(Ostream& os, const label maxLen) const;
+		FoamFvMesh_EXPORT virtual void writeDebug(Ostream& os, const label maxLen) const;
 
 		//- Like above but also writes mesh related quantity
 		//  (usually coordinate).
-		virtual void writeDebug
+		FoamFvMesh_EXPORT virtual void writeDebug
 		(
 			Ostream& os,
 			const primitiveMesh&,
@@ -294,20 +441,20 @@ namespace tnbLib
 		) const = 0;
 
 		//- Write contents.
-		virtual bool writeData(Ostream&) const;
+		FoamFvMesh_EXPORT virtual bool writeData(Ostream&) const;
 
 		//- Update any stored data for new labels. Not implemented.
-		virtual void updateMesh(const mapPolyMesh& morphMap);
+		FoamFvMesh_EXPORT virtual void updateMesh(const mapPolyMesh& morphMap);
 
 		//- Return max allowable index (+1). Not implemented.
-		virtual label maxSize(const polyMesh& mesh) const = 0;
+		FoamFvMesh_EXPORT virtual label maxSize(const polyMesh& mesh) const = 0;
 
 
 
 		// Member Operators
 
 			//- Copy labelHashSet part only
-		void operator=(const topoSet&);
+		FoamFvMesh_EXPORT void operator=(const topoSet&);
 
 	};
 

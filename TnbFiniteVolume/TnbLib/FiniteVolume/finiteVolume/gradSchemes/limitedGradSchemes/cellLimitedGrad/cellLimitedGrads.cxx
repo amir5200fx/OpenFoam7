@@ -1,3 +1,4 @@
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 #include <cellLimitedGrad.hxx>
 #include <minmodGradientLimiter.hxx>
 #include <VenkatakrishnanGradientLimiter.hxx>

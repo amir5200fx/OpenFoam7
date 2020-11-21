@@ -57,13 +57,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("symmetry");
+		//TypeName("symmetry");
+		static const char* typeName_() { return "symmetry"; }
+		static FoamBase_EXPORT const ::tnbLib::word typeName;
+		static FoamBase_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		symmetryPolyPatch
+		FoamBase_EXPORT symmetryPolyPatch
 		(
 			const word& name,
 			const label size,
@@ -74,7 +78,7 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		symmetryPolyPatch
+		FoamBase_EXPORT symmetryPolyPatch
 		(
 			const word& name,
 			const dictionary& dict,
@@ -84,11 +88,11 @@ namespace tnbLib
 		);
 
 		//- Construct as copy, resetting the boundary mesh
-		symmetryPolyPatch(const symmetryPolyPatch&, const polyBoundaryMesh&);
+		FoamBase_EXPORT symmetryPolyPatch(const symmetryPolyPatch&, const polyBoundaryMesh&);
 
 		//- Construct given the original patch and resetting the
 		//  face list and boundary mesh information
-		symmetryPolyPatch
+		FoamBase_EXPORT symmetryPolyPatch
 		(
 			const symmetryPolyPatch& pp,
 			const polyBoundaryMesh& bm,
@@ -98,7 +102,7 @@ namespace tnbLib
 		);
 
 		//- Construct given the original patch and a map
-		symmetryPolyPatch
+		FoamBase_EXPORT symmetryPolyPatch
 		(
 			const symmetryPolyPatch& pp,
 			const polyBoundaryMesh& bm,

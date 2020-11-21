@@ -71,20 +71,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("inclinedFilmNusseltHeight");
+		//TypeName("inclinedFilmNusseltHeight");
+		static const char* typeName_() { return "inclinedFilmNusseltHeight"; }
+		static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+		static FoamLagrangian_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		inclinedFilmNusseltHeightFvPatchScalarField
+		FoamLagrangian_EXPORT inclinedFilmNusseltHeightFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		inclinedFilmNusseltHeightFvPatchScalarField
+		FoamLagrangian_EXPORT inclinedFilmNusseltHeightFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -93,7 +97,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		// inclinedFilmNusseltHeightFvPatchScalarField onto a new patch
-		inclinedFilmNusseltHeightFvPatchScalarField
+		FoamLagrangian_EXPORT inclinedFilmNusseltHeightFvPatchScalarField
 		(
 			const inclinedFilmNusseltHeightFvPatchScalarField&,
 			const fvPatch&,
@@ -102,7 +106,7 @@ namespace tnbLib
 		);
 
 		//- Copy constructor
-		inclinedFilmNusseltHeightFvPatchScalarField
+		FoamLagrangian_EXPORT inclinedFilmNusseltHeightFvPatchScalarField
 		(
 			const inclinedFilmNusseltHeightFvPatchScalarField&
 		);
@@ -117,7 +121,7 @@ namespace tnbLib
 		}
 
 		//- Copy constructor setting internal field reference
-		inclinedFilmNusseltHeightFvPatchScalarField
+		FoamLagrangian_EXPORT inclinedFilmNusseltHeightFvPatchScalarField
 		(
 			const inclinedFilmNusseltHeightFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -139,10 +143,10 @@ namespace tnbLib
 		// Member Functions
 
 			//- Update the coefficients associated with the patch field
-		virtual void updateCoeffs();
+		FoamLagrangian_EXPORT virtual void updateCoeffs();
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamLagrangian_EXPORT virtual void write(Ostream&) const;
 	};
 
 

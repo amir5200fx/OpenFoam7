@@ -65,13 +65,17 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("Newtonian");
+			//TypeName("Newtonian");
+			static const char* typeName_() { return "Newtonian"; }
+			static FoamTransportModels_EXPORT const ::tnbLib::word typeName;
+			static FoamTransportModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			Newtonian
+			FoamTransportModels_EXPORT Newtonian
 			(
 				const word& name,
 				const dictionary& viscosityProperties,
@@ -104,7 +108,7 @@ namespace tnbLib
 			{}
 
 			//- Read transportProperties dictionary
-			virtual bool read(const dictionary& viscosityProperties);
+			FoamTransportModels_EXPORT virtual bool read(const dictionary& viscosityProperties);
 		};
 
 

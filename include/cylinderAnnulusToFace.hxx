@@ -56,7 +56,7 @@ namespace tnbLib
 		// Private Data
 
 			//- Add usage string
-		static addToUsageTable usage_;
+		static FoamFvMesh_EXPORT addToUsageTable usage_;
 
 		//- First point on cylinder axis
 		vector p1_;
@@ -73,19 +73,23 @@ namespace tnbLib
 
 		// Private Member Functions
 
-		void combine(topoSet& set, const bool add) const;
+		FoamFvMesh_EXPORT void combine(topoSet& set, const bool add) const;
 
 
 	public:
 
 		//- Runtime type information
-		TypeName("cylinderAnnulusToFace");
+		/*TypeName("cylinderAnnulusToFace");*/
+		static const char* typeName_() { return "cylinderAnnulusToFace"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		cylinderAnnulusToFace
+		FoamFvMesh_EXPORT cylinderAnnulusToFace
 		(
 			const polyMesh& mesh,
 			const vector& p1,
@@ -95,14 +99,14 @@ namespace tnbLib
 		);
 
 		//- Construct from dictionary
-		cylinderAnnulusToFace
+		FoamFvMesh_EXPORT cylinderAnnulusToFace
 		(
 			const polyMesh& mesh,
 			const dictionary& dict
 		);
 
 		//- Construct from Istream
-		cylinderAnnulusToFace
+		FoamFvMesh_EXPORT cylinderAnnulusToFace
 		(
 			const polyMesh& mesh,
 			Istream&
@@ -110,7 +114,7 @@ namespace tnbLib
 
 
 		// Destructor
-		virtual ~cylinderAnnulusToFace();
+		FoamFvMesh_EXPORT virtual ~cylinderAnnulusToFace();
 
 		// Member Functions
 
@@ -119,7 +123,7 @@ namespace tnbLib
 			return CELLSETSOURCE;
 		}
 
-		virtual void applyToSet
+		FoamFvMesh_EXPORT virtual void applyToSet
 		(
 			const topoSetSource::setAction action,
 			topoSet&

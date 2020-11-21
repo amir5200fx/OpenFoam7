@@ -74,7 +74,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Set stream status
-		Istream
+		FoamBase_EXPORT Istream
 		(
 			streamFormat format = ASCII,
 			versionNumber version = currentVersion,
@@ -88,7 +88,7 @@ namespace tnbLib
 
 	// Destructor
 
-		virtual ~Istream();
+		FoamBase_EXPORT virtual ~Istream();
 		//{}
 
 
@@ -98,56 +98,56 @@ namespace tnbLib
 
 		//- Put back token
 		//  Only a single put back is permitted
-		void putBack(const token&);
+		FoamBase_EXPORT void putBack(const token&);
 
 		//- Get the put back token if there is one and return true.
 		//  Return false if no put back token is available.
-		bool getBack(token&);
+		FoamBase_EXPORT bool getBack(token&);
 
 		//- Peek at the put back token without removing it.
 		//  Returns false if no put back token is available and set the
 		//  token to undefined.
-		bool peekBack(token&);
+		FoamBase_EXPORT 	bool peekBack(token&);
 
 		//- Return next token from stream
-		virtual Istream& read(token&) = 0;
+		FoamBase_EXPORT virtual Istream& read(token&) = 0;
 
 		//- Read a character
-		virtual Istream& read(char&) = 0;
+		FoamBase_EXPORT virtual Istream& read(char&) = 0;
 
 		//- Read a word
-		virtual Istream& read(word&) = 0;
+		FoamBase_EXPORT virtual Istream& read(word&) = 0;
 
 		// Read a string (including enclosing double-quotes)
-		virtual Istream& read(string&) = 0;
+		FoamBase_EXPORT virtual Istream& read(string&) = 0;
 
 		//- Read a label
-		virtual Istream& read(label&) = 0;
+		FoamBase_EXPORT virtual Istream& read(label&) = 0;
 
 		//- Read a floatScalar
-		virtual Istream& read(floatScalar&) = 0;
+		FoamBase_EXPORT virtual Istream& read(floatScalar&) = 0;
 
 		//- Read a doubleScalar
-		virtual Istream& read(doubleScalar&) = 0;
+		FoamBase_EXPORT virtual Istream& read(doubleScalar&) = 0;
 
 		//- Read a longDoubleScalar
-		virtual Istream& read(longDoubleScalar&) = 0;
+		FoamBase_EXPORT virtual Istream& read(longDoubleScalar&) = 0;
 
 		//- Read binary block
-		virtual Istream& read(char*, std::streamsize) = 0;
+		FoamBase_EXPORT virtual Istream& read(char*, std::streamsize) = 0;
 
 		//- Rewind and return the stream so that it may be read again
-		virtual Istream& rewind() = 0;
+		FoamBase_EXPORT virtual Istream& rewind() = 0;
 
 
 		// Read List punctuation tokens
 
-		Istream& readBegin(const char* funcName);
-		Istream& readEnd(const char* funcName);
-		Istream& readEndBegin(const char* funcName);
+		FoamBase_EXPORT Istream& readBegin(const char* funcName);
+		FoamBase_EXPORT Istream& readEnd(const char* funcName);
+		FoamBase_EXPORT Istream& readEndBegin(const char* funcName);
 
-		char readBeginList(const char* funcName);
-		char readEndList(const char* funcName);
+		FoamBase_EXPORT char readBeginList(const char* funcName);
+		FoamBase_EXPORT char readEndList(const char* funcName);
 
 
 		// Member operators
@@ -155,7 +155,7 @@ namespace tnbLib
 			//- Return a non-const reference to const Istream
 			//  Needed for read-constructors where the stream argument is temporary:
 			//  e.g. thing thisThing(IFstream("thingFileName")());
-		Istream& operator()() const;
+		FoamBase_EXPORT Istream& operator()() const;
 	};
 
 

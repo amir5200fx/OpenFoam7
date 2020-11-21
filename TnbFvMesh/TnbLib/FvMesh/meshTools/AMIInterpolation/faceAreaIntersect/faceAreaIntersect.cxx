@@ -2,15 +2,15 @@
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
-namespace tnbLib
-{
-	template<>
-	const char* NamedEnum<faceAreaIntersect::triangulationMode, 2>::names[] =
-	{
-		"fan",
-		"mesh"
-	};
-}
+//namespace tnbLib
+//{
+//	template<>
+//	const char* NamedEnum<faceAreaIntersect::triangulationMode, 2>::names[] =
+//	{
+//		"fan",
+//		"mesh"
+//	};
+//}
 
 const tnbLib::NamedEnum<tnbLib::faceAreaIntersect::triangulationMode, 2>
 tnbLib::faceAreaIntersect::triangulationModeNames_;

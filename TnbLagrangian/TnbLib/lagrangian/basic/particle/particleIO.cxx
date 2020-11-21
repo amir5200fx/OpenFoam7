@@ -79,7 +79,7 @@ void tnbLib::particle::writePosition(Ostream& os) const
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const particle& p)
+FoamLagrangian_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const particle& p)
 {
 	if (os.format() == IOstream::ASCII)
 	{

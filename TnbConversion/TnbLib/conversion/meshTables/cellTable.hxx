@@ -82,21 +82,21 @@ namespace tnbLib
 	{
 		// Private Data
 
-		static const char* const defaultMaterial_;
+		static FoamConversion_EXPORT const char* const defaultMaterial_;
 
 
 		// Private Member Functions
 
 			//- Map from cellTable ID => zone number
-		Map<label> zoneMap() const;
+		FoamConversion_EXPORT Map<label> zoneMap() const;
 
 		//- A contiguous list of cellTable names
-		List<word> namesList() const;
+		FoamConversion_EXPORT List<word> namesList() const;
 
 		//- Add required entries - MaterialType
-		void addDefaults();
+		FoamConversion_EXPORT void addDefaults();
 
-		void setEntry(const label id, const word& keyWord, const word& value);
+		FoamConversion_EXPORT void setEntry(const label id, const word& keyWord, const word& value);
 
 
 	public:
@@ -104,10 +104,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		cellTable();
+		FoamConversion_EXPORT cellTable();
 
 		//- Construct read from registry, name. instance
-		cellTable
+		FoamConversion_EXPORT cellTable
 		(
 			const objectRegistry&,
 			const word& name = "cellTable",
@@ -115,59 +115,59 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		cellTable(const cellTable&) = delete;
+		FoamConversion_EXPORT cellTable(const cellTable&) = delete;
 
 
 		//- Destructor
-		~cellTable();
+		FoamConversion_EXPORT ~cellTable();
 
 
 		// Member Functions
 
 			//- Append to the end, return index
-		label append(const dictionary&);
+		FoamConversion_EXPORT label append(const dictionary&);
 
 		//- Return index corresponding to name
 		//  returns -1 if not found
-		label findIndex(const word& name) const;
+		FoamConversion_EXPORT label findIndex(const word& name) const;
 
 		//- Return the name corresponding to id
 		//  returns cellTable_ID if not otherwise defined
-		word name(const label id) const;
+		FoamConversion_EXPORT word name(const label id) const;
 
 		//- Return a Map of (id => name)
-		Map<word> names() const;
+		FoamConversion_EXPORT Map<word> names() const;
 
 		//- Return a Map of (id => names) selected by patterns
-		Map<word> names(const UList<wordRe>& patterns) const;
+		FoamConversion_EXPORT Map<word> names(const UList<wordRe>& patterns) const;
 
 		//- Return a Map of (id => name) for materialType
 		//  (fluid | solid | shell)
-		Map<word> selectType(const word& materialType) const;
+		FoamConversion_EXPORT Map<word> selectType(const word& materialType) const;
 
 		//- Return a Map of (id => name) for fluids
-		Map<word> fluids() const;
+		FoamConversion_EXPORT Map<word> fluids() const;
 
 		//- Return a Map of (id => name) for shells
-		Map<word> shells() const;
+		FoamConversion_EXPORT Map<word> shells() const;
 
 		//- Return a Map of (id => name) for solids
-		Map<word> solids() const;
+		FoamConversion_EXPORT Map<word> solids() const;
 
 		//- Return a Map of (id => fluid|solid|shell)
-		Map<word> materialTypes() const;
+		FoamConversion_EXPORT Map<word> materialTypes() const;
 
 		//- Assign material Type
-		void setMaterial(const label, const word&);
+		FoamConversion_EXPORT void setMaterial(const label, const word&);
 
 		//- Assign name
-		void setName(const label, const word&);
+		FoamConversion_EXPORT void setName(const label, const word&);
 
 		//- Assign default name if not already set
-		void setName(const label);
+		FoamConversion_EXPORT void setName(const label);
 
 		//- Read constant/cellTable
-		void readDict
+		FoamConversion_EXPORT void readDict
 		(
 			const objectRegistry&,
 			const word& name = "cellTable",
@@ -175,7 +175,7 @@ namespace tnbLib
 		);
 
 		//- Write constant/cellTable for later reuse
-		void writeDict
+		FoamConversion_EXPORT void writeDict
 		(
 			const objectRegistry&,
 			const word& name = "cellTable",
@@ -186,23 +186,23 @@ namespace tnbLib
 		// Member Operators
 
 			//- Assignment
-		void operator=(const cellTable&);
+		FoamConversion_EXPORT void operator=(const cellTable&);
 
 		//- Assign from Map<dictionary>
-		void operator=(const Map<dictionary>&);
+		FoamConversion_EXPORT void operator=(const Map<dictionary>&);
 
 		//- Assign from cellZones
-		void operator=(const polyMesh&);
+		FoamConversion_EXPORT void operator=(const polyMesh&);
 
 
 		// Friend Functions
 
 			//- Classify tableIds into cellZones according to the cellTable
-		void addCellZones(polyMesh&, const labelList& tableIds) const;
+		FoamConversion_EXPORT void addCellZones(polyMesh&, const labelList& tableIds) const;
 
 		//- Combine tableIds together
 		//  each dictionary entry is a wordList
-		void combine(const dictionary&, labelList& tableIds);
+		FoamConversion_EXPORT void combine(const dictionary&, labelList& tableIds);
 	};
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

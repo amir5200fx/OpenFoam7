@@ -53,6 +53,16 @@ SourceFiles
 #include <cyclicAMIFvPatchField.hxx>
 #include <cyclicACMIFvPatch.hxx>
 
+#ifdef FoamFiniteVolume_EXPORT_DEFINE
+#define FoamCyclicACMIFvPatchField_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCyclicACMIFvPatchField_EXPORT_DEFINE
+#define FoamCyclicACMIFvPatchField_EXPORT __declspec(dllexport)
+#else
+#define FoamCyclicACMIFvPatchField_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -70,7 +80,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName(cyclicACMIFvPatch::typeName_());
+		//TypeName(cyclicACMIFvPatch::typeName_());
+		static const char* typeName_() { return cyclicACMIFvPatch::typeName_(); }
+		static FoamCyclicACMIFvPatchField_EXPORT const ::tnbLib::word typeName;
+		static FoamCyclicACMIFvPatchField_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

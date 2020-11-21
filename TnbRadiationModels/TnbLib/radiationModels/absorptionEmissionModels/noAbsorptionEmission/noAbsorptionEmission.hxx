@@ -59,17 +59,21 @@ namespace tnbLib
 			public:
 
 				//- Runtime type information
-				TypeName("none");
+				//TypeName("none");
+				static const char* typeName_() { return "none"; }
+				static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+				static FoamRadiationModels_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from components
-				noAbsorptionEmission(const dictionary& dict, const fvMesh& mesh);
+				FoamRadiationModels_EXPORT noAbsorptionEmission(const dictionary& dict, const fvMesh& mesh);
 
 
 				//- Destructor
-				virtual ~noAbsorptionEmission();
+				FoamRadiationModels_EXPORT virtual ~noAbsorptionEmission();
 			};
 
 

@@ -131,7 +131,7 @@ void tnbLib::blockEdge::write(Ostream& os, const dictionary& d) const
 
 // * * * * * * * * * * * * * * * Member Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const blockEdge& p)
+FoamFvMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const blockEdge& p)
 {
 	os << p.start_ << tab << p.end_ << endl;
 

@@ -90,11 +90,11 @@ namespace tnbLib
 			//- Remove and return the function object pointer by name,
 			//  and returns the old index via the parameter.
 			//  Returns a nullptr (and index -1) if it didn't exist
-		functionObject* remove(const word&, label& oldIndex);
+		FoamBase_EXPORT functionObject* remove(const word&, label& oldIndex);
 
 		//- Search the specified directory for functionObject
 		//  configuration files, add to the given map and recurse
-		static void listDir(const fileName& dir, HashSet<word>& foMap);
+		static FoamBase_EXPORT void listDir(const fileName& dir, HashSet<word>& foMap);
 
 
 	public:
@@ -103,14 +103,14 @@ namespace tnbLib
 
 			//- Default relative path to the directory structure
 			//  containing the functionObject dictionary files
-		static fileName functionObjectDictPath;
+		static FoamBase_EXPORT fileName functionObjectDictPath;
 
 
 		// Constructors
 
 			//- Construct from Time and the execution setting.
 			//  The functionObject specifications are read from the controlDict
-		functionObjectList
+		FoamBase_EXPORT functionObjectList
 		(
 			const Time& runTime,
 			const bool execution = true
@@ -124,7 +124,7 @@ namespace tnbLib
 		//    of functionObject specifications.
 		//  \param[in]  execution - whether the function objects should execute
 		//    or not. Default: true.
-		functionObjectList
+		FoamBase_EXPORT functionObjectList
 		(
 			const Time& runTime,
 			const dictionary& parentDict,
@@ -132,14 +132,14 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		functionObjectList(const functionObjectList&) = delete;
+		FoamBase_EXPORT functionObjectList(const functionObjectList&) = delete;
 
 		//- Construct and return a functionObjectList for an application.
 		//  If the "dict" argument is specified the functionObjectList is
 		//  constructed from that dictionary which is returned as
 		//  controlDict otherwise the functionObjectList is constructed
 		//  from the "functions" sub-dictionary of "system/controlDict"
-		static autoPtr<functionObjectList> New
+		static FoamBase_EXPORT autoPtr<functionObjectList> New
 		(
 			const argList& args,
 			const Time& runTime,
@@ -149,7 +149,7 @@ namespace tnbLib
 
 
 		//- Destructor
-		~functionObjectList();
+		FoamBase_EXPORT ~functionObjectList();
 
 
 		// Member Functions
@@ -164,10 +164,10 @@ namespace tnbLib
 		using PtrList<functionObject>::operator[];
 
 		//- Clear the list of function objects
-		void clear();
+		FoamBase_EXPORT void clear();
 
 		//- Find the ID of a given function object by name
-		label findObjectID(const word& name) const;
+		FoamBase_EXPORT label findObjectID(const word& name) const;
 
 		//- Print a list of functionObject configuration files in
 		//  user/group/shipped directories.
@@ -185,7 +185,7 @@ namespace tnbLib
 		//    - $WM_PROJECT_INST_DIR/site/etc/caseDicts/postProcessing
 		//  - \b other (shipped) settings:
 		//    - $WM_PROJECT_DIR/etc/caseDicts/postProcessing
-		static void list();
+		static FoamBase_EXPORT void list();
 
 		//- Search for functionObject dictionary file for given region
 		//  and the user/group/shipped directories.
@@ -206,7 +206,7 @@ namespace tnbLib
 		//
 		//  \return The path of the functionObject dictionary file if found
 		//  otherwise null
-		static fileName findRegionDict
+		static FoamBase_EXPORT fileName findRegionDict
 		(
 			const word& funcPath,
 			const word& region = word::null
@@ -232,7 +232,7 @@ namespace tnbLib
 		//
 		//  \return The path of the functionObject dictionary file if found
 		//  otherwise null
-		static fileName findDict
+		static FoamBase_EXPORT fileName findDict
 		(
 			const word& funcName,
 			const word& region = word::null
@@ -244,7 +244,7 @@ namespace tnbLib
 		//  resulting functionObject dictionary into 'functionsDict'.  Any
 		//  fields required to execute the functionObject are added to
 		//  'requiredFields'
-		static bool readFunctionObject
+		static FoamBase_EXPORT bool readFunctionObject
 		(
 			const string& funcNameArgs0,
 			dictionary& functionsDict,
@@ -253,45 +253,45 @@ namespace tnbLib
 		);
 
 		//- Read and set the function objects if their data have changed
-		bool read();
+		FoamBase_EXPORT bool read();
 
 		//- Switch the function objects on
-		void on();
+		FoamBase_EXPORT void on();
 
 		//- Switch the function objects off
-		void off();
+		FoamBase_EXPORT void off();
 
 		//- Return the execution status (on/off) of the function objects
-		bool status() const;
+		FoamBase_EXPORT bool status() const;
 
 		//- Called at the start of the time-loop
-		bool start();
+		FoamBase_EXPORT bool start();
 
 		//- Called at each ++ or += of the time-loop.
 		//  postProcess overrides the usual executeControl behaviour and
 		//  forces execution (used in post-processing mode)
-		bool execute();
+		FoamBase_EXPORT bool execute();
 
 		//- Called when Time::run() determines that the time-loop exits
-		bool end();
+		FoamBase_EXPORT bool end();
 
 		//- Override the time-step value
-		bool setTimeStep();
+		FoamBase_EXPORT bool setTimeStep();
 
 		//- Return the time to the next write
-		scalar timeToNextWrite();
+		FoamBase_EXPORT scalar timeToNextWrite();
 
 		//- Update for changes of mesh
-		void updateMesh(const mapPolyMesh& mpm);
+		FoamBase_EXPORT void updateMesh(const mapPolyMesh& mpm);
 
 		//- Update for changes of mesh
-		void movePoints(const polyMesh& mesh);
+		FoamBase_EXPORT void movePoints(const polyMesh& mesh);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const functionObjectList&) = delete;
+		FoamBase_EXPORT void operator=(const functionObjectList&) = delete;
 	};
 
 

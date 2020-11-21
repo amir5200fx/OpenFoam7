@@ -82,18 +82,22 @@ namespace tnbLib
 
 		// Static Data Members
 
-			//- Run-time type information
-		TypeName("pimpleControl");
+		//- Run-time type information
+		//TypeName("pimpleControl");
+		static const char* typeName_() { return "pimpleControl"; }
+		static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+		static FoamFiniteVolume_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from a mesh and the name of the algorithm
-		pimpleControl(fvMesh& mesh, const word& algorithmName = "PIMPLE");
+		FoamFiniteVolume_EXPORT pimpleControl(fvMesh& mesh, const word& algorithmName = "PIMPLE");
 
 
 		//- Destructor
-		virtual ~pimpleControl();
+		FoamFiniteVolume_EXPORT virtual ~pimpleControl();
 
 
 		// Member Functions
@@ -101,7 +105,7 @@ namespace tnbLib
 			// IO
 
 				//- Read controls
-		virtual bool read();
+		FoamFiniteVolume_EXPORT virtual bool read();
 
 		// Access
 
@@ -111,13 +115,13 @@ namespace tnbLib
 		// Evolution
 
 			//- Pimple loop
-		bool loop();
+		FoamFiniteVolume_EXPORT bool loop();
 
 		//- Time run loop
-		bool run(Time& time);
+		FoamFiniteVolume_EXPORT bool run(Time& time);
 
 		//- Time loop loop
-		bool loop(Time& time);
+		FoamFiniteVolume_EXPORT bool loop(Time& time);
 	};
 
 

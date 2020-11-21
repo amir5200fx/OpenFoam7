@@ -60,6 +60,16 @@ SourceFiles
 #include <LESeddyViscosity.hxx>
 #include <simpleFilter.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamdynamicKEqn_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamdynamicKEqn_EXPORT_DEFINE
+#define FoamdynamicKEqn_EXPORT __declspec(dllexport)
+#else
+#define FoamdynamicKEqn_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -133,7 +143,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("dynamicKEqn");
+			//TypeName("dynamicKEqn");
+			static const char* typeName_() { return "dynamicKEqn"; }
+			static FoamdynamicKEqn_EXPORT const ::tnbLib::word typeName;
+			static FoamdynamicKEqn_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

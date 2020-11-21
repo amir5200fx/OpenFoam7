@@ -56,7 +56,7 @@ namespace tnbLib
 			// Marching front
 
 				//- Set the source and target seed faces
-		virtual void setNextFaces
+		FoamFvMesh_EXPORT virtual void setNextFaces
 		(
 			label& startSeedI,
 			label& srcFacei,
@@ -71,13 +71,17 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("partialFaceAreaWeightAMI");
+		//TypeName("partialFaceAreaWeightAMI");
+		static const char* typeName_() { return "partialFaceAreaWeightAMI"; }
+		static FoamFvMesh_EXPORT const ::tnbLib::word typeName;
+		static FoamFvMesh_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from components
-		partialFaceAreaWeightAMI
+		FoamFvMesh_EXPORT partialFaceAreaWeightAMI
 		(
 			const primitivePatch& srcPatch,
 			const primitivePatch& tgtPatch,
@@ -89,11 +93,11 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		partialFaceAreaWeightAMI(const partialFaceAreaWeightAMI&) = delete;
+		FoamFvMesh_EXPORT partialFaceAreaWeightAMI(const partialFaceAreaWeightAMI&) = delete;
 
 
 		//- Destructor
-		virtual ~partialFaceAreaWeightAMI();
+		FoamFvMesh_EXPORT virtual ~partialFaceAreaWeightAMI();
 
 
 		// Member Functions
@@ -101,13 +105,13 @@ namespace tnbLib
 			// Access
 
 				//- Flag to indicate that interpolation patches are conformal
-		virtual bool conformal() const;
+		FoamFvMesh_EXPORT virtual bool conformal() const;
 
 
 		// Manipulation
 
 			//- Update addressing and weights
-		virtual void calculate
+		FoamFvMesh_EXPORT virtual void calculate
 		(
 			labelListList& srcAddress,
 			scalarListList& srcWeights,
@@ -121,7 +125,7 @@ namespace tnbLib
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const partialFaceAreaWeightAMI&) = delete;
+		FoamFvMesh_EXPORT void operator=(const partialFaceAreaWeightAMI&) = delete;
 	};
 
 

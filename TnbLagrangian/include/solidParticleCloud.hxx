@@ -74,7 +74,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct given mesh
-		solidParticleCloud
+		FoamLagrangian_EXPORT solidParticleCloud
 		(
 			const fvMesh&,
 			const word& cloudName = "defaultCloud",
@@ -82,7 +82,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		solidParticleCloud(const solidParticleCloud&) = delete;
+		FoamLagrangian_EXPORT solidParticleCloud(const solidParticleCloud&) = delete;
 
 
 		// Member Functions
@@ -100,13 +100,13 @@ namespace tnbLib
 
 			//- Move the particles under the influence of the given
 			//  gravitational acceleration
-		void move(const dimensionedVector& g);
+		FoamLagrangian_EXPORT void move(const dimensionedVector& g);
 
 
 		// Member Operators
 
 			//- Disallow default bitwise assignment
-		void operator=(const solidParticleCloud&) = delete;
+		FoamLagrangian_EXPORT void operator=(const solidParticleCloud&) = delete;
 	};
 
 

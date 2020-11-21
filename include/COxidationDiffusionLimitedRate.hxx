@@ -39,6 +39,16 @@ Description
 
 #include <SurfaceReactionModel.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamCOxidationDiffusionLimitedRate_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamCOxidationDiffusionLimitedRate_EXPORT_DEFINE
+#define FoamCOxidationDiffusionLimitedRate_EXPORT __declspec(dllexport)
+#else
+#define FoamCOxidationDiffusionLimitedRate_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -97,7 +107,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("COxidationDiffusionLimitedRate");
+		//TypeName("COxidationDiffusionLimitedRate");
+		static const char* typeName_() { return "COxidationDiffusionLimitedRate"; }
+		static FoamCOxidationDiffusionLimitedRate_EXPORT const ::tnbLib::word typeName;
+		static FoamCOxidationDiffusionLimitedRate_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

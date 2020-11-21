@@ -97,26 +97,26 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct Null
-		timeSelector();
+		FoamBase_EXPORT timeSelector();
 
 		//- Construct from Istream
-		timeSelector(Istream&);
+		FoamBase_EXPORT timeSelector(Istream&);
 
 
 		// Member Functions
 
 			//- Return true if the given instant is within the ranges
-		bool selected(const instant&) const;
+		FoamBase_EXPORT bool selected(const instant&) const;
 
 		//- Return the set of selected instants in the given list that are
 		//  within the ranges
-		List<bool> selected(const instantList&) const;
+		FoamBase_EXPORT List<bool> selected(const instantList&) const;
 
 		//- Select a list of Time values that are within the ranges
-		instantList select(const instantList&) const;
+		FoamBase_EXPORT instantList select(const instantList&) const;
 
 		//- Select a list of Time values that are within the ranges
-		void inplaceSelect(instantList&) const;
+		FoamBase_EXPORT void inplaceSelect(instantList&) const;
 
 		//- Add the options handled by timeSelector to argList::validOptions
 		//
@@ -129,14 +129,14 @@ namespace tnbLib
 		//   directory. The \c 0/ directory will only be included when
 		//   \b -withZero is specified.
 		//   The \b -noZero option has precedence over the @b -withZero option.
-		static void addOptions
+		static FoamBase_EXPORT void addOptions
 		(
 			const bool constant = true,
 			const bool withZero = false
 		);
 
 		//- Return the set of times selected based on the argList options
-		static instantList select
+		static FoamBase_EXPORT instantList select
 		(
 			const instantList&,
 			const argList& args,
@@ -146,7 +146,7 @@ namespace tnbLib
 		//- Return the set of times selected based on the argList options
 		//  also set the runTime to the first instance or the
 		//  \c constant/ directory if no instances are specified or available
-		static instantList select0
+		static FoamBase_EXPORT instantList select0
 		(
 			Time& runTime,
 			const argList& args
@@ -155,7 +155,7 @@ namespace tnbLib
 		//- If any time option provided return the set of times (as select0)
 		//  otherwise return just the current time.
 		//  Also set the runTime to the first instance
-		static instantList selectIfPresent
+		static FoamBase_EXPORT instantList selectIfPresent
 		(
 			Time& runTime,
 			const argList& args

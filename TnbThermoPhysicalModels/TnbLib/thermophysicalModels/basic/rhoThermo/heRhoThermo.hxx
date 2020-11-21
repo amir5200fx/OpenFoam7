@@ -39,6 +39,16 @@ SourceFiles
 #include <rhoThermo.hxx>
 #include <heThermo.hxx>
 
+#ifdef FoamThermophysicalModels_EXPORT_DEFINE
+#define FoamheRhoThermo_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamheRhoThermo_EXPORT_DEFINE
+#define FoamheRhoThermo_EXPORT __declspec(dllexport)
+#else
+#define FoamheRhoThermo_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -65,7 +75,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("heRhoThermo");
+		//TypeName("heRhoThermo");
+		static const char* typeName_() { return "heRhoThermo"; }
+		static FoamheRhoThermo_EXPORT const ::tnbLib::word typeName;
+		static FoamheRhoThermo_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

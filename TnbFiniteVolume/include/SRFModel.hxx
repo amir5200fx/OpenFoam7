@@ -92,12 +92,16 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("SRFModel");
+			//TypeName("SRFModel");
+			static const char* typeName_() { return "SRFModel"; }
+			static FoamFiniteVolume_EXPORT const ::tnbLib::word typeName;
+			static FoamFiniteVolume_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Declare runtime constructor selection table
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				SRFModel,
@@ -106,33 +110,77 @@ namespace tnbLib
 					const volVectorField& Urel
 					),
 					(Urel)
-			);
+			);*/
+
+			typedef autoPtr<SRFModel> (*dictionaryConstructorPtr)(const volVectorField& Urel);
+			typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+			static FoamFiniteVolume_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+			static FoamFiniteVolume_EXPORT void constructdictionaryConstructorTables();
+			static FoamFiniteVolume_EXPORT void destroydictionaryConstructorTables();
+
+			template <class SRFModelType>
+			class adddictionaryConstructorToTable
+			{
+			public:
+				static autoPtr<SRFModel> New(const volVectorField& Urel) { return autoPtr<SRFModel>(new SRFModelType(Urel)); }
+
+				adddictionaryConstructorToTable(const word& lookup = SRFModelType::typeName)
+				{
+					constructdictionaryConstructorTables();
+					if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "SRFModel" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+			};
+
+			template <class SRFModelType>
+			class addRemovabledictionaryConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<SRFModel> New(const volVectorField& Urel) { return autoPtr<SRFModel>(new SRFModelType(Urel)); }
+
+				addRemovabledictionaryConstructorToTable(const word& lookup = SRFModelType::typeName) : lookup_(lookup)
+				{
+					constructdictionaryConstructorTables();
+					dictionaryConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovabledictionaryConstructorToTable()
+				{
+					if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors
 
 				//- Construct from components
-			SRFModel
+			FoamFiniteVolume_EXPORT SRFModel
 			(
 				const word& type,
 				const volVectorField& Urel
 			);
 
 			//- Disallow default bitwise copy construction
-			SRFModel(const SRFModel&) = delete;
+			FoamFiniteVolume_EXPORT SRFModel(const SRFModel&) = delete;
 
 
 			// Selectors
 
 				 //- Return a reference to the selected SRF model
-			static autoPtr<SRFModel> New
+			static FoamFiniteVolume_EXPORT autoPtr<SRFModel> New
 			(
 				const volVectorField& Urel
 			);
 
 
 			//- Destructor
-			virtual ~SRFModel();
+			FoamFiniteVolume_EXPORT virtual ~SRFModel();
 
 
 			// Member Functions
@@ -140,43 +188,43 @@ namespace tnbLib
 				// Edit
 
 					//- Read radiationProperties dictionary
-			virtual bool read();
+			FoamFiniteVolume_EXPORT virtual bool read();
 
 
 			// Access
 
 				//- Return the origin of rotation
-			const dimensionedVector& origin() const;
+			FoamFiniteVolume_EXPORT 	const dimensionedVector& origin() const;
 
 			//- Return the axis of rotation
-			const vector& axis() const;
+			FoamFiniteVolume_EXPORT const vector& axis() const;
 
 			//- Return the angular velocity field [rad/s]
-			const dimensionedVector& omega() const;
+			FoamFiniteVolume_EXPORT const dimensionedVector& omega() const;
 
 			//- Return the coriolis force
-			tmp<volVectorField::Internal> Fcoriolis() const;
+			FoamFiniteVolume_EXPORT tmp<volVectorField::Internal> Fcoriolis() const;
 
 			//- Return the centrifugal force
-			tmp<volVectorField::Internal> Fcentrifugal() const;
+			FoamFiniteVolume_EXPORT tmp<volVectorField::Internal> Fcentrifugal() const;
 
 			//- Source term component for momentum equation
-			tmp<volVectorField::Internal> Su() const;
+			FoamFiniteVolume_EXPORT tmp<volVectorField::Internal> Su() const;
 
 			//- Return velocity vector from positions
-			vectorField velocity(const vectorField& positions) const;
+			FoamFiniteVolume_EXPORT vectorField velocity(const vectorField& positions) const;
 
 			//- Return velocity of SRF for complete mesh
-			tmp<volVectorField> U() const;
+			FoamFiniteVolume_EXPORT tmp<volVectorField> U() const;
 
 			//- Return absolute velocity for complete mesh
-			tmp<volVectorField> Uabs() const;
+			FoamFiniteVolume_EXPORT tmp<volVectorField> Uabs() const;
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const SRFModel&) = delete;
+			FoamFiniteVolume_EXPORT void operator=(const SRFModel&) = delete;
 		};
 
 

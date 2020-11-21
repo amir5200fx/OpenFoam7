@@ -57,6 +57,16 @@ SourceFiles
 
 #include <kEqn.hxx>
 
+#ifdef FoamTurbulence_EXPORT_DEFINE
+#define FoamcontinuousGasKEqn_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamcontinuousGasKEqn_EXPORT_DEFINE
+#define FoamcontinuousGasKEqn_EXPORT __declspec(dllexport)
+#else
+#define FoamcontinuousGasKEqn_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -104,7 +114,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("continuousGasKEqn");
+			//TypeName("continuousGasKEqn");
+			static const char* typeName_() { return "continuousGasKEqn"; }
+			static FoamcontinuousGasKEqn_EXPORT const ::tnbLib::word typeName;
+			static FoamcontinuousGasKEqn_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
@@ -152,8 +166,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <continuousGasKEqn.cxx>
+//#include <continuousGasKEqn.cxx>
 #endif
+
+#include <continuousGasKEqnI.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

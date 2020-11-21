@@ -37,6 +37,8 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <includeModule.hxx>
+
 #include <sys/types.h>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -69,10 +71,10 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Retrieve the current time values from the system
-		static void getTime(timeType&);
+		static FoamBase_EXPORT void getTime(timeType&);
 
 		//- Difference between two times
-		static double timeDifference(const timeType& beg, const timeType& end);
+		static FoamBase_EXPORT double timeDifference(const timeType& beg, const timeType& end);
 
 
 	public:
@@ -80,16 +82,16 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct with the current clock time
-		clockTime();
+		FoamBase_EXPORT clockTime();
 
 
 		// Member Functions
 
 			//- Return time (in seconds) from the start
-		double elapsedTime() const;
+		FoamBase_EXPORT double elapsedTime() const;
 
 		//- Return time (in seconds) since last call to timeIncrement()
-		double timeIncrement() const;
+		FoamBase_EXPORT double timeIncrement() const;
 	};
 
 

@@ -107,19 +107,23 @@ namespace tnbLib
 			// Private Member Functions
 
 				//- File header information
-			virtual void writeFileHeader(const label i);
+			FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i);
 
 
 		public:
 
 			//- Runtime type information
-			TypeName("turbulenceIntensity");
+			//TypeName("turbulenceIntensity");
+			static const char* typeName_() { return "turbulenceIntensity"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			turbulenceIntensity
+			FoamFunctionObjects_EXPORT turbulenceIntensity
 			(
 				const word& name,
 				const Time& runTime,
@@ -127,29 +131,29 @@ namespace tnbLib
 			);
 
 			//- Disallow default bitwise copy construction
-			turbulenceIntensity(const turbulenceIntensity&) = delete;
+			FoamFunctionObjects_EXPORT turbulenceIntensity(const turbulenceIntensity&) = delete;
 
 
 			//- Destructor
-			virtual ~turbulenceIntensity();
+			FoamFunctionObjects_EXPORT virtual ~turbulenceIntensity();
 
 
 			// Member Functions
 
 				//- Read the turbulenceIntensity data
-			virtual bool read(const dictionary&);
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 			//- Calculate the turbulenceIntensity field
-			virtual bool execute();
+			FoamFunctionObjects_EXPORT virtual bool execute();
 
 			//- Write the turbulenceIntensity field
-			virtual bool write();
+			FoamFunctionObjects_EXPORT virtual bool write();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			void operator=(const turbulenceIntensity&) = delete;
+			FoamFunctionObjects_EXPORT void operator=(const turbulenceIntensity&) = delete;
 		};
 
 

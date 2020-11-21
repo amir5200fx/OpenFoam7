@@ -68,11 +68,15 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("absorptionEmissionModel");
+			//TypeName("absorptionEmissionModel");
+			static const char* typeName_() { return "absorptionEmissionModel"; }
+			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+			static FoamRadiationModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			//- Declare runtime constructor selection table
 
-			declareRunTimeSelectionTable
+			/*declareRunTimeSelectionTable
 			(
 				autoPtr,
 				absorptionEmissionModel,
@@ -82,13 +86,66 @@ namespace tnbLib
 					const fvMesh& mesh
 					),
 					(dict, mesh)
-			);
+			);*/
+
+			typedef autoPtr<absorptionEmissionModel> (*dictionaryConstructorPtr)(
+				const dictionary& dict, const fvMesh& mesh);
+			typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+			static FoamRadiationModels_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+			static FoamRadiationModels_EXPORT void constructdictionaryConstructorTables();
+			static FoamRadiationModels_EXPORT void destroydictionaryConstructorTables();
+
+			template <class absorptionEmissionModelType>
+			class adddictionaryConstructorToTable
+			{
+			public:
+				static autoPtr<absorptionEmissionModel> New(const dictionary& dict, const fvMesh& mesh)
+				{
+					return autoPtr<absorptionEmissionModel>(new absorptionEmissionModelType(dict, mesh));
+				}
+
+				adddictionaryConstructorToTable(const word& lookup = absorptionEmissionModelType::typeName)
+				{
+					constructdictionaryConstructorTables();
+					if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+					{
+						std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+							"absorptionEmissionModel" << std::endl;
+						error::safePrintStack(std::cerr);
+					}
+				}
+
+				~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+			};
+
+			template <class absorptionEmissionModelType>
+			class addRemovabledictionaryConstructorToTable
+			{
+				const word& lookup_;
+			public:
+				static autoPtr<absorptionEmissionModel> New(const dictionary& dict, const fvMesh& mesh)
+				{
+					return autoPtr<absorptionEmissionModel>(new absorptionEmissionModelType(dict, mesh));
+				}
+
+				addRemovabledictionaryConstructorToTable(
+					const word& lookup = absorptionEmissionModelType::typeName) : lookup_(lookup)
+				{
+					constructdictionaryConstructorTables();
+					dictionaryConstructorTablePtr_->set(lookup, New);
+				}
+
+				~addRemovabledictionaryConstructorToTable()
+				{
+					if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+				}
+			};;
 
 
 			// Constructors
 
 				//- Construct from components
-			absorptionEmissionModel
+			FoamRadiationModels_EXPORT absorptionEmissionModel
 			(
 				const dictionary& dict,
 				const fvMesh& mesh
@@ -96,7 +153,7 @@ namespace tnbLib
 
 
 			//- Selector
-			static autoPtr<absorptionEmissionModel> New
+			static FoamRadiationModels_EXPORT autoPtr<absorptionEmissionModel> New
 			(
 				const dictionary& dict,
 				const fvMesh& mesh
@@ -104,7 +161,7 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~absorptionEmissionModel();
+			FoamRadiationModels_EXPORT virtual ~absorptionEmissionModel();
 
 
 			// Member Functions
@@ -127,52 +184,52 @@ namespace tnbLib
 			// Absorption coefficient
 
 				//- Absorption coefficient (net)
-			virtual tmp<volScalarField> a(const label bandI = 0) const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField> a(const label bandI = 0) const;
 
 			//- Absorption coefficient for continuous phase
-			virtual tmp<volScalarField> aCont(const label bandI = 0) const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField> aCont(const label bandI = 0) const;
 
 			//- Absorption coefficient for dispersed phase
-			virtual tmp<volScalarField> aDisp(const label bandI = 0) const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField> aDisp(const label bandI = 0) const;
 
 
 			// Emission coefficient
 
 				//- Emission coefficient (net)
-			virtual tmp<volScalarField> e(const label bandI = 0) const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField> e(const label bandI = 0) const;
 
 			//- Return emission coefficient for continuous phase
-			virtual tmp<volScalarField> eCont(const label bandI = 0) const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField> eCont(const label bandI = 0) const;
 
 			//- Return emission coefficient for dispersed phase
-			virtual tmp<volScalarField> eDisp(const label bandI = 0) const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField> eDisp(const label bandI = 0) const;
 
 
 			// Emission contribution
 
 				//- Emission contribution (net)
-			virtual tmp<volScalarField> E(const label bandI = 0) const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField> E(const label bandI = 0) const;
 
 			//- Emission contribution for continuous phase
-			virtual tmp<volScalarField> ECont(const label bandI = 0) const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField> ECont(const label bandI = 0) const;
 
 			//- Emission contribution for dispersed phase
-			virtual tmp<volScalarField> EDisp(const label bandI = 0) const;
+			FoamRadiationModels_EXPORT virtual tmp<volScalarField> EDisp(const label bandI = 0) const;
 
 
 			//- Const access to the number of bands - defaults to 1 for grey
 			//  absorption/emission
-			virtual label nBands() const;
+			FoamRadiationModels_EXPORT virtual label nBands() const;
 
 			//- Const access to the bands - defaults to Vector2D::one for grey
 			//  absorption/emission
-			virtual const Vector2D<scalar>& bands(const label n) const;
+			FoamRadiationModels_EXPORT virtual const Vector2D<scalar>& bands(const label n) const;
 
 			//- Flag for whether the absorption/emission is for a grey gas
-			virtual bool isGrey() const;
+			FoamRadiationModels_EXPORT virtual bool isGrey() const;
 
 			//- Correct absorption coefficients
-			virtual void correct
+			FoamRadiationModels_EXPORT virtual void correct
 			(
 				volScalarField& a,
 				PtrList<volScalarField>& aj

@@ -43,6 +43,16 @@ SourceFiles
 #include <SLGThermo.hxx>
 #include <demandDrivenEntry.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamReactingMultiphaseParcel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamReactingMultiphaseParcel_EXPORT_DEFINE
+#define FoamReactingMultiphaseParcel_EXPORT __declspec(dllexport)
+#else
+#define FoamReactingMultiphaseParcel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -265,16 +275,27 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Runtime type information
-		TypeName("ReactingMultiphaseParcel");
+		//TypeName("ReactingMultiphaseParcel");
+		static const char* typeName_() { return "ReactingMultiphaseParcel"; }
+		static FoamReactingMultiphaseParcel_EXPORT const ::tnbLib::word typeName;
+		static int debug;
+		virtual const word& type() const { return typeName; };
 
 		//- String representation of properties
-		AddToPropertyList
+		/*AddToPropertyList
 		(
 			ParcelType,
 			" nGas(Y1..YN)"
 			+ " nLiquid(Y1..YN)"
 			+ " nSolid(Y1..YN)"
-		);
+		);*/
+		
+		static string propertyList_;
+
+		static string propertyList()
+		{
+			return ParcelType::propertyList() + " nGas(Y1..YN)" + " nLiquid(Y1..YN)" + " nSolid(Y1..YN)";
+		};
 
 
 		// Constructors

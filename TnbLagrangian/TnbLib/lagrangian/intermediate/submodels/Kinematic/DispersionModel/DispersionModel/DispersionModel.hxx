@@ -39,6 +39,16 @@ Description
 
 #include <vector.hxx>  // added by amir
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamDispersionModel_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDispersionModel_EXPORT_DEFINE
+#define FoamDispersionModel_EXPORT __declspec(dllexport)
+#else
+#define FoamDispersionModel_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -56,12 +66,16 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("dispersionModel");
+		//TypeName("dispersionModel");
+		static const char* typeName_() { return "dispersionModel"; }
+		static FoamDispersionModel_EXPORT const ::tnbLib::word typeName;
+		static FoamDispersionModel_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Declare runtime constructor selection table
 
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			DispersionModel,
@@ -71,7 +85,59 @@ namespace tnbLib
 				CloudType& owner
 				),
 				(dict, owner)
-		);
+		);*/
+
+		typedef autoPtr<DispersionModel> (*dictionaryConstructorPtr)(const dictionary& dict, CloudType& owner);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamDispersionModel_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamDispersionModel_EXPORT void constructdictionaryConstructorTables();
+		static FoamDispersionModel_EXPORT void destroydictionaryConstructorTables();
+
+		template <class DispersionModelType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<DispersionModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<DispersionModel>(new DispersionModelType(dict, owner));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = DispersionModelType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "DispersionModel" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class DispersionModelType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<DispersionModel> New(const dictionary& dict, CloudType& owner)
+			{
+				return autoPtr<DispersionModel>(new DispersionModelType(dict, owner));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = DispersionModelType::typeName) : lookup_(
+				lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};
 
 
 		// Constructors

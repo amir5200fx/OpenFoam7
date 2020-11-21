@@ -50,6 +50,16 @@ SourceFiles
 #include <CloudFunctionObject.hxx>
 #include <volFields.hxx>
 
+#ifdef FoamLagrangian_EXPORT_DEFINE
+#define FoamParticleTrap_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamParticleTrap_EXPORT_DEFINE
+#define FoamParticleTrap_EXPORT __declspec(dllexport)
+#else
+#define FoamParticleTrap_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -88,7 +98,11 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("particleTrap");
+		//TypeName("particleTrap");
+		static const char* typeName_() { return "particleTrap"; }
+		static FoamParticleTrap_EXPORT const ::tnbLib::word typeName;
+		static FoamParticleTrap_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors

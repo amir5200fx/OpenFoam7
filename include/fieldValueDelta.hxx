@@ -111,7 +111,7 @@ namespace tnbLib
 				};
 
 				//- Operation type names
-				static const NamedEnum<operationType, 5> operationTypeNames_;
+				static FoamFunctionObjects_EXPORT const NamedEnum<operationType, 5> operationTypeNames_;
 
 
 			private:
@@ -144,19 +144,23 @@ namespace tnbLib
 				// Protected Member Functions
 
 					//- Output file header information
-				virtual void writeFileHeader(const label i);
+				FoamFunctionObjects_EXPORT virtual void writeFileHeader(const label i);
 
 
 			public:
 
 				//- Run-time type information
-				TypeName("fieldValueDelta");
+				//TypeName("fieldValueDelta");
+				static const char* typeName_() { return "fieldValueDelta"; }
+				static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+				static FoamFunctionObjects_EXPORT int debug;
+				virtual const word& type() const { return typeName; };
 
 
 				// Constructors
 
 					//- Construct from Time and dictionary
-				fieldValueDelta
+				FoamFunctionObjects_EXPORT fieldValueDelta
 				(
 					const word& name,
 					const Time& runTime,
@@ -165,19 +169,19 @@ namespace tnbLib
 
 
 				//- Destructor
-				virtual ~fieldValueDelta();
+				FoamFunctionObjects_EXPORT virtual ~fieldValueDelta();
 
 
 				// Public Member Functions
 
 					//- Read from dictionary
-				virtual bool read(const dictionary&);
+				FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
 
 				//- Do nothing
-				virtual bool execute();
+				FoamFunctionObjects_EXPORT virtual bool execute();
 
 				//- Calculate and write
-				virtual bool write();
+				FoamFunctionObjects_EXPORT virtual bool write();
 			};
 
 
@@ -190,8 +194,10 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #ifdef NoRepository
-#include <fieldValueDeltaTemplates.cxx>
+//#include <fieldValueDeltaTemplates.cxx>
 #endif
+
+#include <fieldValueDeltaTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
