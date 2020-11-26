@@ -71,6 +71,8 @@ namespace tnbLib
 
 	public:
 
+		using generalFieldMapper::operator();
+
 		// Constructors
 
 			//- Null constructor
