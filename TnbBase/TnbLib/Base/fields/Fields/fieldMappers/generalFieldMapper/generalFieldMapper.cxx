@@ -120,7 +120,6 @@ tnbLib::tmp<tnbLib::Field<tnbLib::symmTensor>> tnbLib::generalFieldMapper::opera
 	return map(mapF);
 }
 
-
 tnbLib::tmp<tnbLib::Field<tnbLib::tensor>> tnbLib::generalFieldMapper::operator()
 (
 	const Field<tensor>& mapF

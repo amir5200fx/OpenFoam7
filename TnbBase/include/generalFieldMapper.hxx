@@ -44,6 +44,7 @@ namespace tnbLib
 							   Class generalFieldMapper Declaration
 	\*---------------------------------------------------------------------------*/
 
+	//- this class is modified by amir
 	class generalFieldMapper
 		:
 		virtual public fieldMapper
@@ -77,7 +78,7 @@ namespace tnbLib
 
 		//- Are there unmapped values? I.e. do all size() elements get
 		//  get value
-		FoamBase_EXPORT virtual bool hasUnmapped() const = 0;
+		//FoamBase_EXPORT virtual bool hasUnmapped() const = 0;  modified by amir: this function is already been defined in the fieldMapper!
 
 		FoamBase_EXPORT virtual const labelUList& directAddressing() const;
 
@@ -88,61 +89,61 @@ namespace tnbLib
 
 		// Member Operators
 
-		FoamBase_EXPORT virtual void operator()
+		FoamBase_EXPORT /*virtual*/ void operator()
 			(
 				Field<scalar>& f,
 				const Field<scalar>& mapF
-				) const;
+				) const override;
 
-		FoamBase_EXPORT virtual void operator()
+		FoamBase_EXPORT /*virtual*/ void operator()
 			(
 				Field<vector>& f,
 				const Field<vector>& mapF
-				) const;
+				) const override;
 
-		FoamBase_EXPORT virtual void operator()
+		FoamBase_EXPORT /*virtual*/ void operator()
 			(
 				Field<sphericalTensor>& f,
 				const Field<sphericalTensor>& mapF
-				) const;
+				) const override;
 
-		FoamBase_EXPORT virtual void operator()
+		FoamBase_EXPORT /*virtual*/ void operator()
 			(
 				Field<symmTensor>& f,
 				const Field<symmTensor>& mapF
-				) const;
+				) const override;
 
-		FoamBase_EXPORT virtual void operator()
+		FoamBase_EXPORT /*virtual*/ void operator()
 			(
 				Field<tensor>& f,
 				const Field<tensor>& mapF
-				) const;
+				) const override;
 
 
-		FoamBase_EXPORT virtual tmp<Field<scalar>> operator()
+		FoamBase_EXPORT /*virtual*/ tmp<Field<scalar>> operator()
 			(
 				const Field<scalar>& mapF
-				) const;
+				) const override;
 
-		FoamBase_EXPORT virtual tmp<Field<vector>> operator()
+		FoamBase_EXPORT /*virtual*/ tmp<Field<vector>> operator()
 			(
 				const Field<vector>& mapF
-				) const;
+				) const override;
 
-		FoamBase_EXPORT virtual tmp<Field<sphericalTensor>> operator()
+		FoamBase_EXPORT /*virtual*/ tmp<Field<sphericalTensor>> operator()
 			(
 				const Field<sphericalTensor>& mapF
-				) const;
+				) const override;
 
-		FoamBase_EXPORT virtual tmp<Field<symmTensor>> operator()
+		FoamBase_EXPORT /*virtual*/ tmp<Field<symmTensor>> operator()
 			(
 				const Field<symmTensor>& mapF
-				) const;
+				) const override;
 
-		FoamBase_EXPORT virtual tmp<Field<tensor>> operator()
+		FoamBase_EXPORT /*virtual*/ tmp<Field<tensor>> operator()
 			(
 				const Field<tensor>& mapF
-				) const;
+				) const override;
 	};
 
 
