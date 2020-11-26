@@ -134,8 +134,8 @@ namespace tnbLib
 
 		// IOstream Operators
 
-		friend Istream& operator>>(Istream&, scalarRange&);
-		friend Ostream& operator<<(Ostream&, const scalarRange&);
+		friend FoamBase_EXPORT Istream& operator>>(Istream&, scalarRange&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const scalarRange&);
 	};
 
 
