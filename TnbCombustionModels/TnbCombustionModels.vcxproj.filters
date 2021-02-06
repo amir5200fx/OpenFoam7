@@ -43,5 +43,204 @@
     <Filter Include="TnbLib\combustionModels\noCombustion">
       <UniqueIdentifier>{b8b4e0bd-ee7a-4f95-b012-7f17fce41519}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\combustionModels\module">
+      <UniqueIdentifier>{39787587-4b68-45fd-ad10-ef71d724870f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\CombustionModel\ChemistryCombustion">
+      <UniqueIdentifier>{b9b282f9-5afd-4f90-b6d1-af09d8db5b51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\CombustionModel\CombustionModel">
+      <UniqueIdentifier>{cd81dec5-69e6-4007-a0dd-3709f228cf06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\CombustionModel\ThermoCombustion">
+      <UniqueIdentifier>{ae5d7ec3-87da-44ea-88e3-e452a7e790c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\radiationModels\absorptionEmissionModels">
+      <UniqueIdentifier>{25f4ca38-7f15-4720-b41e-4388380322e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\radiationModels\absorptionEmissionModels\wideBandCombustion">
+      <UniqueIdentifier>{a8830f2d-aadb-4f12-922f-a8dd39c14086}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\radiationModels\absorptionEmissionModels\greyMeanCombustion">
+      <UniqueIdentifier>{c82c5c56-f6b8-4500-a6fc-b74015650b95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\functionObjects\Qdot">
+      <UniqueIdentifier>{61c96bd4-d049-4752-986f-9eb0c6d81340}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels">
+      <UniqueIdentifier>{a6a8c467-9f05-41cb-8bcf-0d9d981aaeaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\consumptionSpeed">
+      <UniqueIdentifier>{b0580e76-3fa4-4e99-9b99-51d8dac14644}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\relaxation">
+      <UniqueIdentifier>{9ea0f882-fa1d-4113-9d6c-752dfc21347c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea">
+      <UniqueIdentifier>{96e6fac2-5d2d-426b-a9de-8c35c2e29a52}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\combustionModel.hxx">
+      <Filter>TnbLib\combustionModels\CombustionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\combustionModelI.hxx">
+      <Filter>TnbLib\combustionModels\CombustionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\combustionModelTemplatesI.hxx">
+      <Filter>TnbLib\combustionModels\CombustionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\makeCombustionTypes.hxx">
+      <Filter>TnbLib\combustionModels\CombustionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\module\CombustionModels_Module.hxx">
+      <Filter>TnbLib\combustionModels\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\CombustionModel\CombustionModelTemplate.hxx">
+      <Filter>TnbLib\combustionModels\CombustionModel\CombustionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\ChemistryCombustion\ChemistryCombustionTemplate.hxx">
+      <Filter>TnbLib\combustionModels\CombustionModel\ChemistryCombustion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\ThermoCombustion\ThermoCombustionTemplate.hxx">
+      <Filter>TnbLib\combustionModels\CombustionModel\ThermoCombustion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\singleStepCombustion\singleStepCombustion.hxx">
+      <Filter>TnbLib\combustionModels\singleStepCombustion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\functionObjects\Qdot\Qdot.hxx">
+      <Filter>TnbLib\combustionModels\functionObjects\Qdot</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\infinitelyFastChemistry\infinitelyFastChemistry.hxx">
+      <Filter>TnbLib\combustionModels\infinitelyFastChemistry</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\infinitelyFastChemistry\infinitelyFastChemistryI.hxx">
+      <Filter>TnbLib\combustionModels\infinitelyFastChemistry</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\ChemistryCombustion\ChemistryCombustionTemplateI.hxx">
+      <Filter>TnbLib\combustionModels\CombustionModel\ChemistryCombustion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\CombustionModel\CombustionModelTemplateI.hxx">
+      <Filter>TnbLib\combustionModels\CombustionModel\CombustionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\ThermoCombustion\ThermoCombustionTemplateI.hxx">
+      <Filter>TnbLib\combustionModels\CombustionModel\ThermoCombustion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\singleStepCombustion\singleStepCombustionI.hxx">
+      <Filter>TnbLib\combustionModels\singleStepCombustion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\diffusion\diffusion.hxx">
+      <Filter>TnbLib\combustionModels\diffusion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\diffusion\diffusionI.hxx">
+      <Filter>TnbLib\combustionModels\diffusion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\EDC\EDC.hxx">
+      <Filter>TnbLib\combustionModels\EDC</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\EDC\EDCI.hxx">
+      <Filter>TnbLib\combustionModels\EDC</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\laminar\laminarTemplate.hxx">
+      <Filter>TnbLib\combustionModels\laminar</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\laminar\laminarTemplateI.hxx">
+      <Filter>TnbLib\combustionModels\laminar</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\noCombustion\noCombustion.hxx">
+      <Filter>TnbLib\combustionModels\noCombustion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\noCombustion\noCombustionI.hxx">
+      <Filter>TnbLib\combustionModels\noCombustion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\consumptionSpeed\consumptionSpeed.hxx">
+      <Filter>TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\consumptionSpeed</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea\reactionRateFlameArea.hxx">
+      <Filter>TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\relaxation\relaxationRateFlameAreaModels.hxx">
+      <Filter>TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\relaxation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\FSD\FSD.hxx">
+      <Filter>TnbLib\combustionModels\FSD</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\FSD\FSDI.hxx">
+      <Filter>TnbLib\combustionModels\FSD</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\PaSR\PaSR.hxx">
+      <Filter>TnbLib\combustionModels\PaSR</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\PaSR\PaSRI.hxx">
+      <Filter>TnbLib\combustionModels\PaSR</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\zoneCombustion\zoneCombustion.hxx">
+      <Filter>TnbLib\combustionModels\zoneCombustion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\zoneCombustion\zoneCombustionI.hxx">
+      <Filter>TnbLib\combustionModels\zoneCombustion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\radiationModels\absorptionEmissionModels\greyMeanCombustion\greyMeanCombustion.hxx">
+      <Filter>TnbLib\combustionModels\radiationModels\absorptionEmissionModels\greyMeanCombustion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\combustionModels\radiationModels\absorptionEmissionModels\wideBandCombustion\wideBandCombustion.hxx">
+      <Filter>TnbLib\combustionModels\radiationModels\absorptionEmissionModels\wideBandCombustion</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\combustionModels\CombustionModel\combustionModel.cxx">
+      <Filter>TnbLib\combustionModels\CombustionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\CombustionModel\CombustionModel\CombustionModels.cxx">
+      <Filter>TnbLib\combustionModels\CombustionModel\CombustionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\functionObjects\Qdot\Qdot.cxx">
+      <Filter>TnbLib\combustionModels\functionObjects\Qdot</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\infinitelyFastChemistry\infinitelyFastChemistrys.cxx">
+      <Filter>TnbLib\combustionModels\infinitelyFastChemistry</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\diffusion\diffusions.cxx">
+      <Filter>TnbLib\combustionModels\diffusion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\EDC\EDCs.cxx">
+      <Filter>TnbLib\combustionModels\EDC</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\laminar\laminars.cxx">
+      <Filter>TnbLib\combustionModels\laminar</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\noCombustion\noCombustions.cxx">
+      <Filter>TnbLib\combustionModels\noCombustion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\noCombustion\EDCName.cxx">
+      <Filter>TnbLib\combustionModels\EDC</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\consumptionSpeed\consumptionSpeed.cxx">
+      <Filter>TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\consumptionSpeed</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea\reactionRateFlameArea.cxx">
+      <Filter>TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea\reactionRateFlameAreaNew.cxx">
+      <Filter>TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\relaxation\relaxationRateFlameAreaModels.cxx">
+      <Filter>TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\relaxation</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\FSD\FSDs.cxx">
+      <Filter>TnbLib\combustionModels\FSD</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\PaSR\PaSRs.cxx">
+      <Filter>TnbLib\combustionModels\PaSR</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\zoneCombustion\zoneCombustions.cxx">
+      <Filter>TnbLib\combustionModels\zoneCombustion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\radiationModels\absorptionEmissionModels\greyMeanCombustion\greyMeanCombustion.cxx">
+      <Filter>TnbLib\combustionModels\radiationModels\absorptionEmissionModels\greyMeanCombustion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\combustionModels\radiationModels\absorptionEmissionModels\wideBandCombustion\wideBandCombustion.cxx">
+      <Filter>TnbLib\combustionModels\radiationModels\absorptionEmissionModels\wideBandCombustion</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

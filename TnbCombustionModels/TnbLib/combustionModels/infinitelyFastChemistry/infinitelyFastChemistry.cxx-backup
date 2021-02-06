@@ -1,0 +1,84 @@
+#include <infinitelyFastChemistry.hxx>
+
+namespace tnbLib
+{
+	namespace combustionModels
+	{
+
+		// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+		template<class ReactionThermo, class ThermoType>
+		infinitelyFastChemistry<ReactionThermo, ThermoType>::infinitelyFastChemistry
+		(
+			const word& modelType,
+			ReactionThermo& thermo,
+			const compressibleTurbulenceModel& turb,
+			const word& combustionProperties
+		)
+			:
+			singleStepCombustion<ReactionThermo, ThermoType>
+			(
+				modelType,
+				thermo,
+				turb,
+				combustionProperties
+				),
+			C_(readScalar(this->coeffs().lookup("C")))
+		{}
+
+
+		// * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
+
+		template<class ReactionThermo, class ThermoType>
+		infinitelyFastChemistry<ReactionThermo, ThermoType>::~infinitelyFastChemistry()
+		{}
+
+
+		// * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
+
+		template<class ReactionThermo, class ThermoType>
+		void infinitelyFastChemistry<ReactionThermo, ThermoType>::correct()
+		{
+			this->wFuel_ ==
+				dimensionedScalar(dimMass / pow3(dimLength) / dimTime, 0);
+
+			this->singleMixturePtr_->fresCorrect();
+
+			const label fuelI = this->singleMixturePtr_->fuelIndex();
+
+			const volScalarField& YFuel = this->thermo().composition().Y()[fuelI];
+
+			const dimensionedScalar s = this->singleMixturePtr_->s();
+
+			if (this->thermo().composition().contains("O2"))
+			{
+				const volScalarField& YO2 = this->thermo().composition().Y("O2");
+
+				this->wFuel_ ==
+					this->rho() / (this->mesh().time().deltaT()*C_)
+					*min(YFuel, YO2 / s.value());
+			}
+		}
+
+
+		template<class ReactionThermo, class ThermoType>
+		bool infinitelyFastChemistry<ReactionThermo, ThermoType>::read()
+		{
+			if (singleStepCombustion<ReactionThermo, ThermoType>::read())
+			{
+				this->coeffs().lookup("C") >> C_;
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+	} // End namespace combustionModels
+} // End namespace tnbLib
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

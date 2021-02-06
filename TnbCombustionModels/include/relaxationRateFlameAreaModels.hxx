@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _noRadiation_Header
-#define _noRadiation_Header
+#ifndef _relaxationRateFlameAreaModels_Header
+#define _relaxationRateFlameAreaModels_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,92 +26,100 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::radiationModels::noRadiation
+	tnbLib::reactionRateFlameAreaModels::relaxation
 
 Description
-	No radiation - does nothing to energy equation source terms
-	(returns zeros)
+	Consumption rate per unit of flame area obtained from a relaxation equation
 
 SourceFiles
-	noRadiation.C
+	relaxation.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <radiationModel.hxx>
+#include <reactionRateFlameArea.hxx>
+#include <consumptionSpeed.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace radiationModels
+	namespace reactionRateFlameAreaModels
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class noRadiation Declaration
+								   Class relaxation Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class noRadiation
+		class relaxation
 			:
-			public radiationModel
+			public reactionRateFlameArea
 		{
+			// Private Data
+
+				//- Correlation
+			consumptionSpeed correlation_;
+
+			//- Proportionality constant for time scale in the relaxation Eq.
+			scalar C_;
+
+			//- Proportionality constant for sub-grid strain
+			scalar alpha_;
+
+
 		public:
 
 			//- Runtime type information
-			//TypeName("none");
-			static const char* typeName_() { return "none"; }
-			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
-			static FoamRadiationModels_EXPORT int debug;
+			//TypeName("relaxation");
+			static const char* typeName_() { return "relaxation"; }
+			static FoamCombustionModels_EXPORT const ::tnbLib::word typeName;
+			static FoamCombustionModels_EXPORT int debug;
 			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
-				//- Construct from components
-			FoamRadiationModels_EXPORT noRadiation(const volScalarField& T);
-
-			//- Construct from components
-			FoamRadiationModels_EXPORT noRadiation(const dictionary& dict, const volScalarField& T);
+				//- Construct from dictionary and psiReactionThermo
+			FoamCombustionModels_EXPORT relaxation
+			(
+				const word modelType,
+				const dictionary& dictCoeffs,
+				const fvMesh& mesh,
+				const combustionModel& combModel
+			);
 
 			//- Disallow default bitwise copy construction
-			FoamRadiationModels_EXPORT noRadiation(const noRadiation&) = delete;
+			relaxation(const relaxation&);
 
 
-			//- Destructor
-			FoamRadiationModels_EXPORT virtual ~noRadiation();
+			// Destructor
+
+			FoamCombustionModels_EXPORT virtual ~relaxation();
 
 
 			// Member Functions
 
-				// Edit
+				//- Correct omega
+			FoamCombustionModels_EXPORT virtual void correct(const volScalarField& sigma);
 
-					//- Main update/correction routine
-			FoamRadiationModels_EXPORT void correct();
 
-			//- Solve radiation equation(s)
-			FoamRadiationModels_EXPORT void calculate();
+			// IO
 
-			//- Read radiationProperties dictionary
-			FoamRadiationModels_EXPORT bool read();
-
-			//- Source term component (for power of T^4)
-			FoamRadiationModels_EXPORT tmp<volScalarField> Rp() const;
-
-			//- Source term component (constant)
-			FoamRadiationModels_EXPORT tmp<volScalarField::Internal> Ru() const;
+				//- Update properties from given dictionary
+			FoamCombustionModels_EXPORT virtual bool read(const dictionary& dictProperties);
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			FoamRadiationModels_EXPORT void operator=(const noRadiation&) = delete;
+			void operator=(const relaxation&) = delete;
 		};
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	} // End namespace radiationModels
+	} // End reactionRateFlameAreaModels
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_noRadiation_Header
+#endif // !_relaxationRateFlameAreaModels_Header

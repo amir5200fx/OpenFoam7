@@ -1,0 +1,77 @@
+#include <noCombustion.hxx>
+
+#include <fvmSup.hxx>
+
+// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+template<class ReactionThermo>
+tnbLib::combustionModels::noCombustion<ReactionThermo>::noCombustion
+(
+	const word& modelType,
+	ReactionThermo& thermo,
+	const compressibleTurbulenceModel& turb,
+	const word& combustionProperties
+)
+	:
+	ThermoCombustion<ReactionThermo>(modelType, thermo, turb)
+{}
+
+
+// * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
+
+template<class ReactionThermo>
+tnbLib::combustionModels::noCombustion<ReactionThermo>::~noCombustion()
+{}
+
+
+// * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
+
+template<class ReactionThermo>
+void tnbLib::combustionModels::noCombustion<ReactionThermo>::correct()
+{}
+
+
+template<class ReactionThermo>
+tnbLib::tmp<tnbLib::fvScalarMatrix>
+tnbLib::combustionModels::noCombustion<ReactionThermo>::R
+(
+	volScalarField& Y
+) const
+{
+	tmp<fvScalarMatrix> tSu
+	(
+		new fvScalarMatrix(Y, dimMass / dimTime)
+	);
+
+	return tSu;
+}
+
+
+template<class ReactionThermo>
+tnbLib::tmp<tnbLib::volScalarField>
+tnbLib::combustionModels::noCombustion<ReactionThermo>::Qdot() const
+{
+	return volScalarField::New
+	(
+		this->thermo().phasePropertyName(typeName + ":Qdot"),
+		this->mesh(),
+		dimensionedScalar(dimEnergy / dimVolume / dimTime, 0)
+	);
+}
+
+
+template<class ReactionThermo>
+bool tnbLib::combustionModels::noCombustion<ReactionThermo>::read()
+{
+	if (ThermoCombustion<ReactionThermo>::read())
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+
+// ************************************************************************* //

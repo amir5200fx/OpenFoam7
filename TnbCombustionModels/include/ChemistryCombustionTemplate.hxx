@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _Euler_Header
-#define _Euler_Header
+#ifndef _ChemistryCombustionTemplate_Header
+#define _ChemistryCombustionTemplate_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2013-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2012-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,28 +26,19 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::Euler
+	tnbLib::ChemistryCombustion
 
 Description
-	Euler ODE solver of order (0)1.
-
-	The method calculates the new state from:
-	\f[
-		y_{n+1} = y_n + \delta_x f
-	\f]
-	The error is estimated directly from the change in the solution,
-	i.e. the difference between the 0th and 1st order solutions:
-	\f[
-		err_{n+1} = y_{n+1} - y_n
-	\f]
+	Chemistry model wrapper for combustion models
 
 SourceFiles
-	Euler.C
+	ChemistryCombustion.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <ODESolver.hxx>
-#include <adaptiveSolver.hxx>
+#include <CombustionModelTemplate.hxx>  
+#include <autoPtr.hxx>
+#include <BasicChemistryModelTemplate.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -55,65 +46,47 @@ namespace tnbLib
 {
 
 	/*---------------------------------------------------------------------------*\
-							   Class Euler Declaration
+						class ChemistryCombustion Declaration
 	\*---------------------------------------------------------------------------*/
 
-	class Euler
+	template<class ReactionThermo>
+	class ChemistryCombustion
 		:
-		public ODESolver,
-		public adaptiveSolver
+		public CombustionModel<ReactionThermo>
 	{
-		// Private Data
+	protected:
 
-		mutable scalarField err_;
+		// Protected data
+
+			//- Pointer to chemistry model
+		autoPtr<BasicChemistryModel<ReactionThermo>> chemistryPtr_;
 
 
 	public:
 
-		//- Runtime type information
-		//TypeName("Euler");
-		static const char* typeName_() { return "Euler"; }
-		static FoamODE_EXPORT const ::tnbLib::word typeName;
-		static FoamODE_EXPORT int debug;
-		virtual const word& type() const { return typeName; };
-
-
 		// Constructors
 
-			//- Construct from ODESystem
-		FoamODE_EXPORT Euler(const ODESystem& ode, const dictionary& dict);
+			//- Construct from components and thermo
+		ChemistryCombustion
+		(
+			const word& modelType,
+			ReactionThermo& thermo,
+			const compressibleTurbulenceModel& turb,
+			const word& combustionProperties
+		);
 
 
 		//- Destructor
-		virtual ~Euler()
-		{}
+		virtual ~ChemistryCombustion();
 
 
 		// Member Functions
 
-			//- Inherit solve from ODESolver
-		using ODESolver::solve;
+			//- Return access to the thermo package
+		virtual ReactionThermo& thermo();
 
-		//- Resize the ODE solver
-		FoamODE_EXPORT virtual bool resize();
-
-		//- Solve a single step dx and return the error
-		FoamODE_EXPORT virtual scalar solve
-		(
-			const scalar x0,
-			const scalarField& y0,
-			const scalarField& dydx0,
-			const scalar dx,
-			scalarField& y
-		) const;
-
-		//- Solve the ODE system and the update the state
-		FoamODE_EXPORT virtual void solve
-		(
-			scalar& x,
-			scalarField& y,
-			scalar& dxTry
-		) const;
+		//- Return const access to the thermo package
+		virtual const ReactionThermo& thermo() const;
 	};
 
 
@@ -123,4 +96,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_Euler_Header
+#include <ChemistryCombustionTemplateI.hxx>
+
+//#ifdef NoRepository
+//#include "ChemistryCombustionTemplate.cxx"
+//#endif
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif // !_ChemistryCombustionTemplate_Header

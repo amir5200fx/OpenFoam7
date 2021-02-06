@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _noRadiation_Header
-#define _noRadiation_Header
+#ifndef _diffusion_Header
+#define _diffusion_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2012-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,92 +26,114 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::radiationModels::noRadiation
+	tnbLib::combustionModels::diffusion
 
 Description
-	No radiation - does nothing to energy equation source terms
-	(returns zeros)
+	Simple diffusion-based combustion model based on the principle mixed is
+	burnt. Additional parameter C is used to distribute the heat release rate
+	in time.
 
 SourceFiles
-	noRadiation.C
+	diffusion.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <radiationModel.hxx>
+#include <singleStepCombustion.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#ifdef FoamCombustionModels_EXPORT_DEFINE
+#define FoamDiffusion_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamDiffusion_EXPORT_DEFINE
+#define FoamDiffusion_EXPORT __declspec(dllexport)
+#else
+#define FoamDiffusion_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 namespace tnbLib
 {
-	namespace radiationModels
+	namespace combustionModels
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class noRadiation Declaration
+								 Class diffusion Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class noRadiation
+		template<class ReactionThermo, class ThermoType>
+		class diffusion
 			:
-			public radiationModel
+			public singleStepCombustion<ReactionThermo, ThermoType>
 		{
+			// Private Data
+
+				//- Model constant
+			scalar C_;
+
+			//- Name of oxidant - default is "O2"
+			word oxidantName_;
+
+
 		public:
 
 			//- Runtime type information
-			//TypeName("none");
-			static const char* typeName_() { return "none"; }
-			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
-			static FoamRadiationModels_EXPORT int debug;
+			//TypeName("diffusion");
+			static const char* typeName_() { return "diffusion"; }
+			static FoamDiffusion_EXPORT const ::tnbLib::word typeName;
+			static FoamDiffusion_EXPORT int debug;
 			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			FoamRadiationModels_EXPORT noRadiation(const volScalarField& T);
-
-			//- Construct from components
-			FoamRadiationModels_EXPORT noRadiation(const dictionary& dict, const volScalarField& T);
+			diffusion
+			(
+				const word& modelType,
+				ReactionThermo& thermo,
+				const compressibleTurbulenceModel& turb,
+				const word& combustionProperties
+			);
 
 			//- Disallow default bitwise copy construction
-			FoamRadiationModels_EXPORT noRadiation(const noRadiation&) = delete;
+			diffusion(const diffusion&);
 
 
 			//- Destructor
-			FoamRadiationModels_EXPORT virtual ~noRadiation();
+			virtual ~diffusion();
 
 
 			// Member Functions
 
-				// Edit
+				//- Correct combustion rate
+			virtual void correct();
 
-					//- Main update/correction routine
-			FoamRadiationModels_EXPORT void correct();
-
-			//- Solve radiation equation(s)
-			FoamRadiationModels_EXPORT void calculate();
-
-			//- Read radiationProperties dictionary
-			FoamRadiationModels_EXPORT bool read();
-
-			//- Source term component (for power of T^4)
-			FoamRadiationModels_EXPORT tmp<volScalarField> Rp() const;
-
-			//- Source term component (constant)
-			FoamRadiationModels_EXPORT tmp<volScalarField::Internal> Ru() const;
+			//- Update properties
+			virtual bool read();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			FoamRadiationModels_EXPORT void operator=(const noRadiation&) = delete;
+			void operator=(const diffusion&) = delete;
 		};
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	} // End namespace radiationModels
+	} // End namespace combustionModels
 } // End namespace tnbLib
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_noRadiation_Header
+#include <diffusionI.hxx>
+
+//#ifdef NoRepository
+//#include "diffusion.cxx"
+//#endif
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif // !_diffusion_Header

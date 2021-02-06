@@ -1,0 +1,88 @@
+#include <diffusion.hxx>
+
+#include <fvcGrad.hxx>
+
+namespace tnbLib
+{
+	namespace combustionModels
+	{
+
+		// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+		template<class ReactionThermo, class ThermoType>
+		diffusion<ReactionThermo, ThermoType>::diffusion
+		(
+			const word& modelType,
+			ReactionThermo& thermo,
+			const compressibleTurbulenceModel& turb,
+			const word& combustionProperties
+		)
+			:
+			singleStepCombustion<ReactionThermo, ThermoType>
+			(
+				modelType,
+				thermo,
+				turb,
+				combustionProperties
+				),
+			C_(readScalar(this->coeffs().lookup("C"))),
+			oxidantName_(this->coeffs().template lookupOrDefault<word>("oxidant", "O2"))
+		{}
+
+
+		// * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
+
+		template<class ReactionThermo, class ThermoType>
+		diffusion<ReactionThermo, ThermoType>::~diffusion()
+		{}
+
+
+		// * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
+
+		template<class ReactionThermo, class ThermoType>
+		void diffusion<ReactionThermo, ThermoType>::correct()
+		{
+			this->wFuel_ ==
+				dimensionedScalar(dimMass / pow3(dimLength) / dimTime, 0);
+
+			this->singleMixturePtr_->fresCorrect();
+
+			const label fuelI = this->singleMixturePtr_->fuelIndex();
+
+			const volScalarField& YFuel = this->thermo().composition().Y()[fuelI];
+
+			if (this->thermo().composition().contains(oxidantName_))
+			{
+				const volScalarField& YO2 =
+					this->thermo().composition().Y(oxidantName_);
+
+				this->wFuel_ ==
+					C_ * this->turbulence().muEff()
+					*mag(fvc::grad(YFuel) & fvc::grad(YO2))
+					*pos0(YFuel)*pos0(YO2);
+			}
+		}
+
+
+		template<class ReactionThermo, class ThermoType>
+		bool diffusion<ReactionThermo, ThermoType>::read()
+		{
+			if (singleStepCombustion<ReactionThermo, ThermoType>::read())
+			{
+				this->coeffs().lookup("C") >> C_;
+				this->coeffs().readIfPresent("oxidant", oxidantName_);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+	} // End namespace combustionModels
+} // End namespace tnbLib
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

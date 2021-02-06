@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _noRadiation_Header
-#define _noRadiation_Header
+#ifndef _PaSR_Header
+#define _PaSR_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,92 +26,121 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::radiationModels::noRadiation
+	tnbLib::combustionModels::PaSR
 
 Description
-	No radiation - does nothing to energy equation source terms
-	(returns zeros)
+	Partially stirred reactor turbulent combustion model.
+
+	This model calculates a finite rate, based on both turbulence and chemistry
+	time scales.  Depending on mesh resolution, the Cmix parameter can be used
+	to scale the turbulence mixing time scale.
 
 SourceFiles
-	noRadiation.C
+	PaSR.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <radiationModel.hxx>
+#include <laminarTemplate.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#ifdef FoamCombustionModels_EXPORT_DEFINE
+#define FoamPaSR_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamPaSR_EXPORT_DEFINE
+#define FoamPaSR_EXPORT __declspec(dllexport)
+#else
+#define FoamPaSR_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 namespace tnbLib
 {
-	namespace radiationModels
+	namespace combustionModels
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class noRadiation Declaration
+									Class PaSR Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class noRadiation
+		template<class ReactionThermo>
+		class PaSR
 			:
-			public radiationModel
+			public laminar<ReactionThermo>
 		{
+			// Private Data
+
+				//- Mixing constant
+			scalar Cmix_;
+
+			//- Mixing parameter
+			volScalarField kappa_;
+
+
 		public:
 
 			//- Runtime type information
-			//TypeName("none");
-			static const char* typeName_() { return "none"; }
-			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
-			static FoamRadiationModels_EXPORT int debug;
+			//TypeName("PaSR");
+			static const char* typeName_() { return "PaSR"; }
+			static FoamPaSR_EXPORT const ::tnbLib::word typeName;
+			static FoamPaSR_EXPORT int debug;
 			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			FoamRadiationModels_EXPORT noRadiation(const volScalarField& T);
-
-			//- Construct from components
-			FoamRadiationModels_EXPORT noRadiation(const dictionary& dict, const volScalarField& T);
+			PaSR
+			(
+				const word& modelType,
+				ReactionThermo& thermo,
+				const compressibleTurbulenceModel& turb,
+				const word& combustionProperties
+			);
 
 			//- Disallow default bitwise copy construction
-			FoamRadiationModels_EXPORT noRadiation(const noRadiation&) = delete;
+			PaSR(const PaSR&);
 
 
 			//- Destructor
-			FoamRadiationModels_EXPORT virtual ~noRadiation();
+			virtual ~PaSR();
 
 
 			// Member Functions
 
-				// Edit
+				//- Correct combustion rate
+			virtual void correct();
 
-					//- Main update/correction routine
-			FoamRadiationModels_EXPORT void correct();
+			//- Fuel consumption rate matrix.
+			virtual tmp<fvScalarMatrix> R(volScalarField& Y) const;
 
-			//- Solve radiation equation(s)
-			FoamRadiationModels_EXPORT void calculate();
+			//- Heat release rate [kg/m/s^3]
+			virtual tmp<volScalarField> Qdot() const;
 
-			//- Read radiationProperties dictionary
-			FoamRadiationModels_EXPORT bool read();
-
-			//- Source term component (for power of T^4)
-			FoamRadiationModels_EXPORT tmp<volScalarField> Rp() const;
-
-			//- Source term component (constant)
-			FoamRadiationModels_EXPORT tmp<volScalarField::Internal> Ru() const;
+			//- Update properties from given dictionary
+			virtual bool read();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			FoamRadiationModels_EXPORT void operator=(const noRadiation&) = delete;
+			void operator=(const PaSR&) = delete;
 		};
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	} // End namespace radiationModels
+	} // End namespace combustionModels
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_noRadiation_Header
+#include <PaSRI.hxx>
+
+//#ifdef NoRepository
+//#include "PaSR.cxx"
+//#endif
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif // !_PaSR_Header

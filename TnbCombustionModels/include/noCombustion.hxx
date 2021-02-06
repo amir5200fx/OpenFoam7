@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _noRadiation_Header
-#define _noRadiation_Header
+#ifndef _noCombustion_Header
+#define _noCombustion_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,92 +26,108 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::radiationModels::noRadiation
+	tnbLib::combustionModels::noCombustion
 
 Description
-	No radiation - does nothing to energy equation source terms
-	(returns zeros)
+	Dummy combustion model for 'no combustion'
 
 SourceFiles
-	noRadiation.C
+	noCombustion.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <radiationModel.hxx>
+#include <ThermoCombustionTemplate.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#ifdef FoamCombustionModels_EXPORT_DEFINE
+#define FoamNoCombustion_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamNoCombustion_EXPORT_DEFINE
+#define FoamNoCombustion_EXPORT __declspec(dllexport)
+#else
+#define FoamNoCombustion_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 namespace tnbLib
 {
-	namespace radiationModels
+	namespace combustionModels
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class noRadiation Declaration
+								Class noCombustion Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class noRadiation
+		template<class ReactionThermo>
+		class noCombustion
 			:
-			public radiationModel
+			public ThermoCombustion<ReactionThermo>
 		{
 		public:
 
 			//- Runtime type information
 			//TypeName("none");
 			static const char* typeName_() { return "none"; }
-			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
-			static FoamRadiationModels_EXPORT int debug;
+			static FoamNoCombustion_EXPORT const ::tnbLib::word typeName;
+			static FoamNoCombustion_EXPORT int debug;
 			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
 				//- Construct from components
-			FoamRadiationModels_EXPORT noRadiation(const volScalarField& T);
-
-			//- Construct from components
-			FoamRadiationModels_EXPORT noRadiation(const dictionary& dict, const volScalarField& T);
+			noCombustion
+			(
+				const word& modelType,
+				ReactionThermo& thermo,
+				const compressibleTurbulenceModel& turb,
+				const word& combustionProperties
+			);
 
 			//- Disallow default bitwise copy construction
-			FoamRadiationModels_EXPORT noRadiation(const noRadiation&) = delete;
+			noCombustion(const noCombustion&);
 
 
 			//- Destructor
-			FoamRadiationModels_EXPORT virtual ~noRadiation();
+			virtual ~noCombustion();
 
 
 			// Member Functions
 
-				// Edit
+				//- Correct combustion rate
+			virtual void correct();
 
-					//- Main update/correction routine
-			FoamRadiationModels_EXPORT void correct();
+			//- Fuel consumption rate matrix
+			virtual tmp<fvScalarMatrix> R(volScalarField& Y) const;
 
-			//- Solve radiation equation(s)
-			FoamRadiationModels_EXPORT void calculate();
+			//- Heat release rate [kg/m/s^3]
+			virtual tmp<volScalarField> Qdot() const;
 
-			//- Read radiationProperties dictionary
-			FoamRadiationModels_EXPORT bool read();
-
-			//- Source term component (for power of T^4)
-			FoamRadiationModels_EXPORT tmp<volScalarField> Rp() const;
-
-			//- Source term component (constant)
-			FoamRadiationModels_EXPORT tmp<volScalarField::Internal> Ru() const;
+			//- Update properties from given dictionary
+			virtual bool read();
 
 
 			// Member Operators
 
 				//- Disallow default bitwise assignment
-			FoamRadiationModels_EXPORT void operator=(const noRadiation&) = delete;
+			void operator=(const noCombustion&) = delete;
 		};
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	} // End namespace radiationModels
+	} // End namespace combustionModels
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_noRadiation_Header
+#include <noCombustionI.hxx>
+
+//#ifdef NoRepository
+//#include "noCombustion.cxx"
+//#endif
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif // !_noCombustion_Header

@@ -53,19 +53,19 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -107,10 +107,19 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\combustionModels\CombustionModel\ChemistryCombustion;$(ProjectDir)TnbLib\combustionModels\CombustionModel\CombustionModel;$(ProjectDir)TnbLib\combustionModels\CombustionModel\ThermoCombustion;$(ProjectDir)TnbLib\combustionModels\CombustionModel;$(ProjectDir)TnbLib\combustionModels\diffusion;$(ProjectDir)TnbLib\combustionModels\EDC;$(ProjectDir)TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\consumptionSpeed;$(ProjectDir)TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea;$(ProjectDir)TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\relaxation;$(ProjectDir)TnbLib\combustionModels\FSD;$(ProjectDir)TnbLib\combustionModels\functionObjects\Qdot;$(ProjectDir)TnbLib\combustionModels\infinitelyFastChemistry;$(ProjectDir)TnbLib\combustionModels\laminar;$(ProjectDir)TnbLib\combustionModels\noCombustion;$(ProjectDir)TnbLib\combustionModels\PaSR;$(ProjectDir)TnbLib\combustionModels\radiationModels\absorptionEmissionModels\greyMeanCombustion;$(ProjectDir)TnbLib\combustionModels\radiationModels\absorptionEmissionModels\wideBandCombustion;$(ProjectDir)TnbLib\combustionModels\singleStepCombustion;$(ProjectDir)TnbLib\combustionModels\zoneCombustion;$(ProjectDir)TnbLib\combustionModels\module;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbRadiationModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamCombustionModels_EXPORT_DEFINE;_CRT_SECURE_NO_WARNINGS;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
+if not exist "$(ProjectDir)include" mkdir "$(ProjectDir)include"
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
     <ClCompile>
@@ -118,6 +127,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\combustionModels\CombustionModel\ChemistryCombustion;$(ProjectDir)TnbLib\combustionModels\CombustionModel\CombustionModel;$(ProjectDir)TnbLib\combustionModels\CombustionModel\ThermoCombustion;$(ProjectDir)TnbLib\combustionModels\CombustionModel;$(ProjectDir)TnbLib\combustionModels\diffusion;$(ProjectDir)TnbLib\combustionModels\EDC;$(ProjectDir)TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\consumptionSpeed;$(ProjectDir)TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea;$(ProjectDir)TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\relaxation;$(ProjectDir)TnbLib\combustionModels\FSD;$(ProjectDir)TnbLib\combustionModels\functionObjects\Qdot;$(ProjectDir)TnbLib\combustionModels\infinitelyFastChemistry;$(ProjectDir)TnbLib\combustionModels\laminar;$(ProjectDir)TnbLib\combustionModels\noCombustion;$(ProjectDir)TnbLib\combustionModels\PaSR;$(ProjectDir)TnbLib\combustionModels\radiationModels\absorptionEmissionModels\greyMeanCombustion;$(ProjectDir)TnbLib\combustionModels\radiationModels\absorptionEmissionModels\wideBandCombustion;$(ProjectDir)TnbLib\combustionModels\singleStepCombustion;$(ProjectDir)TnbLib\combustionModels\zoneCombustion;$(ProjectDir)TnbLib\combustionModels\module;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbRadiationModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamCombustionModels_EXPORT_DEFINE;_CRT_SECURE_NO_WARNINGS;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -168,6 +180,9 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\combustionModels\CombustionModel\ChemistryCombustion;$(ProjectDir)TnbLib\combustionModels\CombustionModel\CombustionModel;$(ProjectDir)TnbLib\combustionModels\CombustionModel\ThermoCombustion;$(ProjectDir)TnbLib\combustionModels\CombustionModel;$(ProjectDir)TnbLib\combustionModels\diffusion;$(ProjectDir)TnbLib\combustionModels\EDC;$(ProjectDir)TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\consumptionSpeed;$(ProjectDir)TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea;$(ProjectDir)TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\relaxation;$(ProjectDir)TnbLib\combustionModels\FSD;$(ProjectDir)TnbLib\combustionModels\functionObjects\Qdot;$(ProjectDir)TnbLib\combustionModels\infinitelyFastChemistry;$(ProjectDir)TnbLib\combustionModels\laminar;$(ProjectDir)TnbLib\combustionModels\noCombustion;$(ProjectDir)TnbLib\combustionModels\PaSR;$(ProjectDir)TnbLib\combustionModels\radiationModels\absorptionEmissionModels\greyMeanCombustion;$(ProjectDir)TnbLib\combustionModels\radiationModels\absorptionEmissionModels\wideBandCombustion;$(ProjectDir)TnbLib\combustionModels\singleStepCombustion;$(ProjectDir)TnbLib\combustionModels\zoneCombustion;$(ProjectDir)TnbLib\combustionModels\module;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbRadiationModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamCombustionModels_EXPORT_DEFINE;_CRT_SECURE_NO_WARNINGS;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -176,6 +191,81 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\ChemistryCombustion\ChemistryCombustionTemplate.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\ChemistryCombustion\ChemistryCombustionTemplateI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\combustionModel.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\combustionModelI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\combustionModelTemplatesI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\CombustionModel\CombustionModelTemplate.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\CombustionModel\CombustionModelTemplateI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\makeCombustionTypes.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\ThermoCombustion\ThermoCombustionTemplate.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\CombustionModel\ThermoCombustion\ThermoCombustionTemplateI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\diffusion\diffusion.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\diffusion\diffusionI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\EDC\EDC.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\EDC\EDCI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\FSD\FSD.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\FSD\FSDI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\consumptionSpeed\consumptionSpeed.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea\reactionRateFlameArea.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\relaxation\relaxationRateFlameAreaModels.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\functionObjects\Qdot\Qdot.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\infinitelyFastChemistry\infinitelyFastChemistry.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\infinitelyFastChemistry\infinitelyFastChemistryI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\laminar\laminarTemplate.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\laminar\laminarTemplateI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\module\CombustionModels_Module.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\noCombustion\noCombustion.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\noCombustion\noCombustionI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\PaSR\PaSR.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\PaSR\PaSRI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\radiationModels\absorptionEmissionModels\greyMeanCombustion\greyMeanCombustion.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\radiationModels\absorptionEmissionModels\wideBandCombustion\wideBandCombustion.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\singleStepCombustion\singleStepCombustion.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\singleStepCombustion\singleStepCombustionI.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\zoneCombustion\zoneCombustion.hxx" />
+    <ClInclude Include="TnbLib\combustionModels\zoneCombustion\zoneCombustionI.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\combustionModels\CombustionModel\combustionModel.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\CombustionModel\CombustionModel\CombustionModels.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\diffusion\diffusions.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\EDC\EDCs.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\FSD\FSDs.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\consumptionSpeed\consumptionSpeed.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea\reactionRateFlameArea.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\reactionRateFlameArea\reactionRateFlameAreaNew.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\FSD\reactionRateFlameAreaModels\relaxation\relaxationRateFlameAreaModels.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\functionObjects\Qdot\Qdot.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\infinitelyFastChemistry\infinitelyFastChemistrys.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\laminar\laminars.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\noCombustion\EDCName.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\noCombustion\noCombustions.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\PaSR\PaSRs.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\radiationModels\absorptionEmissionModels\greyMeanCombustion\greyMeanCombustion.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\radiationModels\absorptionEmissionModels\wideBandCombustion\wideBandCombustion.cxx" />
+    <ClCompile Include="TnbLib\combustionModels\zoneCombustion\zoneCombustions.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TnbBase\TnbBase.vcxproj">
+      <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+      <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFvMesh\TnbFvMesh.vcxproj">
+      <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbRadiationModels\TnbRadiationModels.vcxproj">
+      <Project>{7e9d43d8-5865-43de-bf56-4057a40bee84}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbThermoPhysicalModels\TnbThermoPhysicalModels.vcxproj">
+      <Project>{5396b04c-6e67-4ee2-82f8-e56d26195cf9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbTurbulence\TnbTurbulence.vcxproj">
+      <Project>{c44b171d-747f-4fe0-b6e9-b8c6c88ddc40}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

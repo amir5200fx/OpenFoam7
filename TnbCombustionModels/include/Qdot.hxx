@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _noRadiation_Header
-#define _noRadiation_Header
+#ifndef _Qdot_Header
+#define _Qdot_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,92 +26,88 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::radiationModels::noRadiation
+	tnbLib::functionObjects::Qdot
 
 Description
-	No radiation - does nothing to energy equation source terms
-	(returns zeros)
+	Calculates and outputs the heat release rate for the current combustion
+	model.
 
 SourceFiles
-	noRadiation.C
+	Qdot.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <radiationModel.hxx>
+#include <CombustionModels_Module.hxx>
+#include <fvMeshFunctionObject.hxx>
+#include <writeLocalObjects.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace radiationModels
+	namespace functionObjects
 	{
 
 		/*---------------------------------------------------------------------------*\
-								 Class noRadiation Declaration
+								  Class Qdot Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class noRadiation
+		class Qdot
 			:
-			public radiationModel
+			public fvMeshFunctionObject,
+			public writeLocalObjects
 		{
+		private:
+
+			// Private Data
+
+				//- The name of the phase
+			word phaseName_;
+
+
 		public:
 
 			//- Runtime type information
-			//TypeName("none");
-			static const char* typeName_() { return "none"; }
-			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
-			static FoamRadiationModels_EXPORT int debug;
+			//TypeName("Qdot");
+			static const char* typeName_() { return "Qdot"; }
+			static FoamCombustionModels_EXPORT const ::tnbLib::word typeName;
+			static FoamCombustionModels_EXPORT int debug;
 			virtual const word& type() const { return typeName; };
 
 
 			// Constructors
 
-				//- Construct from components
-			FoamRadiationModels_EXPORT noRadiation(const volScalarField& T);
-
-			//- Construct from components
-			FoamRadiationModels_EXPORT noRadiation(const dictionary& dict, const volScalarField& T);
-
-			//- Disallow default bitwise copy construction
-			FoamRadiationModels_EXPORT noRadiation(const noRadiation&) = delete;
+				//- Construct from Time and dictionary
+			FoamCombustionModels_EXPORT Qdot
+			(
+				const word& name,
+				const Time& runTime,
+				const dictionary& dict
+			);
 
 
 			//- Destructor
-			FoamRadiationModels_EXPORT virtual ~noRadiation();
+			FoamCombustionModels_EXPORT virtual ~Qdot();
 
 
 			// Member Functions
 
-				// Edit
+				//- Read the data
+			FoamCombustionModels_EXPORT virtual bool read(const dictionary&);
 
-					//- Main update/correction routine
-			FoamRadiationModels_EXPORT void correct();
+			//- Calculate the Qdot field
+			FoamCombustionModels_EXPORT virtual bool execute();
 
-			//- Solve radiation equation(s)
-			FoamRadiationModels_EXPORT void calculate();
-
-			//- Read radiationProperties dictionary
-			FoamRadiationModels_EXPORT bool read();
-
-			//- Source term component (for power of T^4)
-			FoamRadiationModels_EXPORT tmp<volScalarField> Rp() const;
-
-			//- Source term component (constant)
-			FoamRadiationModels_EXPORT tmp<volScalarField::Internal> Ru() const;
-
-
-			// Member Operators
-
-				//- Disallow default bitwise assignment
-			FoamRadiationModels_EXPORT void operator=(const noRadiation&) = delete;
+			//- Do nothing
+			FoamCombustionModels_EXPORT virtual bool write();
 		};
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	} // End namespace radiationModels
+	} // End namespace functionObjects
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_noRadiation_Header
+#endif // !_Qdot_Header
