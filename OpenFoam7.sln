@@ -167,6 +167,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "manipulation", "manipulatio
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "renumberMesh", "applications\utilities\mesh\manipulation\renumberMesh\renumberMesh.vcxproj", "{32F02FF5-BF22-476E-9735-9A069B1E15D6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbWave", "TnbWave\TnbWave.vcxproj", "{D517C030-8A88-47D1-B2B9-DB39D2951722}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -664,6 +666,18 @@ Global
 		{32F02FF5-BF22-476E-9735-9A069B1E15D6}.Release|x64.Build.0 = Release|x64
 		{32F02FF5-BF22-476E-9735-9A069B1E15D6}.Release|x86.ActiveCfg = Release|Win32
 		{32F02FF5-BF22-476E-9735-9A069B1E15D6}.Release|x86.Build.0 = Release|Win32
+		{D517C030-8A88-47D1-B2B9-DB39D2951722}.Debug|x64.ActiveCfg = Debug|x64
+		{D517C030-8A88-47D1-B2B9-DB39D2951722}.Debug|x64.Build.0 = Debug|x64
+		{D517C030-8A88-47D1-B2B9-DB39D2951722}.Debug|x86.ActiveCfg = Debug|Win32
+		{D517C030-8A88-47D1-B2B9-DB39D2951722}.Debug|x86.Build.0 = Debug|Win32
+		{D517C030-8A88-47D1-B2B9-DB39D2951722}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
+		{D517C030-8A88-47D1-B2B9-DB39D2951722}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
+		{D517C030-8A88-47D1-B2B9-DB39D2951722}.DebugNoCopyHxx|x86.ActiveCfg = Debug|Win32
+		{D517C030-8A88-47D1-B2B9-DB39D2951722}.DebugNoCopyHxx|x86.Build.0 = Debug|Win32
+		{D517C030-8A88-47D1-B2B9-DB39D2951722}.Release|x64.ActiveCfg = Release|x64
+		{D517C030-8A88-47D1-B2B9-DB39D2951722}.Release|x64.Build.0 = Release|x64
+		{D517C030-8A88-47D1-B2B9-DB39D2951722}.Release|x86.ActiveCfg = Release|Win32
+		{D517C030-8A88-47D1-B2B9-DB39D2951722}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

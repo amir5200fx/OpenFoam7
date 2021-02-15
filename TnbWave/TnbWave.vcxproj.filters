@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{0128ae61-bd7b-4964-b3f2-1cea0c3aa09c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves">
+      <UniqueIdentifier>{05e7c56a-1927-40f6-8aa4-d9f5269b9910}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\derivedFvPatchFields">
+      <UniqueIdentifier>{32085f9f-97a2-4886-8f64-0abafc2c0487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\waveSuperpositions">
+      <UniqueIdentifier>{71733424-4050-43dc-a2d2-89305f0eaa4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\waveModels">
+      <UniqueIdentifier>{c0f49055-09b7-41dc-86cc-25f5a89135e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\derivedFvPatchFields\waveVelocity">
+      <UniqueIdentifier>{ad9192ba-2c9d-4523-a308-0f1a8984d1ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\derivedFvPatchFields\wavePressure">
+      <UniqueIdentifier>{88c4d978-f7ed-4434-bf8d-e54154c72925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\derivedFvPatchFields\waveInletOutlet">
+      <UniqueIdentifier>{14c73d2b-bd5d-4465-8339-f4dcd66458d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\derivedFvPatchFields\waveAlpha">
+      <UniqueIdentifier>{1580646a-7a54-400c-aa69-2fb5615089bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\waveModels\Airy">
+      <UniqueIdentifier>{58702d30-7eed-4695-99e8-785d4f43e81e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\waveModels\waveModel">
+      <UniqueIdentifier>{2339bea9-f3cc-4974-86cc-8595ec39d2cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\waveModels\Stokes5">
+      <UniqueIdentifier>{99fb85b1-af54-46e0-bbc8-dc6eaff40655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\waveModels\Stokes2">
+      <UniqueIdentifier>{73b75b72-abf9-4313-9723-ee29a5d0eeae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\waveModels\solitary">
+      <UniqueIdentifier>{ddd9e033-c0ad-4e6d-9121-b0ffd3ae4a75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\waveSuperpositions\waveSuperposition">
+      <UniqueIdentifier>{f45c3e53-c4b2-496c-95cc-a900a5ad94cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\waveSuperpositions\waveAtmBoundaryLayerSuperposition">
+      <UniqueIdentifier>{5ab53e43-041d-450c-b408-07b0a7ee0988}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\waves\module">
+      <UniqueIdentifier>{45cda0f8-6063-4da8-a3e6-8778f9bfb526}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\waves\waveModels\waveModel\waveModel.hxx">
+      <Filter>TnbLib\waves\waveModels\waveModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\module\Wave_Module.hxx">
+      <Filter>TnbLib\waves\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\waveModels\Airy\Airy.hxx">
+      <Filter>TnbLib\waves\waveModels\Airy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\waveModels\solitary\solitary.hxx">
+      <Filter>TnbLib\waves\waveModels\solitary</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\waveModels\Stokes2\Stokes2.hxx">
+      <Filter>TnbLib\waves\waveModels\Stokes2</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\waveModels\Stokes5\Stokes5.hxx">
+      <Filter>TnbLib\waves\waveModels\Stokes5</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\waveSuperpositions\waveSuperposition\waveSuperposition.hxx">
+      <Filter>TnbLib\waves\waveSuperpositions\waveSuperposition</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\waveSuperpositions\waveAtmBoundaryLayerSuperposition\waveAtmBoundaryLayerSuperposition.hxx">
+      <Filter>TnbLib\waves\waveSuperpositions\waveAtmBoundaryLayerSuperposition</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\derivedFvPatchFields\waveAlpha\waveAlphaFvPatchScalarField.hxx">
+      <Filter>TnbLib\waves\derivedFvPatchFields\waveAlpha</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\derivedFvPatchFields\wavePressure\wavePressureFvPatchScalarField.hxx">
+      <Filter>TnbLib\waves\derivedFvPatchFields\wavePressure</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\derivedFvPatchFields\waveVelocity\waveVelocityFvPatchVectorField.hxx">
+      <Filter>TnbLib\waves\derivedFvPatchFields\waveVelocity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\derivedFvPatchFields\waveInletOutlet\waveInletOutletFvPatchFieldsFwd.hxx">
+      <Filter>TnbLib\waves\derivedFvPatchFields\waveInletOutlet</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\derivedFvPatchFields\waveInletOutlet\waveInletOutletFvPatchField.hxx">
+      <Filter>TnbLib\waves\derivedFvPatchFields\waveInletOutlet</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\derivedFvPatchFields\waveInletOutlet\waveInletOutletFvPatchFields.hxx">
+      <Filter>TnbLib\waves\derivedFvPatchFields\waveInletOutlet</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\waves\derivedFvPatchFields\waveInletOutlet\waveInletOutletFvPatchFieldI.hxx">
+      <Filter>TnbLib\waves\derivedFvPatchFields\waveInletOutlet</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\waves\waveModels\waveModel\waveModel.cxx">
+      <Filter>TnbLib\waves\waveModels\waveModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\waves\waveModels\waveModel\newWaveModel.cxx">
+      <Filter>TnbLib\waves\waveModels\waveModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\waves\waveModels\Airy\Airy.cxx">
+      <Filter>TnbLib\waves\waveModels\Airy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\waves\waveModels\solitary\solitary.cxx">
+      <Filter>TnbLib\waves\waveModels\solitary</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\waves\waveModels\Stokes2\Stokes2.cxx">
+      <Filter>TnbLib\waves\waveModels\Stokes2</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\waves\waveModels\Stokes5\Stokes5.cxx">
+      <Filter>TnbLib\waves\waveModels\Stokes5</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\waves\waveSuperpositions\waveSuperposition\waveSuperposition.cxx">
+      <Filter>TnbLib\waves\waveSuperpositions\waveSuperposition</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\waves\waveSuperpositions\waveSuperposition\newWaveSuperposition.cxx">
+      <Filter>TnbLib\waves\waveSuperpositions\waveSuperposition</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\waves\waveSuperpositions\waveAtmBoundaryLayerSuperposition\waveAtmBoundaryLayerSuperposition.cxx">
+      <Filter>TnbLib\waves\waveSuperpositions\waveAtmBoundaryLayerSuperposition</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\waves\derivedFvPatchFields\waveAlpha\waveAlphaFvPatchScalarField.cxx">
+      <Filter>TnbLib\waves\derivedFvPatchFields\waveAlpha</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\waves\derivedFvPatchFields\wavePressure\wavePressureFvPatchScalarField.cxx">
+      <Filter>TnbLib\waves\derivedFvPatchFields\wavePressure</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\waves\derivedFvPatchFields\waveVelocity\waveVelocityFvPatchVectorField.cxx">
+      <Filter>TnbLib\waves\derivedFvPatchFields\waveVelocity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\waves\derivedFvPatchFields\waveInletOutlet\waveInletOutletFvPatchFields.cxx">
+      <Filter>TnbLib\waves\derivedFvPatchFields\waveInletOutlet</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

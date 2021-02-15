@@ -44,6 +44,16 @@ SourceFiles
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#ifdef FoamBase_EXPORT_DEFINE
+#define FoamSymmTensor_EXPORT __declspec(dllexport)
+#else
+#ifdef FoamSymmTensor_EXPORT_DEFINE
+#define FoamSymmTensor_EXPORT __declspec(dllexport)
+#else
+#define FoamSymmTensor_EXPORT __declspec(dllimport)
+#endif
+#endif
+
 namespace tnbLib
 {
 
@@ -71,7 +81,7 @@ namespace tnbLib
 
 		// Static Data Members
 
-		static const SymmTensor I;
+		static FoamSymmTensor_EXPORT const SymmTensor I;
 
 
 		//- Component labeling enumeration
