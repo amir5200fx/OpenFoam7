@@ -147,7 +147,11 @@ namespace tnbLib
 
 
 			//- Runtime type information
-			TypeName("kEpsilonLopesdaCosta");
+			//TypeName("kEpsilonLopesdaCosta");
+			static const char* typeName_() { return "kEpsilonLopesdaCosta"; }
+			static FoamAtmosphericModels_EXPORT const ::tnbLib::word typeName;
+			static FoamAtmosphericModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
 			// Constructors

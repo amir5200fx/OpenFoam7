@@ -133,10 +133,10 @@ namespace tnbLib
 		// Private static data
 
 			//- Default value of the Von Karman constant
-		static const scalar kappaDefault_;
+		static FoamAtmosphericModels_EXPORT const scalar kappaDefault_;
 
 		//- Default value of the turbulent viscosity coefficient
-		static const scalar CmuDefault_;
+		static FoamAtmosphericModels_EXPORT const scalar CmuDefault_;
 
 
 		// Private Data
@@ -185,7 +185,7 @@ namespace tnbLib
 		// Private Member Functions
 
 			//- Initialisation shared by multiple constructors
-		void init();
+		FoamAtmosphericModels_EXPORT void init();
 
 
 	public:
@@ -193,10 +193,10 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct null
-		atmBoundaryLayer();
+		FoamAtmosphericModels_EXPORT atmBoundaryLayer();
 
 		//- Construct from components
-		atmBoundaryLayer
+		FoamAtmosphericModels_EXPORT atmBoundaryLayer
 		(
 			const vector& flowDir,
 			const vector& zDir,
@@ -212,18 +212,18 @@ namespace tnbLib
 		);
 
 		//- Construct from the coordinates field and dictionary
-		atmBoundaryLayer(const vectorField& p, const dictionary&);
+		FoamAtmosphericModels_EXPORT atmBoundaryLayer(const vectorField& p, const dictionary&);
 
 		//- Construct by mapping given
 		// atmBoundaryLayer onto a new patch
-		atmBoundaryLayer
+		FoamAtmosphericModels_EXPORT atmBoundaryLayer
 		(
 			const atmBoundaryLayer&,
 			const fvPatchFieldMapper&
 		);
 
 		//- Copy constructor
-		atmBoundaryLayer(const atmBoundaryLayer&);
+		FoamAtmosphericModels_EXPORT atmBoundaryLayer(const atmBoundaryLayer&);
 
 
 		// Member Functions
@@ -252,26 +252,26 @@ namespace tnbLib
 		// Mapping functions
 
 			//- Map (and resize as needed) from self given a mapping object
-		void autoMap(const fvPatchFieldMapper&);
+		FoamAtmosphericModels_EXPORT void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
-		void rmap(const atmBoundaryLayer&, const labelList&);
+		FoamAtmosphericModels_EXPORT void rmap(const atmBoundaryLayer&, const labelList&);
 
 
 		// Evaluate functions
 
 			//- Return the velocity distribution for the ATM
-		tmp<vectorField> U(const vectorField& p) const;
+		FoamAtmosphericModels_EXPORT tmp<vectorField> U(const vectorField& p) const;
 
 		//- Return the turbulent kinetic energy distribution for the ATM
-		tmp<scalarField> k(const vectorField& p) const;
+		FoamAtmosphericModels_EXPORT tmp<scalarField> k(const vectorField& p) const;
 
 		//- Return the turbulent dissipation rate distribution for the ATM
-		tmp<scalarField> epsilon(const vectorField& p) const;
+		FoamAtmosphericModels_EXPORT tmp<scalarField> epsilon(const vectorField& p) const;
 
 
 		//- Write
-		void write(Ostream&) const;
+		FoamAtmosphericModels_EXPORT void write(Ostream&) const;
 	};
 
 

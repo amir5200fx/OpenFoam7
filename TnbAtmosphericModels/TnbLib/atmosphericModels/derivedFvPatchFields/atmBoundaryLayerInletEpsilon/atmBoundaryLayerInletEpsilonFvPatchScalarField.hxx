@@ -79,20 +79,24 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("atmBoundaryLayerInletEpsilon");
+		//TypeName("atmBoundaryLayerInletEpsilon");
+		static const char* typeName_() { return "atmBoundaryLayerInletEpsilon"; }
+		static FoamAtmosphericModels_EXPORT const ::tnbLib::word typeName;
+		static FoamAtmosphericModels_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		// Constructors
 
 			//- Construct from patch and internal field
-		atmBoundaryLayerInletEpsilonFvPatchScalarField
+		FoamAtmosphericModels_EXPORT atmBoundaryLayerInletEpsilonFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&
 		);
 
 		//- Construct from patch, internal field and dictionary
-		atmBoundaryLayerInletEpsilonFvPatchScalarField
+		FoamAtmosphericModels_EXPORT atmBoundaryLayerInletEpsilonFvPatchScalarField
 		(
 			const fvPatch&,
 			const DimensionedField<scalar, volMesh>&,
@@ -101,7 +105,7 @@ namespace tnbLib
 
 		//- Construct by mapping given
 		//  atmBoundaryLayerInletEpsilonFvPatchScalarField onto a new patch
-		atmBoundaryLayerInletEpsilonFvPatchScalarField
+		FoamAtmosphericModels_EXPORT atmBoundaryLayerInletEpsilonFvPatchScalarField
 		(
 			const atmBoundaryLayerInletEpsilonFvPatchScalarField&,
 			const fvPatch&,
@@ -119,7 +123,7 @@ namespace tnbLib
 		}
 
 		//- Construct as copy setting internal field reference
-		atmBoundaryLayerInletEpsilonFvPatchScalarField
+		FoamAtmosphericModels_EXPORT atmBoundaryLayerInletEpsilonFvPatchScalarField
 		(
 			const atmBoundaryLayerInletEpsilonFvPatchScalarField&,
 			const DimensionedField<scalar, volMesh>&
@@ -140,19 +144,19 @@ namespace tnbLib
 
 		// Member Functions
 
-			// Mapping functions
+		// Mapping functions
 
-				//- Map (and resize as needed) from self given a mapping object
-				//  Used to update fields following mesh topology change
-		virtual void autoMap(const fvPatchFieldMapper&);
+		//- Map (and resize as needed) from self given a mapping object
+		//  Used to update fields following mesh topology change
+		FoamAtmosphericModels_EXPORT virtual void autoMap(const fvPatchFieldMapper&);
 
 		//- Reverse map the given fvPatchField onto this fvPatchField
 		//  Used to reconstruct fields
-		virtual void rmap(const fvPatchScalarField&, const labelList&);
+		FoamAtmosphericModels_EXPORT virtual void rmap(const fvPatchScalarField&, const labelList&);
 
 
 		//- Write
-		virtual void write(Ostream&) const;
+		FoamAtmosphericModels_EXPORT virtual void write(Ostream&) const;
 	};
 
 

@@ -91,7 +91,7 @@ namespace tnbLib
 		public:
 
 			//- Constructor
-			powerLawLopesdaCostaZone
+			FoamAtmosphericModels_EXPORT powerLawLopesdaCostaZone
 			(
 				const word& name,
 				const word& modelType,
@@ -102,7 +102,7 @@ namespace tnbLib
 			// Member Functions
 
 				//- Return the porosity surface area per unit volume zone field
-			const scalarField& Sigma() const;
+			FoamAtmosphericModels_EXPORT const scalarField& Sigma() const;
 		};
 
 
@@ -152,11 +152,15 @@ namespace tnbLib
 		public:
 
 			//- Runtime type information
-			TypeName("powerLawLopesdaCosta");
+			//TypeName("powerLawLopesdaCosta");
+			static const char* typeName_() { return "powerLawLopesdaCosta"; }
+			static FoamAtmosphericModels_EXPORT const ::tnbLib::word typeName;
+			static FoamAtmosphericModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 			// Constructors
 
-			powerLawLopesdaCosta
+			FoamAtmosphericModels_EXPORT powerLawLopesdaCosta
 			(
 				const word& name,
 				const word& modelType,
@@ -170,16 +174,16 @@ namespace tnbLib
 
 
 			//- Destructor
-			virtual ~powerLawLopesdaCosta();
+			FoamAtmosphericModels_EXPORT virtual ~powerLawLopesdaCosta();
 
 
 			// Member Functions
 
-				//- Transform the model data wrt mesh changes
-			virtual void calcTransformModelData();
+			//- Transform the model data wrt mesh changes
+			FoamAtmosphericModels_EXPORT virtual void calcTransformModelData();
 
 			//- Calculate the porosity force
-			virtual void calcForce
+			FoamAtmosphericModels_EXPORT virtual void calcForce
 			(
 				const volVectorField& U,
 				const volScalarField& rho,
@@ -188,10 +192,10 @@ namespace tnbLib
 			) const;
 
 			//- Add resistance
-			virtual void correct(fvVectorMatrix& UEqn) const;
+			FoamAtmosphericModels_EXPORT virtual void correct(fvVectorMatrix& UEqn) const;
 
 			//- Add resistance
-			virtual void correct
+			FoamAtmosphericModels_EXPORT virtual void correct
 			(
 				fvVectorMatrix& UEqn,
 				const volScalarField& rho,
@@ -199,7 +203,7 @@ namespace tnbLib
 			) const;
 
 			//- Add resistance
-			virtual void correct
+			FoamAtmosphericModels_EXPORT virtual void correct
 			(
 				const fvVectorMatrix& UEqn,
 				volTensorField& AU
@@ -208,8 +212,8 @@ namespace tnbLib
 
 			// I-O
 
-				//- Write
-			bool writeData(Ostream& os) const;
+			//- Write
+			FoamAtmosphericModels_EXPORT bool writeData(Ostream& os) const;
 
 
 			// Member Operators
