@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{ec67d1ec-0f30-4ec5-a7ae-eebc9b53b915}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\atmosphericModels">
+      <UniqueIdentifier>{efbe19dc-1314-42d1-9369-824617396ba5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\atmosphericModels\derivedFvPatchFields">
+      <UniqueIdentifier>{9c2c9788-cddb-4939-8be9-3ec9b4a36d0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\atmosphericModels\porosityModels">
+      <UniqueIdentifier>{8305fb34-60f6-4f6a-8bf2-1e8ead08133c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\atmosphericModels\kEpsilonLopesdaCosta">
+      <UniqueIdentifier>{586bcbdc-4181-45aa-8315-d7feaf863462}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayer">
+      <UniqueIdentifier>{ff054c5e-5ef6-4cc5-9cda-753aa32d6776}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletEpsilon">
+      <UniqueIdentifier>{76ff27b9-6005-49eb-ae90-fdd74952d3c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletK">
+      <UniqueIdentifier>{6a920a1d-974e-4afc-83f4-588e812351d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletVelocity">
+      <UniqueIdentifier>{a80afe0a-9038-4f5e-8947-62ef50fda315}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\atmosphericModels\derivedFvPatchFields\nutkAtmRoughWallFunction">
+      <UniqueIdentifier>{1d67e3b1-bc95-4652-a5f8-f9ba1530f2a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\atmosphericModels\porosityModels\powerLawLopesdaCosta">
+      <UniqueIdentifier>{ee9c33ba-de93-4370-87aa-badab7033ba8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\atmosphericModels\module">
+      <UniqueIdentifier>{a52b79ef-fc51-4e39-9343-91476dfb139a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayer\atmBoundaryLayer.hxx">
+      <Filter>TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\atmosphericModels\module\AtmosphericModels_Module.hxx">
+      <Filter>TnbLib\atmosphericModels\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletEpsilon\atmBoundaryLayerInletEpsilonFvPatchScalarField.hxx">
+      <Filter>TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletEpsilon</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletK\atmBoundaryLayerInletKFvPatchScalarField.hxx">
+      <Filter>TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletK</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletVelocity\atmBoundaryLayerInletVelocityFvPatchVectorField.hxx">
+      <Filter>TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletVelocity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\atmosphericModels\derivedFvPatchFields\nutkAtmRoughWallFunction\nutkAtmRoughWallFunctionFvPatchScalarField.hxx">
+      <Filter>TnbLib\atmosphericModels\derivedFvPatchFields\nutkAtmRoughWallFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\atmosphericModels\kEpsilonLopesdaCosta\kEpsilonLopesdaCosta.hxx">
+      <Filter>TnbLib\atmosphericModels\kEpsilonLopesdaCosta</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\atmosphericModels\porosityModels\powerLawLopesdaCosta\powerLawLopesdaCosta.hxx">
+      <Filter>TnbLib\atmosphericModels\porosityModels\powerLawLopesdaCosta</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\atmosphericModels\porosityModels\powerLawLopesdaCosta\powerLawLopesdaCostaI.hxx">
+      <Filter>TnbLib\atmosphericModels\porosityModels\powerLawLopesdaCosta</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayer\atmBoundaryLayer.cxx">
+      <Filter>TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletEpsilon\atmBoundaryLayerInletEpsilonFvPatchScalarField.cxx">
+      <Filter>TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletEpsilon</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletK\atmBoundaryLayerInletKFvPatchScalarField.cxx">
+      <Filter>TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletK</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletVelocity\atmBoundaryLayerInletVelocityFvPatchVectorField.cxx">
+      <Filter>TnbLib\atmosphericModels\derivedFvPatchFields\atmBoundaryLayerInletVelocity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\atmosphericModels\derivedFvPatchFields\nutkAtmRoughWallFunction\nutkAtmRoughWallFunctionFvPatchScalarField.cxx">
+      <Filter>TnbLib\atmosphericModels\derivedFvPatchFields\nutkAtmRoughWallFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\atmosphericModels\kEpsilonLopesdaCosta\kEpsilonLopesdaCosta.cxx">
+      <Filter>TnbLib\atmosphericModels\kEpsilonLopesdaCosta</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\atmosphericModels\porosityModels\powerLawLopesdaCosta\powerLawLopesdaCosta.cxx">
+      <Filter>TnbLib\atmosphericModels\porosityModels\powerLawLopesdaCosta</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
