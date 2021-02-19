@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _interRegionOption_Header
-#define _interRegionOption_Header
+#ifndef _buoyancyEnergy_Header
+#define _buoyancyEnergy_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2015-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,17 +26,25 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::fv::interRegionOption
+	tnbLib::fv::buoyancyEnergy
 
 Description
-	Base class for inter-region exchange.
+	Calculates and applies the buoyancy energy source rho*(U&g) to the energy
+	equation.
+
+Usage
+	Example usage:
+	\verbatim
+	fields          (h);                    // Name of energy field
+	\endverbatim
+
+SourceFiles
+	buoyancyEnergy.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvOption.hxx>
-#include <volFields.hxx>
-#include <autoPtr.hxx>
-#include <meshToMesh.hxx>
+#include <fvOptions.hxx>
+#include <uniformDimensionedFields.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -46,38 +54,24 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-						Class interRegionOption Declaration
+					   Class buoyancyEnergy Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class interRegionOption
+		class buoyancyEnergy
 			:
 			public option
 		{
-		protected:
+			// Private Data
 
-			// Protected data
-
-				//- Master or slave region
-			bool master_;
-
-			//- Name of the neighbour region to map
-			word nbrRegionName_;
-
-			//- Mesh to mesh interpolation object
-			autoPtr<meshToMesh> meshInterpPtr_;
-
-
-			// Protected member functions
-
-				//- Set the mesh to mesh interpolation object
-			FoamFvOptions_EXPORT void setMapper();
+				//- Name of velocity field; default = U
+			word UName_;
 
 
 		public:
 
 			//- Runtime type information
-			//TypeName("interRegionOption");
-			static const char* typeName_() { return "interRegionOption"; }
+			//TypeName("buoyancyEnergy");
+			static const char* typeName_() { return "buoyancyEnergy"; }
 			static FoamFvOptions_EXPORT const ::tnbLib::word typeName;
 			static FoamFvOptions_EXPORT int debug;
 			virtual const word& type() const { return typeName; };
@@ -85,35 +79,42 @@ namespace tnbLib
 
 			// Constructors
 
-				//- Construct from dictionary
-			FoamFvOptions_EXPORT interRegionOption
+				//- Construct from explicit source name and mesh
+			FoamFvOptions_EXPORT buoyancyEnergy
 			(
-				const word& name,
+				const word& sourceName,
 				const word& modelType,
 				const dictionary& dict,
 				const fvMesh& mesh
 			);
 
-
-			//- Destructor
-			FoamFvOptions_EXPORT virtual ~interRegionOption();
+			//- Disallow default bitwise copy construction
+			buoyancyEnergy(const buoyancyEnergy&) = delete;
 
 
 			// Member Functions
 
-				// Access
+				// Evaluate
 
-					//- Return const access to the neighbour region name
-			inline const word& nbrRegionName() const;
-
-			//- Return const access to the mapToMap pointer
-			inline const meshToMesh& meshInterp() const;
+					//- Add explicit contribution to compressible momentum equation
+			FoamFvOptions_EXPORT virtual void addSup
+			(
+				const volScalarField& rho,
+				fvMatrix<scalar>& eqn,
+				const label fieldi
+			);
 
 
 			// IO
 
-				//- Read dictionary
+				//- Read source dictionary
 			FoamFvOptions_EXPORT virtual bool read(const dictionary& dict);
+
+
+			// Member Operators
+
+				//- Disallow default bitwise assignment
+			void operator=(const buoyancyEnergy&) = delete;
 		};
 
 
@@ -124,6 +125,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <interRegionOptionI.hxx>
-
-#endif // !_interRegionOption_Header
+#endif // !_buoyancyEnergy_Header

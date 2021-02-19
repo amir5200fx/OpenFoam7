@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _interRegionOption_Header
-#define _interRegionOption_Header
+#ifndef _patchMeanVelocityForce_Header
+#define _patchMeanVelocityForce_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2015-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,17 +26,30 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::fv::interRegionOption
+	tnbLib::fv::patchMeanVelocityForce
 
 Description
-	Base class for inter-region exchange.
+	Calculates and applies the force necessary to maintain the specified mean
+	velocity averaged over the specified patch.
+
+	Note: Currently only handles kinematic pressure (incompressible solvers).
+
+Usage
+	Example usage:
+	\verbatim
+	selectionMode   all;                    // Apply force to all cells
+	fields          (U);                    // Name of velocity field
+	patch           inlet;                  // Name of the patch
+	Ubar            (10.0 0 0);             // Desired mean velocity
+	relaxation      0.2;                    // Optional relaxation factor
+	\endverbatim
+
+SourceFiles
+	patchMeanVelocityForce.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvOption.hxx>
-#include <volFields.hxx>
-#include <autoPtr.hxx>
-#include <meshToMesh.hxx>
+#include <meanVelocityForce.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -46,38 +59,36 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-						Class interRegionOption Declaration
+					   Class patchMeanVelocityForce Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class interRegionOption
+		class patchMeanVelocityForce
 			:
-			public option
+			public meanVelocityForce
 		{
 		protected:
 
 			// Protected data
 
-				//- Master or slave region
-			bool master_;
+				//- Patch name
+			word patch_;
 
-			//- Name of the neighbour region to map
-			word nbrRegionName_;
-
-			//- Mesh to mesh interpolation object
-			autoPtr<meshToMesh> meshInterpPtr_;
+			//- Patch index
+			label patchi_;
 
 
-			// Protected member functions
+			// Protected Member Functions
 
-				//- Set the mesh to mesh interpolation object
-			FoamFvOptions_EXPORT void setMapper();
+				//- Calculate and return the magnitude of the mean velocity
+				//  averaged over the specified patch
+			FoamFvOptions_EXPORT virtual scalar magUbarAve(const volVectorField& U) const;
 
 
 		public:
 
 			//- Runtime type information
-			//TypeName("interRegionOption");
-			static const char* typeName_() { return "interRegionOption"; }
+			//TypeName("patchMeanVelocityForce");
+			static const char* typeName_() { return "patchMeanVelocityForce"; }
 			static FoamFvOptions_EXPORT const ::tnbLib::word typeName;
 			static FoamFvOptions_EXPORT int debug;
 			virtual const word& type() const { return typeName; };
@@ -85,35 +96,23 @@ namespace tnbLib
 
 			// Constructors
 
-				//- Construct from dictionary
-			FoamFvOptions_EXPORT interRegionOption
+				//- Construct from explicit source name and mesh
+			FoamFvOptions_EXPORT patchMeanVelocityForce
 			(
-				const word& name,
+				const word& sourceName,
 				const word& modelType,
 				const dictionary& dict,
 				const fvMesh& mesh
 			);
 
-
-			//- Destructor
-			FoamFvOptions_EXPORT virtual ~interRegionOption();
-
-
-			// Member Functions
-
-				// Access
-
-					//- Return const access to the neighbour region name
-			inline const word& nbrRegionName() const;
-
-			//- Return const access to the mapToMap pointer
-			inline const meshToMesh& meshInterp() const;
+			//- Disallow default bitwise copy construction
+			patchMeanVelocityForce(const patchMeanVelocityForce&) = delete;
 
 
-			// IO
+			// Member Operators
 
-				//- Read dictionary
-			FoamFvOptions_EXPORT virtual bool read(const dictionary& dict);
+				//- Disallow default bitwise assignment
+			void operator=(const patchMeanVelocityForce&) = delete;
 		};
 
 
@@ -124,6 +123,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <interRegionOptionI.hxx>
-
-#endif // !_interRegionOption_Header
+#endif // !_patchMeanVelocityForce_Header

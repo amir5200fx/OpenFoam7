@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _interRegionOption_Header
-#define _interRegionOption_Header
+#ifndef _constantHeatTransfer_Header
+#define _constantHeatTransfer_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,17 +26,16 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::fv::interRegionOption
+	tnbLib::fv::constantHeatTransfer
 
 Description
-	Base class for inter-region exchange.
+	Constant heat transfer model. htcConst [W/m^2/K] and area/volume [1/m]
+	must be provided.
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvOption.hxx>
-#include <volFields.hxx>
+#include <interRegionHeatTransferModel.hxx>
 #include <autoPtr.hxx>
-#include <meshToMesh.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -46,38 +45,27 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-						Class interRegionOption Declaration
+							Class constantHeatTransfer Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class interRegionOption
+		class constantHeatTransfer
 			:
-			public option
+			public interRegionHeatTransferModel
 		{
-		protected:
+			// Private Data
 
-			// Protected data
+				//- Constant heat transfer coefficient [W/m^2/K]
+			autoPtr<volScalarField> htcConst_;
 
-				//- Master or slave region
-			bool master_;
-
-			//- Name of the neighbour region to map
-			word nbrRegionName_;
-
-			//- Mesh to mesh interpolation object
-			autoPtr<meshToMesh> meshInterpPtr_;
-
-
-			// Protected member functions
-
-				//- Set the mesh to mesh interpolation object
-			FoamFvOptions_EXPORT void setMapper();
+			//- Area per unit volume of heat exchanger [1/m]
+			autoPtr<volScalarField> AoV_;
 
 
 		public:
 
 			//- Runtime type information
-			//TypeName("interRegionOption");
-			static const char* typeName_() { return "interRegionOption"; }
+			//TypeName("constantHeatTransfer");
+			static const char* typeName_() { return "constantHeatTransfer"; }
 			static FoamFvOptions_EXPORT const ::tnbLib::word typeName;
 			static FoamFvOptions_EXPORT int debug;
 			virtual const word& type() const { return typeName; };
@@ -86,7 +74,7 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from dictionary
-			FoamFvOptions_EXPORT interRegionOption
+			FoamFvOptions_EXPORT constantHeatTransfer
 			(
 				const word& name,
 				const word& modelType,
@@ -96,18 +84,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			FoamFvOptions_EXPORT virtual ~interRegionOption();
+			FoamFvOptions_EXPORT virtual ~constantHeatTransfer();
 
 
-			// Member Functions
+			// Public Functions
 
-				// Access
-
-					//- Return const access to the neighbour region name
-			inline const word& nbrRegionName() const;
-
-			//- Return const access to the mapToMap pointer
-			inline const meshToMesh& meshInterp() const;
+				//- Calculate the heat transfer coefficient
+			FoamFvOptions_EXPORT virtual void calculateHtc();
 
 
 			// IO
@@ -124,6 +107,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <interRegionOptionI.hxx>
-
-#endif // !_interRegionOption_Header
+#endif // !_constantHeatTransfer_Header

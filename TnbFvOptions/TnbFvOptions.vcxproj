@@ -107,9 +107,10 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvOptions\cellSetOption;$(ProjectDir)TnbLib\fvOptions\constraints\fixedTemperatureConstraint;$(ProjectDir)TnbLib\fvOptions\constraints\fixedValueConstraint;$(ProjectDir)TnbLib\fvOptions\corrections\limitTemperature;$(ProjectDir)TnbLib\fvOptions\corrections\limitVelocity;$(ProjectDir)TnbLib\fvOptions\interRegionOption;$(ProjectDir)TnbLib\fvOptions\sources\derived\accelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\actuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyEnergy;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping;$(ProjectDir)TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\explicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\phaseLimitStabilization;$(ProjectDir)TnbLib\fvOptions\sources\derived\radialActuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidificationMeltingSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\volumeFractionSource;$(ProjectDir)TnbLib\fvOptions\sources\general\codedSource;$(ProjectDir)TnbLib\fvOptions\sources\general\semiImplicitSource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer;$(ProjectDir)TnbLib\fvOptions\module;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvOptions\cellSetOption;$(ProjectDir)TnbLib\fvOptions\constraints\fixedTemperatureConstraint;$(ProjectDir)TnbLib\fvOptions\constraints\fixedValueConstraint;$(ProjectDir)TnbLib\fvOptions\corrections\limitTemperature;$(ProjectDir)TnbLib\fvOptions\corrections\limitVelocity;$(ProjectDir)TnbLib\fvOptions\interRegionOption;$(ProjectDir)TnbLib\fvOptions\sources\derived\accelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\actuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyEnergy;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping\damping;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping\isotropicDamping;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping\verticalDamping;$(ProjectDir)TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\explicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce\patchMeanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\phaseLimitStabilization;$(ProjectDir)TnbLib\fvOptions\sources\derived\radialActuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\bladeModel;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\lookup;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\series;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\fixed;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\targetCoeff;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidificationMeltingSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulated6DoFAcceleration;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\volumeFractionSource;$(ProjectDir)TnbLib\fvOptions\sources\general\codedSource;$(ProjectDir)TnbLib\fvOptions\sources\general\semiImplicitSource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer;$(ProjectDir)TnbLib\fvOptions\module;$(SolutionDir)TnbRadiationModels\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbSampling\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>FoamFvOptions_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -121,9 +122,10 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvOptions\cellSetOption;$(ProjectDir)TnbLib\fvOptions\constraints\fixedTemperatureConstraint;$(ProjectDir)TnbLib\fvOptions\constraints\fixedValueConstraint;$(ProjectDir)TnbLib\fvOptions\corrections\limitTemperature;$(ProjectDir)TnbLib\fvOptions\corrections\limitVelocity;$(ProjectDir)TnbLib\fvOptions\interRegionOption;$(ProjectDir)TnbLib\fvOptions\sources\derived\accelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\actuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyEnergy;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping;$(ProjectDir)TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\explicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\phaseLimitStabilization;$(ProjectDir)TnbLib\fvOptions\sources\derived\radialActuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidificationMeltingSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\volumeFractionSource;$(ProjectDir)TnbLib\fvOptions\sources\general\codedSource;$(ProjectDir)TnbLib\fvOptions\sources\general\semiImplicitSource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer;$(ProjectDir)TnbLib\fvOptions\module;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvOptions\cellSetOption;$(ProjectDir)TnbLib\fvOptions\constraints\fixedTemperatureConstraint;$(ProjectDir)TnbLib\fvOptions\constraints\fixedValueConstraint;$(ProjectDir)TnbLib\fvOptions\corrections\limitTemperature;$(ProjectDir)TnbLib\fvOptions\corrections\limitVelocity;$(ProjectDir)TnbLib\fvOptions\interRegionOption;$(ProjectDir)TnbLib\fvOptions\sources\derived\accelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\actuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyEnergy;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping\damping;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping\isotropicDamping;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping\verticalDamping;$(ProjectDir)TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\explicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce\patchMeanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\phaseLimitStabilization;$(ProjectDir)TnbLib\fvOptions\sources\derived\radialActuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\bladeModel;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\lookup;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\series;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\fixed;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\targetCoeff;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidificationMeltingSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulated6DoFAcceleration;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\volumeFractionSource;$(ProjectDir)TnbLib\fvOptions\sources\general\codedSource;$(ProjectDir)TnbLib\fvOptions\sources\general\semiImplicitSource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer;$(ProjectDir)TnbLib\fvOptions\module;$(SolutionDir)TnbRadiationModels\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbSampling\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>FoamFvOptions_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -174,9 +176,10 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvOptions\cellSetOption;$(ProjectDir)TnbLib\fvOptions\constraints\fixedTemperatureConstraint;$(ProjectDir)TnbLib\fvOptions\constraints\fixedValueConstraint;$(ProjectDir)TnbLib\fvOptions\corrections\limitTemperature;$(ProjectDir)TnbLib\fvOptions\corrections\limitVelocity;$(ProjectDir)TnbLib\fvOptions\interRegionOption;$(ProjectDir)TnbLib\fvOptions\sources\derived\accelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\actuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyEnergy;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping;$(ProjectDir)TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\explicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\phaseLimitStabilization;$(ProjectDir)TnbLib\fvOptions\sources\derived\radialActuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidificationMeltingSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\volumeFractionSource;$(ProjectDir)TnbLib\fvOptions\sources\general\codedSource;$(ProjectDir)TnbLib\fvOptions\sources\general\semiImplicitSource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer;$(ProjectDir)TnbLib\fvOptions\module;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\fvOptions\cellSetOption;$(ProjectDir)TnbLib\fvOptions\constraints\fixedTemperatureConstraint;$(ProjectDir)TnbLib\fvOptions\constraints\fixedValueConstraint;$(ProjectDir)TnbLib\fvOptions\corrections\limitTemperature;$(ProjectDir)TnbLib\fvOptions\corrections\limitVelocity;$(ProjectDir)TnbLib\fvOptions\interRegionOption;$(ProjectDir)TnbLib\fvOptions\sources\derived\accelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\actuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyEnergy;$(ProjectDir)TnbLib\fvOptions\sources\derived\buoyancyForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping\damping;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping\isotropicDamping;$(ProjectDir)TnbLib\fvOptions\sources\derived\damping\verticalDamping;$(ProjectDir)TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\explicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce\patchMeanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\meanVelocityForce;$(ProjectDir)TnbLib\fvOptions\sources\derived\phaseLimitStabilization;$(ProjectDir)TnbLib\fvOptions\sources\derived\radialActuationDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\bladeModel;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\lookup;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\series;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\fixed;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\targetCoeff;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel;$(ProjectDir)TnbLib\fvOptions\sources\derived\rotorDiskSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource;$(ProjectDir)TnbLib\fvOptions\sources\derived\solidificationMeltingSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulated6DoFAcceleration;$(ProjectDir)TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource;$(ProjectDir)TnbLib\fvOptions\sources\derived\volumeFractionSource;$(ProjectDir)TnbLib\fvOptions\sources\general\codedSource;$(ProjectDir)TnbLib\fvOptions\sources\general\semiImplicitSource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer;$(ProjectDir)TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer;$(ProjectDir)TnbLib\fvOptions\module;$(SolutionDir)TnbRadiationModels\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbConversion\include;$(SolutionDir)TnbSampling\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>FoamFvOptions_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -194,11 +197,103 @@
     <ClInclude Include="TnbLib\fvOptions\interRegionOption\interRegionOption.hxx" />
     <ClInclude Include="TnbLib\fvOptions\interRegionOption\interRegionOptionI.hxx" />
     <ClInclude Include="TnbLib\fvOptions\module\FvOptions_Module.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\accelerationSource\accelerationSource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\accelerationSource\accelerationSourceTemplatesI.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\actuationDiskSource\actuationDiskSource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\actuationDiskSource\actuationDiskSourceTemplatesI.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\buoyancyEnergy\buoyancyEnergy.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\buoyancyForce\buoyancyForce.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\damping\damping\damping.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\damping\isotropicDamping\isotropicDamping.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\damping\verticalDamping\verticalDamping.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource\effectivenessHeatExchangerSource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\explicitPorositySource\explicitPorositySource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\meanVelocityForce\meanVelocityForce.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\meanVelocityForce\patchMeanVelocityForce\patchMeanVelocityForce.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\phaseLimitStabilization\PhaseLimitStabilization.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\phaseLimitStabilization\PhaseLimitStabilization_Imp.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\radialActuationDiskSource\radialActuationDiskSource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\radialActuationDiskSource\radialActuationDiskSourceTemplatesI.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\bladeModel\bladeModel.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\lookup\lookupProfile.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\profileModel.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\profileModelList.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\series\seriesProfile.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\rotorDiskSource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\rotorDiskSourceI.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\rotorDiskSourceTemplatesI.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\fixed\fixedTrim.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\targetCoeff\targetCoeffTrim.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel\trimModel.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource\solidEqulibriumEnergySource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\solidificationMeltingSource\solidificationMeltingSource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\solidificationMeltingSource\solidificationMeltingSourceTemplatesI.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulated6DoFAcceleration\tabulated6DoFAcceleration.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulatedAccelerationSource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulatedAccelerationSourceTemplatesI.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\volumeFractionSource\volumeFractionSource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\general\codedSource\CodedSource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\general\codedSource\CodedSource_Imp.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\general\codedSource\CodedSourceIO_Imp.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\general\semiImplicitSource\SemiImplicitSource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\general\semiImplicitSource\SemiImplicitSourceI.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\general\semiImplicitSource\SemiImplicitSourceIO_Imp.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\general\semiImplicitSource\SemiImplicitSource_Imp.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource\interRegionExplicitPorositySource.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer\constantHeatTransfer.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel\interRegionHeatTransferModel.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel\interRegionHeatTransferModelI.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel\interRegionHeatTransferModelTemplatesI.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer\tabulatedHeatTransfer.hxx" />
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer\variableHeatTransfer.hxx" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\fvOptions\cellSetOption\cellSetOption.cxx" />
     <ClCompile Include="TnbLib\fvOptions\cellSetOption\cellSetOptionIO.cxx" />
     <ClCompile Include="TnbLib\fvOptions\constraints\fixedTemperatureConstraint\fixedTemperatureConstraint.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\interRegionOption\interRegionOptionIO.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\accelerationSource\accelerationSource.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\actuationDiskSource\actuationDiskSource.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\buoyancyEnergy\buoyancyEnergy.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\buoyancyEnergy\buoyancyEnergyIO.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\buoyancyForce\buoyancyForce.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\buoyancyForce\buoyancyForceIO.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\damping\damping\damping.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\damping\isotropicDamping\isotropicDamping.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\damping\verticalDamping\verticalDamping.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource\effectivenessHeatExchangerSource.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\explicitPorositySource\explicitPorositySource.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\meanVelocityForce\meanVelocityForce.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\meanVelocityForce\meanVelocityForceIO.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\meanVelocityForce\patchMeanVelocityForce\patchMeanVelocityForce.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\phaseLimitStabilization\phaseLimitStabilizations.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\radialActuationDiskSource\radialActuationDiskSource.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\bladeModel\bladeModel.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\lookup\lookupProfile.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\profileModel.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\profileModelList.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\series\seriesProfile.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\rotorDiskSource.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\rotorDiskSourceNamedEnum.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\fixed\fixedTrim.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\targetCoeff\targetCoeffTrim.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel\trimModel.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel\trimModelNew.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource\solidEqulibriumEnergySource.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\solidificationMeltingSource\solidificationMeltingSource.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\solidificationMeltingSource\solidificationMeltingSourceIO.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\solidificationMeltingSource\solidificationMeltingSourceNamedEnum.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulated6DoFAcceleration\tabulated6DoFAcceleration.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulatedAccelerationSource.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\volumeFractionSource\volumeFractionSource.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\general\codedSource\codedSources.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\general\semiImplicitSource\semiImplicitSources.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource\interRegionExplicitPorositySource.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer\constantHeatTransfer.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel\interRegionHeatTransferModel.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel\interRegionHeatTransferModelIO.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer\tabulatedHeatTransfer.cxx" />
+    <ClCompile Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer\variableHeatTransfer.cxx" />
     <None Include="TnbLib\fvOptions\constraints\fixedValueConstraint\FixedValueConstraint.cxx" />
     <ClCompile Include="TnbLib\fvOptions\constraints\fixedValueConstraint\fixedValueConstraints.cxx" />
     <ClCompile Include="TnbLib\fvOptions\corrections\limitTemperature\limitTemperature.cxx" />
@@ -215,8 +310,14 @@
     <ProjectReference Include="..\TnbFvMesh\TnbFvMesh.vcxproj">
       <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\TnbSampling\TnbSampling.vcxproj">
+      <Project>{b0600bfc-62b5-4f92-9e5a-5b25fd93436a}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\TnbThermoPhysicalModels\TnbThermoPhysicalModels.vcxproj">
       <Project>{5396b04c-6e67-4ee2-82f8-e56d26195cf9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbTurbulence\TnbTurbulence.vcxproj">
+      <Project>{c44b171d-747f-4fe0-b6e9-b8c6c88ddc40}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

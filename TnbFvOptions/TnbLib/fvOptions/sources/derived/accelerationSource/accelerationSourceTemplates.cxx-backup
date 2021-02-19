@@ -1,0 +1,28 @@
+#include <accelerationSource.hxx>
+
+// * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
+
+template<class AlphaRhoFieldType>
+void tnbLib::fv::accelerationSource::add
+(
+	const AlphaRhoFieldType& alphaRho,
+	fvMatrix<vector>& eqn,
+	const label fieldi
+)
+{
+	const DimensionedField<scalar, volMesh>& V = mesh_.V();
+
+	const scalar t = mesh_.time().value();
+	const scalar dt = mesh_.time().deltaTValue();
+	const vector dU = velocity_->value(t) - velocity_->value(t - dt);
+	const vector a = dU / mesh_.time().deltaTValue();
+
+	forAll(cells_, i)
+	{
+		const label c = cells_[i];
+		eqn.source()[c] -= V[c] * alphaRho[c] * a;
+	}
+}
+
+
+// ************************************************************************* //

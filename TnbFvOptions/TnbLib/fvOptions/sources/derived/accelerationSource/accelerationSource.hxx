@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _interRegionOption_Header
-#define _interRegionOption_Header
+#ifndef _accelerationSource_Header
+#define _accelerationSource_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,17 +26,39 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::fv::interRegionOption
+	tnbLib::fv::accelerationSource
 
 Description
-	Base class for inter-region exchange.
+	This fvOption applies an explicit acceleration force to components of the
+	velocity field.
+
+Usage
+	Example usage:
+	\verbatim
+	accelerationSource
+	{
+		type        accelerationSource;
+		active      on;
+		selectionMode all;
+		U           U;
+		velocity    scale;
+		value       (-2.572 0 0);
+		scale
+		{
+			type        halfCosineRamp;
+			start       0;
+			duration    10;
+		}
+	}
+	\endverbatim
+
+SourceFiles
+	accelerationSource.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvOption.hxx>
-#include <volFields.hxx>
-#include <autoPtr.hxx>
-#include <meshToMesh.hxx>
+#include <cellSetOption.hxx>
+#include <Function1.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -46,38 +68,36 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-						Class interRegionOption Declaration
+							   Class accelerationSource Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class interRegionOption
+		class accelerationSource
 			:
-			public option
+			public cellSetOption
 		{
-		protected:
+			// Private Data
 
-			// Protected data
-
-				//- Master or slave region
-			bool master_;
-
-			//- Name of the neighbour region to map
-			word nbrRegionName_;
-
-			//- Mesh to mesh interpolation object
-			autoPtr<meshToMesh> meshInterpPtr_;
+				//- Time-varying velocity
+			autoPtr<Function1<vector>> velocity_;
 
 
-			// Protected member functions
+			// Private Member Functions
 
-				//- Set the mesh to mesh interpolation object
-			FoamFvOptions_EXPORT void setMapper();
+				//- Source term to momentum equation
+			template<class AlphaRhoFieldType>
+			void add
+			(
+				const AlphaRhoFieldType& rho,
+				fvMatrix<vector>& eqn,
+				const label fieldi
+			);
 
 
 		public:
 
 			//- Runtime type information
-			//TypeName("interRegionOption");
-			static const char* typeName_() { return "interRegionOption"; }
+			//TypeName("accelerationSource");
+			static const char* typeName_() { return "accelerationSource"; }
 			static FoamFvOptions_EXPORT const ::tnbLib::word typeName;
 			static FoamFvOptions_EXPORT int debug;
 			virtual const word& type() const { return typeName; };
@@ -85,8 +105,8 @@ namespace tnbLib
 
 			// Constructors
 
-				//- Construct from dictionary
-			FoamFvOptions_EXPORT interRegionOption
+				//- Construct from components
+			FoamFvOptions_EXPORT accelerationSource
 			(
 				const word& name,
 				const word& modelType,
@@ -96,18 +116,37 @@ namespace tnbLib
 
 
 			//- Destructor
-			FoamFvOptions_EXPORT virtual ~interRegionOption();
+			virtual ~accelerationSource()
+			{}
 
 
 			// Member Functions
 
-				// Access
+				 // Add explicit and implicit contributions
 
-					//- Return const access to the neighbour region name
-			inline const word& nbrRegionName() const;
+					//- Source term to momentum equation
+			FoamFvOptions_EXPORT virtual void addSup
+			(
+				fvMatrix<vector>& eqn,
+				const label fieldi
+			);
 
-			//- Return const access to the mapToMap pointer
-			inline const meshToMesh& meshInterp() const;
+			//- Source term to compressible momentum equation
+			FoamFvOptions_EXPORT virtual void addSup
+			(
+				const volScalarField& rho,
+				fvMatrix<vector>& eqn,
+				const label fieldi
+			);
+
+			//- Source term to phase momentum equation
+			FoamFvOptions_EXPORT virtual void addSup
+			(
+				const volScalarField& alpha,
+				const volScalarField& rho,
+				fvMatrix<vector>& eqn,
+				const label fieldi
+			);
 
 
 			// IO
@@ -124,6 +163,12 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <interRegionOptionI.hxx>
+//#ifdef NoRepository
+//#include <accelerationSourceTemplates.cxx>
+//#endif
 
-#endif // !_interRegionOption_Header
+#include <accelerationSourceTemplatesI.hxx>
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif // !_accelerationSource_Header

@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _interRegionOption_Header
-#define _interRegionOption_Header
+#ifndef _variableHeatTransfer_Header
+#define _variableHeatTransfer_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,17 +26,26 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::fv::interRegionOption
+	tnbLib::fv::variableHeatTransfer
 
 Description
-	Base class for inter-region exchange.
+	Variable heat transfer model depending on local values. The area of contact
+	between regions (area) must be provided. The Nu number is calculated as:
+
+		Nu = a*pow(Re, b)*pow(Pr, c)
+
+	and the heat transfer coefficient as:
+
+		htc = Nu*K/ds
+
+	where:
+		K is the heat conduction
+		ds is the strut diameter
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvOption.hxx>
-#include <volFields.hxx>
+#include <interRegionHeatTransferModel.hxx>
 #include <autoPtr.hxx>
-#include <meshToMesh.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -46,38 +55,38 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-						Class interRegionOption Declaration
+							Class variableHeatTransfer Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class interRegionOption
+		class variableHeatTransfer
 			:
-			public option
+			public interRegionHeatTransferModel
 		{
-		protected:
+			// Private Data
 
-			// Protected data
+				//- Name of neighbour velocity field; default = U
+			word UNbrName_;
 
-				//- Master or slave region
-			bool master_;
+			//- Model constants
+			scalar a_;
+			scalar b_;
+			scalar c_;
 
-			//- Name of the neighbour region to map
-			word nbrRegionName_;
+			//- Strut diameter
+			scalar ds_;
 
-			//- Mesh to mesh interpolation object
-			autoPtr<meshToMesh> meshInterpPtr_;
+			//- Fluid Prandt number
+			scalar Pr_;
 
-
-			// Protected member functions
-
-				//- Set the mesh to mesh interpolation object
-			FoamFvOptions_EXPORT void setMapper();
+			//- Area per unit volume of heat exchanger
+			autoPtr<volScalarField> AoV_;
 
 
 		public:
 
 			//- Runtime type information
-			//TypeName("interRegionOption");
-			static const char* typeName_() { return "interRegionOption"; }
+			//TypeName("variableHeatTransfer");
+			static const char* typeName_() { return "variableHeatTransfer"; }
 			static FoamFvOptions_EXPORT const ::tnbLib::word typeName;
 			static FoamFvOptions_EXPORT int debug;
 			virtual const word& type() const { return typeName; };
@@ -86,7 +95,7 @@ namespace tnbLib
 			// Constructors
 
 				//- Construct from dictionary
-			FoamFvOptions_EXPORT interRegionOption
+			FoamFvOptions_EXPORT variableHeatTransfer
 			(
 				const word& name,
 				const word& modelType,
@@ -96,18 +105,13 @@ namespace tnbLib
 
 
 			//- Destructor
-			FoamFvOptions_EXPORT virtual ~interRegionOption();
+			FoamFvOptions_EXPORT virtual ~variableHeatTransfer();
 
 
-			// Member Functions
+			// Public Functions
 
-				// Access
-
-					//- Return const access to the neighbour region name
-			inline const word& nbrRegionName() const;
-
-			//- Return const access to the mapToMap pointer
-			inline const meshToMesh& meshInterp() const;
+				//- Calculate the heat transfer coefficient
+			FoamFvOptions_EXPORT virtual void calculateHtc();
 
 
 			// IO
@@ -124,6 +128,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <interRegionOptionI.hxx>
-
-#endif // !_interRegionOption_Header
+#endif // !_variableHeatTransfer_Header

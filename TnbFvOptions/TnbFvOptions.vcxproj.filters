@@ -115,6 +115,45 @@
     <Filter Include="TnbLib\fvOptions\module">
       <UniqueIdentifier>{2acba557-acc5-4c33-b83f-d864f768b824}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\damping\damping">
+      <UniqueIdentifier>{4fe1f0c4-4b75-46cb-bf66-ddd3c4fdf373}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\damping\isotropicDamping">
+      <UniqueIdentifier>{8405f666-d236-4eae-a1a1-c50b528e90d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\damping\verticalDamping">
+      <UniqueIdentifier>{add90880-82c0-4422-ade0-79d4ee235a00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\meanVelocityForce\patchMeanVelocityForce">
+      <UniqueIdentifier>{4f8dc0dd-469b-4145-8bf4-0bbb2f7d4259}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\bladeModel">
+      <UniqueIdentifier>{5bf60cdf-a647-48bd-85c6-08661609302e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel">
+      <UniqueIdentifier>{deda538e-8155-4e20-90d7-26ce70308f4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel">
+      <UniqueIdentifier>{de84c683-280c-45dd-ab25-5217c6bfb519}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulated6DoFAcceleration">
+      <UniqueIdentifier>{82ed6ea6-25d1-41aa-bb28-8e8d3f6e5b74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\lookup">
+      <UniqueIdentifier>{d7bf259a-2ab4-492d-ac8c-97893bc670d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\series">
+      <UniqueIdentifier>{d9930cca-1db2-40da-afdb-e28e75a479a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\fixed">
+      <UniqueIdentifier>{c9e69f8c-cbb2-4240-8e4a-da6abf9b6a10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel">
+      <UniqueIdentifier>{000b8fb4-5694-42fc-8a18-9a4fdd239152}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\targetCoeff">
+      <UniqueIdentifier>{c78260b9-ad44-4a42-b535-b4837ca6b3d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\fvOptions\cellSetOption\cellSetOption.hxx">
@@ -144,6 +183,153 @@
     <ClInclude Include="TnbLib\fvOptions\module\FvOptions_Module.hxx">
       <Filter>TnbLib\fvOptions\module</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\accelerationSource\accelerationSource.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\accelerationSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\actuationDiskSource\actuationDiskSource.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\actuationDiskSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\buoyancyEnergy\buoyancyEnergy.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\buoyancyEnergy</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\buoyancyForce\buoyancyForce.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\buoyancyForce</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource\effectivenessHeatExchangerSource.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\explicitPorositySource\explicitPorositySource.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\explicitPorositySource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\radialActuationDiskSource\radialActuationDiskSource.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\radialActuationDiskSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\radialActuationDiskSource\radialActuationDiskSourceTemplatesI.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\radialActuationDiskSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource\solidEqulibriumEnergySource.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\solidificationMeltingSource\solidificationMeltingSource.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\solidificationMeltingSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\volumeFractionSource\volumeFractionSource.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\volumeFractionSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\general\codedSource\CodedSource.hxx">
+      <Filter>TnbLib\fvOptions\sources\general\codedSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\phaseLimitStabilization\PhaseLimitStabilization.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\phaseLimitStabilization</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\general\semiImplicitSource\SemiImplicitSource.hxx">
+      <Filter>TnbLib\fvOptions\sources\general\semiImplicitSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\general\semiImplicitSource\SemiImplicitSourceI.hxx">
+      <Filter>TnbLib\fvOptions\sources\general\semiImplicitSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource\interRegionExplicitPorositySource.hxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer\constantHeatTransfer.hxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel\interRegionHeatTransferModel.hxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel\interRegionHeatTransferModelI.hxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer\tabulatedHeatTransfer.hxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer\variableHeatTransfer.hxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\damping\damping\damping.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\damping\damping</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\damping\isotropicDamping\isotropicDamping.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\damping\isotropicDamping</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\damping\verticalDamping\verticalDamping.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\damping\verticalDamping</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\meanVelocityForce\patchMeanVelocityForce\patchMeanVelocityForce.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\meanVelocityForce\patchMeanVelocityForce</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\meanVelocityForce\meanVelocityForce.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\meanVelocityForce</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\rotorDiskSource.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\rotorDiskSourceI.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\bladeModel\bladeModel.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\bladeModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\profileModel.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\profileModelList.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\lookup\lookupProfile.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\lookup</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\series\seriesProfile.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\series</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\fixed\fixedTrim.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\fixed</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel\trimModel.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\targetCoeff\targetCoeffTrim.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\targetCoeff</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulatedAccelerationSource.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulated6DoFAcceleration\tabulated6DoFAcceleration.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulated6DoFAcceleration</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\accelerationSource\accelerationSourceTemplatesI.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\accelerationSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\actuationDiskSource\actuationDiskSourceTemplatesI.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\actuationDiskSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\solidificationMeltingSource\solidificationMeltingSourceTemplatesI.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\solidificationMeltingSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulatedAccelerationSourceTemplatesI.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel\interRegionHeatTransferModelTemplatesI.hxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\general\semiImplicitSource\SemiImplicitSource_Imp.hxx">
+      <Filter>TnbLib\fvOptions\sources\general\semiImplicitSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\general\semiImplicitSource\SemiImplicitSourceIO_Imp.hxx">
+      <Filter>TnbLib\fvOptions\sources\general\semiImplicitSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\general\codedSource\CodedSourceIO_Imp.hxx">
+      <Filter>TnbLib\fvOptions\sources\general\codedSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\general\codedSource\CodedSource_Imp.hxx">
+      <Filter>TnbLib\fvOptions\sources\general\codedSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\rotorDiskSourceTemplatesI.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvOptions\sources\derived\phaseLimitStabilization\PhaseLimitStabilization_Imp.hxx">
+      <Filter>TnbLib\fvOptions\sources\derived\phaseLimitStabilization</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\fvOptions\cellSetOption\cellSetOption.cxx">
@@ -166,6 +352,135 @@
     </ClCompile>
     <ClCompile Include="TnbLib\fvOptions\interRegionOption\interRegionOption.cxx">
       <Filter>TnbLib\fvOptions\interRegionOption</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\accelerationSource\accelerationSource.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\accelerationSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\actuationDiskSource\actuationDiskSource.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\actuationDiskSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\buoyancyEnergy\buoyancyEnergy.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\buoyancyEnergy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\buoyancyEnergy\buoyancyEnergyIO.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\buoyancyEnergy</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\buoyancyForce\buoyancyForce.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\buoyancyForce</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\buoyancyForce\buoyancyForceIO.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\buoyancyForce</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource\effectivenessHeatExchangerSource.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\effectivenessHeatExchangerSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\explicitPorositySource\explicitPorositySource.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\explicitPorositySource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\radialActuationDiskSource\radialActuationDiskSource.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\radialActuationDiskSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource\solidEqulibriumEnergySource.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\solidEqulibriumEnergySource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\solidificationMeltingSource\solidificationMeltingSource.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\solidificationMeltingSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\solidificationMeltingSource\solidificationMeltingSourceIO.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\solidificationMeltingSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\solidificationMeltingSource\solidificationMeltingSourceNamedEnum.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\solidificationMeltingSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\volumeFractionSource\volumeFractionSource.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\volumeFractionSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\general\codedSource\codedSources.cxx">
+      <Filter>TnbLib\fvOptions\sources\general\codedSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\phaseLimitStabilization\phaseLimitStabilizations.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\phaseLimitStabilization</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\general\semiImplicitSource\semiImplicitSources.cxx">
+      <Filter>TnbLib\fvOptions\sources\general\semiImplicitSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource\interRegionExplicitPorositySource.cxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionExplicitPorositySource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\interRegionOption\interRegionOptionIO.cxx">
+      <Filter>TnbLib\fvOptions\interRegionOption</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer\constantHeatTransfer.cxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\constantHeatTransfer</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel\interRegionHeatTransferModel.cxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel\interRegionHeatTransferModelIO.cxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\interRegionHeatTransferModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer\tabulatedHeatTransfer.cxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\tabulatedHeatTransfer</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer\variableHeatTransfer.cxx">
+      <Filter>TnbLib\fvOptions\sources\interRegion\interRegionHeatTransfer\variableHeatTransfer</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\damping\damping\damping.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\damping\damping</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\damping\isotropicDamping\isotropicDamping.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\damping\isotropicDamping</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\damping\verticalDamping\verticalDamping.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\damping\verticalDamping</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\meanVelocityForce\patchMeanVelocityForce\patchMeanVelocityForce.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\meanVelocityForce\patchMeanVelocityForce</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\meanVelocityForce\meanVelocityForce.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\meanVelocityForce</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\meanVelocityForce\meanVelocityForceIO.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\meanVelocityForce</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\rotorDiskSource.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\bladeModel\bladeModel.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\bladeModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\profileModel.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\profileModelList.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\lookup\lookupProfile.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\lookup</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\series\seriesProfile.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\profileModel\series</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\fixed\fixedTrim.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel\trimModel.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel\trimModelNew.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\trimModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\rotorDiskSourceNamedEnum.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\targetCoeff\targetCoeffTrim.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\rotorDiskSource\trimModel\targetCoeff</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulated6DoFAcceleration\tabulated6DoFAcceleration.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulated6DoFAcceleration</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource\tabulatedAccelerationSource.cxx">
+      <Filter>TnbLib\fvOptions\sources\derived\tabulatedAccelerationSource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

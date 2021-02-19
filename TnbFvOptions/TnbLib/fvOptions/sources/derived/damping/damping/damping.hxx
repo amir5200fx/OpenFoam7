@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _interRegionOption_Header
-#define _interRegionOption_Header
+#ifndef _damping_Header
+#define _damping_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2017-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,17 +26,23 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::fv::interRegionOption
+	tnbLib::fv::damping
 
 Description
-	Base class for inter-region exchange.
+	Base fvOption for damping functions.
+
+See also
+	tnbLib::fv::isotropicDamping
+	tnbLib::fv::verticalDamping
+
+SourceFiles
+	damping.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fvOption.hxx>
+#include <cellSetOption.hxx>
+#include <Function1.hxx>
 #include <volFields.hxx>
-#include <autoPtr.hxx>
-#include <meshToMesh.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -46,38 +52,40 @@ namespace tnbLib
 	{
 
 		/*---------------------------------------------------------------------------*\
-						Class interRegionOption Declaration
+						   Class damping Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class interRegionOption
+		class damping
 			:
-			public option
+			public cellSetOption
 		{
 		protected:
 
-			// Protected data
+			// Protected Data
 
-				//- Master or slave region
-			bool master_;
+				//- Damping coefficient [1/s]
+			dimensionedScalar lambda_;
 
-			//- Name of the neighbour region to map
-			word nbrRegionName_;
+			//- The scaling function
+			autoPtr<Function1<scalar>> scale_;
 
-			//- Mesh to mesh interpolation object
-			autoPtr<meshToMesh> meshInterpPtr_;
+			//- Origins of the scaling coordinate
+			vectorField origins_;
+
+			//- Directions of increasing scaling coordinate
+			vectorField directions_;
 
 
-			// Protected member functions
+			// Protected Member Functions
 
-				//- Set the mesh to mesh interpolation object
-			FoamFvOptions_EXPORT void setMapper();
+			FoamFvOptions_EXPORT tmp<volScalarField::Internal> forceCoeff() const;
 
 
 		public:
 
 			//- Runtime type information
-			//TypeName("interRegionOption");
-			static const char* typeName_() { return "interRegionOption"; }
+			//TypeName("damping");
+			static const char* typeName_() { return "damping"; }
 			static FoamFvOptions_EXPORT const ::tnbLib::word typeName;
 			static FoamFvOptions_EXPORT int debug;
 			virtual const word& type() const { return typeName; };
@@ -85,8 +93,8 @@ namespace tnbLib
 
 			// Constructors
 
-				//- Construct from dictionary
-			FoamFvOptions_EXPORT interRegionOption
+				//- Construct from components
+			FoamFvOptions_EXPORT damping
 			(
 				const word& name,
 				const word& modelType,
@@ -96,23 +104,15 @@ namespace tnbLib
 
 
 			//- Destructor
-			FoamFvOptions_EXPORT virtual ~interRegionOption();
+			virtual ~damping()
+			{}
 
 
 			// Member Functions
 
-				// Access
+				// IO
 
-					//- Return const access to the neighbour region name
-			inline const word& nbrRegionName() const;
-
-			//- Return const access to the mapToMap pointer
-			inline const meshToMesh& meshInterp() const;
-
-
-			// IO
-
-				//- Read dictionary
+					//- Read dictionary
 			FoamFvOptions_EXPORT virtual bool read(const dictionary& dict);
 		};
 
@@ -124,6 +124,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <interRegionOptionI.hxx>
-
-#endif // !_interRegionOption_Header
+#endif // !_damping_Header
