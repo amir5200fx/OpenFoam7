@@ -79,7 +79,7 @@ namespace tnbLib
 		// Static Data Members
 
 			//- Identity matrix for square matrices
-		static const SpatialTensor I;
+		static FoamBase_EXPORT const SpatialTensor I;
 
 
 		// Constructors
