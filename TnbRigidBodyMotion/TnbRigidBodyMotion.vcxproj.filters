@@ -1,2 +1,462 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{f62d0ebc-640b-4fc1-92fe-0d6a77e8f6c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyState">
+      <UniqueIdentifier>{966b8066-1a59-4667-a910-c2c8d695bc03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyMeshMotion">
+      <UniqueIdentifier>{7a23f990-291f-49df-9075-7e964e281ee4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics">
+      <UniqueIdentifier>{ab76681f-98dc-4884-bfa3-10560214c728}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\bodies">
+      <UniqueIdentifier>{73981f17-2d8c-451e-99ca-84b61de92c59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints">
+      <UniqueIdentifier>{aa7b71e9-302e-4c77-8d24-32da949da746}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\rigidBodySolvers">
+      <UniqueIdentifier>{bd5b1324-ad98-4aea-a3d9-dbba1c06d6fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\rigidBodyMotion">
+      <UniqueIdentifier>{52ccdea8-b630-4dad-bc13-9b3e734830b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\rigidBodyModelState">
+      <UniqueIdentifier>{c9442295-51f1-417b-bb6b-6d95641e2404}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\rigidBodyModel">
+      <UniqueIdentifier>{965f21b7-cd26-41e8-bcc5-6f0094d5e142}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\rigidBodyInertia">
+      <UniqueIdentifier>{e80a040e-6b2c-4c30-b9f7-f8bf07411298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\restraints">
+      <UniqueIdentifier>{5e87a267-7c10-498e-8b13-9dc66bdd1a2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\restraints\linearAxialAngularSpring">
+      <UniqueIdentifier>{c75c6cc7-d9aa-42ed-aa93-1455e3d796a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\restraints\linearDamper">
+      <UniqueIdentifier>{fa8bb0c1-1445-4757-8112-21d3ab97ab06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\restraints\linearSpring">
+      <UniqueIdentifier>{24df5b17-ef9c-46e0-bbd1-76de1c2f683c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\restraints\sphericalAngularDamper">
+      <UniqueIdentifier>{d01c0c8e-d975-4493-8fda-41e5602b9f5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\restraints\restraint">
+      <UniqueIdentifier>{9747c1b8-21bc-4692-96cf-f19731f50cb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\CrankNicolson">
+      <UniqueIdentifier>{10050f42-e60e-480b-a180-479c53d74cd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic">
+      <UniqueIdentifier>{0139e5a4-7e36-4161-89f4-5e8206c47ba0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver">
+      <UniqueIdentifier>{e172a573-88d2-414e-b3d6-fc5946c62cd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\Newmark">
+      <UniqueIdentifier>{79081133-00a2-45e3-aee3-a5c4fe40c599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyMeshMotion\rigidBodyMeshMotionSolver">
+      <UniqueIdentifier>{1ae71970-dd59-4531-9955-a40f4f2c4e9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyMeshMotion\rigidBodyMeshMotion">
+      <UniqueIdentifier>{1b2958e7-d59b-4469-81f9-fecda8498036}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\composite">
+      <UniqueIdentifier>{f81c53f3-546b-43c9-9166-fc3e1520b8bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\floating">
+      <UniqueIdentifier>{d883a5eb-aeb6-4cbb-95ee-7168bfcce0b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\function">
+      <UniqueIdentifier>{4c3b5310-24de-4f9a-a36f-8df88072b5a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\functionDot">
+      <UniqueIdentifier>{d0931f98-1101-417f-b72a-10aaa7019fd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\joint">
+      <UniqueIdentifier>{11dd4d50-39f0-450a-aece-1e68c90c59d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Rzyx">
+      <UniqueIdentifier>{1c17899c-4f36-49ed-9abb-65527dc99ee7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Rz">
+      <UniqueIdentifier>{17fcd985-7bc6-4ee6-afc4-8edcc0e49acb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Ryxz">
+      <UniqueIdentifier>{307a54de-be2a-4ada-8c59-a021cbc82382}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Ry">
+      <UniqueIdentifier>{0964cd66-4d60-40c6-9ee0-aaa8db655b7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Rxyz">
+      <UniqueIdentifier>{47091ab8-5d80-4599-88de-5dcdd08a8f77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Rx">
+      <UniqueIdentifier>{6ad17df8-4e1d-4a12-8be5-a4778ccb8cff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Rs">
+      <UniqueIdentifier>{a02c10a8-b7ec-4b41-a394-67ab88f97c92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\rigid">
+      <UniqueIdentifier>{b2222406-0ab4-4dd7-9cbe-4a562aa4baa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Ra">
+      <UniqueIdentifier>{3daa18e6-ab77-4799-8501-f965b257d298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Pz">
+      <UniqueIdentifier>{adcd5a50-8883-4b41-852d-833844d0bb7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Py">
+      <UniqueIdentifier>{a82a84e8-1883-48c3-ae31-3c2ef0dc124e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Pxyz">
+      <UniqueIdentifier>{6dfe85c6-3df8-466b-a05a-b4cd3f5fd4dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Px">
+      <UniqueIdentifier>{ed856d19-31d4-4ee4-8328-70f6c05efb89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\Pa">
+      <UniqueIdentifier>{604b190d-a5eb-4d92-84a0-e483ac5043f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\joints\null">
+      <UniqueIdentifier>{a64c6417-fbb3-4266-9a53-6470be017ede}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\bodies\compositeBody">
+      <UniqueIdentifier>{11dea836-ed45-4d94-82c9-d618126276ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\bodies\cuboid">
+      <UniqueIdentifier>{86b9f6de-e45e-489c-974b-cd7a49c482e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\bodies\jointBody">
+      <UniqueIdentifier>{93c6bed7-e26e-470e-aacf-c9c0c9188a27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\bodies\masslessBody">
+      <UniqueIdentifier>{46a92d54-732a-4fc7-90fa-037f28b18c33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\bodies\subBody">
+      <UniqueIdentifier>{609fc0b6-22d9-4d0d-a8b7-08e524c1fd1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\bodies\sphere">
+      <UniqueIdentifier>{cb750dab-da68-4c45-bd84-2e3ea50d47ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\rigidBodyDynamics\bodies\rigidBody">
+      <UniqueIdentifier>{d3f48b2f-5e04-4575-85f2-dfeaa079bf5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\module">
+      <UniqueIdentifier>{784e188f-f4d0-4f57-b486-ca4eca8595a5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyInertia\rigidBodyInertia.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyInertia</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyInertia\rigidBodyInertiaI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyInertia</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyModel\rigidBodyModel.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyModel\rigidBodyModelI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\joint\joint.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\joint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\joint\jointI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\joint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\module\RigidBodyMotion_Module.hxx">
+      <Filter>TnbLib\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\composite\compositeJoint.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\composite</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\floating\floatingJoint.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\floating</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\function\function.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\function</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\functionDot\functionDot.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\functionDot</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\null\nullJoint.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\null</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Pa\Pa.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Pa</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Px\Px.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Px</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Pxyz\Pxyz.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Pxyz</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Py\Py.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Py</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Pz\Pz.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Pz</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Ra\Ra.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Ra</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\rigid\rigid.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\rigid</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Rs\Rs.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Rs</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Rx\Rx.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Rx</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Rxyz\Rxyz.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Rxyz</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Ry\Ry.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Ry</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Ryxz\Ryxz.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Ryxz</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Rz\Rz.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Rz</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Rzyx\Rzyx.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Rzyx</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\joints.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\compositeBody\compositeBody.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\compositeBody</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\compositeBody\compositeBodyI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\compositeBody</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\rigidBody\rigidBody.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\rigidBody</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\rigidBody\rigidBodyI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\rigidBody</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\subBody\subBody.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\subBody</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\subBody\subBodyI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\subBody</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\sphere\sphere.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\sphere\sphereI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\sphere</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\masslessBody\masslessBody.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\masslessBody</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\masslessBody\masslessBodyI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\masslessBody</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\jointBody\jointBody.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\jointBody</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\jointBody\jointBodyI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\jointBody</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\cuboid\cuboid.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\cuboid</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\cuboid\cuboidI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\cuboid</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\restraints\restraint\rigidBodyRestraint.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\restraints\restraint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\restraints\restraint\rigidBodyRestraintI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\restraints\restraint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\restraints\sphericalAngularDamper\sphericalAngularDamper.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\restraints\sphericalAngularDamper</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\restraints\linearSpring\linearSpring.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\restraints\linearSpring</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\restraints\linearDamper\linearDamper.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\restraints\linearDamper</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\restraints\linearAxialAngularSpring\linearAxialAngularSpring.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\restraints\linearAxialAngularSpring</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver\rigidBodySolver.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver\rigidBodySolverI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyMotion\rigidBodyMotion.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyMotion\rigidBodyMotionI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyModelState\rigidBodyModelState.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyModelState</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyModelState\rigidBodyModelStateI.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyModelState</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\CrankNicolson\CrankNicolson.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodySolvers\CrankNicolson</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\Newmark\Newmark.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodySolvers\Newmark</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic\symplectic.hxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyModel\rigidBodyModel.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyModel\forwardDynamics.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\joint\joint.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\joint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\composite\compositeJoint.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\composite</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\floating\floatingJoint.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\floating</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\function\function.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\function</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\functionDot\functionDot.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\functionDot</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\null\nullJoint.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\null</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Pa\Pa.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Pa</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Px\Px.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Px</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Pxyz\Pxyz.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Pxyz</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Py\Py.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Py</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Pz\Pz.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Pz</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Ra\Ra.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Ra</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\rigid\rigid.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\rigid</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Rs\Rs.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Rs</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Rx\Rx.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Rx</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Rxyz\Rxyz.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Rxyz</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Ry\Ry.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Ry</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Ryxz\Ryxz.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Ryxz</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Rz\Rz.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Rz</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Rzyx\Rzyx.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\joints\Rzyx</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\compositeBody\compositeBody.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\compositeBody</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\rigidBody\rigidBody.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\rigidBody</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\subBody\subBody.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\subBody</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\sphere\sphere.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\sphere</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\masslessBody\masslessBody.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\masslessBody</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\jointBody\jointBody.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\jointBody</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\cuboid\cuboid.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\bodies\cuboid</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\restraints\restraint\rigidBodyRestraint.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\restraints\restraint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\restraints\restraint\rigidBodyRestraintNew.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\restraints\restraint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\restraints\sphericalAngularDamper\sphericalAngularDamper.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\restraints\sphericalAngularDamper</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\restraints\linearSpring\linearSpring.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\restraints\linearSpring</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\restraints\linearDamper\linearDamper.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\restraints\linearDamper</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\restraints\linearAxialAngularSpring\linearAxialAngularSpring.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\restraints\linearAxialAngularSpring</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver\rigidBodySolver.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver\newRigidBodySolver.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyMotion\rigidBodyMotion.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyMotion\rigidBodyMotionIO.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyModelState\rigidBodyModelState.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyModelState</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyModelState\rigidBodyModelStateIO.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodyModelState</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\CrankNicolson\CrankNicolson.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodySolvers\CrankNicolson</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\Newmark\Newmark.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodySolvers\Newmark</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic\symplectic.cxx">
+      <Filter>TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

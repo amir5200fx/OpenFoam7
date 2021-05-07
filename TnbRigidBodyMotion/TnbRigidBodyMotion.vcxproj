@@ -26,6 +26,118 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\module\RigidBodyMotion_Module.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\compositeBody\compositeBody.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\compositeBody\compositeBodyI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\cuboid\cuboid.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\cuboid\cuboidI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\jointBody\jointBody.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\jointBody\jointBodyI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\masslessBody\masslessBody.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\masslessBody\masslessBodyI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\rigidBody\rigidBody.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\rigidBody\rigidBodyI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\sphere\sphere.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\sphere\sphereI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\subBody\subBody.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\bodies\subBody\subBodyI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\composite\compositeJoint.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\floating\floatingJoint.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\functionDot\functionDot.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\function\function.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\joints.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\joint\joint.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\joint\jointI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\null\nullJoint.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Pa\Pa.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Pxyz\Pxyz.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Px\Px.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Py\Py.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Pz\Pz.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Ra\Ra.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\rigid\rigid.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Rs\Rs.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Rxyz\Rxyz.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Rx\Rx.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Ryxz\Ryxz.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Ry\Ry.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Rzyx\Rzyx.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\joints\Rz\Rz.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\restraints\linearAxialAngularSpring\linearAxialAngularSpring.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\restraints\linearDamper\linearDamper.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\restraints\linearSpring\linearSpring.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\restraints\restraint\rigidBodyRestraint.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\restraints\restraint\rigidBodyRestraintI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\restraints\sphericalAngularDamper\sphericalAngularDamper.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyInertia\rigidBodyInertia.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyInertia\rigidBodyInertiaI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyModelState\rigidBodyModelState.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyModelState\rigidBodyModelStateI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyModel\rigidBodyModel.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyModel\rigidBodyModelI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyMotion\rigidBodyMotion.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyMotion\rigidBodyMotionI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\CrankNicolson\CrankNicolson.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\Newmark\Newmark.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver\rigidBodySolver.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver\rigidBodySolverI.hxx" />
+    <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic\symplectic.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\compositeBody\compositeBody.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\cuboid\cuboid.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\jointBody\jointBody.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\masslessBody\masslessBody.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\rigidBody\rigidBody.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\sphere\sphere.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\bodies\subBody\subBody.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\composite\compositeJoint.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\floating\floatingJoint.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\functionDot\functionDot.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\function\function.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\joint\joint.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\null\nullJoint.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Pa\Pa.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Pxyz\Pxyz.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Px\Px.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Py\Py.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Pz\Pz.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Ra\Ra.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\rigid\rigid.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Rs\Rs.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Rxyz\Rxyz.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Rx\Rx.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Ryxz\Ryxz.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Ry\Ry.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Rzyx\Rzyx.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\joints\Rz\Rz.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\restraints\linearAxialAngularSpring\linearAxialAngularSpring.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\restraints\linearDamper\linearDamper.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\restraints\linearSpring\linearSpring.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\restraints\restraint\rigidBodyRestraint.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\restraints\restraint\rigidBodyRestraintNew.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\restraints\sphericalAngularDamper\sphericalAngularDamper.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyModelState\rigidBodyModelState.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyModelState\rigidBodyModelStateIO.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyModel\forwardDynamics.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyModel\rigidBodyModel.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyMotion\rigidBodyMotion.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyMotion\rigidBodyMotionIO.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\CrankNicolson\CrankNicolson.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\Newmark\Newmark.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver\newRigidBodySolver.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver\rigidBodySolver.cxx" />
+    <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic\symplectic.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TnbBase\TnbBase.vcxproj">
+      <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+      <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{C192F90E-0B12-4F6B-89A9-0A068213F97D}</ProjectGuid>
@@ -53,19 +165,19 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -102,10 +214,20 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\compositeBody;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\cuboid;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\jointBody;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\masslessBody;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\rigidBody;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\sphere;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\subBody;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\composite;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\floating;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\function;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\functionDot;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\joint;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\null;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Pa;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Px;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Pxyz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Py;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Pz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Ra;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\rigid;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rs;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rx;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rxyz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Ry;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Ryxz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rzyx;$(ProjectDir)TnbLib\rigidBodyDynamics\joints;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\linearAxialAngularSpring;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\linearDamper;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\linearSpring;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\restraint;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\sphericalAngularDamper;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodyInertia;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodyModel;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodyModelState;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodyMotion;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodySolvers\CrankNicolson;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodySolvers\Newmark;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic;$(ProjectDir)TnbLib\module;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamRigidBodyMotion_EXPORT_DEFINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
+if not exist "$(ProjectDir)include" mkdir "$(ProjectDir)include"
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)include" /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
     <ClCompile>
@@ -113,6 +235,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\compositeBody;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\cuboid;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\jointBody;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\masslessBody;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\rigidBody;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\sphere;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\subBody;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\composite;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\floating;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\function;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\functionDot;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\joint;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\null;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Pa;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Px;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Pxyz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Py;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Pz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Ra;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\rigid;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rs;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rx;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rxyz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Ry;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Ryxz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rzyx;$(ProjectDir)TnbLib\rigidBodyDynamics\joints;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\linearAxialAngularSpring;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\linearDamper;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\linearSpring;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\restraint;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\sphericalAngularDamper;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodyInertia;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodyModel;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodyModelState;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodyMotion;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodySolvers\CrankNicolson;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodySolvers\Newmark;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic;$(ProjectDir)TnbLib\module;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamRigidBodyMotion_EXPORT_DEFINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -163,6 +288,9 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\compositeBody;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\cuboid;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\jointBody;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\masslessBody;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\rigidBody;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\sphere;$(ProjectDir)TnbLib\rigidBodyDynamics\bodies\subBody;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\composite;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\floating;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\function;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\functionDot;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\joint;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\null;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Pa;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Px;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Pxyz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Py;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Pz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Ra;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\rigid;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rs;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rx;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rxyz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Ry;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Ryxz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rz;$(ProjectDir)TnbLib\rigidBodyDynamics\joints\Rzyx;$(ProjectDir)TnbLib\rigidBodyDynamics\joints;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\linearAxialAngularSpring;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\linearDamper;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\linearSpring;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\restraint;$(ProjectDir)TnbLib\rigidBodyDynamics\restraints\sphericalAngularDamper;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodyInertia;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodyModel;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodyModelState;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodyMotion;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodySolvers\CrankNicolson;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodySolvers\Newmark;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodySolvers\rigidBodySolver;$(ProjectDir)TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic;$(ProjectDir)TnbLib\module;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamRigidBodyMotion_EXPORT_DEFINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -170,8 +298,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
