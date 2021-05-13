@@ -25,6 +25,8 @@ License
 
 \*---------------------------------------------------------------------------*/
 
+#include <fvc.hxx>
+
 //extern "C"
 //{
     #include "MASTER.h"
@@ -33,7 +35,7 @@ License
 
 //#include "tecplotWriter.H"
 
-#include <fvc.hxx>
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

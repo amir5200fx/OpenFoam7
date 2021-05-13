@@ -72,6 +72,14 @@ Usage
 
 #include <includeAllModules.hxx>
 
+#undef max
+#undef min
+#include <one.hxx>
+#include <fvmSup.hxx>
+#include <solverPerformance.hxx>
+#include <geometricOneField.hxx>
+
+#include <oneField.hxx>
 #include <pointMesh.hxx>
 #include <volPointInterpolation.hxx>
 #include <emptyPolyPatch.hxx>
@@ -89,10 +97,12 @@ Usage
 #include "readFields.hxx"
 #include "tecplotWriter.hxx"
 
+
 #include <TECIO.h>
 
 // Note: needs to be after TECIO to prevent tnbLib::Time conflicting with
 // Xlib Time.
+
 #include <fvCFD.hxx>
 
 using namespace tnbLib;
@@ -124,7 +134,7 @@ void print(Ostream& os, const wordList& flds)
 }
 
 
-labelList getSelectedPatches
+tnbLib::labelList getSelectedPatches
 (
     const polyBoundaryMesh& patches,
     const List<wordRe>& excludePatches  // HashSet<word>& excludePatches
@@ -160,9 +170,6 @@ labelList getSelectedPatches
     }
     return patchIDs.shrink();
 }
-
-
-
 
 
 int main(int argc, char *argv[])
@@ -774,7 +781,7 @@ int main(int argc, char *argv[])
         {
             // Load the faceSet
             const word setName = args["faceSet"];
-            labelList faceLabels(faceSet(mesh, setName).toc());
+            tnbLib::labelList faceLabels(faceSet(mesh, setName).toc());
 
             // Filename as if patch with same name.
             mkDir(fvPath/setName);
@@ -896,7 +903,7 @@ int main(int argc, char *argv[])
 
         const polyBoundaryMesh& patches = mesh.boundaryMesh();
 
-        labelList patchIDs(getSelectedPatches(patches, excludePatches));
+        tnbLib::labelList patchIDs(getSelectedPatches(patches, excludePatches));
 
         mkDir(fvPath/"boundaryMesh");
 
