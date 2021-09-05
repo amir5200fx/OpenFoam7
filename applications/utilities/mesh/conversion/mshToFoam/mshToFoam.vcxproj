@@ -97,15 +97,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(MSMPI_LIB64);$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\utilities\mesh\conversion\mshToFoam\</OutDir>
+    <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoCopyHxx|x64'">
     <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(MSMPI_LIB64);$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\utilities\mesh\conversion\mshToFoam\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(MSMPI_LIB64);$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\utilities\mesh\conversion\mshToFoam\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
