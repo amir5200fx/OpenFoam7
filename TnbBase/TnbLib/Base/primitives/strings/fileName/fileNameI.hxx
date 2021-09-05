@@ -3,7 +3,7 @@
 
 inline void tnbLib::fileName::stripInvalid()
 {
-	if (debug && string::stripInvalid<fileName>(*this))
+	/*if (debug && string::stripInvalid<fileName>(*this))
 	{
 		std::cerr
 			<< "fileName::stripInvalid() called for invalid fileName "
@@ -19,7 +19,7 @@ inline void tnbLib::fileName::stripInvalid()
 
 		removeRepeated('/');
 		removeTrailing('/');
-	}
+	}*/
 }
 
 
