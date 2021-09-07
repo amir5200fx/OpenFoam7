@@ -183,6 +183,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fluentMeshToFoam", "fluentM
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fluentMeshToFoam", "applications\utilities\mesh\conversion\fluentMeshToFoam\fluentMeshToFoam.vcxproj", "{D628417C-D39A-40B2-AD34-3049F04D8309}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "checkMesh", "checkMesh", "{7F8959F2-5549-45F4-8847-78E86EF764D6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "checkMesh", "applications\utilities\mesh\manipulation\checkMesh\checkMesh.vcxproj", "{39304E35-0F9A-4A75-9946-04E7696C2174}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -740,6 +744,18 @@ Global
 		{D628417C-D39A-40B2-AD34-3049F04D8309}.Release|x64.Build.0 = Release|x64
 		{D628417C-D39A-40B2-AD34-3049F04D8309}.Release|x86.ActiveCfg = Release|Win32
 		{D628417C-D39A-40B2-AD34-3049F04D8309}.Release|x86.Build.0 = Release|Win32
+		{39304E35-0F9A-4A75-9946-04E7696C2174}.Debug|x64.ActiveCfg = Debug|x64
+		{39304E35-0F9A-4A75-9946-04E7696C2174}.Debug|x64.Build.0 = Debug|x64
+		{39304E35-0F9A-4A75-9946-04E7696C2174}.Debug|x86.ActiveCfg = Debug|Win32
+		{39304E35-0F9A-4A75-9946-04E7696C2174}.Debug|x86.Build.0 = Debug|Win32
+		{39304E35-0F9A-4A75-9946-04E7696C2174}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
+		{39304E35-0F9A-4A75-9946-04E7696C2174}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
+		{39304E35-0F9A-4A75-9946-04E7696C2174}.DebugNoCopyHxx|x86.ActiveCfg = Debug|Win32
+		{39304E35-0F9A-4A75-9946-04E7696C2174}.DebugNoCopyHxx|x86.Build.0 = Debug|Win32
+		{39304E35-0F9A-4A75-9946-04E7696C2174}.Release|x64.ActiveCfg = Release|x64
+		{39304E35-0F9A-4A75-9946-04E7696C2174}.Release|x64.Build.0 = Release|x64
+		{39304E35-0F9A-4A75-9946-04E7696C2174}.Release|x86.ActiveCfg = Release|Win32
+		{39304E35-0F9A-4A75-9946-04E7696C2174}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -811,6 +827,8 @@ Global
 		{77D33D35-DCCF-4266-907F-8820C220AF37} = {47243F96-F0C7-461A-B343-BF68DAFF7D14}
 		{E4D02D66-8F07-4B2E-B063-0831B9DA6BE1} = {E37B725E-02BC-48CC-8889-5B51916B0264}
 		{D628417C-D39A-40B2-AD34-3049F04D8309} = {E4D02D66-8F07-4B2E-B063-0831B9DA6BE1}
+		{7F8959F2-5549-45F4-8847-78E86EF764D6} = {A12C7235-D8DC-4019-A4F8-4AFA2CC45357}
+		{39304E35-0F9A-4A75-9946-04E7696C2174} = {7F8959F2-5549-45F4-8847-78E86EF764D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1107BF8D-1C23-4E64-93DE-E2F73CB09919}
