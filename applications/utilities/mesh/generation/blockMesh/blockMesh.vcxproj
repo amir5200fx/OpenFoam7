@@ -70,10 +70,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>$(MSMPI_LIB64);$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\utilities\mesh\generation\blockMesh\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>$(MSMPI_LIB64);$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\utilities\mesh\generation\blockMesh\</OutDir>
+    <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
