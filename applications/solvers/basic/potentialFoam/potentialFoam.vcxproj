@@ -71,9 +71,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\solvers\basic\potentialFoam\</OutDir>
+    <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LibraryPath>$(SolutionDir)Commons\mpi\lib;$(SolutionDir)Commons\zlib\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\solvers\basic\potentialFoam\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
