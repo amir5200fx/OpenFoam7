@@ -218,10 +218,10 @@ int main(int argc, char *argv[])
 	IOdictionary meshDict(meshDictIO);
 
 	auto keys = meshDict.keys();
-	for (int i = 0; i < keys.size(); i++)
+	/*for (int i = 0; i < keys.size(); i++)
 	{
 		std::cout << keys[i] << std::endl;
-	}
+	}*/
 
 	blockMesh blocks(meshDict, regionName);
 
