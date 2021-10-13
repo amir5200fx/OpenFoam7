@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{68c5f0d3-da63-4bbb-a045-82544ad37221}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Test-CompactIOList.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
