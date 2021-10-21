@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{50a409fe-d4a6-4b79-81ca-5a482c1fe379}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Test-dictionary.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
