@@ -75,7 +75,7 @@ namespace tnbLib
 		// Constructors
 
 			//- Construct from all cells and boundary faces
-		explicit CECCellToCellStencil(const polyMesh&);
+		FoamFiniteVolume_EXPORT explicit CECCellToCellStencil(const polyMesh&);
 
 	};
 
