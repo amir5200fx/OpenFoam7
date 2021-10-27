@@ -26,85 +26,90 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::regionModels::surfaceFilmModels::noRadiation
+	tnbLib::radiationModels::noRadiation
 
 Description
-	Dummy radiation model for 'none' option
+	No radiation - does nothing to energy equation source terms
+	(returns zeros)
 
 SourceFiles
 	noRadiation.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <filmRadiationModel.hxx>
-#include <volFieldsFwd.hxx>
+#include <radiationModel.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace regionModels
+	namespace radiationModels
 	{
-		namespace surfaceFilmModels
+
+		/*---------------------------------------------------------------------------*\
+								 Class noRadiation Declaration
+		\*---------------------------------------------------------------------------*/
+
+		class noRadiation
+			:
+			public radiationModel
 		{
+		public:
 
-			/*---------------------------------------------------------------------------*\
-									 Class noRadiation Declaration
-			\*---------------------------------------------------------------------------*/
-
-			class noRadiation
-				:
-				public filmRadiationModel
-			{
-			public:
-
-				//- Runtime type information
-				//TypeName("none");
-				static const char* typeName_() { return "none"; }
-				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
-				static FoamLagrangian_EXPORT int debug;
-				virtual const word& type() const { return typeName; };
+			//- Runtime type information
+			//TypeName("none");
+			static const char* typeName_() { return "none"; }
+			static FoamRadiationModels_EXPORT const ::tnbLib::word typeName;
+			static FoamRadiationModels_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
-				// Constructors
+			// Constructors
 
-					//- Construct from surface film model and dictionary
-				FoamLagrangian_EXPORT noRadiation
-				(
-					surfaceFilmRegionModel& film,
-					const dictionary& dict
-				);
+				//- Construct from components
+			FoamRadiationModels_EXPORT noRadiation(const volScalarField& T);
 
-				//- Disallow default bitwise copy construction
-				FoamLagrangian_EXPORT noRadiation(const noRadiation&) = delete;
+			//- Construct from components
+			FoamRadiationModels_EXPORT noRadiation(const dictionary& dict, const volScalarField& T);
 
-
-				//- Destructor
-				FoamLagrangian_EXPORT virtual ~noRadiation();
+			//- Disallow default bitwise copy construction
+			FoamRadiationModels_EXPORT noRadiation(const noRadiation&) = delete;
 
 
-				// Member Functions
-
-					// Evolution
-
-						//- Correct
-				FoamLagrangian_EXPORT virtual void correct();
-
-				//- Return the radiation sensible enthalpy source
-				FoamLagrangian_EXPORT virtual tmp<volScalarField> Shs();
+			//- Destructor
+			FoamRadiationModels_EXPORT virtual ~noRadiation();
 
 
-				// Member Operators
+			// Member Functions
 
-					//- Disallow default bitwise assignment
-				FoamLagrangian_EXPORT void operator=(const noRadiation&) = delete;
-			};
+				// Edit
+
+					//- Main update/correction routine
+			FoamRadiationModels_EXPORT void correct();
+
+			//- Solve radiation equation(s)
+			FoamRadiationModels_EXPORT void calculate();
+
+			//- Read radiationProperties dictionary
+			FoamRadiationModels_EXPORT bool read();
+
+			//- Source term component (for power of T^4)
+			FoamRadiationModels_EXPORT tmp<volScalarField> Rp() const;
+
+			//- Source term component (constant)
+			FoamRadiationModels_EXPORT tmp<volScalarField::Internal> Ru() const;
 
 
-			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+			// Member Operators
 
-		} // End namespace surfaceFilmModels
-	} // End namespace regionModels
+				//- Disallow default bitwise assignment
+			FoamRadiationModels_EXPORT void operator=(const noRadiation&) = delete;
+		};
+
+
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+	} // End namespace radiationModels
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

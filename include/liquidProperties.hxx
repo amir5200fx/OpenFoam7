@@ -366,7 +366,7 @@ namespace tnbLib
 
 		//- Invert the vapour pressure relationship to retrieve the
 		//  boiling temperuture as a function of pressure
-		virtual scalar pvInvert(scalar p) const;
+		virtual FoamThermophysicalModels_EXPORT scalar pvInvert(scalar p) const;
 
 
 		// I-O
