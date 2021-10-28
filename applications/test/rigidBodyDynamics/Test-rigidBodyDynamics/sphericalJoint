@@ -1,0 +1,33 @@
+solver
+{
+    type Newmark;
+}
+
+bodies
+{
+    pendulum
+    {
+        type            rigidBody;
+        mass            1;
+        centreOfMass    (0 -1 0);
+        inertia         (0.001 0 0 0.001 0 0.001);
+        parent          root;
+        transform       (1 0 0 0 1 0 0 0 1) (0 0 0);
+        joint
+        {
+            type            Rs;
+        }
+        outline         ((0 0 0) (0 -2 0));
+    }
+}
+
+g (0 -9.81 0);
+
+q (0 0 0.149438);
+
+deltaT 0.01;
+
+// It is necessary to iterate for the Newmark solver
+nIter 2;
+
+endTime 4.1;
