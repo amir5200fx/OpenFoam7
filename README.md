@@ -11,4 +11,4 @@ I’m currently working on porting the Linux version of OpenFoam 7 source code i
 
 # Warning!
 * Use ONLY Microsoft visual studio 2017 to compile the code.
-* To avoid any issue while compiling the code, please, clone the code into the root of your directory. e.g: "C:\OpemFoam7\..."
+* To avoid any issue while compiling the code, please, clone the code into the root of your directory. e.g: "C:\OpemFoam7\ ..."
