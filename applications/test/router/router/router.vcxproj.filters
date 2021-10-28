@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{140e6aee-16f7-43b4-9c16-1464d46c999e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="router.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="GatherBase.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Gather.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="GatherI.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="GatherBaseI.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="router.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Test-processorRouter.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
