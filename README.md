@@ -7,4 +7,4 @@ I’m currently working on porting the Linux version of OpenFoam 7 source code i
 *	Visual studio is very sensitive to macros that have been redefined. OpenFoam uses macros, extensively and some of them are redefined constantly; so, all of them had to be replaced by equivalent codes.
 *	All implementations of template functions are moved to header files.
 *	All functions that are defined in cxx file have been exported to create a dynamic lib
-* I had to slightly change the code in some areas such as Istream.hxx to break cycle inclusion between Istream and token
+* I had to slightly change the code in some areas such as Istream.hxx to break cycle inclusion between Istream and token.
