@@ -1,7 +1,4 @@
 #pragma once
-#ifndef _directionInfo_Header
-#define _directionInfo_Header
-
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -26,134 +23,75 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::directionInfo
+    tnbLib::wallNormalInfo
 
 Description
-    Holds direction in which to split cell (in fact a local coordinate axes).
-    Information is a label and a direction.
-
-    The direction is the normal
-    direction to cut in. The label's meaning depends on whether the info
-    is on a cell or on a face:
-        - in cell: edge that is being cut. (determines for hex how cut is)
-        - in face: local face point that is being cut or -1.
-            -# (-1)  : cut is tangential to plane
-            -# (>= 0): edge fp..fp+1 is cut
-
-            (has to be facepoint, not vertex since vertex not valid across
-             processors whereas f[0] should correspond to f[0] on other side)
-
-    The rule is that if the label is set (-1 or higher) it is used
-    (topological information only), otherwise the vector is used. This makes
-    sure that we use topological information as much as possible and so a
-    hex mesh is cut purely topologically. All other shapes are cut
-    geometrically.
+    Holds information regarding nearest wall point.
+    Used in wall refinement.
 
 SourceFiles
-    directionInfoI.H
-    directionInfo.C
+    wallNormalInfoI.H
+    wallNormalInfo.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <point.hxx>
-#include <labelList.hxx>
+#include <label.hxx>
+#include <scalar.hxx>
 #include <tensor.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
+
+    // Forward declaration of classes
     class polyPatch;
-    class polyMesh;
-    class primitiveMesh;
-    class edge;
-    class face;
     class polyMesh;
 
 
     // Forward declaration of friend functions and operators
 
-    class directionInfo;
+    class wallNormalInfo;
 
-    Istream& operator>>(Istream&, directionInfo&);
-    Ostream& operator<<(Ostream&, const directionInfo&);
+    Istream& operator>>(Istream&, wallNormalInfo&);
+    Ostream& operator<<(Ostream&, const wallNormalInfo&);
 
 
     /*---------------------------------------------------------------------------*\
-                               Class directionInfo Declaration
+                               Class wallNormalInfo Declaration
     \*---------------------------------------------------------------------------*/
 
-    class directionInfo
+    class wallNormalInfo
     {
         // Private Data
 
-            // Either mesh edge or face point
-        label index_;
-
-        // Local n axis
-        vector n_;
-
+            //- Normal at nearest wall point
+        vector normal_;
 
         // Private Member Functions
 
-            //- Find edge among edgeLabels that uses v0 and v1
-        static label findEdge
-        (
-            const primitiveMesh& mesh,
-            const labelList& edgeLabels,
-            const label v1,
-            const label v0
-        );
-
-        //- Return 'lowest' of a,b in face of size.
-        static label lowest
-        (
-            const label size,
-            const label a,
-            const label b
-        );
+            //- Evaluate distance to point. Update normal_
+        template<class TrackingData>
+        inline bool update(const wallNormalInfo& w2, TrackingData& td);
 
     public:
-
-        // Static Functions
-
-            //- Given edge on hex cell find corresponding edge on face. Is either
-            //  index in face or -1 (cut tangential to face). Public since is
-            //  needed to fill in seed faces in meshWave.
-        static label edgeToFaceIndex
-        (
-            const primitiveMesh& mesh,
-            const label celli,
-            const label facei,
-            const label edgeI
-        );
 
         // Constructors
 
             //- Construct null
-        inline directionInfo();
+        inline wallNormalInfo();
 
-        //- Construct from components
-        inline directionInfo
-        (
-            const label,
-            const vector& n
-        );
+        //- Construct from normal
+        inline wallNormalInfo(const vector& normal);
 
 
         // Member Functions
 
             // Access
 
-        inline label index() const
-        {
-            return index_;
-        }
+        inline const vector& normal() const;
 
-        inline const vector& n() const
-        {
-            return n_;
-        }
 
         // Needed by FaceCellWave
 
@@ -167,7 +105,7 @@ namespace tnbLib
         inline bool sameGeometry
         (
             const polyMesh&,
-            const directionInfo&,
+            const wallNormalInfo&,
             const scalar,
             TrackingData& td
         ) const;
@@ -211,7 +149,7 @@ namespace tnbLib
             const polyMesh&,
             const label thisCelli,
             const label neighbourFacei,
-            const directionInfo& neighbourInfo,
+            const wallNormalInfo& neighbourInfo,
             const scalar tol,
             TrackingData& td
         );
@@ -223,7 +161,7 @@ namespace tnbLib
             const polyMesh&,
             const label thisFacei,
             const label neighbourCelli,
-            const directionInfo& neighbourInfo,
+            const wallNormalInfo& neighbourInfo,
             const scalar tol,
             TrackingData& td
         );
@@ -234,33 +172,33 @@ namespace tnbLib
         (
             const polyMesh&,
             const label thisFacei,
-            const directionInfo& neighbourInfo,
+            const wallNormalInfo& neighbourInfo,
             const scalar tol,
             TrackingData& td
         );
 
         //- Same (like operator==)
         template<class TrackingData>
-        inline bool equal(const directionInfo&, TrackingData& td) const;
+        inline bool equal(const wallNormalInfo&, TrackingData& td) const;
 
         // Member Operators
 
             // Needed for List IO
-        inline bool operator==(const directionInfo&) const;
+        inline bool operator==(const wallNormalInfo&) const;
 
-        inline bool operator!=(const directionInfo&) const;
+        inline bool operator!=(const wallNormalInfo&) const;
 
 
         // IOstream Operators
 
-        friend Ostream& operator<<(Ostream&, const directionInfo&);
-        friend Istream& operator>>(Istream&, directionInfo&);
+        friend Ostream& operator<<(Ostream&, const wallNormalInfo&);
+        friend Istream& operator>>(Istream&, wallNormalInfo&);
     };
 
 
-    //- Data associated with directionInfo type are contiguous
+    //- Data associated with wallNormalInfo type are contiguous
     template<>
-    inline bool contiguous<directionInfo>()
+    inline bool contiguous<wallNormalInfo>()
     {
         return true;
     }
@@ -272,6 +210,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <directionInfoI.hxx>
+#include <wallNormalInfoI.hxx>
 
-#endif // !_directionInfo_Header
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

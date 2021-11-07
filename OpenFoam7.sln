@@ -745,6 +745,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "wordRe", "wordRe", "{B22DD6
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test-wordRe", "applications\test\wordRe\Test-wordRe\Test-wordRe.vcxproj", "{45FF1B02-1B36-45F5-AA3E-E5E9F6AC97D0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "autoRefineMesh", "autoRefineMesh", "{5B2F092F-5B29-4F70-8AD2-709922BA6162}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "autoRefineMesh", "applications\utilities\mesh\advanced\autoRefineMesh\autoRefineMesh\autoRefineMesh.vcxproj", "{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -2898,6 +2902,18 @@ Global
 		{45FF1B02-1B36-45F5-AA3E-E5E9F6AC97D0}.Release|x64.Build.0 = Release|x64
 		{45FF1B02-1B36-45F5-AA3E-E5E9F6AC97D0}.Release|x86.ActiveCfg = Release|Win32
 		{45FF1B02-1B36-45F5-AA3E-E5E9F6AC97D0}.Release|x86.Build.0 = Release|Win32
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}.Debug|x64.ActiveCfg = Debug|x64
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}.Debug|x64.Build.0 = Debug|x64
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}.Debug|x86.ActiveCfg = Debug|Win32
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}.Debug|x86.Build.0 = Debug|Win32
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}.DebugNoCopyHxx|x86.ActiveCfg = Debug|Win32
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}.DebugNoCopyHxx|x86.Build.0 = Debug|Win32
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}.Release|x64.ActiveCfg = Release|x64
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}.Release|x64.Build.0 = Release|x64
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}.Release|x86.ActiveCfg = Release|Win32
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -3250,6 +3266,8 @@ Global
 		{6DA4D608-D71B-4FE1-97C2-717F67D5B6DB} = {90A71C7D-E640-4074-A6BC-D4D15E1E4EC4}
 		{B22DD663-FB7B-4B95-8451-4973A9B05409} = {DCAC5BCB-A3BF-4CAC-A021-4568E4771E87}
 		{45FF1B02-1B36-45F5-AA3E-E5E9F6AC97D0} = {B22DD663-FB7B-4B95-8451-4973A9B05409}
+		{5B2F092F-5B29-4F70-8AD2-709922BA6162} = {D49A2448-BE2E-4143-A4A5-AB225FA2908C}
+		{D9A5AE28-C0D7-4B40-AE0E-209627689A5B} = {5B2F092F-5B29-4F70-8AD2-709922BA6162}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1107BF8D-1C23-4E64-93DE-E2F73CB09919}

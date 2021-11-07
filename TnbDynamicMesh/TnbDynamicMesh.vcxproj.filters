@@ -265,6 +265,9 @@
     <Filter Include="TnbLib\dynamicMesh\module">
       <UniqueIdentifier>{81c77082-8ede-4f28-8773-03892bf696a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\dynamicMesh\meshCut\wallLayerCells\wallNormalInfo">
+      <UniqueIdentifier>{f64c3bbd-fbf5-4810-b263-89b649abf056}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.hxx">
@@ -588,6 +591,60 @@
     <ClInclude Include="TnbLib\dynamicMesh\module\DynamicMesh_Module.hxx">
       <Filter>TnbLib\dynamicMesh\module</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\cellCuts\cellCuts.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\cellCuts</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\edgeVertex\edgeVertex.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\edgeVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\refineCell\refineCell.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\refineCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\cellLooper\cellLooper.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\cellLooper</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\cellLooper\geomCellLooper.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\cellLooper</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\cellLooper\hexCellLooper.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\cellLooper</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\cellLooper\topoCellLooper.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\cellLooper</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\directions\directions.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\directions</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\meshModifiers\boundaryCutter\boundaryCutter.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\meshModifiers\boundaryCutter</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutAndRemove\meshCutAndRemove.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutAndRemove</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutter\meshCutter.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutter</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\meshModifiers\multiDirRefinement\multiDirRefinement.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\meshModifiers\multiDirRefinement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\meshModifiers\refinementIterator\refinementIterator.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\meshModifiers\refinementIterator</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\meshModifiers\undoableMeshCutter\undoableMeshCutter.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\meshModifiers\undoableMeshCutter</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\splitCell\splitCell.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\splitCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\wallLayerCells\wallNormalInfo\wallNormalInfo.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\wallLayerCells\wallNormalInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\wallLayerCells\wallNormalInfo\wallNormalInfoI.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\wallLayerCells\wallNormalInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\dynamicMesh\meshCut\wallLayerCells\wallLayerCells.hxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\wallLayerCells</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.cxx">
@@ -883,6 +940,60 @@
     </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\slidingInterface\layerAdditionRemovalNamedEnum.cxx">
       <Filter>TnbLib\dynamicMesh\slidingInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\cellCuts\cellCuts.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\cellCuts</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\edgeVertex\edgeVertex.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\edgeVertex</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\refineCell\refineCell.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\refineCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\cellLooper\cellLooper.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\cellLooper</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\cellLooper\geomCellLooper.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\cellLooper</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\cellLooper\hexCellLooper.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\cellLooper</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\cellLooper\topoCellLooper.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\cellLooper</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\directions\directions.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\directions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\directions\directionsNamedEnum.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\directions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\meshModifiers\boundaryCutter\boundaryCutter.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\meshModifiers\boundaryCutter</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutAndRemove\meshCutAndRemove.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutAndRemove</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutter\meshCutter.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\meshModifiers\meshCutter</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\meshModifiers\multiDirRefinement\multiDirRefinement.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\meshModifiers\multiDirRefinement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\meshModifiers\refinementIterator\refinementIterator.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\meshModifiers\refinementIterator</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\meshModifiers\undoableMeshCutter\undoableMeshCutter.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\meshModifiers\undoableMeshCutter</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\splitCell\splitCell.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\splitCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\wallLayerCells\wallNormalInfo\wallNormalInfo.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\wallLayerCells\wallNormalInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\meshCut\wallLayerCells\wallLayerCells.cxx">
+      <Filter>TnbLib\dynamicMesh\meshCut\wallLayerCells</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
