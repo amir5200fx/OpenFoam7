@@ -77,7 +77,7 @@ namespace tnbLib
 
             //- Walk across faces of hex. Update loop/loopWeights with edges cut.
             //  Return true if successful walk. (should be always!)
-        bool walkHex
+        FoamDynamicMesh_EXPORT bool walkHex
         (
             const label celli,
             const label startFacei,
@@ -88,7 +88,7 @@ namespace tnbLib
         ) const;
 
         //- Convert loop into face and points
-        void makeFace
+        FoamDynamicMesh_EXPORT void makeFace
         (
             const labelList& loop,
             const scalarField& loopWeights,
@@ -101,20 +101,24 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("hexCellLooper");
+        /*TypeName("hexCellLooper");*/
+        static const char* typeName_() { return "hexCellLooper"; }
+        static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamDynamicMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Constructors
 
             //- Construct from components
-        hexCellLooper(const polyMesh& mesh);
+        FoamDynamicMesh_EXPORT hexCellLooper(const polyMesh& mesh);
 
         //- Disallow default bitwise copy construction
         hexCellLooper(const hexCellLooper&) = delete;
 
 
         //- Destructor
-        virtual ~hexCellLooper();
+        FoamDynamicMesh_EXPORT virtual ~hexCellLooper();
 
 
         // Member Functions
@@ -123,7 +127,7 @@ namespace tnbLib
             //  Cut along circumference is expressed as loop of cuts plus weights
             //  for cuts along edges (only valid for edge cuts).
             //  Return true if successful cut.
-        virtual bool cut
+        FoamDynamicMesh_EXPORT virtual bool cut
         (
             const vector& refDir,
             const label celli,
@@ -138,7 +142,7 @@ namespace tnbLib
 
         //- Same but now also base point of cut provided (instead of always
         //  cell centre)
-        virtual bool cut
+        FoamDynamicMesh_EXPORT virtual bool cut
         (
             const plane& cutPlane,
             const label celli,

@@ -155,25 +155,25 @@ namespace tnbLib
         // Private Static Functions
 
             //- Do list 1 and 2 share elements?
-        static bool uses(const labelList& elems1, const labelList& elems2);
+        static FoamDynamicMesh_EXPORT bool uses(const labelList& elems1, const labelList& elems2);
 
         //- Do the elements of edge appear in consecutive order in the list
-        static bool isIn(const edge&, const labelList&);
+        static FoamDynamicMesh_EXPORT bool isIn(const edge&, const labelList&);
 
 
         // Private Member Functions
 
             //- Returns -1 or the cell in cellLabels that is cut.
-        label findCutCell(const cellCuts&, const labelList&) const;
+        FoamDynamicMesh_EXPORT label findCutCell(const cellCuts&, const labelList&) const;
 
         //- Returns first pointi in pointLabels that uses an internal
         //  face. Used to find point to inflate cell/face from (has to be
         //  connected to internal face)
-        label findInternalFacePoint(const labelList& pointLabels) const;
+        FoamDynamicMesh_EXPORT label findInternalFacePoint(const labelList& pointLabels) const;
 
         //- Get new owner and neighbour of face. Checks anchor points to see if
         // need to get original or added cell.
-        void faceCells
+        FoamDynamicMesh_EXPORT void faceCells
         (
             const cellCuts& cuts,
             const label facei,
@@ -182,7 +182,7 @@ namespace tnbLib
         ) const;
 
         //- Get patch information for face.
-        void getFaceInfo
+        FoamDynamicMesh_EXPORT void getFaceInfo
         (
             const label facei,
             label& patchID,
@@ -192,7 +192,7 @@ namespace tnbLib
 
         //- Adds a face on top of existing facei. Flips face
         //  if owner>neighbour
-        void addFace
+        FoamDynamicMesh_EXPORT void addFace
         (
             polyTopoChange& meshMod,
             const label facei,
@@ -204,7 +204,7 @@ namespace tnbLib
         //- Modifies existing facei for either new owner/neighbour or
         //  new face points. Checks if anything changed and flips face
         //  if owner>neighbour
-        void modFace
+        FoamDynamicMesh_EXPORT void modFace
         (
             polyTopoChange& meshMod,
             const label facei,
@@ -216,7 +216,7 @@ namespace tnbLib
 
         // Copies face starting from startFp. Jumps cuts. Marks visited
         // vertices in visited.
-        void copyFace
+        FoamDynamicMesh_EXPORT void copyFace
         (
             const face& f,
             const label startFp,
@@ -226,7 +226,7 @@ namespace tnbLib
 
         //- Split face along cut into two faces. Faces are in same point
         //  order as original face (i.e. maintain normal direction)
-        void splitFace
+        FoamDynamicMesh_EXPORT void splitFace
         (
             const face& f,
             const label v0,
@@ -237,10 +237,10 @@ namespace tnbLib
         ) const;
 
         //- Add cuts of edges to face
-        face addEdgeCutsToFace(const label facei) const;
+        FoamDynamicMesh_EXPORT face addEdgeCutsToFace(const label facei) const;
 
         //- Convert loop of cuts into face.
-        face loopToFace
+        FoamDynamicMesh_EXPORT face loopToFace
         (
             const label celli,
             const labelList& loop
@@ -248,7 +248,7 @@ namespace tnbLib
 
 
         //- Get elements of cell.
-        void getFacesEdgesPoints
+        FoamDynamicMesh_EXPORT void getFacesEdgesPoints
         (
             const label celli,
             labelHashSet& faces,
@@ -260,20 +260,23 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        ClassName("meshCutter");
+        /*ClassName("meshCutter");*/
+        static const char* typeName_() { return "meshCutter"; }
+    	static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+    	static FoamDynamicMesh_EXPORT int debug;
 
 
         // Constructors
 
             //- Construct from mesh
-        meshCutter(const polyMesh& mesh);
+        FoamDynamicMesh_EXPORT  meshCutter(const polyMesh& mesh);
 
         //- Disallow default bitwise copy construction
         meshCutter(const meshCutter&) = delete;
 
 
         //- Destructor
-        ~meshCutter();
+        FoamDynamicMesh_EXPORT ~meshCutter();
 
 
         // Member Functions
@@ -282,10 +285,10 @@ namespace tnbLib
 
                 //- Do actual cutting with cut description. Inserts mesh changes
                 //  into meshMod.
-        void setRefinement(const cellCuts& cuts, polyTopoChange& meshMod);
+        FoamDynamicMesh_EXPORT void setRefinement(const cellCuts& cuts, polyTopoChange& meshMod);
 
         //- Force recalculation of locally stored data on topological change
-        void updateMesh(const mapPolyMesh&);
+        FoamDynamicMesh_EXPORT void updateMesh(const mapPolyMesh&);
 
 
         // Access

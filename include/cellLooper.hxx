@@ -78,7 +78,7 @@ namespace tnbLib
         // Protected Member Functions
 
             //- Get faces (on cell) connected to vertI which are not using edgeI
-        labelList getVertFacesNonEdge
+        FoamDynamicMesh_EXPORT labelList getVertFacesNonEdge
         (
             const label celli,
             const label edgeI,
@@ -86,14 +86,14 @@ namespace tnbLib
         ) const;
 
         //- Get first edge connected to vertI and on facei
-        label getFirstVertEdge
+        FoamDynamicMesh_EXPORT label getFirstVertEdge
         (
             const label facei,
             const label vertI
         ) const;
 
         //- Get edges (on cell) connected to vertI which are not on facei
-        labelList getVertEdgesNonFace
+        FoamDynamicMesh_EXPORT labelList getVertEdgesNonFace
         (
             const label celli,
             const label facei,
@@ -102,13 +102,17 @@ namespace tnbLib
 
         //- Return edge from cellEdges that is most perpendicular
         //  to refinement direction.
-        label getMisAlignedEdge(const vector& refDir, const label celli) const;
+        FoamDynamicMesh_EXPORT label getMisAlignedEdge(const vector& refDir, const label celli) const;
 
 
     public:
 
         //- Runtime type information
-        TypeName("cellLooper");
+        /*TypeName("cellLooper");*/
+        static const char* typeName_() { return "cellLooper"; }
+        static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamDynamicMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Declare run-time constructor selection table
@@ -129,10 +133,10 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        cellLooper(const polyMesh& mesh);
+        FoamDynamicMesh_EXPORT cellLooper(const polyMesh& mesh);
 
         //- Disallow default bitwise copy construction
-        cellLooper(const cellLooper&) = delete;
+        FoamDynamicMesh_EXPORT cellLooper(const cellLooper&) = delete;
 
         //- Clone
         autoPtr<cellLooper> clone() const
@@ -145,7 +149,7 @@ namespace tnbLib
         // Selectors
 
             //- Return a reference to the selected cellLooper
-        static autoPtr<cellLooper> New
+        static FoamDynamicMesh_EXPORT autoPtr<cellLooper> New
         (
             const word& type,
             const polyMesh& mesh
@@ -153,7 +157,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~cellLooper();
+        FoamDynamicMesh_EXPORT virtual ~cellLooper();
 
 
         // Member Functions

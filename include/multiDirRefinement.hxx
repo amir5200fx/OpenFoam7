@@ -91,28 +91,28 @@ namespace tnbLib
 
             //- Given map from original to added cell set the refineCell for
             //  the added cells to be equal to the one on the original cells.
-        static void addCells(const Map<label>&, List<refineCell>&);
+        static FoamDynamicMesh_EXPORT void addCells(const Map<label>&, List<refineCell>&);
 
         //- Given map from original to added cell set the vectorField for
         //  the added cells to be equal to the one on the original cells.
-        static void update(const Map<label>&, vectorField&);
+        static FoamDynamicMesh_EXPORT void update(const Map<label>&, vectorField&);
 
         //- Given map from original to added cell add the added cell to the
         //  list of labels
-        static void addCells(const Map<label>&, labelList& labels);
+        static FoamDynamicMesh_EXPORT void addCells(const Map<label>&, labelList& labels);
 
 
         // Private Member Functions
 
             //- Add new cells from map to overall list (addedCells_).
-        void addCells(const primitiveMesh&, const Map<label>&);
+        FoamDynamicMesh_EXPORT void addCells(const primitiveMesh&, const Map<label>&);
 
         //- Remove hexes from cellLabels_ and return these in a list.
-        labelList splitOffHex(const primitiveMesh& mesh);
+        FoamDynamicMesh_EXPORT labelList splitOffHex(const primitiveMesh& mesh);
 
 
         //- Refine cells (hex only) in all 3 directions.
-        void refineHex8
+        FoamDynamicMesh_EXPORT void refineHex8
         (
             polyMesh& mesh,
             const labelList& hexCells,
@@ -120,7 +120,7 @@ namespace tnbLib
         );
 
         //- Refine cells in cellLabels_ in directions mentioned.
-        void refineAllDirs
+        FoamDynamicMesh_EXPORT void refineAllDirs
         (
             polyMesh& mesh,
             List<vectorField>& cellDirections,
@@ -130,7 +130,7 @@ namespace tnbLib
         );
 
         //- Refine based on dictionary. Calls refineAllDirs.
-        void refineFromDict
+        FoamDynamicMesh_EXPORT void refineFromDict
         (
             polyMesh& mesh,
             List<vectorField>& cellDirections,
@@ -142,7 +142,10 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        ClassName("multiDirRefinement");
+        /*ClassName("multiDirRefinement");*/
+        static const char* typeName_() { return "multiDirRefinement"; }
+        static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamDynamicMesh_EXPORT int debug;
 
 
         // Constructors
@@ -150,7 +153,7 @@ namespace tnbLib
             //- Construct from dictionary. After construction all refinement will
             //  have been done (and runTime will have increased a few time steps if
             //  writeMesh = true)
-        multiDirRefinement
+        FoamDynamicMesh_EXPORT multiDirRefinement
         (
             polyMesh& mesh,
             const labelList& cellLabels,    // cells to refine
@@ -158,7 +161,7 @@ namespace tnbLib
         );
 
         //- Explicitly provided directions to split in.
-        multiDirRefinement
+        FoamDynamicMesh_EXPORT multiDirRefinement
         (
             polyMesh& mesh,
             const labelList& cellLabels,    // cells to refine
@@ -167,7 +170,7 @@ namespace tnbLib
         );
 
         //- Construct from components. Only this one would allow undo actions.
-        multiDirRefinement
+        FoamDynamicMesh_EXPORT  multiDirRefinement
         (
             polyMesh& mesh,
             undoableMeshCutter& cutter,     // actual mesh modifier

@@ -111,14 +111,14 @@ namespace tnbLib
         // Private Member Functions
 
             //- Debug print
-        void printCellRefTree(Ostream& os, const word&, const splitCell*)
+        FoamDynamicMesh_EXPORT void printCellRefTree(Ostream& os, const word&, const splitCell*)
             const;
 
         //- Debug print
-        void printRefTree(Ostream& os) const;
+        FoamDynamicMesh_EXPORT void printRefTree(Ostream& os) const;
 
         //- Find shared face between two cells
-        label sharedFace
+        FoamDynamicMesh_EXPORT label sharedFace
         (
             const label cell0I,
             const label cell1I
@@ -126,28 +126,30 @@ namespace tnbLib
 
 
         //- Update labels on splitCell structure after morphing.
-        static void updateLabels(const labelList& map, Map<splitCell*>&);
+        static FoamDynamicMesh_EXPORT void updateLabels(const labelList& map, Map<splitCell*>&);
 
 
     public:
 
         //- Runtime type information
-        ClassName("undoableMeshCutter");
-
+        /*ClassName("undoableMeshCutter");*/
+        static const char* typeName_() { return "undoableMeshCutter"; }
+        static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamDynamicMesh_EXPORT int debug;
 
 
         // Constructors
 
             //- Construct from mesh and flag whether refinement pattern needs
             //  to be stored.
-        undoableMeshCutter(const polyMesh& mesh, const bool undoable = true);
+        FoamDynamicMesh_EXPORT undoableMeshCutter(const polyMesh& mesh, const bool undoable = true);
 
         //- Disallow default bitwise copy construction
-        undoableMeshCutter(const undoableMeshCutter&) = delete;
+        FoamDynamicMesh_EXPORT undoableMeshCutter(const undoableMeshCutter&) = delete;
 
 
         //- Destructor
-        ~undoableMeshCutter();
+        FoamDynamicMesh_EXPORT ~undoableMeshCutter();
 
 
         // Member Functions
@@ -172,26 +174,26 @@ namespace tnbLib
 
             //- Refine cells acc. to cellCuts. Plays topology changes
             //  into polyTopoChange.
-        void setRefinement(const cellCuts& cuts, polyTopoChange&);
+        FoamDynamicMesh_EXPORT void setRefinement(const cellCuts& cuts, polyTopoChange&);
 
         //- Update stored refinement pattern for changes to mesh. Only
         //  call if undoable set.
-        void updateMesh(const mapPolyMesh& morphMap);
+        FoamDynamicMesh_EXPORT void updateMesh(const mapPolyMesh& morphMap);
 
         //- Calculate split faces from current liveCells. Only
         //  call if undoable set.
-        labelList getSplitFaces() const;
+        FoamDynamicMesh_EXPORT labelList getSplitFaces() const;
 
         //- Like getSplitFaces but returns map from original to added cell.
         //  Only call if undoable set.
-        Map<label> getAddedCells() const;
+        FoamDynamicMesh_EXPORT Map<label> getAddedCells() const;
 
         //- Remove some refinement. Needs to be supplied subset of
         //  getSplitFaces() output. Returns list of faces removed
         //  (can be more or equal but never less than splitFaces - since
         //  removeFaces might decide to take down unnecessary faces)
         //  Only call if undoable set.
-        labelList removeSplitFaces
+        FoamDynamicMesh_EXPORT labelList removeSplitFaces
         (
             const labelList& splitFaces,
             polyTopoChange&

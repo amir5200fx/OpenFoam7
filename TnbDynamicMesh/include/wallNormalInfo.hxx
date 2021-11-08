@@ -54,8 +54,8 @@ namespace tnbLib
 
     class wallNormalInfo;
 
-    Istream& operator>>(Istream&, wallNormalInfo&);
-    Ostream& operator<<(Ostream&, const wallNormalInfo&);
+    FoamDynamicMesh_EXPORT Istream& operator>>(Istream&, wallNormalInfo&);
+    FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const wallNormalInfo&);
 
 
     /*---------------------------------------------------------------------------*\
@@ -191,8 +191,8 @@ namespace tnbLib
 
         // IOstream Operators
 
-        friend Ostream& operator<<(Ostream&, const wallNormalInfo&);
-        friend Istream& operator>>(Istream&, wallNormalInfo&);
+        friend FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const wallNormalInfo&);
+        friend FoamDynamicMesh_EXPORT Istream& operator>>(Istream&, wallNormalInfo&);
     };
 
 

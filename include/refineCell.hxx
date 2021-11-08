@@ -48,7 +48,7 @@ namespace tnbLib
 
     class refineCell;
 
-    Ostream& operator<<(Ostream&, const refineCell&);
+    FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const refineCell&);
 
 
     /*---------------------------------------------------------------------------*\
@@ -70,13 +70,13 @@ namespace tnbLib
         // Constructors
 
             //- Null
-        refineCell();
+        FoamDynamicMesh_EXPORT refineCell();
 
         //- From components. Vector will be normalized upon construction.
-        refineCell(const label, const vector&);
+        FoamDynamicMesh_EXPORT refineCell(const label, const vector&);
 
         //- From Istream. Vector will be normalized upon construction.
-        refineCell(Istream& is);
+        FoamDynamicMesh_EXPORT refineCell(Istream& is);
 
 
         // Member Functions
@@ -115,7 +115,7 @@ namespace tnbLib
 
         // IOstream Operators
 
-        friend Ostream& operator<<(Ostream&, const refineCell&);
+        FoamDynamicMesh_EXPORT friend Ostream& operator<<(Ostream&, const refineCell&);
     };
 
 

@@ -66,15 +66,15 @@ namespace tnbLib
 
             //- Update refine list from map. Used to update cell/face labels
             //  after morphing
-        static void updateLabels(const labelList& map, List<refineCell>&);
+        static FoamDynamicMesh_EXPORT void updateLabels(const labelList& map, List<refineCell>&);
 
         //- Update map from map. Used to update cell/face labels
         //  after morphing
-        static void updateLabels(const labelList& map, Map<label>&);
+        static FoamDynamicMesh_EXPORT void updateLabels(const labelList& map, Map<label>&);
 
         //- Update map from map. Used to update cell/face labels
         //  after morphing
-        static void updateLabels(const labelList& map, labelHashSet&);
+        static FoamDynamicMesh_EXPORT void updateLabels(const labelList& map, labelHashSet&);
 
 
 
@@ -114,6 +114,7 @@ namespace tnbLib
 
             return eVert >= mesh.nPoints();
         }
+
         bool isEdge(const label eVert) const
         {
             return isEdge(mesh_, eVert);
@@ -130,6 +131,7 @@ namespace tnbLib
             }
             return eVert - mesh.nPoints();
         }
+
         label getEdge(const label eVert) const
         {
             return getEdge(mesh_, eVert);
@@ -146,6 +148,7 @@ namespace tnbLib
             }
             return eVert;
         }
+
         label getVertex(const label eVert) const
         {
             return getVertex(mesh_, eVert);
@@ -162,6 +165,7 @@ namespace tnbLib
             }
             return vertI;
         }
+
         label vertToEVert(const label vertI) const
         {
             return vertToEVert(mesh_, vertI);
@@ -178,40 +182,43 @@ namespace tnbLib
             }
             return mesh.nPoints() + edgeI;
         }
+
         label edgeToEVert(const label edgeI) const
         {
             return edgeToEVert(mesh_, edgeI);
         }
 
         //- Return coordinate of cut (uses weight if edgeCut)
-        static point coord
+        static FoamDynamicMesh_EXPORT point coord
         (
             const primitiveMesh&,
             const label cut,
             const scalar weight
         );
+
         point coord(const label cut, const scalar weight) const
         {
             return coord(mesh_, cut, weight);
         }
 
         //- Find mesh edge (or -1) between two cuts.
-        static label cutPairToEdge
+        static FoamDynamicMesh_EXPORT label cutPairToEdge
         (
             const primitiveMesh&,
             const label cut0,
             const label cut1
         );
+
         label cutPairToEdge(const label cut0, const label cut1) const
         {
             return cutPairToEdge(mesh_, cut0, cut1);
         }
 
         //- Write cut description to Ostream
-        Ostream& writeCut(Ostream& os, const label cut, const scalar) const;
+        FoamDynamicMesh_EXPORT Ostream& writeCut(Ostream& os, const label cut, const scalar) const;
 
         //- Write cut descriptions to Ostream
-        Ostream& writeCuts
+        FoamDynamicMesh_EXPORT Ostream& writeCuts
         (
             Ostream& os,
             const labelList&,

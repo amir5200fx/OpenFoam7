@@ -58,18 +58,21 @@ namespace tnbLib
         // Private Member Functions
 
             //- Check if any of the faces of celli is on processorPatch
-        bool usesCoupledPatch(const label celli) const;
+        FoamDynamicMesh_EXPORT bool usesCoupledPatch(const label celli) const;
 
     public:
 
         //- Runtime type information
-        ClassName("wallLayerCells");
+        /*ClassName("wallLayerCells");*/
+        static const char* typeName_() { return "wallLayerCells"; }
+        static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamDynamicMesh_EXPORT int debug;
 
 
         // Constructors
 
             //- Construct from components
-        wallLayerCells
+        FoamDynamicMesh_EXPORT wallLayerCells
         (
             const polyMesh& mesh,
             const List<word>& patchNames,

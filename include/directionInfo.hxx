@@ -55,9 +55,11 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <DynamicMesh_Module.hxx>
 #include <point.hxx>
 #include <labelList.hxx>
 #include <tensor.hxx>
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -75,8 +77,8 @@ namespace tnbLib
 
     class directionInfo;
 
-    Istream& operator>>(Istream&, directionInfo&);
-    Ostream& operator<<(Ostream&, const directionInfo&);
+    FoamDynamicMesh_EXPORT Istream& operator>>(Istream&, directionInfo&);
+    FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const directionInfo&);
 
 
     /*---------------------------------------------------------------------------*\
@@ -97,7 +99,7 @@ namespace tnbLib
         // Private Member Functions
 
             //- Find edge among edgeLabels that uses v0 and v1
-        static label findEdge
+        static FoamDynamicMesh_EXPORT label findEdge
         (
             const primitiveMesh& mesh,
             const labelList& edgeLabels,
@@ -106,7 +108,7 @@ namespace tnbLib
         );
 
         //- Return 'lowest' of a,b in face of size.
-        static label lowest
+        static FoamDynamicMesh_EXPORT label lowest
         (
             const label size,
             const label a,
@@ -120,7 +122,7 @@ namespace tnbLib
             //- Given edge on hex cell find corresponding edge on face. Is either
             //  index in face or -1 (cut tangential to face). Public since is
             //  needed to fill in seed faces in meshWave.
-        static label edgeToFaceIndex
+        static FoamDynamicMesh_EXPORT label edgeToFaceIndex
         (
             const primitiveMesh& mesh,
             const label celli,
@@ -253,8 +255,8 @@ namespace tnbLib
 
         // IOstream Operators
 
-        friend Ostream& operator<<(Ostream&, const directionInfo&);
-        friend Istream& operator>>(Istream&, directionInfo&);
+        friend FoamDynamicMesh_EXPORT Ostream& operator<<(Ostream&, const directionInfo&);
+        friend FoamDynamicMesh_EXPORT Istream& operator>>(Istream&, directionInfo&);
     };
 
 
