@@ -175,7 +175,7 @@ tnbLib::label tnbLib::directionInfo::edgeToFaceIndex
 
 // * * * * * * * * * * * * * * * Friend Operators  * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamDynamicMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
     tnbLib::Ostream& os,
     const tnbLib::directionInfo& wDist
@@ -201,7 +201,7 @@ tnbLib::Ostream& tnbLib::operator<<
 }
 
 
-tnbLib::Istream& tnbLib::operator>>(tnbLib::Istream& is, tnbLib::directionInfo& wDist)
+FoamDynamicMesh_EXPORT tnbLib::Istream& tnbLib::operator>>(tnbLib::Istream& is, tnbLib::directionInfo& wDist)
 {
     if (is.format() == IOstream::ASCII)
     {

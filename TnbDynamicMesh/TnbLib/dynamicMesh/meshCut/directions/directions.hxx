@@ -83,16 +83,16 @@ namespace tnbLib
 
     private:
 
-        static const NamedEnum<directionType, 3> directionTypeNames_;
+        static FoamDynamicMesh_EXPORT const NamedEnum<directionType, 3> directionTypeNames_;
 
 
         // Private Member Functions
 
             //- For debugging. Write point coordinate.
-        static void writeOBJ(Ostream& os, const point& pt);
+        static FoamDynamicMesh_EXPORT void writeOBJ(Ostream& os, const point& pt);
 
         //- For debugging. Write edge between two points.
-        static void writeOBJ
+        static FoamDynamicMesh_EXPORT void writeOBJ
         (
             Ostream& os,
             const point& pt0,
@@ -101,7 +101,7 @@ namespace tnbLib
         );
 
         //- For debugging. Write hedgehog display of vectorField as obj file.
-        static void writeOBJ
+        static FoamDynamicMesh_EXPORT void writeOBJ
         (
             const fileName& fName,
             const primitiveMesh& mesh,
@@ -110,7 +110,7 @@ namespace tnbLib
 
         //- Check if vec has no component in 2D normal direction. Exits if
         //  so.
-        static void check2D
+        static FoamDynamicMesh_EXPORT void check2D
         (
             const twoDPointCorrector* correct2DPtr,
             const vector& vec
@@ -118,7 +118,7 @@ namespace tnbLib
 
         //- Get coordinate direction for all cells in mesh by propagating from
         //  vector on patch.
-        static vectorField propagateDirection
+        static FoamDynamicMesh_EXPORT vectorField propagateDirection
         (
             const polyMesh& mesh,
             const bool useTopo,
@@ -133,7 +133,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from mesh and dictionary and optional 2D corrector.
-        directions
+        FoamDynamicMesh_EXPORT directions
         (
             const polyMesh& mesh,
             const dictionary& dict,
