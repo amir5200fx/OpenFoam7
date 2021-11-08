@@ -56,7 +56,7 @@ tnbLib::refineCell::refineCell(Istream& is)
 
 // * * * * * * * * * * * * * * * IOstream Operators  * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const refineCell& r)
+FoamDynamicMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const refineCell& r)
 {
     if (os.format() == IOstream::ASCII)
     {
