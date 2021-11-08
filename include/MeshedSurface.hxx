@@ -556,6 +556,12 @@ namespace tnbLib
 		return 0;
 	}
 
+	template<>
+	FoamFvMesh_EXPORT void MeshedSurface<triFace>::transcribe(MeshedSurface<face>& surf);  //- added by Payvand
+
+	template<>
+	FoamFvMesh_EXPORT void MeshedSurface<face>::transcribe(MeshedSurface<face>& surf);  //- added by Payvand
+
 
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
