@@ -151,7 +151,7 @@ namespace tnbLib
         // Private Static Functions
 
             //- Find value in first n elements of list.
-        static label findPartIndex
+        static FoamDynamicMesh_EXPORT label findPartIndex
         (
             const labelList&,
             const label n,
@@ -160,11 +160,11 @@ namespace tnbLib
 
         //- Create boolList with all labels specified set to true
         //  (and rest to false)
-        static boolList expand(const label size, const labelList& labels);
+        static FoamDynamicMesh_EXPORT boolList expand(const label size, const labelList& labels);
 
         //- Create scalarField with all specified labels set to corresponding
         //  value in scalarField.
-        static scalarField expand
+        static FoamDynamicMesh_EXPORT scalarField expand
         (
             const label,
             const labelList&,
@@ -173,7 +173,7 @@ namespace tnbLib
 
         //- Returns -1 or index of first element of lst that cannot be found
         //  in map.
-        static label firstUnique
+        static FoamDynamicMesh_EXPORT label firstUnique
         (
             const labelList& lst,
             const Map<label>&
@@ -183,10 +183,10 @@ namespace tnbLib
 
             //- Debugging: write cell's edges and any cut vertices and edges
             //  (so no cell loop determined yet)
-        void writeUncutOBJ(const fileName&, const label celli) const;
+        FoamDynamicMesh_EXPORT void writeUncutOBJ(const fileName&, const label celli) const;
 
         //- Debugging: write cell's edges, loop and anchors to directory.
-        void writeOBJ
+        FoamDynamicMesh_EXPORT void writeOBJ
         (
             const fileName& dir,
             const label celli,
@@ -195,7 +195,7 @@ namespace tnbLib
         ) const;
 
         //- Find face on cell using the two edges.
-        label edgeEdgeToFace
+        FoamDynamicMesh_EXPORT label edgeEdgeToFace
         (
             const label celli,
             const label edgeA,
@@ -204,7 +204,7 @@ namespace tnbLib
 
 
         //- Find face on cell using an edge and a vertex.
-        label edgeVertexToFace
+        FoamDynamicMesh_EXPORT label edgeVertexToFace
         (
             const label celli,
             const label edgeI,
@@ -212,7 +212,7 @@ namespace tnbLib
         ) const;
 
         //- Find face using two vertices (guaranteed not to be along edge)
-        label vertexVertexToFace
+       FoamDynamicMesh_EXPORT label vertexVertexToFace
         (
             const label celli,
             const label vertA,
@@ -223,13 +223,13 @@ namespace tnbLib
         // Cut addressing
 
             //- Calculate faceCuts in face vertex order.
-        void calcFaceCuts() const;
+       FoamDynamicMesh_EXPORT void calcFaceCuts() const;
 
 
         // Loop (cuts on cell circumference) calculation
 
             //- Find edge (or -1) on facei using vertices v0,v1
-        label findEdge
+       FoamDynamicMesh_EXPORT label findEdge
         (
             const label facei,
             const label v0,
@@ -237,10 +237,10 @@ namespace tnbLib
         ) const;
 
         //- Find face on which all cuts are (very rare) or -1.
-        label loopFace(const label celli, const labelList& loop) const;
+       FoamDynamicMesh_EXPORT label loopFace(const label celli, const labelList& loop) const;
 
         //- Cross otherCut into next faces (not exclude0, exclude1)
-        bool walkPoint
+       FoamDynamicMesh_EXPORT bool walkPoint
         (
             const label celli,
             const label startCut,
@@ -255,7 +255,7 @@ namespace tnbLib
         ) const;
 
         //- Cross cut (which is edge on facei) onto next face
-        bool crossEdge
+       FoamDynamicMesh_EXPORT bool crossEdge
         (
             const label celli,
             const label startCut,
@@ -268,7 +268,7 @@ namespace tnbLib
 
         // wrapper around visited[nVisited++] = cut. Checks for duplicate
         // cuts.
-        bool addCut
+       FoamDynamicMesh_EXPORT bool addCut
         (
             const label celli,
             const label cut,
@@ -279,7 +279,7 @@ namespace tnbLib
         //- Walk across facei following cuts, starting at cut. Stores cuts
         //  visited
         // Returns true if valid walk.
-        bool walkFace
+       FoamDynamicMesh_EXPORT bool walkFace
         (
             const label celli,
             const label startCut,
@@ -295,7 +295,7 @@ namespace tnbLib
         //- Walk across cuts (cut edges or cut vertices) of cell. Stops when
         //  hit cut  already visited. Returns true when loop of 3 or more
         //  vertices found.
-        bool walkCell
+       FoamDynamicMesh_EXPORT bool walkCell
         (
             const label celli,
             const label startCut,   // overall starting cut
@@ -306,13 +306,13 @@ namespace tnbLib
         ) const;
 
         //- Determine for every cut cell the face it is cut by.
-        void calcCellLoops(const labelList& cutCells);
+       FoamDynamicMesh_EXPORT void calcCellLoops(const labelList& cutCells);
 
 
         // Cell anchoring
 
             //- Are there enough faces on anchor side of celli?
-        bool checkFaces
+       FoamDynamicMesh_EXPORT bool checkFaces
         (
             const label celli,
             const labelList& anchorPoints
@@ -320,7 +320,7 @@ namespace tnbLib
 
         //- Walk unset edges of single cell from starting point and
         //  marks visited edges and vertices with status.
-        void walkEdges
+       FoamDynamicMesh_EXPORT void walkEdges
         (
             const label celli,
             const label pointi,
@@ -331,7 +331,7 @@ namespace tnbLib
         ) const;
 
         //- Check anchor points on 'outside' of loop
-        bool loopAnchorConsistent
+       FoamDynamicMesh_EXPORT bool loopAnchorConsistent
         (
             const label celli,
             const pointField& loopPts,
@@ -341,7 +341,7 @@ namespace tnbLib
         //- Determines set of anchor points given a loop. The loop should
         //  split the cell into two. Returns true if a valid set of anchor
         //  points determined, false otherwise.
-        bool calcAnchors
+       FoamDynamicMesh_EXPORT bool calcAnchors
         (
             const label celli,
             const labelList& loop,
@@ -352,25 +352,25 @@ namespace tnbLib
 
         //- Returns coordinates of points on loop with explicitly provided
         //  weights.
-        pointField loopPoints
+       FoamDynamicMesh_EXPORT pointField loopPoints
         (
             const labelList& loop,
             const scalarField& loopWeights
         ) const;
 
         //- Returns weights of loop. Inverse of loopPoints.
-        scalarField loopWeights(const labelList& loop) const;
+       FoamDynamicMesh_EXPORT scalarField loopWeights(const labelList& loop) const;
 
         //- Check if cut edges in loop are compatible with ones in
         //  edgeIsCut_
-        bool validEdgeLoop
+       FoamDynamicMesh_EXPORT bool validEdgeLoop
         (
             const labelList& loop,
             const scalarField& loopWeights
         ) const;
 
         //- Counts number of cuts on face.
-        label countFaceCuts
+       FoamDynamicMesh_EXPORT label countFaceCuts
         (
             const label facei,
             const labelList& loop
@@ -378,7 +378,7 @@ namespace tnbLib
 
         //- Determine compatibility of loop with existing cut pattern.
         //  Does not use cut-addressing (faceCuts_, cutCuts_)
-        bool conservativeValidLoop
+       FoamDynamicMesh_EXPORT bool conservativeValidLoop
         (
             const label celli,
             const labelList& loop
@@ -388,7 +388,7 @@ namespace tnbLib
         //  pointIsCut, edgeIsCut, faceSplitCut.
         //  Calculates and returns for current cell the cut faces and the
         //  points on one side of the loop.
-        bool validLoop
+       FoamDynamicMesh_EXPORT bool validLoop
         (
             const label celli,
             const labelList& loop,
@@ -400,10 +400,10 @@ namespace tnbLib
         //- Update basic cut information from cellLoops.
         //  Assumes cellLoops_ and edgeWeight_ already set and consistent.
         //  Does not use any other information.
-        void setFromCellLoops();
+       FoamDynamicMesh_EXPORT void setFromCellLoops();
 
         //- Update basic cut information for single cell from cellLoop.
-        bool setFromCellLoop
+       FoamDynamicMesh_EXPORT bool setFromCellLoop
         (
             const label celli,
             const labelList& loop,
@@ -412,7 +412,7 @@ namespace tnbLib
 
         //- Update basic cut information from cellLoops. Checks for
         //  consistency with existing cut pattern.
-        void setFromCellLoops
+       FoamDynamicMesh_EXPORT void setFromCellLoops
         (
             const labelList& cellLabels,
             const labelListList& cellLoops,
@@ -421,11 +421,11 @@ namespace tnbLib
 
         //- Update basic cut information to be consistent across
         //  coupled boundaries.
-        void syncProc();
+       FoamDynamicMesh_EXPORT void syncProc();
 
         //- Cut cells and update basic cut information from cellLoops.
         //  Checks each loop for consistency with existing cut pattern.
-        void setFromCellCutter
+       FoamDynamicMesh_EXPORT void setFromCellCutter
         (
             const cellLooper&,
             const List<refineCell>& refCells
@@ -433,7 +433,7 @@ namespace tnbLib
 
         //- Same as above but now cut with prescribed plane (instead of
         //  just normal).
-        void setFromCellCutter
+       FoamDynamicMesh_EXPORT void setFromCellCutter
         (
             const cellLooper&,
             const labelList& cellLabels,
@@ -441,26 +441,28 @@ namespace tnbLib
         );
 
         //- Set orientation of loops
-        void orientPlanesAndLoops();
+       FoamDynamicMesh_EXPORT void orientPlanesAndLoops();
 
         //- Top level driver: addressing calculation and loop detection
         //  (loops splitting cells).
-        void calcLoopsAndAddressing(const labelList& cutCells);
+       FoamDynamicMesh_EXPORT void calcLoopsAndAddressing(const labelList& cutCells);
 
         //- Check various consistencies.
-        void check() const;
+       FoamDynamicMesh_EXPORT void check() const;
 
 
     public:
 
         //- Runtime type information
-        ClassName("cellCuts");
+        static const char* typeName_() { return "cellCuts"; }
+    	static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+    	static FoamDynamicMesh_EXPORT int debug;
 
 
         // Constructors
 
             //- Construct from cells to cut and pattern of cuts
-        cellCuts
+        FoamDynamicMesh_EXPORT cellCuts
         (
             const polyMesh& mesh,
             const labelList& cutCells,
@@ -470,7 +472,7 @@ namespace tnbLib
         );
 
         //- Construct from pattern of cuts. Detect cells to cut.
-        cellCuts
+        FoamDynamicMesh_EXPORT cellCuts
         (
             const polyMesh& mesh,
             const labelList& meshVerts,
@@ -481,7 +483,7 @@ namespace tnbLib
         //- Construct from complete cellLoops through specified cells.
         //  Checks for consistency.
         //  Constructs cut-cut addressing and cellAnchorPoints.
-        cellCuts
+        FoamDynamicMesh_EXPORT cellCuts
         (
             const polyMesh& mesh,
             const labelList& cellLabels,
@@ -491,7 +493,7 @@ namespace tnbLib
 
         //- Construct from list of cells to cut and direction to cut in
         //  (always through cell centre) and celllooper.
-        cellCuts
+        FoamDynamicMesh_EXPORT cellCuts
         (
             const polyMesh& mesh,
             const cellLooper& cellCutter,
@@ -500,7 +502,7 @@ namespace tnbLib
 
         //- Construct from list of cells to cut and plane to cut with and
         //  celllooper. (constructor above always cuts through cell centre)
-        cellCuts
+        FoamDynamicMesh_EXPORT cellCuts
         (
             const polyMesh& mesh,
             const cellLooper& cellCutter,
@@ -509,7 +511,7 @@ namespace tnbLib
         );
 
         //- Construct from components
-        cellCuts
+        FoamDynamicMesh_EXPORT cellCuts
         (
             const polyMesh& mesh,
             const boolList& pointIsCut,
@@ -522,14 +524,14 @@ namespace tnbLib
         );
 
         //- Disallow default bitwise copy construction
-        cellCuts(const cellCuts&) = delete;
+        FoamDynamicMesh_EXPORT cellCuts(const cellCuts&) = delete;
 
 
         //- Destructor
-        ~cellCuts();
+        FoamDynamicMesh_EXPORT ~cellCuts();
 
         //- Clear out demand driven storage
-        void clearOut();
+        FoamDynamicMesh_EXPORT void clearOut();
 
 
         // Member Functions
@@ -594,10 +596,10 @@ namespace tnbLib
 
             //- Returns coordinates of points on loop for given cell.
             //  Uses cellLoops_ and edgeWeight_
-        pointField loopPoints(const label celli) const;
+        FoamDynamicMesh_EXPORT pointField loopPoints(const label celli) const;
 
         //- Invert anchor point selection.
-        labelList nonAnchorPoints
+        FoamDynamicMesh_EXPORT labelList nonAnchorPoints
         (
             const labelList& cellPoints,
             const labelList& anchorPoints,
@@ -605,17 +607,17 @@ namespace tnbLib
         ) const;
 
         //- Flip loop for celli. Updates anchor points as well.
-        void flip(const label celli);
+        FoamDynamicMesh_EXPORT void flip(const label celli);
 
         //- Flip loop for celli. Does not update anchors. Use with care
         //  (only if you're sure loop orientation is wrong)
-        void flipLoopOnly(const label celli);
+        FoamDynamicMesh_EXPORT void flipLoopOnly(const label celli);
 
 
         // Write
 
             //- debugging:Write list of cuts to stream in OBJ format
-        void writeOBJ
+        FoamDynamicMesh_EXPORT void writeOBJ
         (
             Ostream& os,
             const pointField& loopPoints,
@@ -623,10 +625,10 @@ namespace tnbLib
         ) const;
 
         //- debugging:Write all of cuts to stream in OBJ format
-        void writeOBJ(Ostream& os) const;
+        FoamDynamicMesh_EXPORT void writeOBJ(Ostream& os) const;
 
         //- debugging:Write edges of cell and loop
-        void writeCellOBJ(const fileName& dir, const label celli) const;
+        FoamDynamicMesh_EXPORT void writeCellOBJ(const fileName& dir, const label celli) const;
 
 
         // Member Operators
