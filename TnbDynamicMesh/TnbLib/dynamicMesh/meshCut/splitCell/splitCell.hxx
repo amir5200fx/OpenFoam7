@@ -72,14 +72,14 @@ namespace tnbLib
         // Constructors
 
             //- Construct from cell number and parent
-        splitCell(const label celli, splitCell* parent);
+        FoamDynamicMesh_EXPORT splitCell(const label celli, splitCell* parent);
 
         //- Disallow default bitwise copy construction
-        splitCell(const splitCell&) = delete;
+        FoamDynamicMesh_EXPORT splitCell(const splitCell&) = delete;
 
 
         //- Destructor
-        ~splitCell();
+        FoamDynamicMesh_EXPORT ~splitCell();
 
 
         // Member Functions
@@ -127,19 +127,19 @@ namespace tnbLib
         }
 
         //- Check if this is master cell of split
-        bool isMaster() const;
+        FoamDynamicMesh_EXPORT bool isMaster() const;
 
         //- Check if this is unrefined (i.e. has no master or slave)
-        bool isUnrefined() const;
+        FoamDynamicMesh_EXPORT bool isUnrefined() const;
 
         //- Returns other half of split cell. I.e. slave if this is master.
-        splitCell* getOther() const;
+        FoamDynamicMesh_EXPORT splitCell* getOther() const;
 
 
         // Member Operators
 
             //- Disallow default bitwise assignment
-        void operator=(const splitCell&) = delete;
+        FoamDynamicMesh_EXPORT void operator=(const splitCell&) = delete;
     };
 
 
