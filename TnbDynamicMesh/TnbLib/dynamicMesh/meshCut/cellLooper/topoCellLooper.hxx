@@ -82,7 +82,7 @@ namespace tnbLib
         );
 
         //- Walk across superface discarding non-feature points.
-        void walkFace
+        FoamDynamicMesh_EXPORT void walkFace
         (
             const cellFeatures& features,
             const label facei,
@@ -97,7 +97,7 @@ namespace tnbLib
         //- Returns list of vertices on 'superEdge' i.e. list of edges connected
         // by non-feature points. First and last are feature points, ones
         // in between are not.
-        labelList getSuperEdge
+        FoamDynamicMesh_EXPORT labelList getSuperEdge
         (
             const cellFeatures& features,
             const label facei,
@@ -107,7 +107,7 @@ namespace tnbLib
 
         // Return non-feature edge from cells' edges that is most
         // perpendicular to refinement direction. Used as starting edge.
-        label getAlignedNonFeatureEdge
+        FoamDynamicMesh_EXPORT label getAlignedNonFeatureEdge
         (
             const vector& refDir,
             const label celli,
@@ -118,7 +118,7 @@ namespace tnbLib
         // and steps either to existing vertex (vertI != -1) or to edge
         // (vertI == -1)
         // by walking point-edge and crossing nFeats featurePoints.
-        void walkAcrossFace
+        FoamDynamicMesh_EXPORT void walkAcrossFace
         (
             const cellFeatures& features,
             const label facei,
@@ -132,7 +132,7 @@ namespace tnbLib
 
         //- Walks splitcell circumference. Sets loop/loopweights to walk on
         //  outside of cell.
-        void walkSplitHex
+        FoamDynamicMesh_EXPORT void walkSplitHex
         (
             const label celli,
             const cellFeatures& features,
@@ -148,25 +148,29 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("topoCellLooper");
+        /*TypeName("topoCellLooper");*/
+        static const char* typeName_() { return "topoCellLooper"; }
+        static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamDynamicMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
         // Static Data Members
 
             //- Cos of angle for feature recognition (of splitHexes)
-        static const scalar featureCos;
+        static FoamDynamicMesh_EXPORT const scalar featureCos;
 
 
         // Constructors
 
             //- Construct from components
-        topoCellLooper(const polyMesh& mesh);
+        FoamDynamicMesh_EXPORT topoCellLooper(const polyMesh& mesh);
 
         //- Disallow default bitwise copy construction
         topoCellLooper(const topoCellLooper&) = delete;
 
 
         //- Destructor
-        virtual ~topoCellLooper();
+        FoamDynamicMesh_EXPORT virtual ~topoCellLooper();
 
 
         // Member Functions
@@ -175,7 +179,7 @@ namespace tnbLib
             //  Cut along circumference is expressed as loop of cuts plus weights
             //  for cuts along edges (only valid for edge cuts).
             //  Return true if successful cut.
-        virtual bool cut
+        FoamDynamicMesh_EXPORT virtual bool cut
         (
             const vector& refDir,
             const label celli,
@@ -189,7 +193,7 @@ namespace tnbLib
 
         //- Same but now also base point of cut provided (instead of always
         //  cell centre)
-        virtual bool cut
+        FoamDynamicMesh_EXPORT virtual bool cut
         (
             const plane& cutPlane,
             const label celli,

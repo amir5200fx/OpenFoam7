@@ -69,20 +69,20 @@ namespace tnbLib
         // Static
 
             //- Tolerance for point equal test. Fraction of edge length.
-        static const scalar pointEqualTol_;
+        static FoamDynamicMesh_EXPORT const scalar pointEqualTol_;
 
         //- Tolerance for cut through edges to get snapped to edge end point.
         //  Fraction of length of minimum connected edge length.
-        static scalar snapTol_;
+        static FoamDynamicMesh_EXPORT scalar snapTol_;
 
 
         // Private Member Functions
 
             //- Min length of attached edges
-        scalar minEdgeLen(const label vertI) const;
+        FoamDynamicMesh_EXPORT scalar minEdgeLen(const label vertI) const;
 
         //- Return true and set weight if edge is cut
-        bool cutEdge
+        FoamDynamicMesh_EXPORT bool cutEdge
         (
             const plane& cutPlane,
             const label edgeI,
@@ -91,7 +91,7 @@ namespace tnbLib
 
         //- Snaps cut through edge by cut through vertex (if weight closer than
         //  tol to 0 or 1). Returns vertex label snapped to or -1.
-        label snapToVert
+        FoamDynamicMesh_EXPORT label snapToVert
         (
             const scalar tol,
             const label edgeI,
@@ -100,7 +100,7 @@ namespace tnbLib
 
         //- Gets two (random) vectors perpendicular to n and each other to be
         //  used as base.
-        void getBase
+        FoamDynamicMesh_EXPORT void getBase
         (
             const vector& n,
             vector& e0,
@@ -109,13 +109,17 @@ namespace tnbLib
 
         //- Return true if the cut edge at loop[index] is in between the cuts
         //  through the edge end points.
-        bool edgeEndsCut(const labelList&, const label index) const;
+        FoamDynamicMesh_EXPORT bool edgeEndsCut(const labelList&, const label index) const;
 
 
     public:
 
         //- Runtime type information
-        TypeName("geomCellLooper");
+        /*TypeName("geomCellLooper");*/
+        static const char* typeName_() { return "geomCellLooper"; }
+        static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamDynamicMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Static Functions
@@ -134,14 +138,14 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        geomCellLooper(const polyMesh& mesh);
+        FoamDynamicMesh_EXPORT geomCellLooper(const polyMesh& mesh);
 
         //- Disallow default bitwise copy construction
         geomCellLooper(const geomCellLooper&) = delete;
 
 
         //- Destructor
-        virtual ~geomCellLooper();
+        FoamDynamicMesh_EXPORT virtual ~geomCellLooper();
 
 
         // Member Functions
@@ -150,7 +154,7 @@ namespace tnbLib
             //  Cut along circumference is expressed as loop of cuts plus weights
             //  for cuts along edges (only valid for edge cuts).
             //  Return true if successful cut.
-        virtual bool cut
+        FoamDynamicMesh_EXPORT virtual bool cut
         (
             const vector& refDir,
             const label celli,
@@ -164,7 +168,7 @@ namespace tnbLib
 
         //- Same but now also base point of cut provided (instead of always
         //  cell centre)
-        virtual bool cut
+        FoamDynamicMesh_EXPORT virtual bool cut
         (
             const plane& cutPlane,
             const label celli,
