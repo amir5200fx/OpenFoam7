@@ -84,7 +84,10 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        ClassName("refinementIterator");
+        /*ClassName("refinementIterator");*/
+        static const char* typeName_() { return "refinementIterator"; }
+        static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamDynamicMesh_EXPORT int debug;
 
 
         // Constructors
@@ -92,7 +95,7 @@ namespace tnbLib
             //- Construct from mesh, refinementEngine and cell walking routine.
             //  If writeMesh = true increments runTime and writes intermediate
             //  meshes.
-        refinementIterator
+        FoamDynamicMesh_EXPORT refinementIterator
         (
             polyMesh& mesh,
             undoableMeshCutter& meshRefiner,
@@ -102,14 +105,14 @@ namespace tnbLib
 
 
         //- Destructor
-        ~refinementIterator();
+        FoamDynamicMesh_EXPORT ~refinementIterator();
 
 
         // Member Functions
 
             //- Try to refine cells in given direction. Constructs intermediate
             //  meshes. Returns map from old to added cells.
-        Map<label> setRefinement(const List<refineCell>&);
+        FoamDynamicMesh_EXPORT Map<label> setRefinement(const List<refineCell>&);
 
     };
 

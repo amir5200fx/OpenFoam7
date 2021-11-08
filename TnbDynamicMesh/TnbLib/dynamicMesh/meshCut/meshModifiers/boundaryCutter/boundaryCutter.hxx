@@ -81,7 +81,7 @@ namespace tnbLib
         // Private Member Functions
 
             //- Get patch and zone info for face
-        void getFaceInfo
+        FoamDynamicMesh_EXPORT void getFaceInfo
         (
             const label facei,
             label& patchID,
@@ -90,10 +90,10 @@ namespace tnbLib
         ) const;
 
         //- Add cuts of edges to face
-        face addEdgeCutsToFace(const label facei, const Map<labelList>&) const;
+        FoamDynamicMesh_EXPORT face addEdgeCutsToFace(const label facei, const Map<labelList>&) const;
 
         //- Splits faces with multiple cut edges. Return true if anything split.
-        bool splitFace
+        FoamDynamicMesh_EXPORT bool splitFace
         (
             const label facei,
             const Map<point>& pointToPos,
@@ -102,7 +102,7 @@ namespace tnbLib
         ) const;
 
         //- Add/modify facei for new vertices.
-        void addFace
+        FoamDynamicMesh_EXPORT void addFace
         (
             const label facei,
             const face& newFace,
@@ -115,19 +115,22 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        ClassName("boundaryCutter");
+        /*ClassName("boundaryCutter");*/
+        static const char* typeName_() { return "boundaryCutter"; }
+    	static FoamDynamicMesh_EXPORT const ::tnbLib::word typeName;
+    	static FoamDynamicMesh_EXPORT int debug;
 
         // Constructors
 
             //- Construct from mesh
-        boundaryCutter(const polyMesh& mesh);
+        FoamDynamicMesh_EXPORT boundaryCutter(const polyMesh& mesh);
 
         //- Disallow default bitwise copy construction
         boundaryCutter(const boundaryCutter&) = delete;
 
 
         //- Destructor
-        ~boundaryCutter();
+        FoamDynamicMesh_EXPORT ~boundaryCutter();
 
 
         // Member Functions
@@ -141,7 +144,7 @@ namespace tnbLib
                 //  faceToSplit : per face the diagonal split
                 //  faceToFeaturePoint : per face the feature point. Triangulation
                 //                       around this feature point.
-        void setRefinement
+        FoamDynamicMesh_EXPORT void setRefinement
         (
             const Map<point>& pointToPos,
             const Map<List<point>>& edgeToCuts,
@@ -151,7 +154,7 @@ namespace tnbLib
         );
 
         //- Force recalculation of locally stored data on topological change
-        void updateMesh(const mapPolyMesh&);
+        FoamDynamicMesh_EXPORT void updateMesh(const mapPolyMesh&);
 
 
         // Access
