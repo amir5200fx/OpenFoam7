@@ -1,0 +1,99 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+License
+    This file is part of OpenFOAM.
+
+    OpenFOAM is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+    for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
+
+Description
+    Create intermediate mesh files from PROSTAR files
+
+\*---------------------------------------------------------------------------*/
+
+#include "starMesh.hxx"
+
+#include <Time.hxx>
+#include <polyMesh.hxx>
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+void tnbLib::starMesh::writeMesh()
+{
+    if (isShapeMesh_)
+    {
+        Info << "This is a shapeMesh." << endl;
+
+        Info << "Default patch type set to empty" << endl;
+
+        clearExtraStorage();
+
+        polyMesh pShapeMesh
+        (
+            IOobject
+            (
+                polyMesh::defaultRegion,
+                runTime_.constant(),
+                runTime_
+            ),
+            clone(points_),           // we could probably re-use the data
+            cellShapes_,
+            boundary_,
+            patchNames_,
+            patchTypes_,
+            defaultFacesName_,
+            defaultFacesType_,
+            patchPhysicalTypes_
+        );
+
+        Info << "Writing polyMesh" << endl;
+        pShapeMesh.write();
+    }
+    else
+    {
+        // This is a polyMesh.
+
+        createPolyMeshData();
+
+        Info << "This is a polyMesh" << endl;
+
+        clearExtraStorage();
+
+        polyMesh pMesh
+        (
+            IOobject
+            (
+                polyMesh::defaultRegion,
+                runTime_.constant(),
+                runTime_
+            ),
+            clone(points_),           // we could probably re-use the data
+            clone(meshFaces_),
+            clone(cellPolys_)
+        );
+
+        // adding patches also checks the mesh
+        pMesh.addPatches(polyBoundaryPatches(pMesh));
+
+        Info << "Writing polyMesh" << endl;
+        pMesh.write();
+    }
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{b02c45eb-7287-4d41-90b8-bb0919c6f261}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="starMesh.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="coupledFacePair.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="star3ToFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="readPoints.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="calcPointCells.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="coupledFacePair.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="createBoundaryFaces.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="createCoupleMatches.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="createPolyBoundary.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="createPolyCells.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="fixCollapsedEdges.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="mergeCoupleFacePoints.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="purgeCellShapes.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="readBoundary.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="readCells.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="readCouples.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="readSeparatedPoints.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="starMesh.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="writeMesh.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
