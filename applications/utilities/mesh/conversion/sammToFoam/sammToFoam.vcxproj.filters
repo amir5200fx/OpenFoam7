@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{a9fb2706-06e1-4b93-a922-cc7d1c1bc336}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sammMesh.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="starMesh.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sammMesh.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="writeMesh.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="calcPointCells.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="createBoundaryFaces.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="createPolyBoundary.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="createPolyCells.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="fillSammAddressingTable.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="fillSammCellShapeTable.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="fixCollapsedEdges.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="purgeCellShapes.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="readBoundary.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="readCells.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="readCouples.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="readPoints.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="sammToFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
