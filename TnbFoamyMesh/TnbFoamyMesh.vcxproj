@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{CED762DF-46CB-4E44-9EEE-1C467804DF68}</ProjectGuid>
+    <RootNamespace>TnbFoamyMesh</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(ProjectName)d</TargetName>
+    <IncludePath>$(BOOST_INCLUDEDIR);$(CGAL_INCLUDEDIR);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(BOOST_INCLUDEDIR);$(CGAL_INCLUDEDIR);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellAspectRatioControl;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControl;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControlMesh;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\controlMeshRefinement;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\smoothAlignmentSolver;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\conformationSurfaces;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cvControls;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\faceAreaWeightModel;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\piecewiseLinearRamp;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\autoDensity;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\bodyCentredCubic;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\faceCentredCubic;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\initialPointsMethod;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\pointFile;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\rayShooting;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\uniformGrid;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\adaptiveLinear;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\rampHoldFall;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\relaxationModel;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\vectorTools;$(ProjectDir)TnbLib\foamyMesh\module;$(SolutionDir)TnbParallel\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamFoamyMesh_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellAspectRatioControl;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControl;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControlMesh;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\controlMeshRefinement;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\smoothAlignmentSolver;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\conformationSurfaces;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\cvControls;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\faceAreaWeightModel;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\piecewiseLinearRamp;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\autoDensity;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\bodyCentredCubic;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\faceCentredCubic;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\initialPointsMethod;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\pointFile;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\rayShooting;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\uniformGrid;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\adaptiveLinear;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\rampHoldFall;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\relaxationModel;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures;$(ProjectDir)TnbLib\foamyMesh\conformalVoronoiMesh\vectorTools;$(ProjectDir)TnbLib\foamyMesh\module;$(SolutionDir)TnbParallel\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>FoamFoamyMesh_EXPORT_DEFINE;NoRepository;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexEnum.cxx" />
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexEnumNames.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\CGALTriangulation3Ddefs.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\CGALTriangulation3DKernel.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexEnum.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\module\FoamyMesh_Module.hxx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

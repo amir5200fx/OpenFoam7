@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31424.327
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1321
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenFoam7", "OpenFoam7\OpenFoam7.vcxproj", "{C4FDFA07-2832-4DC1-9977-951D7FC1295A}"
 EndProject
@@ -840,6 +840,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vtkUnstructuredToFoam", "vtkUnstructuredToFoam", "{7E5CFF14-F023-41F4-9798-98B61DDC5EC1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vtkUnstructuredToFoam", "applications\utilities\mesh\conversion\vtkUnstructuredToFoam\vtkUnstructuredToFoam.vcxproj", "{66E99F63-FFA4-442A-B981-CF1F3FB6F1E1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbFoamyMesh", "TnbFoamyMesh\TnbFoamyMesh.vcxproj", "{CED762DF-46CB-4E44-9EEE-1C467804DF68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -3282,6 +3284,18 @@ Global
 		{66E99F63-FFA4-442A-B981-CF1F3FB6F1E1}.Release|x64.Build.0 = Release|x64
 		{66E99F63-FFA4-442A-B981-CF1F3FB6F1E1}.Release|x86.ActiveCfg = Release|Win32
 		{66E99F63-FFA4-442A-B981-CF1F3FB6F1E1}.Release|x86.Build.0 = Release|Win32
+		{CED762DF-46CB-4E44-9EEE-1C467804DF68}.Debug|x64.ActiveCfg = Debug|x64
+		{CED762DF-46CB-4E44-9EEE-1C467804DF68}.Debug|x64.Build.0 = Debug|x64
+		{CED762DF-46CB-4E44-9EEE-1C467804DF68}.Debug|x86.ActiveCfg = Debug|Win32
+		{CED762DF-46CB-4E44-9EEE-1C467804DF68}.Debug|x86.Build.0 = Debug|Win32
+		{CED762DF-46CB-4E44-9EEE-1C467804DF68}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
+		{CED762DF-46CB-4E44-9EEE-1C467804DF68}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
+		{CED762DF-46CB-4E44-9EEE-1C467804DF68}.DebugNoCopyHxx|x86.ActiveCfg = Debug|Win32
+		{CED762DF-46CB-4E44-9EEE-1C467804DF68}.DebugNoCopyHxx|x86.Build.0 = Debug|Win32
+		{CED762DF-46CB-4E44-9EEE-1C467804DF68}.Release|x64.ActiveCfg = Release|x64
+		{CED762DF-46CB-4E44-9EEE-1C467804DF68}.Release|x64.Build.0 = Release|x64
+		{CED762DF-46CB-4E44-9EEE-1C467804DF68}.Release|x86.ActiveCfg = Release|Win32
+		{CED762DF-46CB-4E44-9EEE-1C467804DF68}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
