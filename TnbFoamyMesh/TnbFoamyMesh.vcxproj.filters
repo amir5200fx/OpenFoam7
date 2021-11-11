@@ -67,6 +67,114 @@
     <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex">
       <UniqueIdentifier>{643b0011-1fdd-42c3-8a9f-c459a0b91988}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellAspectRatioControl">
+      <UniqueIdentifier>{84034971-79e1-4d29-8ba2-d7e0b9185200}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControlMesh">
+      <UniqueIdentifier>{ad1306be-263a-48eb-b554-ca9325549f1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl">
+      <UniqueIdentifier>{15781d98-8733-49a3-9722-f52adaeaf6cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\controlMeshRefinement">
+      <UniqueIdentifier>{07324b14-0dfa-475c-9599-e93fc5b3081e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\smoothAlignmentSolver">
+      <UniqueIdentifier>{ca3e8eca-1190-4509-a05d-516c0dad9675}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControl">
+      <UniqueIdentifier>{020781b3-8126-465c-8fd0-7a53fd4fc7da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\cellSizeAndAlignmentControl">
+      <UniqueIdentifier>{44def895-3329-4474-ab7d-1340e15bb560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\fileControl">
+      <UniqueIdentifier>{29c92f9f-6e82-413a-9dad-df8644274136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\searchableSurfaceControl">
+      <UniqueIdentifier>{c2a965aa-005e-46bd-aa52-79c3085d965d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction">
+      <UniqueIdentifier>{b198c71b-2e0b-4e2c-9341-e846925bc32e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction">
+      <UniqueIdentifier>{beada1ab-1fbb-4d00-96fe-cdfe91a94b60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType">
+      <UniqueIdentifier>{73a59c36-8218-45d3-88b1-fd3e7d6ab9bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\nonUniformField">
+      <UniqueIdentifier>{31275206-0397-4da1-8b80-ee0ac968a739}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\surfaceCellSizeFunction">
+      <UniqueIdentifier>{6d4a5de0-e3c2-4b31-ac47-61604da862e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\uniformValue">
+      <UniqueIdentifier>{719653d2-26f1-4e7d-a7ce-42b692ebdda2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\cellSizeFunction">
+      <UniqueIdentifier>{d8e46473-2970-42c8-9056-49dbd897de53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\linearDistance">
+      <UniqueIdentifier>{4f731457-09fd-4950-a7d8-cbccc5e017fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\linearSpatial">
+      <UniqueIdentifier>{2b1eda43-976d-4aaa-a882-945c7c6095d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\surfaceOffsetLinearDistance">
+      <UniqueIdentifier>{9476862d-d23e-452d-997e-bc9c81ce6c65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\uniform">
+      <UniqueIdentifier>{23049f11-fba0-4a29-bd69-52838138468c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\uniformDistance">
+      <UniqueIdentifier>{7828664d-215e-4fcb-bcd2-3b93591cda6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\automatic">
+      <UniqueIdentifier>{6ed1cec4-c3fb-4ca9-9269-a855187e3c14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\cellSizeCalculationType">
+      <UniqueIdentifier>{1c64864a-0fb2-4a07-9746-7c357d87c242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\fieldFromFile">
+      <UniqueIdentifier>{71303d0a-f988-4e83-849e-9e2b8258b53e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\autoDensity">
+      <UniqueIdentifier>{89cb9f2d-f764-4e7a-9f21-57b085f974fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\bodyCentredCubic">
+      <UniqueIdentifier>{86b477e9-4fdb-4c25-94f4-5fcf86827db7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\faceCentredCubic">
+      <UniqueIdentifier>{3fa0057b-2efa-40cb-ad08-c39b345df0a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\initialPointsMethod">
+      <UniqueIdentifier>{782f3eb1-c66b-4076-a230-dae80ff968d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\pointFile">
+      <UniqueIdentifier>{32c7d6a4-4171-44f6-ae41-e828eb4265cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\rayShooting">
+      <UniqueIdentifier>{a4bcf186-4a05-4b13-a245-a61282f6577a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\uniformGrid">
+      <UniqueIdentifier>{97aa3052-35b4-42f5-ba0b-f2de66816849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\adaptiveLinear">
+      <UniqueIdentifier>{c5f8023b-2d03-430a-978c-9179a4a01675}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\rampHoldFall">
+      <UniqueIdentifier>{5dd927c2-47b0-4632-ab4b-f2ed9e9cf211}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\relaxationModel">
+      <UniqueIdentifier>{1580080c-4aff-4e54-b2dd-ce0cdb922c98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\faceAreaWeightModel">
+      <UniqueIdentifier>{17714138-b65b-46fb-ab13-1b0246ec1169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\piecewiseLinearRamp">
+      <UniqueIdentifier>{852e9a0a-3af9-418b-b436-7a4aace7ec52}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexEnum.cxx">
@@ -74,6 +182,195 @@
     </ClCompile>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexEnumNames.cxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertex.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexOpsTemplates.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellEnum.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellOpsTemplates.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellChecks.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCell.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\pointFeatureEdgesTypes.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs\pointPairs.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\featurePointConformer.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\featurePointConformerSpecialisations.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformationSurfaces\conformationSurfaces.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformationSurfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cvControls\cvControls.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cvControls</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition\backgroundMeshDecomposition.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition\backgroundMeshDecompositionTemplates.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellAspectRatioControl\cellAspectRatioControl.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellAspectRatioControl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\cellSizeAndAlignmentControl\cellSizeAndAlignmentControl.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\cellSizeAndAlignmentControl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\cellSizeAndAlignmentControls.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\searchableSurfaceControl\searchableSurfaceControl.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\searchableSurfaceControl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\surfaceCellSizeFunction\surfaceCellSizeFunction.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\surfaceCellSizeFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMesh.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DistributedDelaunayMesh.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMeshIO.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable\PrintTable.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControl\cellShapeControl.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControlMesh\cellShapeControlMesh.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControlMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\fileControl\fileControl.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\fileControl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\controlMeshRefinement\controlMeshRefinement.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\controlMeshRefinement</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\smoothAlignmentSolver\smoothAlignmentSolver.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\smoothAlignmentSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\cellSizeFunction\cellSizeFunction.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\cellSizeFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\linearDistance\linearDistance.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\linearDistance</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\linearSpatial\linearSpatial.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\linearSpatial</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\surfaceOffsetLinearDistance\surfaceOffsetLinearDistance.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\surfaceOffsetLinearDistance</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\uniform\uniform.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\uniform</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\uniformDistance\uniformDistance.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\uniformDistance</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\cellSizeCalculationType\cellSizeCalculationType.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\cellSizeCalculationType</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\automatic\automatic.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\automatic</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\fieldFromFile\fieldFromFile.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\fieldFromFile</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\nonUniformField\nonUniformField.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\nonUniformField</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\uniformValue\uniformValue.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\uniformValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMesh.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\initialPointsMethod\initialPointsMethod.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\initialPointsMethod</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\relaxationModel\relaxationModel.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\relaxationModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\adaptiveLinear\adaptiveLinear.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\adaptiveLinear</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\rampHoldFall\rampHoldFall.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\rampHoldFall</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\faceAreaWeightModel\faceAreaWeightModel.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\faceAreaWeightModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\piecewiseLinearRamp\piecewiseLinearRamp.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\piecewiseLinearRamp</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools\DelaunayMeshTools.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshCalcDualMesh.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshConformToSurface.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshFeaturePoints.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshIO.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshTemplates.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshZones.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\autoDensity\autoDensity.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\autoDensity</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\bodyCentredCubic\bodyCentredCubic.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\bodyCentredCubic</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\faceCentredCubic\faceCentredCubic.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\faceCentredCubic</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\pointFile\pointFile.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\pointFile</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\rayShooting\rayShooting.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\rayShooting</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\uniformGrid\uniformGrid.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\uniformGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures\searchableSurfaceFeatures.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures\searchablePlateFeatures.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures\searchableBoxFeatures.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures\triSurfaceMeshFeatures.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,5 +386,211 @@
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\CGALTriangulation3Ddefs.hxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertex.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexOps.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellEnum.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellOps.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellChecks.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\pointConversion.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCell.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\pointFeatureEdgesTypes.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\featurePointConformer.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs\pointPairs.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\featurePointConformerI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMesh.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformationSurfaces\conformationSurfaces.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformationSurfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformationSurfaces\conformationSurfacesI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformationSurfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures\searchableSurfaceFeatures.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cvControls\cvControls.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cvControls</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cvControls\cvControlsI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cvControls</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition\backgroundMeshDecomposition.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition\backgroundMeshDecompositionI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellAspectRatioControl\cellAspectRatioControl.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellAspectRatioControl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControl\cellShapeControl.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControlMesh\cellShapeControlMesh.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControlMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\vectorTools\vectorTools.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\vectorTools</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\cellSizeAndAlignmentControl\cellSizeAndAlignmentControl.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\cellSizeAndAlignmentControl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\cellSizeAndAlignmentControls.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\searchableSurfaceControl\searchableSurfaceControl.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\searchableSurfaceControl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\surfaceCellSizeFunction\surfaceCellSizeFunction.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\surfaceCellSizeFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMesh.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMeshI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DistributedDelaunayMesh.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable\PrintTable.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable\PrintTableI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControl\cellShapeControlI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControlMesh\cellShapeControlMeshI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControlMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\fileControl\fileControl.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellSizeAndAlignmentControl\fileControl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\controlMeshRefinement\controlMeshRefinement.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\controlMeshRefinement</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\smoothAlignmentSolver\smoothAlignmentSolver.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\smoothAlignmentSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\cellSizeFunction\cellSizeFunction.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\cellSizeFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\linearDistance\linearDistance.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\linearDistance</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\linearSpatial\linearSpatial.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\linearSpatial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\surfaceOffsetLinearDistance\surfaceOffsetLinearDistance.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\surfaceOffsetLinearDistance</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\uniform\uniform.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\uniform</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\uniformDistance\uniformDistance.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\cellSizeFunction\uniformDistance</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\automatic\automatic.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\automatic</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\cellSizeCalculationType\cellSizeCalculationType.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\cellSizeCalculationType</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\fieldFromFile\fieldFromFile.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\cellSizeCalculationType\fieldFromFile</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\nonUniformField\nonUniformField.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\nonUniformField</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\uniformValue\uniformValue.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\uniformValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\initialPointsMethod\initialPointsMethod.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\initialPointsMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\relaxationModel\relaxationModel.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\relaxationModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\adaptiveLinear\adaptiveLinear.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\adaptiveLinear</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\rampHoldFall\rampHoldFall.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\rampHoldFall</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\faceAreaWeightModel\faceAreaWeightModel.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\faceAreaWeightModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\piecewiseLinearRamp\piecewiseLinearRamp.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\piecewiseLinearRamp</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools\DelaunayMeshTools.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\autoDensity\autoDensity.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\autoDensity</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\bodyCentredCubic\bodyCentredCubic.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\bodyCentredCubic</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\faceCentredCubic\faceCentredCubic.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\faceCentredCubic</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\pointFile\pointFile.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\pointFile</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\rayShooting\rayShooting.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\rayShooting</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\uniformGrid\uniformGrid.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\uniformGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures\searchablePlateFeatures.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures\searchableBoxFeatures.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures\triSurfaceMeshFeatures.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools\DelaunayMeshToolsTemplates.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools</Filter>
+    </None>
   </ItemGroup>
 </Project>

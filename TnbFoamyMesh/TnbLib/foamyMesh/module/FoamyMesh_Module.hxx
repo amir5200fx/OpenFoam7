@@ -18,6 +18,9 @@
 #include <FiniteVolume_Module.hxx>
 #include <FvMesh_Module.hxx>
 #include <Lagrangian_Module.hxx>
+#include <SnappyHexMesh_Module.hxx>
+#include <Parallel_Module.hxx>
+#include <Conversion_Module.hxx>
 #endif // FoamFoamyMesh_EXPORT_DEFINE
 
 #endif // !_FoamyMesh_Module_Header
