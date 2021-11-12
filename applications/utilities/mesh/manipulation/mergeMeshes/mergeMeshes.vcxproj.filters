@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{18438605-d2ea-4d17-898d-3ddb634f9585}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mergePolyMesh.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="mergePolyMesh.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="mergeMeshes.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="createTimes.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+</Project>
