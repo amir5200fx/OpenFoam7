@@ -312,6 +312,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClCompile Include="TnbLib\dynamicMesh\attachDetach\attachDetachPointMatchMap.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\attachDetach\attachInterface.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\attachDetach\detachInterface.cxx" />
+    <ClCompile Include="TnbLib\dynamicMesh\boundaryMesh\boundaryMesh.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\boundaryPatch\boundaryPatch.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\createShellMesh\createShellMesh.cxx" />
     <ClCompile Include="TnbLib\dynamicMesh\extrudePatchMesh\extrudePatchMesh.cxx" />

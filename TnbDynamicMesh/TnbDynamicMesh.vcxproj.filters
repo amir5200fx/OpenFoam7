@@ -995,6 +995,9 @@
     <ClCompile Include="TnbLib\dynamicMesh\meshCut\wallLayerCells\wallLayerCells.cxx">
       <Filter>TnbLib\dynamicMesh\meshCut\wallLayerCells</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\dynamicMesh\boundaryMesh\boundaryMesh.cxx">
+      <Filter>TnbLib\dynamicMesh\boundaryMesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
