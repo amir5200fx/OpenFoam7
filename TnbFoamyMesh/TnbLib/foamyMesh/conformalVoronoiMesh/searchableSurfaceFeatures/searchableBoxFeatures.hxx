@@ -67,7 +67,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from searchable surface and dictionary
-        searchableBoxFeatures
+        FoamFoamyMesh_EXPORT searchableBoxFeatures
         (
             const searchableSurface& surface,
             const dictionary& dict
@@ -78,7 +78,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~searchableBoxFeatures();
+        FoamFoamyMesh_EXPORT virtual ~searchableBoxFeatures();
 
 
         // Member Functions

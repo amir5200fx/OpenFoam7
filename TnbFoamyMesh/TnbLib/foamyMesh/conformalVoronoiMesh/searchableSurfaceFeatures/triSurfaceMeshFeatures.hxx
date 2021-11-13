@@ -69,7 +69,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from dictionary (used by searchableSurface)
-        triSurfaceMeshFeatures
+        FoamFoamyMesh_EXPORT triSurfaceMeshFeatures
         (
             const searchableSurface& surface,
             const dictionary& dict
@@ -80,7 +80,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~triSurfaceMeshFeatures();
+        FoamFoamyMesh_EXPORT virtual ~triSurfaceMeshFeatures();
 
 
         // Member Functions

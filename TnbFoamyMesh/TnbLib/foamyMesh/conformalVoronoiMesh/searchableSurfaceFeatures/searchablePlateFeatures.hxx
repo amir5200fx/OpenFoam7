@@ -53,7 +53,7 @@ namespace tnbLib
     private:
 
         //- To initialise edges.
-        static edgeList calcEdges(const label[4][2]);
+        static FoamFoamyMesh_EXPORT edgeList calcEdges(const label[4][2]);
 
 
         // Private Member Data
@@ -71,13 +71,13 @@ namespace tnbLib
         // Static Data Members
 
             //- Edge to point addressing
-        static const edgeList edges;
+        static FoamFoamyMesh_EXPORT const edgeList edges;
 
 
         // Constructors
 
             //- Construct from searchable surface and dictionary
-        searchablePlateFeatures
+        FoamFoamyMesh_EXPORT searchablePlateFeatures
         (
             const searchableSurface& surface,
             const dictionary& dict
@@ -88,7 +88,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~searchablePlateFeatures();
+        FoamFoamyMesh_EXPORT virtual ~searchablePlateFeatures();
 
 
         // Member Functions
