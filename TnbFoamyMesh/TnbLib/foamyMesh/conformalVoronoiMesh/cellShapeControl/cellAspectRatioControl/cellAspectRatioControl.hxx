@@ -66,28 +66,28 @@ namespace tnbLib
         // Constructors
 
             //- Construct from dictionary
-        cellAspectRatioControl(const dictionary& motionDict);
+        FoamFoamyMesh_EXPORT cellAspectRatioControl(const dictionary& motionDict);
 
         //- Disallow default bitwise copy construction
         cellAspectRatioControl(const cellAspectRatioControl&) = delete;
 
 
         //- Destructor
-        virtual ~cellAspectRatioControl();
+        FoamFoamyMesh_EXPORT virtual ~cellAspectRatioControl();
 
 
         // Member Functions
 
             // Query
 
-        void updateCellSizeAndFaceArea
+        FoamFoamyMesh_EXPORT void updateCellSizeAndFaceArea
         (
             vector& alignmentDir,
             scalar& targetFaceArea,
             scalar& targetCellSize
         ) const;
 
-        void updateDeltaVector
+        FoamFoamyMesh_EXPORT void updateDeltaVector
         (
             const vector& alignmentDir,
             const scalar targetCellSize,
