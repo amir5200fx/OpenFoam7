@@ -25,6 +25,8 @@ License
 
 #include <conformalVoronoiMesh.hxx>
 
+#include <meshSearch.hxx> //- Added by Amir
+
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 
 template<class Triangulation>

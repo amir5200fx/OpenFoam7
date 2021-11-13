@@ -364,6 +364,6 @@ tnbLib::Map<tnbLib::label> tnbLib::DelaunayMesh<Triangulation>::rangeInsertWithI
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include "DelaunayMeshIO.C"
+//#include "DelaunayMeshIO.C"
 
 // ************************************************************************* //

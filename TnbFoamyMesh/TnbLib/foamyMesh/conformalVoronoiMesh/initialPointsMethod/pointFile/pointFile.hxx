@@ -37,10 +37,11 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <initialPointsMethod.hxx>  //- must be the first inclusion one!
+
 #include <fileName.hxx>
 #include <pointIOField.hxx>
 #include <Switch.hxx>
-#include <initialPointsMethod.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

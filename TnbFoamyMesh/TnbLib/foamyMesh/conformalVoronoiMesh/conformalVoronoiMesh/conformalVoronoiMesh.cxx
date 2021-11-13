@@ -44,7 +44,7 @@ namespace tnbLib
 {
     defineTypeNameAndDebug(conformalVoronoiMesh, 0);
 
-    template<>
+    /*template<>
     const char* NamedEnum
         <
         conformalVoronoiMesh::dualMeshPointType,
@@ -56,11 +56,11 @@ namespace tnbLib
         "featureEdge",
         "featurePoint",
         "constrained"
-    };
+    };*/
 }
 
-const tnbLib::NamedEnum<tnbLib::conformalVoronoiMesh::dualMeshPointType, 5>
-tnbLib::conformalVoronoiMesh::dualMeshPointTypeNames_;
+//const tnbLib::NamedEnum<tnbLib::conformalVoronoiMesh::dualMeshPointType, 5>
+//tnbLib::conformalVoronoiMesh::dualMeshPointTypeNames_;
 
 
 // * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * * //

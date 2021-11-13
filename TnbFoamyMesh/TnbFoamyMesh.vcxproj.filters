@@ -372,6 +372,9 @@
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures\triSurfaceMeshFeatures.cxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshNames.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\foamyMesh\module\FoamyMesh_Module.hxx">

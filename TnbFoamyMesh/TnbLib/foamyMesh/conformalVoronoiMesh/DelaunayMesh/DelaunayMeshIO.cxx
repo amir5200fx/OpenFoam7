@@ -31,6 +31,8 @@ License
 #include <processorPolyPatch.hxx>
 #include <labelIOField.hxx>
 
+#include <PrintTable.hxx>  //- added by Amir
+
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 
 template<class Triangulation>

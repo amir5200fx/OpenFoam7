@@ -25,6 +25,8 @@ License
 
 #include <PrintTable.hxx>
 
+#include <ostringstream.hxx>  // added by Amir
+
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
 template<class KeyType, class DataType>

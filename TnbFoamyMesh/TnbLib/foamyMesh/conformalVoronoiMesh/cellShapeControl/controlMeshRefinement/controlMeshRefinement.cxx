@@ -25,6 +25,7 @@ License
 
 #include <controlMeshRefinement.hxx>
 #include <cellSizeAndAlignmentControl.hxx>
+#include <pointConversion.hxx>  // added by Amir
 #include <OFstream.hxx>
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //

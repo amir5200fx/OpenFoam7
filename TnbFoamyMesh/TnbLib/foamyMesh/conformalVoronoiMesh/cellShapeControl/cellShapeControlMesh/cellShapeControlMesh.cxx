@@ -34,6 +34,8 @@ License
 #include <transform.hxx>
 #include <meshTools.hxx>
 
+#include <pointConversion.hxx>  //- added by Amir
+
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
 namespace tnbLib

@@ -25,6 +25,8 @@ License
 
 #include <smoothAlignmentSolver.hxx>
 
+#include <pointConversion.hxx>  //- added by Amir
+
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 
 template<class Triangulation, class Type>
