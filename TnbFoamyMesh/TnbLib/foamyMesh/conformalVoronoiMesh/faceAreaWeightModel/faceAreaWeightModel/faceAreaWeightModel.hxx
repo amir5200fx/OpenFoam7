@@ -91,7 +91,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        faceAreaWeightModel
+        FoamFoamyMesh_EXPORT faceAreaWeightModel
         (
             const word& type,
             const dictionary& faceAreaWeightDict
@@ -111,7 +111,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~faceAreaWeightModel();
+        FoamFoamyMesh_EXPORT virtual ~faceAreaWeightModel();
 
 
         // Member Functions
