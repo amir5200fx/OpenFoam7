@@ -64,7 +64,7 @@ namespace tnbLib
 
         // Private Member Functions
 
-        bool evalCellSizeFunctions
+        FoamFoamyMesh_EXPORT bool evalCellSizeFunctions
         (
             const point& pt,
             scalar& minSize,
@@ -90,7 +90,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from dictionary
-        cellSizeAndAlignmentControls
+        FoamFoamyMesh_EXPORT cellSizeAndAlignmentControls
         (
             const Time& runTime,
             const dictionary& shapeControlDict,
@@ -100,7 +100,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~cellSizeAndAlignmentControls();
+        FoamFoamyMesh_EXPORT virtual ~cellSizeAndAlignmentControls();
 
 
         // Member Functions
@@ -121,9 +121,9 @@ namespace tnbLib
 
         // Query
 
-        scalar cellSize(const point& pt) const;
+        FoamFoamyMesh_EXPORT scalar cellSize(const point& pt) const;
 
-        scalar cellSize(const point& pt, label& maxPriority) const;
+        FoamFoamyMesh_EXPORT scalar cellSize(const point& pt, label& maxPriority) const;
     };
 
 
