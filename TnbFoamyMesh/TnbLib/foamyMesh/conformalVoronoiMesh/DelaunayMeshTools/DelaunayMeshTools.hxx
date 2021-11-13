@@ -63,13 +63,13 @@ namespace tnbLib
         // OBJ writing
 
             //- Write list of points to file
-        void writeOBJ(const fileName& fName, const List<tnbLib::point>& points);
+        FoamFoamyMesh_EXPORT void writeOBJ(const fileName& fName, const List<tnbLib::point>& points);
 
         //- Write list of points to file
-        void writeOBJ(const fileName& fName, const List<Vb>& points);
+        FoamFoamyMesh_EXPORT void writeOBJ(const fileName& fName, const List<Vb>& points);
 
         //- Write an OBJ mesh consisting of points and faces
-        void writeObjMesh
+        FoamFoamyMesh_EXPORT void writeObjMesh
         (
             const fileName& fName,
             const pointField& points,
