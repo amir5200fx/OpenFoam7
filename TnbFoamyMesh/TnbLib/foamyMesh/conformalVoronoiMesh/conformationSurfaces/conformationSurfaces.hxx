@@ -110,10 +110,10 @@ namespace tnbLib
 
         // Private Member Functions
 
-        void hasBoundedVolume(List<volumeType>& referenceVolumeTypes) const;
+        FoamFoamyMesh_EXPORT void hasBoundedVolume(List<volumeType>& referenceVolumeTypes) const;
 
         //- Read into features_ from a dictionary
-        void readFeatures
+        FoamFoamyMesh_EXPORT void readFeatures
         (
             const label surfI,
             const dictionary& featureDict,
@@ -121,7 +121,7 @@ namespace tnbLib
             label& featureIndex
         );
 
-        void readFeatures
+        FoamFoamyMesh_EXPORT void readFeatures
         (
             const dictionary& featureDict,
             const word& surfaceName,
@@ -139,7 +139,7 @@ namespace tnbLib
 
             //- Construct from dictionary and references to conformalVoronoiMesh and
             //  searchableSurfaces
-        conformationSurfaces
+        FoamFoamyMesh_EXPORT conformationSurfaces
         (
             const Time& runTime,
             Random& rndGen,
@@ -152,7 +152,7 @@ namespace tnbLib
 
 
         //- Destructor
-        ~conformationSurfaces();
+        FoamFoamyMesh_EXPORT ~conformationSurfaces();
 
 
         // Member Functions
@@ -189,24 +189,24 @@ namespace tnbLib
 
             //- Check if the supplied bound box overlaps any part of any of
             //  the surfaces
-        bool overlaps(const treeBoundBox& bb) const;
+        FoamFoamyMesh_EXPORT bool overlaps(const treeBoundBox& bb) const;
 
         //- Check if points are inside surfaces to conform to
-        Field<bool> inside(const pointField& samplePts) const;
+        FoamFoamyMesh_EXPORT Field<bool> inside(const pointField& samplePts) const;
 
         //- Check if point is inside surfaces to conform to
-        bool inside(const point& samplePt) const;
+        FoamFoamyMesh_EXPORT bool inside(const point& samplePt) const;
 
         //- Check if points are outside surfaces to conform to
-        Field<bool> outside(const pointField& samplePts) const;
+        FoamFoamyMesh_EXPORT Field<bool> outside(const pointField& samplePts) const;
 
         //- Check if point is outside surfaces to conform to
-        bool outside(const point& samplePt) const;
+        FoamFoamyMesh_EXPORT bool outside(const point& samplePt) const;
 
         //- Check if point is closer to the surfaces to conform to than
         //  testDistSqr, in which case return false, otherwise assess in or
         //  outside and return a result depending on the testForInside flag
-        Field<bool> wellInOutSide
+        FoamFoamyMesh_EXPORT Field<bool> wellInOutSide
         (
             const pointField& samplePts,
             const scalarField& testDistSqr,
@@ -215,13 +215,13 @@ namespace tnbLib
 
         //- Check if point is inside surfaces to conform to by at least
         //  testDistSqr
-        Field<bool> wellInside
+        FoamFoamyMesh_EXPORT Field<bool> wellInside
         (
             const pointField& samplePts,
             const scalarField& testDistSqr
         ) const;
 
-        bool wellInside
+        FoamFoamyMesh_EXPORT bool wellInside
         (
             const point& samplePt,
             scalar testDistSqr
@@ -229,20 +229,20 @@ namespace tnbLib
 
         //- Check if point is outside surfaces to conform to by at least
         //  testDistSqr
-        Field<bool> wellOutside
+        FoamFoamyMesh_EXPORT Field<bool> wellOutside
         (
             const pointField& samplePts,
             const scalarField& testDistSqr
         ) const;
 
-        bool wellOutside
+        FoamFoamyMesh_EXPORT bool wellOutside
         (
             const point& samplePt,
             scalar testDistSqr
         ) const;
 
         // Finding if the line joining start and end intersects the surface
-        bool findSurfaceAnyIntersection
+        FoamFoamyMesh_EXPORT bool findSurfaceAnyIntersection
         (
             const point& start,
             const point& end
@@ -250,7 +250,7 @@ namespace tnbLib
 
         //- Finding if the line joining start and end intersects the surface
         //  and returning the hit and surface information
-        void findSurfaceAnyIntersection
+        FoamFoamyMesh_EXPORT void findSurfaceAnyIntersection
         (
             const point& start,
             const point& end,
@@ -258,7 +258,7 @@ namespace tnbLib
             label& hitSurface
         ) const;
 
-        void findSurfaceAllIntersections
+        FoamFoamyMesh_EXPORT void findSurfaceAllIntersections
         (
             const point& start,
             const point& end,
@@ -267,7 +267,7 @@ namespace tnbLib
         ) const;
 
         //- Finding the nearestIntersection of the surface to start
-        void findSurfaceNearestIntersection
+        FoamFoamyMesh_EXPORT void findSurfaceNearestIntersection
         (
             const point& start,
             const point& end,
@@ -277,7 +277,7 @@ namespace tnbLib
 
         //- Find the nearest point to the sample and return it to the
         //  pointIndexHit
-        void findSurfaceNearest
+        FoamFoamyMesh_EXPORT void findSurfaceNearest
         (
             const point& sample,
             scalar nearestDistSqr,
@@ -285,7 +285,7 @@ namespace tnbLib
             label& hitSurface
         ) const;
 
-        void findSurfaceNearest
+        FoamFoamyMesh_EXPORT void findSurfaceNearest
         (
             const pointField& samples,
             const scalarField& nearestDistSqr,
@@ -294,7 +294,7 @@ namespace tnbLib
         ) const;
 
         //- Find the nearest point on any feature edge
-        void findFeaturePointNearest
+        FoamFoamyMesh_EXPORT void findFeaturePointNearest
         (
             const point& sample,
             scalar nearestDistSqr,
@@ -303,7 +303,7 @@ namespace tnbLib
         ) const;
 
         //- Find the nearest point on any feature edge
-        void findEdgeNearest
+        FoamFoamyMesh_EXPORT void findEdgeNearest
         (
             const point& sample,
             scalar nearestDistSqr,
@@ -311,7 +311,7 @@ namespace tnbLib
             label& featureHit
         ) const;
 
-        void findEdgeNearest
+        FoamFoamyMesh_EXPORT void findEdgeNearest
         (
             const pointField& samples,
             const scalarField& nearestDistsSqr,
@@ -320,7 +320,7 @@ namespace tnbLib
         ) const;
 
         //- Find the nearest point on each type of feature edge
-        void findEdgeNearestByType
+        FoamFoamyMesh_EXPORT void findEdgeNearestByType
         (
             const point& sample,
             scalar nearestDistSqr,
@@ -332,7 +332,7 @@ namespace tnbLib
         //  a given distance from the sample point. Will need to check for
         //  a hit or a miss because near edges may not have a nearest point
         //  on them which is perpendicular to the sample point.
-        void findAllNearestEdges
+        FoamFoamyMesh_EXPORT void findAllNearestEdges
         (
             const point& sample,
             const scalar searchRadiusSqr,
@@ -341,7 +341,7 @@ namespace tnbLib
         ) const;
 
         //- Get the region number of a hit surface
-        label getPatchID
+        FoamFoamyMesh_EXPORT label getPatchID
         (
             const label hitSurface,
             const pointIndexHit& surfHit
@@ -349,19 +349,19 @@ namespace tnbLib
 
         //- Find which patch is intersected by the line from one point to
         //  another
-        label findPatch(const point& ptA, const point& ptB) const;
+        FoamFoamyMesh_EXPORT label findPatch(const point& ptA, const point& ptB) const;
 
         //- Find which patch is closest to the point
-        label findPatch(const point& pt) const;
+        FoamFoamyMesh_EXPORT label findPatch(const point& pt) const;
 
         //- Is the surface a baffle.
-        extendedFeatureEdgeMesh::sideVolumeType meshableSide
+        FoamFoamyMesh_EXPORT extendedFeatureEdgeMesh::sideVolumeType meshableSide
         (
             const label hitSurface,
             const pointIndexHit& surfHit
         ) const;
 
-        void getNormal
+        FoamFoamyMesh_EXPORT void getNormal
         (
             const label hitSurface,
             const List<pointIndexHit>& surfHit,
@@ -373,7 +373,7 @@ namespace tnbLib
 
             //- Write all components of all the extendedFeatureEdgeMeshes as
             //  an obj file
-        void writeFeatureObj(const fileName& prefix) const;
+        FoamFoamyMesh_EXPORT void writeFeatureObj(const fileName& prefix) const;
 
 
         // Member Operators
