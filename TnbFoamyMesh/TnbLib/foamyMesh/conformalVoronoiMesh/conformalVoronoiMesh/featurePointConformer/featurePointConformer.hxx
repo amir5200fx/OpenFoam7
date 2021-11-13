@@ -71,7 +71,7 @@ namespace tnbLib
         // Static data
 
             //- Tolerance within which two lines are said to be parallel.
-        static const scalar tolParallel;
+        static FoamFoamyMesh_EXPORT const scalar tolParallel;
 
 
         // Private Data
@@ -96,16 +96,16 @@ namespace tnbLib
         // Private Member Functions
 
             //- Calculate the shared face normal between two edges geometrically.
-        vector sharedFaceNormal
+        FoamFoamyMesh_EXPORT vector sharedFaceNormal
         (
             const extendedFeatureEdgeMesh& feMesh,
             const label edgeI,
             const label nextEdgeI
         ) const;
 
-        label getSign(const extendedFeatureEdgeMesh::edgeStatus eStatus) const;
+        FoamFoamyMesh_EXPORT label getSign(const extendedFeatureEdgeMesh::edgeStatus eStatus) const;
 
-        bool createSpecialisedFeaturePoint
+        FoamFoamyMesh_EXPORT bool createSpecialisedFeaturePoint
         (
             const extendedFeatureEdgeMesh& feMesh,
             const labelList& pEds,
@@ -116,7 +116,7 @@ namespace tnbLib
         ) const;
 
 
-        void addMasterAndSlavePoints
+        FoamFoamyMesh_EXPORT void addMasterAndSlavePoints
         (
             const DynamicList<point>& masterPoints,
             const DynamicList<indexedVertexEnum::vertexType>& masterPointsTypes,
@@ -126,17 +126,17 @@ namespace tnbLib
         ) const;
 
         //- Helper function for conforming to feature points
-        void createMasterAndSlavePoints
+        FoamFoamyMesh_EXPORT void createMasterAndSlavePoints
         (
             const extendedFeatureEdgeMesh& feMesh,
             const label ptI,
             DynamicList<Vb>& pts
         ) const;
 
-        void createMixedFeaturePoints(DynamicList<Vb>& pts) const;
+        FoamFoamyMesh_EXPORT void createMixedFeaturePoints(DynamicList<Vb>& pts) const;
 
         //- Create the points that will conform to the feature
-        void createFeaturePoints(DynamicList<Vb>& pts);
+        FoamFoamyMesh_EXPORT void createFeaturePoints(DynamicList<Vb>& pts);
 
 
     public:
@@ -148,7 +148,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        explicit featurePointConformer
+        FoamFoamyMesh_EXPORT explicit featurePointConformer
         (
             const conformalVoronoiMesh& foamyHexMesh
         );
@@ -158,7 +158,7 @@ namespace tnbLib
 
 
         //- Destructor
-        ~featurePointConformer();
+        FoamFoamyMesh_EXPORT ~featurePointConformer();
 
 
         // Member Functions
@@ -177,10 +177,10 @@ namespace tnbLib
 
             //- Distribute the feature point vertices according to the
             //  supplied background mesh
-        void distribute(const backgroundMeshDecomposition& decomposition);
+        FoamFoamyMesh_EXPORT void distribute(const backgroundMeshDecomposition& decomposition);
 
         //- Reindex the feature point pairs using the map.
-        void reIndexPointPairs(const Map<label>& oldToNewIndices);
+        FoamFoamyMesh_EXPORT void reIndexPointPairs(const Map<label>& oldToNewIndices);
 
 
         // Member Operators

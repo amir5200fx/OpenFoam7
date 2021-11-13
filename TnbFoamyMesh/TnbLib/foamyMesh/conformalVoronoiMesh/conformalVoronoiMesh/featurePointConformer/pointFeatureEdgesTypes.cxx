@@ -71,7 +71,7 @@ tnbLib::pointFeatureEdgesTypes::calcPointFeatureEdgesTypes()
 
 // * * * * * * * * * * * * * * Friend Functions  * * * * * * * * * * * * * * //
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamFoamyMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
     Ostream& os,
     const pointFeatureEdgesTypes& p

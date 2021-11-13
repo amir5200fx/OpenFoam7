@@ -51,7 +51,7 @@ namespace tnbLib
 
     class pointFeatureEdgesTypes;
 
-    Ostream& operator<<(Ostream&, const pointFeatureEdgesTypes&);
+    FoamFoamyMesh_EXPORT Ostream& operator<<(Ostream&, const pointFeatureEdgesTypes&);
 
 
     /*---------------------------------------------------------------------------*\
@@ -77,7 +77,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        pointFeatureEdgesTypes
+        FoamFoamyMesh_EXPORT pointFeatureEdgesTypes
         (
             const extendedFeatureEdgeMesh& feMesh,
             const label pointLabel
@@ -85,7 +85,7 @@ namespace tnbLib
 
 
         //- Destructor
-        ~pointFeatureEdgesTypes();
+        FoamFoamyMesh_EXPORT ~pointFeatureEdgesTypes();
 
 
         // Member Functions
@@ -97,7 +97,7 @@ namespace tnbLib
 
         // Info
 
-        friend Ostream& operator<<
+        friend FoamFoamyMesh_EXPORT Ostream& operator<<
             (
                 Ostream& os,
                 const pointFeatureEdgesTypes& p
