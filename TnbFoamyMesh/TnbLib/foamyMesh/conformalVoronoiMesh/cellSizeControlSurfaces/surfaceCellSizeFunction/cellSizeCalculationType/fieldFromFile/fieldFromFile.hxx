@@ -79,7 +79,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        fieldFromFile
+        FoamFoamyMesh_EXPORT fieldFromFile
         (
             const dictionary& cellSizeCalcTypeDict,
             const triSurfaceMesh& surface,
