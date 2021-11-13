@@ -70,21 +70,21 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        piecewiseLinearRamp
+        FoamFoamyMesh_EXPORT piecewiseLinearRamp
         (
             const dictionary& faceAreaWeightDict
         );
 
 
         //- Destructor
-        virtual ~piecewiseLinearRamp()
+        FoamFoamyMesh_EXPORT virtual ~piecewiseLinearRamp()
         {}
 
 
         // Member Functions
 
             //- Return the faceAreaWeight
-        virtual scalar faceAreaWeight(scalar faceAreaFraction) const;
+        FoamFoamyMesh_EXPORT virtual scalar faceAreaWeight(scalar faceAreaFraction) const;
     };
 
 
