@@ -106,7 +106,7 @@ namespace tnbLib
 
             //- Construct from dictionary and references to conformalVoronoiMesh and
             //  searchableSurfaces
-        cellSizeAndAlignmentControl
+        FoamFoamyMesh_EXPORT cellSizeAndAlignmentControl
         (
             const Time& runTime,
             const word& name,
@@ -125,7 +125,7 @@ namespace tnbLib
         // Selectors
 
             //- Return a reference to the selected cellShapeControl
-        static autoPtr<cellSizeAndAlignmentControl> New
+        static FoamFoamyMesh_EXPORT autoPtr<cellSizeAndAlignmentControl> New
         (
             const Time& runTime,
             const word& name,
@@ -136,7 +136,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~cellSizeAndAlignmentControl();
+        FoamFoamyMesh_EXPORT virtual ~cellSizeAndAlignmentControl();
 
 
         // Member Functions
