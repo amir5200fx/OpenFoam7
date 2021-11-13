@@ -121,7 +121,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        initialPointsMethod
+        FoamFoamyMesh_EXPORT initialPointsMethod
         (
             const word& type,
             const dictionary& initialPointsDict,
@@ -151,7 +151,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~initialPointsMethod();
+        FoamFoamyMesh_EXPORT virtual ~initialPointsMethod();
 
 
         // Member Functions
