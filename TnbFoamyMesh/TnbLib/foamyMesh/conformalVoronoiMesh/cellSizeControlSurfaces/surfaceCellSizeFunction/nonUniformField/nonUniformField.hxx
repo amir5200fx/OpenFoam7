@@ -88,7 +88,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        nonUniformField
+        FoamFoamyMesh_EXPORT nonUniformField
         (
             const dictionary& cellSizeFunctionDict,
             const searchableSurface& surface,
@@ -107,7 +107,7 @@ namespace tnbLib
 
                 //- Return the interpolated cell size for a point in the given
                 //  surface triangle
-        virtual scalar interpolate
+        FoamFoamyMesh_EXPORT virtual scalar interpolate
         (
             const point& pt,
             const label index
