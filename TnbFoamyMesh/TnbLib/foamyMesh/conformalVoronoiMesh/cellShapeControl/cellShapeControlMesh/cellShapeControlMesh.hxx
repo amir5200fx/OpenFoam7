@@ -89,19 +89,19 @@ namespace tnbLib
         ClassName("cellShapeControlMesh");
 
         //- Return the mesh sub-directory name (usually "cellShapeControlMesh")
-        static word meshSubDir;
+        static FoamFoamyMesh_EXPORT word meshSubDir;
 
 
         // Constructors
 
-        explicit cellShapeControlMesh(const Time& runTime);
+        FoamFoamyMesh_EXPORT explicit cellShapeControlMesh(const Time& runTime);
 
         //- Disallow default bitwise copy construction
         cellShapeControlMesh(const cellShapeControlMesh&) = delete;
 
 
         //- Destructor
-        ~cellShapeControlMesh();
+        FoamFoamyMesh_EXPORT ~cellShapeControlMesh();
 
 
         // Member Functions
@@ -115,19 +115,19 @@ namespace tnbLib
 
         //- Calculate and return the barycentric coordinates for
         //  interpolating quantities on the background mesh
-        void barycentricCoords
+        FoamFoamyMesh_EXPORT void barycentricCoords
         (
             const tnbLib::point& pt,
             barycentric& bary,
             Cell_handle& ch
         ) const;
 
-        boundBox bounds() const;
+        FoamFoamyMesh_EXPORT boundBox bounds() const;
 
 
         // Edit
 
-        label removePoints();
+        FoamFoamyMesh_EXPORT label removePoints();
 
         //- Get the centres of all the tets
         tmp<pointField> cellCentres() const;
@@ -145,15 +145,15 @@ namespace tnbLib
             const tnbLib::point& pt
         );
 
-        void distribute(const backgroundMeshDecomposition& decomposition);
+        FoamFoamyMesh_EXPORT void distribute(const backgroundMeshDecomposition& decomposition);
 
-        tensorField dumpAlignments() const;
+        FoamFoamyMesh_EXPORT tensorField dumpAlignments() const;
 
-        void writeTriangulation();
+        FoamFoamyMesh_EXPORT void writeTriangulation();
 
-        void write() const;
+        FoamFoamyMesh_EXPORT void write() const;
 
-        label estimateCellCount
+        FoamFoamyMesh_EXPORT label estimateCellCount
         (
             const autoPtr<backgroundMeshDecomposition>& decomposition
         ) const;
