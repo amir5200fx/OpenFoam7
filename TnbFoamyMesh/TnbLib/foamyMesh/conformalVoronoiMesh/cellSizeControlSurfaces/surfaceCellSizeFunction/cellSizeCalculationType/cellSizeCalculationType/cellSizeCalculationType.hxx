@@ -91,7 +91,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        cellSizeCalculationType
+        FoamFoamyMesh_EXPORT cellSizeCalculationType
         (
             const word& type,
             const dictionary& cellSizeCalculationTypeDict,
@@ -115,7 +115,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~cellSizeCalculationType();
+        FoamFoamyMesh_EXPORT virtual ~cellSizeCalculationType();
 
 
         // Member Functions
