@@ -86,7 +86,7 @@ namespace tnbLib
         tmp<pointField> buildPointField(const Triangulation& mesh);
 
         //- Apply the fixed alignments to the triad
-        void applyBoundaryConditions
+        FoamFoamyMesh_EXPORT void applyBoundaryConditions
         (
             const triad& fixedAlignment,
             triad& t
@@ -98,14 +98,14 @@ namespace tnbLib
         // Constructors
 
             //- Construct null
-        smoothAlignmentSolver(cellShapeControlMesh& mesh);
+        FoamFoamyMesh_EXPORT smoothAlignmentSolver(cellShapeControlMesh& mesh);
 
         //- Disallow default bitwise copy construction
         smoothAlignmentSolver(const smoothAlignmentSolver&) = delete;
 
 
         //- Destructor
-        ~smoothAlignmentSolver();
+        FoamFoamyMesh_EXPORT ~smoothAlignmentSolver();
 
 
         // Member Functions
@@ -113,7 +113,7 @@ namespace tnbLib
             // Edit
 
                 //- Smooth the alignments on the mesh
-        void smoothAlignments(const label maxSmoothingIterations);
+        FoamFoamyMesh_EXPORT void smoothAlignments(const label maxSmoothingIterations);
 
 
         // Member Operators
