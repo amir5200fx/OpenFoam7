@@ -85,15 +85,15 @@ namespace tnbLib
 
             //- Check if the given box overlaps the geometry or, in parallel, the
             //  backgroundMeshDecomposition
-        bool combinedOverlaps(const treeBoundBox& box) const;
+        FoamFoamyMesh_EXPORT bool combinedOverlaps(const treeBoundBox& box) const;
 
         //- Check if the given point is inside the geometry and, in parallel,
         //  the backgroundMeshDecomposition
-        bool combinedInside(const point& p) const;
+        FoamFoamyMesh_EXPORT bool combinedInside(const point& p) const;
 
         //- Check if the given points are wellInside the geometry and, in
         //  parallel, inside the backgroundMeshDecomposition
-        Field<bool> combinedWellInside
+        FoamFoamyMesh_EXPORT Field<bool> combinedWellInside
         (
             const pointField& pts,
             const scalarField& sizes
@@ -101,21 +101,21 @@ namespace tnbLib
 
         //- Check if the given points are wellInside the geometry and, in
         //  parallel, inside the backgroundMeshDecomposition
-        bool combinedWellInside
+        FoamFoamyMesh_EXPORT bool combinedWellInside
         (
             const point& p,
             scalar size
         ) const;
 
         //- Write boundBox as obj
-        void writeOBJ
+        FoamFoamyMesh_EXPORT void writeOBJ
         (
             const treeBoundBox& bb,
             fileName name
         ) const;
 
         //- Descend into octants of the supplied bound box
-        label recurseAndFill
+        FoamFoamyMesh_EXPORT label recurseAndFill
         (
             DynamicList<Vb::Point>& initialPoints,
             const treeBoundBox& bb,
@@ -126,7 +126,7 @@ namespace tnbLib
         //- Fill the given box, optionally filling surface overlapping boxes.
         //  Returns true if the fill is successful, false if it is to be aborted
         //  in favour of further recursion.
-        bool fillBox
+        FoamFoamyMesh_EXPORT bool fillBox
         (
             DynamicList<Vb::Point>& initialPoints,
             const treeBoundBox& bb,
@@ -142,7 +142,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        autoDensity
+        FoamFoamyMesh_EXPORT autoDensity
         (
             const dictionary& initialPointsDict,
             const Time& runTime,
@@ -154,14 +154,14 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~autoDensity()
+        FoamFoamyMesh_EXPORT virtual ~autoDensity()
         {}
 
 
         // Member Functions
 
             //- Return the initial points for the conformalVoronoiMesh
-        virtual List<Vb::Point> initialPoints() const;
+        FoamFoamyMesh_EXPORT virtual List<Vb::Point> initialPoints() const;
     };
 
 
