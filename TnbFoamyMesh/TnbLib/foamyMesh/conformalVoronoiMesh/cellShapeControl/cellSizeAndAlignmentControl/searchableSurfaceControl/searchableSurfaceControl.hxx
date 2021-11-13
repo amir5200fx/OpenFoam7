@@ -79,7 +79,7 @@ namespace tnbLib
 
             //- Construct from dictionary and references to conformalVoronoiMesh and
             //  searchableSurfaces
-        searchableSurfaceControl
+        FoamFoamyMesh_EXPORT searchableSurfaceControl
         (
             const Time& runTime,
             const word& name,
@@ -93,18 +93,18 @@ namespace tnbLib
 
 
         //- Destructor
-        ~searchableSurfaceControl();
+        FoamFoamyMesh_EXPORT ~searchableSurfaceControl();
 
 
         // Member Functions
 
-        virtual void cellSizeFunctionVertices
+        FoamFoamyMesh_EXPORT virtual void cellSizeFunctionVertices
         (
             DynamicList<tnbLib::point>& pts,
             DynamicList<scalar>& sizes
         ) const;
 
-        virtual void initialVertices
+        FoamFoamyMesh_EXPORT virtual void initialVertices
         (
             pointField& pts,
             scalarField& sizes,
@@ -121,7 +121,7 @@ namespace tnbLib
             return maxPriority_;
         }
 
-        bool cellSize
+        FoamFoamyMesh_EXPORT bool cellSize
         (
             const tnbLib::point& pt,
             scalar& cellSize,
