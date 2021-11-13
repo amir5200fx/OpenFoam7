@@ -96,7 +96,7 @@ namespace tnbLib
 
             //- Construct from dictionary and references to conformalVoronoiMesh and
             //  searchableSurfaces
-        cellShapeControl
+        FoamFoamyMesh_EXPORT cellShapeControl
         (
             const Time& runTime,
             const cvControls& foamyHexMeshControls,
@@ -109,7 +109,7 @@ namespace tnbLib
 
 
         //- Destructor
-        ~cellShapeControl();
+        FoamFoamyMesh_EXPORT ~cellShapeControl();
 
 
         // Member Functions
@@ -132,14 +132,14 @@ namespace tnbLib
         // Query
 
             //- Return the cell size at the given location
-        scalar cellSize(const point& pt) const;
+        FoamFoamyMesh_EXPORT scalar cellSize(const point& pt) const;
 
-        scalarField cellSize(const pointField& pts) const;
+        FoamFoamyMesh_EXPORT scalarField cellSize(const pointField& pts) const;
 
         //- Return the cell alignment at the given location
-        tensor cellAlignment(const point& pt) const;
+        FoamFoamyMesh_EXPORT tensor cellAlignment(const point& pt) const;
 
-        void cellSizeAndAlignment
+        FoamFoamyMesh_EXPORT void cellSizeAndAlignment
         (
             const point& pt,
             scalar& size,
