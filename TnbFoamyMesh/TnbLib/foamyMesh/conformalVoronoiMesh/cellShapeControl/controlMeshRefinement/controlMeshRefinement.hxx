@@ -69,7 +69,7 @@ namespace tnbLib
 
         // Private Member Functions
 
-        scalar calcFirstDerivative
+        FoamFoamyMesh_EXPORT scalar calcFirstDerivative
         (
             const tnbLib::point& a,
             const scalar& cellSizeA,
@@ -91,7 +91,7 @@ namespace tnbLib
         }
 
 
-        bool detectEdge
+        FoamFoamyMesh_EXPORT bool detectEdge
         (
             const tnbLib::point& startPt,
             const tnbLib::point& endPt,
@@ -100,7 +100,7 @@ namespace tnbLib
             const scalar secondDerivTolSqr
         ) const;
 
-        pointHit findDiscontinuities(const linePointRef& l) const;
+        FoamFoamyMesh_EXPORT pointHit findDiscontinuities(const linePointRef& l) const;
 
 
     public:
@@ -112,26 +112,26 @@ namespace tnbLib
         // Constructors
 
             //- Construct null
-        controlMeshRefinement(cellShapeControl& shapeController);
+        FoamFoamyMesh_EXPORT controlMeshRefinement(cellShapeControl& shapeController);
 
         //- Disallow default bitwise copy construction
         controlMeshRefinement(const controlMeshRefinement&) = delete;
 
 
         //- Destructor
-        ~controlMeshRefinement();
+        FoamFoamyMesh_EXPORT ~controlMeshRefinement();
 
 
         // Member Functions
 
             // Edit
 
-        void initialMeshPopulation
+        FoamFoamyMesh_EXPORT void initialMeshPopulation
         (
             const autoPtr<backgroundMeshDecomposition>& decomposition
         );
 
-        label refineMesh
+        FoamFoamyMesh_EXPORT label refineMesh
         (
             const autoPtr<backgroundMeshDecomposition>& decomposition
         );
