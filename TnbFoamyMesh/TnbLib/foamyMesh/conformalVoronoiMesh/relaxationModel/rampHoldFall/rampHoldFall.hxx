@@ -86,7 +86,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        rampHoldFall
+        FoamFoamyMesh_EXPORT rampHoldFall
         (
             const dictionary& relaxationDict,
             const Time& runTime
@@ -101,7 +101,7 @@ namespace tnbLib
         // Member Functions
 
             //- Return the current relaxation coefficient
-        virtual scalar relaxation();
+        FoamFoamyMesh_EXPORT virtual scalar relaxation();
     };
 
 
