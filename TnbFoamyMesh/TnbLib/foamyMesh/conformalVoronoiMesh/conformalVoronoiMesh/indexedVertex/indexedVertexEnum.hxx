@@ -74,18 +74,18 @@ namespace tnbLib
 			movable = 1
 		};
 
-		static const tnbLib::NamedEnum<vertexType, 15> vertexTypeNames_;
+		static FoamFoamyMesh_EXPORT const tnbLib::NamedEnum<vertexType, 15> vertexTypeNames_;
 
-		static const tnbLib::NamedEnum<vertexMotion, 2> vertexMotionNames_;
+		static FoamFoamyMesh_EXPORT const tnbLib::NamedEnum<vertexMotion, 2> vertexMotionNames_;
 
-		friend Ostream& operator<<(tnbLib::Ostream&, const vertexType&);
+		friend FoamFoamyMesh_EXPORT Ostream& operator<<(tnbLib::Ostream&, const vertexType&);
 
-		friend Istream& operator>>(tnbLib::Istream&, vertexType&);
+		friend FoamFoamyMesh_EXPORT Istream& operator>>(tnbLib::Istream&, vertexType&);
 	};
 
 
-	Istream& operator>>(Istream&, indexedVertexEnum::vertexType&);
-	Ostream& operator<<(Ostream&, const indexedVertexEnum::vertexType&);
+	FoamFoamyMesh_EXPORT Istream& operator>>(Istream&, indexedVertexEnum::vertexType&);
+	FoamFoamyMesh_EXPORT Ostream& operator<<(Ostream&, const indexedVertexEnum::vertexType&);
 
 	template<>
 	inline bool contiguous<indexedVertexEnum>()

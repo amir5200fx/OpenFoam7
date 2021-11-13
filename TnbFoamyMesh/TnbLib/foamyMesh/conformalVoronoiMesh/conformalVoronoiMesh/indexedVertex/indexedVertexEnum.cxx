@@ -41,7 +41,7 @@
 //vertexMotionNames_;
 
 
-tnbLib::Ostream& tnbLib::operator<<
+FoamFoamyMesh_EXPORT tnbLib::Ostream& tnbLib::operator<<
 (
 	Ostream& os,
 	const tnbLib::indexedVertexEnum::vertexType& v
@@ -52,7 +52,7 @@ tnbLib::Ostream& tnbLib::operator<<
 	return os;
 }
 
-tnbLib::Istream& tnbLib::operator>>
+FoamFoamyMesh_EXPORT tnbLib::Istream& tnbLib::operator>>
 (
 	Istream& is,
 	tnbLib::indexedVertexEnum::vertexType& v
