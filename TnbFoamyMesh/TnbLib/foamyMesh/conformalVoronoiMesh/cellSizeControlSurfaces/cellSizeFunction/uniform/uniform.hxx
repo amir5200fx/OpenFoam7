@@ -64,7 +64,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        uniform
+        FoamFoamyMesh_EXPORT uniform
         (
             const dictionary& initialPointsDict,
             const searchableSurface& surface,
@@ -80,7 +80,7 @@ namespace tnbLib
 
         // Member Functions
 
-        virtual bool sizeLocations
+        FoamFoamyMesh_EXPORT virtual bool sizeLocations
         (
             const pointIndexHit& hitPt,
             const vector& n,
@@ -92,14 +92,14 @@ namespace tnbLib
         //  Return a boolean specifying if the function was used, i.e. false if
         //  the point was not in range of the surface for a spatially varying
         //  size.
-        virtual bool cellSize
+        FoamFoamyMesh_EXPORT virtual bool cellSize
         (
             const point& pt,
             scalar& size
         ) const;
 
         //- Adapt local cell size. Return true if anything changed.
-        virtual bool setCellSize
+        FoamFoamyMesh_EXPORT virtual bool setCellSize
         (
             const pointField& pts
         );

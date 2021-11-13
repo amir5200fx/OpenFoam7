@@ -80,7 +80,7 @@ namespace tnbLib
 
             //- Point closeness tolerance to a surface where the function "snaps" to
             //  including the surface
-        static scalar snapToSurfaceTol_;
+        static FoamFoamyMesh_EXPORT scalar snapToSurfaceTol_;
 
 
         // Protected data
@@ -131,7 +131,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        cellSizeFunction
+        FoamFoamyMesh_EXPORT cellSizeFunction
         (
             const word& type,
             const dictionary& cellSizeFunctionDict,
@@ -147,7 +147,7 @@ namespace tnbLib
         // Selectors
 
             //- Return a reference to the selected cellSizeFunction
-        static autoPtr<cellSizeFunction> New
+        static FoamFoamyMesh_EXPORT autoPtr<cellSizeFunction> New
         (
             const dictionary& cellSizeFunctionDict,
             const searchableSurface& surface,
@@ -157,7 +157,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~cellSizeFunction();
+        FoamFoamyMesh_EXPORT virtual ~cellSizeFunction();
 
 
         // Member Functions

@@ -72,7 +72,7 @@ namespace tnbLib
         // Private Member Functions
 
             //- Calculate the cell size as a function of the given distance
-        scalar sizeFunction(const point& pt, scalar d, label index) const;
+        FoamFoamyMesh_EXPORT scalar sizeFunction(const point& pt, scalar d, label index) const;
 
 
     public:
@@ -83,7 +83,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        surfaceOffsetLinearDistance
+        FoamFoamyMesh_EXPORT surfaceOffsetLinearDistance
         (
             const dictionary& initialPointsDict,
             const searchableSurface& surface,
@@ -99,7 +99,7 @@ namespace tnbLib
 
         // Member Functions
 
-        virtual bool sizeLocations
+        FoamFoamyMesh_EXPORT virtual bool sizeLocations
         (
             const pointIndexHit& hitPt,
             const vector& n,
@@ -111,7 +111,7 @@ namespace tnbLib
         //  Return a boolean specifying if the function was used, i.e. false if
         //  the point was not in range of the surface for a spatially varying
         //  size.
-        virtual bool cellSize
+        FoamFoamyMesh_EXPORT virtual bool cellSize
         (
             const point& pt,
             scalar& size
