@@ -64,7 +64,7 @@ namespace tnbLib
 
         // Private Member Functions
 
-        void splitLine
+        FoamFoamyMesh_EXPORT void splitLine
         (
             const line<point, point>& l,
             const scalar& pert,
@@ -80,7 +80,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        rayShooting
+        FoamFoamyMesh_EXPORT rayShooting
         (
             const dictionary& initialPointsDict,
             const Time& runTime,
@@ -99,7 +99,7 @@ namespace tnbLib
         // Member Functions
 
             //- Return the initial points for the conformalVoronoiMesh
-        virtual List<Vb::Point> initialPoints() const;
+        FoamFoamyMesh_EXPORT virtual List<Vb::Point> initialPoints() const;
     };
 
 
