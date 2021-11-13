@@ -67,7 +67,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        uniformValue
+        FoamFoamyMesh_EXPORT uniformValue
         (
             const dictionary& cellSizeFunctionDict,
             const searchableSurface& surface,
@@ -82,7 +82,7 @@ namespace tnbLib
 
         // Member Functions
 
-        virtual scalar interpolate
+        FoamFoamyMesh_EXPORT virtual scalar interpolate
         (
             const point& pt,
             const label index
