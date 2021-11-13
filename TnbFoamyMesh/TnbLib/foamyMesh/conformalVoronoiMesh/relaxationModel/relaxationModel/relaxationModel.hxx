@@ -94,7 +94,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        relaxationModel
+        FoamFoamyMesh_EXPORT relaxationModel
         (
             const word& type,
             const dictionary& relaxationDict,
@@ -116,7 +116,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~relaxationModel();
+        FoamFoamyMesh_EXPORT virtual ~relaxationModel();
 
 
         // Member Functions
