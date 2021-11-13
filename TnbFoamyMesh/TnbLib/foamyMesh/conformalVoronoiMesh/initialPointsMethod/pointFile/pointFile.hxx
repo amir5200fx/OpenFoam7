@@ -82,7 +82,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        pointFile
+        FoamFoamyMesh_EXPORT pointFile
         (
             const dictionary& initialPointsDict,
             const Time& runTime,
@@ -94,14 +94,14 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~pointFile()
+        FoamFoamyMesh_EXPORT virtual ~pointFile()
         {}
 
 
         // Member Functions
 
             //- Return the initial points for the conformalVoronoiMesh
-        virtual List<Vb::Point> initialPoints() const;
+        FoamFoamyMesh_EXPORT virtual List<Vb::Point> initialPoints() const;
     };
 
 
