@@ -75,7 +75,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        bodyCentredCubic
+        FoamFoamyMesh_EXPORT bodyCentredCubic
         (
             const dictionary& initialPointsDict,
             const Time& runTime,
@@ -87,14 +87,14 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~bodyCentredCubic()
+        FoamFoamyMesh_EXPORT virtual ~bodyCentredCubic()
         {}
 
 
         // Member Functions
 
             //- Return the initial points for the conformalVoronoiMesh
-        virtual List<Vb::Point> initialPoints() const;
+        FoamFoamyMesh_EXPORT virtual List<Vb::Point> initialPoints() const;
     };
 
 
