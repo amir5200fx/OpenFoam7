@@ -99,7 +99,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        surfaceCellSizeFunction
+        FoamFoamyMesh_EXPORT surfaceCellSizeFunction
         (
             const word& type,
             const dictionary& surfaceCellSizeFunctionDict,
@@ -123,7 +123,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~surfaceCellSizeFunction();
+        FoamFoamyMesh_EXPORT virtual ~surfaceCellSizeFunction();
 
 
         // Member Functions
