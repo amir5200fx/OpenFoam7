@@ -125,16 +125,16 @@ namespace tnbLib
             constrained = 4
         };
 
-        static const NamedEnum<dualMeshPointType, 5> dualMeshPointTypeNames_;
+        static FoamFoamyMesh_EXPORT const NamedEnum<dualMeshPointType, 5> dualMeshPointTypeNames_;
 
 
     private:
 
         // Static data
 
-        static const scalar searchConeAngle;
+        static FoamFoamyMesh_EXPORT const scalar searchConeAngle;
 
-        static const scalar searchAngleOppositeSurface;
+        static FoamFoamyMesh_EXPORT const scalar searchAngleOppositeSurface;
 
 
         // Private Data
@@ -225,7 +225,7 @@ namespace tnbLib
         //- Insert Delaunay vertices using the CGAL range insertion method,
         //  optionally check processor occupancy and distribute to other
         //  processors
-        void insertInternalPoints
+        FoamFoamyMesh_EXPORT void insertInternalPoints
         (
             List<Point>& points,
             const bool distribute = false
@@ -267,7 +267,7 @@ namespace tnbLib
 
         //- Insert pairs of points on the surface with the given normals, at the
         //  specified spacing
-        void insertSurfacePointPairs
+        FoamFoamyMesh_EXPORT void insertSurfacePointPairs
         (
             const pointIndexHitAndFeatureList& surfaceHits,
             const fileName fName,
@@ -277,27 +277,27 @@ namespace tnbLib
         //- Insert groups of points to conform to an edge given a list of
         //  pointIndexHits specifying the location and edge index of the point
         //  to be conformed to on the corresponding entry in featureHit
-        void insertEdgePointGroups
+        FoamFoamyMesh_EXPORT void insertEdgePointGroups
         (
             const pointIndexHitAndFeatureList& edgeHits,
             const fileName fName,
             DynamicList<Vb>& pts
         );
 
-        void createEdgePointGroupByCirculating
+        FoamFoamyMesh_EXPORT void createEdgePointGroupByCirculating
         (
             const extendedFeatureEdgeMesh& feMesh,
             const pointIndexHit& edHit,
             DynamicList<Vb>& pts
         ) const;
 
-        bool meshableRegion
+        FoamFoamyMesh_EXPORT bool meshableRegion
         (
             const plane::side side,
             const extendedFeatureEdgeMesh::sideVolumeType volType
         ) const;
 
-        bool regionIsInside
+        FoamFoamyMesh_EXPORT bool regionIsInside
         (
             const extendedFeatureEdgeMesh::sideVolumeType volTypeA,
             const vector& normalA,
@@ -307,7 +307,7 @@ namespace tnbLib
         ) const;
 
         //- Create points to conform to an external edge
-        void createExternalEdgePointGroup
+        FoamFoamyMesh_EXPORT void createExternalEdgePointGroup
         (
             const extendedFeatureEdgeMesh& feMesh,
             const pointIndexHit& edHit,
@@ -315,7 +315,7 @@ namespace tnbLib
         ) const;
 
         //- Create points to conform to an internal edge
-        void createInternalEdgePointGroup
+        FoamFoamyMesh_EXPORT void createInternalEdgePointGroup
         (
             const extendedFeatureEdgeMesh& feMesh,
             const pointIndexHit& edHit,
@@ -323,7 +323,7 @@ namespace tnbLib
         ) const;
 
         //- Create points to conform to a flat edge
-        void createFlatEdgePointGroup
+        FoamFoamyMesh_EXPORT void createFlatEdgePointGroup
         (
             const extendedFeatureEdgeMesh& feMesh,
             const pointIndexHit& edHit,
@@ -331,7 +331,7 @@ namespace tnbLib
         ) const;
 
         //- Create points to conform to an open edge
-        void createOpenEdgePointGroup
+        FoamFoamyMesh_EXPORT void createOpenEdgePointGroup
         (
             const extendedFeatureEdgeMesh& feMesh,
             const pointIndexHit& edHit,
@@ -339,7 +339,7 @@ namespace tnbLib
         ) const;
 
         //- Create points to conform to multiply connected edge
-        void createMultipleEdgePointGroup
+        FoamFoamyMesh_EXPORT void createMultipleEdgePointGroup
         (
             const extendedFeatureEdgeMesh& feMesh,
             const pointIndexHit& edHit,
@@ -347,17 +347,17 @@ namespace tnbLib
         ) const;
 
         //- Determine and insert point groups at the feature points
-        void insertFeaturePoints(bool distribute = false);
+        FoamFoamyMesh_EXPORT void insertFeaturePoints(bool distribute = false);
 
         //- Check if a location is in exclusion range around a feature point
-        bool nearFeaturePt(const tnbLib::point& pt) const;
+        FoamFoamyMesh_EXPORT bool nearFeaturePt(const tnbLib::point& pt) const;
 
         //- Check if a surface point is in exclusion range around a feature edge
-        bool surfacePtNearFeatureEdge(const tnbLib::point& pt) const;
+        FoamFoamyMesh_EXPORT bool surfacePtNearFeatureEdge(const tnbLib::point& pt) const;
 
         //- Insert the initial points into the triangulation, based on the
         //  initialPointsMethod
-        void insertInitialPoints();
+        FoamFoamyMesh_EXPORT void insertInitialPoints();
 
         //- In parallel redistribute the backgroundMeshDecomposition and
         //  vertices to balance the number of vertices on each processor.
@@ -367,23 +367,23 @@ namespace tnbLib
         bool distributeBackground(const Triangulation& mesh);
 
         // Test for full containment
-        void cellSizeMeshOverlapsBackground() const;
+        FoamFoamyMesh_EXPORT void cellSizeMeshOverlapsBackground() const;
 
         //-
-        void distribute();
+        FoamFoamyMesh_EXPORT void distribute();
 
-        void buildCellSizeAndAlignmentMesh();
+        FoamFoamyMesh_EXPORT void buildCellSizeAndAlignmentMesh();
 
         //- Set the size and alignment data for each vertex
-        void setVertexSizeAndAlignment();
+        FoamFoamyMesh_EXPORT void setVertexSizeAndAlignment();
 
         //- Builds a dual face by circulating around the supplied edge.
-        face buildDualFace
+        FoamFoamyMesh_EXPORT face buildDualFace
         (
             const Delaunay::Finite_edges_iterator& eit
         ) const;
 
-        boolList dualFaceBoundaryPoints
+        FoamFoamyMesh_EXPORT boolList dualFaceBoundaryPoints
         (
             const Delaunay::Finite_edges_iterator& eit
         ) const;
@@ -391,7 +391,7 @@ namespace tnbLib
         //- Finds the maximum filterCount of the dual vertices
         //  (Delaunay cells) that form the dual face produced by the
         //  supplied edge
-        label maxFilterCount
+        FoamFoamyMesh_EXPORT label maxFilterCount
         (
             const Delaunay::Finite_edges_iterator& eit
         ) const;
@@ -402,7 +402,7 @@ namespace tnbLib
         //  then neighbour = -1.  Returns true if the dual face
         //  created by vA -> vB needs to be reversed to be correctly
         //  orientated.
-        bool ownerAndNeighbour
+        FoamFoamyMesh_EXPORT bool ownerAndNeighbour
         (
             Vertex_handle vA,
             Vertex_handle vB,
@@ -412,46 +412,46 @@ namespace tnbLib
 
         //- Insert the necessary point pairs to conform to the surface, either
         //  from stored results, or trigger a re-conformation
-        void conformToSurface();
+        FoamFoamyMesh_EXPORT void conformToSurface();
 
         //- Decision making function for when to rebuild the surface
         //  conformation
-        bool reconformToSurface() const;
+        FoamFoamyMesh_EXPORT bool reconformToSurface() const;
 
         //- Determines geometrically whether a vertex is close to a surface
         //  This is an optimisation
-        label findVerticesNearBoundaries();
+        FoamFoamyMesh_EXPORT label findVerticesNearBoundaries();
 
         //- Create and insert the necessary point pairs to conform to the
         //  surface, then store the result
-        void buildSurfaceConformation();
+        FoamFoamyMesh_EXPORT void buildSurfaceConformation();
 
-        label synchroniseEdgeTrees
+        FoamFoamyMesh_EXPORT label synchroniseEdgeTrees
         (
             const DynamicList<label>& edgeToTreeShape,
             pointIndexHitAndFeatureList& featureEdgeHits
         );
 
-        label synchroniseSurfaceTrees
+        FoamFoamyMesh_EXPORT label synchroniseSurfaceTrees
         (
             const DynamicList<label>& surfaceToTreeShape,
             pointIndexHitAndFeatureList& surfaceHits
         );
 
-        bool surfaceLocationConformsToInside
+        FoamFoamyMesh_EXPORT bool surfaceLocationConformsToInside
         (
             const pointIndexHitAndFeature& info
         ) const;
 
         //- Check to see if dual cell specified by given vertex iterator
         //  intersects the boundary and hence reqires a point-pair
-        bool dualCellSurfaceAnyIntersection
+        FoamFoamyMesh_EXPORT bool dualCellSurfaceAnyIntersection
         (
             const Delaunay::Finite_vertices_iterator& vit
         ) const;
 
         //- Return all intersections
-        bool dualCellSurfaceAllIntersections
+        FoamFoamyMesh_EXPORT bool dualCellSurfaceAllIntersections
         (
             const Delaunay::Finite_vertices_iterator& vit,
             pointIndexHitAndFeatureDynList& info
@@ -462,7 +462,7 @@ namespace tnbLib
         //  bounadry is intersected (i.e. the points are box outside but the
         //  line cuts.  The points will be moved onto the box where they
         //  intersect.
-        bool clipLineToProc
+        FoamFoamyMesh_EXPORT bool clipLineToProc
         (
             const tnbLib::point& pt,
             tnbLib::point& a,
@@ -471,14 +471,14 @@ namespace tnbLib
 
         //- Find the "worst" protrusion of a dual cell through the surface,
         //  subject to the maxSurfaceProtrusion tolerance
-        void dualCellLargestSurfaceProtrusion
+        FoamFoamyMesh_EXPORT void dualCellLargestSurfaceProtrusion
         (
             const Delaunay::Finite_vertices_iterator& vit,
             pointIndexHit& surfHit,
             label& hitSurface
         ) const;
 
-        void dualCellLargestSurfaceIncursion
+        FoamFoamyMesh_EXPORT void dualCellLargestSurfaceIncursion
         (
             const Delaunay::Finite_vertices_iterator& vit,
             pointIndexHit& surfHit,
@@ -486,7 +486,7 @@ namespace tnbLib
         ) const;
 
         //- Write out vertex-processor occupancy information for debugging
-        void reportProcessorOccupancy();
+        FoamFoamyMesh_EXPORT void reportProcessorOccupancy();
 
         //- Write out debugging information about the surface conformation
         //  quality
@@ -494,7 +494,7 @@ namespace tnbLib
 
         //- Limit the displacement of a point so that it doesn't penetrate the
         //  surface to be meshed or come too close to it
-        void limitDisplacement
+        FoamFoamyMesh_EXPORT void limitDisplacement
         (
             const Delaunay::Finite_vertices_iterator& vit,
             vector& displacement,
@@ -502,22 +502,22 @@ namespace tnbLib
         ) const;
 
         //- Find angle between the normals of two close surface points.
-        scalar angleBetweenSurfacePoints(tnbLib::point pA, tnbLib::point pB) const;
+        FoamFoamyMesh_EXPORT scalar angleBetweenSurfacePoints(tnbLib::point pA, tnbLib::point pB) const;
 
         //- Check if a surface point is near another.
-        bool nearSurfacePoint
+        FoamFoamyMesh_EXPORT  bool nearSurfacePoint
         (
             pointIndexHitAndFeature& pHit
         ) const;
 
         //- Append a point to the surface point tree and the existing list
-        bool appendToSurfacePtTree
+        FoamFoamyMesh_EXPORT bool appendToSurfacePtTree
         (
             const tnbLib::point& pt
         ) const;
 
         //- Append a point to the edge location tree and the existing list
-        bool appendToEdgeLocationTree
+        FoamFoamyMesh_EXPORT bool appendToEdgeLocationTree
         (
             const tnbLib::point& pt
         ) const;
@@ -529,18 +529,18 @@ namespace tnbLib
         ) const;
 
         //- Check if a point is near any feature edge points.
-        bool pointIsNearFeatureEdgeLocation(const tnbLib::point& pt) const;
+        FoamFoamyMesh_EXPORT bool pointIsNearFeatureEdgeLocation(const tnbLib::point& pt) const;
 
-        bool pointIsNearFeatureEdgeLocation
+        FoamFoamyMesh_EXPORT bool pointIsNearFeatureEdgeLocation
         (
             const tnbLib::point& pt,
             pointIndexHit& info
         ) const;
 
         //- Check if a point is near any surface conformation points.
-        bool pointIsNearSurfaceLocation(const tnbLib::point& pt) const;
+        FoamFoamyMesh_EXPORT bool pointIsNearSurfaceLocation(const tnbLib::point& pt) const;
 
-        bool pointIsNearSurfaceLocation
+        FoamFoamyMesh_EXPORT bool pointIsNearSurfaceLocation
         (
             const tnbLib::point& pt,
             pointIndexHit& info
@@ -548,27 +548,27 @@ namespace tnbLib
 
         //- Check if a location is in the exclusion range of an existing feature
         //- Edge conformation location
-        bool nearFeatureEdgeLocation
+        FoamFoamyMesh_EXPORT bool nearFeatureEdgeLocation
         (
             const pointIndexHit& pHit,
             pointIndexHit& nearestEdgeHit
         ) const;
 
         //- Build or rebuild the edge location tree
-        void buildEdgeLocationTree
+        FoamFoamyMesh_EXPORT void buildEdgeLocationTree
         (
             const DynamicList<tnbLib::point>& existingEdgeLocations
         ) const;
 
         //- Build or rebuild the surface point location tree
-        void buildSurfacePtLocationTree
+        FoamFoamyMesh_EXPORT void buildSurfacePtLocationTree
         (
             const DynamicList<tnbLib::point>& existingSurfacePtLocations
         ) const;
 
         //- Process the surface conformation locations to decide which surface
         //  and edge conformation locations to add
-        void addSurfaceAndEdgeHits
+        FoamFoamyMesh_EXPORT void addSurfaceAndEdgeHits
         (
             const tnbLib::point& vit,
             const pointIndexHitAndFeatureDynList& surfaceIntersections,
@@ -584,22 +584,22 @@ namespace tnbLib
 
         //- Store the surface conformation with the indices offset to be
         //  relative to zero
-        void storeSurfaceConformation();
+        FoamFoamyMesh_EXPORT void storeSurfaceConformation();
 
         //- Reinsert the surface conformation re-offsetting indices to be
         //  relative to new number of internal vertices
-        void reinsertSurfaceConformation();
+        FoamFoamyMesh_EXPORT void reinsertSurfaceConformation();
 
-        void checkCells();
+        FoamFoamyMesh_EXPORT void checkCells();
 
-        void checkDuals();
+        FoamFoamyMesh_EXPORT void checkDuals();
 
-        void checkVertices();
+        FoamFoamyMesh_EXPORT void checkVertices();
 
-        void checkCoPlanarCells() const;
+        FoamFoamyMesh_EXPORT void checkCoPlanarCells() const;
 
         //- Dual calculation
-        void calcDualMesh
+        FoamFoamyMesh_EXPORT void calcDualMesh
         (
             pointField& points,
             labelList& boundaryPts,
@@ -614,14 +614,14 @@ namespace tnbLib
             PackedBoolList& boundaryFacesToRemove
         );
 
-        void calcNeighbourCellCentres
+        FoamFoamyMesh_EXPORT void calcNeighbourCellCentres
         (
             const polyMesh& mesh,
             const pointField& cellCentres,
             pointField& neiCc
         ) const;
 
-        void selectSeparatedCoupledFaces
+        FoamFoamyMesh_EXPORT void selectSeparatedCoupledFaces
         (
             const polyMesh& mesh,
             boolList& selected
@@ -629,7 +629,7 @@ namespace tnbLib
 
         //- From meshRefinementBaffles.C. Use insidePoint for a surface to
         //  determine the cell zone.
-        void findCellZoneInsideWalk
+        FoamFoamyMesh_EXPORT void findCellZoneInsideWalk
         (
             const polyMesh& mesh,
             const labelList& locationSurfaces,
@@ -638,10 +638,10 @@ namespace tnbLib
         ) const;
 
         //- Calculate the cell zones from cellCentres using all closed surfaces
-        labelList calcCellZones(const pointField& cellCentres) const;
+        FoamFoamyMesh_EXPORT labelList calcCellZones(const pointField& cellCentres) const;
 
         //- Calculate the face zones
-        void calcFaceZones
+        FoamFoamyMesh_EXPORT void calcFaceZones
         (
             const polyMesh& mesh,
             const pointField& cellCentres,
@@ -651,10 +651,10 @@ namespace tnbLib
         ) const;
 
         //- Add zones to the polyMesh
-        void addZones(polyMesh& mesh, const pointField& cellCentres) const;
+        FoamFoamyMesh_EXPORT void addZones(polyMesh& mesh, const pointField& cellCentres) const;
 
         //- Tet mesh calculation
-        void calcTetMesh
+        FoamFoamyMesh_EXPORT void calcTetMesh
         (
             pointField& points,
             labelList& pointToDelaunayVertex,
@@ -694,20 +694,20 @@ namespace tnbLib
         ) const;
 
         //- Merge vertices that are identical
-        void mergeIdenticalDualVertices
+        FoamFoamyMesh_EXPORT void mergeIdenticalDualVertices
         (
             const pointField& pts,
             labelList& boundaryPts
         );
 
-        label mergeIdenticalDualVertices
+        FoamFoamyMesh_EXPORT label mergeIdenticalDualVertices
         (
             const pointField& pts,
             Map<label>& dualPtIndexMap
         ) const;
 
         //- Identify the face labels of the deferred collapse faces
-        void deferredCollapseFaceSet
+        FoamFoamyMesh_EXPORT void deferredCollapseFaceSet
         (
             labelList& owner,
             labelList& neighbour,
@@ -715,11 +715,11 @@ namespace tnbLib
         ) const;
 
         //- Check whether the cell sizes are fine enough. Creates a polyMesh.
-        void checkCellSizing();
+        FoamFoamyMesh_EXPORT void checkCellSizing();
 
         //- Find all cells with a patch face that is not near the surface. The
         //  allowed offset is the fraction of the target cell size.
-        labelHashSet findOffsetPatchFaces
+        FoamFoamyMesh_EXPORT labelHashSet findOffsetPatchFaces
         (
             const polyMesh& mesh,
             const scalar allowedOffset
@@ -727,37 +727,37 @@ namespace tnbLib
 
         //- Create a polyMesh and check its quality, reports which
         //  elements damage the mesh quality, allowing backtracking.
-        labelHashSet checkPolyMeshQuality(const pointField& pts) const;
+        FoamFoamyMesh_EXPORT labelHashSet checkPolyMeshQuality(const pointField& pts) const;
 
-        label classifyBoundaryPoint(Cell_handle cit) const;
+        FoamFoamyMesh_EXPORT label classifyBoundaryPoint(Cell_handle cit) const;
 
         //- Index all of the Delaunay cells and calculate their
         //- Dual points
-        void indexDualVertices
+        FoamFoamyMesh_EXPORT void indexDualVertices
         (
             pointField& pts,
             labelList& boundaryPts
         );
 
         //- Re-index all of the Delaunay cells
-        void reindexDualVertices
+        FoamFoamyMesh_EXPORT void reindexDualVertices
         (
             const Map<label>& dualPtIndexMap,
             labelList& boundaryPts
         );
 
-        label createPatchInfo
+        FoamFoamyMesh_EXPORT label createPatchInfo
         (
             wordList& patchNames,
             PtrList<dictionary>& patchDicts
         ) const;
 
-        vector calcSharedPatchNormal(Cell_handle c1, Cell_handle c2) const;
+        FoamFoamyMesh_EXPORT vector calcSharedPatchNormal(Cell_handle c1, Cell_handle c2) const;
 
-        bool boundaryDualFace(Cell_handle c1, Cell_handle c2) const;
+        FoamFoamyMesh_EXPORT bool boundaryDualFace(Cell_handle c1, Cell_handle c2) const;
 
         //- Create all of the internal and boundary faces
-        void createFacesOwnerNeighbourAndPatches
+        FoamFoamyMesh_EXPORT void createFacesOwnerNeighbourAndPatches
         (
             const pointField& pts,
             faceList& faces,
@@ -773,7 +773,7 @@ namespace tnbLib
         //- Sort the faces, owner and neighbour lists into
         //  upper-triangular order.  For internal faces only, use
         //  before adding patch faces
-        void sortFaces
+        FoamFoamyMesh_EXPORT void sortFaces
         (
             faceList& faces,
             labelList& owner,
@@ -782,7 +782,7 @@ namespace tnbLib
 
         //- Sort the processor patches so that the faces are in the same order
         //  on both processors
-        void sortProcPatches
+        FoamFoamyMesh_EXPORT void sortProcPatches
         (
             List<DynamicList<face>>& patchFaces,
             List<DynamicList<label>>& patchOwners,
@@ -791,7 +791,7 @@ namespace tnbLib
         ) const;
 
         //- Add the faces and owner information for the patches
-        void addPatches
+        FoamFoamyMesh_EXPORT void addPatches
         (
             const label nInternalFaces,
             faceList& faces,
@@ -804,7 +804,7 @@ namespace tnbLib
         ) const;
 
         //- Remove points that are no longer used by any faces
-        void removeUnusedPoints
+        FoamFoamyMesh_EXPORT void removeUnusedPoints
         (
             faceList& faces,
             pointField& pts,
@@ -813,7 +813,7 @@ namespace tnbLib
 
         //- Remove dual cells that are not used by any faces. Return compaction
         //  map.
-        labelList removeUnusedCells
+        FoamFoamyMesh_EXPORT labelList removeUnusedCells
         (
             labelList& owner,
             labelList& neighbour
@@ -830,12 +830,12 @@ namespace tnbLib
         //- Create a polyMesh from points.
         autoPtr<polyMesh> createPolyMeshFromPoints(const pointField& pts) const;
 
-        void checkProcessorPatchesMatch
+        FoamFoamyMesh_EXPORT void checkProcessorPatchesMatch
         (
             const PtrList<dictionary>& patchDicts
         ) const;
 
-        void reorderPoints
+        FoamFoamyMesh_EXPORT void reorderPoints
         (
             pointField& points,
             labelList& boundaryPts,
@@ -844,7 +844,7 @@ namespace tnbLib
         ) const;
 
         //- Rotate the faces on processor patches if necessary
-        void reorderProcessorPatches
+        FoamFoamyMesh_EXPORT void reorderProcessorPatches
         (
             const word& meshName,
             const fileName& instance,
@@ -856,7 +856,7 @@ namespace tnbLib
             const PtrList<dictionary>& patchDicts
         ) const;
 
-        void writePointPairs(const fileName& fName) const;
+        FoamFoamyMesh_EXPORT void writePointPairs(const fileName& fName) const;
 
 
     public:
@@ -868,7 +868,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from Time and foamyHexMeshDict
-        conformalVoronoiMesh
+        FoamFoamyMesh_EXPORT conformalVoronoiMesh
         (
             const Time& runTime,
             const dictionary& foamyHexMeshDict
@@ -879,18 +879,18 @@ namespace tnbLib
 
 
         //- Destructor
-        ~conformalVoronoiMesh();
+        FoamFoamyMesh_EXPORT ~conformalVoronoiMesh();
 
 
         // Member Functions
 
-        void initialiseForMotion();
+        FoamFoamyMesh_EXPORT void initialiseForMotion();
 
-        void initialiseForConformation();
+        FoamFoamyMesh_EXPORT void initialiseForConformation();
 
         //- Move the vertices according to the controller, re-conforming to the
         //  surface as required
-        void move();
+        FoamFoamyMesh_EXPORT void move();
 
         //        //- Which other processors does each sphere overlap
         //        labelListList overlapsProc
@@ -960,7 +960,7 @@ namespace tnbLib
         inline scalar maxSurfaceProtrusion(const tnbLib::point& pt) const;
 
         //- Call the appropriate function to conform to an edge
-        void createEdgePointGroup
+        FoamFoamyMesh_EXPORT void createEdgePointGroup
         (
             const extendedFeatureEdgeMesh& feMesh,
             const pointIndexHit& edHit,
@@ -972,24 +972,24 @@ namespace tnbLib
 
             //- Write the elapsedCpuTime and memory usage, with an optional
             //  description
-        static void timeCheck
+        static FoamFoamyMesh_EXPORT void timeCheck
         (
             const Time& runTime,
             const string& description = string::null,
             const bool check = true
         );
 
-        void timeCheck
+        FoamFoamyMesh_EXPORT void timeCheck
         (
             const string& description = string::null
         ) const;
 
         //- Prepare data and call writeMesh for polyMesh and
         //  tetDualMesh
-        void writeMesh(const fileName& instance);
+        FoamFoamyMesh_EXPORT void writeMesh(const fileName& instance);
 
         //- Write mesh to disk
-        void writeMesh
+        FoamFoamyMesh_EXPORT void writeMesh
         (
             const word& meshName,
             const fileName& instance,
@@ -1007,16 +1007,16 @@ namespace tnbLib
         //- Calculate and write a field of the target cell size,
         //  target cell volume, actual cell volume and equivalent
         //  actual cell size (cbrt(actual cell volume)).
-        void writeCellSizes(const fvMesh& mesh) const;
+        FoamFoamyMesh_EXPORT void writeCellSizes(const fvMesh& mesh) const;
 
-        void writeCellAlignments(const fvMesh& mesh) const;
+        FoamFoamyMesh_EXPORT void writeCellAlignments(const fvMesh& mesh) const;
 
         //- Calculate and write the cell centres.
-        void writeCellCentres(const fvMesh& mesh) const;
+        FoamFoamyMesh_EXPORT void writeCellCentres(const fvMesh& mesh) const;
 
         //- Find the cellSet of the boundary cells which have points that
         //  protrude out of the surface beyond a tolerance.
-        labelHashSet findRemainingProtrusionSet(const polyMesh& mesh) const;
+        FoamFoamyMesh_EXPORT labelHashSet findRemainingProtrusionSet(const polyMesh& mesh) const;
 
 
         // Member Operators
