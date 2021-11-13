@@ -215,7 +215,7 @@ namespace tnbLib
         // Constructors
 
              //- Construct from references to conformalVoronoiMesh and dictionary
-        cvControls
+        FoamFoamyMesh_EXPORT cvControls
         (
             const dictionary& foamyHexMeshDict
         );
@@ -225,7 +225,7 @@ namespace tnbLib
 
 
         //- Destructor
-        ~cvControls();
+        FoamFoamyMesh_EXPORT ~cvControls();
 
 
         // Member Functions
@@ -278,16 +278,16 @@ namespace tnbLib
         inline label surfaceConformationRebuildFrequency() const;
 
         //- Return the edgeSearchDistCoeffSqr for conformation.
-        scalar edgeSearchDistCoeffSqr() const;
+        FoamFoamyMesh_EXPORT scalar edgeSearchDistCoeffSqr() const;
 
         //- Return the surfacePtReplaceDistCoeffSqr for conformation.
-        scalar surfacePtReplaceDistCoeffSqr() const;
+        FoamFoamyMesh_EXPORT scalar surfacePtReplaceDistCoeffSqr() const;
 
         //- Return the maxConformationIterations
-        label maxConformationIterations() const;
+        FoamFoamyMesh_EXPORT label maxConformationIterations() const;
 
         //- Return the iterationToInitialHitRatioLimit
-        scalar iterationToInitialHitRatioLimit() const;
+        FoamFoamyMesh_EXPORT scalar iterationToInitialHitRatioLimit() const;
 
         //- Return the defaultCellSize
         inline scalar defaultCellSize() const;
