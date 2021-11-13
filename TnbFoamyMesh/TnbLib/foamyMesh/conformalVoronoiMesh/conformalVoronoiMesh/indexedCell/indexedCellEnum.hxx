@@ -60,7 +60,7 @@ namespace tnbLib
 			ctFeaturePoint = INT_MIN + 5
 		};
 
-		static const tnbLib::NamedEnum<cellTypes, 6> cellTypesNames_;
+		static FoamFoamyMesh_EXPORT const tnbLib::NamedEnum<cellTypes, 6> cellTypesNames_;
 	};
 
 
