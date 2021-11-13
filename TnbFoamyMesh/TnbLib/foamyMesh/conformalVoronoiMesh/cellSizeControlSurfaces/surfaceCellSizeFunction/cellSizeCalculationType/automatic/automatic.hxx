@@ -89,7 +89,7 @@ namespace tnbLib
 
         // Private Member Functions
 
-        void smoothField(triSurfaceScalarField& surf);
+        FoamFoamyMesh_EXPORT void smoothField(triSurfaceScalarField& surf);
 
 
     public:
@@ -101,7 +101,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        automatic
+        FoamFoamyMesh_EXPORT automatic
         (
             const dictionary& cellSizeCalcTypeDict,
             const triSurfaceMesh& surface,
