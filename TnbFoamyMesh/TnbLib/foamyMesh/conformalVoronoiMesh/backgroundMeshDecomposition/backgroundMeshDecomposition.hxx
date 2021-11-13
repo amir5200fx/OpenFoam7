@@ -159,15 +159,15 @@ namespace tnbLib
 
         // Private Member Functions
 
-        void initialRefinement();
+        FoamFoamyMesh_EXPORT void initialRefinement();
 
         //- Print details of the decomposed mesh
-        void printMeshData(const polyMesh& mesh) const;
+        FoamFoamyMesh_EXPORT void printMeshData(const polyMesh& mesh) const;
 
         //- Estimate the number of vertices that will be in this cell, returns
         //  true if the cell is to be split because of the density ratio inside
         //  it
-        bool refineCell
+        FoamFoamyMesh_EXPORT bool refineCell
         (
             label celli,
             volumeType volType,
@@ -176,14 +176,14 @@ namespace tnbLib
 
         //- Select cells for refinement at the surface of the geometry to be
         //  meshed
-        labelList selectRefinementCells
+        FoamFoamyMesh_EXPORT labelList selectRefinementCells
         (
             List<volumeType>& volumeStatus,
             volScalarField& cellWeights
         ) const;
 
         //- Build the surface patch and search tree
-        void buildPatchAndTree();
+        FoamFoamyMesh_EXPORT void buildPatchAndTree();
 
 
     public:
@@ -195,7 +195,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components in foamyHexMesh operation
-        backgroundMeshDecomposition
+        FoamFoamyMesh_EXPORT backgroundMeshDecomposition
         (
             const Time& runTime,
             Random& rndGen,
@@ -211,17 +211,17 @@ namespace tnbLib
 
 
         //- Destructor
-        ~backgroundMeshDecomposition();
+        FoamFoamyMesh_EXPORT ~backgroundMeshDecomposition();
 
 
         // Member Functions
 
             //- Build a mapDistribute for the supplied destination processor data
-        static autoPtr<mapDistribute> buildMap(const List<label>& toProc);
+        static FoamFoamyMesh_EXPORT autoPtr<mapDistribute> buildMap(const List<label>& toProc);
 
         //- Redistribute the background mesh based on a supplied weight field,
         //  returning a map to use to redistribute vertices.
-        autoPtr<mapDistributePolyMesh> distribute
+        FoamFoamyMesh_EXPORT autoPtr<mapDistributePolyMesh> distribute
         (
             volScalarField& cellWeights
         );
@@ -231,18 +231,18 @@ namespace tnbLib
         autoPtr<mapDistribute> distributePoints(List<PointType>& points) const;
 
         //- Is the given position inside the domain of this decomposition
-        bool positionOnThisProcessor(const point& pt) const;
+        FoamFoamyMesh_EXPORT bool positionOnThisProcessor(const point& pt) const;
 
         //- Are the given positions inside the domain of this decomposition
-        boolList positionOnThisProcessor(const List<point>& pts) const;
+        FoamFoamyMesh_EXPORT boolList positionOnThisProcessor(const List<point>& pts) const;
 
         //- Does the given box overlap the faces of the boundary of this
         //  processor
-        bool overlapsThisProcessor(const treeBoundBox& box) const;
+        FoamFoamyMesh_EXPORT bool overlapsThisProcessor(const treeBoundBox& box) const;
 
         //- Does the given sphere overlap the faces of the boundary of this
         //  processor
-        bool overlapsThisProcessor
+        FoamFoamyMesh_EXPORT bool overlapsThisProcessor
         (
             const point& centre,
             const scalar radiusSqr
@@ -250,7 +250,7 @@ namespace tnbLib
 
         //- Find nearest intersection of line between start and end, (exposing
         //  underlying indexedOctree)
-        pointIndexHit findLine
+        FoamFoamyMesh_EXPORT pointIndexHit findLine
         (
             const point& start,
             const point& end
@@ -258,7 +258,7 @@ namespace tnbLib
 
         //- Find any intersection of line between start and end, (exposing
         //  underlying indexedOctree)
-        pointIndexHit findLineAny
+        FoamFoamyMesh_EXPORT pointIndexHit findLineAny
         (
             const point& start,
             const point& end
@@ -269,7 +269,7 @@ namespace tnbLib
         labelList processorPosition(const List<PointType>& pts) const;
 
         //- What is the nearest processor to the given position?
-        labelList processorNearestPosition(const List<point>& pts) const;
+        FoamFoamyMesh_EXPORT labelList processorNearestPosition(const List<point>& pts) const;
 
         //- Which processors are intersected by the line segment, returns all
         //  processors whose boundary patch is intersected by the sphere.  By
@@ -277,20 +277,20 @@ namespace tnbLib
         //  launched from, it is assumed that the point is on that processor.
         //  The index data member of the pointIndexHit is replaced with the
         //  processor index.
-        List<List<pointIndexHit>> intersectsProcessors
+        FoamFoamyMesh_EXPORT List<List<pointIndexHit>> intersectsProcessors
         (
             const List<point>& starts,
             const List<point>& ends,
             bool includeOwnProcessor = false
         ) const;
 
-        bool overlapsOtherProcessors
+        FoamFoamyMesh_EXPORT bool overlapsOtherProcessors
         (
             const point& centre,
             const scalar& radiusSqr
         ) const;
 
-        labelList overlapProcessors
+        FoamFoamyMesh_EXPORT labelList overlapProcessors
         (
             const point& centre,
             const scalar radiusSqr
