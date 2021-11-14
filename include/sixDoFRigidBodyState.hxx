@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _sixDoFRigidBodyState_Header
+#define _sixDoFRigidBodyState_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2017-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,84 +26,125 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::functionObjects::sixDoFRigidBodyState
 
 Description
-	Multiplies a field by a scaling factor.
+	Writes the 6-DoF motion state.
 
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	Example of function object specification:
+	\verbatim
+	sixDoFRigidBodyState
+	{
+		type           sixDoFRigidBodyState;
+		libs           ("libsixDoFRigidBodyState.so");
+		angleFormat    degrees;
+	}
+	\endverbatim
+
+Usage
+	\table
+		Property     | Description                  | Required | Default value
+		type         | type name: sixDoFRigidBodyState    | yes |
+		angleFormat  | degrees or radians           | no       | radian
+	\endtable
 
 See also
 	tnbLib::functionObjects::fvMeshFunctionObject
+	tnbLib::functionObjects::logFiles
 
 SourceFiles
-	scale.C
+	sixDoFRigidBodyState.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fieldExpression.hxx>
+#include <RigidBodyMotion_Module.hxx>
+
+#include <fvMeshFunctionObject.hxx>
+#include <vector.hxx>
+#include <logFiles.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
+	class sixDoFRigidBodyMotion;
+
 	namespace functionObjects
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+						   Class sixDoFRigidBodyState Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class sixDoFRigidBodyState
 			:
-			public fieldExpression
+			public fvMeshFunctionObject,
+			public logFiles
 		{
 			// Private Data
 
-				//- Scale factor
-			scalar scale_;
+			word angleFormat_;
 
 
 			// Private Member Functions
 
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
+			const sixDoFRigidBodyMotion& motion() const;
 
-			//- Calculate the scale of the field and return true if successful
-			FoamFunctionObjects_EXPORT virtual bool calc();
+
+		protected:
+
+			// Protected Member Functions
+
+				//- overloaded writeFileHeader from writeFile
+			virtual void writeFileHeader(const label i = 0);
 
 
 		public:
 
 			//- Runtime type information
-			//TypeName("scale");
-			static const char* typeName_() { return "scale"; }
-			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
-			static FoamFunctionObjects_EXPORT int debug;
-			virtual const word& type() const { return typeName; };
+			TypeName("sixDoFRigidBodyState");
 
 
 			// Constructors
 
 				//- Construct from Time and dictionary
-			FoamFunctionObjects_EXPORT scale
+			sixDoFRigidBodyState
 			(
 				const word& name,
 				const Time& runTime,
 				const dictionary& dict
 			);
 
+			//- Disallow default bitwise copy construction
+			sixDoFRigidBodyState(const sixDoFRigidBodyState&) = delete;
+
 
 			//- Destructor
-			FoamFunctionObjects_EXPORT virtual ~scale();
+			virtual ~sixDoFRigidBodyState();
 
 
 			// Member Functions
 
-				//- Read the randomise data
-			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
+				//- Return the current body velocity
+			vector velocity() const;
+
+			//- Return the current body angular velocity
+			vector angularVelocity() const;
+
+			//- Read the sixDoFRigidBodyState data
+			virtual bool read(const dictionary&);
+
+			//- Execute, currently does nothing
+			virtual bool execute();
+
+			//- Write the sixDoFRigidBodyState
+			virtual bool write();
+
+
+			// Member Operators
+
+				//- Disallow default bitwise assignment
+			void operator=(const sixDoFRigidBodyState&) = delete;
 		};
 
 
@@ -114,12 +155,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-//#include <scaleTemplates.cxx>
-#endif
-
-#include <scaleTemplates.hxx>
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_scale_Header
+#endif // !_sixDoFRigidBodyState_Header

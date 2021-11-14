@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _NewmarkSixDoFSolver_Header
+#define _NewmarkSixDoFSolver_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2015-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,100 +26,98 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::sixDoFSolvers::Newmark
 
 Description
-	Multiplies a field by a scaling factor.
+	Newmark 2nd-order time-integrator for 6DoF solid-body motion.
 
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	Reference:
+	\verbatim
+		Newmark, N. M. (1959).
+		A method of computation for structural dynamics.
+		Journal of the Engineering Mechanics Division, 85(3), 67-94.
+	\endverbatim
 
-See also
-	tnbLib::functionObjects::fvMeshFunctionObject
+	Example specification in dynamicMeshDict:
+	\verbatim
+	solver
+	{
+		type    Newmark;
+		gamma   0.5;    // Velocity integration coefficient
+		beta    0.25;   // Position integration coefficient
+	}
+	\endverbatim
 
 SourceFiles
-	scale.C
+	Newmark.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fieldExpression.hxx>
+#include <sixDoFSolver.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace functionObjects
+	namespace sixDoFSolvers
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								   Class Newmark Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class Newmark
 			:
-			public fieldExpression
+			public sixDoFSolver
 		{
 			// Private Data
 
-				//- Scale factor
-			scalar scale_;
+				//- Coefficient for velocity integration (default: 0.5)
+			const scalar gamma_;
 
-
-			// Private Member Functions
-
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
-
-			//- Calculate the scale of the field and return true if successful
-			FoamFunctionObjects_EXPORT virtual bool calc();
+			//- Coefficient for position and orientation integration (default: 0.25)
+			const scalar beta_;
 
 
 		public:
 
 			//- Runtime type information
-			//TypeName("scale");
-			static const char* typeName_() { return "scale"; }
-			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
-			static FoamFunctionObjects_EXPORT int debug;
-			virtual const word& type() const { return typeName; };
+			TypeName("Newmark");
 
 
 			// Constructors
 
-				//- Construct from Time and dictionary
-			FoamFunctionObjects_EXPORT scale
+				//- Construct from a dictionary and the body
+			Newmark
 			(
-				const word& name,
-				const Time& runTime,
-				const dictionary& dict
+				const dictionary& dict,
+				sixDoFRigidBodyMotion& body
 			);
 
 
 			//- Destructor
-			FoamFunctionObjects_EXPORT virtual ~scale();
+			virtual ~Newmark();
 
 
 			// Member Functions
 
-				//- Read the randomise data
-			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
+				//- Drag coefficient
+			virtual void solve
+			(
+				bool firstIter,
+				const vector& fGlobal,
+				const vector& tauGlobal,
+				scalar deltaT,
+				scalar deltaT0
+			);
 		};
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	} // End namespace functionObjects
+	} // End namespace sixDoFSolvers
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-//#include <scaleTemplates.cxx>
-#endif
-
-#include <scaleTemplates.hxx>
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_scale_Header
+#endif // !_NewmarkSixDoFSolver_Header

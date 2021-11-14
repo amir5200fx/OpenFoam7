@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31424.327
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1321
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenFoam7", "OpenFoam7\OpenFoam7.vcxproj", "{C4FDFA07-2832-4DC1-9977-951D7FC1295A}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbBase", "TnbBase\TnbBase.vcxproj", "{0EAECC55-7EC6-4414-897B-0156A774C01C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbFvMesh", "TnbFvMesh\TnbFvMesh.vcxproj", "{C5B9D5F2-4A73-47CD-85E1-65BC340BC2C2}"
@@ -921,6 +919,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "moveDynamicMesh", "applicat
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "moveMesh", "applications\utilities\mesh\manipulation\moveMesh\moveMesh.vcxproj", "{26A91AC4-36F1-4BC0-B8F0-6382143B44EE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbEngine", "TnbEngine\TnbEngine.vcxproj", "{291B09EB-70ED-492F-853A-CC43DC4E6370}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -931,18 +931,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.Debug|x64.ActiveCfg = Debug|x64
-		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.Debug|x64.Build.0 = Debug|x64
-		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.Debug|x86.ActiveCfg = Debug|Win32
-		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.Debug|x86.Build.0 = Debug|Win32
-		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
-		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
-		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.DebugNoCopyHxx|x86.ActiveCfg = DebugNoCopyHxx|Win32
-		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.DebugNoCopyHxx|x86.Build.0 = DebugNoCopyHxx|Win32
-		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.Release|x64.ActiveCfg = Release|x64
-		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.Release|x64.Build.0 = Release|x64
-		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.Release|x86.ActiveCfg = Release|Win32
-		{C4FDFA07-2832-4DC1-9977-951D7FC1295A}.Release|x86.Build.0 = Release|Win32
 		{0EAECC55-7EC6-4414-897B-0156A774C01C}.Debug|x64.ActiveCfg = Debug|x64
 		{0EAECC55-7EC6-4414-897B-0156A774C01C}.Debug|x64.Build.0 = Debug|x64
 		{0EAECC55-7EC6-4414-897B-0156A774C01C}.Debug|x86.ActiveCfg = Debug|x64
@@ -3518,6 +3506,18 @@ Global
 		{26A91AC4-36F1-4BC0-B8F0-6382143B44EE}.Release|x64.Build.0 = Release|x64
 		{26A91AC4-36F1-4BC0-B8F0-6382143B44EE}.Release|x86.ActiveCfg = Release|Win32
 		{26A91AC4-36F1-4BC0-B8F0-6382143B44EE}.Release|x86.Build.0 = Release|Win32
+		{291B09EB-70ED-492F-853A-CC43DC4E6370}.Debug|x64.ActiveCfg = Debug|x64
+		{291B09EB-70ED-492F-853A-CC43DC4E6370}.Debug|x64.Build.0 = Debug|x64
+		{291B09EB-70ED-492F-853A-CC43DC4E6370}.Debug|x86.ActiveCfg = Debug|Win32
+		{291B09EB-70ED-492F-853A-CC43DC4E6370}.Debug|x86.Build.0 = Debug|Win32
+		{291B09EB-70ED-492F-853A-CC43DC4E6370}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
+		{291B09EB-70ED-492F-853A-CC43DC4E6370}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
+		{291B09EB-70ED-492F-853A-CC43DC4E6370}.DebugNoCopyHxx|x86.ActiveCfg = Debug|Win32
+		{291B09EB-70ED-492F-853A-CC43DC4E6370}.DebugNoCopyHxx|x86.Build.0 = Debug|Win32
+		{291B09EB-70ED-492F-853A-CC43DC4E6370}.Release|x64.ActiveCfg = Release|x64
+		{291B09EB-70ED-492F-853A-CC43DC4E6370}.Release|x64.Build.0 = Release|x64
+		{291B09EB-70ED-492F-853A-CC43DC4E6370}.Release|x86.ActiveCfg = Release|Win32
+		{291B09EB-70ED-492F-853A-CC43DC4E6370}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

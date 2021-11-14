@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _CrankNicolsonSixDoFSolver_Header
+#define _CrankNicolsonSixDoFSolver_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2015-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,100 +26,100 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::sixDoFSolvers::CrankNicolson
 
 Description
-	Multiplies a field by a scaling factor.
+	Crank-Nicolson 2nd-order time-integrator for 6DoF solid-body motion.
 
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	The off-centering coefficients for acceleration (velocity integration) and
+	velocity (position/orientation integration) may be specified but default
+	values of 0.5 for each are used if they are not specified.  With the default
+	off-centering this scheme is equivalent to the Newmark scheme with default
+	coefficients.
+
+	Example specification in dynamicMeshDict:
+	\verbatim
+	solver
+	{
+		type    CrankNicolson;
+		aoc     0.5;    // Acceleration off-centering coefficient
+		voc     0.5;    // Velocity off-centering coefficient
+	}
+	\endverbatim
 
 See also
-	tnbLib::functionObjects::fvMeshFunctionObject
+	tnbLib::sixDoFSolvers::Newmark
 
 SourceFiles
-	scale.C
+	CrankNicolson.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fieldExpression.hxx>
+#include <sixDoFSolver.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace functionObjects
+	namespace sixDoFSolvers
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								   Class CrankNicolson Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class CrankNicolson
 			:
-			public fieldExpression
+			public sixDoFSolver
 		{
 			// Private Data
 
-				//- Scale factor
-			scalar scale_;
+				//- Acceleration off-centering coefficient (default: 0.5)
+			const scalar aoc_;
 
-
-			// Private Member Functions
-
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
-
-			//- Calculate the scale of the field and return true if successful
-			FoamFunctionObjects_EXPORT virtual bool calc();
+			//- Velocity off-centering coefficient (default: 0.5)
+			const scalar voc_;
 
 
 		public:
 
 			//- Runtime type information
-			//TypeName("scale");
-			static const char* typeName_() { return "scale"; }
-			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
-			static FoamFunctionObjects_EXPORT int debug;
-			virtual const word& type() const { return typeName; };
+			TypeName("CrankNicolson");
 
 
 			// Constructors
 
-				//- Construct from Time and dictionary
-			FoamFunctionObjects_EXPORT scale
+				//- Construct from a dictionary and the body
+			CrankNicolson
 			(
-				const word& name,
-				const Time& runTime,
-				const dictionary& dict
+				const dictionary& dict,
+				sixDoFRigidBodyMotion& body
 			);
 
 
 			//- Destructor
-			FoamFunctionObjects_EXPORT virtual ~scale();
+			virtual ~CrankNicolson();
 
 
 			// Member Functions
 
-				//- Read the randomise data
-			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
+				//- Drag coefficient
+			virtual void solve
+			(
+				bool firstIter,
+				const vector& fGlobal,
+				const vector& tauGlobal,
+				scalar deltaT,
+				scalar deltaT0
+			);
 		};
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	} // End namespace functionObjects
+	} // End namespace sixDoFSolvers
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-//#include <scaleTemplates.cxx>
-#endif
-
-#include <scaleTemplates.hxx>
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_scale_Header
+#endif // !_CrankNicolsonSixDoFSolver_Header

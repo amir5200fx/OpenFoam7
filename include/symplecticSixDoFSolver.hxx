@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _symplecticSixDoFSolver_Header
+#define _symplecticSixDoFSolver_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2015-2018 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,100 +26,97 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::sixDoFSolvers::symplectic
 
 Description
-	Multiplies a field by a scaling factor.
+	Symplectic 2nd-order explicit time-integrator for 6DoF solid-body motion.
 
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
+	Reference:
+	\verbatim
+		Dullweber, A., Leimkuhler, B., & McLachlan, R. (1997).
+		Symplectic splitting methods for rigid body molecular dynamics.
+		The Journal of chemical physics, 107(15), 5840-5851.
+	\endverbatim
+
+	Can only be used for explicit integration of the motion of the body,
+	i.e. may only be called once per time-step, no outer-correctors may be
+	applied.  For implicit integration with outer-correctors choose either
+	CrankNicolson or Newmark schemes.
+
+	Example specification in dynamicMeshDict:
+	\verbatim
+	solver
+	{
+		type    symplectic;
+	}
+	\endverbatim
 
 See also
-	tnbLib::functionObjects::fvMeshFunctionObject
+	tnbLib::sixDoFSolvers::CrankNicolson
+	tnbLib::sixDoFSolvers::Newmark
 
 SourceFiles
-	scale.C
+	symplectic.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fieldExpression.hxx>
+#include <sixDoFSolver.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace functionObjects
+	namespace sixDoFSolvers
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								   Class symplectic Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class symplectic
 			:
-			public fieldExpression
+			public sixDoFSolver
 		{
-			// Private Data
-
-				//- Scale factor
-			scalar scale_;
-
-
-			// Private Member Functions
-
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
-
-			//- Calculate the scale of the field and return true if successful
-			FoamFunctionObjects_EXPORT virtual bool calc();
-
 
 		public:
 
 			//- Runtime type information
-			//TypeName("scale");
-			static const char* typeName_() { return "scale"; }
-			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
-			static FoamFunctionObjects_EXPORT int debug;
-			virtual const word& type() const { return typeName; };
+			TypeName("symplectic");
 
 
 			// Constructors
 
-				//- Construct from Time and dictionary
-			FoamFunctionObjects_EXPORT scale
+				//- Construct from a dictionary and the body
+			symplectic
 			(
-				const word& name,
-				const Time& runTime,
-				const dictionary& dict
+				const dictionary& dict,
+				sixDoFRigidBodyMotion& body
 			);
 
 
 			//- Destructor
-			FoamFunctionObjects_EXPORT virtual ~scale();
+			virtual ~symplectic();
 
 
 			// Member Functions
 
-				//- Read the randomise data
-			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
+				//- Drag coefficient
+			virtual void solve
+			(
+				bool firstIter,
+				const vector& fGlobal,
+				const vector& tauGlobal,
+				scalar deltaT,
+				scalar deltaT0
+			);
 		};
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	} // End namespace functionObjects
+	} // End namespace sixDoFSolvers
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-//#include <scaleTemplates.cxx>
-#endif
-
-#include <scaleTemplates.hxx>
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_scale_Header
+#endif // !_symplecticSixDoFSolver_Header

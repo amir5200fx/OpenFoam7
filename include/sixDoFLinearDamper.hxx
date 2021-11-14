@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _scale_Header
-#define _scale_Header
+#ifndef _sixDoFLinearDamper_Header
+#define _sixDoFLinearDamper_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2018-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,100 +26,95 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::functionObjects::scale
+	tnbLib::sixDoFRigidBodyMotionRestraints::linearDamper
 
 Description
-	Multiplies a field by a scaling factor.
-
-	The operation can be applied to any volume or surface fields generating a
-	volume or surface scalar field.
-
-See also
-	tnbLib::functionObjects::fvMeshFunctionObject
+	sixDoFRigidBodyMotionRestraints model.  Linear spring.
 
 SourceFiles
-	scale.C
+	linearDamper.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <fieldExpression.hxx>
+#include <sixDoFRigidBodyMotionRestraint.hxx>
+#include <point.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace functionObjects
+
+	namespace sixDoFRigidBodyMotionRestraints
 	{
 
 		/*---------------------------------------------------------------------------*\
-								   Class scale Declaration
+								  Class linearDamper Declaration
 		\*---------------------------------------------------------------------------*/
 
-		class scale
+		class linearDamper
 			:
-			public fieldExpression
+			public sixDoFRigidBodyMotionRestraint
 		{
 			// Private Data
 
-				//- Scale factor
-			scalar scale_;
-
-
-			// Private Member Functions
-
-				//- Calculate the scale of the field and register the result
-			template<class Type>
-			bool calcScale();
-
-			//- Calculate the scale of the field and return true if successful
-			FoamFunctionObjects_EXPORT virtual bool calc();
+				//- Damping coefficient (Ns/m)
+			scalar coeff_;
 
 
 		public:
 
 			//- Runtime type information
-			//TypeName("scale");
-			static const char* typeName_() { return "scale"; }
-			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
-			static FoamFunctionObjects_EXPORT int debug;
-			virtual const word& type() const { return typeName; };
+			TypeName("linearDamper");
 
 
 			// Constructors
 
-				//- Construct from Time and dictionary
-			FoamFunctionObjects_EXPORT scale
+				//- Construct from components
+			linearDamper
 			(
 				const word& name,
-				const Time& runTime,
-				const dictionary& dict
+				const dictionary& sDoFRBMRDict
 			);
+
+			//- Construct and return a clone
+			virtual autoPtr<sixDoFRigidBodyMotionRestraint> clone() const
+			{
+				return autoPtr<sixDoFRigidBodyMotionRestraint>
+					(
+						new linearDamper(*this)
+						);
+			}
 
 
 			//- Destructor
-			FoamFunctionObjects_EXPORT virtual ~scale();
+			virtual ~linearDamper();
 
 
 			// Member Functions
 
-				//- Read the randomise data
-			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
+				//- Calculate the restraint position, force and moment.
+				//  Global reference frame vectors.
+			virtual void restrain
+			(
+				const sixDoFRigidBodyMotion& motion,
+				vector& restraintPosition,
+				vector& restraintForce,
+				vector& restraintMoment
+			) const;
+
+			//- Update properties from given dictionary
+			virtual bool read(const dictionary& sDoFRBMRCoeff);
+
+			//- Write
+			virtual void write(Ostream&) const;
 		};
 
 
 		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-	} // End namespace functionObjects
+	} // End namespace solidBodyMotionFunctions
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#ifdef NoRepository
-//#include <scaleTemplates.cxx>
-#endif
-
-#include <scaleTemplates.hxx>
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_scale_Header
+#endif // !_sixDoFLinearDamper_Header

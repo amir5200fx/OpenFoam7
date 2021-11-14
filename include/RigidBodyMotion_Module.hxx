@@ -16,6 +16,8 @@
 #include <Base_Module.hxx>
 #include <FiniteVolume_Module.hxx>
 #include <FvMesh_Module.hxx>
+#include <DynamicMesh_Module.hxx>
+#include <FunctionObjects_Module.hxx>
 #endif // FoamRigidBodyMotion_EXPORT_DEFINE
 
 #endif // !_RigidBodyMotion_Module_Header
