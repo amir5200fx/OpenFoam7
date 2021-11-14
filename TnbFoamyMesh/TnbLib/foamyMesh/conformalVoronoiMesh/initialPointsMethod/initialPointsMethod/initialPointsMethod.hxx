@@ -89,12 +89,16 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("initialPointsMethod");
+        /*TypeName("initialPointsMethod");*/
+        static const char* typeName_() { return "initialPointsMethod"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Declare run-time constructor selection table
 
-        declareRunTimeSelectionTable
+        /*declareRunTimeSelectionTable
         (
             autoPtr,
             initialPointsMethod,
@@ -115,7 +119,69 @@ namespace tnbLib
                 cellShapeControls,
                 decomposition
                 )
-        );
+        );*/
+        typedef autoPtr<initialPointsMethod> (*dictionaryConstructorPtr)(
+	        const dictionary& initialPointsDict, const Time& runTime, Random& rndGen,
+	        const conformationSurfaces& geometryToConformTo, const cellShapeControl& cellShapeControls,
+	        const autoPtr<backgroundMeshDecomposition>& decomposition);
+        typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+        static FoamFoamyMesh_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+        static FoamFoamyMesh_EXPORT void constructdictionaryConstructorTables();
+        static FoamFoamyMesh_EXPORT void destroydictionaryConstructorTables();
+
+        template <class initialPointsMethodType>
+        class adddictionaryConstructorToTable
+        {
+        public:
+	        static autoPtr<initialPointsMethod> New(const dictionary& initialPointsDict, const Time& runTime,
+	                                                Random& rndGen, const conformationSurfaces& geometryToConformTo,
+	                                                const cellShapeControl& cellShapeControls,
+	                                                const autoPtr<backgroundMeshDecomposition>& decomposition)
+	        {
+		        return autoPtr<initialPointsMethod>(new initialPointsMethodType(
+			        initialPointsDict, runTime, rndGen, geometryToConformTo, cellShapeControls, decomposition));
+	        }
+
+	        adddictionaryConstructorToTable(const word& lookup = initialPointsMethodType::typeName)
+	        {
+		        constructdictionaryConstructorTables();
+		        if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+		        {
+			        std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "initialPointsMethod"
+				        << std::endl;
+			        error::safePrintStack(std::cerr);
+		        }
+	        }
+
+	        ~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+        };
+
+        template <class initialPointsMethodType>
+        class addRemovabledictionaryConstructorToTable
+        {
+	        const word& lookup_;
+        public:
+	        static autoPtr<initialPointsMethod> New(const dictionary& initialPointsDict, const Time& runTime,
+	                                                Random& rndGen, const conformationSurfaces& geometryToConformTo,
+	                                                const cellShapeControl& cellShapeControls,
+	                                                const autoPtr<backgroundMeshDecomposition>& decomposition)
+	        {
+		        return autoPtr<initialPointsMethod>(new initialPointsMethodType(
+			        initialPointsDict, runTime, rndGen, geometryToConformTo, cellShapeControls, decomposition));
+	        }
+
+	        addRemovabledictionaryConstructorToTable(const word& lookup = initialPointsMethodType::typeName) : lookup_(
+		        lookup)
+	        {
+		        constructdictionaryConstructorTables();
+		        dictionaryConstructorTablePtr_->set(lookup, New);
+	        }
+
+	        ~addRemovabledictionaryConstructorToTable()
+	        {
+		        if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+	        }
+        };;
 
 
         // Constructors

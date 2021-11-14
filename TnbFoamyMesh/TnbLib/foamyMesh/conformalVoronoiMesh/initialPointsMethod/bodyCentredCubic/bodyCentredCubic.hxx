@@ -70,7 +70,11 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("bodyCentredCubic");
+        /*TypeName("bodyCentredCubic");*/
+        static const char* typeName_() { return "bodyCentredCubic"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
         // Constructors
 

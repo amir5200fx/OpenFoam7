@@ -75,7 +75,11 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("rayShooting");
+        /*TypeName("rayShooting");*/
+        static const char* typeName_() { return "rayShooting"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
         // Constructors
 
