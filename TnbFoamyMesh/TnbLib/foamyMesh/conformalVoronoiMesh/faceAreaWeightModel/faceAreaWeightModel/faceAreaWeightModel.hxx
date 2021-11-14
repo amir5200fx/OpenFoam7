@@ -71,12 +71,16 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("faceAreaWeightModel");
+        /*TypeName("faceAreaWeightModel");*/
+        static const char* typeName_() { return "faceAreaWeightModel"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Declare run-time constructor selection table
 
-        declareRunTimeSelectionTable
+        /*declareRunTimeSelectionTable
         (
             autoPtr,
             faceAreaWeightModel,
@@ -85,7 +89,58 @@ namespace tnbLib
                 const dictionary& faceAreaWeightDict
                 ),
             (faceAreaWeightDict)
-        );
+        );*/
+        typedef autoPtr<faceAreaWeightModel> (*dictionaryConstructorPtr)(const dictionary& faceAreaWeightDict);
+        typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+        static dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+        static FoamFoamyMesh_EXPORT void constructdictionaryConstructorTables();
+        static FoamFoamyMesh_EXPORT void destroydictionaryConstructorTables();
+
+        template <class faceAreaWeightModelType>
+        class adddictionaryConstructorToTable
+        {
+        public:
+	        static autoPtr<faceAreaWeightModel> New(const dictionary& faceAreaWeightDict)
+	        {
+		        return autoPtr<faceAreaWeightModel>(new faceAreaWeightModelType(faceAreaWeightDict));
+	        }
+
+	        adddictionaryConstructorToTable(const word& lookup = faceAreaWeightModelType::typeName)
+	        {
+		        constructdictionaryConstructorTables();
+		        if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+		        {
+			        std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "faceAreaWeightModel"
+				        << std::endl;
+			        error::safePrintStack(std::cerr);
+		        }
+	        }
+
+	        ~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+        };
+
+        template <class faceAreaWeightModelType>
+        class addRemovabledictionaryConstructorToTable
+        {
+	        const word& lookup_;
+        public:
+	        static autoPtr<faceAreaWeightModel> New(const dictionary& faceAreaWeightDict)
+	        {
+		        return autoPtr<faceAreaWeightModel>(new faceAreaWeightModelType(faceAreaWeightDict));
+	        }
+
+	        addRemovabledictionaryConstructorToTable(const word& lookup = faceAreaWeightModelType::typeName) : lookup_(
+		        lookup)
+	        {
+		        constructdictionaryConstructorTables();
+		        dictionaryConstructorTablePtr_->set(lookup, New);
+	        }
+
+	        ~addRemovabledictionaryConstructorToTable()
+	        {
+		        if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+	        }
+        };;
 
 
         // Constructors
