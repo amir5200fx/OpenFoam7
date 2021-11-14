@@ -132,7 +132,10 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        ClassName("conformationSurfaces");
+        /*ClassName("conformationSurfaces");*/
+        static const char* typeName_() { return "conformationSurfaces"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
 
 
         // Constructors
