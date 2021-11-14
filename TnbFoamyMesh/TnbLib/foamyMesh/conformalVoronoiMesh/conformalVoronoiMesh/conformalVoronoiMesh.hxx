@@ -862,7 +862,10 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        ClassName("conformalVoronoiMesh");
+        /*ClassName("conformalVoronoiMesh");*/
+        static const char* typeName_() { return "conformalVoronoiMesh"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
 
 
         // Constructors

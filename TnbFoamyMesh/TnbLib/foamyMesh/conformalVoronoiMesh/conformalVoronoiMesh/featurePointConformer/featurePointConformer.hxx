@@ -142,7 +142,10 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        ClassName("featurePointConformer");
+        /*ClassName("featurePointConformer");*/
+        static const char* typeName_() { return "featurePointConformer"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
 
 
         // Constructors
