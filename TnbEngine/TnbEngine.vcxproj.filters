@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{7cd93951-322f-4ae0-af46-8d8de4427784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine">
+      <UniqueIdentifier>{31dcc30e-5df4-44c4-a70c-b4090403ddbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\engineMesh">
+      <UniqueIdentifier>{be2af57c-8ea5-4a36-91be-4a9bc0675efa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\enginePiston">
+      <UniqueIdentifier>{689cb797-e99e-4034-9d44-9f27d43a8c25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\engineTime">
+      <UniqueIdentifier>{ec56760c-7932-4ddd-8940-ee05e77fbcc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\engineValve">
+      <UniqueIdentifier>{64d3411d-3db4-4e18-b4f0-095f37fb8315}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\ignition">
+      <UniqueIdentifier>{2487251b-c34c-4f52-a02e-a07785ffe05d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\include">
+      <UniqueIdentifier>{f68600e3-b5ee-4a97-a49f-453c37410a9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\engineMesh\engineMesh">
+      <UniqueIdentifier>{da020bf8-f840-42d7-ae32-26c1af3bd6c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\engineMesh\fvMotionSolverEngineMesh">
+      <UniqueIdentifier>{c7bf4c1c-dc26-4334-b9d8-5b8d66eb01ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\engineMesh\layeredEngineMesh">
+      <UniqueIdentifier>{3058c5bf-8aab-4c95-9286-2425876ed297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\engineMesh\staticEngineMesh">
+      <UniqueIdentifier>{065e5bcb-75ac-44df-96ad-5ebb801d5a91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\engineTime\crankConRod">
+      <UniqueIdentifier>{fdf7b5dc-0819-46ff-b39f-b9028c78df95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\engineTime\engineTime">
+      <UniqueIdentifier>{ee40377f-f84d-4524-bfe1-84d19b8b3dc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\engineTime\freePiston">
+      <UniqueIdentifier>{f724dead-cafc-48d6-a213-b58c87469827}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\engine\module">
+      <UniqueIdentifier>{394e8424-86d6-485a-a990-8249d861d8bf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\engine\engineTime\engineTime\engineTime.cxx">
+      <Filter>TnbLib\engine\engineTime\engineTime</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\engineTime\engineTime\engineTimeNew.cxx">
+      <Filter>TnbLib\engine\engineTime\engineTime</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\engine\module\Engine_Module.hxx">
+      <Filter>TnbLib\engine\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\engine\engineTime\engineTime\engineTime.hxx">
+      <Filter>TnbLib\engine\engineTime\engineTime</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

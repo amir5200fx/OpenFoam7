@@ -1,3 +1,0 @@
-rigidBodyState.C
-
-LIB = $(FOAM_LIBBIN)/librigidBodyState
