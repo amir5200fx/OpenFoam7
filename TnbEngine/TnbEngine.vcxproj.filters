@@ -57,6 +57,45 @@
     <ClCompile Include="TnbLib\engine\engineTime\engineTime\engineTimeNew.cxx">
       <Filter>TnbLib\engine\engineTime\engineTime</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\engine\engineMesh\engineMesh\engineMesh.cxx">
+      <Filter>TnbLib\engine\engineMesh\engineMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\engineMesh\engineMesh\engineMeshNew.cxx">
+      <Filter>TnbLib\engine\engineMesh\engineMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\engineMesh\fvMotionSolverEngineMesh\fvMotionSolverEngineMesh.cxx">
+      <Filter>TnbLib\engine\engineMesh\fvMotionSolverEngineMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\engineMesh\layeredEngineMesh\layeredEngineMesh.cxx">
+      <Filter>TnbLib\engine\engineMesh\layeredEngineMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\engineMesh\staticEngineMesh\staticEngineMesh.cxx">
+      <Filter>TnbLib\engine\engineMesh\staticEngineMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\enginePiston\enginePiston.cxx">
+      <Filter>TnbLib\engine\enginePiston</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\engineTime\crankConRod\crankConRod.cxx">
+      <Filter>TnbLib\engine\engineTime\crankConRod</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\engineTime\freePiston\freePiston.cxx">
+      <Filter>TnbLib\engine\engineTime\freePiston</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\engineValve\engineValve.cxx">
+      <Filter>TnbLib\engine\engineValve</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\ignition\ignitionSite.cxx">
+      <Filter>TnbLib\engine\ignition</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\ignition\ignition.cxx">
+      <Filter>TnbLib\engine\ignition</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\ignition\ignitionIO.cxx">
+      <Filter>TnbLib\engine\ignition</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\engine\ignition\ignitionSiteIO.cxx">
+      <Filter>TnbLib\engine\ignition</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\engine\module\Engine_Module.hxx">
@@ -65,5 +104,55 @@
     <ClInclude Include="TnbLib\engine\engineTime\engineTime\engineTime.hxx">
       <Filter>TnbLib\engine\engineTime\engineTime</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\engine\engineMesh\engineMesh\engineMesh.hxx">
+      <Filter>TnbLib\engine\engineMesh\engineMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\engine\engineMesh\fvMotionSolverEngineMesh\fvMotionSolverEngineMesh.hxx">
+      <Filter>TnbLib\engine\engineMesh\fvMotionSolverEngineMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\engine\engineMesh\layeredEngineMesh\layeredEngineMesh.hxx">
+      <Filter>TnbLib\engine\engineMesh\layeredEngineMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\engine\engineMesh\staticEngineMesh\staticEngineMesh.hxx">
+      <Filter>TnbLib\engine\engineMesh\staticEngineMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\engine\enginePiston\enginePiston.hxx">
+      <Filter>TnbLib\engine\enginePiston</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\engine\engineTime\crankConRod\crankConRod.hxx">
+      <Filter>TnbLib\engine\engineTime\crankConRod</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\engine\engineTime\freePiston\freePiston.hxx">
+      <Filter>TnbLib\engine\engineTime\freePiston</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\engine\engineValve\engineValve.hxx">
+      <Filter>TnbLib\engine\engineValve</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\engine\engineValve\valveBank.hxx">
+      <Filter>TnbLib\engine\engineValve</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\engine\ignition\ignitionSite.hxx">
+      <Filter>TnbLib\engine\ignition</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\engine\ignition\ignition.hxx">
+      <Filter>TnbLib\engine\ignition</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TnbLib\engine\ignition\ignite.lxx">
+      <Filter>TnbLib\engine\ignition</Filter>
+    </None>
+    <None Include="TnbLib\engine\include\createEngineMesh.lxx">
+      <Filter>TnbLib\engine\include</Filter>
+    </None>
+    <None Include="TnbLib\engine\include\createEngineTime.lxx">
+      <Filter>TnbLib\engine\include</Filter>
+    </None>
+    <None Include="TnbLib\engine\include\readEngineTimeControls.lxx">
+      <Filter>TnbLib\engine\include</Filter>
+    </None>
+    <None Include="TnbLib\engine\include\StCorr.lxx">
+      <Filter>TnbLib\engine\include</Filter>
+    </None>
   </ItemGroup>
 </Project>

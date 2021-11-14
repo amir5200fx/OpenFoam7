@@ -16,6 +16,8 @@
 #include <Base_Module.hxx>
 #include <FvMesh_Module.hxx>
 #include <FiniteVolume_Module.hxx>
+#include <DynamicMesh_Module.hxx>
+#include <FvMotionSolver_Module.hxx>
 #endif // FoamEngine_EXPORT_DEFINE
 
 #endif // !_Engine_Module_Header

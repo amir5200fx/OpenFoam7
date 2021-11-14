@@ -76,7 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\engine\engineMesh\engineMesh;$(ProjectDir)TnbLib\engine\engineMesh\fvMotionSolverEngineMesh;$(ProjectDir)TnbLib\engine\engineMesh\layeredEngineMesh;$(ProjectDir)TnbLib\engine\engineMesh\staticEngineMesh;$(ProjectDir)TnbLib\engine\enginePiston;$(ProjectDir)TnbLib\engine\engineTime\crankConRod;$(ProjectDir)TnbLib\engine\engineTime\engineTime;$(ProjectDir)TnbLib\engine\engineTime\freePiston;$(ProjectDir)TnbLib\engine\engineValve;$(ProjectDir)TnbLib\engine\ignition;$(ProjectDir)TnbLib\engine\include;$(ProjectDir)TnbLib\engine\module;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\engine\engineMesh\engineMesh;$(ProjectDir)TnbLib\engine\engineMesh\fvMotionSolverEngineMesh;$(ProjectDir)TnbLib\engine\engineMesh\layeredEngineMesh;$(ProjectDir)TnbLib\engine\engineMesh\staticEngineMesh;$(ProjectDir)TnbLib\engine\enginePiston;$(ProjectDir)TnbLib\engine\engineTime\crankConRod;$(ProjectDir)TnbLib\engine\engineTime\engineTime;$(ProjectDir)TnbLib\engine\engineTime\freePiston;$(ProjectDir)TnbLib\engine\engineValve;$(ProjectDir)TnbLib\engine\ignition;$(ProjectDir)TnbLib\engine\include;$(ProjectDir)TnbLib\engine\module;$(SolutionDir)TnbFvMotionSolver\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>FoamEngine_EXPORT_DEFINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -118,7 +118,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\engine\engineMesh\engineMesh;$(ProjectDir)TnbLib\engine\engineMesh\fvMotionSolverEngineMesh;$(ProjectDir)TnbLib\engine\engineMesh\layeredEngineMesh;$(ProjectDir)TnbLib\engine\engineMesh\staticEngineMesh;$(ProjectDir)TnbLib\engine\enginePiston;$(ProjectDir)TnbLib\engine\engineTime\crankConRod;$(ProjectDir)TnbLib\engine\engineTime\engineTime;$(ProjectDir)TnbLib\engine\engineTime\freePiston;$(ProjectDir)TnbLib\engine\engineValve;$(ProjectDir)TnbLib\engine\ignition;$(ProjectDir)TnbLib\engine\include;$(ProjectDir)TnbLib\engine\module;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\engine\engineMesh\engineMesh;$(ProjectDir)TnbLib\engine\engineMesh\fvMotionSolverEngineMesh;$(ProjectDir)TnbLib\engine\engineMesh\layeredEngineMesh;$(ProjectDir)TnbLib\engine\engineMesh\staticEngineMesh;$(ProjectDir)TnbLib\engine\enginePiston;$(ProjectDir)TnbLib\engine\engineTime\crankConRod;$(ProjectDir)TnbLib\engine\engineTime\engineTime;$(ProjectDir)TnbLib\engine\engineTime\freePiston;$(ProjectDir)TnbLib\engine\engineValve;$(ProjectDir)TnbLib\engine\ignition;$(ProjectDir)TnbLib\engine\include;$(ProjectDir)TnbLib\engine\module;$(SolutionDir)TnbFvMotionSolver\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>FoamEngine_EXPORT_DEFINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -129,12 +129,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="TnbLib\engine\engineMesh\engineMesh\engineMesh.cxx" />
+    <ClCompile Include="TnbLib\engine\engineMesh\engineMesh\engineMeshNew.cxx" />
+    <ClCompile Include="TnbLib\engine\engineMesh\fvMotionSolverEngineMesh\fvMotionSolverEngineMesh.cxx" />
+    <ClCompile Include="TnbLib\engine\engineMesh\layeredEngineMesh\layeredEngineMesh.cxx" />
+    <ClCompile Include="TnbLib\engine\engineMesh\staticEngineMesh\staticEngineMesh.cxx" />
+    <ClCompile Include="TnbLib\engine\enginePiston\enginePiston.cxx" />
+    <ClCompile Include="TnbLib\engine\engineTime\crankConRod\crankConRod.cxx" />
     <ClCompile Include="TnbLib\engine\engineTime\engineTime\engineTime.cxx" />
     <ClCompile Include="TnbLib\engine\engineTime\engineTime\engineTimeNew.cxx" />
+    <ClCompile Include="TnbLib\engine\engineTime\freePiston\freePiston.cxx" />
+    <ClCompile Include="TnbLib\engine\engineValve\engineValve.cxx" />
+    <ClCompile Include="TnbLib\engine\ignition\ignition.cxx" />
+    <ClCompile Include="TnbLib\engine\ignition\ignitionIO.cxx" />
+    <ClCompile Include="TnbLib\engine\ignition\ignitionSite.cxx" />
+    <ClCompile Include="TnbLib\engine\ignition\ignitionSiteIO.cxx" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TnbLib\engine\engineMesh\engineMesh\engineMesh.hxx" />
+    <ClInclude Include="TnbLib\engine\engineMesh\fvMotionSolverEngineMesh\fvMotionSolverEngineMesh.hxx" />
+    <ClInclude Include="TnbLib\engine\engineMesh\layeredEngineMesh\layeredEngineMesh.hxx" />
+    <ClInclude Include="TnbLib\engine\engineMesh\staticEngineMesh\staticEngineMesh.hxx" />
+    <ClInclude Include="TnbLib\engine\enginePiston\enginePiston.hxx" />
+    <ClInclude Include="TnbLib\engine\engineTime\crankConRod\crankConRod.hxx" />
     <ClInclude Include="TnbLib\engine\engineTime\engineTime\engineTime.hxx" />
+    <ClInclude Include="TnbLib\engine\engineTime\freePiston\freePiston.hxx" />
+    <ClInclude Include="TnbLib\engine\engineValve\engineValve.hxx" />
+    <ClInclude Include="TnbLib\engine\engineValve\valveBank.hxx" />
+    <ClInclude Include="TnbLib\engine\ignition\ignition.hxx" />
+    <ClInclude Include="TnbLib\engine\ignition\ignitionSite.hxx" />
     <ClInclude Include="TnbLib\engine\module\Engine_Module.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TnbLib\engine\ignition\ignite.lxx" />
+    <None Include="TnbLib\engine\include\createEngineMesh.lxx" />
+    <None Include="TnbLib\engine\include\createEngineTime.lxx" />
+    <None Include="TnbLib\engine\include\readEngineTimeControls.lxx" />
+    <None Include="TnbLib\engine\include\StCorr.lxx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
