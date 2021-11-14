@@ -75,12 +75,16 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("cellSizeAndAlignmentControl");
+        /*TypeName("cellSizeAndAlignmentControl");*/
+        static const char* typeName_() { return "cellSizeAndAlignmentControl"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Declare run-time constructor selection table
 
-        declareRunTimeSelectionTable
+        /*declareRunTimeSelectionTable
         (
             autoPtr,
             cellSizeAndAlignmentControl,
@@ -99,7 +103,70 @@ namespace tnbLib
                 geometryToConformTo,
                 defaultCellSize
                 )
-        );
+        );*/
+        typedef autoPtr<cellSizeAndAlignmentControl> (*dictionaryConstructorPtr)(
+	        const Time& runTime, const word& name, const dictionary& controlFunctionDict,
+	        const conformationSurfaces& geometryToConformTo, const scalar& defaultCellSize);
+        typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+        static FoamFoamyMesh_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+        static FoamFoamyMesh_EXPORT void constructdictionaryConstructorTables();
+        static FoamFoamyMesh_EXPORT void destroydictionaryConstructorTables();
+
+        template <class cellSizeAndAlignmentControlType>
+        class adddictionaryConstructorToTable
+        {
+        public:
+	        static autoPtr<cellSizeAndAlignmentControl> New(const Time& runTime, const word& name,
+	                                                        const dictionary& controlFunctionDict,
+	                                                        const conformationSurfaces& geometryToConformTo,
+	                                                        const scalar& defaultCellSize)
+	        {
+		        return autoPtr<cellSizeAndAlignmentControl>(
+			        new cellSizeAndAlignmentControlType(runTime, name, controlFunctionDict, geometryToConformTo,
+			                                            defaultCellSize));
+	        }
+
+	        adddictionaryConstructorToTable(const word& lookup = cellSizeAndAlignmentControlType::typeName)
+	        {
+		        constructdictionaryConstructorTables();
+		        if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+		        {
+			        std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+				        "cellSizeAndAlignmentControl" << std::endl;
+			        error::safePrintStack(std::cerr);
+		        }
+	        }
+
+	        ~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+        };
+
+        template <class cellSizeAndAlignmentControlType>
+        class addRemovabledictionaryConstructorToTable
+        {
+	        const word& lookup_;
+        public:
+	        static autoPtr<cellSizeAndAlignmentControl> New(const Time& runTime, const word& name,
+	                                                        const dictionary& controlFunctionDict,
+	                                                        const conformationSurfaces& geometryToConformTo,
+	                                                        const scalar& defaultCellSize)
+	        {
+		        return autoPtr<cellSizeAndAlignmentControl>(
+			        new cellSizeAndAlignmentControlType(runTime, name, controlFunctionDict, geometryToConformTo,
+			                                            defaultCellSize));
+	        }
+
+	        addRemovabledictionaryConstructorToTable(
+		        const word& lookup = cellSizeAndAlignmentControlType::typeName) : lookup_(lookup)
+	        {
+		        constructdictionaryConstructorTables();
+		        dictionaryConstructorTablePtr_->set(lookup, New);
+	        }
+
+	        ~addRemovabledictionaryConstructorToTable()
+	        {
+		        if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+	        }
+        };;
 
 
         // Constructors

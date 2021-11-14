@@ -86,7 +86,10 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        ClassName("cellShapeControlMesh");
+        /*ClassName("cellShapeControlMesh");*/
+        static const char* typeName_() { return "cellShapeControlMesh"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
 
         //- Return the mesh sub-directory name (usually "cellShapeControlMesh")
         static FoamFoamyMesh_EXPORT word meshSubDir;

@@ -72,7 +72,11 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("searchableSurfaceControl");
+        /*TypeName("searchableSurfaceControl");*/
+        static const char* typeName_() { return "searchableSurfaceControl"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Constructors

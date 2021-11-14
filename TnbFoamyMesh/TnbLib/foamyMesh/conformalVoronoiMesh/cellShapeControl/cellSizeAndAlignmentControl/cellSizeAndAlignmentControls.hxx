@@ -84,7 +84,10 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        ClassName("cellSizeAndAlignmentControls");
+        /*ClassName("cellSizeAndAlignmentControls");*/
+        static const char* typeName_() { return "cellSizeAndAlignmentControls"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
 
 
         // Constructors

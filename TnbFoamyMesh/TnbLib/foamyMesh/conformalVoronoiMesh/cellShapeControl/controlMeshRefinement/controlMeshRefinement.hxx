@@ -106,7 +106,10 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        ClassName("controlMeshRefinement");
+        /*ClassName("controlMeshRefinement");*/
+        static const char* typeName_() { return "controlMeshRefinement"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
 
 
         // Constructors
