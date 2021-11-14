@@ -63,7 +63,11 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("triSurfaceMeshFeatures");
+        /*TypeName("triSurfaceMeshFeatures");*/
+        static const char* typeName_() { return "triSurfaceMeshFeatures"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Constructors

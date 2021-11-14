@@ -64,12 +64,16 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("searchableSurfaceFeatures");
+        /*TypeName("searchableSurfaceFeatures");*/
+        static const char* typeName_() { return "searchableSurfaceFeatures"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
         // Declare run-time constructor selection table
 
             // For the dictionary constructor
-        declareRunTimeSelectionTable
+        /*declareRunTimeSelectionTable
         (
             autoPtr,
             searchableSurfaceFeatures,
@@ -79,7 +83,59 @@ namespace tnbLib
                 const dictionary& dict
                 ),
             (surface, dict)
-        );
+        );*/
+        typedef autoPtr<searchableSurfaceFeatures> (*dictConstructorPtr)(
+	        const searchableSurface& surface, const dictionary& dict);
+        typedef HashTable<dictConstructorPtr, word, string::hash> dictConstructorTable;
+        static FoamFoamyMesh_EXPORT dictConstructorTable* dictConstructorTablePtr_;
+        static FoamFoamyMesh_EXPORT void constructdictConstructorTables();
+        static FoamFoamyMesh_EXPORT void destroydictConstructorTables();
+
+        template <class searchableSurfaceFeaturesType>
+        class adddictConstructorToTable
+        {
+        public:
+	        static autoPtr<searchableSurfaceFeatures> New(const searchableSurface& surface, const dictionary& dict)
+	        {
+		        return autoPtr<searchableSurfaceFeatures>(new searchableSurfaceFeaturesType(surface, dict));
+	        }
+
+	        adddictConstructorToTable(const word& lookup = searchableSurfaceFeaturesType::typeName)
+	        {
+		        constructdictConstructorTables();
+		        if (!dictConstructorTablePtr_->insert(lookup, New))
+		        {
+			        std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+				        "searchableSurfaceFeatures" << std::endl;
+			        error::safePrintStack(std::cerr);
+		        }
+	        }
+
+	        ~adddictConstructorToTable() { destroydictConstructorTables(); }
+        };
+
+        template <class searchableSurfaceFeaturesType>
+        class addRemovabledictConstructorToTable
+        {
+	        const word& lookup_;
+        public:
+	        static autoPtr<searchableSurfaceFeatures> New(const searchableSurface& surface, const dictionary& dict)
+	        {
+		        return autoPtr<searchableSurfaceFeatures>(new searchableSurfaceFeaturesType(surface, dict));
+	        }
+
+	        addRemovabledictConstructorToTable(const word& lookup = searchableSurfaceFeaturesType::typeName) : lookup_(
+		        lookup)
+	        {
+		        constructdictConstructorTables();
+		        dictConstructorTablePtr_->set(lookup, New);
+	        }
+
+	        ~addRemovabledictConstructorToTable()
+	        {
+		        if (dictConstructorTablePtr_) { dictConstructorTablePtr_->erase(lookup_); }
+	        }
+        };;
 
 
         // Constructors
