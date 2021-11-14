@@ -154,6 +154,84 @@
     <Filter Include="TnbLib\module">
       <UniqueIdentifier>{784e188f-f4d0-4f57-b486-ca4eca8595a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyState">
+      <UniqueIdentifier>{7d878992-7fa7-40c6-8987-29e5b9addf22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion">
+      <UniqueIdentifier>{9bb3cf53-2099-4915-8d7b-007ba0e51ed9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyState\sixDoFRigidBodyState">
+      <UniqueIdentifier>{f30732f8-8d96-4397-8dee-be120c486f8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyState\sixDoFRigidBodyControl">
+      <UniqueIdentifier>{6c0f9ac0-7b24-43be-b30a-529fc932ed4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers">
+      <UniqueIdentifier>{9036f778-431f-48fb-8520-623c9c0629fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotionSolver">
+      <UniqueIdentifier>{19e87dc7-48c5-408a-9778-942240b978f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion">
+      <UniqueIdentifier>{0ca172a2-ea99-456f-a4c9-4a821f598414}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints">
+      <UniqueIdentifier>{de2937f9-f1db-4ba0-b307-7d84630ba3c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints">
+      <UniqueIdentifier>{0fa14548-a967-4ecc-9912-a0412941836f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\axis">
+      <UniqueIdentifier>{7d222a01-479d-4da8-b1d9-3fa361d02b0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\line">
+      <UniqueIdentifier>{e8d686f0-ca7e-48b6-8568-771d6c450667}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\sixDoFRigidBodyMotionConstraint">
+      <UniqueIdentifier>{44613d43-a24d-41da-b2b8-cfddb83ec2fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\point">
+      <UniqueIdentifier>{5933e3d0-8871-4721-8f76-d408b5177ad2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\plane">
+      <UniqueIdentifier>{052399af-61da-42ff-bee2-f14bf6d4e200}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\orientation">
+      <UniqueIdentifier>{df2d6219-280f-4db0-98fe-cc9ee5dc131b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearAxialAngularSpring">
+      <UniqueIdentifier>{23fc5011-c438-4c34-898d-e7cd364cdf63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearDamper">
+      <UniqueIdentifier>{ce61ad0b-cdfc-47ff-989e-5f8d85e13dc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearSpring">
+      <UniqueIdentifier>{7f88b14b-7e33-4237-933d-43e12d4bbe02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\tabulatedAxialAngularSpring">
+      <UniqueIdentifier>{a1d5f136-4407-4cb9-9ae6-e0e9d2c6e590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sphericalAngularSpring">
+      <UniqueIdentifier>{7da21083-51e1-4bba-b1d1-32d217a3036c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sphericalAngularDamper">
+      <UniqueIdentifier>{57d346ec-7e2d-4d59-aa6e-3b387899a944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sixDoFRigidBodyMotionRestraint">
+      <UniqueIdentifier>{e1dc0caf-530a-4ec3-991e-172c09256c87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\CrankNicolson">
+      <UniqueIdentifier>{31e88963-952c-4a7a-9891-1efde8d8dc42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\symplectic">
+      <UniqueIdentifier>{b591ba9a-302c-44a9-aa55-c9817c9a373c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\sixDoFSolver">
+      <UniqueIdentifier>{0dcc3be4-bd98-4735-a153-03d72ead44b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\Newmark">
+      <UniqueIdentifier>{aa21931d-b1ca-4e9c-aee5-ef08c21113ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodyInertia\rigidBodyInertia.hxx">
@@ -324,6 +402,90 @@
     <ClInclude Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic\symplectic.hxx">
       <Filter>TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyState\rigidBodyState.hxx">
+      <Filter>TnbLib\rigidBodyState</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyState\sixDoFRigidBodyState\sixDoFRigidBodyState.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyState\sixDoFRigidBodyState</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyState\sixDoFRigidBodyControl\sixDoFRigidBodyControl.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyState\sixDoFRigidBodyControl</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\sixDoFRigidBodyMotionI.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sixDoFRigidBodyMotionRestraint\sixDoFRigidBodyMotionRestraint.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sixDoFRigidBodyMotionRestraint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\sixDoFRigidBodyMotionConstraint\sixDoFRigidBodyMotionConstraint.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\sixDoFRigidBodyMotionConstraint</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\sixDoFRigidBodyMotionState.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\sixDoFRigidBodyMotionStateI.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\axis\sixDoFRigidBodyMotionAxisConstraint.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\axis</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\line\sixDoFRigidBodyMotionLineConstraint.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\line</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\orientation\sixDoFRigidBodyMotionOrientationConstraint.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\orientation</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\plane\sixDoFRigidBodyMotionPlaneConstraint.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\plane</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\point\sixDoFRigidBodyMotionPointConstraint.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\point</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotionSolver\sixDoFRigidBodyMotionSolver.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotionSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\sixDoFSolver\sixDoFSolver.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\sixDoFSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\sixDoFSolver\sixDoFSolverI.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\sixDoFSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\CrankNicolson\CrankNicolsonSixDoFSolver.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\CrankNicolson</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\Newmark\NewmarkSixDoFSolver.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\Newmark</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\symplectic\symplecticSixDoFSolver.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\symplectic</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyMeshMotion\rigidBodyMeshMotion\rigidBodyMeshMotion.hxx">
+      <Filter>TnbLib\rigidBodyMeshMotion\rigidBodyMeshMotion</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\rigidBodyMeshMotion\rigidBodyMeshMotionSolver\rigidBodyMeshMotionSolver.hxx">
+      <Filter>TnbLib\rigidBodyMeshMotion\rigidBodyMeshMotionSolver</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearSpring\sixDoFLinearSpring.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearSpring</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sphericalAngularDamper\sixDoFSphericalAngularDamper.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sphericalAngularDamper</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sphericalAngularSpring\sixDoFSphericalAngularSpring.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sphericalAngularSpring</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\tabulatedAxialAngularSpring\sixDoFTabulatedAxialAngularSpring.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\tabulatedAxialAngularSpring</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearDamper\sixDoFLinearDamper.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearDamper</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearAxialAngularSpring\sixDoFLinearAxialAngularSpring.hxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearAxialAngularSpring</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodyModel\rigidBodyModel.cxx">
@@ -457,6 +619,93 @@
     </ClCompile>
     <ClCompile Include="TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic\symplectic.cxx">
       <Filter>TnbLib\rigidBodyDynamics\rigidBodySolvers\symplectic</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyState\rigidBodyState.cxx">
+      <Filter>TnbLib\rigidBodyState</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyState\sixDoFRigidBodyState\sixDoFRigidBodyState.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyState\sixDoFRigidBodyState</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyState\sixDoFRigidBodyControl\sixDoFRigidBodyControl.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyState\sixDoFRigidBodyControl</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sixDoFRigidBodyMotionRestraint\sixDoFRigidBodyMotionRestraint.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sixDoFRigidBodyMotionRestraint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sixDoFRigidBodyMotionRestraint\sixDoFRigidBodyMotionRestraintNew.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sixDoFRigidBodyMotionRestraint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\sixDoFRigidBodyMotionConstraint\sixDoFRigidBodyMotionConstraint.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\sixDoFRigidBodyMotionConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\sixDoFRigidBodyMotionConstraint\sixDoFRigidBodyMotionConstraintNew.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\sixDoFRigidBodyMotionConstraint</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\sixDoFRigidBodyMotionState.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\sixDoFRigidBodyMotionStateIO.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\axis\sixDoFRigidBodyMotionAxisConstraint.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\axis</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\line\sixDoFRigidBodyMotionLineConstraint.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\line</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\orientation\sixDoFRigidBodyMotionOrientationConstraint.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\orientation</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\plane\sixDoFRigidBodyMotionPlaneConstraint.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\plane</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\point\sixDoFRigidBodyMotionPointConstraint.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\constraints\point</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotionSolver\sixDoFRigidBodyMotionSolver.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotionSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\sixDoFSolver\sixDoFSolver.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\sixDoFSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\sixDoFSolver\newSixDoFSolver.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\sixDoFSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\CrankNicolson\CrankNicolsonSixDoFSolver.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\CrankNicolson</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\Newmark\NewmarkSixDoFSolver.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\Newmark</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\symplectic\symplecticSixDoFSolver.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFSolvers\symplectic</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyMeshMotion\rigidBodyMeshMotion\rigidBodyMeshMotion.cxx">
+      <Filter>TnbLib\rigidBodyMeshMotion\rigidBodyMeshMotion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\rigidBodyMeshMotion\rigidBodyMeshMotionSolver\rigidBodyMeshMotionSolver.cxx">
+      <Filter>TnbLib\rigidBodyMeshMotion\rigidBodyMeshMotionSolver</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearSpring\sixDoFLinearSpring.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearSpring</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sphericalAngularDamper\sixDoFSphericalAngularDamper.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sphericalAngularDamper</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sphericalAngularSpring\sixDoFSphericalAngularSpring.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\sphericalAngularSpring</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\tabulatedAxialAngularSpring\sixDoFTabulatedAxialAngularSpring.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\tabulatedAxialAngularSpring</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearDamper\sixDoFLinearDamper.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearDamper</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearAxialAngularSpring\sixDoFLinearAxialAngularSpring.cxx">
+      <Filter>TnbLib\sixDoFRigidBodyMotion\sixDoFRigidBodyMotion\restraints\linearAxialAngularSpring</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
