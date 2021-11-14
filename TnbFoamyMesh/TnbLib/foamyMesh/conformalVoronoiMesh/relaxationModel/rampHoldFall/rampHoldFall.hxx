@@ -81,7 +81,11 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("rampHoldFall");
+        /*TypeName("rampHoldFall");*/
+        static const char* typeName_() { return "rampHoldFall"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
         // Constructors
 

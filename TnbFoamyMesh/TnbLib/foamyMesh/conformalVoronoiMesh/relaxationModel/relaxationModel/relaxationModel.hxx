@@ -73,12 +73,16 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("relaxationModel");
+        /*TypeName("relaxationModel");*/
+        static const char* typeName_() { return "relaxationModel"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Declare run-time constructor selection table
 
-        declareRunTimeSelectionTable
+        /*declareRunTimeSelectionTable
         (
             autoPtr,
             relaxationModel,
@@ -88,7 +92,59 @@ namespace tnbLib
                 const Time& runTime
                 ),
             (relaxationDict, runTime)
-        );
+        );*/
+        typedef autoPtr<relaxationModel> (*dictionaryConstructorPtr)(const dictionary& relaxationDict,
+                                                                     const Time& runTime);
+        typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+        static FoamFoamyMesh_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+        static FoamFoamyMesh_EXPORT void constructdictionaryConstructorTables();
+        static FoamFoamyMesh_EXPORT void destroydictionaryConstructorTables();
+
+        template <class relaxationModelType>
+        class adddictionaryConstructorToTable
+        {
+        public:
+	        static autoPtr<relaxationModel> New(const dictionary& relaxationDict, const Time& runTime)
+	        {
+		        return autoPtr<relaxationModel>(new relaxationModelType(relaxationDict, runTime));
+	        }
+
+	        adddictionaryConstructorToTable(const word& lookup = relaxationModelType::typeName)
+	        {
+		        constructdictionaryConstructorTables();
+		        if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+		        {
+			        std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "relaxationModel" <<
+				        std::endl;
+			        error::safePrintStack(std::cerr);
+		        }
+	        }
+
+	        ~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+        };
+
+        template <class relaxationModelType>
+        class addRemovabledictionaryConstructorToTable
+        {
+	        const word& lookup_;
+        public:
+	        static autoPtr<relaxationModel> New(const dictionary& relaxationDict, const Time& runTime)
+	        {
+		        return autoPtr<relaxationModel>(new relaxationModelType(relaxationDict, runTime));
+	        }
+
+	        addRemovabledictionaryConstructorToTable(const word& lookup = relaxationModelType::typeName) : lookup_(
+		        lookup)
+	        {
+		        constructdictionaryConstructorTables();
+		        dictionaryConstructorTablePtr_->set(lookup, New);
+	        }
+
+	        ~addRemovabledictionaryConstructorToTable()
+	        {
+		        if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+	        }
+        };;
 
 
         // Constructors
