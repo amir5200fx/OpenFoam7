@@ -69,12 +69,16 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("cellSizeCalculationType");
+        /*TypeName("cellSizeCalculationType");*/
+        static const char* typeName_() { return "cellSizeCalculationType"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Declare run-time constructor selection table
 
-        declareRunTimeSelectionTable
+        /*declareRunTimeSelectionTable
         (
             autoPtr,
             cellSizeCalculationType,
@@ -85,7 +89,64 @@ namespace tnbLib
                 const scalar& defaultCellSize
                 ),
             (cellSizeCalculationTypeDict, surface, defaultCellSize)
-        );
+        );*/
+        typedef autoPtr<cellSizeCalculationType> (*dictionaryConstructorPtr)(
+	        const dictionary& cellSizeCalculationTypeDict, const triSurfaceMesh& surface,
+	        const scalar& defaultCellSize);
+        typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+        static FoamFoamyMesh_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+        static FoamFoamyMesh_EXPORT void constructdictionaryConstructorTables();
+        static FoamFoamyMesh_EXPORT void destroydictionaryConstructorTables();
+
+        template <class cellSizeCalculationTypeType>
+        class adddictionaryConstructorToTable
+        {
+        public:
+	        static autoPtr<cellSizeCalculationType> New(const dictionary& cellSizeCalculationTypeDict,
+	                                                    const triSurfaceMesh& surface, const scalar& defaultCellSize)
+	        {
+		        return autoPtr<cellSizeCalculationType>(
+			        new cellSizeCalculationTypeType(cellSizeCalculationTypeDict, surface, defaultCellSize));
+	        }
+
+	        adddictionaryConstructorToTable(const word& lookup = cellSizeCalculationTypeType::typeName)
+	        {
+		        constructdictionaryConstructorTables();
+		        if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+		        {
+			        std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+				        "cellSizeCalculationType" << std::endl;
+			        error::safePrintStack(std::cerr);
+		        }
+	        }
+
+	        ~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+        };
+
+        template <class cellSizeCalculationTypeType>
+        class addRemovabledictionaryConstructorToTable
+        {
+	        const word& lookup_;
+        public:
+	        static autoPtr<cellSizeCalculationType> New(const dictionary& cellSizeCalculationTypeDict,
+	                                                    const triSurfaceMesh& surface, const scalar& defaultCellSize)
+	        {
+		        return autoPtr<cellSizeCalculationType>(
+			        new cellSizeCalculationTypeType(cellSizeCalculationTypeDict, surface, defaultCellSize));
+	        }
+
+	        addRemovabledictionaryConstructorToTable(
+		        const word& lookup = cellSizeCalculationTypeType::typeName) : lookup_(lookup)
+	        {
+		        constructdictionaryConstructorTables();
+		        dictionaryConstructorTablePtr_->set(lookup, New);
+	        }
+
+	        ~addRemovabledictionaryConstructorToTable()
+	        {
+		        if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+	        }
+        };;
 
 
         // Constructors

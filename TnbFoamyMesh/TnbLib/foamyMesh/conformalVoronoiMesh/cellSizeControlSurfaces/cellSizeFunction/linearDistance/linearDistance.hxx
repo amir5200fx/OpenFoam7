@@ -74,7 +74,11 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("linearDistance");
+        /*TypeName("linearDistance");*/
+        static const char* typeName_() { return "linearDistance"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
         // Constructors
 

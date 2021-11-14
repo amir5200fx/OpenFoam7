@@ -78,7 +78,11 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("surfaceOffsetLinearDistance");
+        /*TypeName("surfaceOffsetLinearDistance");*/
+        static const char* typeName_() { return "surfaceOffsetLinearDistance"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
         // Constructors
 

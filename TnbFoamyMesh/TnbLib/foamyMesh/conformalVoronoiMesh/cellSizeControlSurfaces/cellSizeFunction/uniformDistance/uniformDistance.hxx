@@ -65,7 +65,11 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("uniformDistance");
+        /*TypeName("uniformDistance");*/
+        static const char* typeName_() { return "uniformDistance"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
         // Constructors
 

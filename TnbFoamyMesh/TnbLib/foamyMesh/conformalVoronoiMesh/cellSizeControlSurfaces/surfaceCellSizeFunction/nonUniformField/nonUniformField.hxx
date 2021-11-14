@@ -82,7 +82,11 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("nonUniformField");
+        /*TypeName("nonUniformField");*/
+        static const char* typeName_() { return "nonUniformField"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Constructors

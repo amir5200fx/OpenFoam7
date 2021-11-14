@@ -73,7 +73,11 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("fieldFromFile");
+        /*TypeName("fieldFromFile");*/
+        static const char* typeName_() { return "fieldFromFile"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Constructors

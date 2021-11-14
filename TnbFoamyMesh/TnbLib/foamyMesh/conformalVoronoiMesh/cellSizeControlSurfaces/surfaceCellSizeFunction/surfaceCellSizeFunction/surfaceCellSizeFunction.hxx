@@ -77,12 +77,16 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("surfaceCellSizeFunction");
+        /*TypeName("surfaceCellSizeFunction");*/
+        static const char* typeName_() { return "surfaceCellSizeFunction"; }
+        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
+        static FoamFoamyMesh_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Declare run-time constructor selection table
 
-        declareRunTimeSelectionTable
+        /*declareRunTimeSelectionTable
         (
             autoPtr,
             surfaceCellSizeFunction,
@@ -93,7 +97,64 @@ namespace tnbLib
                 const scalar& defaultCellSize
                 ),
             (surfaceCellSizeFunctionDict, surface, defaultCellSize)
-        );
+        );*/
+        typedef autoPtr<surfaceCellSizeFunction> (*dictionaryConstructorPtr)(
+	        const dictionary& surfaceCellSizeFunctionDict, const searchableSurface& surface,
+	        const scalar& defaultCellSize);
+        typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+        static FoamFoamyMesh_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+        static FoamFoamyMesh_EXPORT void constructdictionaryConstructorTables();
+        static FoamFoamyMesh_EXPORT void destroydictionaryConstructorTables();
+
+        template <class surfaceCellSizeFunctionType>
+        class adddictionaryConstructorToTable
+        {
+        public:
+	        static autoPtr<surfaceCellSizeFunction> New(const dictionary& surfaceCellSizeFunctionDict,
+	                                                    const searchableSurface& surface, const scalar& defaultCellSize)
+	        {
+		        return autoPtr<surfaceCellSizeFunction>(
+			        new surfaceCellSizeFunctionType(surfaceCellSizeFunctionDict, surface, defaultCellSize));
+	        }
+
+	        adddictionaryConstructorToTable(const word& lookup = surfaceCellSizeFunctionType::typeName)
+	        {
+		        constructdictionaryConstructorTables();
+		        if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+		        {
+			        std::cerr << "Duplicate entry " << lookup << " in runtime selection table " <<
+				        "surfaceCellSizeFunction" << std::endl;
+			        error::safePrintStack(std::cerr);
+		        }
+	        }
+
+	        ~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+        };
+
+        template <class surfaceCellSizeFunctionType>
+        class addRemovabledictionaryConstructorToTable
+        {
+	        const word& lookup_;
+        public:
+	        static autoPtr<surfaceCellSizeFunction> New(const dictionary& surfaceCellSizeFunctionDict,
+	                                                    const searchableSurface& surface, const scalar& defaultCellSize)
+	        {
+		        return autoPtr<surfaceCellSizeFunction>(
+			        new surfaceCellSizeFunctionType(surfaceCellSizeFunctionDict, surface, defaultCellSize));
+	        }
+
+	        addRemovabledictionaryConstructorToTable(
+		        const word& lookup = surfaceCellSizeFunctionType::typeName) : lookup_(lookup)
+	        {
+		        constructdictionaryConstructorTables();
+		        dictionaryConstructorTablePtr_->set(lookup, New);
+	        }
+
+	        ~addRemovabledictionaryConstructorToTable()
+	        {
+		        if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+	        }
+        };;
 
 
         // Constructors
