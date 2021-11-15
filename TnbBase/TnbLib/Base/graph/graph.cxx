@@ -233,7 +233,7 @@ void tnbLib::graph::write
 }
 
 
-tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const graph& g)
+FoamBase_EXPORT tnbLib::Ostream& tnbLib::operator<<(Ostream& os, const graph& g)
 {
 	g.writeTable(os);
 	os.check("Ostream& operator<<(Ostream&, const graph&)");
