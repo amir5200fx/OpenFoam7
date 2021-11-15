@@ -65,11 +65,15 @@ namespace tnbLib
 	public:
 
 		//- Runtime type information
-		TypeName("engineTime");
+		/*TypeName("engineTime");*/
+		static const char* typeName_() { return "engineTime"; }
+		static FoamEngine_EXPORT const ::tnbLib::word typeName;
+		static FoamEngine_EXPORT int debug;
+		virtual const word& type() const { return typeName; };
 
 
 		//- Declare runtime constructor selection table
-		declareRunTimeSelectionTable
+		/*declareRunTimeSelectionTable
 		(
 			autoPtr,
 			engineTime,
@@ -83,13 +87,71 @@ namespace tnbLib
 				const fileName& dictName
 				),
 				(name, rootPath, caseName, systemName, constantName, dictName)
-		);
+		);*/
+		typedef autoPtr<engineTime> (*dictionaryConstructorPtr)(const word& name, const fileName& rootPath,
+		                                                        const fileName& caseName, const fileName& systemName,
+		                                                        const fileName& constantName, const fileName& dictName);
+		typedef HashTable<dictionaryConstructorPtr, word, string::hash> dictionaryConstructorTable;
+		static FoamEngine_EXPORT dictionaryConstructorTable* dictionaryConstructorTablePtr_;
+		static FoamEngine_EXPORT void constructdictionaryConstructorTables();
+		static FoamEngine_EXPORT void destroydictionaryConstructorTables();
+
+		template <class engineTimeType>
+		class adddictionaryConstructorToTable
+		{
+		public:
+			static autoPtr<engineTime> New(const word& name, const fileName& rootPath, const fileName& caseName,
+			                               const fileName& systemName, const fileName& constantName,
+			                               const fileName& dictName)
+			{
+				return autoPtr<engineTime>(
+					new engineTimeType(name, rootPath, caseName, systemName, constantName, dictName));
+			}
+
+			adddictionaryConstructorToTable(const word& lookup = engineTimeType::typeName)
+			{
+				constructdictionaryConstructorTables();
+				if (!dictionaryConstructorTablePtr_->insert(lookup, New))
+				{
+					std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "engineTime" <<
+						std::endl;
+					error::safePrintStack(std::cerr);
+				}
+			}
+
+			~adddictionaryConstructorToTable() { destroydictionaryConstructorTables(); }
+		};
+
+		template <class engineTimeType>
+		class addRemovabledictionaryConstructorToTable
+		{
+			const word& lookup_;
+		public:
+			static autoPtr<engineTime> New(const word& name, const fileName& rootPath, const fileName& caseName,
+			                               const fileName& systemName, const fileName& constantName,
+			                               const fileName& dictName)
+			{
+				return autoPtr<engineTime>(
+					new engineTimeType(name, rootPath, caseName, systemName, constantName, dictName));
+			}
+
+			addRemovabledictionaryConstructorToTable(const word& lookup = engineTimeType::typeName) : lookup_(lookup)
+			{
+				constructdictionaryConstructorTables();
+				dictionaryConstructorTablePtr_->set(lookup, New);
+			}
+
+			~addRemovabledictionaryConstructorToTable()
+			{
+				if (dictionaryConstructorTablePtr_) { dictionaryConstructorTablePtr_->erase(lookup_); }
+			}
+		};;
 
 
 		// Constructors
 
 			//- Construct from objectRegistry arguments
-		engineTime
+		FoamEngine_EXPORT engineTime
 		(
 			const word& name,
 			const fileName& rootPath,
@@ -146,25 +208,25 @@ namespace tnbLib
 		virtual scalar deltaTheta() const = 0;
 
 		//- Return current piston position
-		dimensionedScalar pistonPosition() const;
+		FoamEngine_EXPORT dimensionedScalar pistonPosition() const;
 
 		//- Return piston displacement for current time step
-		dimensionedScalar pistonDisplacement() const;
+		FoamEngine_EXPORT dimensionedScalar pistonDisplacement() const;
 
 		//- Return piston speed for current time step
-		dimensionedScalar pistonSpeed() const;
+		FoamEngine_EXPORT dimensionedScalar pistonSpeed() const;
 
 
 		// Member Functions overriding the virtual functions in time
 
 			//- Read the control dictionary and set the write controls etc.
-		virtual void readDict();
+		FoamEngine_EXPORT virtual void readDict();
 
 
 		// Edit
 
 			//- Read the controlDict and set all the parameters
-		virtual bool read();
+		FoamEngine_EXPORT virtual bool read();
 	};
 
 

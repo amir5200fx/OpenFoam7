@@ -83,13 +83,17 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("freePiston");
+        /*TypeName("freePiston");*/
+        static const char* typeName_() { return "freePiston"; }
+        static FoamEngine_EXPORT const ::tnbLib::word typeName;
+        static FoamEngine_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Constructors
 
             //- Construct from objectRegistry arguments
-        freePiston
+        FoamEngine_EXPORT freePiston
         (
             const word& name,
             const fileName& rootPath,
@@ -114,19 +118,19 @@ namespace tnbLib
 
                 //- Calculate the piston position from the engine geometry
                 //  and given crank angle.
-        scalar pistonPosition(const scalar theta) const;
+        FoamEngine_EXPORT scalar pistonPosition(const scalar theta) const;
 
 
         // Access
 
             //- Return current engine time
-        virtual scalar theta() const;
+        FoamEngine_EXPORT virtual scalar theta() const;
 
         //- Return time unit
-        virtual word unit() const;
+        FoamEngine_EXPORT virtual word unit() const;
 
         //- Return engine time increment
-        virtual scalar deltaTheta() const;
+        FoamEngine_EXPORT virtual scalar deltaTheta() const;
 
 
         // Member Operators
