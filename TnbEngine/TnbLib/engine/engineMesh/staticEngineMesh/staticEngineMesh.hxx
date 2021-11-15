@@ -54,27 +54,31 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("static");
+        /*TypeName("static");*/
+        static const char* typeName_() { return "static"; }
+        static FoamEngine_EXPORT const ::tnbLib::word typeName;
+        static FoamEngine_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Constructors
 
             //- Construct from IOobject
-        staticEngineMesh(const IOobject& io);
+        FoamEngine_EXPORT staticEngineMesh(const IOobject& io);
 
         //- Disallow default bitwise copy construction
         staticEngineMesh(const staticEngineMesh&) = delete;
 
 
         //- Destructor
-        ~staticEngineMesh();
+        FoamEngine_EXPORT ~staticEngineMesh();
 
 
         // Member Functions
 
             // Edit
 
-        void move();
+        FoamEngine_EXPORT void move();
 
 
         // Member Operators
