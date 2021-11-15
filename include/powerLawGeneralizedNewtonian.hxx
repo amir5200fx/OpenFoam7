@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _powerLaw_Header
-#define _powerLaw_Header
+#ifndef _powerLawGeneralizedNewtonian_Header
+#define _powerLawGeneralizedNewtonian_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -107,4 +107,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_powerLaw_Header
+#endif // !_powerLawGeneralizedNewtonian_Header

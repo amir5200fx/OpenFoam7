@@ -1,4 +1,4 @@
-#include <powerLaw.hxx>
+#include <powerLawGeneralizedNewtonian.hxx>
 
 #include <volFields.hxx>
 #include <addToRunTimeSelectionTable.hxx>
