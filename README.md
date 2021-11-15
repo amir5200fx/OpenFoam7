@@ -1,5 +1,5 @@
 # OpenFOAM 7
-This is a windows port of the OpenFOAM's source code which runs on visual studio 2017
+This is a windows port of the OpenFOAM's source code which runs on visual studio 2017. In this version you can compile any part of the code you want and use it in your projects as a library!
 
 # What am I doing?
 I’m currently working on porting the Linux version of OpenFOAM 7 source code into Windows platform under a Microsoft Visual Studio solution. This contains huge amount of intervention into the code, such as: 
