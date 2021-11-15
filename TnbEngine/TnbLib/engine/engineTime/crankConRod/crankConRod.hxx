@@ -83,19 +83,23 @@ namespace tnbLib
         // Private Member Functions
 
             //- Adjust read time values
-        void timeAdjustment();
+        FoamEngine_EXPORT void timeAdjustment();
 
 
     public:
 
         //- Runtime type information
-        TypeName("crankConRod");
+        /*TypeName("crankConRod");*/
+        static const char* typeName_() { return "crankConRod"; }
+        static FoamEngine_EXPORT const ::tnbLib::word typeName;
+        static FoamEngine_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Constructors
 
             //- Construct from objectRegistry arguments
-        crankConRod
+        FoamEngine_EXPORT crankConRod
         (
             const word& name,
             const fileName& rootPath,
@@ -119,14 +123,14 @@ namespace tnbLib
             // Conversion
 
                 //- Convert degrees to seconds (for given engine speed in RPM)
-        scalar degToTime(const scalar theta) const;
+        FoamEngine_EXPORT scalar degToTime(const scalar theta) const;
 
         //- Convert seconds to degrees (for given engine speed in RPM)
-        scalar timeToDeg(const scalar t) const;
+        FoamEngine_EXPORT scalar timeToDeg(const scalar t) const;
 
         //- Calculate the piston position from the engine geometry
         //  and given crank angle.
-        scalar pistonPosition(const scalar theta) const;
+        FoamEngine_EXPORT scalar pistonPosition(const scalar theta) const;
 
 
         // Access
@@ -163,35 +167,35 @@ namespace tnbLib
 
 
         //- Return current crank-angle
-        virtual scalar theta() const;
+        FoamEngine_EXPORT virtual scalar theta() const;
 
         //- Return time unit
-        virtual word unit() const;
+        FoamEngine_EXPORT virtual word unit() const;
 
         //- Return current crank-angle translated to a single revolution
         //  (value between -180 and 180 with 0 = top dead centre)
-        scalar thetaRevolution() const;
+        FoamEngine_EXPORT scalar thetaRevolution() const;
 
         //- Return crank-angle increment
-        virtual scalar deltaTheta() const;
+        FoamEngine_EXPORT virtual scalar deltaTheta() const;
 
 
         // Member Functions overriding the virtual functions in time
 
             //- Convert the user-time (CA deg) to real-time (s).
-        virtual scalar userTimeToTime(const scalar theta) const;
+        FoamEngine_EXPORT virtual scalar userTimeToTime(const scalar theta) const;
 
         //- Convert the real-time (s) into user-time (CA deg)
-        virtual scalar timeToUserTime(const scalar t) const;
+        FoamEngine_EXPORT virtual scalar timeToUserTime(const scalar t) const;
 
         //- Read the control dictionary and set the write controls etc.
-        virtual void readDict();
+        FoamEngine_EXPORT virtual void readDict();
 
 
         // Edit
 
             //- Read the controlDict and set all the parameters
-        virtual bool read();
+        FoamEngine_EXPORT virtual bool read();
 
 
         // Member Operators

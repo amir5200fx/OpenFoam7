@@ -88,7 +88,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        enginePiston
+        FoamEngine_EXPORT enginePiston
         (
             const polyMesh& mesh,
             const word& pistonPatchName,
@@ -99,7 +99,7 @@ namespace tnbLib
         );
 
         //- Construct from dictionary
-        enginePiston
+        FoamEngine_EXPORT enginePiston
         (
             const polyMesh& mesh,
             const dictionary& dict
@@ -137,7 +137,7 @@ namespace tnbLib
 
 
         //- Write dictionary
-        void writeDict(Ostream&) const;
+        FoamEngine_EXPORT void writeDict(Ostream&) const;
 
 
         // Member Operators

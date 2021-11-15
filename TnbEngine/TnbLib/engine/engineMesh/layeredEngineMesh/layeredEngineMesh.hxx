@@ -60,27 +60,31 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("layered");
+        /*TypeName("layered");*/
+        static const char* typeName_() { return "layered"; }
+        static FoamEngine_EXPORT const ::tnbLib::word typeName;
+        static FoamEngine_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Constructors
 
             //- Construct from IOobject
-        layeredEngineMesh(const IOobject& io);
+        FoamEngine_EXPORT layeredEngineMesh(const IOobject& io);
 
         //- Disallow default bitwise copy construction
         layeredEngineMesh(const layeredEngineMesh&) = delete;
 
 
         //- Destructor
-        ~layeredEngineMesh();
+        FoamEngine_EXPORT ~layeredEngineMesh();
 
 
         // Member Functions
 
             // Edit
 
-        void move();
+        FoamEngine_EXPORT void move();
 
 
         // Member Operators

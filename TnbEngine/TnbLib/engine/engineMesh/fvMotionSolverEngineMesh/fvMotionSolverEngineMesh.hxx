@@ -67,27 +67,31 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("fvMotionSolver");
+        /*TypeName("fvMotionSolver");*/
+        static const char* typeName_() { return "fvMotionSolver"; }
+        static FoamEngine_EXPORT const ::tnbLib::word typeName;
+        static FoamEngine_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Constructors
 
             //- Construct from IOobject
-        fvMotionSolverEngineMesh(const IOobject& io);
+        FoamEngine_EXPORT fvMotionSolverEngineMesh(const IOobject& io);
 
         //- Disallow default bitwise copy construction
         fvMotionSolverEngineMesh(const fvMotionSolverEngineMesh&) = delete;
 
 
         //- Destructor
-        ~fvMotionSolverEngineMesh();
+        FoamEngine_EXPORT ~fvMotionSolverEngineMesh();
 
 
         // Member Functions
 
             // Edit
 
-        void move();
+        FoamEngine_EXPORT void move();
 
 
         // Member Operators

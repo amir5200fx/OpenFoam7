@@ -67,10 +67,10 @@ namespace tnbLib
         // Constructors
 
             //- Construct from Istream and database
-        ignition(const dictionary&, const Time&, const fvMesh&);
+        FoamEngine_EXPORT ignition(const dictionary&, const Time&, const fvMesh&);
 
         //- Construct from Istream and engineTime
-        ignition(const dictionary&, const engineTime&, const fvMesh&);
+        FoamEngine_EXPORT ignition(const dictionary&, const engineTime&, const fvMesh&);
 
         //- Disallow default bitwise copy construction
         ignition(const ignition&) = delete;
@@ -93,10 +93,10 @@ namespace tnbLib
         }
 
         //- Are any of the ignition site currently igniting
-        bool igniting() const;
+        FoamEngine_EXPORT bool igniting() const;
 
         //- Has the mixture been ignited?
-        bool ignited() const;
+        FoamEngine_EXPORT bool ignited() const;
 
 
         // Member Operators

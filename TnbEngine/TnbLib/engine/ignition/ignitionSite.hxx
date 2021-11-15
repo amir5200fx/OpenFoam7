@@ -84,7 +84,7 @@ namespace tnbLib
 
         // Private Member Functions
 
-        void findIgnitionCells(const fvMesh&);
+        FoamEngine_EXPORT void findIgnitionCells(const fvMesh&);
 
 
     public:
@@ -116,10 +116,10 @@ namespace tnbLib
         // Constructors
 
             //- Construct from Istream and database
-        ignitionSite(Istream&, const Time&, const fvMesh&);
+        FoamEngine_EXPORT ignitionSite(Istream&, const Time&, const fvMesh&);
 
         //- Construct from Istream and engineTime
-        ignitionSite(Istream&, const engineTime&, const fvMesh&);
+        FoamEngine_EXPORT ignitionSite(Istream&, const engineTime&, const fvMesh&);
 
         //- Copy constructor
         ignitionSite(const ignitionSite&) = default;
@@ -161,7 +161,7 @@ namespace tnbLib
         }
 
         //- Return the ignition cells updated if the mesh moved
-        const labelList& cells() const;
+        FoamEngine_EXPORT const labelList& cells() const;
 
         const scalarList& cellVolumes() const
         {
@@ -171,14 +171,14 @@ namespace tnbLib
 
         // Check
 
-        bool igniting() const;
+        FoamEngine_EXPORT bool igniting() const;
 
-        bool ignited() const;
+        FoamEngine_EXPORT bool ignited() const;
 
 
         // Member Operators
 
-        void operator=(const ignitionSite&);
+        FoamEngine_EXPORT void operator=(const ignitionSite&);
     };
 
 
