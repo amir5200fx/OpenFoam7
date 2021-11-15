@@ -137,7 +137,7 @@ namespace tnbLib
         // Private Member Functions
 
             //- Adjust crank angle to drop within the limits of the lift profile
-        scalar adjustCrankAngle(const scalar theta) const;
+        FoamEngine_EXPORT scalar adjustCrankAngle(const scalar theta) const;
 
 
     public:
@@ -145,7 +145,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        engineValve
+        FoamEngine_EXPORT engineValve
         (
             const word& name,
             const polyMesh& mesh,
@@ -169,7 +169,7 @@ namespace tnbLib
         );
 
         //- Construct from dictionary
-        engineValve
+        FoamEngine_EXPORT engineValve
         (
             const word& name,
             const polyMesh& mesh,
@@ -285,24 +285,24 @@ namespace tnbLib
         // Valve position and velocity
 
             //- Return valve lift given crank angle in degrees
-        scalar lift(const scalar theta) const;
+        FoamEngine_EXPORT scalar lift(const scalar theta) const;
 
         //- Is the valve open?
-        bool isOpen() const;
+        FoamEngine_EXPORT bool isOpen() const;
 
         //- Return current lift
-        scalar curLift() const;
+        FoamEngine_EXPORT scalar curLift() const;
 
         //- Return valve velocity for current time-step
-        scalar curVelocity() const;
+        FoamEngine_EXPORT scalar curVelocity() const;
 
         //- Return list of active patch labels for the valve head
         //  (stem is excluded)
-        labelList movingPatchIDs() const;
+        FoamEngine_EXPORT labelList movingPatchIDs() const;
 
 
         //- Write dictionary
-        void writeDict(Ostream&) const;
+        FoamEngine_EXPORT void writeDict(Ostream&) const;
 
 
         // Member Operators
