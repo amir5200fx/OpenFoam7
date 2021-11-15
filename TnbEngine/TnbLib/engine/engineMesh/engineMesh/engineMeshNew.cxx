@@ -39,13 +39,13 @@ tnbLib::autoPtr<tnbLib::engineMesh> tnbLib::engineMesh::New
     (
         IOdictionary
         (
-            IOobject
+			tnbLib::IOobject
             (
                 "engineGeometry",
                 io.time().constant(),
                 io.db(),
-                IOobject::MUST_READ_IF_MODIFIED,
-                IOobject::NO_WRITE,
+                tnbLib::IOobject::MUST_READ_IF_MODIFIED,
+                tnbLib::IOobject::NO_WRITE,
                 false
             )
         ).lookup("engineMesh")

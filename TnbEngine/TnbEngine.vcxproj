@@ -39,13 +39,13 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -166,6 +166,23 @@
     <None Include="TnbLib\engine\include\createEngineTime.lxx" />
     <None Include="TnbLib\engine\include\readEngineTimeControls.lxx" />
     <None Include="TnbLib\engine\include\StCorr.lxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TnbBase\TnbBase.vcxproj">
+      <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbDynamicMesh\TnbDynamicMesh.vcxproj">
+      <Project>{e3788c5b-0066-49ce-a6f3-4ef1a5660b6d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+      <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFvMesh\TnbFvMesh.vcxproj">
+      <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TnbFvMotionSolver\TnbFvMotionSolver.vcxproj">
+      <Project>{07062007-6775-47e4-b2db-1c87d877196c}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

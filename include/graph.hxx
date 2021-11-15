@@ -53,7 +53,7 @@ namespace tnbLib
 
 	class graph;
 
-	Ostream& operator<<(Ostream&, const graph&);
+	FoamBase_EXPORT Ostream& operator<<(Ostream&, const graph&);
 
 
 	/*---------------------------------------------------------------------------*\
@@ -322,7 +322,7 @@ namespace tnbLib
 		// Friend operators
 
 			//- Ostream Operator
-		friend Ostream& operator<<(Ostream&, const graph&);
+		friend FoamBase_EXPORT Ostream& operator<<(Ostream&, const graph&);
 	};
 
 
