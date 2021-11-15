@@ -9,6 +9,17 @@ I’m currently working on porting the Linux version of OpenFOAM 7 source code i
 *	All functions that are defined in cxx file have been exported to create a dynamic lib
 * I had to slightly change the code in some areas such as Istream.hxx to break cycle inclusion between Istream and token.
 
-# Warning!
-* Use ONLY Microsoft visual studio 2017 to compile the code.
+# Installation
+For compiling TnbFoamyMeh project you first need to install CGAL and GMP. For this project, you need to set the following Environment Variables:
+* BOOST_INCLUDEDIR (boost headers)
+* BOOST_INCLUDELIB (boost libs)
+* CGAL_INCLUDEDIR (CGAL headers)
+* GMP_INCLUDEDIR (headers)
+* GMP_INCLUDELIB (libs)
+
+If you don't have a plan to use this project, you just need to clone the solution and compile the projects you want!
+
+# Warnings!
+* Use ONLY Microsoft visual studio 2017 to compile the code (other versions will be supported soon).
 * To avoid any issue while compiling the code, please, clone the code into the root of your directory. e.g: "`C:\OpenFOAM7\ ...`"
+* Please, compile the code first in debug mode and then in release mode.
