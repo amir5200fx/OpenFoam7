@@ -121,7 +121,7 @@ bool tnbLib::ignitionSite::ignited() const
 
 // * * * * * * * * * * * * * * * Member Operators  * * * * * * * * * * * * * //
 
-void tnbLib::ignitionSite::operator=(const ignitionSite& is)
+FoamEngine_EXPORT void tnbLib::ignitionSite::operator=(const ignitionSite& is)
 {
     location_ = is.location_;
     diameter_ = is.diameter_;
