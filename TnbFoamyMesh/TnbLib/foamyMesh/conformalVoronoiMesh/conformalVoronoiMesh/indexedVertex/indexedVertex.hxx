@@ -38,7 +38,7 @@ indexedVertex.C
 
 \* -------------------------------------------------------------------------- - */
 
-#include <Base_Module.hxx>
+#include <FoamyMesh_Module.hxx>
 
 #include <CGAL/Triangulation_3.h>
 
@@ -80,13 +80,13 @@ namespace tnbLib
             CGAL::indexedVertex<Gt, Vb>&
             );
 
-    inline Istream& operator>>
+    /*inline*/FoamFoamyMesh_EXPORT Istream& operator>>
         (
             Istream& is,
             CGAL::Point_3<baseK>& p
             );
 
-    inline Ostream& operator<<
+    /*inline*/FoamFoamyMesh_EXPORT Ostream& operator<<
         (
             Ostream& os,
             const CGAL::Point_3<baseK>& p
@@ -360,6 +360,7 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <indexedVertexI.hxx>
+#include <indexedVertex_Imp.hxx>
 
 //#ifdef NoRepository
 //#include <indexedVertex.cxx>

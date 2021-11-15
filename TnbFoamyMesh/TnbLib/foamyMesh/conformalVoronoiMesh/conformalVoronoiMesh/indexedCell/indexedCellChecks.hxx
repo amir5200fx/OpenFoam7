@@ -68,4 +68,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <indexedCellChecksI.hxx>
+
 #endif // !_indexedCellChecks_Header

@@ -266,6 +266,7 @@ namespace CGAL
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <indexedCellI.hxx>
+#include <indexedCell_Imp.hxx>
 
 //#ifdef NoRepository
 //#include "indexedCell.C"

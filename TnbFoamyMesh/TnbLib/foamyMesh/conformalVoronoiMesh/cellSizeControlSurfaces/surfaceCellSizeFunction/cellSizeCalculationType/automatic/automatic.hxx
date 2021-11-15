@@ -121,7 +121,7 @@ namespace tnbLib
         // Member Functions
 
             //- Load the cell size field
-        virtual tmp<triSurfacePointScalarField> load();
+		FoamFoamyMesh_EXPORT virtual tmp<triSurfacePointScalarField> load();
     };
 
 

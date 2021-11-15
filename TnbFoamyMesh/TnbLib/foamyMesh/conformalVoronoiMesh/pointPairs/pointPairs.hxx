@@ -156,4 +156,7 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include <pointPairsI.hxx>
+
 #endif // !_pointPairs_Header

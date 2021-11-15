@@ -92,7 +92,7 @@ namespace tnbLib
 
             //- Fill the pointFeatureEdgesType class with the types of feature
             //  edges that are attached to the point.
-        List<extendedFeatureEdgeMesh::edgeStatus> calcPointFeatureEdgesTypes();
+		FoamFoamyMesh_EXPORT List<extendedFeatureEdgeMesh::edgeStatus> calcPointFeatureEdgesTypes();
 
 
         // Info

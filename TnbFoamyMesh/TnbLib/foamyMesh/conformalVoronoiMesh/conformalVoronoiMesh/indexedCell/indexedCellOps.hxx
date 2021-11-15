@@ -66,4 +66,6 @@ namespace CGAL
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <indexedCellOpsI.hxx>
+
 #endif // !_indexedCellOps_Header

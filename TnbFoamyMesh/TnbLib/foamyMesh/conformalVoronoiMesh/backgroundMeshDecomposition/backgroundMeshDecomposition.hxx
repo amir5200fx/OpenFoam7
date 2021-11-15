@@ -334,6 +334,7 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <backgroundMeshDecompositionI.hxx>
+#include <backgroundMeshDecompositionTemplates.hxx>
 
 //#ifdef NoRepository
 //#include "backgroundMeshDecompositionTemplates.C"

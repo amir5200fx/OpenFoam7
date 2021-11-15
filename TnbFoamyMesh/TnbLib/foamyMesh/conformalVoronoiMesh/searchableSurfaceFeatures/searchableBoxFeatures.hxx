@@ -94,7 +94,7 @@ namespace tnbLib
         }
 
         //- Return an extendedFeatureEdgeMesh containing the features
-        virtual autoPtr<extendedFeatureEdgeMesh> features() const;
+		FoamFoamyMesh_EXPORT virtual autoPtr<extendedFeatureEdgeMesh> features() const;
 
 
         // Member Operators

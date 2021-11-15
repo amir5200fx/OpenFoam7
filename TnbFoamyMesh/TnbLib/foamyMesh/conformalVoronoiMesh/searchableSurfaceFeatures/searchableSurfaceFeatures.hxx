@@ -161,7 +161,7 @@ namespace tnbLib
         // Selectors
 
             //- Return a reference to the selected searchableSurfaceFeatures
-        static autoPtr<searchableSurfaceFeatures> New
+        static FoamFoamyMesh_EXPORT autoPtr<searchableSurfaceFeatures> New
         (
             const searchableSurface& surface,
             const dictionary& dict

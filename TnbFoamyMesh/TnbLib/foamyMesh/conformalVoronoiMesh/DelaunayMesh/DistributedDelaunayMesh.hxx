@@ -209,6 +209,8 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <DistributedDelaunayMeshI.hxx>
+
 //#ifdef NoRepository
 //#include "DistributedDelaunayMesh.C"
 //#endif

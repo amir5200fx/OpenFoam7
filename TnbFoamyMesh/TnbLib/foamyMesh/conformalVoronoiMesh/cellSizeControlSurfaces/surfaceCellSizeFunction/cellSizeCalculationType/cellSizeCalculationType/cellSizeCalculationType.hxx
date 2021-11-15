@@ -167,7 +167,7 @@ namespace tnbLib
         // Selectors
 
             //- Return a reference to the selected cellSizeCalculationType
-        static autoPtr<cellSizeCalculationType> New
+        static FoamFoamyMesh_EXPORT autoPtr<cellSizeCalculationType> New
         (
             const dictionary& cellSizeCalculationTypeDict,
             const triSurfaceMesh& surface,

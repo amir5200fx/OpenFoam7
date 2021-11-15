@@ -1036,6 +1036,7 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <conformalVoronoiMeshI.hxx>
+#include <conformalVoronoiMeshTemplatesI.hxx>
 
 //#ifdef NoRepository
 //#include "conformalVoronoiMeshTemplates.C"

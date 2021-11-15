@@ -283,6 +283,8 @@ namespace tnbLib
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include <DelaunayMeshI.hxx>
+#include <DelaunayMesh_Imp.hxx>
+#include <DelaunayMeshIO_Imp.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

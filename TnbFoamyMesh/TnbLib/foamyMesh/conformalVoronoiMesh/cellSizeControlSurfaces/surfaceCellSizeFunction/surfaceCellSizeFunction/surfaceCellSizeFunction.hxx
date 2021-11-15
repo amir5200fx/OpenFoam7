@@ -175,7 +175,7 @@ namespace tnbLib
         // Selectors
 
             //- Return a reference to the selected surfaceCellSizeFunction
-        static autoPtr<surfaceCellSizeFunction> New
+        static FoamFoamyMesh_EXPORT autoPtr<surfaceCellSizeFunction> New
         (
             const dictionary& surfaceCellSizeFunctionDict,
             const searchableSurface& surface,

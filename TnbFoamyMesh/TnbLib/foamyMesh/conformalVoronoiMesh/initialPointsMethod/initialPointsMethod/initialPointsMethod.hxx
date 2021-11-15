@@ -205,7 +205,7 @@ namespace tnbLib
         // Selectors
 
             //- Return a reference to the selected initialPointsMethod
-        static autoPtr<initialPointsMethod> New
+        static FoamFoamyMesh_EXPORT autoPtr<initialPointsMethod> New
         (
             const dictionary& initialPointsDict,
             const Time& runTime,

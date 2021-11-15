@@ -144,6 +144,8 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <DelaunayMeshToolsI.hxx>
+
 //#ifdef NoRepository
 //#include "DelaunayMeshToolsTemplates.C"
 //#endif

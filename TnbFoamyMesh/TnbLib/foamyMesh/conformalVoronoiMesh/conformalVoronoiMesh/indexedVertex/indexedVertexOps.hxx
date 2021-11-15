@@ -67,4 +67,7 @@ namespace CGAL
 } // End namespace CGAL
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include <indexedVertexOpsI.hxx>
+
 #endif // !_indexedVertexOps_Header

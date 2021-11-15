@@ -186,26 +186,11 @@
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertex.cxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexOpsTemplates.cxx">
-      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellEnum.cxx">
-      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellOpsTemplates.cxx">
-      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellChecks.cxx">
-      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCell.cxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\pointFeatureEdgesTypes.cxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs\pointPairs.cxx">
-      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\featurePointConformer.cxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer</Filter>
@@ -222,9 +207,6 @@
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition\backgroundMeshDecomposition.cxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition</Filter>
     </ClCompile>
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition\backgroundMeshDecompositionTemplates.cxx">
-      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellAspectRatioControl\cellAspectRatioControl.cxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellAspectRatioControl</Filter>
     </ClCompile>
@@ -239,18 +221,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\surfaceCellSizeFunction\surfaceCellSizeFunction.cxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellSizeControlSurfaces\surfaceCellSizeFunction\surfaceCellSizeFunction</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMesh.cxx">
-      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DistributedDelaunayMesh.cxx">
-      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMeshIO.cxx">
-      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable\PrintTable.cxx">
-      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControl\cellShapeControl.cxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControl</Filter>
@@ -334,9 +304,6 @@
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshIO.cxx">
-      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshTemplates.cxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshZones.cxx">
@@ -590,10 +557,44 @@
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures\triSurfaceMeshFeatures.hxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools\DelaunayMeshToolsTemplates.cxx">
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition\backgroundMeshDecompositionTemplates.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCell_Imp.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellChecksI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellOpsI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertex_Imp.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshTemplatesI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMesh_Imp.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DistributedDelaunayMeshI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools\DelaunayMeshToolsI.hxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools</Filter>
-    </None>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs\pointPairsI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable\PrintTable_Imp.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexOpsI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMeshIO_Imp.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
