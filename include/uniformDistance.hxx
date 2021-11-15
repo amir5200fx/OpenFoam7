@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _uniformDistance_Header
+#define _uniformDistance_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,12 +26,12 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::uniformDistance
 
 Description
 
 SourceFiles
-    uniform.C
+    uniformDistance.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -43,10 +43,10 @@ namespace tnbLib
 {
 
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                            Class uniformDistance Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class uniformDistance
         :
         public cellSizeFunction
     {
@@ -55,12 +55,18 @@ namespace tnbLib
 
         // Private Data
 
+            //- Distance
+        scalar distance_;
+
+        //- Distance squared
+        scalar distanceSqr_;
+
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("uniformDistance");*/
+        static const char* typeName_() { return "uniformDistance"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
@@ -68,7 +74,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+        FoamFoamyMesh_EXPORT uniformDistance
         (
             const dictionary& initialPointsDict,
             const searchableSurface& surface,
@@ -78,7 +84,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~uniform()
+        virtual ~uniformDistance()
         {}
 
 
@@ -115,4 +121,5 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+
+#endif // !_uniformDistance_Header

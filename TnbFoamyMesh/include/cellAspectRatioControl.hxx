@@ -1,7 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
-
+#ifndef _cellAspectRatioControl_Header
+#define _cellAspectRatioControl_Header
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -26,87 +25,81 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::cellAspectRatioControl
 
 Description
 
 SourceFiles
-    uniform.C
+    cellAspectRatioControl.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <cellSizeFunction.hxx>
+#include <FoamyMesh_Module.hxx>
+
+#include <dictionary.hxx>
+#include <vector.hxx>
+#include <scalar.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
 
+
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                         Class cellAspectRatioControl Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
-        :
-        public cellSizeFunction
+    class cellAspectRatioControl
     {
-
-    private:
-
         // Private Data
+
+        const dictionary aspectRatioDict_;
+
+        const scalar aspectRatio_;
+
+        vector aspectRatioDirection_;
 
 
     public:
 
-        //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
-        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
-        static FoamFoamyMesh_EXPORT int debug;
-        virtual const word& type() const { return typeName; };
-
         // Constructors
 
-            //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
-        (
-            const dictionary& initialPointsDict,
-            const searchableSurface& surface,
-            const scalar& defaultCellSize,
-            const labelList regionIndices
-        );
+            //- Construct from dictionary
+        FoamFoamyMesh_EXPORT cellAspectRatioControl(const dictionary& motionDict);
+
+        //- Disallow default bitwise copy construction
+        cellAspectRatioControl(const cellAspectRatioControl&) = delete;
 
 
         //- Destructor
-        virtual ~uniform()
-        {}
+        FoamFoamyMesh_EXPORT virtual ~cellAspectRatioControl();
 
 
         // Member Functions
 
-        FoamFoamyMesh_EXPORT virtual bool sizeLocations
+            // Query
+
+        FoamFoamyMesh_EXPORT void updateCellSizeAndFaceArea
         (
-            const pointIndexHit& hitPt,
-            const vector& n,
-            pointField& shapePts,
-            scalarField& shapeSizes
+            vector& alignmentDir,
+            scalar& targetFaceArea,
+            scalar& targetCellSize
         ) const;
 
-        //- Modify scalar argument to the cell size specified by function.
-        //  Return a boolean specifying if the function was used, i.e. false if
-        //  the point was not in range of the surface for a spatially varying
-        //  size.
-        FoamFoamyMesh_EXPORT virtual bool cellSize
+        FoamFoamyMesh_EXPORT void updateDeltaVector
         (
-            const point& pt,
-            scalar& size
+            const vector& alignmentDir,
+            const scalar targetCellSize,
+            const scalar rABMag,
+            vector& delta
         ) const;
 
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
+
+        // Member Operators
+
+            //- Disallow default bitwise assignment
+        void operator=(const cellAspectRatioControl&) = delete;
     };
 
 
@@ -115,4 +108,7 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+
+#endif
+
+// ************************************************************************* //

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _automatic_Header
+#define _automatic_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,87 +26,102 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::automatic
 
 Description
 
 SourceFiles
-    uniform.C
+    automatic.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <cellSizeFunction.hxx>
+#include <cellSizeCalculationType.hxx>
+#include <triSurfaceFields.hxx>
+#include <PrimitivePatchInterpolation.hxx>
+#include <Switch.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
 
+    class triSurfaceMesh;
+
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                             Class automatic Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class automatic
         :
-        public cellSizeFunction
+        public cellSizeCalculationType
     {
 
     private:
 
         // Private Data
 
+            //- Dictionary of coefficients for automatic cell sizing
+        const dictionary& coeffsDict_;
+
+        //- Name of the surface. Used to write the cell size field
+        const fileName surfaceName_;
+
+        const Switch readCurvature_;
+        const word curvatureFile_;
+
+        const Switch readFeatureProximity_;
+        const word featureProximityFile_;
+
+        const Switch readInternalCloseness_;
+        const word internalClosenessFile_;
+
+        //- The internalCloseness values are multiplied by the inverse
+        //  of this value to get the cell size
+        const scalar internalClosenessCellSizeCoeff_;
+
+        //- The curvature values are multiplied by the inverse of this value to
+        //  get the cell size
+        const scalar curvatureCellSizeCoeff_;
+
+        //- The maximum allowable sell size
+        const scalar maximumCellSize_;
+
+
+        // Private Member Functions
+
+        FoamFoamyMesh_EXPORT void smoothField(triSurfaceScalarField& surf);
+
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("automatic");*/
+        static const char* typeName_() { return "automatic"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
 
+
         // Constructors
 
             //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+        FoamFoamyMesh_EXPORT automatic
         (
-            const dictionary& initialPointsDict,
-            const searchableSurface& surface,
-            const scalar& defaultCellSize,
-            const labelList regionIndices
+            const dictionary& cellSizeCalcTypeDict,
+            const triSurfaceMesh& surface,
+            const scalar& defaultCellSize
         );
 
 
         //- Destructor
-        virtual ~uniform()
+        virtual ~automatic()
         {}
 
 
         // Member Functions
 
-        FoamFoamyMesh_EXPORT virtual bool sizeLocations
-        (
-            const pointIndexHit& hitPt,
-            const vector& n,
-            pointField& shapePts,
-            scalarField& shapeSizes
-        ) const;
-
-        //- Modify scalar argument to the cell size specified by function.
-        //  Return a boolean specifying if the function was used, i.e. false if
-        //  the point was not in range of the surface for a spatially varying
-        //  size.
-        FoamFoamyMesh_EXPORT virtual bool cellSize
-        (
-            const point& pt,
-            scalar& size
-        ) const;
-
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
+            //- Load the cell size field
+		FoamFoamyMesh_EXPORT virtual tmp<triSurfacePointScalarField> load();
     };
 
 
@@ -115,4 +130,5 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+
+#endif // !_automatic_Header

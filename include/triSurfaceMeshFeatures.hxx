@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _triSurfaceMeshFeatures_Header
+#define _triSurfaceMeshFeatures_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Copyright (C) 2012-2019 OpenFOAM Foundation
+    \\  /    A nd           | Copyright (C) 2013-2019 OpenFOAM Foundation
      \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,16 +26,16 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::triSurfaceMeshFeatures
 
 Description
 
 SourceFiles
-    uniform.C
+    triSurfaceMeshFeatures.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <cellSizeFunction.hxx>
+#include <searchableSurfaceFeatures.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -43,70 +43,66 @@ namespace tnbLib
 {
 
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                       Class triSurfaceMeshFeatures Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class triSurfaceMeshFeatures
         :
-        public cellSizeFunction
+        public searchableSurfaceFeatures
     {
-
     private:
 
-        // Private Data
+        // Private Member Data
+
+        const scalar includedAngle_;
+
+        //- Which side of the surface to mesh
+        const extendedFeatureEdgeMesh::sideVolumeType mode_;
 
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("triSurfaceMeshFeatures");*/
+        static const char* typeName_() { return "triSurfaceMeshFeatures"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
 
+
         // Constructors
 
-            //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+            //- Construct from dictionary (used by searchableSurface)
+        FoamFoamyMesh_EXPORT triSurfaceMeshFeatures
         (
-            const dictionary& initialPointsDict,
             const searchableSurface& surface,
-            const scalar& defaultCellSize,
-            const labelList regionIndices
+            const dictionary& dict
         );
+
+        //- Disallow default bitwise copy construction
+        triSurfaceMeshFeatures(const triSurfaceMeshFeatures&) = delete;
 
 
         //- Destructor
-        virtual ~uniform()
-        {}
+        FoamFoamyMesh_EXPORT virtual ~triSurfaceMeshFeatures();
 
 
         // Member Functions
 
-        FoamFoamyMesh_EXPORT virtual bool sizeLocations
-        (
-            const pointIndexHit& hitPt,
-            const vector& n,
-            pointField& shapePts,
-            scalarField& shapeSizes
-        ) const;
+            //- Return true for a triSurfaceMesh having features
+        virtual bool hasFeatures() const
+        {
+            return true;
+        }
 
-        //- Modify scalar argument to the cell size specified by function.
-        //  Return a boolean specifying if the function was used, i.e. false if
-        //  the point was not in range of the surface for a spatially varying
-        //  size.
-        FoamFoamyMesh_EXPORT virtual bool cellSize
-        (
-            const point& pt,
-            scalar& size
-        ) const;
+        //- Return an extendedFeatureEdgeMesh containing the features
+		FoamFoamyMesh_EXPORT virtual autoPtr<extendedFeatureEdgeMesh> features() const;
 
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
+
+        // Member Operators
+
+            //- Disallow default bitwise assignment
+        void operator=(const triSurfaceMeshFeatures&) = delete;
     };
 
 
@@ -115,4 +111,4 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+#endif // !_triSurfaceMeshFeatures_Header

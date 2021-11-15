@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _linearDistance_Header
+#define _linearDistance_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,12 +26,12 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::linearDistance
 
 Description
 
 SourceFiles
-    uniform.C
+    linearDistance.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -43,10 +43,10 @@ namespace tnbLib
 {
 
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                             Class linearDistance Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class linearDistance
         :
         public cellSizeFunction
     {
@@ -55,12 +55,27 @@ namespace tnbLib
 
         // Private Data
 
+            //- Cell size at distance_ from the surface
+        scalar distanceCellSize_;
+
+        //- Distance from the surface to control over
+        scalar distance_;
+
+        //- Distance squared
+        scalar distanceSqr_;
+
+
+        // Private Member Functions
+
+            //- Calculate the cell size as a function of the given distance
+        FoamFoamyMesh_EXPORT scalar sizeFunction(const point& pt, scalar d, label index) const;
+
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("linearDistance");*/
+        static const char* typeName_() { return "linearDistance"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
@@ -68,7 +83,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+        FoamFoamyMesh_EXPORT linearDistance
         (
             const dictionary& initialPointsDict,
             const searchableSurface& surface,
@@ -78,11 +93,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~uniform()
+        virtual ~linearDistance()
         {}
 
 
         // Member Functions
+
 
         FoamFoamyMesh_EXPORT virtual bool sizeLocations
         (
@@ -115,4 +131,5 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+
+#endif // !_linearDistance_Header

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _fileControl_Header
+#define _fileControl_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,87 +26,103 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::fileControl
 
 Description
 
 SourceFiles
-    uniform.C
+    fileControl.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <cellSizeFunction.hxx>
+#include <cellSizeAndAlignmentControl.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
 
+
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                          Class fileControl Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class fileControl
         :
-        public cellSizeFunction
+        public cellSizeAndAlignmentControl
     {
-
-    private:
-
         // Private Data
+
+        const fileName pointsFile_;
+
+        const fileName sizesFile_;
+
+        const fileName alignmentsFile_;
+
+        label maxPriority_;
 
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("fileControl");*/
+        static const char* typeName_() { return "fileControl"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
 
+
         // Constructors
 
-            //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+            //- Construct from dictionary and references to conformalVoronoiMesh and
+            //  searchableSurfaces
+        FoamFoamyMesh_EXPORT fileControl
         (
-            const dictionary& initialPointsDict,
-            const searchableSurface& surface,
-            const scalar& defaultCellSize,
-            const labelList regionIndices
+            const Time& runTime,
+            const word& name,
+            const dictionary& controlFunctionDict,
+            const conformationSurfaces& geometryToConformTo,
+            const scalar& defaultCellSize
         );
+
+        //- Disallow default bitwise copy construction
+        fileControl(const fileControl&) = delete;
 
 
         //- Destructor
-        virtual ~uniform()
-        {}
+        FoamFoamyMesh_EXPORT ~fileControl();
 
 
         // Member Functions
 
-        FoamFoamyMesh_EXPORT virtual bool sizeLocations
+            // Access
+
+        virtual label maxPriority() const
+        {
+            return maxPriority_;
+        }
+
+
+        // Edit
+
+        FoamFoamyMesh_EXPORT virtual void cellSizeFunctionVertices
         (
-            const pointIndexHit& hitPt,
-            const vector& n,
-            pointField& shapePts,
-            scalarField& shapeSizes
+            DynamicList<tnbLib::point>& pts,
+            DynamicList<scalar>& sizes
         ) const;
 
-        //- Modify scalar argument to the cell size specified by function.
-        //  Return a boolean specifying if the function was used, i.e. false if
-        //  the point was not in range of the surface for a spatially varying
-        //  size.
-        FoamFoamyMesh_EXPORT virtual bool cellSize
+        FoamFoamyMesh_EXPORT virtual void initialVertices
         (
-            const point& pt,
-            scalar& size
+            pointField& pts,
+            scalarField& sizes,
+            triadField& alignments
         ) const;
 
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
+
+        // Member Operators
+
+            //- Disallow default bitwise assignment
+        void operator=(const fileControl&) = delete;
     };
 
 
@@ -115,4 +131,4 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+#endif // !_fileControl_Header

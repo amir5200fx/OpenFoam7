@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _nonUniformField_Header
+#define _nonUniformField_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,87 +26,96 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::nonUniformField
 
 Description
 
 SourceFiles
-    uniform.C
+    nonUniformField.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <cellSizeFunction.hxx>
+#include <FoamyMesh_Module.hxx>
+
+#include <triSurfaceFields.hxx>
+#include <PrimitivePatchInterpolation.hxx>
+#include <surfaceCellSizeFunction.hxx>
+#include <cellSizeCalculationType.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
 
+    class triSurfaceMesh;
+    class searchableSurface;
+
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                               Class nonUniformField Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class nonUniformField
         :
-        public cellSizeFunction
+        public surfaceCellSizeFunction
     {
 
-    private:
+    protected:
+
+        // Private Typedefs
+
+        typedef PrimitivePatchInterpolation
+            <
+            PrimitivePatch<List<labelledTri>, pointField>
+            >
+            primitivePatchInterpolation;
+
 
         // Private Data
+
+        const triSurfaceMesh& surfaceTriMesh_;
+
+        autoPtr<cellSizeCalculationType> cellSizeCalculationType_;
+
+        triSurfacePointScalarField pointCellSize_;
 
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("nonUniformField");*/
+        static const char* typeName_() { return "nonUniformField"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
 
+
         // Constructors
 
             //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+        FoamFoamyMesh_EXPORT nonUniformField
         (
-            const dictionary& initialPointsDict,
+            const dictionary& cellSizeFunctionDict,
             const searchableSurface& surface,
-            const scalar& defaultCellSize,
-            const labelList regionIndices
+            const scalar& defaultCellSize
         );
 
 
         //- Destructor
-        virtual ~uniform()
+        virtual ~nonUniformField()
         {}
 
 
         // Member Functions
 
-        FoamFoamyMesh_EXPORT virtual bool sizeLocations
-        (
-            const pointIndexHit& hitPt,
-            const vector& n,
-            pointField& shapePts,
-            scalarField& shapeSizes
-        ) const;
+            // Query
 
-        //- Modify scalar argument to the cell size specified by function.
-        //  Return a boolean specifying if the function was used, i.e. false if
-        //  the point was not in range of the surface for a spatially varying
-        //  size.
-        FoamFoamyMesh_EXPORT virtual bool cellSize
+                //- Return the interpolated cell size for a point in the given
+                //  surface triangle
+        FoamFoamyMesh_EXPORT virtual scalar interpolate
         (
             const point& pt,
-            scalar& size
+            const label index
         ) const;
-
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
     };
 
 
@@ -115,4 +124,5 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+
+#endif // !_nonUniformField_Header

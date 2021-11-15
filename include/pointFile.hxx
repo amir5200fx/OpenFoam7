@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _pointFile_Header
+#define _pointFile_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,16 +26,22 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::pointFile
 
 Description
+    Inserts points at locations specified in a pointFile into the surfaces to
+    be conformed to of the conformalVoronoiMesh
 
 SourceFiles
-    uniform.C
+    pointFile.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <cellSizeFunction.hxx>
+#include <initialPointsMethod.hxx>  //- must be the first inclusion one!
+
+#include <fileName.hxx>
+#include <pointIOField.hxx>
+#include <Switch.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -43,24 +49,36 @@ namespace tnbLib
 {
 
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                               Class pointFile Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class pointFile
         :
-        public cellSizeFunction
+        public initialPointsMethod
     {
 
     private:
 
         // Private Data
 
+            //- The initial cell spacing
+        fileName pointFileName_;
+
+        //- Check if inserted points are inside or outside
+        Switch insideOutsideCheck_;
+
+        //- Should the initial positions be randomised
+        Switch randomiseInitialGrid_;
+
+        //- Randomise the initial positions by fraction of the initialCellSize_
+        scalar randomPerturbationCoeff_;
+
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("pointFile");*/
+        static const char* typeName_() { return "pointFile"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
@@ -68,45 +86,26 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+        FoamFoamyMesh_EXPORT pointFile
         (
             const dictionary& initialPointsDict,
-            const searchableSurface& surface,
-            const scalar& defaultCellSize,
-            const labelList regionIndices
+            const Time& runTime,
+            Random& rndGen,
+            const conformationSurfaces& geometryToConformTo,
+            const cellShapeControl& cellShapeControls,
+            const autoPtr<backgroundMeshDecomposition>& decomposition
         );
 
 
         //- Destructor
-        virtual ~uniform()
+        FoamFoamyMesh_EXPORT virtual ~pointFile()
         {}
 
 
         // Member Functions
 
-        FoamFoamyMesh_EXPORT virtual bool sizeLocations
-        (
-            const pointIndexHit& hitPt,
-            const vector& n,
-            pointField& shapePts,
-            scalarField& shapeSizes
-        ) const;
-
-        //- Modify scalar argument to the cell size specified by function.
-        //  Return a boolean specifying if the function was used, i.e. false if
-        //  the point was not in range of the surface for a spatially varying
-        //  size.
-        FoamFoamyMesh_EXPORT virtual bool cellSize
-        (
-            const point& pt,
-            scalar& size
-        ) const;
-
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
+            //- Return the initial points for the conformalVoronoiMesh
+        FoamFoamyMesh_EXPORT virtual List<Vb::Point> initialPoints() const;
     };
 
 
@@ -115,4 +114,4 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+#endif // !_pointFile_Header

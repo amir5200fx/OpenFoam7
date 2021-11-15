@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _adaptiveLinear_Header
+#define _adaptiveLinear_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,16 +26,19 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::adaptiveLinear
 
 Description
+    Produces a linear ramp which adapts its gradient to changes in
+    endTime and deltaT to always arrive at the relaxationEnd value at the end of
+    the run
 
 SourceFiles
-    uniform.C
+    adaptiveLinear.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <cellSizeFunction.hxx>
+#include <relaxationModel.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -43,24 +46,38 @@ namespace tnbLib
 {
 
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                               Class adaptiveLinear Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class adaptiveLinear
         :
-        public cellSizeFunction
+        public relaxationModel
     {
 
     private:
 
         // Private Data
 
+            //- Relaxation coefficient at the start of the iteration sequence.
+        scalar relaxationStart_;
+
+        //- Relaxation coefficient at the end of the iteration sequence.
+        scalar relaxationEnd_;
+
+        //- Store the time when the last request was made for relaxation,
+        //  prevents multiple calls to relaxation in a timestep from
+        //  incrementing the value
+        scalar lastTimeValue_;
+
+        //- Current relaxation value
+        scalar relaxation_;
+
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("adaptiveLinear");*/
+        static const char* typeName_() { return "adaptiveLinear"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
@@ -68,45 +85,22 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+        FoamFoamyMesh_EXPORT adaptiveLinear
         (
-            const dictionary& initialPointsDict,
-            const searchableSurface& surface,
-            const scalar& defaultCellSize,
-            const labelList regionIndices
+            const dictionary& relaxationDict,
+            const Time& runTime
         );
 
 
         //- Destructor
-        virtual ~uniform()
+        virtual ~adaptiveLinear()
         {}
 
 
         // Member Functions
 
-        FoamFoamyMesh_EXPORT virtual bool sizeLocations
-        (
-            const pointIndexHit& hitPt,
-            const vector& n,
-            pointField& shapePts,
-            scalarField& shapeSizes
-        ) const;
-
-        //- Modify scalar argument to the cell size specified by function.
-        //  Return a boolean specifying if the function was used, i.e. false if
-        //  the point was not in range of the surface for a spatially varying
-        //  size.
-        FoamFoamyMesh_EXPORT virtual bool cellSize
-        (
-            const point& pt,
-            scalar& size
-        ) const;
-
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
+            //- Return the current relaxation coefficient
+        FoamFoamyMesh_EXPORT virtual scalar relaxation();
     };
 
 
@@ -115,4 +109,6 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+
+
+#endif // !_adaptiveLinear_Header

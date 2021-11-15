@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _uniformGrid_Header
+#define _uniformGrid_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,16 +26,18 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::uniformGrid
 
 Description
+    Generate a uniform grid of points inside the surfaces to be
+    conformed to of the conformalVoronoiMesh
 
 SourceFiles
-    uniform.C
+    uniformGrid.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <cellSizeFunction.hxx>
+#include <initialPointsMethod.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -43,24 +45,33 @@ namespace tnbLib
 {
 
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                               Class uniformGrid Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class uniformGrid
         :
-        public cellSizeFunction
+        public initialPointsMethod
     {
 
     private:
 
         // Private Data
 
+        //- The initial cell spacing
+        scalar initialCellSize_;
+
+        //- Should the initial positions be randomised
+        Switch randomiseInitialGrid_;
+
+        //- Randomise the initial positions by fraction of the initialCellSize_
+        scalar randomPerturbationCoeff_;
+
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("uniformGrid");*/
+        static const char* typeName_() { return "uniformGrid"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
@@ -68,45 +79,26 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+        FoamFoamyMesh_EXPORT uniformGrid
         (
             const dictionary& initialPointsDict,
-            const searchableSurface& surface,
-            const scalar& defaultCellSize,
-            const labelList regionIndices
+            const Time& runTime,
+            Random& rndGen,
+            const conformationSurfaces& geometryToConformTo,
+            const cellShapeControl& cellShapeControls,
+            const autoPtr<backgroundMeshDecomposition>& decomposition
         );
 
 
         //- Destructor
-        virtual ~uniform()
+        virtual ~uniformGrid()
         {}
 
 
         // Member Functions
 
-        FoamFoamyMesh_EXPORT virtual bool sizeLocations
-        (
-            const pointIndexHit& hitPt,
-            const vector& n,
-            pointField& shapePts,
-            scalarField& shapeSizes
-        ) const;
-
-        //- Modify scalar argument to the cell size specified by function.
-        //  Return a boolean specifying if the function was used, i.e. false if
-        //  the point was not in range of the surface for a spatially varying
-        //  size.
-        FoamFoamyMesh_EXPORT virtual bool cellSize
-        (
-            const point& pt,
-            scalar& size
-        ) const;
-
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
+            //- Return the initial points for the conformalVoronoiMesh
+        FoamFoamyMesh_EXPORT virtual List<Vb::Point> initialPoints() const;
     };
 
 
@@ -115,4 +107,4 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+#endif // !_uniformGrid_Header

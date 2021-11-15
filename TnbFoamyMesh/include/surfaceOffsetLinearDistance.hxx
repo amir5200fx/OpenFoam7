@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _surfaceOffsetLinearDistance_Header
+#define _surfaceOffsetLinearDistance_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,12 +26,12 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::surfaceOffsetLinearDistance
 
 Description
 
 SourceFiles
-    uniform.C
+    surfaceOffsetLinearDistance.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -43,10 +43,10 @@ namespace tnbLib
 {
 
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                     Class surfaceOffsetLinearDistance Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class surfaceOffsetLinearDistance
         :
         public cellSizeFunction
     {
@@ -55,12 +55,31 @@ namespace tnbLib
 
         // Private Data
 
+            //- Cell size at distance_ from the surface
+        scalar distanceCellSize_;
+
+        //- Offset distance from surface for constant size portion
+        scalar surfaceOffset_;
+
+        //- Total distance from the surface to control over (distance +
+        //  surfaceOffset)
+        scalar totalDistance_;
+
+        //- totalDistance squared
+        scalar totalDistanceSqr_;
+
+
+        // Private Member Functions
+
+            //- Calculate the cell size as a function of the given distance
+        FoamFoamyMesh_EXPORT scalar sizeFunction(const point& pt, scalar d, label index) const;
+
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("surfaceOffsetLinearDistance");*/
+        static const char* typeName_() { return "surfaceOffsetLinearDistance"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
@@ -68,7 +87,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+        FoamFoamyMesh_EXPORT surfaceOffsetLinearDistance
         (
             const dictionary& initialPointsDict,
             const searchableSurface& surface,
@@ -78,7 +97,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~uniform()
+        virtual ~surfaceOffsetLinearDistance()
         {}
 
 
@@ -101,12 +120,6 @@ namespace tnbLib
             const point& pt,
             scalar& size
         ) const;
-
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
     };
 
 
@@ -115,4 +128,5 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+
+#endif // !_surfaceOffsetLinearDistance_Header

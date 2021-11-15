@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _linearSpatial_Header
+#define _linearSpatial_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,12 +26,12 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::linearSpatial
 
 Description
 
 SourceFiles
-    uniform.C
+    linearSpatial.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -43,10 +43,10 @@ namespace tnbLib
 {
 
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                             Class linearSpatial Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class linearSpatial
         :
         public cellSizeFunction
     {
@@ -55,12 +55,31 @@ namespace tnbLib
 
         // Private Data
 
+            //- Reference point for spatial size grading
+        point referencePoint_;
+
+        //- Cell size at reference point
+        scalar referenceCellSize_;
+
+        //- Direction of cell size grading, stored as unit vector, may be
+        //  supplied with any magnitude
+        vector direction_;
+
+        //- Gradient of cell size change in direction of direction_
+        scalar cellSizeGradient_;
+
+
+        // Private Member Functions
+
+            //- Calculate the cell size as a function of the given position
+        FoamFoamyMesh_EXPORT scalar sizeFunction(const point& pt) const;
+
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("linearSpatial");*/
+        static const char* typeName_() { return "linearSpatial"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
@@ -68,7 +87,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+        FoamFoamyMesh_EXPORT linearSpatial
         (
             const dictionary& initialPointsDict,
             const searchableSurface& surface,
@@ -78,11 +97,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~uniform()
+        virtual ~linearSpatial()
         {}
 
 
         // Member Functions
+
 
         FoamFoamyMesh_EXPORT virtual bool sizeLocations
         (
@@ -101,12 +121,6 @@ namespace tnbLib
             const point& pt,
             scalar& size
         ) const;
-
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
     };
 
 
@@ -115,4 +129,4 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+#endif // !_linearSpatial_Header

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _pointFeatureEdgesTypes_Header
+#define _pointFeatureEdgesTypes_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,87 +26,82 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::pointFeatureEdgesTypes
 
 Description
+    Holds information on the types of feature edges attached to feature points.
 
 SourceFiles
-    uniform.C
+    pointFeatureEdgesTypes.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <cellSizeFunction.hxx>
+#include <FoamyMesh_Module.hxx>
+
+#include <HashTable.hxx>
+#include <extendedFeatureEdgeMesh.hxx>
+#include <List.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
 
+    // Forward declaration of friend functions and operators
+
+    class pointFeatureEdgesTypes;
+
+    FoamFoamyMesh_EXPORT Ostream& operator<<(Ostream&, const pointFeatureEdgesTypes&);
+
+
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                       Class pointFeatureEdgesTypes Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    //- Hold the types of feature edges attached to the point.
+    class pointFeatureEdgesTypes
         :
-        public cellSizeFunction
+        public HashTable<label, extendedFeatureEdgeMesh::edgeStatus>
     {
-
-    private:
-
         // Private Data
+
+            //- Reference to the feature edge mesh
+        const extendedFeatureEdgeMesh& feMesh_;
+
+        //- Label of the point
+        label pointLabel_;
 
 
     public:
 
-        //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
-        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
-        static FoamFoamyMesh_EXPORT int debug;
-        virtual const word& type() const { return typeName; };
-
         // Constructors
 
             //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+        FoamFoamyMesh_EXPORT pointFeatureEdgesTypes
         (
-            const dictionary& initialPointsDict,
-            const searchableSurface& surface,
-            const scalar& defaultCellSize,
-            const labelList regionIndices
+            const extendedFeatureEdgeMesh& feMesh,
+            const label pointLabel
         );
 
 
         //- Destructor
-        virtual ~uniform()
-        {}
+        FoamFoamyMesh_EXPORT ~pointFeatureEdgesTypes();
 
 
         // Member Functions
 
-        FoamFoamyMesh_EXPORT virtual bool sizeLocations
-        (
-            const pointIndexHit& hitPt,
-            const vector& n,
-            pointField& shapePts,
-            scalarField& shapeSizes
-        ) const;
+            //- Fill the pointFeatureEdgesType class with the types of feature
+            //  edges that are attached to the point.
+		FoamFoamyMesh_EXPORT List<extendedFeatureEdgeMesh::edgeStatus> calcPointFeatureEdgesTypes();
 
-        //- Modify scalar argument to the cell size specified by function.
-        //  Return a boolean specifying if the function was used, i.e. false if
-        //  the point was not in range of the surface for a spatially varying
-        //  size.
-        FoamFoamyMesh_EXPORT virtual bool cellSize
-        (
-            const point& pt,
-            scalar& size
-        ) const;
 
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
+        // Info
+
+        friend FoamFoamyMesh_EXPORT Ostream& operator<<
+            (
+                Ostream& os,
+                const pointFeatureEdgesTypes& p
+                );
     };
 
 
@@ -115,4 +110,5 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+
+#endif // !_pointFeatureEdgesTypes_Header

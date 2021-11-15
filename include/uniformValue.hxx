@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _uniformValue_Header
+#define _uniformValue_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,16 +26,16 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::uniformValue
 
 Description
 
 SourceFiles
-    uniform.C
+    uniformValue.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <cellSizeFunction.hxx>
+#include <surfaceCellSizeFunction.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -43,70 +43,54 @@ namespace tnbLib
 {
 
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                               Class uniformValue Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class uniformValue
         :
-        public cellSizeFunction
+        public surfaceCellSizeFunction
     {
 
     private:
 
         // Private Data
 
+        scalar surfaceCellSize_;
+
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("uniformValue");*/
+        static const char* typeName_() { return "uniformValue"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
 
+
         // Constructors
 
             //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+        FoamFoamyMesh_EXPORT uniformValue
         (
-            const dictionary& initialPointsDict,
+            const dictionary& cellSizeFunctionDict,
             const searchableSurface& surface,
-            const scalar& defaultCellSize,
-            const labelList regionIndices
+            const scalar& defaultCellSize
         );
 
 
         //- Destructor
-        virtual ~uniform()
+        virtual ~uniformValue()
         {}
 
 
         // Member Functions
 
-        FoamFoamyMesh_EXPORT virtual bool sizeLocations
-        (
-            const pointIndexHit& hitPt,
-            const vector& n,
-            pointField& shapePts,
-            scalarField& shapeSizes
-        ) const;
-
-        //- Modify scalar argument to the cell size specified by function.
-        //  Return a boolean specifying if the function was used, i.e. false if
-        //  the point was not in range of the surface for a spatially varying
-        //  size.
-        FoamFoamyMesh_EXPORT virtual bool cellSize
+        FoamFoamyMesh_EXPORT virtual scalar interpolate
         (
             const point& pt,
-            scalar& size
+            const label index
         ) const;
-
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
     };
 
 
@@ -115,4 +99,5 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+
+#endif // !_uniformValue_Header

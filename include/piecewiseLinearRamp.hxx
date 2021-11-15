@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _uniform_Header
-#define _uniform_Header
+#ifndef _piecewiseLinearRamp_Header
+#define _piecewiseLinearRamp_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,16 +26,17 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+    tnbLib::piecewiseLinearRamp
 
 Description
+    A linear ramp between 0 and 1 with definable start and end points.
 
 SourceFiles
-    uniform.C
+    piecewiseLinearRamp.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <cellSizeFunction.hxx>
+#include <faceAreaWeightModel.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -43,24 +44,29 @@ namespace tnbLib
 {
 
     /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
+                               Class piecewiseLinearRamp Declaration
     \*---------------------------------------------------------------------------*/
 
-    class uniform
+    class piecewiseLinearRamp
         :
-        public cellSizeFunction
+        public faceAreaWeightModel
     {
 
     private:
 
         // Private Data
 
+            //- Face area fraction below which a weight of 0 is returned
+        scalar lAF_;
+
+        //- Face area fraction above which a which of 1 is returned
+        scalar uAF_;
 
     public:
 
         //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
+        /*TypeName("piecewiseLinearRamp");*/
+        static const char* typeName_() { return "piecewiseLinearRamp"; }
         static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
         static FoamFoamyMesh_EXPORT int debug;
         virtual const word& type() const { return typeName; };
@@ -68,45 +74,21 @@ namespace tnbLib
         // Constructors
 
             //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
+        FoamFoamyMesh_EXPORT piecewiseLinearRamp
         (
-            const dictionary& initialPointsDict,
-            const searchableSurface& surface,
-            const scalar& defaultCellSize,
-            const labelList regionIndices
+            const dictionary& faceAreaWeightDict
         );
 
 
         //- Destructor
-        virtual ~uniform()
+        FoamFoamyMesh_EXPORT virtual ~piecewiseLinearRamp()
         {}
 
 
         // Member Functions
 
-        FoamFoamyMesh_EXPORT virtual bool sizeLocations
-        (
-            const pointIndexHit& hitPt,
-            const vector& n,
-            pointField& shapePts,
-            scalarField& shapeSizes
-        ) const;
-
-        //- Modify scalar argument to the cell size specified by function.
-        //  Return a boolean specifying if the function was used, i.e. false if
-        //  the point was not in range of the surface for a spatially varying
-        //  size.
-        FoamFoamyMesh_EXPORT virtual bool cellSize
-        (
-            const point& pt,
-            scalar& size
-        ) const;
-
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
+            //- Return the faceAreaWeight
+        FoamFoamyMesh_EXPORT virtual scalar faceAreaWeight(scalar faceAreaFraction) const;
     };
 
 
@@ -115,4 +97,5 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-#endif // !_uniform_Header
+
+#endif // !_piecewiseLinearRamp_Header
