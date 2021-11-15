@@ -73,25 +73,73 @@ namespace tnbLib
     public:
 
         //- Runtime type information
-        TypeName("engineMesh");
+        /*TypeName("engineMesh");*/
+        static const char* typeName_() { return "engineMesh"; }
+        static FoamEngine_EXPORT const ::tnbLib::word typeName;
+        static FoamEngine_EXPORT int debug;
+        virtual const word& type() const { return typeName; };
 
 
         // Declare run-time constructor selection table
 
-        declareRunTimeSelectionTable
+        /*declareRunTimeSelectionTable
         (
             autoPtr,
             engineMesh,
             IOobject,
             (const IOobject& io),
             (io)
-        );
+        );*/
+        typedef autoPtr<engineMesh> (*IOobjectConstructorPtr)(const IOobject& io);
+        typedef HashTable<IOobjectConstructorPtr, word, string::hash> IOobjectConstructorTable;
+        static FoamEngine_EXPORT IOobjectConstructorTable* IOobjectConstructorTablePtr_;
+        static FoamEngine_EXPORT void constructIOobjectConstructorTables();
+        static FoamEngine_EXPORT void destroyIOobjectConstructorTables();
+
+        template <class engineMeshType>
+        class addIOobjectConstructorToTable
+        {
+        public:
+	        static autoPtr<engineMesh> New(const IOobject& io) { return autoPtr<engineMesh>(new engineMeshType(io)); }
+
+	        addIOobjectConstructorToTable(const word& lookup = engineMeshType::typeName)
+	        {
+		        constructIOobjectConstructorTables();
+		        if (!IOobjectConstructorTablePtr_->insert(lookup, New))
+		        {
+			        std::cerr << "Duplicate entry " << lookup << " in runtime selection table " << "engineMesh" <<
+				        std::endl;
+			        error::safePrintStack(std::cerr);
+		        }
+	        }
+
+	        ~addIOobjectConstructorToTable() { destroyIOobjectConstructorTables(); }
+        };
+
+        template <class engineMeshType>
+        class addRemovableIOobjectConstructorToTable
+        {
+	        const word& lookup_;
+        public:
+	        static autoPtr<engineMesh> New(const IOobject& io) { return autoPtr<engineMesh>(new engineMeshType(io)); }
+
+	        addRemovableIOobjectConstructorToTable(const word& lookup = engineMeshType::typeName) : lookup_(lookup)
+	        {
+		        constructIOobjectConstructorTables();
+		        IOobjectConstructorTablePtr_->set(lookup, New);
+	        }
+
+	        ~addRemovableIOobjectConstructorToTable()
+	        {
+		        if (IOobjectConstructorTablePtr_) { IOobjectConstructorTablePtr_->erase(lookup_); }
+	        }
+        };;
 
 
         // Constructors
 
             //- Construct from objectRegistry, and read/write options
-        explicit engineMesh(const IOobject& io);
+        FoamEngine_EXPORT explicit engineMesh(const IOobject& io);
 
         //- Disallow default bitwise copy construction
         engineMesh(const engineMesh&) = delete;
@@ -104,7 +152,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~engineMesh();
+        FoamEngine_EXPORT virtual ~engineMesh();
 
 
         // Member Functions
