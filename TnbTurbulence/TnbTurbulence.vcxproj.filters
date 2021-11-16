@@ -507,9 +507,6 @@
     <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\HerschelBulkley\HerschelBulkley.hxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\generalizedNewtonianViscosityModels\HerschelBulkley</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\powerLaw\powerLaw.hxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\generalizedNewtonianViscosityModels\powerLaw</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\strainRateFunction\strainRateFunction.hxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\generalizedNewtonianViscosityModels\strainRateFunction</Filter>
     </ClInclude>
@@ -903,6 +900,9 @@
     <ClInclude Include="TnbLib\TurbulenceModels\phaseCompressible\LES\continuousGasKEqn\continuousGasKEqnI.hxx">
       <Filter>TnbLib\TurbulenceModels\phaseCompressible\LES\continuousGasKEqn</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\powerLaw\powerLawGeneralizedNewtonian.hxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\generalizedNewtonianViscosityModels\powerLaw</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\turbulenceModel.cxx">
@@ -967,9 +967,6 @@
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\HerschelBulkley\HerschelBulkley.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\generalizedNewtonianViscosityModels\HerschelBulkley</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\powerLaw\powerLaw.cxx">
-      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\generalizedNewtonianViscosityModels\powerLaw</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\strainRateFunction\strainRateFunction.cxx">
       <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\generalizedNewtonianViscosityModels\strainRateFunction</Filter>
@@ -1090,6 +1087,9 @@
     </ClCompile>
     <ClCompile Include="TnbLib\TurbulenceModels\phaseCompressible\LES\continuousGasKEqn\continuousGasKEqn.cxx">
       <Filter>TnbLib\TurbulenceModels\phaseCompressible\LES\continuousGasKEqn</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\powerLaw\powerLawGeneralizedNewtonian.cxx">
+      <Filter>TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\generalizedNewtonianViscosityModels\powerLaw</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

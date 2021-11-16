@@ -93,6 +93,12 @@
       <AdditionalDependencies>libgmp-10.lib;
 libmpfr-4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
+if not exist "$(ProjectDir)include" mkdir "$(ProjectDir)include"
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -142,7 +148,6 @@ libmpfr-4.lib;%(AdditionalDependencies)</AdditionalDependencies>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition\backgroundMeshDecomposition.cxx" />
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition\backgroundMeshDecompositionTemplates.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellAspectRatioControl\cellAspectRatioControl.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControlMesh\cellShapeControlMesh.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControl\cellShapeControl.cxx" />
@@ -170,25 +175,17 @@ libmpfr-4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshFeaturePoints.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshIO.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshNames.cxx" />
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshTemplates.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshZones.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\featurePointConformer.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\featurePointConformerSpecialisations.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\pointFeatureEdgesTypes.cxx" />
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCell.cxx" />
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellChecks.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellEnum.cxx" />
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellOpsTemplates.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertex.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexEnum.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexEnumNames.cxx" />
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexOpsTemplates.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformationSurfaces\conformationSurfaces.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\cvControls\cvControls.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools\DelaunayMeshTools.cxx" />
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMesh.cxx" />
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMeshIO.cxx" />
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DistributedDelaunayMesh.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\faceAreaWeightModel\faceAreaWeightModel.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\piecewiseLinearRamp\piecewiseLinearRamp.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\autoDensity\autoDensity.cxx" />
@@ -198,8 +195,6 @@ libmpfr-4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\pointFile\pointFile.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\rayShooting\rayShooting.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\uniformGrid\uniformGrid.cxx" />
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs\pointPairs.cxx" />
-    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable\PrintTable.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\adaptiveLinear\adaptiveLinear.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\rampHoldFall\rampHoldFall.cxx" />
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\relaxationModel\relaxationModel.cxx" />
@@ -211,6 +206,7 @@ libmpfr-4.lib;%(AdditionalDependencies)</AdditionalDependencies>
   <ItemGroup>
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition\backgroundMeshDecomposition.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition\backgroundMeshDecompositionI.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\backgroundMeshDecomposition\backgroundMeshDecompositionTemplates.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellAspectRatioControl\cellAspectRatioControl.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControlMesh\cellShapeControlMesh.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cellShapeControl\cellShapeControlMesh\cellShapeControlMeshI.hxx" />
@@ -238,27 +234,37 @@ libmpfr-4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\CGALTriangulation3DKernel.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMesh.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshI.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshTemplatesI.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\featurePointConformer.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\featurePointConformerI.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\featurePointConformer\pointFeatureEdgesTypes.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCell.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellChecks.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellChecksI.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellEnum.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellI.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellOps.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCellOpsI.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedCell\indexedCell_Imp.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertex.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexEnum.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexI.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexOps.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexOpsI.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertex_Imp.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\pointConversion.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformationSurfaces\conformationSurfaces.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformationSurfaces\conformationSurfacesI.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cvControls\cvControls.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\cvControls\cvControlsI.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools\DelaunayMeshTools.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools\DelaunayMeshToolsI.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMesh.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMeshI.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMeshIO_Imp.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMesh_Imp.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DistributedDelaunayMesh.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DistributedDelaunayMeshI.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\faceAreaWeightModel\faceAreaWeightModel.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\piecewiseLinearRamp\piecewiseLinearRamp.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\autoDensity\autoDensity.hxx" />
@@ -269,8 +275,10 @@ libmpfr-4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\rayShooting\rayShooting.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\initialPointsMethod\uniformGrid\uniformGrid.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs\pointPairs.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\pointPairs\pointPairsI.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable\PrintTable.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable\PrintTableI.hxx" />
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\PrintTable\PrintTable_Imp.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\adaptiveLinear\adaptiveLinear.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\rampHoldFall\rampHoldFall.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\relaxationModel\relaxationModel\relaxationModel.hxx" />
@@ -280,9 +288,6 @@ libmpfr-4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\searchableSurfaceFeatures\triSurfaceMeshFeatures.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\vectorTools\vectorTools.hxx" />
     <ClInclude Include="TnbLib\foamyMesh\module\FoamyMesh_Module.hxx" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMeshTools\DelaunayMeshToolsTemplates.cxx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TnbBase\TnbBase.vcxproj">

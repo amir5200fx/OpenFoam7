@@ -272,7 +272,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\CrossPowerLaw\CrossPowerLaw.hxx" />
     <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\HerschelBulkley\HerschelBulkley.hxx" />
     <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\Model\generalizedNewtonianViscosityModel.hxx" />
-    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\powerLaw\powerLaw.hxx" />
+    <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\powerLaw\powerLawGeneralizedNewtonian.hxx" />
     <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\strainRateFunction\strainRateFunction.hxx" />
     <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\Giesekus\Giesekus.hxx" />
     <ClInclude Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\Giesekus\GiesekusI.hxx" />
@@ -403,7 +403,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\HerschelBulkley\HerschelBulkley.cxx" />
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\Model\generalizedNewtonianViscosityModel.cxx" />
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\Model\generalizedNewtonianViscosityModelNew.cxx" />
-    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\powerLaw\powerLaw.cxx" />
+    <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\powerLaw\powerLawGeneralizedNewtonian.cxx" />
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\laminar\generalizedNewtonian\Models\strainRateFunction\strainRateFunction.cxx" />
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\cubeRootVolDelta\cubeRootVolDelta.cxx" />
     <ClCompile Include="TnbLib\TurbulenceModels\turbulenceModels\LES\LESdeltas\IDDESDelta\IDDESDelta.cxx" />

@@ -23,9 +23,8 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include <FoamyMesh_Module.hxx>
-
 #include <DelaunayMesh.hxx>
+
 #include <labelPair.hxx>
 #include <PrintTable.hxx>
 #include <pointIOField.hxx>
