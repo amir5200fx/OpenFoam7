@@ -23,15 +23,18 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "loadOrCreateMesh.H"
-#include "processorPolyPatch.H"
-#include "processorCyclicPolyPatch.H"
-#include "Time.H"
-#include "IOPtrList.H"
+
+#include "loadOrCreateMesh.hxx"
+
+#include <processorPolyPatch.hxx>
+#include <processorCyclicPolyPatch.hxx>
+#include <Time.hxx>
+#include <IOPtrList.hxx>
+
 
 // * * * * * * * * * * * * * * * Global Functions  * * * * * * * * * * * * * //
 
-namespace Foam
+namespace tnbLib
 {
     defineTemplateTypeNameAndDebug(IOPtrList<entry>, 0);
 }
@@ -41,7 +44,7 @@ namespace Foam
 // Read mesh if available. Otherwise create empty mesh with same non-proc
 // patches as proc0 mesh. Requires all processors to have all patches
 // (and in same order).
-Foam::autoPtr<Foam::fvMesh> Foam::loadOrCreateMesh
+tnbLib::autoPtr<tnbLib::fvMesh> tnbLib::loadOrCreateMesh
 (
     const IOobject& io
 )
@@ -54,7 +57,7 @@ Foam::autoPtr<Foam::fvMesh> Foam::loadOrCreateMesh
     }
     else
     {
-        meshSubDir = io.name()/polyMesh::meshSubDir;
+        meshSubDir = io.name() / polyMesh::meshSubDir;
     }
 
 
@@ -91,11 +94,11 @@ Foam::autoPtr<Foam::fvMesh> Foam::loadOrCreateMesh
 
         // Send patches
         for
-        (
-            int slave=Pstream::firstSlave();
-            slave<=Pstream::lastSlave();
-            slave++
-        )
+            (
+                int slave = Pstream::firstSlave();
+                slave <= Pstream::lastSlave();
+                slave++
+                )
         {
             OPstream toSlave(Pstream::commsTypes::scheduled, slave);
             toSlave << patchEntries;
@@ -117,7 +120,7 @@ Foam::autoPtr<Foam::fvMesh> Foam::loadOrCreateMesh
     // Check who has a mesh
     const bool haveMesh = fileHandler().isDir
     (
-        fileHandler().filePath(io.time().path()/io.instance()/meshSubDir)
+        fileHandler().filePath(io.time().path() / io.instance() / meshSubDir)
     );
 
     if (!haveMesh)
@@ -150,10 +153,10 @@ Foam::autoPtr<Foam::fvMesh> Foam::loadOrCreateMesh
             const word& name = e.keyword();
 
             if
-            (
-                type != processorPolyPatch::typeName
-             && type != processorCyclicPolyPatch::typeName
-            )
+                (
+                    type != processorPolyPatch::typeName
+                    && type != processorCyclicPolyPatch::typeName
+                    )
             {
                 dictionary patchDict(e.dict());
                 patchDict.set("nFaces", 0);
@@ -254,10 +257,10 @@ Foam::autoPtr<Foam::fvMesh> Foam::loadOrCreateMesh
             }
 
             if
-            (
-                type != patches[patchi].type()
-             || name != patches[patchi].name()
-            )
+                (
+                    type != patches[patchi].type()
+                    || name != patches[patchi].name()
+                    )
             {
                 FatalErrorInFunction
                     << "Non-processor patches not synchronised."
@@ -333,7 +336,7 @@ Foam::autoPtr<Foam::fvMesh> Foam::loadOrCreateMesh
     if (!haveMesh)
     {
         // We created a dummy mesh file above. Delete it.
-        const fileName meshFiles = io.time().path()/io.instance()/meshSubDir;
+        const fileName meshFiles = io.time().path() / io.instance() / meshSubDir;
         // Pout<< "Removing dummy mesh " << meshFiles << endl;
         mesh.removeFiles();
         rmDir(meshFiles);

@@ -1,3 +1,7 @@
+#pragma once
+#ifndef _loadOrCreateMesh_Header
+#define _loadOrCreateMesh_Header
+
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -22,7 +26,7 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 InNamespace
-    Foam
+    tnbLib
 
 Description
     Load or create (0 size) a mesh. Used in distributing meshes to a
@@ -33,26 +37,26 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
-#ifndef loadOrCreateMesh_H
-#define loadOrCreateMesh_H
+#define FoamIOPtrList_EXPORT_DEFINE
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
 
-#include "fvMesh.H"
+#include <includeAllModules.hxx>
+
+#include <fvMesh.hxx>
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-namespace Foam
+namespace tnbLib
 {
 
-//- Load (if it exists) or create zero cell mesh given an IOobject:
-//      name     : regionName
-//      instance : exact directory where to find mesh (i.e. does not
-//                 do a findInstance
-autoPtr<fvMesh> loadOrCreateMesh(const IOobject& io);
+	//- Load (if it exists) or create zero cell mesh given an IOobject:
+	//      name     : regionName
+	//      instance : exact directory where to find mesh (i.e. does not
+	//                 do a findInstance
+	autoPtr<fvMesh> loadOrCreateMesh(const IOobject& io);
 
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif
-
-// ************************************************************************* //
+#endif // !_loadOrCreateMesh_Header

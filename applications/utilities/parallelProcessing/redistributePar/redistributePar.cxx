@@ -46,15 +46,17 @@ Description
     \endverbatim
 \*---------------------------------------------------------------------------*/
 
-#include "fvMesh.H"
-#include "decompositionMethod.H"
-#include "PstreamReduceOps.H"
-#include "fvCFD.H"
-#include "fvMeshDistribute.H"
-#include "mapDistributePolyMesh.H"
-#include "IOobjectList.H"
-#include "globalIndex.H"
-#include "loadOrCreateMesh.H"
+#include "loadOrCreateMesh.hxx"
+
+#include <fvMesh.hxx>
+#include <decompositionMethod.hxx>
+#include <PstreamReduceOps.hxx>
+#include <fvCFD.hxx>
+#include <fvMeshDistribute.hxx>
+#include <mapDistributePolyMesh.hxx>
+#include <IOobjectList.hxx>
+#include <globalIndex.hxx>
+
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -75,9 +77,9 @@ scalar getMergeDistance
     args.optionReadIfPresent("mergeTol", mergeTol);
 
     scalar writeTol =
-        Foam::pow(scalar(10.0), -scalar(IOstream::defaultPrecision()));
+        tnbLib::pow(scalar(10.0), -scalar(IOstream::defaultPrecision()));
 
-    Info<< "Merge tolerance : " << mergeTol << nl
+    Info << "Merge tolerance : " << mergeTol << nl
         << "Write tolerance : " << writeTol << endl;
 
     if (runTime.writeFormat() == IOstream::ASCII && mergeTol < writeTol)
@@ -95,7 +97,7 @@ scalar getMergeDistance
 
     scalar mergeDist = mergeTol * bb.mag();
 
-    Info<< "Overall meshes bounding box : " << bb << nl
+    Info << "Overall meshes bounding box : " << bb << nl
         << "Relative tolerance          : " << mergeTol << nl
         << "Absolute matching distance  : " << mergeDist << nl
         << endl;
@@ -130,9 +132,9 @@ void printMeshData(const polyMesh& mesh)
     forAll(pPatches, i)
     {
         const processorPolyPatch& ppp = refCast<const processorPolyPatch>
-        (
-            mesh.boundaryMesh()[pPatches[i]]
-        );
+            (
+                mesh.boundaryMesh()[pPatches[i]]
+                );
         patchNeiProcNo[Pstream::myProcNo()][i] = ppp.neighbProcNo();
         patchSize[Pstream::myProcNo()][i] = ppp.size();
     }
@@ -142,7 +144,7 @@ void printMeshData(const polyMesh& mesh)
 
     // Print stats
 
-    globalIndex globalBoundaryFaces(mesh.nFaces()-mesh.nInternalFaces());
+    globalIndex globalBoundaryFaces(mesh.nFaces() - mesh.nInternalFaces());
 
     label maxProcCells = 0;
     label totProcFaces = 0;
@@ -152,7 +154,7 @@ void printMeshData(const polyMesh& mesh)
 
     for (label proci = 0; proci < Pstream::nProcs(); proci++)
     {
-        Info<< endl
+        Info << endl
             << "Processor " << proci << nl
             << "    Number of cells = " << globalCells.localSize(proci)
             << endl;
@@ -163,14 +165,14 @@ void printMeshData(const polyMesh& mesh)
 
         forAll(patchNeiProcNo[proci], i)
         {
-            Info<< "    Number of faces shared with processor "
+            Info << "    Number of faces shared with processor "
                 << patchNeiProcNo[proci][i] << " = " << patchSize[proci][i]
                 << endl;
 
             nProcFaces += patchSize[proci][i];
         }
 
-        Info<< "    Number of processor patches = " << nei.size() << nl
+        Info << "    Number of processor patches = " << nei.size() << nl
             << "    Number of processor faces = " << nProcFaces << nl
             << "    Number of boundary faces = "
             << globalBoundaryFaces.localSize(proci) << endl;
@@ -184,9 +186,9 @@ void printMeshData(const polyMesh& mesh)
 
     // Stats
 
-    scalar avgProcCells = scalar(globalCells.size())/Pstream::nProcs();
-    scalar avgProcPatches = scalar(totProcPatches)/Pstream::nProcs();
-    scalar avgProcFaces = scalar(totProcFaces)/Pstream::nProcs();
+    scalar avgProcCells = scalar(globalCells.size()) / Pstream::nProcs();
+    scalar avgProcPatches = scalar(totProcPatches) / Pstream::nProcs();
+    scalar avgProcFaces = scalar(totProcFaces) / Pstream::nProcs();
 
     // In case of all faces on one processor. Just to avoid division by 0.
     if (totProcPatches == 0)
@@ -198,16 +200,16 @@ void printMeshData(const polyMesh& mesh)
         avgProcFaces = 1;
     }
 
-    Info<< nl
-        << "Number of processor faces = " << totProcFaces/2 << nl
+    Info << nl
+        << "Number of processor faces = " << totProcFaces / 2 << nl
         << "Max number of cells = " << maxProcCells
-        << " (" << 100.0*(maxProcCells-avgProcCells)/avgProcCells
+        << " (" << 100.0 * (maxProcCells - avgProcCells) / avgProcCells
         << "% above average " << avgProcCells << ")" << nl
         << "Max number of processor patches = " << maxProcPatches
-        << " (" << 100.0*(maxProcPatches-avgProcPatches)/avgProcPatches
+        << " (" << 100.0 * (maxProcPatches - avgProcPatches) / avgProcPatches
         << "% above average " << avgProcPatches << ")" << nl
         << "Max number of faces between processors = " << maxProcFaces
-        << " (" << 100.0*(maxProcFaces-avgProcFaces)/avgProcFaces
+        << " (" << 100.0 * (maxProcFaces - avgProcFaces) / avgProcFaces
         << "% above average " << avgProcFaces << ")" << nl
         << endl;
 }
@@ -221,7 +223,7 @@ void writeDecomposition
     const labelList& decomp
 )
 {
-    Info<< "Writing wanted cell distribution to volScalarField " << name
+    Info << "Writing wanted cell distribution to volScalarField " << name
         << " for postprocessing purposes." << nl << endl;
 
     volScalarField procCells
@@ -305,7 +307,7 @@ void readFields
                     if (!haveMesh[proci])
                     {
                         OPstream toProc(Pstream::commsTypes::blocking, proci);
-                        toProc<< tsubfld();
+                        toProc << tsubfld();
                     }
                 }
             }
@@ -411,7 +413,7 @@ void compareFields
                         << "    mapped  :" << bBoundary[i] << endl
                         << "This might be just a precision entry"
                         << " on writing the mesh." << endl;
-                        //<< abort(FatalError);
+                    //<< abort(FatalError);
                 }
             }
         }
@@ -420,10 +422,10 @@ void compareFields
 
 
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
-    #include "addRegionOption.H"
-    #include "addOverwriteOption.H"
+#include <addRegionOption.lxx>
+#include <addOverwriteOption.lxx>
     argList::addOption
     (
         "mergeTol",
@@ -434,7 +436,7 @@ int main(int argc, char *argv[])
     // Include explicit constant options, have zero from time range
     timeSelector::addOptions();
 
-    #include "setRootCase.H"
+#include <setRootCase.lxx>
 
     if (env("FOAM_SIGFPE"))
     {
@@ -449,14 +451,14 @@ int main(int argc, char *argv[])
     // Create processor directory if non-existing
     if (!Pstream::master() && !isDir(args.path()))
     {
-        Pout<< "Creating case directory " << args.path() << endl;
+        Pout << "Creating case directory " << args.path() << endl;
         mkDir(args.path());
     }
 
 
     // Make sure we do not use the master-only reading.
     regIOobject::fileModificationChecking = regIOobject::timeStamp;
-    #include "createTime.H"
+#include <createTime.lxx>
     // Allow override of time
     instantList times = timeSelector::selectIfPresent(runTime, args);
     runTime.setTime(times[0], 0);
@@ -468,13 +470,13 @@ int main(int argc, char *argv[])
 
     if (args.optionReadIfPresent("region", regionName))
     {
-        meshSubDir = regionName/polyMesh::meshSubDir;
+        meshSubDir = regionName / polyMesh::meshSubDir;
     }
     else
     {
         meshSubDir = polyMesh::meshSubDir;
     }
-    Info<< "Using mesh subdirectory " << meshSubDir << nl << endl;
+    Info << "Using mesh subdirectory " << meshSubDir << nl << endl;
 
     const bool overwrite = args.optionFound("overwrite");
 
@@ -490,16 +492,16 @@ int main(int argc, char *argv[])
     Pstream::scatter(masterInstDir);
 
     // Check who has a mesh
-    const fileName meshPath = runTime.path()/masterInstDir/meshSubDir;
+    const fileName meshPath = runTime.path() / masterInstDir / meshSubDir;
 
-    Info<< "Found points in " << meshPath << nl << endl;
+    Info << "Found points in " << meshPath << nl << endl;
 
 
     boolList haveMesh(Pstream::nProcs(), false);
     haveMesh[Pstream::myProcNo()] = isDir(meshPath);
     Pstream::gatherList(haveMesh);
     Pstream::scatterList(haveMesh);
-    Info<< "Per processor mesh availability : " << haveMesh << endl;
+    Info << "Per processor mesh availability : " << haveMesh << endl;
     const bool allHaveMesh = (findIndex(haveMesh, false) == -1);
 
     autoPtr<fvMesh> meshPtr = loadOrCreateMesh
@@ -509,14 +511,14 @@ int main(int argc, char *argv[])
             regionName,
             masterInstDir,
             runTime,
-            Foam::IOobject::MUST_READ
+            tnbLib::IOobject::MUST_READ
         )
     );
 
     fvMesh& mesh = meshPtr();
 
     // Print some statistics
-    Info<< "Before distribution:" << endl;
+    Info << "Before distribution:" << endl;
     printMeshData(mesh);
 
 
@@ -803,7 +805,7 @@ int main(int argc, char *argv[])
 
 
     // Print some statistics
-    Info<< "After distribution:" << endl;
+    Info << "After distribution:" << endl;
     printMeshData(mesh);
 
 
@@ -815,7 +817,7 @@ int main(int argc, char *argv[])
     {
         mesh.setInstance(masterInstDir);
     }
-    Info<< "Writing redistributed mesh to " << runTime.timeName() << nl << endl;
+    Info << "Writing redistributed mesh to " << runTime.timeName() << nl << endl;
     mesh.write();
 
 
@@ -831,7 +833,7 @@ int main(int argc, char *argv[])
     Pstream::gatherList(nFaces);
     Pstream::scatterList(nFaces);
 
-    Info<< nl
+    Info << nl
         << "You can pick up the redecomposed mesh from the polyMesh directory"
         << " in " << runTime.timeName() << "." << nl
         << "If you redecomposed the mesh to less processors you can delete"
@@ -847,22 +849,22 @@ int main(int argc, char *argv[])
 
         if (nFaces[proci] == 0)
         {
-            Info<< "    rm -r " << procDir.c_str() << nl;
+            Info << "    rm -r " << procDir.c_str() << nl;
         }
         else
         {
-            fileName timeDir = procDir/runTime.timeName()/meshSubDir;
-            fileName constDir = procDir/runTime.constant()/meshSubDir;
+            fileName timeDir = procDir / runTime.timeName() / meshSubDir;
+            fileName constDir = procDir / runTime.constant() / meshSubDir;
 
-            Info<< "    rm -r " << constDir.c_str() << nl
+            Info << "    rm -r " << constDir.c_str() << nl
                 << "    mv " << timeDir.c_str()
                 << ' ' << constDir.c_str() << nl;
         }
     }
-    Info<< endl;
+    Info << endl;
 
 
-    Info<< "End\n" << endl;
+    Info << "End\n" << endl;
 
     return 0;
 }
