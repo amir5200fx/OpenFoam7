@@ -268,6 +268,15 @@
     <Filter Include="TnbLib\dynamicMesh\meshCut\wallLayerCells\wallNormalInfo">
       <UniqueIdentifier>{f64c3bbd-fbf5-4810-b263-89b649abf056}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\extrude2DMesh">
+      <UniqueIdentifier>{6e358fa8-0300-463a-b87c-9858c72d76c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\extrude2DMesh\extrude2DMesh">
+      <UniqueIdentifier>{13bca912-9237-4f16-9f47-c183eec9cb33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\extrude2DMesh\patchToPoly2DMesh">
+      <UniqueIdentifier>{786f84a4-ad5d-4db5-9b91-ff1719dc5086}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.hxx">
@@ -645,6 +654,12 @@
     <ClInclude Include="TnbLib\dynamicMesh\meshCut\wallLayerCells\wallLayerCells.hxx">
       <Filter>TnbLib\dynamicMesh\meshCut\wallLayerCells</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\extrude2DMesh\extrude2DMesh\extrude2DMesh.hxx">
+      <Filter>TnbLib\extrude2DMesh\extrude2DMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\extrude2DMesh\patchToPoly2DMesh\patchToPoly2DMesh.hxx">
+      <Filter>TnbLib\extrude2DMesh\patchToPoly2DMesh</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\dynamicMesh\meshCut\directions\directionInfo\directionInfo.cxx">
@@ -997,6 +1012,12 @@
     </ClCompile>
     <ClCompile Include="TnbLib\dynamicMesh\boundaryMesh\boundaryMesh.cxx">
       <Filter>TnbLib\dynamicMesh\boundaryMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\extrude2DMesh\extrude2DMesh\extrude2DMesh.cxx">
+      <Filter>TnbLib\extrude2DMesh\extrude2DMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\extrude2DMesh\patchToPoly2DMesh\patchToPoly2DMesh.cxx">
+      <Filter>TnbLib\extrude2DMesh\patchToPoly2DMesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
