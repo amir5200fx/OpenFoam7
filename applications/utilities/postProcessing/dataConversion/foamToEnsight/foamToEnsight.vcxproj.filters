@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{530f275d-8248-4725-af12-1df1e80ac573}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="itoa.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="cellSets.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ensightAsciiStream.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ensightStream.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ensightBinaryStream.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ensightCloudField.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ensightField.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ensightMesh.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="faceSets.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ensightParticlePositions.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ensightCloudFieldI.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ensightFieldI.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="itoa.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="ensightMesh.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="ensightParticlePositions.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="foamToEnsight.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="checkData.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="checkMeshMoving.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="ensightCaseTail.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+</Project>
