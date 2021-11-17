@@ -29,6 +29,8 @@ Description
 
 \*---------------------------------------------------------------------------*/
 
+#include <includeAllModules.hxx>
+
 #include <fvCFD.hxx>
 #include <fvOptions.hxx>
 #include <simpleControl.hxx>
