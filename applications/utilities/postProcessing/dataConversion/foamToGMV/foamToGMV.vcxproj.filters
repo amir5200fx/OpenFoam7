@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d133ad0d-bfdb-4792-af83-c0f008e605bc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readConversionProperties.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="moveMesh.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="gmvOutputTail.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="gmvOutputSpray.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="gmvOutputLagrangian.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="gmvOutputHeader.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="gmvOutput.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="itoa.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="itoa.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="foamToGMV.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
