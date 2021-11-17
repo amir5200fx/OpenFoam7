@@ -14,3 +14,4 @@
 #include <ThermoPhysicalModels_Module.hxx>
 #include <TransportModels_Module.hxx>
 #include <Turbulence_Module.hxx>
+#include <SnappyHexMesh_Module.hxx>

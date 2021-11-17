@@ -1,0 +1,17 @@
+#include <Base_Module.hxx>
+#include <Conversion_Module.hxx>
+#include <DynamicMesh_Module.hxx>
+#include <FiniteVolume_Module.hxx>
+#include <FunctionObjects_Module.hxx>
+#include <FvMesh_Module.hxx>
+#include <FvOptions_Module.hxx>
+#include <Lagrangian_Module.hxx>
+#include <ODE_Module.hxx>
+#include <Parallel_Module.hxx>
+#include <RadiationModels_Module.hxx>
+#include <Renumber_Module.hxx>
+#include <Sampling_Module.hxx>
+#include <ThermoPhysicalModels_Module.hxx>
+#include <TransportModels_Module.hxx>
+#include <Turbulence_Module.hxx>
+#include <SnappyHexMesh_Module.hxx>

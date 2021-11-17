@@ -859,6 +859,18 @@
     <Filter Include="Generated Files\triSurface\triSurface\interfaces\STL">
       <UniqueIdentifier>{1f6bce3c-6e33-428d-a55a-4f4fcdb5b77a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\FvMesh\extrudeMesh">
+      <UniqueIdentifier>{bde3ee6c-dd60-4308-bde9-bd7cf5757419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\extrude2DMesh">
+      <UniqueIdentifier>{3af14f41-1229-4ec0-a4f5-c78c975d2e07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\extrude2DMesh\extrude2DMesh">
+      <UniqueIdentifier>{19ed0770-6b4d-4553-bc2c-b27e96c04ddc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\FvMesh\extrude2DMesh\patchToPoly2DMesh">
+      <UniqueIdentifier>{00912c04-842c-45b3-bea9-8726efe78e5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.hxx">
@@ -2007,6 +2019,12 @@
     <ClInclude Include="TnbLib\FvMesh\meshTools\algorithms\MeshWave\MeshWave.hxx">
       <Filter>TnbLib\FvMesh\meshTools\algorithms\MeshWave</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\extrudeMesh\extrudedMesh.hxx">
+      <Filter>TnbLib\FvMesh\extrudeMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\FvMesh\extrudeMesh\extrudedMeshI.hxx">
+      <Filter>TnbLib\FvMesh\extrudeMesh</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\FvMesh\mesh\blockMesh\blockDescriptor\blockDescriptor.cxx">
@@ -3019,6 +3037,9 @@
     </ClCompile>
     <ClCompile Include="TnbLib\FvMesh\triSurface\triSurface\interfaces\STL\readSTLASCII.cxx">
       <Filter>Generated Files\triSurface\triSurface\interfaces\STL</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\FvMesh\extrudeMesh\extrudedMesh.cxx">
+      <Filter>TnbLib\FvMesh\extrudeMesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
