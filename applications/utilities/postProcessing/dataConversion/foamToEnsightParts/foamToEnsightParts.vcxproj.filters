@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{38b33167-d00c-43e2-8359-6b14e1a17a3c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="moveMesh.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="getTimeIndex.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="findFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="ensightOutputCase.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="checkHasMovingMesh.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ensightOutputFunctions.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ensightOutputFunctionsI.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ensightOutputFunctions.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="foamToEnsightParts.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
