@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{19722135-8c91-4601-8683-e86d661af4cc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="writeFluentFields.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="writeFluentScalarField.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="writeFluentVectorField.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="foamDataToFluent.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
