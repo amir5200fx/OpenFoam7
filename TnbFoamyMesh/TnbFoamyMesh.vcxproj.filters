@@ -175,6 +175,15 @@
     <Filter Include="TnbLib\foamyMesh\conformalVoronoiMesh\faceAreaWeightModel\piecewiseLinearRamp">
       <UniqueIdentifier>{852e9a0a-3af9-418b-b436-7a4aace7ec52}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoi2DMesh">
+      <UniqueIdentifier>{175eff07-eeca-41b6-99e0-f785e46a210a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\conformalVoronoi2DMesh\cv2DControls">
+      <UniqueIdentifier>{6f29df60-80d6-46cc-9245-94e7116e5773}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamyMesh\foamyQuadMesh">
+      <UniqueIdentifier>{d9600bc2-8348-431d-a4f9-f5e1d7432166}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\indexedVertex\indexedVertexEnum.cxx">
@@ -341,6 +350,36 @@
     </ClCompile>
     <ClCompile Include="TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh\conformalVoronoiMeshNames.cxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\conformalVoronoiMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\conformalVoronoi2DMesh\cv2DControls\cv2DControls.cxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoi2DMesh\cv2DControls</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\foamyQuadMesh\indexedFace2D.cxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\foamyQuadMesh\indexedVertex2D.cxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\foamyQuadMesh\CV2D.cxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\foamyQuadMesh\insertBoundaryConformPointPairs.cxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\foamyQuadMesh\insertFeaturePoints.cxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\foamyQuadMesh\insertSurfaceNearestPointPairs.cxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\foamyQuadMesh\insertSurfaceNearPointPairs.cxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\foamyQuadMesh\shortEdgeFilter2D.cxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\foamyMesh\foamyQuadMesh\CV2DIO.cxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -595,6 +634,39 @@
     </ClInclude>
     <ClInclude Include="TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh\DelaunayMeshIO_Imp.hxx">
       <Filter>TnbLib\foamyMesh\conformalVoronoiMesh\DelaunayMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoi2DMesh\cv2DControls\cv2DControls.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoi2DMesh\cv2DControls</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\conformalVoronoi2DMesh\cv2DControls\cv2DControlsI.hxx">
+      <Filter>TnbLib\foamyMesh\conformalVoronoi2DMesh\cv2DControls</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\foamyQuadMesh\CGALTriangulation2DKernel.hxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\foamyQuadMesh\CGALTriangulation2Ddefs.hxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\foamyQuadMesh\indexedVertex2D.hxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\foamyQuadMesh\indexedVertex2DI.hxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\foamyQuadMesh\indexedFace2D.hxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\foamyQuadMesh\indexedFace2DI.hxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\foamyQuadMesh\CV2D.hxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\foamyQuadMesh\CV2DI.hxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\foamyMesh\foamyQuadMesh\shortEdgeFilter2D.hxx">
+      <Filter>TnbLib\foamyMesh\foamyQuadMesh</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
