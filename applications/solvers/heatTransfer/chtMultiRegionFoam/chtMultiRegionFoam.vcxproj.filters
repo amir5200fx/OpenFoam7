@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{55faa216-761a-4bd2-b236-acd4705eba55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\fluid">
+      <UniqueIdentifier>{5f719e1e-d64f-44ea-bf76-a8a216a3e68e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\include">
+      <UniqueIdentifier>{ddd5ed70-8e5d-46f3-848d-bc3f6f56123e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\solid">
+      <UniqueIdentifier>{1d6202ee-edac-46f0-931b-20825d576256}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="compressibleCourantNo.hxx">
+      <Filter>src\fluid</Filter>
+    </ClInclude>
+    <ClInclude Include="solidRegionDiffNo.hxx">
+      <Filter>src\solid</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="compressibleCourantNo.cxx">
+      <Filter>src\fluid</Filter>
+    </ClCompile>
+    <ClCompile Include="solidRegionDiffNo.cxx">
+      <Filter>src\solid</Filter>
+    </ClCompile>
+    <ClCompile Include="chtMultiRegionFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="compressibleMultiRegionCourantNo.lxx">
+      <Filter>src\fluid</Filter>
+    </None>
+    <None Include="createFluidFields.lxx">
+      <Filter>src\fluid</Filter>
+    </None>
+    <None Include="createFluidMeshes.lxx">
+      <Filter>src\fluid</Filter>
+    </None>
+    <None Include="createFluidPressureControls.lxx">
+      <Filter>src\fluid</Filter>
+    </None>
+    <None Include="EEqn.lxx">
+      <Filter>src\fluid</Filter>
+    </None>
+    <None Include="initContinuityErrs.lxx">
+      <Filter>src\fluid</Filter>
+    </None>
+    <None Include="pEqn.lxx">
+      <Filter>src\fluid</Filter>
+    </None>
+    <None Include="setRegionFluidFields.lxx">
+      <Filter>src\fluid</Filter>
+    </None>
+    <None Include="solveFluid.lxx">
+      <Filter>src\fluid</Filter>
+    </None>
+    <None Include="UEqn.lxx">
+      <Filter>src\fluid</Filter>
+    </None>
+    <None Include="YEqn.lxx">
+      <Filter>src\fluid</Filter>
+    </None>
+    <None Include="setInitialMultiRegionDeltaT.lxx">
+      <Filter>src\include</Filter>
+    </None>
+    <None Include="setMultiRegionDeltaT.lxx">
+      <Filter>src\include</Filter>
+    </None>
+    <None Include="createSolidFields.lxx">
+      <Filter>src\solid</Filter>
+    </None>
+    <None Include="createSolidMeshes.lxx">
+      <Filter>src\solid</Filter>
+    </None>
+    <None Include="readSolidTimeControls.lxx">
+      <Filter>src\solid</Filter>
+    </None>
+    <None Include="setRegionSolidFields.lxx">
+      <Filter>src\solid</Filter>
+    </None>
+    <None Include="solidRegionDiffusionNo.lxx">
+      <Filter>src\solid</Filter>
+    </None>
+    <None Include="solveSolid.lxx">
+      <Filter>src\solid</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createMeshes.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createMeshesPostProcess.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+</Project>
