@@ -53,248 +53,129 @@ Description
 #include <fvCFD.hxx>
 #include <pisoControl.hxx>
 
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 using namespace tnbLib;
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 #include <postProcess.lxx>
 
 #include <setRootCaseLists.lxx>
 #include <createTime.lxx>
 #include <createMesh.lxx>
-	pisoControl piso(mesh);
-	pisoControl bpiso(mesh, "BPISO");
-//#include "createControl.lxx"
-//#include "createFields.lxx"
-	Info << "Reading transportProperties\n" << endl;
-
-	IOdictionary transportProperties
-	(
-		IOobject
-		(
-			"transportProperties",
-			runTime.constant(),
-			mesh,
-			IOobject::MUST_READ_IF_MODIFIED,
-			IOobject::NO_WRITE
-		)
-	);
-
-	dimensionedScalar rho
-	(
-		"rho",
-		dimDensity,
-		transportProperties
-	);
-
-	dimensionedScalar nu
-	(
-		"nu",
-		dimViscosity,
-		transportProperties
-	);
-
-	dimensionedScalar mu
-	(
-		"mu",
-		dimensionSet(1, 1, -2, 0, 0, -2, 0),
-		transportProperties
-	);
-
-	dimensionedScalar sigma
-	(
-		"sigma",
-		dimensionSet(-1, -3, 3, 0, 0, 2, 0),
-		transportProperties
-	);
-
-	Info << "Reading field p\n" << endl;
-	volScalarField p
-	(
-		IOobject
-		(
-			"p",
-			runTime.timeName(),
-			mesh,
-			IOobject::MUST_READ,
-			IOobject::AUTO_WRITE
-		),
-		mesh
-	);
-
-
-	Info << "Reading field U\n" << endl;
-	volVectorField U
-	(
-		IOobject
-		(
-			"U",
-			runTime.timeName(),
-			mesh,
-			IOobject::MUST_READ,
-			IOobject::AUTO_WRITE
-		),
-		mesh
-	);
-
-#include "createPhi.lxx"
-
-	Info << "Reading field pB\n" << endl;
-	volScalarField pB
-	(
-		IOobject
-		(
-			"pB",
-			runTime.timeName(),
-			mesh,
-			IOobject::MUST_READ,
-			IOobject::AUTO_WRITE
-		),
-		mesh
-	);
-
-
-	Info << "Reading field B\n" << endl;
-	volVectorField B
-	(
-		IOobject
-		(
-			"B",
-			runTime.timeName(),
-			mesh,
-			IOobject::MUST_READ,
-			IOobject::AUTO_WRITE
-		),
-		mesh
-	);
-
-
-#include "createPhiB.lxx"
-
-	dimensionedScalar DB = 1.0 / (mu * sigma);
-	DB.name() = "DB";
-
-	dimensionedScalar DBU = 1.0 / (2.0 * mu * rho);
-	DBU.name() = "DBU";
-
-
-	label pRefCell = 0;
-	scalar pRefValue = 0.0;
-	setRefCell(p, piso.dict(), pRefCell, pRefValue);
-
-	mesh.setFluxRequired(p.name());
-	mesh.setFluxRequired(pB.name());
+#include "createControl.lxx"
+#include "createFields.lxx"
 #include <initContinuityErrs.lxx>
 
-    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-    Info << nl << "Starting time loop" << endl;
+	Info << nl << "Starting time loop" << endl;
 
-    while (runTime.loop())
-    {
-        Info << "Time = " << runTime.timeName() << nl << endl;
+	while (runTime.loop())
+	{
+		Info << "Time = " << runTime.timeName() << nl << endl;
 
 #include <CourantNo.lxx>
 
-        {
-            fvVectorMatrix UEqn
-            (
-                fvm::ddt(U)
-                + fvm::div(phi, U)
-                - fvc::div(phiB, 2.0 * DBU * B)
-                - fvm::laplacian(nu, U)
-                + fvc::grad(DBU * magSqr(B))
-            );
+		{
+			fvVectorMatrix UEqn
+			(
+				fvm::ddt(U)
+				+ fvm::div(phi, U)
+				- fvc::div(phiB, 2.0*DBU*B)
+				- fvm::laplacian(nu, U)
+				+ fvc::grad(DBU*magSqr(B))
+			);
 
-            if (piso.momentumPredictor())
-            {
-                solve(UEqn == -fvc::grad(p));
-            }
+			if (piso.momentumPredictor())
+			{
+				solve(UEqn == -fvc::grad(p));
+			}
 
 
-            // --- PISO loop
-            while (piso.correct())
-            {
-                volScalarField rAU(1.0 / UEqn.A());
-                surfaceScalarField rAUf("rAUf", fvc::interpolate(rAU));
-                volVectorField HbyA(constrainHbyA(rAU * UEqn.H(), U, p));
-                surfaceScalarField phiHbyA
-                (
-                    "phiHbyA",
-                    fvc::flux(HbyA)
-                    + rAUf * fvc::ddtCorr(U, phi)
-                );
+			// --- PISO loop
+			while (piso.correct())
+			{
+				volScalarField rAU(1.0 / UEqn.A());
+				surfaceScalarField rAUf("rAUf", fvc::interpolate(rAU));
+				volVectorField HbyA(constrainHbyA(rAU*UEqn.H(), U, p));
+				surfaceScalarField phiHbyA
+				(
+					"phiHbyA",
+					fvc::flux(HbyA)
+					+ rAUf * fvc::ddtCorr(U, phi)
+				);
 
-                // Update the pressure BCs to ensure flux consistency
-                constrainPressure(p, U, phiHbyA, rAUf);
+				// Update the pressure BCs to ensure flux consistency
+				constrainPressure(p, U, phiHbyA, rAUf);
 
-                while (piso.correctNonOrthogonal())
-                {
-                    fvScalarMatrix pEqn
-                    (
-                        fvm::laplacian(rAUf, p) == fvc::div(phiHbyA)
-                    );
+				while (piso.correctNonOrthogonal())
+				{
+					fvScalarMatrix pEqn
+					(
+						fvm::laplacian(rAUf, p) == fvc::div(phiHbyA)
+					);
 
-                    pEqn.setReference(pRefCell, pRefValue);
-                    pEqn.solve();
+					pEqn.setReference(pRefCell, pRefValue);
+					pEqn.solve();
 
-                    if (piso.finalNonOrthogonalIter())
-                    {
-                        phi = phiHbyA - pEqn.flux();
-                    }
-                }
+					if (piso.finalNonOrthogonalIter())
+					{
+						phi = phiHbyA - pEqn.flux();
+					}
+				}
 
 #include <continuityErrs.lxx>
 
-                U = HbyA - rAU * fvc::grad(p);
-                U.correctBoundaryConditions();
-            }
-        }
+				U = HbyA - rAU * fvc::grad(p);
+				U.correctBoundaryConditions();
+			}
+		}
 
-        // --- B-PISO loop
-        while (bpiso.correct())
-        {
-            fvVectorMatrix BEqn
-            (
-                fvm::ddt(B)
-                + fvm::div(phi, B)
-                - fvc::div(phiB, U)
-                - fvm::laplacian(DB, B)
-            );
+		// --- B-PISO loop
+		while (bpiso.correct())
+		{
+			fvVectorMatrix BEqn
+			(
+				fvm::ddt(B)
+				+ fvm::div(phi, B)
+				- fvc::div(phiB, U)
+				- fvm::laplacian(DB, B)
+			);
 
-            BEqn.solve();
+			BEqn.solve();
 
-            volScalarField rAB(1.0 / BEqn.A());
-            surfaceScalarField rABf("rABf", fvc::interpolate(rAB));
+			volScalarField rAB(1.0 / BEqn.A());
+			surfaceScalarField rABf("rABf", fvc::interpolate(rAB));
 
-            phiB = fvc::flux(B);
+			phiB = fvc::flux(B);
 
-            while (bpiso.correctNonOrthogonal())
-            {
-                fvScalarMatrix pBEqn
-                (
-                    fvm::laplacian(rABf, pB) == fvc::div(phiB)
-                );
+			while (bpiso.correctNonOrthogonal())
+			{
+				fvScalarMatrix pBEqn
+				(
+					fvm::laplacian(rABf, pB) == fvc::div(phiB)
+				);
 
-                pBEqn.solve();
+				pBEqn.solve();
 
-                if (bpiso.finalNonOrthogonalIter())
-                {
-                    phiB -= pBEqn.flux();
-                }
-            }
+				if (bpiso.finalNonOrthogonalIter())
+				{
+					phiB -= pBEqn.flux();
+				}
+			}
 
 #include "magneticFieldErr.lxx"
-        }
+		}
 
-        runTime.write();
-    }
+		runTime.write();
+	}
 
-    Info << "End\n" << endl;
+	Info << "End\n" << endl;
 
-    return 0;
+	return 0;
 }
 
 

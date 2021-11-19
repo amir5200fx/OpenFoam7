@@ -18,6 +18,9 @@
     <None Include="readBPISOControls.lxx">
       <Filter>src</Filter>
     </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mhdFoam.cxx">

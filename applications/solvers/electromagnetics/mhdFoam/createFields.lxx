@@ -69,7 +69,7 @@ volVectorField U
     mesh
 );
 
-#include "createPhi.lxx"
+#include <createPhi.lxx>
 
 Info<< "Reading field pB\n" << endl;
 volScalarField pB
