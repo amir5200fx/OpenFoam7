@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{7e934c44-ce56-472b-a384-1cc799f59b29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\derivedFvPatchFields">
+      <UniqueIdentifier>{16e70cc9-99f2-4e0b-a69f-b1961af517ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\derivedFvPatchFields\hydrostaticDisplacement">
+      <UniqueIdentifier>{1f8f044b-bced-4d8c-a038-99f4c0d43755}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\derivedFvPatchFields\tractionDisplacement">
+      <UniqueIdentifier>{09cb3c39-1042-47d9-bc49-b95242ecadfb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="calculateStress.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createControl.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createControls.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="readMechanicalProperties.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="readSolidDisplacementFoamControls.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="readThermalProperties.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="hydrostaticDisplacementFvPatchVectorField.cxx">
+      <Filter>src\derivedFvPatchFields\hydrostaticDisplacement</Filter>
+    </ClCompile>
+    <ClCompile Include="tractionDisplacementFvPatchVectorField.cxx">
+      <Filter>src\derivedFvPatchFields\tractionDisplacement</Filter>
+    </ClCompile>
+    <ClCompile Include="solidDisplacementFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hydrostaticDisplacementFvPatchVectorField.hxx">
+      <Filter>src\derivedFvPatchFields\hydrostaticDisplacement</Filter>
+    </ClInclude>
+    <ClInclude Include="tractionDisplacementFvPatchVectorField.hxx">
+      <Filter>src\derivedFvPatchFields\tractionDisplacement</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
