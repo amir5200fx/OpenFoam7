@@ -42,103 +42,102 @@ Description
 #include <pisoControl.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-using namespace tnbLib;
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-#include "postProcess.lxx"
-#include "createFields.lxx"
+#include <postProcess.lxx>
 
 #include <setRootCaseLists.lxx>
 #include <createTime.lxx>
 #include <createMeshNoClear.lxx>
 #include <createControl.lxx>
+#include "createFields.lxx"
 #include <initContinuityErrs.lxx>
 
-    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-    Info << nl << "Starting time loop" << endl;
+	Info << nl << "Starting time loop" << endl;
 
-    while (runTime.loop())
-    {
-        Info << "Time = " << runTime.timeName() << nl << endl;
+	while (runTime.loop())
+	{
+		Info << "Time = " << runTime.timeName() << nl << endl;
 
-        tnbLib::force.primitiveFieldRef() = ReImSum
-        (
-            fft::reverseTransform
-            (
-                K / (mag(K) + 1.0e-6) ^ forceGen.newField(), K.nn()
-            )
-        );
+		force.primitiveFieldRef() = ReImSum
+		(
+			fft::reverseTransform
+			(
+				K / (mag(K) + 1.0e-6) ^ forceGen.newField(), K.nn()
+			)
+		);
 
 #include "globalProperties.lxx"
 
-        fvVectorMatrix UEqn
-        (
-            fvm::ddt(U)
-            + fvm::div(phi, U)
-            - fvm::laplacian(nu, U)
-            ==
-            force
-        );
+		fvVectorMatrix UEqn
+		(
+			fvm::ddt(U)
+			+ fvm::div(phi, U)
+			- fvm::laplacian(nu, U)
+			==
+			force
+		);
 
-        solve(UEqn == -fvc::grad(p));
+		solve(UEqn == -fvc::grad(p));
 
 
-        // --- PISO loop
-        while (piso.correct())
-        {
-            volScalarField rAU(1.0 / UEqn.A());
-            surfaceScalarField rAUf("rAUf", fvc::interpolate(rAU));
-            volVectorField HbyA(constrainHbyA(rAU * UEqn.H(), U, p));
-            surfaceScalarField phiHbyA
-            (
-                "phiHbyA",
-                fvc::flux(HbyA)
-                + rAUf * fvc::ddtCorr(U, phi)
-            );
+		// --- PISO loop
+		while (piso.correct())
+		{
+			volScalarField rAU(1.0 / UEqn.A());
+			surfaceScalarField rAUf("rAUf", fvc::interpolate(rAU));
+			volVectorField HbyA(constrainHbyA(rAU*UEqn.H(), U, p));
+			surfaceScalarField phiHbyA
+			(
+				"phiHbyA",
+				fvc::flux(HbyA)
+				+ rAUf * fvc::ddtCorr(U, phi)
+			);
 
-            // Update the pressure BCs to ensure flux consistency
-            constrainPressure(p, U, phiHbyA, rAUf);
+			// Update the pressure BCs to ensure flux consistency
+			constrainPressure(p, U, phiHbyA, rAUf);
 
-            fvScalarMatrix pEqn
-            (
-                fvm::laplacian(rAUf, p) == fvc::div(phiHbyA)
-            );
+			fvScalarMatrix pEqn
+			(
+				fvm::laplacian(rAUf, p) == fvc::div(phiHbyA)
+			);
 
-            pEqn.solve();
+			pEqn.solve();
 
-            phi = phiHbyA - pEqn.flux();
+			phi = phiHbyA - pEqn.flux();
 
 #include <continuityErrs.lxx>
 
-            U = HbyA - rAU * fvc::grad(p);
-            U.correctBoundaryConditions();
-        }
+			U = HbyA - rAU * fvc::grad(p);
+			U.correctBoundaryConditions();
+		}
 
-        runTime.write();
+		runTime.write();
 
-        if (runTime.writeTime())
-        {
-            calcEk(U, K).write
-            (
-                runTime.path()
-                / functionObjects::writeFile::outputPrefix
-                / "graphs"
-                / runTime.timeName(),
-                "Ek",
-                runTime.graphFormat()
-            );
-        }
+		if (runTime.writeTime())
+		{
+			calcEk(U, K).write
+			(
+				runTime.path()
+				/ functionObjects::writeFile::outputPrefix
+				/ "graphs"
+				/ runTime.timeName(),
+				"Ek",
+				runTime.graphFormat()
+			);
+		}
 
-        Info << "ExecutionTime = " << runTime.elapsedCpuTime() << " s"
-            << "  ClockTime = " << runTime.elapsedClockTime() << " s"
-            << nl << endl;
-    }
+		Info << "ExecutionTime = " << runTime.elapsedCpuTime() << " s"
+			<< "  ClockTime = " << runTime.elapsedClockTime() << " s"
+			<< nl << endl;
+	}
 
-    Info << "End\n" << endl;
+	Info << "End\n" << endl;
 
-    return 0;
+	return 0;
 }
 
 

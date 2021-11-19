@@ -28,8 +28,8 @@ volVectorField U
     mesh
 );
 
-#include "createPhi.H"
+#include <createPhi.lxx>
 
 mesh.setFluxRequired(p.name());
 
-#include "readTurbulenceProperties.H"
+#include "readTurbulenceProperties.lxx"
