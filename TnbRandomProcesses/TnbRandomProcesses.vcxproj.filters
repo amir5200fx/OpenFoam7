@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{06d04378-f43c-47e2-b2eb-ff4d41cfb1b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\randomProcesses">
+      <UniqueIdentifier>{a0fc716f-dd02-4b12-992a-f9b923b5260d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\randomProcesses\fft">
+      <UniqueIdentifier>{2952b297-f390-4a8d-bea5-93637cc05ead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\randomProcesses\Kmesh">
+      <UniqueIdentifier>{5ec8ca18-550a-40b1-8104-8409c23aaf51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\randomProcesses\turbulence">
+      <UniqueIdentifier>{9f3c6b29-b402-4d8d-8761-0866c99cdbc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\randomProcesses\processes">
+      <UniqueIdentifier>{5d03c588-ecab-4529-a5a7-1b9acfdd6354}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\randomProcesses\noise">
+      <UniqueIdentifier>{b484126b-c0a8-4178-a736-00cfc74b1cd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\randomProcesses\processes\UOprocess">
+      <UniqueIdentifier>{c4da0601-cf19-4b2f-b7b1-9e441ca77279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\randomProcesses\module">
+      <UniqueIdentifier>{18de2946-61d0-427b-95f6-eee3f60017e6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\randomProcesses\processes\UOprocess\UOprocess.hxx">
+      <Filter>TnbLib\randomProcesses\processes\UOprocess</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\randomProcesses\module\RandomProcesses_Module.hxx">
+      <Filter>TnbLib\randomProcesses\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\randomProcesses\Kmesh\Kmesh.hxx">
+      <Filter>TnbLib\randomProcesses\Kmesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\randomProcesses\noise\noiseFFT.hxx">
+      <Filter>TnbLib\randomProcesses\noise</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\randomProcesses\fft\kShellIntegration.hxx">
+      <Filter>TnbLib\randomProcesses\fft</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\randomProcesses\fft\fftRenumber.hxx">
+      <Filter>TnbLib\randomProcesses\fft</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\randomProcesses\fft\calcEk.hxx">
+      <Filter>TnbLib\randomProcesses\fft</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\randomProcesses\fft\fft.hxx">
+      <Filter>TnbLib\randomProcesses\fft</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\randomProcesses\Kmesh\KmeshI.hxx">
+      <Filter>TnbLib\randomProcesses\Kmesh</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\randomProcesses\turbulence\Ek.hxx">
+      <Filter>TnbLib\randomProcesses\turbulence</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\randomProcesses\turbulence\turbGen.hxx">
+      <Filter>TnbLib\randomProcesses\turbulence</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\randomProcesses\processes\UOprocess\UOprocess.cxx">
+      <Filter>TnbLib\randomProcesses\processes\UOprocess</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\randomProcesses\Kmesh\Kmesh.cxx">
+      <Filter>TnbLib\randomProcesses\Kmesh</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\randomProcesses\noise\noiseFFT.cxx">
+      <Filter>TnbLib\randomProcesses\noise</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\randomProcesses\fft\kShellIntegration.cxx">
+      <Filter>TnbLib\randomProcesses\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\randomProcesses\fft\fftRenumber.cxx">
+      <Filter>TnbLib\randomProcesses\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\randomProcesses\fft\calcEk.cxx">
+      <Filter>TnbLib\randomProcesses\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\randomProcesses\fft\fft.cxx">
+      <Filter>TnbLib\randomProcesses\fft</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\randomProcesses\turbulence\turbGen.cxx">
+      <Filter>TnbLib\randomProcesses\turbulence</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
