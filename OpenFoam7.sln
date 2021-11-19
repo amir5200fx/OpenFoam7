@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1321
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbBase", "TnbBase\TnbBase.vcxproj", "{0EAECC55-7EC6-4414-897B-0156A774C01C}"
 EndProject
@@ -1270,6 +1270,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SRFSimpleFoam", "SRFSimpleFoam", "{B9D701E0-A95F-4913-A5A2-089BDF0710BE}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SRFSimpleFoam", "applications\solvers\incompressible\simpleFoam\SRFSimpleFoam\SRFSimpleFoam.vcxproj", "{17066CD0-DF08-4555-B9AD-A1359365D0A9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "solidDisplacementFoam", "applications\solvers\stressAnalysis\solidDisplacementFoam\solidDisplacementFoam.vcxproj", "{B24E4DB5-8270-4D75-B928-15FD7754108C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "solidEquilibriumDisplacementFoam", "applications\solvers\stressAnalysis\solidEquilibriumDisplacementFoam\solidEquilibriumDisplacementFoam.vcxproj", "{1C791D85-87B7-43E4-A06B-9056454F4D92}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solidDisplacementFoam", "solidDisplacementFoam", "{63C73685-3C46-4ED9-940D-5FC8F5918A05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solidEquilibriumDisplacementFoam", "solidEquilibriumDisplacementFoam", "{F8419A42-18EE-4E6C-9B29-C888B2B93F4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -4528,6 +4536,30 @@ Global
 		{17066CD0-DF08-4555-B9AD-A1359365D0A9}.Release|x64.Build.0 = Release|x64
 		{17066CD0-DF08-4555-B9AD-A1359365D0A9}.Release|x86.ActiveCfg = Release|Win32
 		{17066CD0-DF08-4555-B9AD-A1359365D0A9}.Release|x86.Build.0 = Release|Win32
+		{B24E4DB5-8270-4D75-B928-15FD7754108C}.Debug|x64.ActiveCfg = Debug|x64
+		{B24E4DB5-8270-4D75-B928-15FD7754108C}.Debug|x64.Build.0 = Debug|x64
+		{B24E4DB5-8270-4D75-B928-15FD7754108C}.Debug|x86.ActiveCfg = Debug|Win32
+		{B24E4DB5-8270-4D75-B928-15FD7754108C}.Debug|x86.Build.0 = Debug|Win32
+		{B24E4DB5-8270-4D75-B928-15FD7754108C}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
+		{B24E4DB5-8270-4D75-B928-15FD7754108C}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
+		{B24E4DB5-8270-4D75-B928-15FD7754108C}.DebugNoCopyHxx|x86.ActiveCfg = Debug|Win32
+		{B24E4DB5-8270-4D75-B928-15FD7754108C}.DebugNoCopyHxx|x86.Build.0 = Debug|Win32
+		{B24E4DB5-8270-4D75-B928-15FD7754108C}.Release|x64.ActiveCfg = Release|x64
+		{B24E4DB5-8270-4D75-B928-15FD7754108C}.Release|x64.Build.0 = Release|x64
+		{B24E4DB5-8270-4D75-B928-15FD7754108C}.Release|x86.ActiveCfg = Release|Win32
+		{B24E4DB5-8270-4D75-B928-15FD7754108C}.Release|x86.Build.0 = Release|Win32
+		{1C791D85-87B7-43E4-A06B-9056454F4D92}.Debug|x64.ActiveCfg = Debug|x64
+		{1C791D85-87B7-43E4-A06B-9056454F4D92}.Debug|x64.Build.0 = Debug|x64
+		{1C791D85-87B7-43E4-A06B-9056454F4D92}.Debug|x86.ActiveCfg = Debug|Win32
+		{1C791D85-87B7-43E4-A06B-9056454F4D92}.Debug|x86.Build.0 = Debug|Win32
+		{1C791D85-87B7-43E4-A06B-9056454F4D92}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
+		{1C791D85-87B7-43E4-A06B-9056454F4D92}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
+		{1C791D85-87B7-43E4-A06B-9056454F4D92}.DebugNoCopyHxx|x86.ActiveCfg = Debug|Win32
+		{1C791D85-87B7-43E4-A06B-9056454F4D92}.DebugNoCopyHxx|x86.Build.0 = Debug|Win32
+		{1C791D85-87B7-43E4-A06B-9056454F4D92}.Release|x64.ActiveCfg = Release|x64
+		{1C791D85-87B7-43E4-A06B-9056454F4D92}.Release|x64.Build.0 = Release|x64
+		{1C791D85-87B7-43E4-A06B-9056454F4D92}.Release|x86.ActiveCfg = Release|Win32
+		{1C791D85-87B7-43E4-A06B-9056454F4D92}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -5141,6 +5173,10 @@ Global
 		{1C82D33E-43CC-496F-B54C-CBDD0FF0C288} = {CA18CAD3-2B96-4657-B693-FB623F236A34}
 		{B9D701E0-A95F-4913-A5A2-089BDF0710BE} = {1EECF6C9-D8C1-423A-B3E1-D8356A1AB4D7}
 		{17066CD0-DF08-4555-B9AD-A1359365D0A9} = {B9D701E0-A95F-4913-A5A2-089BDF0710BE}
+		{B24E4DB5-8270-4D75-B928-15FD7754108C} = {63C73685-3C46-4ED9-940D-5FC8F5918A05}
+		{1C791D85-87B7-43E4-A06B-9056454F4D92} = {F8419A42-18EE-4E6C-9B29-C888B2B93F4E}
+		{63C73685-3C46-4ED9-940D-5FC8F5918A05} = {A6B7D1F0-EE69-4A9B-93EF-2F34BB33D901}
+		{F8419A42-18EE-4E6C-9B29-C888B2B93F4E} = {A6B7D1F0-EE69-4A9B-93EF-2F34BB33D901}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1107BF8D-1C23-4E64-93DE-E2F73CB09919}
