@@ -186,6 +186,9 @@
     <ProjectReference Include="..\..\..\..\TnbFvMesh\TnbFvMesh.vcxproj">
       <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\TnbLagrangian\TnbLagrangian.vcxproj">
+      <Project>{27928553-74af-4229-b18c-4f7670767702}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\TnbRadiationModels\TnbRadiationModels.vcxproj">
       <Project>{7e9d43d8-5865-43de-bf56-4057a40bee84}</Project>
     </ProjectReference>

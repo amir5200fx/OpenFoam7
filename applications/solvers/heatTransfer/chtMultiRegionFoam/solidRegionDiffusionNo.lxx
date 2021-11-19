@@ -2,8 +2,8 @@ scalar DiNum = -great;
 
 forAll(solidRegions, i)
 {
-    // Note: do not use setRegionSolidFields.H to avoid double registering Cp
-    //#include "setRegionSolidFields.H"
+    // Note: do not use setRegionSolidFields.lxx to avoid double registering Cp
+    //#include "setRegionSolidFields.lxx"
     const solidThermo& thermo = thermos[i];
 
     tmp<volScalarField> magKappa;

@@ -6,113 +6,113 @@
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Copyright (C) 2012-2019 OpenFOAM Foundation
-     \\/     M anipulation  |
+	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
+	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
-    This file is part of OpenFOAM.
+	This file is part of OpenFOAM.
 
-    OpenFOAM is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+	OpenFOAM is free software: you can redistribute it and/or modify it
+	under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
 
-    OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
-    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
-    for more details.
+	OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
+	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+	FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+	for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
+	You should have received a copy of the GNU General Public License
+	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::uniform
+	tnbLib::distributionModels::uniform
 
 Description
+	Uniform/equally-weighted distribution model
 
 SourceFiles
-    uniform.C
+	uniform.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <cellSizeFunction.hxx>
+#include <distributionModel.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
+	namespace distributionModels
+	{
 
-    /*---------------------------------------------------------------------------*\
-                               Class uniform Declaration
-    \*---------------------------------------------------------------------------*/
+		/*---------------------------------------------------------------------------*\
+								   Class uniform Declaration
+		\*---------------------------------------------------------------------------*/
 
-    class uniform
-        :
-        public cellSizeFunction
-    {
+		class uniform
+			:
+			public distributionModel
+		{
+			// Private Data
 
-    private:
+				//- Distribution minimum
+			scalar minValue_;
 
-        // Private Data
-
-
-    public:
-
-        //- Runtime type information
-        /*TypeName("uniform");*/
-        static const char* typeName_() { return "uniform"; }
-        static FoamFoamyMesh_EXPORT const ::tnbLib::word typeName;
-        static FoamFoamyMesh_EXPORT int debug;
-        virtual const word& type() const { return typeName; };
-
-        // Constructors
-
-            //- Construct from components
-        FoamFoamyMesh_EXPORT uniform
-        (
-            const dictionary& initialPointsDict,
-            const searchableSurface& surface,
-            const scalar& defaultCellSize,
-            const labelList regionIndices
-        );
+			//- Distribution maximum
+			scalar maxValue_;
 
 
-        //- Destructor
-        virtual ~uniform()
-        {}
+		public:
+
+			//- Runtime type information
+			//TypeName("uniform");
+			static const char* typeName_() { return "uniform"; }
+			static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
+			static FoamLagrangian_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
-        // Member Functions
+			// Constructors
 
-        FoamFoamyMesh_EXPORT virtual bool sizeLocations
-        (
-            const pointIndexHit& hitPt,
-            const vector& n,
-            pointField& shapePts,
-            scalarField& shapeSizes
-        ) const;
+				//- Construct from components
+			FoamLagrangian_EXPORT uniform(const dictionary& dict, Random& rndGen);
 
-        //- Modify scalar argument to the cell size specified by function.
-        //  Return a boolean specifying if the function was used, i.e. false if
-        //  the point was not in range of the surface for a spatially varying
-        //  size.
-        FoamFoamyMesh_EXPORT virtual bool cellSize
-        (
-            const point& pt,
-            scalar& size
-        ) const;
+			//- Construct copy
+			FoamLagrangian_EXPORT uniform(const uniform& p);
 
-        //- Adapt local cell size. Return true if anything changed.
-        FoamFoamyMesh_EXPORT virtual bool setCellSize
-        (
-            const pointField& pts
-        );
-    };
+			//- Construct and return a clone
+			virtual autoPtr<distributionModel> clone() const
+			{
+				return autoPtr<distributionModel>(new uniform(*this));
+			}
 
 
-    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+			//- Destructor
+			FoamLagrangian_EXPORT virtual ~uniform();
 
+
+			// Member Functions
+
+				//- Sample the distributionModel
+			FoamLagrangian_EXPORT virtual scalar sample() const;
+
+			//- Return the minimum value
+			FoamLagrangian_EXPORT virtual scalar minValue() const;
+
+			//- Return the maximum value
+			FoamLagrangian_EXPORT virtual scalar maxValue() const;
+
+			//- Return the mean value
+			FoamLagrangian_EXPORT virtual scalar meanValue() const;
+		};
+
+
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+	} // End namespace distributionModels
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
 #endif // !_uniform_Header

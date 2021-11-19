@@ -37,7 +37,7 @@ Description
 #include <fvCFD.hxx>
 #include <turbulentFluidThermoModel.hxx>
 #include <rhoReactionThermo.hxx>
-#include <CombustionModel.hxx>
+#include <CombustionModelTemplate.hxx>
 #include <fixedGradientFvPatchFields.hxx>
 #include <regionProperties.hxx>
 
@@ -54,7 +54,7 @@ using namespace tnbLib;
 int main(int argc, char* argv[])
 {
 #define NO_CONTROL
-#define CREATE_MESH createMeshesPostProcess.H
+#define CREATE_MESH createMeshesPostProcess.lxx
 #include <postProcess.lxx>
 
 #include <setRootCaseLists.lxx>
@@ -64,12 +64,11 @@ int main(int argc, char* argv[])
 #include "initContinuityErrs.lxx"
     pimpleMultiRegionControl pimples(fluidRegions, solidRegions);
 #include "createFluidPressureControls.lxx"
+#include "createTimeControls.lxx"
 #include "readSolidTimeControls.lxx"
 #include "compressibleMultiRegionCourantNo.lxx"
 #include "solidRegionDiffusionNo.lxx"
 #include "setInitialMultiRegionDeltaT.lxx"
-
-#include "createTimeControls.lxx"
 
 
     while (pimples.run(runTime))

@@ -90,13 +90,13 @@ namespace tnbLib
 		virtual const word& type() const { return typeName; };
 
 		//- Default combustionProperties dictionary name
-		static const word combustionPropertiesName;
+		static FoamCombustionModels_EXPORT const word combustionPropertiesName;
 
 
 		// Constructors
 
 			//- Construct from components
-		combustionModel
+		FoamCombustionModels_EXPORT combustionModel
 		(
 			const word& modelType,
 			basicThermo& thermo,
@@ -105,7 +105,7 @@ namespace tnbLib
 		);
 
 		//- Disallow default bitwise copy construction
-		combustionModel(const combustionModel&);
+		FoamCombustionModels_EXPORT combustionModel(const combustionModel&);
 
 
 		// Selectors
@@ -151,7 +151,7 @@ namespace tnbLib
 		virtual tmp<volScalarField> Qdot() const = 0;
 
 		//- Update properties from given dictionary
-		virtual bool read();
+		FoamCombustionModels_EXPORT virtual bool read();
 
 
 		// Member Operators

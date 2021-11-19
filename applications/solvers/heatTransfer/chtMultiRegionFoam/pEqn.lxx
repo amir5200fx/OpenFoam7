@@ -111,12 +111,12 @@ if (thermo.dpdt())
 // Solve continuity
 if (!mesh.steady())
 {
-    #include "rhoEqn.H"
-    #include "compressibleContinuityErrs.H"
+    #include "rhoEqn.lxx"
+    #include "compressibleContinuityErrs.lxx"
 }
 else
 {
-    #include "incompressible/continuityErrs.H"
+    #include "continuityErrs.lxx"
 }
 
 
