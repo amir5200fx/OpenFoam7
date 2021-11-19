@@ -145,30 +145,22 @@
   <ItemGroup>
     <None Include="createFields.lxx" />
     <None Include="pEqn.lxx" />
-    <None Include="porousSimpleFoam\createPorousZones.lxx" />
-    <None Include="porousSimpleFoam\pEqn.lxx" />
-    <None Include="porousSimpleFoam\UEqn.lxx" />
-    <None Include="SRFSimpleFoam\createFields.lxx" />
-    <None Include="SRFSimpleFoam\pEqn.lxx" />
-    <None Include="SRFSimpleFoam\UrelEqn.lxx" />
     <None Include="UEqn.lxx" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="porousSimpleFoam\porousSimpleFoam.cxx" />
     <ClCompile Include="simpleFoam.cxx" />
-    <ClCompile Include="SRFSimpleFoam\SRFSimpleFoam.cxx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\TnbBase\TnbBase.vcxproj">
+    <ProjectReference Include="..\..\..\..\..\TnbBase\TnbBase.vcxproj">
       <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+    <ProjectReference Include="..\..\..\..\..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
       <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\TnbTransportModels\TnbTransportModels.vcxproj">
+    <ProjectReference Include="..\..\..\..\..\TnbTransportModels\TnbTransportModels.vcxproj">
       <Project>{ad4b123c-0d2b-4aac-b265-9ec2f0e93568}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\TnbTurbulence\TnbTurbulence.vcxproj">
+    <ProjectReference Include="..\..\..\..\..\TnbTurbulence\TnbTurbulence.vcxproj">
       <Project>{c44b171d-747f-4fe0-b6e9-b8c6c88ddc40}</Project>
     </ProjectReference>
   </ItemGroup>

@@ -30,62 +30,61 @@
 //    frames (MRF).
 //
 //\*---------------------------------------------------------------------------*/
-//
-//#include <includeAllModules.hxx>
-//
-//#include <fvCFD.hxx>
-//#include <singlePhaseTransportModel.hxx>
-//#include <turbulentTransportModel.hxx>
-//#include <simpleControl.hxx>
-//#include <IOporosityModelList.hxx>
-//#include <fvOptions.hxx>
-//
-//// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-//
-//int main(int argc, char *argv[])
-//{
-//    #define CREATE_FIELDS ../applications/solvers/incompressible/simpleFoam/createFields.lxx
-//    #define CREATE_FIELDS_2 ../applications/solvers/incompressible/simpleFoam/porousSimpleFoam/createPorousZones.lxx
-//    #include <postProcess.lxx>
-//
-//    #include <setRootCaseLists.lxx>
-//    #include <createTime.lxx>
-//    #include <createMesh.lxx>
-//    #include <createControl.lxx>
-//    #include "../createFields.lxx"
-//    #include "createPorousZones.lxx"
-//    #include <initContinuityErrs.lxx>
-//
-//    turbulence->validate();
-//
-//    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-//
-//    Info<< "\nStarting time loop\n" << endl;
-//
-//    while (simple.loop(runTime))
-//    {
-//        Info<< "Time = " << runTime.timeName() << nl << endl;
-//
-//        // Pressure-velocity SIMPLE corrector
-//        {
-//            #include "UEqn.lxx"
-//            #include "pEqn.lxx"
-//        }
-//
-//        laminarTransport.correct();
-//        turbulence->correct();
-//
-//        runTime.write();
-//
-//        Info<< "ExecutionTime = " << runTime.elapsedCpuTime() << " s"
-//            << "  ClockTime = " << runTime.elapsedClockTime() << " s"
-//            << nl << endl;
-//    }
-//
-//    Info<< "End\n" << endl;
-//
-//    return 0;
-//}
-//
-//
-//// ************************************************************************* //
+
+#include <includeAllModules.hxx>
+
+#include <fvCFD.hxx>
+#include <singlePhaseTransportModel.hxx>
+#include <turbulentTransportModel.hxx>
+#include <simpleControl.hxx>
+#include <IOporosityModelList.hxx>
+#include <fvOptions.hxx>
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+int main(int argc, char *argv[])
+{
+#define CREATE_FIELDS_2 createPorousZones.lxx
+#include <postProcess.lxx>
+
+#include <setRootCaseLists.lxx>
+#include <createTime.lxx>
+#include <createMesh.lxx>
+#include <createControl.lxx>
+#include "createFields.lxx"
+#include "createPorousZones.lxx"
+#include <initContinuityErrs.lxx>
+
+	turbulence->validate();
+
+	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+	Info << "\nStarting time loop\n" << endl;
+
+	while (simple.loop(runTime))
+	{
+		Info << "Time = " << runTime.timeName() << nl << endl;
+
+		// Pressure-velocity SIMPLE corrector
+		{
+#include "UEqn.lxx"
+#include "pEqn.lxx"
+		}
+
+		laminarTransport.correct();
+		turbulence->correct();
+
+		runTime.write();
+
+		Info << "ExecutionTime = " << runTime.elapsedCpuTime() << " s"
+			<< "  ClockTime = " << runTime.elapsedClockTime() << " s"
+			<< nl << endl;
+	}
+
+	Info << "End\n" << endl;
+
+	return 0;
+}
+
+
+// ************************************************************************* //

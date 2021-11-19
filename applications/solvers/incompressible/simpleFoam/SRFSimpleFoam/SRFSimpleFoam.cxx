@@ -29,61 +29,61 @@
 //    fluids in a single rotating frame.
 //
 //\*---------------------------------------------------------------------------*/
-//
-//#include <includeAllModules.hxx>
-//
-//#include <fvCFD.hxx>
-//#include <singlePhaseTransportModel.hxx>
-//#include <turbulentTransportModel.hxx>
-//#include <SRFModel.hxx>
-//#include <simpleControl.hxx>
-//#include <fvOptions.hxx>
-//
-//// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-//
-//int main(int argc, char *argv[])
-//{
-//    #include <postProcess.lxx>
-//
-//    #include <setRootCaseLists.lxx>
-//    #include <createTime.lxx>
-//    #include <createMesh.lxx>
-//    #include <createControl.lxx>
-//    #include "createFields.lxx"
-//    #include <initContinuityErrs.lxx>
-//
-//    turbulence->validate();
-//
-//    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-//
-//    Info<< "\nStarting time loop\n" << endl;
-//
-//    while (simple.loop(runTime))
-//    {
-//        Info<< "Time = " << runTime.timeName() << nl << endl;
-//
-//        // --- Pressure-velocity SIMPLE corrector
-//        {
-//            #include "UrelEqn.lxx"
-//            #include "pEqn.lxx"
-//        }
-//
-//        U = Urel + SRF->U();
-//
-//        laminarTransport.correct();
-//        turbulence->correct();
-//
-//        runTime.write();
-//
-//        Info<< "ExecutionTime = " << runTime.elapsedCpuTime() << " s"
-//            << "  ClockTime = " << runTime.elapsedClockTime() << " s"
-//            << nl << endl;
-//    }
-//
-//    Info<< "End\n" << endl;
-//
-//    return 0;
-//}
-//
-//
-//// ************************************************************************* //
+
+#include <includeAllModules.hxx>
+
+#include <fvCFD.hxx>
+#include <singlePhaseTransportModel.hxx>
+#include <turbulentTransportModel.hxx>
+#include <SRFModel.hxx>
+#include <simpleControl.hxx>
+#include <fvOptions.hxx>
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+int main(int argc, char *argv[])
+{
+    #include <postProcess.lxx>
+
+    #include <setRootCaseLists.lxx>
+    #include <createTime.lxx>
+    #include <createMesh.lxx>
+    #include <createControl.lxx>
+    #include "createFields.lxx"
+    #include <initContinuityErrs.lxx>
+
+    turbulence->validate();
+
+    // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+    Info<< "\nStarting time loop\n" << endl;
+
+    while (simple.loop(runTime))
+    {
+        Info<< "Time = " << runTime.timeName() << nl << endl;
+
+        // --- Pressure-velocity SIMPLE corrector
+        {
+            #include "UrelEqn.lxx"
+            #include "pEqn.lxx"
+        }
+
+        U = Urel + SRF->U();
+
+        laminarTransport.correct();
+        turbulence->correct();
+
+        runTime.write();
+
+        Info<< "ExecutionTime = " << runTime.elapsedCpuTime() << " s"
+            << "  ClockTime = " << runTime.elapsedClockTime() << " s"
+            << nl << endl;
+    }
+
+    Info<< "End\n" << endl;
+
+    return 0;
+}
+
+
+// ************************************************************************* //
