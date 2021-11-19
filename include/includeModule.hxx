@@ -74,4 +74,9 @@
 #include <SnappyHexMesh_Module.hxx>
 #endif // FoamSnappyHexMesh_EXPORT_DEFINE
 
+#ifdef FoamRandomProcesses_EXPORT_DEFINE
+#include <RandomProcesses_Module.hxx>
+#endif // FoamRandomProcesses_EXPORT_DEFINE
+
+
 #endif // !_includeModule_Header
