@@ -39,6 +39,8 @@ SourceFiles
 #include <includeAllModules.hxx>
 
 #include <dimensionedVector.hxx>
+#include <error.hxx>
+#include <OSstream.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -51,7 +53,7 @@ namespace tnbLib
 
     // Forward declaration of friend functions and operators
     class magnet;
-    Istream& operator>>(Istream&, magnet&);
+    //Istream& operator>>(Istream&, magnet&);
     Ostream& operator<<(Ostream&, const magnet&);
 
     /*---------------------------------------------------------------------------*\
@@ -129,6 +131,13 @@ namespace tnbLib
             return orientation_;
         }
 
+		inline const magnet& operator!=(const magnet& m) const
+		{
+			FatalErrorInFunction
+				<< "this function is not supposed to be called!" << endl
+				<< abort(FatalError);
+			return *this;
+		}
 
         // IOstream Operators
 
