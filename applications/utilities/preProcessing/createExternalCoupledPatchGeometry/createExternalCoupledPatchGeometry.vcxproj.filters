@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{8d9a0501-3723-4fc9-9271-c08a9e731844}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="createExternalCoupledPatchGeometry.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="createExternalCoupledPatchGeometryTemplates.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="createExternalCoupledPatchGeometryTemplatesI.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
