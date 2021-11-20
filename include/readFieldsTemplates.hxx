@@ -17,8 +17,6 @@ License
 	the Free Software Foundation, either version 3 of the License, or
 	(at your option) any later version.
 
-<<<<<<< HEAD
-=======
 	OpenFOAM is distributed in the hope that it will be useful, but WITHOUT
 	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
 	FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
@@ -43,7 +41,6 @@ SourceFiles
 #include <HashSet.hxx>
 #include <LIFOStack.hxx>
 
->>>>>>> b21406c1527dce3aee4a85d665544354d658d11e
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
