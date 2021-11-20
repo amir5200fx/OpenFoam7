@@ -1,7 +1,4 @@
 #pragma once
-
-// .cxx
-
 #include <volFields.hxx>
 #include <surfaceFields.hxx>
 #include <Time.hxx>
