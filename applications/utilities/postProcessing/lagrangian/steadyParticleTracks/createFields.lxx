@@ -1,0 +1,9 @@
+const word dictName("particleTrackDict");
+
+#include <setConstantMeshDictionaryIO.lxx>
+
+IOdictionary propsDict(dictIO);
+
+word cloudName(propsDict.lookup("cloudName"));
+
+List<word> userFields(propsDict.lookup("fields"));
