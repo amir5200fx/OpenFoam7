@@ -1,12 +1,12 @@
 #pragma once
-#ifndef _Histogram_Header
-#define _Histogram_Header
+#ifndef _histogram_Header
+#define _histogram_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-	\\  /    A nd           | Copyright (C) 2011-2019 OpenFOAM Foundation
+	\\  /    A nd           | Copyright (C) 2016-2019 OpenFOAM Foundation
 	 \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -26,114 +26,151 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::Histogram
+	tnbLib::functionObjects::histogram
 
 Description
-	Calculates the counts per bin of a list.
+	Write the volume-weighted histogram of a volScalarField.
+
+	Example:
+	\verbatim
+	histogram1
+	{
+		type            histogram;
+
+		libs            ("libfieldFunctionObjects.so");
+
+		field           p;
+		nBins           100;
+		min             -5;
+		max             5;
+		setFormat       gnuplot;
+	}
+	\endverbatim
+
+Usage
+	\table
+		Property     | Description             | Required    | Default value
+		type         | type name: histogram    | yes         |
+		field        | Field to analyse        | yes         |
+		nBins        | Number of bins for the histogram | yes|
+		max          | Maximum value sampled   | yes         |
+		min          | minimum value sampled   | no          | 0
+		setFormat    | Output format           | yes         |
+	\endtable
+
+See also
+	tnbLib::functionObject
+	tnbLib::functionObjects::fvMeshFunctionObject
+	tnbLib::functionObjects::writeFile
 
 SourceFiles
-	Histogram.C
+	histogram.C
 
 \*---------------------------------------------------------------------------*/
 
-#include <labelList.hxx>
+#include <fvMeshFunctionObject.hxx>
+#include <writeFile.hxx>
+#include <writer.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-
-
-	/*---------------------------------------------------------------------------*\
-							  Class Histogram Declaration
-	\*---------------------------------------------------------------------------*/
-
-	template<class List>
-	class Histogram
+	namespace functionObjects
 	{
-		// Private Data
 
-			//- Counts per bin
-		labelList counts_;
+		/*---------------------------------------------------------------------------*\
+								 Class histogram Declaration
+		\*---------------------------------------------------------------------------*/
 
-		//- Number of <= lowest bin
-		label nLow_;
-
-		//- Number of > highest bin
-		label nHigh_;
-
-
-		// Private Member Functions
-
-		void count(const List& bins, const List& l);
-
-
-	public:
-
-		// Constructors
-
-			//- Construct given bin values and input list
-		Histogram(const List& bins, const List& l);
-
-		//- Construct given min, max, number of bins and input list
-		Histogram
-		(
-			const typename List::const_reference min,
-			const typename List::const_reference max,
-			const label nBins,
-			const List& l
-		);
-
-		//- Disallow default bitwise copy construction
-		Histogram(const Histogram&) = delete;
-
-
-		// Member Functions
-
-				//- Return the counts per bin
-		inline const labelList& counts() const
+		class histogram
+			:
+			public fvMeshFunctionObject
 		{
-			return counts_;
-		}
+			// Private Data
 
-		//- Return the number of elements <= bins[0]
-		//  (so inclusive lowest bin value)
-		inline label nLow() const
-		{
-			return nLow_;
-		}
+			writeFile file_;
 
-		//- Return the number of elements > bins[bins.size()-1]
-		//  (so exclusive highest bin value)
-		inline label nHigh() const
-		{
-			return nHigh_;
-		}
+			//- Name of field
+			word fieldName_;
 
+			//- Maximum value
+			scalar max_;
 
-		// Member Operators
+			//- Minimum value
+			scalar min_;
 
-			//- Disallow default bitwise assignment
-		void operator=(const Histogram&) = delete;
-	};
+			//- Number of bins
+			label nBins_;
+
+			//- Output formatter to write
+			autoPtr<writer<scalar>> formatterPtr_;
 
 
-	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+			// Private Member Functions
 
+			FoamFunctionObjects_EXPORT void writeGraph
+			(
+				const coordSet& coords,
+				const word& valueName,
+				const scalarField& values
+			) const;
+
+
+		public:
+
+			//- Runtime type information
+			//TypeName("histogram");
+			static const char* typeName_() { return "histogram"; }
+			static FoamFunctionObjects_EXPORT const ::tnbLib::word typeName;
+			static FoamFunctionObjects_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
+
+
+			// Constructors
+
+				//- Construct from Time and dictionary
+			FoamFunctionObjects_EXPORT histogram
+			(
+				const word& name,
+				const Time& runTime,
+				const dictionary& dict
+			);
+
+			//- Disallow default bitwise copy construction
+			FoamFunctionObjects_EXPORT histogram(const histogram&) = delete;
+
+
+			// Destructor
+			FoamFunctionObjects_EXPORT virtual ~histogram();
+
+
+			// Member Functions
+
+				//- Read the histogram data
+			FoamFunctionObjects_EXPORT virtual bool read(const dictionary&);
+
+			//- Execute, currently does nothing
+			FoamFunctionObjects_EXPORT virtual bool execute();
+
+			//- Calculate the histogram and write.
+			//  postProcess overrides the usual writeControl behaviour and
+			//  forces writing always (used in post-processing mode)
+			FoamFunctionObjects_EXPORT virtual bool write();
+
+
+			// Member Operators
+
+				//- Disallow default bitwise assignment
+			FoamFunctionObjects_EXPORT void operator=(const histogram&) = delete;
+		};
+
+
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+	} // End namespace functionObjects
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-//    #include "HistogramI.H"
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#include <HistogramI.hxx>
-
-#ifdef NoRepository
-#include <Histogram.cxx>
-#endif
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-#endif // !_Histogram_Header
+#endif // !_histogram_Header
