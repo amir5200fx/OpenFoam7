@@ -141,9 +141,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="dsmcInitialise.cxx" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\..\TnbBase\TnbBase.vcxproj">
       <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
     </ProjectReference>
@@ -156,6 +153,9 @@
     <ProjectReference Include="..\..\..\..\TnbLagrangian\TnbLagrangian.vcxproj">
       <Project>{27928553-74af-4229-b18c-4f7670767702}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dsmcInitialise.cxx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

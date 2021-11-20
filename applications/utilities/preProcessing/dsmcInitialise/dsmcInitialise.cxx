@@ -37,6 +37,8 @@ Description
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+using namespace tnbLib;
+
 int main(int argc, char *argv[])
 {
     #include <setRootCase.lxx>
