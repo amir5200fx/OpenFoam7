@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{5e5e7886-6bfa-42b5-8af6-61084cca7dba}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="createTimes.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="setTimeIndex.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MapConsistentVolFields.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="mapLagrangian.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="MapLagrangianFields.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="MapMeshes.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="MapVolFields.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="UnMapped.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="mapFields.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="mapLagrangian.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
