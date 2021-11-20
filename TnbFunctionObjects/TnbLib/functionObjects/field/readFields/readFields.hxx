@@ -170,11 +170,11 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <readFieldsI.hxx>
+
 #ifdef NoRepository
 //#include <readFieldsTemplates.cxx>
 #endif
-
-#include <readFieldsTemplates.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

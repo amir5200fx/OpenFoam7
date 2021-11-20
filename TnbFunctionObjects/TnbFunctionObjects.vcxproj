@@ -247,7 +247,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClInclude Include="TnbLib\functionObjects\field\randomise\randomise.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\randomise\randomiseTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\readFields\readFields.hxx" />
-    <ClInclude Include="TnbLib\functionObjects\field\readFields\readFieldsTemplates.hxx" />
+    <ClInclude Include="TnbLib\functionObjects\field\readFields\readFieldsI.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\regionSizeDistribution\regionSizeDistribution.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\regionSizeDistribution\regionSizeDistributionTemplates.hxx" />
     <ClInclude Include="TnbLib\functionObjects\field\scale\scale.hxx" />
@@ -351,7 +351,6 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(ProjectDir)includ
     <ClCompile Include="TnbLib\functionObjects\field\randomise\randomise.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\randomise\randomiseTemplates.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\readFields\readFields.cxx" />
-    <ClCompile Include="TnbLib\functionObjects\field\readFields\readFieldsTemplates.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\regionSizeDistribution\regionSizeDistribution.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\regionSizeDistribution\regionSizeDistributionTemplates.cxx" />
     <ClCompile Include="TnbLib\functionObjects\field\scale\scale.cxx" />

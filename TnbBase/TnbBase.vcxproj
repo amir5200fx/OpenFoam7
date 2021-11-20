@@ -337,7 +337,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClInclude Include="TnbLib\Base\fields\pointPatchFields\derived\uniformFixedValue\uniformFixedValuePointPatchFieldI.hxx" />
     <ClInclude Include="TnbLib\Base\fields\pointPatchFields\pointPatchField\pointPatchFieldI.hxx" />
     <ClInclude Include="TnbLib\Base\fields\pointPatchFields\pointPatchField\pointPatchFieldNew_Imp.hxx" />
-    <ClInclude Include="TnbLib\Base\fields\ReadFields\ReadFieldsI.hxx" />
+    <ClInclude Include="TnbLib\Base\fields\ReadFields\ReadFieldsTemplatesI.hxx" />
     <ClInclude Include="TnbLib\Base\fields\UniformDimensionedFields\UniformDimensionedFieldI.hxx" />
     <ClInclude Include="TnbLib\Base\global\fileOperations\masterUncollatedFileOperation\masterUncollatedFileOperationI.hxx" />
     <ClInclude Include="TnbLib\Base\interpolations\interpolatePointToCell\interpolatePointToCellI.hxx" />
@@ -745,7 +745,7 @@ for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)inclu
     <ClInclude Include="TnbLib\Base\fields\pointPatchFields\pointPatchField\pointPatchFieldMapperPatchRef.hxx" />
     <ClInclude Include="TnbLib\Base\fields\pointPatchFields\pointPatchField\pointPatchFields.hxx" />
     <ClInclude Include="TnbLib\Base\fields\pointPatchFields\pointPatchField\pointPatchFieldsFwd.hxx" />
-    <ClInclude Include="TnbLib\Base\fields\ReadFields\ReadFields.hxx" />
+    <ClInclude Include="TnbLib\Base\fields\ReadFields\ReadFieldsTemplates.hxx" />
     <None Include="TnbLib\Base\fields\ReadFields\readPointFields.lxx">
       <FileType>Document</FileType>
     </None>

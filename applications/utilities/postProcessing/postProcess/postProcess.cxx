@@ -40,6 +40,7 @@ Description
 #include <surfaceFields.hxx>
 #include <pointFields.hxx>
 #include <uniformDimensionedFields.hxx>
+#include <ReadFieldsTemplates.hxx>
 #include <IOobjectList.hxx>
 
 

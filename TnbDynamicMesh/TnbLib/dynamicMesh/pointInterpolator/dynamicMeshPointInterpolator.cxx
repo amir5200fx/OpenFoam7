@@ -3,7 +3,7 @@
 #include <pointFields.hxx>
 #include <interpolationWeights.hxx>
 #include <uniformInterpolate.hxx>
-#include <ReadFields.hxx>
+#include <ReadFieldsTemplates.hxx>
 
 #include <Time.hxx>  // added by amir
 

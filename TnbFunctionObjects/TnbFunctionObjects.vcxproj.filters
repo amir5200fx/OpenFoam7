@@ -507,9 +507,6 @@
     <ClInclude Include="TnbLib\functionObjects\field\randomise\randomiseTemplates.hxx">
       <Filter>TnbLib\functionObjects\field\randomise</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\functionObjects\field\readFields\readFieldsTemplates.hxx">
-      <Filter>TnbLib\functionObjects\field\readFields</Filter>
-    </ClInclude>
     <ClInclude Include="TnbLib\functionObjects\field\regionSizeDistribution\regionSizeDistributionTemplates.hxx">
       <Filter>TnbLib\functionObjects\field\regionSizeDistribution</Filter>
     </ClInclude>
@@ -527,6 +524,9 @@
     </ClInclude>
     <ClInclude Include="TnbLib\functionObjects\utilities\residuals\residualsTemplates.hxx">
       <Filter>TnbLib\functionObjects\utilities\residuals</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\field\readFields\readFieldsI.hxx">
+      <Filter>TnbLib\functionObjects\field\readFields</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -642,9 +642,6 @@
       <Filter>TnbLib\functionObjects\field\randomise</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\functionObjects\field\readFields\readFields.cxx">
-      <Filter>TnbLib\functionObjects\field\readFields</Filter>
-    </ClCompile>
-    <ClCompile Include="TnbLib\functionObjects\field\readFields\readFieldsTemplates.cxx">
       <Filter>TnbLib\functionObjects\field\readFields</Filter>
     </ClCompile>
     <ClCompile Include="TnbLib\functionObjects\field\yPlus\yPlus.cxx">
