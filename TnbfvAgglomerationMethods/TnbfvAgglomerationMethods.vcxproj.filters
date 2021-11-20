@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{25425688-35e9-4df7-8242-4b96773571d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvAgglomerationMethods">
+      <UniqueIdentifier>{0a9d2a0f-b6f1-4da9-989a-c1acda4f28a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvAgglomerationMethods\MGridGenGamgAgglomeration">
+      <UniqueIdentifier>{68557d76-1d00-4b28-b3af-8f6f8cb10438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvAgglomerationMethods\pairPatchAgglomeration">
+      <UniqueIdentifier>{ca2c9db0-afde-422d-8d0e-9754e9fcdeb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\fvAgglomerationMethods\module">
+      <UniqueIdentifier>{e20b04af-f566-4eff-b597-74aa2cff2fcd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\fvAgglomerationMethods\module\FvAgglomerationMethods_Module.hxx">
+      <Filter>TnbLib\fvAgglomerationMethods\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvAgglomerationMethods\pairPatchAgglomeration\pairPatchAgglomeration.hxx">
+      <Filter>TnbLib\fvAgglomerationMethods\pairPatchAgglomeration</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\fvAgglomerationMethods\pairPatchAgglomeration\pairPatchAgglomerationI.hxx">
+      <Filter>TnbLib\fvAgglomerationMethods\pairPatchAgglomeration</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\fvAgglomerationMethods\pairPatchAgglomeration\pairPatchAgglomeration.cxx">
+      <Filter>TnbLib\fvAgglomerationMethods\pairPatchAgglomeration</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
