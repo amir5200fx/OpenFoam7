@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{dd590fce-77b9-4282-a1f3-097adb60e572}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="collapseBase.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="collapseEdge.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="collapseBase.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="collapseEdge.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="surfaceClean.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
