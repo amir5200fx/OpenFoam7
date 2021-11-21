@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{9aa5c3f9-4a13-4447-917d-b4fc8935479f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\bunnylod">
+      <UniqueIdentifier>{90ed5c32-898d-47f7-b328-2f931041910a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="font.h">
+      <Filter>src\bunnylod</Filter>
+    </ClInclude>
+    <ClInclude Include="list.h">
+      <Filter>src\bunnylod</Filter>
+    </ClInclude>
+    <ClInclude Include="progmesh.hxx">
+      <Filter>src\bunnylod</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.hxx">
+      <Filter>src\bunnylod</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bunnylod.dsp">
+      <Filter>src\bunnylod</Filter>
+    </None>
+    <None Include="bunnylod.dsw">
+      <Filter>src\bunnylod</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="progmesh.cxx">
+      <Filter>src\bunnylod</Filter>
+    </ClCompile>
+    <ClCompile Include="surfaceCoarsen.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="bunnygut.cxx">
+      <Filter>src\bunnylod</Filter>
+    </ClCompile>
+    <ClCompile Include="vector.cxx">
+      <Filter>src\bunnylod</Filter>
+    </ClCompile>
+    <ClCompile Include="winmain.cxx">
+      <Filter>src\bunnylod</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
