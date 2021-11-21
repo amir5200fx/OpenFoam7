@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{33cce871-8d94-4b0f-9eea-f58c2958c03f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\tabulatedWallFunction">
+      <UniqueIdentifier>{d350c0d3-9cd2-4f4a-a9c2-afde7e1f1746}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\tabulatedWallFunction\general">
+      <UniqueIdentifier>{5333a831-ee94-4d9c-ae25-48c9fa622881}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\tabulatedWallFunction\SpaldingsLaw">
+      <UniqueIdentifier>{2de89412-4c2e-4607-8016-9dc0f10fe75e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\tabulatedWallFunction\tabulatedWallFunction">
+      <UniqueIdentifier>{32c2d86a-6dac-40d6-aaaf-c85728af3d3c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="wallFunctionTable.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="tabulatedWallFunction\general\general.cxx">
+      <Filter>src\tabulatedWallFunction\general</Filter>
+    </ClCompile>
+    <ClCompile Include="tabulatedWallFunction\tabulatedWallFunction\tabulatedWallFunction.cxx">
+      <Filter>src\tabulatedWallFunction\tabulatedWallFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="tabulatedWallFunction\tabulatedWallFunction\tabulatedWallFunctionNew.cxx">
+      <Filter>src\tabulatedWallFunction\tabulatedWallFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="tabulatedWallFunction\SpaldingsLaw\SpaldingsLaw.cxx">
+      <Filter>src\tabulatedWallFunction\SpaldingsLaw</Filter>
+    </ClCompile>
+    <ClCompile Include="tabulatedWallFunction\general\generalNames.cxx">
+      <Filter>src\tabulatedWallFunction\general</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tabulatedWallFunction\general\general.hxx">
+      <Filter>src\tabulatedWallFunction\general</Filter>
+    </ClInclude>
+    <ClInclude Include="tabulatedWallFunction\tabulatedWallFunction\tabulatedWallFunction.hxx">
+      <Filter>src\tabulatedWallFunction\tabulatedWallFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="tabulatedWallFunction\tabulatedWallFunction\tabulatedWallFunctionI.hxx">
+      <Filter>src\tabulatedWallFunction\tabulatedWallFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="tabulatedWallFunction\SpaldingsLaw\SpaldingsLaw.hxx">
+      <Filter>src\tabulatedWallFunction\SpaldingsLaw</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
