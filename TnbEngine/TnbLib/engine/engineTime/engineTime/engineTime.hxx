@@ -164,7 +164,7 @@ namespace tnbLib
 
 		// Selector
 
-		static autoPtr<engineTime> New
+		static FoamEngine_EXPORT autoPtr<engineTime> New
 		(
 			const word& name,
 			const fileName& rootPath,

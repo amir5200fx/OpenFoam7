@@ -148,7 +148,7 @@ namespace tnbLib
         // Selectors
 
             //- Select null constructed
-        static autoPtr<engineMesh> New(const IOobject& io);
+        static FoamEngine_EXPORT autoPtr<engineMesh> New(const IOobject& io);
 
 
         //- Destructor
