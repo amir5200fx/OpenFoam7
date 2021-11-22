@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{481b44ec-bd90-4f85-b7d7-009768cc488d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CourantNo.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createPhi.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="readGravitationalAcceleration.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="shallowWaterFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
