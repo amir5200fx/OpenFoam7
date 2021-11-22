@@ -16,6 +16,8 @@
 #include <Base_Module.hxx>
 #include <FiniteVolume_Module.hxx>
 #include <FvMesh_Module.hxx>
+#include <DynamicMesh_Module.hxx>
+#include <Lagrangian_Module.hxx>
 #endif// FoamConversion_EXPORT_DEFINE
 
 #endif // !_Conversion_Module_Header

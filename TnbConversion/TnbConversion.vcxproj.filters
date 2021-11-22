@@ -64,6 +64,12 @@
     <Filter Include="TnbLib\conversion\module">
       <UniqueIdentifier>{31ca074e-944c-4bd7-939e-de49f86f3f4d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TnbLib\foamToVTK">
+      <UniqueIdentifier>{93ac02a5-32e1-43b8-8ff7-23afb138fe9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\foamToVTK\writeVTK">
+      <UniqueIdentifier>{b851d79c-b174-4716-8ee7-185fdf54c727}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\conversion\ensight\file\ensightFile.cxx">
