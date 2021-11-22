@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _readFields_Header
-#define _readFields_Header
+#ifndef _writeSurfFields_Header
+#define _writeSurfFields_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,45 +26,37 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 InClass
-    tnbLib::readFields
+    tnbLib::writeSurfFields
 
 Description
+    Write a patch with its data.
 
 SourceFiles
-    readFields.C
+    writeSurfFields.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <vtkMesh.hxx>
-#include <fvMesh.hxx>
-#include <PtrList.hxx>
-#include <IOobjectList.hxx>
-#include <HashSet.hxx>
+#include <surfaceMesh.hxx>
+#include <surfaceFieldsFwd.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
 
-	// Read the fields and optionally subset and put on the pointer list
-	template<class GeoField>
-	void readFields
+	// Write surface vector fields
+	void writeSurfFields
 	(
+		const bool binary,
 		const vtkMesh& vMesh,
-		const typename GeoField::Mesh& mesh,
-		const IOobjectList& objects,
-		const HashSet<word>& selectedFields,
-		PtrList<const GeoField>& fields
+		const fileName& fileName,
+		const UPtrList<const surfaceVectorField>& surfVectorFields
 	);
 
 } // End namespace tnbLib
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-//#ifdef NoRepository
-//#include "readFields.C"
-//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_readFields_Header
+#endif // !_writeSurfFields_Header

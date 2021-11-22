@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _readFields_Header
-#define _readFields_Header
+#ifndef _writeFaceSet_Header
+#define _writeFaceSet_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -26,45 +26,37 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 InClass
-    tnbLib::readFields
+    tnbLib::writeFaceSet
 
 Description
+    Write faceSet to vtk polydata file. Only one data which is original
+    faceID.
 
 SourceFiles
-    readFields.C
+    writeFaceSet.C
 
 \*---------------------------------------------------------------------------*/
 
 #include <vtkMesh.hxx>
-#include <fvMesh.hxx>
-#include <PtrList.hxx>
-#include <IOobjectList.hxx>
-#include <HashSet.hxx>
+#include <faceSet.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
 
-	// Read the fields and optionally subset and put on the pointer list
-	template<class GeoField>
-	void readFields
+	// Write lagrangian fields.
+	void writeFaceSet
 	(
+		const bool binary,
 		const vtkMesh& vMesh,
-		const typename GeoField::Mesh& mesh,
-		const IOobjectList& objects,
-		const HashSet<word>& selectedFields,
-		PtrList<const GeoField>& fields
+		const faceSet& set,
+		const fileName& fileName
 	);
 
 } // End namespace tnbLib
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-//#ifdef NoRepository
-//#include "readFields.C"
-//#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_readFields_Header
+#endif // !_writeFaceSet_Header
