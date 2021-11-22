@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2f085b8e-1ae8-4856-b563-e181fd478ff1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="createFieldRefs.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="rhoReactingFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
