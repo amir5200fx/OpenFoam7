@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4d1ba54e-f9e7-41a7-92d7-7a811fcec017}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="createBaseFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createControls.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFieldRefs.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createSingleCellMesh.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="hEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="output.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="pEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="readControls.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="readInitialConditions.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="setDeltaT.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="solveChemistry.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="YEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="thermoTypeFunctions.hxx">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="chemFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
