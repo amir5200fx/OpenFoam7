@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{c170b577-2d1f-4fba-8084-8446040f84fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\laminarFlameSpeed">
+      <UniqueIdentifier>{407dd0af-eaf5-4290-9fb9-09b1956df971}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\laminarFlameSpeed\SCOPE">
+      <UniqueIdentifier>{f4cee906-cab9-444b-9975-7f47487091af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PDRModels">
+      <UniqueIdentifier>{088d88a6-c31d-4914-881c-7519f8a26586}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PDRModels\dragModels">
+      <UniqueIdentifier>{8107f95a-1bd0-4c01-9422-4c316173cdf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PDRModels\turbulence">
+      <UniqueIdentifier>{5ac9bfd4-86f4-4455-b0aa-746a2652c817}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PDRModels\XiEqModels">
+      <UniqueIdentifier>{6fcdd1f3-8ff7-4ea7-8b61-8c45a8f92f23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PDRModels\XiGModels">
+      <UniqueIdentifier>{50c100df-722d-4b74-b34b-815954a78ce1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PDRModels\dragModels\basic">
+      <UniqueIdentifier>{161be9ee-f117-44a7-8577-cb5b890a926a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PDRModels\dragModels\PDRDragModel">
+      <UniqueIdentifier>{6c6dea0a-e290-466f-bfe6-b324d6efdf3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PDRModels\turbulence\PDRkEpsilon">
+      <UniqueIdentifier>{0b25faa8-2871-48a2-89dd-b6bf37ca1565}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PDRModels\XiEqModels\basicXiSubXiEq">
+      <UniqueIdentifier>{e68565d9-2d5b-438a-b7c3-a1e87699fa42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PDRModels\XiGModels\basicXiSubG">
+      <UniqueIdentifier>{024a615d-d93c-4ae0-926e-ed80af064920}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels">
+      <UniqueIdentifier>{7b6feedd-a22d-4b61-87fc-f9597d664b99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\algebraic">
+      <UniqueIdentifier>{7758ddce-6b0b-4fc4-ba06-724ff390340f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\fixed">
+      <UniqueIdentifier>{505287de-7626-4dc5-90c3-4c381997f674}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\XiModel">
+      <UniqueIdentifier>{1f7d4e2e-6191-45e8-924a-93bcce7ddd16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\XiGModels">
+      <UniqueIdentifier>{211048ef-b964-4ed0-95c3-9c16b6cbf0fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\XiEqModels">
+      <UniqueIdentifier>{a162bc1e-9fbd-41a8-ac7c-128fa35d9b92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\transport">
+      <UniqueIdentifier>{542f2336-ed96-4870-89be-4e79854f3ea5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\XiEqModels\Gulder">
+      <UniqueIdentifier>{3bc3d5e3-ead3-47a6-95fb-46e831823b6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\XiEqModels\instabilityXiEq">
+      <UniqueIdentifier>{ef07784a-77b8-44c9-9ca3-2811e9a1639d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\XiEqModels\XiEqModel">
+      <UniqueIdentifier>{71293149-f958-4c15-a9bf-66103c8dad4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\XiEqModels\SCOPEXiEq">
+      <UniqueIdentifier>{e2791031-fe26-4c8d-bd51-35b24eb6eacc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\XiEqModels\SCOPEBlendXiEq">
+      <UniqueIdentifier>{88781167-6c61-4e49-b991-7a4b65e47e0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\XiGModels\instabilityG">
+      <UniqueIdentifier>{b609ce08-af20-46ef-a013-ddf1f4f01cd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\XiGModels\KTS">
+      <UniqueIdentifier>{fa8a8060-6bb8-4d65-a1bd-8350da84036e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\XiModels\XiGModels\XiGModel">
+      <UniqueIdentifier>{de3ce739-9e64-446b-ad5d-37e80d24fa3b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="laminarFlameSpeed\SCOPE\SCOPELaminarFlameSpeed.cxx">
+      <Filter>src\laminarFlameSpeed\SCOPE</Filter>
+    </ClCompile>
+    <ClCompile Include="PDRModels\dragModels\basic\basic.cxx">
+      <Filter>src\PDRModels\dragModels\basic</Filter>
+    </ClCompile>
+    <ClCompile Include="PDRModels\dragModels\PDRDragModel\PDRDragModel.cxx">
+      <Filter>src\PDRModels\dragModels\PDRDragModel</Filter>
+    </ClCompile>
+    <ClCompile Include="PDRModels\dragModels\PDRDragModel\PDRDragModelNew.cxx">
+      <Filter>src\PDRModels\dragModels\PDRDragModel</Filter>
+    </ClCompile>
+    <ClCompile Include="PDRModels\turbulence\PDRkEpsilon\PDRkEpsilon.cxx">
+      <Filter>src\PDRModels\turbulence\PDRkEpsilon</Filter>
+    </ClCompile>
+    <ClCompile Include="PDRModels\XiEqModels\basicXiSubXiEq\basicXiSubXiEq.cxx">
+      <Filter>src\PDRModels\XiEqModels\basicXiSubXiEq</Filter>
+    </ClCompile>
+    <ClCompile Include="PDRModels\XiGModels\basicXiSubG\basicXiSubG.cxx">
+      <Filter>src\PDRModels\XiGModels\basicXiSubG</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\XiModel\XiModel.cxx">
+      <Filter>src\XiModels\XiModel</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\XiModel\XiModelNew.cxx">
+      <Filter>src\XiModels\XiModel</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\XiEqModels\XiEqModel\XiEqModel.cxx">
+      <Filter>src\XiModels\XiEqModels\XiEqModel</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\XiEqModels\XiEqModel\XiEqModelNew.cxx">
+      <Filter>src\XiModels\XiEqModels\XiEqModel</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\XiGModels\XiGModel\XiGModel.cxx">
+      <Filter>src\XiModels\XiGModels\XiGModel</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\XiGModels\XiGModel\XiGModelNew.cxx">
+      <Filter>src\XiModels\XiGModels\XiGModel</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\algebraic\algebraic.cxx">
+      <Filter>src\XiModels\algebraic</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\fixed\fixed.cxx">
+      <Filter>src\XiModels\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\transport\transport.cxx">
+      <Filter>src\XiModels\transport</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\XiEqModels\Gulder\Gulder.cxx">
+      <Filter>src\XiModels\XiEqModels\Gulder</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\XiEqModels\instabilityXiEq\instabilityXiEq.cxx">
+      <Filter>src\XiModels\XiEqModels\instabilityXiEq</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\XiEqModels\SCOPEBlendXiEq\SCOPEBlendXiEq.cxx">
+      <Filter>src\XiModels\XiEqModels\SCOPEBlendXiEq</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\XiEqModels\SCOPEXiEq\SCOPEXiEq.cxx">
+      <Filter>src\XiModels\XiEqModels\SCOPEXiEq</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\XiGModels\instabilityG\instabilityG.cxx">
+      <Filter>src\XiModels\XiGModels\instabilityG</Filter>
+    </ClCompile>
+    <ClCompile Include="XiModels\XiGModels\KTS\KTS.cxx">
+      <Filter>src\XiModels\XiGModels\KTS</Filter>
+    </ClCompile>
+    <ClCompile Include="PDRFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="PDRFoamAutoRefine.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="laminarFlameSpeed\SCOPE\SCOPELaminarFlameSpeed.hxx">
+      <Filter>src\laminarFlameSpeed\SCOPE</Filter>
+    </ClInclude>
+    <ClInclude Include="PDRModels\dragModels\basic\basic.hxx">
+      <Filter>src\PDRModels\dragModels\basic</Filter>
+    </ClInclude>
+    <ClInclude Include="PDRModels\dragModels\PDRDragModel\PDRDragModel.hxx">
+      <Filter>src\PDRModels\dragModels\PDRDragModel</Filter>
+    </ClInclude>
+    <ClInclude Include="PDRModels\turbulence\PDRkEpsilon\PDRkEpsilon.hxx">
+      <Filter>src\PDRModels\turbulence\PDRkEpsilon</Filter>
+    </ClInclude>
+    <ClInclude Include="PDRModels\XiEqModels\basicXiSubXiEq\basicXiSubXiEq.hxx">
+      <Filter>src\PDRModels\XiEqModels\basicXiSubXiEq</Filter>
+    </ClInclude>
+    <ClInclude Include="PDRModels\XiGModels\basicXiSubG\basicXiSubG.hxx">
+      <Filter>src\PDRModels\XiGModels\basicXiSubG</Filter>
+    </ClInclude>
+    <ClInclude Include="XiModels\XiModel\XiModel.hxx">
+      <Filter>src\XiModels\XiModel</Filter>
+    </ClInclude>
+    <ClInclude Include="XiModels\XiEqModels\XiEqModel\XiEqModel.hxx">
+      <Filter>src\XiModels\XiEqModels\XiEqModel</Filter>
+    </ClInclude>
+    <ClInclude Include="XiModels\XiGModels\XiGModel\XiGModel.hxx">
+      <Filter>src\XiModels\XiGModels\XiGModel</Filter>
+    </ClInclude>
+    <ClInclude Include="XiModels\algebraic\algebraic.hxx">
+      <Filter>src\XiModels\algebraic</Filter>
+    </ClInclude>
+    <ClInclude Include="XiModels\fixed\fixed.hxx">
+      <Filter>src\XiModels\fixed</Filter>
+    </ClInclude>
+    <ClInclude Include="XiModels\transport\transport.hxx">
+      <Filter>src\XiModels\transport</Filter>
+    </ClInclude>
+    <ClInclude Include="XiModels\XiEqModels\Gulder\Gulder.hxx">
+      <Filter>src\XiModels\XiEqModels\Gulder</Filter>
+    </ClInclude>
+    <ClInclude Include="XiModels\XiEqModels\instabilityXiEq\instabilityXiEq.hxx">
+      <Filter>src\XiModels\XiEqModels\instabilityXiEq</Filter>
+    </ClInclude>
+    <ClInclude Include="XiModels\XiEqModels\SCOPEBlendXiEq\SCOPEBlendXiEq.hxx">
+      <Filter>src\XiModels\XiEqModels\SCOPEBlendXiEq</Filter>
+    </ClInclude>
+    <ClInclude Include="XiModels\XiEqModels\SCOPEXiEq\SCOPEXiEq.hxx">
+      <Filter>src\XiModels\XiEqModels\SCOPEXiEq</Filter>
+    </ClInclude>
+    <ClInclude Include="XiModels\XiGModels\instabilityG\instabilityG.hxx">
+      <Filter>src\XiModels\XiGModels\instabilityG</Filter>
+    </ClInclude>
+    <ClInclude Include="XiModels\XiGModels\KTS\KTS.hxx">
+      <Filter>src\XiModels\XiGModels\KTS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFieldRefs.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="EaEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="EauEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="ftEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="pEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="readCombustionProperties.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="rhoEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="setDeltaT.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="StCourantNo.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="UEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+</Project>
