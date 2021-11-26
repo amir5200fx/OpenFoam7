@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{cae4d164-bdff-4c03-ae60-4ecc7107b0d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\VoFphaseCompressibleTurbulenceModels">
+      <UniqueIdentifier>{14d95c7f-e6ca-4e38-b876-de14db067669}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\twoPhaseMixtureThermo">
+      <UniqueIdentifier>{23227085-b5a3-4cf8-8d92-0340a301905f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\surfaceTensionModels">
+      <UniqueIdentifier>{ca7a3692-b1db-461a-af60-1a43c5d8236e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\module">
+      <UniqueIdentifier>{8f52ef60-2a51-48db-991f-d20572bbc628}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\surfaceTensionModels\liquidProperties">
+      <UniqueIdentifier>{03c2b9d8-8678-4e33-bbd6-6ae2ff6e1d94}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\module\compressibleInterFoamLibs_Module.hxx">
+      <Filter>TnbLib\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\surfaceTensionModels\liquidProperties\liquidPropertiesSurfaceTension.hxx">
+      <Filter>TnbLib\surfaceTensionModels\liquidProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\twoPhaseMixtureThermo\twoPhaseMixtureThermo.hxx">
+      <Filter>TnbLib\twoPhaseMixtureThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\VoFphaseCompressibleTurbulenceModels\VoFphaseCompressibleTurbulenceModelFwd.hxx">
+      <Filter>TnbLib\VoFphaseCompressibleTurbulenceModels</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\VoFphaseCompressibleTurbulenceModels\compressibleInterPhaseTransportModel.hxx">
+      <Filter>TnbLib\VoFphaseCompressibleTurbulenceModels</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\VoFphaseCompressibleTurbulenceModels\VoFphaseCompressibleTurbulenceModel.hxx">
+      <Filter>TnbLib\VoFphaseCompressibleTurbulenceModels</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TnbLib\surfaceTensionModels\liquidProperties\liquidPropertiesSurfaceTension.cxx">
+      <Filter>TnbLib\surfaceTensionModels\liquidProperties</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\twoPhaseMixtureThermo\twoPhaseMixtureThermo.cxx">
+      <Filter>TnbLib\twoPhaseMixtureThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\VoFphaseCompressibleTurbulenceModels\compressibleInterPhaseTransportModel.cxx">
+      <Filter>TnbLib\VoFphaseCompressibleTurbulenceModels</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\VoFphaseCompressibleTurbulenceModels\VoFphaseCompressibleTurbulenceModels.cxx">
+      <Filter>TnbLib\VoFphaseCompressibleTurbulenceModels</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

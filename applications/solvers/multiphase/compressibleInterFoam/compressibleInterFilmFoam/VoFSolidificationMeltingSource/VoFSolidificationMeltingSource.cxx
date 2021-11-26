@@ -27,7 +27,7 @@ License
 
 #include "VoFSolidificationMeltingSource.hxx"
 
-#include "../../compressibleInterFoam/twoPhaseMixtureThermo/twoPhaseMixtureThermo.hxx"
+#include <twoPhaseMixtureThermo.hxx>
 #include <zeroGradientFvPatchFields.hxx>
 #include <addToRunTimeSelectionTable.hxx>
 #include <fvOption.hxx>  //- Added by Amir

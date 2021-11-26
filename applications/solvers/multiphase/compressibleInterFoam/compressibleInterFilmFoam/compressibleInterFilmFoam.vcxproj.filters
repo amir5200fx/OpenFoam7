@@ -32,9 +32,6 @@
     <ClCompile Include="VoFSolidificationMeltingSource\VoFSolidificationMeltingSource.cxx">
       <Filter>src\VoFSolidificationMeltingSource</Filter>
     </ClCompile>
-    <ClCompile Include="VoFSolidificationMeltingSource\VoFSolidificationMeltingSourceTemplates.cxx">
-      <Filter>src\VoFSolidificationMeltingSource</Filter>
-    </ClCompile>
     <ClCompile Include="VoFSolidificationMeltingSource\VoFSolidificationMeltingSourceIO.cxx">
       <Filter>src\VoFSolidificationMeltingSource</Filter>
     </ClCompile>
@@ -45,6 +42,9 @@
     </ClInclude>
     <ClInclude Include="VoFPatchTransfer\VoFPatchTransfer.hxx">
       <Filter>src\VoFPatchTransfer</Filter>
+    </ClInclude>
+    <ClInclude Include="VoFSolidificationMeltingSource\VoFSolidificationMeltingSourceI.hxx">
+      <Filter>src\VoFSolidificationMeltingSource</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

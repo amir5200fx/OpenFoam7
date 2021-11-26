@@ -150,11 +150,11 @@
     <ClCompile Include="VoFPatchTransfer\VoFPatchTransfer.cxx" />
     <ClCompile Include="VoFSolidificationMeltingSource\VoFSolidificationMeltingSource.cxx" />
     <ClCompile Include="VoFSolidificationMeltingSource\VoFSolidificationMeltingSourceIO.cxx" />
-    <ClCompile Include="VoFSolidificationMeltingSource\VoFSolidificationMeltingSourceTemplates.cxx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VoFPatchTransfer\VoFPatchTransfer.hxx" />
     <ClInclude Include="VoFSolidificationMeltingSource\VoFSolidificationMeltingSource.hxx" />
+    <ClInclude Include="VoFSolidificationMeltingSource\VoFSolidificationMeltingSourceI.hxx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\TnbBase\TnbBase.vcxproj">
@@ -183,6 +183,9 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\TnbTurbulence\TnbTurbulence.vcxproj">
       <Project>{c44b171d-747f-4fe0-b6e9-b8c6c88ddc40}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libs\TnbCompressibleInterFoamLibs.vcxproj">
+      <Project>{63fc6de6-0591-4d82-979a-01827a6dbe5e}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

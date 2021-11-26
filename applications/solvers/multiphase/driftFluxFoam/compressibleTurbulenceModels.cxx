@@ -23,6 +23,24 @@ License
 
 \*---------------------------------------------------------------------------*/
 
+#define FoamRASModel_EXPORT_DEFINE
+#define FoamlaminarModel_EXPORT_DEFINE
+#define FoamLESModel_EXPORT_DEFINE
+
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE
+#define FoamTurbulenceModel_EXPORT_DEFINE
+
+#define FoamStokes_EXPORT_DEFINE
+#define FoamMaxwell_EXPORT_DEFINE
+#define FoamGiesekus_EXPORT_DEFINE
+#define FoamkEpsilon_EXPORT_DEFINE
+#define FoamkOmegaSST_EXPORT_DEFINE
+#define FoamSmagorinsky_EXPORT_DEFINE
+#define FoamkEqn_EXPORT_DEFINE
+#define FoambuoyantKEpsilon_EXPORT_DEFINE
+#define FoamLRR_EXPORT_DEFINE
+#define FoamSSG_EXPORT_DEFINE
+
 #include "incompressibleTwoPhaseInteractingMixture.hxx"
 
 #include <CompressibleTurbulenceModelTemplate.hxx>

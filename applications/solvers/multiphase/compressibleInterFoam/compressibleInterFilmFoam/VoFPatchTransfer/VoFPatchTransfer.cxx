@@ -25,7 +25,7 @@ License
 
 #include "VoFPatchTransfer.hxx"
 
-#include "../../compressibleInterFoam/twoPhaseMixtureThermo/twoPhaseMixtureThermo.hxx"
+#include <twoPhaseMixtureThermo.hxx>
 #include <addToRunTimeSelectionTable.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

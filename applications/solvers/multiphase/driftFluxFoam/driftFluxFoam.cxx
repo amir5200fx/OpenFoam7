@@ -42,7 +42,7 @@ Description
 #include "relativeVelocityModel.hxx"
 
 #include <turbulenceModel.hxx>
-#include <CompressibleTurbulenceModel.hxx>
+#include <CompressibleTurbulenceModelTemplate.hxx>
 #include <pimpleControl.hxx>
 #include <fvOptions.hxx>
 #include <gaussLaplacianScheme.hxx>

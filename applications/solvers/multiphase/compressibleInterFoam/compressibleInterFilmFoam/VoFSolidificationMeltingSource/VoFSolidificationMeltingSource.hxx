@@ -217,6 +217,8 @@ namespace tnbLib
 //#include "VoFSolidificationMeltingSourceTemplates.C"
 //#endif
 
+#include <VoFSolidificationMeltingSourceI.hxx>
+
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #endif // !_VoFSolidificationMeltingSource_Header

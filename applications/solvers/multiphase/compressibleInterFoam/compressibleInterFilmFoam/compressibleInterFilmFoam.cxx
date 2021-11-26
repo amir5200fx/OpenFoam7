@@ -38,14 +38,15 @@ Description
 
 #include <includeAllModules.hxx>
 
+#include <PhaseCompressibleTurbulenceModel.hxx>
 #include <fvCFD.hxx>
 #include <CMULES.hxx>
 #include <EulerDdtScheme.hxx>
 #include <localEulerDdtScheme.hxx>
 #include <CrankNicolsonDdtScheme.hxx>
 #include <subCycle.hxx>
-#include "../compressibleInterFoam/twoPhaseMixtureThermo/twoPhaseMixtureThermo.hxx"
-#include "../compressibleInterFoam/VoFphaseCompressibleTurbulenceModels/compressibleInterPhaseTransportModel.hxx"
+#include <twoPhaseMixtureThermo.hxx>
+#include <compressibleInterPhaseTransportModel.hxx>
 #include <pimpleControl.hxx>
 #include <SLGThermo.hxx>
 #include <surfaceFilmModel.hxx>
