@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2113501f-30aa-4ee8-8129-878cd24547f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseChangeTwoPhaseMixtures">
+      <UniqueIdentifier>{ef43ac56-40c2-4142-bc94-84ade5ae4ac4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseChangeTwoPhaseMixtures\Kunz">
+      <UniqueIdentifier>{47c1315d-cfa8-4f10-ba60-32d830c89aad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseChangeTwoPhaseMixtures\Merkle">
+      <UniqueIdentifier>{e1b2a626-eb23-4bf0-87c6-62a6ba663cc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseChangeTwoPhaseMixtures\SchnerrSauer">
+      <UniqueIdentifier>{9b323955-13d6-47e3-9c43-712725191446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseChangeTwoPhaseMixtures\phaseChangeTwoPhaseMixture">
+      <UniqueIdentifier>{0820c862-d43e-4dec-8ee8-15a209d46cbc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="interPhaseChangeFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="phaseChangeTwoPhaseMixtures\phaseChangeTwoPhaseMixture\newPhaseChangeTwoPhaseMixture.cxx">
+      <Filter>src\phaseChangeTwoPhaseMixtures\phaseChangeTwoPhaseMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="phaseChangeTwoPhaseMixtures\phaseChangeTwoPhaseMixture\phaseChangeTwoPhaseMixture.cxx">
+      <Filter>src\phaseChangeTwoPhaseMixtures\phaseChangeTwoPhaseMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="phaseChangeTwoPhaseMixtures\Kunz\Kunz.cxx">
+      <Filter>src\phaseChangeTwoPhaseMixtures\Kunz</Filter>
+    </ClCompile>
+    <ClCompile Include="phaseChangeTwoPhaseMixtures\Merkle\Merkle.cxx">
+      <Filter>src\phaseChangeTwoPhaseMixtures\Merkle</Filter>
+    </ClCompile>
+    <ClCompile Include="phaseChangeTwoPhaseMixtures\SchnerrSauer\SchnerrSauer.cxx">
+      <Filter>src\phaseChangeTwoPhaseMixtures\SchnerrSauer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="alphaControls.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="alphaEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="alphaEqnSubCycle.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="correctPhi.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="initCorrectPhi.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="pEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="UEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="phaseChangeTwoPhaseMixtures\phaseChangeTwoPhaseMixture\phaseChangeTwoPhaseMixture.hxx">
+      <Filter>src\phaseChangeTwoPhaseMixtures\phaseChangeTwoPhaseMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseChangeTwoPhaseMixtures\Kunz\Kunz.hxx">
+      <Filter>src\phaseChangeTwoPhaseMixtures\Kunz</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseChangeTwoPhaseMixtures\Merkle\Merkle.hxx">
+      <Filter>src\phaseChangeTwoPhaseMixtures\Merkle</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseChangeTwoPhaseMixtures\SchnerrSauer\SchnerrSauer.hxx">
+      <Filter>src\phaseChangeTwoPhaseMixtures\SchnerrSauer</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
