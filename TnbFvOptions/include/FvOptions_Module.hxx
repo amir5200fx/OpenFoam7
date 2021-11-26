@@ -17,6 +17,12 @@
 #include <FiniteVolume_Module.hxx>
 #include <FvMesh_Module.hxx>
 #include <ThermophysicalModels_Module.hxx>
+#include <TransportModels_Module.hxx>
+#include <Turbulence_Module.hxx>
+#include <Conversion_Module.hxx>
+#include <Lagrangian_Module.hxx>
+#include <RadiationModels_Module.hxx>
+#include <Sampling_Module.hxx>
 #endif // FoamFvOptions_EXPORT_DEFINE
 
 #endif // !_FvOptions_Module_Header

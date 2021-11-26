@@ -44,7 +44,8 @@ Description
 #include <localEulerDdtScheme.hxx>
 #include <CrankNicolsonDdtScheme.hxx>
 #include <subCycle.hxx>
-#include "../../compressibleInterFoam/VoFphaseCompressibleTurbulenceModels/compressibleInterPhaseTransportModel.hxx"
+#include "../compressibleInterFoam/twoPhaseMixtureThermo/twoPhaseMixtureThermo.hxx"
+#include "../compressibleInterFoam/VoFphaseCompressibleTurbulenceModels/compressibleInterPhaseTransportModel.hxx"
 #include <pimpleControl.hxx>
 #include <SLGThermo.hxx>
 #include <surfaceFilmModel.hxx>
@@ -58,6 +59,8 @@ using namespace tnbLib;
 
 int main(int argc, char* argv[])
 {
+
+#define CREATE_FIELDS ../../compressibleInterFoam/createFields.lxx
 #include <postProcess.lxx>
 
 #include <setRootCaseLists.lxx>

@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)VoFPatchTransfer;$(ProjectDir)VoFSolidificationMeltingSource;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)applications\solvers\multiphase\compressibleInterFoam\compressibleInterFoam;$(SolutionDir)applications\solvers\multiphase\compressibleInterFoam\compressibleInterFoam\twoPhaseMixtureThermo;$(SolutionDir)applications\solvers\multiphase\VoF;$(ProjectDir);$(ProjectDir)VoFPatchTransfer;$(ProjectDir)VoFSolidificationMeltingSource;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,6 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)applications\solvers\multiphase\compressibleInterFoam\compressibleInterFoam;$(SolutionDir)applications\solvers\multiphase\compressibleInterFoam\compressibleInterFoam\twoPhaseMixtureThermo;$(SolutionDir)applications\solvers\multiphase\VoF;$(ProjectDir);$(ProjectDir)VoFPatchTransfer;$(ProjectDir)VoFSolidificationMeltingSource;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,6 +159,12 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\TnbBase\TnbBase.vcxproj">
       <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+      <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbFvOptions\TnbFvOptions.vcxproj">
+      <Project>{be9daf5d-75b5-4744-b7d4-fb8a1a2150ca}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

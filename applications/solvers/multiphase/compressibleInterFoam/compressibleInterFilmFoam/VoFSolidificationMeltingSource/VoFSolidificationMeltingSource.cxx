@@ -30,6 +30,10 @@ License
 #include "../../compressibleInterFoam/twoPhaseMixtureThermo/twoPhaseMixtureThermo.hxx"
 #include <zeroGradientFvPatchFields.hxx>
 #include <addToRunTimeSelectionTable.hxx>
+#include <fvOption.hxx>  //- Added by Amir
+#include <geometricOneField.hxx> //- Added by Amir
+#include <fvMatrices.hxx> //- Added by Amir
+
 
 // * * * * * * * * * * * * * Static Member Functions * * * * * * * * * * * * //
 
