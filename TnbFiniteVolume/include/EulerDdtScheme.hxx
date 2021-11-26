@@ -200,21 +200,21 @@ namespace tnbLib
 
 
 		template<>
-		tmp<surfaceScalarField> EulerDdtScheme<scalar>::fvcDdtUfCorr
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> EulerDdtScheme<scalar>::fvcDdtUfCorr
 		(
 			const GeometricField<scalar, fvPatchField, volMesh>& U,
 			const GeometricField<scalar, fvsPatchField, surfaceMesh>& Uf
 		);
 
 		template<>
-		tmp<surfaceScalarField> EulerDdtScheme<scalar>::fvcDdtPhiCorr
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> EulerDdtScheme<scalar>::fvcDdtPhiCorr
 		(
 			const volScalarField& U,
 			const surfaceScalarField& phi
 		);
 
 		template<>
-		tmp<surfaceScalarField> EulerDdtScheme<scalar>::fvcDdtUfCorr
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> EulerDdtScheme<scalar>::fvcDdtUfCorr
 		(
 			const volScalarField& rho,
 			const volScalarField& U,
@@ -222,7 +222,7 @@ namespace tnbLib
 		);
 
 		template<>
-		tmp<surfaceScalarField> EulerDdtScheme<scalar>::fvcDdtPhiCorr
+		FoamFiniteVolume_EXPORT tmp<surfaceScalarField> EulerDdtScheme<scalar>::fvcDdtPhiCorr
 		(
 			const volScalarField& rho,
 			const volScalarField& U,
