@@ -25,7 +25,6 @@
     <ClCompile Include="phaseChangeTwoPhaseMixtures\phaseChangeTwoPhaseMixture\newPhaseChangeTwoPhaseMixture.cxx" />
     <ClCompile Include="phaseChangeTwoPhaseMixtures\phaseChangeTwoPhaseMixture\phaseChangeTwoPhaseMixture.cxx" />
     <ClCompile Include="phaseChangeTwoPhaseMixtures\SchnerrSauer\SchnerrSauer.cxx" />
-    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="alphaControls.lxx" />

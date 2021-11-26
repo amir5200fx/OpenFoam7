@@ -36,6 +36,8 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <includeAllModules.hxx>
+
 #include <immiscibleIncompressibleTwoPhaseMixture.hxx>
 
 #include <typeInfo.hxx>

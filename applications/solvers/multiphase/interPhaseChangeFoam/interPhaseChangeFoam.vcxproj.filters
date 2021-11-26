@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="interPhaseChangeFoam.cxx">
       <Filter>src</Filter>
     </ClCompile>
