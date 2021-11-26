@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{43c3e357-032c-450b-b61b-e176f745c5b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\immiscibleIncompressibleThreePhaseMixture">
+      <UniqueIdentifier>{af330709-c229-47c9-98ac-06391a9f2031}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\incompressibleThreePhaseMixture">
+      <UniqueIdentifier>{78f70f8c-4bb3-49c9-b850-938bfe06549b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\threePhaseInterfaceProperties">
+      <UniqueIdentifier>{376fd208-34f2-43fa-aabc-8b68ecdefb98}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="alphaControls.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="alphaEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="alphaEqnSubCycle.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="interMixingFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="immiscibleIncompressibleThreePhaseMixture\immiscibleIncompressibleThreePhaseMixture.cxx">
+      <Filter>src\immiscibleIncompressibleThreePhaseMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="incompressibleThreePhaseMixture\incompressibleThreePhaseMixture.cxx">
+      <Filter>src\incompressibleThreePhaseMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="threePhaseInterfaceProperties\threePhaseInterfaceProperties.cxx">
+      <Filter>src\threePhaseInterfaceProperties</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="immiscibleIncompressibleThreePhaseMixture\immiscibleIncompressibleThreePhaseMixture.hxx">
+      <Filter>src\immiscibleIncompressibleThreePhaseMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="incompressibleThreePhaseMixture\incompressibleThreePhaseMixture.hxx">
+      <Filter>src\incompressibleThreePhaseMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="threePhaseInterfaceProperties\threePhaseInterfaceProperties.hxx">
+      <Filter>src\threePhaseInterfaceProperties</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
