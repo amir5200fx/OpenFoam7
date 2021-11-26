@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{bd727870-6f7f-4aeb-b9d9-8fc8621c86e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseMixtureThermo">
+      <UniqueIdentifier>{3baeeee5-4901-47ca-ae5a-b2dd4164fcd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseMixtureThermo\alphaContactAngle">
+      <UniqueIdentifier>{a70fb743-45ef-4bc3-9ef0-324740035313}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseMixtureThermo\phaseModel">
+      <UniqueIdentifier>{3b4e44fc-477f-441a-b33e-49bf59d22a16}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="pEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="TEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="UEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="compressibleMultiphaseInterFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseMixtureThermo\multiphaseMixtureThermo.cxx">
+      <Filter>src\multiphaseMixtureThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseMixtureThermo\phaseModel\phaseModel.cxx">
+      <Filter>src\multiphaseMixtureThermo\phaseModel</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseMixtureThermo\alphaContactAngle\alphaContactAngleFvPatchScalarField.cxx">
+      <Filter>src\multiphaseMixtureThermo\alphaContactAngle</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="multiphaseMixtureThermo\multiphaseMixtureThermo.hxx">
+      <Filter>src\multiphaseMixtureThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="multiphaseMixtureThermo\phaseModel\phaseModel.hxx">
+      <Filter>src\multiphaseMixtureThermo\phaseModel</Filter>
+    </ClInclude>
+    <ClInclude Include="multiphaseMixtureThermo\alphaContactAngle\alphaContactAngleFvPatchScalarField.hxx">
+      <Filter>src\multiphaseMixtureThermo\alphaContactAngle</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
