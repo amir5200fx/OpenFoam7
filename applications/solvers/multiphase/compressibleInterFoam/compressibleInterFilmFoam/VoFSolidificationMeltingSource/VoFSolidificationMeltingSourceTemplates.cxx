@@ -23,10 +23,11 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include <includeAllModules.hxx>
+#include <VoFSolidificationMeltingSource.hxx>
 
 #include <fvcDdt.hxx>
 #include "../../compressibleInterFoam/twoPhaseMixtureThermo/twoPhaseMixtureThermo.hxx"
+
 
 // * * * * * * * * * * * * * Private Member Functions  * * * * * * * * * * * //
 

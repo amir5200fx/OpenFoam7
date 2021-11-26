@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31912.275
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1321
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbBase", "TnbBase\TnbBase.vcxproj", "{0EAECC55-7EC6-4414-897B-0156A774C01C}"
 EndProject
@@ -1440,6 +1440,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "twoLiquidMixingFoam", "twoLiquidMixingFoam", "{D669B81E-30BE-4F95-AD77-C4C309167913}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VoF", "VoF", "{105FCA9C-1EB7-4F1D-ABF1-B28747C79BD6}"
+	ProjectSection(SolutionItems) = preProject
+		applications\solvers\multiphase\VoF\alphaCourantNo.lxx = applications\solvers\multiphase\VoF\alphaCourantNo.lxx
+		applications\solvers\multiphase\VoF\alphaEqn.lxx = applications\solvers\multiphase\VoF\alphaEqn.lxx
+		applications\solvers\multiphase\VoF\alphaEqnSubCycle.lxx = applications\solvers\multiphase\VoF\alphaEqnSubCycle.lxx
+		applications\solvers\multiphase\VoF\createAlphaFluxes.lxx = applications\solvers\multiphase\VoF\createAlphaFluxes.lxx
+		applications\solvers\multiphase\VoF\setDeltaT.lxx = applications\solvers\multiphase\VoF\setDeltaT.lxx
+		applications\solvers\multiphase\VoF\setRDeltaT.lxx = applications\solvers\multiphase\VoF\setRDeltaT.lxx
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "twoPhaseEulerFoam", "twoPhaseEulerFoam", "{780F0418-109A-4F3A-9B2E-6E57A52A5716}"
 EndProject
@@ -1500,8 +1508,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "compressibleInterFilmFoam", "applications\solvers\multiphase\compressibleInterFoam\compressibleInterFilmFoam\compressibleInterFilmFoam.vcxproj", "{007E9C77-153D-46DD-A7E6-0487B913B5F9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "compressibleInterFoam", "applications\solvers\multiphase\compressibleInterFoam\compressibleInterFoam\compressibleInterFoam.vcxproj", "{1C4172F0-46AC-420D-94C7-26E3C70B6BD8}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VoF", "applications\solvers\multiphase\VoF\VoF.vcxproj", "{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "compressibleMultiphaseInterFoam", "applications\solvers\multiphase\compressibleMultiphaseInterFoam\compressibleMultiphaseInterFoam.vcxproj", "{53696366-1BC3-4997-85DB-22218063FC50}"
 EndProject
@@ -5744,18 +5750,6 @@ Global
 		{1C4172F0-46AC-420D-94C7-26E3C70B6BD8}.Release|x64.Build.0 = Release|x64
 		{1C4172F0-46AC-420D-94C7-26E3C70B6BD8}.Release|x86.ActiveCfg = Release|Win32
 		{1C4172F0-46AC-420D-94C7-26E3C70B6BD8}.Release|x86.Build.0 = Release|Win32
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}.Debug|x64.ActiveCfg = Debug|x64
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}.Debug|x64.Build.0 = Debug|x64
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}.Debug|x86.ActiveCfg = Debug|Win32
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}.Debug|x86.Build.0 = Debug|Win32
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}.DebugNoCopyHxx|x86.ActiveCfg = Debug|Win32
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}.DebugNoCopyHxx|x86.Build.0 = Debug|Win32
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}.Release|x64.ActiveCfg = Release|x64
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}.Release|x64.Build.0 = Release|x64
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}.Release|x86.ActiveCfg = Release|Win32
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85}.Release|x86.Build.0 = Release|Win32
 		{53696366-1BC3-4997-85DB-22218063FC50}.Debug|x64.ActiveCfg = Debug|x64
 		{53696366-1BC3-4997-85DB-22218063FC50}.Debug|x64.Build.0 = Debug|x64
 		{53696366-1BC3-4997-85DB-22218063FC50}.Debug|x86.ActiveCfg = Debug|Win32
@@ -6531,7 +6525,6 @@ Global
 		{B74B93C0-1331-4DE7-889D-D3B935EB48D4} = {A1AF68FB-BDBE-4F9C-AE03-0C27A43975DA}
 		{007E9C77-153D-46DD-A7E6-0487B913B5F9} = {4A7D78D8-B190-4057-9D45-276AF0E5D0E6}
 		{1C4172F0-46AC-420D-94C7-26E3C70B6BD8} = {B74B93C0-1331-4DE7-889D-D3B935EB48D4}
-		{D2BB78B8-2D71-4AD9-B40F-3D53BF73FA85} = {105FCA9C-1EB7-4F1D-ABF1-B28747C79BD6}
 		{53696366-1BC3-4997-85DB-22218063FC50} = {91ADE472-73B1-454D-8699-42B41C7CB596}
 		{EE33D8AF-249E-4DEA-BB2B-EB936AF6575E} = {0C0F5D31-8E22-4C8D-872B-C0CA0E2777B8}
 		{11F46D2C-5744-41A2-9741-E434F6B9C844} = {DA99B393-E243-413D-884C-27738EF65DAE}
