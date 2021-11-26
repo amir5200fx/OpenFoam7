@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{3be7a6f2-7e6d-4215-bce5-cfe9dd0055df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\incompressibleTwoPhaseInteractingMixture">
+      <UniqueIdentifier>{47b5225c-556f-4c8d-9fec-8d6658ed26e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\mixtureViscosityModels">
+      <UniqueIdentifier>{fe288049-6546-4417-b1f5-bf5daf4ce2b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\relativeVelocityModels">
+      <UniqueIdentifier>{6ef47d26-ec7f-4af7-a575-8e2339ac2d79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\relativeVelocityModels\general">
+      <UniqueIdentifier>{85b31b10-3f5b-44af-ab56-6fada9a94753}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\relativeVelocityModels\simple">
+      <UniqueIdentifier>{9a767692-76c5-4127-ad7a-43689c1cdab1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\relativeVelocityModels\relativeVelocityModel">
+      <UniqueIdentifier>{151dbd4e-eb08-4c0f-b620-1bed9ae0a600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\mixtureViscosityModels\BinghamPlastic">
+      <UniqueIdentifier>{7de23355-e8eb-4881-9ea0-66294f561e75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\mixtureViscosityModels\mixtureViscosityModel">
+      <UniqueIdentifier>{b3435103-337f-4965-bc7c-554e1d3a1f03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\mixtureViscosityModels\slurry">
+      <UniqueIdentifier>{13eed237-d8cc-40c5-ac2a-80040a4517d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\mixtureViscosityModels\plastic">
+      <UniqueIdentifier>{32cebc6e-f43c-4f12-b8a4-ee4bb08338f1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="alphaControls.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="alphaEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="alphaEqnSubCycle.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="pEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="UEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="compressibleTurbulenceModels.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="driftFluxFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="incompressibleTwoPhaseInteractingMixture\incompressibleTwoPhaseInteractingMixture.cxx">
+      <Filter>src\incompressibleTwoPhaseInteractingMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="mixtureViscosityModels\mixtureViscosityModel\mixtureViscosityModel.cxx">
+      <Filter>src\mixtureViscosityModels\mixtureViscosityModel</Filter>
+    </ClCompile>
+    <ClCompile Include="mixtureViscosityModels\mixtureViscosityModel\mixtureViscosityModelNew.cxx">
+      <Filter>src\mixtureViscosityModels\mixtureViscosityModel</Filter>
+    </ClCompile>
+    <ClCompile Include="mixtureViscosityModels\BinghamPlastic\BinghamPlastic.cxx">
+      <Filter>src\mixtureViscosityModels\BinghamPlastic</Filter>
+    </ClCompile>
+    <ClCompile Include="mixtureViscosityModels\plastic\plastic.cxx">
+      <Filter>src\mixtureViscosityModels\plastic</Filter>
+    </ClCompile>
+    <ClCompile Include="mixtureViscosityModels\slurry\slurry.cxx">
+      <Filter>src\mixtureViscosityModels\slurry</Filter>
+    </ClCompile>
+    <ClCompile Include="relativeVelocityModels\relativeVelocityModel\relativeVelocityModel.cxx">
+      <Filter>src\relativeVelocityModels\relativeVelocityModel</Filter>
+    </ClCompile>
+    <ClCompile Include="relativeVelocityModels\general\general.cxx">
+      <Filter>src\relativeVelocityModels\general</Filter>
+    </ClCompile>
+    <ClCompile Include="relativeVelocityModels\simple\simple.cxx">
+      <Filter>src\relativeVelocityModels\simple</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="incompressibleTwoPhaseInteractingMixture\incompressibleTwoPhaseInteractingMixture.hxx">
+      <Filter>src\incompressibleTwoPhaseInteractingMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="mixtureViscosityModels\mixtureViscosityModel\mixtureViscosityModel.hxx">
+      <Filter>src\mixtureViscosityModels\mixtureViscosityModel</Filter>
+    </ClInclude>
+    <ClInclude Include="mixtureViscosityModels\BinghamPlastic\BinghamPlastic.hxx">
+      <Filter>src\mixtureViscosityModels\BinghamPlastic</Filter>
+    </ClInclude>
+    <ClInclude Include="mixtureViscosityModels\plastic\plastic.hxx">
+      <Filter>src\mixtureViscosityModels\plastic</Filter>
+    </ClInclude>
+    <ClInclude Include="mixtureViscosityModels\slurry\slurry.hxx">
+      <Filter>src\mixtureViscosityModels\slurry</Filter>
+    </ClInclude>
+    <ClInclude Include="relativeVelocityModels\relativeVelocityModel\relativeVelocityModel.hxx">
+      <Filter>src\relativeVelocityModels\relativeVelocityModel</Filter>
+    </ClInclude>
+    <ClInclude Include="relativeVelocityModels\general\general.hxx">
+      <Filter>src\relativeVelocityModels\general</Filter>
+    </ClInclude>
+    <ClInclude Include="relativeVelocityModels\simple\simple.hxx">
+      <Filter>src\relativeVelocityModels\simple</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
