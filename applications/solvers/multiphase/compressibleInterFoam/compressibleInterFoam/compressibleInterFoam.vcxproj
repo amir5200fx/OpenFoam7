@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(Projectdir);$(Projectdir)surfaceTensionModels/liquidProperties;$(Projectdir)twoPhaseMixtureThermo;$(Projectdir)VoFphaseCompressibleTurbulenceModels;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(Projectdir);$(Projectdir)surfaceTensionModels/liquidProperties;$(Projectdir)twoPhaseMixtureThermo;$(Projectdir)VoFphaseCompressibleTurbulenceModels;$(SolutionDir)applications\solvers\multiphase\VoF;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,7 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(Projectdir);$(Projectdir)surfaceTensionModels/liquidProperties;$(Projectdir)twoPhaseMixtureThermo;$(Projectdir)VoFphaseCompressibleTurbulenceModels;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(Projectdir);$(Projectdir)surfaceTensionModels/liquidProperties;$(Projectdir)twoPhaseMixtureThermo;$(Projectdir)VoFphaseCompressibleTurbulenceModels;$(SolutionDir)applications\solvers\multiphase\VoF;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -174,6 +174,9 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\TnbTurbulence\TnbTurbulence.vcxproj">
       <Project>{c44b171d-747f-4fe0-b6e9-b8c6c88ddc40}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libs\TnbCompressibleInterFoamLibs.vcxproj">
+      <Project>{63fc6de6-0591-4d82-979a-01827a6dbe5e}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -4,18 +4,6 @@
     <Filter Include="src">
       <UniqueIdentifier>{9db1f11a-494e-4101-a42a-0aa9e7e1fd1f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\surfaceTensionModels">
-      <UniqueIdentifier>{fda42fec-cb01-4ce6-b94a-ae6f2270fd56}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\twoPhaseMixtureThermo">
-      <UniqueIdentifier>{8c04ddbf-6dd2-414a-bd33-d7ef0b465edf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\VoFphaseCompressibleTurbulenceModels">
-      <UniqueIdentifier>{085797e6-8d70-4e5c-8e60-76fc7b61aee2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\surfaceTensionModels\liquidProperties">
-      <UniqueIdentifier>{940da732-2cad-4a6c-89c4-8959aa6e54fb}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="compressibleInterFoam.cxx">

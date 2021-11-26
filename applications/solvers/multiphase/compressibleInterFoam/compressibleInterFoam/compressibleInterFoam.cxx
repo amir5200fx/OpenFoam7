@@ -40,8 +40,10 @@ Description
 
 \*---------------------------------------------------------------------------*/
 
+#include <includeAllModules.hxx>
 #include <compressibleInterPhaseTransportModel.hxx>
 
+#include <PhaseCompressibleTurbulenceModel.hxx>
 #include <fvCFD.hxx>
 #include <dynamicFvMesh.hxx>
 #include <CMULES.hxx>
