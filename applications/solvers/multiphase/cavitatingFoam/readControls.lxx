@@ -1,0 +1,3 @@
+#include "readDyMControls.lxx"
+
+maxAcousticCo = readScalar(runTime.controlDict().lookup("maxAcousticCo"));

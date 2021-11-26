@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{fb892f70-2371-48b9-9ff8-19bf4d0f0014}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cavitatingFoam.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="continuityErrs.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="correctPhi.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="CourantNo.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createControls.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createPcorrTypes.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="pEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="readControls.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="readThermodynamicProperties.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="rhoEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="setDeltaT.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="setInitialDeltaT.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="UEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="alphavPsi.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cavitatingFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
