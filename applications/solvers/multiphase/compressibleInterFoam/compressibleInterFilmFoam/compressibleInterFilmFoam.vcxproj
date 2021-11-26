@@ -160,11 +160,29 @@
     <ProjectReference Include="..\..\..\..\..\TnbBase\TnbBase.vcxproj">
       <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbDynamicMesh\TnbDynamicMesh.vcxproj">
+      <Project>{e3788c5b-0066-49ce-a6f3-4ef1a5660b6d}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
       <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbFvMesh\TnbFvMesh.vcxproj">
+      <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\TnbFvOptions\TnbFvOptions.vcxproj">
       <Project>{be9daf5d-75b5-4744-b7d4-fb8a1a2150ca}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbLagrangian\TnbLagrangian.vcxproj">
+      <Project>{27928553-74af-4229-b18c-4f7670767702}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbThermoPhysicalModels\TnbThermoPhysicalModels.vcxproj">
+      <Project>{5396b04c-6e67-4ee2-82f8-e56d26195cf9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbTransportModels\TnbTransportModels.vcxproj">
+      <Project>{ad4b123c-0d2b-4aac-b265-9ec2f0e93568}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbTurbulence\TnbTurbulence.vcxproj">
+      <Project>{c44b171d-747f-4fe0-b6e9-b8c6c88ddc40}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

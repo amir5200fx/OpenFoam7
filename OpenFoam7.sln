@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1321
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbBase", "TnbBase\TnbBase.vcxproj", "{0EAECC55-7EC6-4414-897B-0156A774C01C}"
 EndProject
@@ -1520,6 +1520,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "interFoam", "applications\solvers\multiphase\interFoam\interFoam\interFoam.vcxproj", "{C4F47248-8458-4376-9EAE-9339A0E3BD3E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "interMixingFoam", "applications\solvers\multiphase\interFoam\interMixingFoam\interMixingFoam.vcxproj", "{DCF5BACE-AB14-4C6A-B1E4-826C9F851ADC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{0B8C0BE3-439D-4161-9848-5F55C2518C01}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "compressibleInterFoamLibs", "applications\solvers\multiphase\compressibleInterFoam\compressibleInterFoamLibs\compressibleInterFoamLibs.vcxproj", "{F02D3594-7672-441A-AFA1-F42F9462D3F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -5798,6 +5802,18 @@ Global
 		{DCF5BACE-AB14-4C6A-B1E4-826C9F851ADC}.Release|x64.Build.0 = Release|x64
 		{DCF5BACE-AB14-4C6A-B1E4-826C9F851ADC}.Release|x86.ActiveCfg = Release|Win32
 		{DCF5BACE-AB14-4C6A-B1E4-826C9F851ADC}.Release|x86.Build.0 = Release|Win32
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7}.Debug|x64.ActiveCfg = Debug|x64
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7}.Debug|x64.Build.0 = Debug|x64
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7}.Debug|x86.ActiveCfg = Debug|Win32
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7}.Debug|x86.Build.0 = Debug|Win32
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7}.DebugNoCopyHxx|x86.ActiveCfg = Debug|Win32
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7}.DebugNoCopyHxx|x86.Build.0 = Debug|Win32
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7}.Release|x64.ActiveCfg = Release|x64
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7}.Release|x64.Build.0 = Release|x64
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7}.Release|x86.ActiveCfg = Release|Win32
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -6531,6 +6547,8 @@ Global
 		{6837871B-5307-4804-8957-118A1E734DF1} = {DA99B393-E243-413D-884C-27738EF65DAE}
 		{C4F47248-8458-4376-9EAE-9339A0E3BD3E} = {6837871B-5307-4804-8957-118A1E734DF1}
 		{DCF5BACE-AB14-4C6A-B1E4-826C9F851ADC} = {11F46D2C-5744-41A2-9741-E434F6B9C844}
+		{0B8C0BE3-439D-4161-9848-5F55C2518C01} = {A1AF68FB-BDBE-4F9C-AE03-0C27A43975DA}
+		{F02D3594-7672-441A-AFA1-F42F9462D3F7} = {0B8C0BE3-439D-4161-9848-5F55C2518C01}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1107BF8D-1C23-4E64-93DE-E2F73CB09919}

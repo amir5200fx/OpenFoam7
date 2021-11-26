@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{c30743cc-981e-4e08-8022-06741b4a9df9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\surfaceTensionModels">
+      <UniqueIdentifier>{19b48908-b8ad-4a7c-9b15-54b17b016901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseMixtureThermo">
+      <UniqueIdentifier>{c59964a0-6193-456c-868d-7a39d4b36c0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\VoFphaseCompressibleTurbulenceModels">
+      <UniqueIdentifier>{25fd6dd9-e76e-4495-b5ba-f986ad472b4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\surfaceTensionModels\liquidProperties">
+      <UniqueIdentifier>{7f192c4c-6899-4fc8-b241-993b3ee72760}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\module">
+      <UniqueIdentifier>{f0ca5296-43e2-4e4e-8aff-5b01922a72ae}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\VoFphaseCompressibleTurbulenceModels\compressibleInterPhaseTransportModel.cxx">
+      <Filter>src\VoFphaseCompressibleTurbulenceModels</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VoFphaseCompressibleTurbulenceModels\VoFphaseCompressibleTurbulenceModels.cxx">
+      <Filter>src\VoFphaseCompressibleTurbulenceModels</Filter>
+    </ClCompile>
+    <ClCompile Include="src\twoPhaseMixtureThermo\twoPhaseMixtureThermo.cxx">
+      <Filter>src\twoPhaseMixtureThermo</Filter>
+    </ClCompile>
+    <ClCompile Include="src\surfaceTensionModels\liquidProperties\liquidPropertiesSurfaceTension.cxx">
+      <Filter>src\surfaceTensionModels\liquidProperties</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\VoFphaseCompressibleTurbulenceModels\compressibleInterPhaseTransportModel.hxx">
+      <Filter>src\VoFphaseCompressibleTurbulenceModels</Filter>
+    </ClInclude>
+    <ClInclude Include="src\VoFphaseCompressibleTurbulenceModels\compressibleInterPhaseTransportModelI.hxx">
+      <Filter>src\VoFphaseCompressibleTurbulenceModels</Filter>
+    </ClInclude>
+    <ClInclude Include="src\VoFphaseCompressibleTurbulenceModels\VoFphaseCompressibleTurbulenceModel.hxx">
+      <Filter>src\VoFphaseCompressibleTurbulenceModels</Filter>
+    </ClInclude>
+    <ClInclude Include="src\VoFphaseCompressibleTurbulenceModels\VoFphaseCompressibleTurbulenceModelFwd.hxx">
+      <Filter>src\VoFphaseCompressibleTurbulenceModels</Filter>
+    </ClInclude>
+    <ClInclude Include="src\twoPhaseMixtureThermo\twoPhaseMixtureThermo.hxx">
+      <Filter>src\twoPhaseMixtureThermo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\surfaceTensionModels\liquidProperties\liquidPropertiesSurfaceTension.hxx">
+      <Filter>src\surfaceTensionModels\liquidProperties</Filter>
+    </ClInclude>
+    <ClInclude Include="src\module\compressibleInterFoamLibs_module.hxx">
+      <Filter>src\module</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

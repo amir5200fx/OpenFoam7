@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1c4172f0-46ac-420d-94c7-26e3c70b6bd8}</ProjectGuid>
-    <RootNamespace>compressibleInterFoam</RootNamespace>
+    <ProjectGuid>{f02d3594-7672-441a-afa1-f42f9462d3f7}</ProjectGuid>
+    <RootNamespace>compressibleInterFoamLibs</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -40,7 +40,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -116,7 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(Projectdir);$(Projectdir)surfaceTensionModels/liquidProperties;$(Projectdir)twoPhaseMixtureThermo;$(Projectdir)VoFphaseCompressibleTurbulenceModels;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\surfaceTensionModels\liquidProperties;$(ProjectDir)src\twoPhaseMixtureThermo;$(ProjectDir)src\VoFphaseCompressibleTurbulenceModels;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,7 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(Projectdir);$(Projectdir)surfaceTensionModels/liquidProperties;$(Projectdir)twoPhaseMixtureThermo;$(Projectdir)VoFphaseCompressibleTurbulenceModels;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)src\surfaceTensionModels\liquidProperties;$(ProjectDir)src\twoPhaseMixtureThermo;$(ProjectDir)src\VoFphaseCompressibleTurbulenceModels;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,40 +141,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="compressibleInterFoam.cxx" />
+    <ClCompile Include="src\surfaceTensionModels\liquidProperties\liquidPropertiesSurfaceTension.cxx" />
+    <ClCompile Include="src\twoPhaseMixtureThermo\twoPhaseMixtureThermo.cxx" />
+    <ClCompile Include="src\VoFphaseCompressibleTurbulenceModels\compressibleInterPhaseTransportModel.cxx" />
+    <ClCompile Include="src\VoFphaseCompressibleTurbulenceModels\VoFphaseCompressibleTurbulenceModels.cxx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="alphaSuSp.lxx" />
-    <None Include="compressibleAlphaEqnSubCycle.lxx" />
-    <None Include="correctPhi.lxx" />
-    <None Include="createFields.lxx" />
-    <None Include="pEqn.lxx" />
-    <None Include="rhofs.lxx" />
-    <None Include="TEqn.lxx" />
-    <None Include="UEqn.lxx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\TnbBase\TnbBase.vcxproj">
-      <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\TnbDynamicMesh\TnbDynamicMesh.vcxproj">
-      <Project>{e3788c5b-0066-49ce-a6f3-4ef1a5660b6d}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
-      <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\TnbFvMesh\TnbFvMesh.vcxproj">
-      <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\TnbThermoPhysicalModels\TnbThermoPhysicalModels.vcxproj">
-      <Project>{5396b04c-6e67-4ee2-82f8-e56d26195cf9}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\TnbTransportModels\TnbTransportModels.vcxproj">
-      <Project>{ad4b123c-0d2b-4aac-b265-9ec2f0e93568}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\TnbTurbulence\TnbTurbulence.vcxproj">
-      <Project>{c44b171d-747f-4fe0-b6e9-b8c6c88ddc40}</Project>
-    </ProjectReference>
+    <ClInclude Include="src\module\compressibleInterFoamLibs_module.hxx" />
+    <ClInclude Include="src\surfaceTensionModels\liquidProperties\liquidPropertiesSurfaceTension.hxx" />
+    <ClInclude Include="src\twoPhaseMixtureThermo\twoPhaseMixtureThermo.hxx" />
+    <ClInclude Include="src\VoFphaseCompressibleTurbulenceModels\compressibleInterPhaseTransportModel.hxx" />
+    <ClInclude Include="src\VoFphaseCompressibleTurbulenceModels\compressibleInterPhaseTransportModelI.hxx" />
+    <ClInclude Include="src\VoFphaseCompressibleTurbulenceModels\VoFphaseCompressibleTurbulenceModel.hxx" />
+    <ClInclude Include="src\VoFphaseCompressibleTurbulenceModels\VoFphaseCompressibleTurbulenceModelFwd.hxx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
