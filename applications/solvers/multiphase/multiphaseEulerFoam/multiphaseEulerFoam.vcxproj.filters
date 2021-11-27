@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{995a71a0-a6cc-4907-bbc3-7e593cb07adf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels">
+      <UniqueIdentifier>{c008bad7-1d9a-47ae-98ad-e1d341e81334}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseSystem">
+      <UniqueIdentifier>{be934c3e-ad3b-4a92-835f-adeacb4ac428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels">
+      <UniqueIdentifier>{4e0d9dc1-5986-48d0-b6d9-b26d8bd3892e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\heatTransferModels">
+      <UniqueIdentifier>{cee1ec59-0078-4201-8ca6-02fd29961601}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\blended">
+      <UniqueIdentifier>{ea543b7c-9b3b-4c50-99c6-897d66c23ad5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\dragModel">
+      <UniqueIdentifier>{0dbec6ee-de8e-46fa-acf1-3fc120fef4ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\Ergun">
+      <UniqueIdentifier>{7de71f24-a735-4f8e-b7f9-1596e593dc27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\Gibilaro">
+      <UniqueIdentifier>{2c28e1c7-a284-4848-ac68-aaae34ef6bee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\GidaspowErgunWenYu">
+      <UniqueIdentifier>{4cce9faf-f3d0-4aba-ad63-fb4cf40f457f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\GidaspowSchillerNaumann">
+      <UniqueIdentifier>{d6c14aa8-f875-4dc8-959a-d4a300dceaa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\interface">
+      <UniqueIdentifier>{ef58d3ef-7181-49a5-b7f4-dd9fdebc58a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\WenYu">
+      <UniqueIdentifier>{b2accfac-1c42-4dd4-bbed-dbbf979a2a35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\SyamlalOBrien">
+      <UniqueIdentifier>{d55d99d2-aada-4c24-bcba-c51877ec5f38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\SchillerNaumann">
+      <UniqueIdentifier>{2aa864bd-28a8-410e-8671-fd1ff39f8005}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\heatTransferModels\heatTransferModel">
+      <UniqueIdentifier>{1cca4aba-e75c-4e17-ab97-b5d2081fc97a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\heatTransferModels\RanzMarshall">
+      <UniqueIdentifier>{e5faab25-c8dc-4b16-97a7-33687af2b572}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseSystem\alphaContactAngle">
+      <UniqueIdentifier>{b0144bfa-8863-46b4-8a92-e80ea0476c2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseSystem\diameterModels">
+      <UniqueIdentifier>{6ae953a7-9640-4775-ba36-4f3113cd3ff9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseSystem\phaseModel">
+      <UniqueIdentifier>{e661b892-b298-41be-81d7-1af1140b29a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseSystem\diameterModels\constantDiameter">
+      <UniqueIdentifier>{3a0135ad-f30b-4ac5-949e-921c6db3db8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseSystem\diameterModels\diameterModel">
+      <UniqueIdentifier>{2587ec1c-eaf8-4ea5-98e8-6ee8c03f971a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseSystem\diameterModels\isothermalDiameter">
+      <UniqueIdentifier>{49869c8d-1ccc-479b-bba1-94ea75200a9f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="correctPhi.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="CourantNo.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createMRFZones.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="DDtU.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="MRFCorrectBCs.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="pEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="TEqns.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="zonePhaseVolumes.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="UEqns.lxx">
+      <Filter>src</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="multiphaseEulerFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\dragModels\blended\blended.cxx">
+      <Filter>src\interfacialModels\dragModels\blended</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\dragModels\dragModel\dragModel.cxx">
+      <Filter>src\interfacialModels\dragModels\dragModel</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\dragModels\dragModel\newDragModel.cxx">
+      <Filter>src\interfacialModels\dragModels\dragModel</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\dragModels\Ergun\Ergun.cxx">
+      <Filter>src\interfacialModels\dragModels\Ergun</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\dragModels\Gibilaro\Gibilaro.cxx">
+      <Filter>src\interfacialModels\dragModels\Gibilaro</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\dragModels\GidaspowErgunWenYu\GidaspowErgunWenYu.cxx">
+      <Filter>src\interfacialModels\dragModels\GidaspowErgunWenYu</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\dragModels\GidaspowSchillerNaumann\GidaspowSchillerNaumann.cxx">
+      <Filter>src\interfacialModels\dragModels\GidaspowSchillerNaumann</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\dragModels\interface\interface.cxx">
+      <Filter>src\interfacialModels\dragModels\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\dragModels\SchillerNaumann\SchillerNaumann.cxx">
+      <Filter>src\interfacialModels\dragModels\SchillerNaumann</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\dragModels\SyamlalOBrien\SyamlalOBrien.cxx">
+      <Filter>src\interfacialModels\dragModels\SyamlalOBrien</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\dragModels\WenYu\WenYu.cxx">
+      <Filter>src\interfacialModels\dragModels\WenYu</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\heatTransferModels\heatTransferModel\heatTransferModel.cxx">
+      <Filter>src\interfacialModels\heatTransferModels\heatTransferModel</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\heatTransferModels\heatTransferModel\newHeatTransferModel.cxx">
+      <Filter>src\interfacialModels\heatTransferModels\heatTransferModel</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\heatTransferModels\RanzMarshall\RanzMarshall.cxx">
+      <Filter>src\interfacialModels\heatTransferModels\RanzMarshall</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseSystem\phaseModel\phaseModel.cxx">
+      <Filter>src\multiphaseSystem\phaseModel</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseSystem\multiphaseSystem.cxx">
+      <Filter>src\multiphaseSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseSystem\alphaContactAngle\alphaContactAngleFvPatchScalarField.cxx">
+      <Filter>src\multiphaseSystem\alphaContactAngle</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseSystem\diameterModels\constantDiameter\constantDiameter.cxx">
+      <Filter>src\multiphaseSystem\diameterModels\constantDiameter</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseSystem\diameterModels\diameterModel\diameterModel.cxx">
+      <Filter>src\multiphaseSystem\diameterModels\diameterModel</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseSystem\diameterModels\diameterModel\newDiameterModel.cxx">
+      <Filter>src\multiphaseSystem\diameterModels\diameterModel</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseSystem\diameterModels\isothermalDiameter\isothermalDiameter.cxx">
+      <Filter>src\multiphaseSystem\diameterModels\isothermalDiameter</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="interfacialModels\dragModels\blended\blended.hxx">
+      <Filter>src\interfacialModels\dragModels\blended</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\dragModel\dragModel.hxx">
+      <Filter>src\interfacialModels\dragModels\dragModel</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\Ergun\Ergun.hxx">
+      <Filter>src\interfacialModels\dragModels\Ergun</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\Gibilaro\Gibilaro.hxx">
+      <Filter>src\interfacialModels\dragModels\Gibilaro</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\GidaspowErgunWenYu\GidaspowErgunWenYu.hxx">
+      <Filter>src\interfacialModels\dragModels\GidaspowErgunWenYu</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\GidaspowSchillerNaumann\GidaspowSchillerNaumann.hxx">
+      <Filter>src\interfacialModels\dragModels\GidaspowSchillerNaumann</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\interface\interface.hxx">
+      <Filter>src\interfacialModels\dragModels\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\SchillerNaumann\SchillerNaumann.hxx">
+      <Filter>src\interfacialModels\dragModels\SchillerNaumann</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\SyamlalOBrien\SyamlalOBrien.hxx">
+      <Filter>src\interfacialModels\dragModels\SyamlalOBrien</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\WenYu\WenYu.hxx">
+      <Filter>src\interfacialModels\dragModels\WenYu</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\heatTransferModels\heatTransferModel\heatTransferModel.hxx">
+      <Filter>src\interfacialModels\heatTransferModels\heatTransferModel</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\heatTransferModels\RanzMarshall\RanzMarshall.hxx">
+      <Filter>src\interfacialModels\heatTransferModels\RanzMarshall</Filter>
+    </ClInclude>
+    <ClInclude Include="multiphaseSystem\phaseModel\phaseModel.hxx">
+      <Filter>src\multiphaseSystem\phaseModel</Filter>
+    </ClInclude>
+    <ClInclude Include="multiphaseSystem\multiphaseSystem.hxx">
+      <Filter>src\multiphaseSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="multiphaseSystem\alphaContactAngle\alphaContactAngleFvPatchScalarField.hxx">
+      <Filter>src\multiphaseSystem\alphaContactAngle</Filter>
+    </ClInclude>
+    <ClInclude Include="multiphaseSystem\diameterModels\constantDiameter\constantDiameter.hxx">
+      <Filter>src\multiphaseSystem\diameterModels\constantDiameter</Filter>
+    </ClInclude>
+    <ClInclude Include="multiphaseSystem\diameterModels\diameterModel\diameterModel.hxx">
+      <Filter>src\multiphaseSystem\diameterModels\diameterModel</Filter>
+    </ClInclude>
+    <ClInclude Include="multiphaseSystem\diameterModels\isothermalDiameter\isothermalDiameter.hxx">
+      <Filter>src\multiphaseSystem\diameterModels\isothermalDiameter</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
