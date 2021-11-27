@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="TnbLib">
+      <UniqueIdentifier>{0c2850eb-2cd4-4fb9-987f-65cfc76f5e5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields">
+      <UniqueIdentifier>{fe867a23-d078-4be9-839f-9de3024e52bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects">
+      <UniqueIdentifier>{4903094c-9688-4194-ad09-917f0e3d015a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels">
+      <UniqueIdentifier>{db9a159d-faa6-491d-99d7-4248fa62a627}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels">
+      <UniqueIdentifier>{0dcc2418-fac3-4c61-abd8-060120e3d8c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\module">
+      <UniqueIdentifier>{aeed5fee-24ec-4f32-9481-a9133bd8133c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems">
+      <UniqueIdentifier>{92618658-46aa-475f-8e71-c5a041495b95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\alphatFixedDmdtWallBoilingWallFunction">
+      <UniqueIdentifier>{42e4a18f-4c70-47e9-87ad-f31241baeb37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\alphatPhaseChangeJayatillekeWallFunction">
+      <UniqueIdentifier>{26950dad-7763-4f83-8e29-242bdaa324e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\alphatPhaseChangeWallFunction">
+      <UniqueIdentifier>{07ab492e-eb79-4e79-bc48-f4d005f081bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\alphatWallBoilingWallFunction">
+      <UniqueIdentifier>{ebebe7f6-5036-460c-8125-e1fa2e93dc7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\copiedFixedValue">
+      <UniqueIdentifier>{f7db698c-d542-4d12-9f02-4b9dc011e578}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\fixedMultiPhaseHeatFlux">
+      <UniqueIdentifier>{69181324-eb17-484f-98c4-0ecc7bcb6ada}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels">
+      <UniqueIdentifier>{e7f77c6d-0b9e-4f6c-8e78-10ce2d30d631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureDiameterModels">
+      <UniqueIdentifier>{c7b7a348-e7ba-4b7c-8dbf-4af15fcec2e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureFrequencyModels">
+      <UniqueIdentifier>{211a9c69-a9ff-4351-a3bd-25d393466aa3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels">
+      <UniqueIdentifier>{e7560d5a-ed08-4235-86a4-dfebe070b060}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\nucleationSiteModels">
+      <UniqueIdentifier>{e74b875b-6154-4d92-ab69-f5d6d3d18ec5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureDiameterModels\departureDiameterModel">
+      <UniqueIdentifier>{27d94828-aa8f-409b-a295-ff1266bcb818}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureDiameterModels\KocamustafaogullariIshii">
+      <UniqueIdentifier>{d5b62cbc-348b-41dc-819a-09fc33435aaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureDiameterModels\TolubinskiKostanchuk">
+      <UniqueIdentifier>{cb09acad-099f-416e-8380-c3c3ad86b426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureFrequencyModels\Cole">
+      <UniqueIdentifier>{0e30e1a9-8e24-4d49-ac66-6940cc4c52da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureFrequencyModels\departureFrequencyModel">
+      <UniqueIdentifier>{6dce0610-3998-4dad-9e45-5562e8de0c97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\nucleationSiteModels\LemmertChawla">
+      <UniqueIdentifier>{82ce8451-53eb-450c-9603-0f133239e952}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\nucleationSiteModels\nucleationSiteModel">
+      <UniqueIdentifier>{3a0302b0-c141-4773-a4a4-fbca5df30f05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\cosine">
+      <UniqueIdentifier>{bfdcadb9-a702-4065-b611-3548a0afca1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\Lavieville">
+      <UniqueIdentifier>{61bf7aa4-4492-45fd-a271-3327e0dc1cbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\linear">
+      <UniqueIdentifier>{64784c76-63f5-40f7-97cf-205de6414376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\phaseFraction">
+      <UniqueIdentifier>{79b933ab-27b6-476d-ad40-bd7e1ae48dda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\partitioningModel">
+      <UniqueIdentifier>{f014812b-e548-42e6-a86f-d5d56ce26f42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\sizeDistribution">
+      <UniqueIdentifier>{b0a80f27-da9a-453b-8a1d-75e51ddb81db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\functionObjects\phaseForces">
+      <UniqueIdentifier>{d629c4a0-9f3e-4f2e-8e12-b5468c978f4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\interfaceCompositionModels">
+      <UniqueIdentifier>{1a4a746d-8e6c-4216-bc5c-78dd5cb72867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\massTransferModels">
+      <UniqueIdentifier>{cd870e0c-c248-411c-8a64-65ea70a890c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\surfaceTensionModels">
+      <UniqueIdentifier>{a5761a1c-6d9e-45f3-92c1-16cd7ea7d9f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\saturationModels">
+      <UniqueIdentifier>{3fa63a14-5975-4023-bc4c-74b0335554b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\interfaceCompositionModels\Henry">
+      <UniqueIdentifier>{db9f31fc-518b-4613-ad7d-c7ee4d01a57d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\interfaceCompositionModels\InterfaceCompositionModel">
+      <UniqueIdentifier>{36666342-0d4f-4db3-ba66-852a44835d69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\interfaceCompositionModels\Saturated">
+      <UniqueIdentifier>{044e6fe2-0649-4ecf-b819-88ba9bbfa9b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\interfaceCompositionModels\Raoult">
+      <UniqueIdentifier>{f587f412-7d87-4c5c-87f7-c4fb7882edb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\interfaceCompositionModels\NonRandomTwoLiquid">
+      <UniqueIdentifier>{0015e948-1d85-4eab-8728-96c780c292e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\massTransferModels\Frossling">
+      <UniqueIdentifier>{51018a43-7b32-4596-b979-7088a88dce41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\massTransferModels\massTransferModel">
+      <UniqueIdentifier>{19c57153-5f60-46e1-94c1-80791fe3cc76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\massTransferModels\sphericalMassTransfer">
+      <UniqueIdentifier>{eb87e310-fbb1-4f47-86ed-126c5af5eb46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\saturationModels\Antoine">
+      <UniqueIdentifier>{cecee9ce-6d03-4815-8c3a-5d84c17f224b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\saturationModels\AntoineExtended">
+      <UniqueIdentifier>{05a93916-975f-4c93-baa3-521c5a226813}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\saturationModels\ArdenBuck">
+      <UniqueIdentifier>{56b78a6a-cfed-4773-afb8-155ba45fb2f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\saturationModels\constantSaturationConditions">
+      <UniqueIdentifier>{3e09810d-6d5a-40b7-aee7-4e827f516091}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\saturationModels\saturationModel">
+      <UniqueIdentifier>{42345a97-d9fb-444a-be3b-1a14595ab438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\saturationModels\polynomial">
+      <UniqueIdentifier>{1023c2e3-dac0-493e-adcc-57f90cffcb2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\surfaceTensionModels\constantSurfaceTensionCoefficient">
+      <UniqueIdentifier>{99d602e7-34bd-4f3f-b948-f447671b0473}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\surfaceTensionModels\surfaceTensionModel">
+      <UniqueIdentifier>{893af2af-8325-446b-9737-5aa307d7e0ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\aspectRatioModels">
+      <UniqueIdentifier>{a7404de1-48ef-4a65-a438-225966d0fed3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels">
+      <UniqueIdentifier>{f28d353b-e2f5-4dbd-96bf-fbb2c76d759b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\heatTransferModels">
+      <UniqueIdentifier>{4526b99b-7183-4839-af81-1a4bd807803e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\liftModels">
+      <UniqueIdentifier>{648e9277-21e3-454e-9198-bb116e45b15d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallLubricationModels">
+      <UniqueIdentifier>{be9e3da0-c024-4655-974f-a5252d4504ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallDependentModel">
+      <UniqueIdentifier>{a507a16e-33ea-48b2-a0ea-b807e14a9d90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallDampingModels">
+      <UniqueIdentifier>{a3f217d3-4e55-406a-83c5-ed8301fce0f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\virtualMassModels">
+      <UniqueIdentifier>{198fd830-9077-4492-8868-badf76e61b47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\turbulentDispersionModels">
+      <UniqueIdentifier>{e1e05163-c366-45a1-a284-b9efab5e18ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\swarmCorrections">
+      <UniqueIdentifier>{65a48711-0759-4f5f-aca4-1af3d9cde9b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\phaseTransferModels">
+      <UniqueIdentifier>{05896b5a-0b9f-4e7b-a688-8ccda42551df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\aspectRatioModels\aspectRatioModel">
+      <UniqueIdentifier>{c4d99597-6f3a-4ecc-bb30-c68dc5458378}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\aspectRatioModels\constantAspectRatio">
+      <UniqueIdentifier>{a666d307-9aed-49f6-9d15-2e59a3dcab7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\aspectRatioModels\Wellek">
+      <UniqueIdentifier>{abae36b8-ed7c-4d22-81a5-6c11fecb606c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\aspectRatioModels\VakhrushevEfremov">
+      <UniqueIdentifier>{848f4bfc-ec79-4a1b-a211-8f7c6e481eb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\aspectRatioModels\TomiyamaAspectRatio">
+      <UniqueIdentifier>{88b61a57-55c3-42b3-8f6f-f889119bccfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\AttouFerschneider">
+      <UniqueIdentifier>{e5b67ad0-19ab-4eec-a18f-e0d76a150aff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\Beetstra">
+      <UniqueIdentifier>{ba8a0b7b-0d48-4e6e-bc03-0d551b8bd653}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\dragModel">
+      <UniqueIdentifier>{9dac25ff-4091-4d7b-acf6-3dcf539725fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\Ergun">
+      <UniqueIdentifier>{6da26edb-bd45-46a5-b3d6-c9412234424f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\Gibilaro">
+      <UniqueIdentifier>{f200b512-9170-4f86-a56c-6752d0d99ec7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\GidaspowErgunWenYu">
+      <UniqueIdentifier>{f7ec21d0-9133-44ba-8a85-3b79c8b6f9b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\GidaspowSchillerNaumann">
+      <UniqueIdentifier>{d67c1dcf-c88e-476f-8fc2-5e709236810d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\IshiiZuber">
+      <UniqueIdentifier>{5a2a8969-ffde-46b1-89e1-670a24f1f86b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\Lain">
+      <UniqueIdentifier>{412763fa-fbb7-49b1-8663-69c5a1a69a67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\heatTransferModels\constantNu">
+      <UniqueIdentifier>{3663b9dd-5112-42d1-8577-0eedd41d26c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\heatTransferModels\heatTransferModel">
+      <UniqueIdentifier>{b74d4ef1-0610-4f30-a3a4-2af446298282}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\heatTransferModels\sphericalHeatTransfer">
+      <UniqueIdentifier>{2ee0a9d8-62e7-4383-9dd1-a75d5db10a31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\heatTransferModels\RanzMarshall">
+      <UniqueIdentifier>{e50b8a79-8a02-4ebe-9c12-c4dc4f16cf5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\WenYu">
+      <UniqueIdentifier>{7e8f7139-0999-4c3d-bc8f-699523da31a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\TomiyamaKataokaZunSakaguchi">
+      <UniqueIdentifier>{81734cd7-aa92-484a-9579-c8959ca5124a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\TomiyamaCorrelated">
+      <UniqueIdentifier>{5b269233-1cc9-4b55-87e6-0a3194dd7ce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\TomiyamaAnalytic">
+      <UniqueIdentifier>{aaee11ea-616f-411c-b999-292fd7eca9cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\Tenneti">
+      <UniqueIdentifier>{5cfa6f4e-178c-408e-ac27-432fcea359dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\SyamlalOBrien">
+      <UniqueIdentifier>{bd32faf0-9cb0-411e-8382-dddbbb203608}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\segregated">
+      <UniqueIdentifier>{756d0e8c-a667-4ba4-a8f0-e3c97be50993}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\dragModels\SchillerNaumann">
+      <UniqueIdentifier>{cac6ff14-029b-4964-b694-573d742ed6fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\liftModels\constantLiftCoefficient">
+      <UniqueIdentifier>{64773367-b0fb-470e-a0b0-53c003c2afe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\liftModels\LegendreMagnaudet">
+      <UniqueIdentifier>{490c1e6c-b430-41b6-b34e-5a3f399b3974}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\liftModels\liftModel">
+      <UniqueIdentifier>{11cbd9e3-fdfb-4cea-8bc5-868f99b85fca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\liftModels\Moraga">
+      <UniqueIdentifier>{7594369d-9967-41da-9b50-429873df76aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\liftModels\wallDampedLift">
+      <UniqueIdentifier>{4d0c1e27-8f9a-4a97-a527-7f0d7014fbb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\liftModels\TomiyamaLift">
+      <UniqueIdentifier>{ac46f16c-d5fe-4dc2-95d1-0953bbcb48db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\liftModels\noLift">
+      <UniqueIdentifier>{23085a8e-467c-4088-98b7-398b6506d789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\phaseTransferModels\deposition">
+      <UniqueIdentifier>{e3072950-72a0-416d-8c58-a4428943db0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\phaseTransferModels\phaseTransferModel">
+      <UniqueIdentifier>{635c0bc6-eea5-4ff6-ab06-3f49f76512c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\swarmCorrections\TomiyamaSwarm">
+      <UniqueIdentifier>{6043a847-9683-4d69-bfff-b8db17dd786b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\swarmCorrections\swarmCorrection">
+      <UniqueIdentifier>{d87acefb-395c-4662-ab84-40a4a9ae96c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\swarmCorrections\noSwarm">
+      <UniqueIdentifier>{185f7342-4fa8-4692-b0ec-29d5a5bd47af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\turbulentDispersionModels\Burns">
+      <UniqueIdentifier>{9a5936c3-fc70-4c8a-84f1-a9ff3463b874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\turbulentDispersionModels\constantTurbulentDispersionCoefficient">
+      <UniqueIdentifier>{c7892e16-0c0f-4b23-9a30-e9a3ee214c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\turbulentDispersionModels\Gosman">
+      <UniqueIdentifier>{4e870214-2cb7-4b17-9f2e-a3e38f2fda35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\turbulentDispersionModels\LopezDeBertodano">
+      <UniqueIdentifier>{b163fa3a-6797-446e-a59e-762266f65389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\turbulentDispersionModels\turbulentDispersionModel">
+      <UniqueIdentifier>{6edf67b7-6e70-40f8-9d87-d3ada06f3709}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\turbulentDispersionModels\noTurbulentDispersion">
+      <UniqueIdentifier>{b724fb73-c397-4889-83fb-8f978658d191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\virtualMassModels\constantVirtualMassCoefficient">
+      <UniqueIdentifier>{0a3f6f83-f111-4101-837c-74dae8e97757}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\virtualMassModels\Lamb">
+      <UniqueIdentifier>{8d759654-81e4-422a-9eba-f227210132ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\virtualMassModels\virtualMassModel">
+      <UniqueIdentifier>{8336eaf6-8ab6-40f2-9c88-a7ac9b8a226a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\virtualMassModels\noVirtualMass">
+      <UniqueIdentifier>{57e20196-6d54-467e-9eb5-9fde22d53ff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallDampingModels\cosine">
+      <UniqueIdentifier>{c00eb4f4-3c36-48b0-bd26-3272e6486400}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallDampingModels\interpolated">
+      <UniqueIdentifier>{8bb1c0ed-fe68-473e-bd82-1ca57ee567e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallDampingModels\linear">
+      <UniqueIdentifier>{6598ac48-5a4b-4e2a-8e45-ed0d2764c8e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallDampingModels\wallDampingModel">
+      <UniqueIdentifier>{46f6e623-0eba-4c91-b147-7415b8219e75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallDampingModels\sine">
+      <UniqueIdentifier>{ca3adbc7-734f-4f6f-9c57-965b7c9d32d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallDampingModels\noWallDamping">
+      <UniqueIdentifier>{3d92eeae-3d1f-4ed5-9bd6-dc0cf5c92282}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallLubricationModels\Antal">
+      <UniqueIdentifier>{d1db90e0-f418-4ede-bbc4-573dc57bd2ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallLubricationModels\Frank">
+      <UniqueIdentifier>{f0c9a958-a758-4b7c-8829-fdad0c28de86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallLubricationModels\wallLubricationModel">
+      <UniqueIdentifier>{f1c0287f-8d89-494c-9e85-a0e8d618354e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallLubricationModels\TomiyamaWallLubrication">
+      <UniqueIdentifier>{c3da3e28-ce10-4b20-a8a9-ccbcc7770424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialModels\wallLubricationModels\noWallLubrication">
+      <UniqueIdentifier>{b58de850-5514-43df-8b89-06b3063e07da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\BlendedInterfacialModel">
+      <UniqueIdentifier>{7d3e438e-9b0b-4d78-abb8-aedf1edde528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\diameterModels">
+      <UniqueIdentifier>{4004be31-dd2a-4834-93bb-1ea0fb516cc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\reactionThermo">
+      <UniqueIdentifier>{9492b21f-d3de-437b-9525-06272cae6231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel">
+      <UniqueIdentifier>{7ad11bac-4cac-49ec-8dd5-d2e48a582fb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\PhaseSystems">
+      <UniqueIdentifier>{9ea91f55-986d-4b67-af54-d463598c352e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phaseSystem">
+      <UniqueIdentifier>{8f00d2b2-374e-43e9-b9cf-6095069e7084}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phasePair">
+      <UniqueIdentifier>{e59f7f21-551b-4116-b4dd-0103f6b21460}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phaseModel">
+      <UniqueIdentifier>{0b6ca1a4-a27e-4eb7-9086-4a1645a108d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\BlendedInterfacialModel\blendingMethods">
+      <UniqueIdentifier>{9c77bd58-d716-416a-8ba8-fe54f59fd3fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\BlendedInterfacialModel\blendingMethods\blendingMethod">
+      <UniqueIdentifier>{e8bd2bbc-3601-4b02-a3aa-fc9a5a954c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\BlendedInterfacialModel\blendingMethods\hyperbolic">
+      <UniqueIdentifier>{1114feeb-cb47-4d4b-9d77-0c71b918a1b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\BlendedInterfacialModel\blendingMethods\linear">
+      <UniqueIdentifier>{710e7cdf-5e36-406d-b83d-fc531c3c0c5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\BlendedInterfacialModel\blendingMethods\noBlending">
+      <UniqueIdentifier>{56ea7942-d475-41c4-b621-3855cdc7bbe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\diameterModels\constantDiameter">
+      <UniqueIdentifier>{d6965126-abc4-45ee-b8b1-b22c729f287e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\diameterModels\diameterModel">
+      <UniqueIdentifier>{b85d7af8-5c9c-4fe4-a2fd-60cba2587a88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\diameterModels\isothermalDiameter">
+      <UniqueIdentifier>{26dc2b1d-c7e5-450f-8882-312c8d5a33ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\diameterModels\linearTsubDiameter">
+      <UniqueIdentifier>{b2142cb3-69ab-4f5a-8fe0-6a580f0742af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\diameterModels\velocityGroup">
+      <UniqueIdentifier>{8e84a101-3e8c-4427-8b87-c070560113a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phaseModel\AnisothermalPhaseModel">
+      <UniqueIdentifier>{5621e3eb-9781-4ab7-b971-541547ae88fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phaseModel\InertPhaseModel">
+      <UniqueIdentifier>{73f14270-e49b-4e84-ae9b-0a01983b3233}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phaseModel\IsothermalPhaseModel">
+      <UniqueIdentifier>{4c754d22-5a7a-4dfd-b4a1-bbd2f5a8ee4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phaseModel\MovingPhaseModel">
+      <UniqueIdentifier>{8825ab74-3554-4777-954b-152f8e376726}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phaseModel\MultiComponentPhaseModel">
+      <UniqueIdentifier>{44f37585-9b78-4699-ae2e-e56576d1093a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phaseModel\ThermoPhaseModel">
+      <UniqueIdentifier>{342e1a58-f300-41f4-90aa-fc903608f1c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phaseModel\StationaryPhaseModel">
+      <UniqueIdentifier>{1bb88fae-537a-49f5-b1ed-5f9da8df314f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phaseModel\ReactingPhaseModel">
+      <UniqueIdentifier>{88856db8-d808-444b-abd1-0dbc3fd2da0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phaseModel\PurePhaseModel">
+      <UniqueIdentifier>{8a116c7d-7ccb-428d-8baa-2d28d9cd50a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phaseModel\phaseModel">
+      <UniqueIdentifier>{37f5f6fd-dcfa-4d73-ba99-c585f5db8ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phasePair\phasePairKey">
+      <UniqueIdentifier>{dfa47276-396e-4946-9d5c-9324c342c04b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phasePair\phasePair">
+      <UniqueIdentifier>{3df1ee7f-99f3-47d9-be08-2e0c1ca3c72c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\phasePair\orderedPhasePair">
+      <UniqueIdentifier>{a4ff6fb7-dcb3-4bb2-bf82-381ebd70e136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\PhaseSystems\InterfaceCompositionPhaseChangePhaseSystem">
+      <UniqueIdentifier>{4062407b-9547-4a2f-8804-d9e91fa00d6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\PhaseSystems\MomentumTransferPhaseSystem">
+      <UniqueIdentifier>{5c7ca9bc-00a2-4626-bb89-fe9da5631fa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\PhaseSystems\TwoResistanceHeatTransferPhaseSystem">
+      <UniqueIdentifier>{c0d1d22d-e358-4642-a707-7db7d277d773}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\PhaseSystems\ThermalPhaseChangePhaseSystem">
+      <UniqueIdentifier>{768f0a75-52e7-4d8c-8aea-40cd43d133fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\PhaseSystems\PopulationBalancePhaseSystem">
+      <UniqueIdentifier>{4763d100-6843-43b9-8c70-9cb88d19088d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\PhaseSystems\PhaseTransferPhaseSystem">
+      <UniqueIdentifier>{593b975c-d80a-41ff-b488-399a233ba644}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\PhaseSystems\OneResistanceHeatTransferPhaseSystem">
+      <UniqueIdentifier>{0fde0f29-7918-4141-9777-1b0ed8f21d07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\binaryBreakupModels">
+      <UniqueIdentifier>{a2f04392-20b6-442d-ab48-6f0f7f8e46c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\breakupModels">
+      <UniqueIdentifier>{fbdb6b72-096c-4d75-9b3b-c33c5ce812d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\coalescenceModels">
+      <UniqueIdentifier>{10a60bbf-8b56-44d5-bf36-97e5608a11cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\daughterSizeDistributionModels">
+      <UniqueIdentifier>{91311f4c-1e1f-4d5e-8f48-33daa3663a44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\driftModels">
+      <UniqueIdentifier>{7fbda3ea-1943-447e-8c03-70c243914d91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\populationBalanceModel">
+      <UniqueIdentifier>{b1afa059-93ea-4a3a-9ac6-90ffb70150ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\nucleationModels">
+      <UniqueIdentifier>{eda31ff3-99d1-4cb4-8120-578e3fe4ea0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\binaryBreakupModels\binaryBreakupModel">
+      <UniqueIdentifier>{5a9bf0c3-ab25-4687-b926-dbef4bb00dde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\binaryBreakupModels\LehrMilliesMewes">
+      <UniqueIdentifier>{5d62ecc7-920c-4839-bc54-4db1020d1c41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\binaryBreakupModels\LuoSvendsen">
+      <UniqueIdentifier>{286054f5-181e-4bea-a9d7-8f2e6e2c43fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\binaryBreakupModels\powerLawUniformBinary">
+      <UniqueIdentifier>{ecdf8c25-3289-451a-9762-22bfcfbac83c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\breakupModels\breakupModel">
+      <UniqueIdentifier>{a9c85974-6769-4dc3-a853-da78a42bcd3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\breakupModels\exponential">
+      <UniqueIdentifier>{2fff4a48-9221-4af0-888f-30234fcf509b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\breakupModels\LaakkonenAlopaeusAittamaa">
+      <UniqueIdentifier>{e3e1ad6d-4f48-4184-bfc6-4d41696fec52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\breakupModels\powerLaw">
+      <UniqueIdentifier>{8815d7bc-b8ce-4be0-b239-70b746345047}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\coalescenceModels\coalescenceModel">
+      <UniqueIdentifier>{2389c6da-00e3-40c5-af1c-6f8e7de52ce6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\coalescenceModels\constantCoalescence">
+      <UniqueIdentifier>{8d5b864a-1054-439a-a0e6-b4203c1910e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\coalescenceModels\CoulaloglouTavlaridesCoalescence">
+      <UniqueIdentifier>{4b9db500-e103-4f9f-890a-27bd37873e00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\coalescenceModels\hydrodynamic">
+      <UniqueIdentifier>{d126d287-6514-40cf-98f1-fb3d8118a2d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\coalescenceModels\LehrMilliesMewesCoalescence">
+      <UniqueIdentifier>{1858a3f5-6ffb-44c7-a493-a1838ca7074c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\coalescenceModels\Luo">
+      <UniqueIdentifier>{2f384b0f-c8f3-4e97-9728-2bbcf2617a6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\coalescenceModels\PrinceBlanch">
+      <UniqueIdentifier>{988c68cd-a22c-4c67-b200-93f65cc1a140}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\daughterSizeDistributionModels\daughterSizeDistributionModel">
+      <UniqueIdentifier>{053a1e39-5e1e-4ea8-b103-ef14f38fbec3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\daughterSizeDistributionModels\LaakkonenAlopaeusAittamaaDsd">
+      <UniqueIdentifier>{264e8300-31d4-49aa-ad3a-9de59686f091}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\daughterSizeDistributionModels\uniformBinary">
+      <UniqueIdentifier>{cb0f92f0-8921-49c1-82c8-074eeca48a64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\driftModels\constantDrift">
+      <UniqueIdentifier>{83902cf2-e2ca-4970-b3d5-9ad356b48c95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\driftModels\densityChange">
+      <UniqueIdentifier>{d4ece55d-4095-4118-b9e6-a3bff43bfe53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\driftModels\driftModel">
+      <UniqueIdentifier>{cb810cdb-4bb5-4ca3-bc26-2ed83d990dd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\driftModels\phaseChange">
+      <UniqueIdentifier>{f8a9a2a2-ce2c-4522-a7c6-53a5fad35671}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\nucleationModels\constantNucleation">
+      <UniqueIdentifier>{595b28cd-80c3-4ac9-95c1-5b4a7c5a0c41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\nucleationModels\wallBoiling">
+      <UniqueIdentifier>{19af7a7b-8424-4dad-b9b7-be42b4e6e47f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\phaseSystems\populationBalanceModel\nucleationModels\nucleationModel">
+      <UniqueIdentifier>{a0c35d3b-250c-44d7-af37-78510c6e7aff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TnbLib\interfacialCompositionModels\saturationModels\function">
+      <UniqueIdentifier>{a35984c2-2176-4234-ae6b-1059c09e0b96}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="module\Source.cpp" />
+    <ClCompile Include="TnbLib\module\Source.cpp">
+      <Filter>TnbLib\module</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\alphatFixedDmdtWallBoilingWallFunctionFvPatchScalarField.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\alphatFixedDmdtWallBoilingWallFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\alphatPhaseChangeJayatillekeWallFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\alphatPhaseChangeWallFunctionFvPatchScalarField.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\alphatPhaseChangeWallFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\alphatWallBoilingWallFunctionFvPatchScalarField.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\alphatWallBoilingWallFunction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\copiedFixedValueFvPatchScalarField.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\copiedFixedValue</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\fixedMultiPhaseHeatFluxFvPatchScalarField.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\fixedMultiPhaseHeatFlux</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\module\reactingEulerFoamLibs_Module.hxx">
+      <Filter>TnbLib\module</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\departureDiameterModel.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureDiameterModels\departureDiameterModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\KocamustafaogullariIshii.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureDiameterModels\KocamustafaogullariIshii</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\TolubinskiKostanchuk.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureDiameterModels\TolubinskiKostanchuk</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\Cole.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureFrequencyModels\Cole</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\departureFrequencyModel.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureFrequencyModels\departureFrequencyModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\LemmertChawla.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\nucleationSiteModels\LemmertChawla</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\nucleationSiteModel.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\nucleationSiteModels\nucleationSiteModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\cosine.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\cosine</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\Lavieville.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\Lavieville</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\linear.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\partitioningModel.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\partitioningModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\derivedFvPatchFields\phaseFraction.hxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\phaseFraction</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\phaseForces.hxx">
+      <Filter>TnbLib\functionObjects\phaseForces</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\functionObjects\sizeDistribution.hxx">
+      <Filter>TnbLib\functionObjects\sizeDistribution</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\Henry.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\Henry</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\InterfaceCompositionModelTemplate.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\InterfaceCompositionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\interfaceCompositionModel.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\InterfaceCompositionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\NonRandomTwoLiquid.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\NonRandomTwoLiquid</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\Raoult.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\Raoult</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\Saturated.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\Saturated</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\Frossling.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\massTransferModels\Frossling</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\massTransferModel.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\massTransferModels\massTransferModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\sphericalMassTransfer.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\massTransferModels\sphericalMassTransfer</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\Antoine.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\Antoine</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\AntoineExtended.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\AntoineExtended</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\ArdenBuck.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\ArdenBuck</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\constantSaturationConditions.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\constantSaturationConditions</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\functionMultiphase.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\function</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\polynomialMultiphase.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\polynomial</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\saturationModel.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\saturationModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\constantSurfaceTensionCoefficient.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\surfaceTensionModels\constantSurfaceTensionCoefficient</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\surfaceTensionModelMultiphase.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\surfaceTensionModels\surfaceTensionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialModels\aspectRatioModel.hxx">
+      <Filter>TnbLib\interfacialModels\aspectRatioModels\aspectRatioModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialModels\constantAspectRatio.hxx">
+      <Filter>TnbLib\interfacialModels\aspectRatioModels\constantAspectRatio</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialModels\TomiyamaAspectRatio.hxx">
+      <Filter>TnbLib\interfacialModels\aspectRatioModels\TomiyamaAspectRatio</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialModels\VakhrushevEfremov.hxx">
+      <Filter>TnbLib\interfacialModels\aspectRatioModels\VakhrushevEfremov</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialModels\Wellek.hxx">
+      <Filter>TnbLib\interfacialModels\aspectRatioModels\Wellek</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
