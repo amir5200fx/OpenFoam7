@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{b57d34f6-6965-421d-a7ed-cb4658df91ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseMixture">
+      <UniqueIdentifier>{f20aa06b-8e0c-411b-a653-b4e600c11758}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseMixture\alphaContactAngle">
+      <UniqueIdentifier>{c78b71be-c344-4e6e-97a3-903d3cca43f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseMixture\phase">
+      <UniqueIdentifier>{c68a8b12-c920-45df-9461-aa51ddde3b73}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="multiphaseMixture\alphaContactAngle\alphaContactAngleFvPatchScalarField.cxx">
+      <Filter>src\multiphaseMixture\alphaContactAngle</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseMixture\multiphaseMixture.cxx">
+      <Filter>src\multiphaseMixture</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseMixture\phase\phase.cxx">
+      <Filter>src\multiphaseMixture\phase</Filter>
+    </ClCompile>
+    <ClCompile Include="multiphaseInterFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="multiphaseMixture\alphaContactAngle\alphaContactAngleFvPatchScalarField.hxx">
+      <Filter>src\multiphaseMixture\alphaContactAngle</Filter>
+    </ClInclude>
+    <ClInclude Include="multiphaseMixture\multiphaseMixture.hxx">
+      <Filter>src\multiphaseMixture</Filter>
+    </ClInclude>
+    <ClInclude Include="multiphaseMixture\phase\phase.hxx">
+      <Filter>src\multiphaseMixture\phase</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+</Project>
