@@ -42,7 +42,7 @@ SourceFiles
 \*---------------------------------------------------------------------------*/
 
 #include <InterfaceCompositionModelTemplate.hxx>
-#include <aturationModel.hxx>
+#include <saturationModel.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
