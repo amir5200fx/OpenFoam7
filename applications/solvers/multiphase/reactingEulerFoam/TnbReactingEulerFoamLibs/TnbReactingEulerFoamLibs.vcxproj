@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TnbLib\module\Source.cpp" />
     <ClCompile Include="TnbLib\phaseSystems\hRefConstThermos.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\phaseSystem.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\populationBalanceModel.cxx" />

@@ -585,9 +585,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TnbLib\module\Source.cpp">
-      <Filter>TnbLib\module</Filter>
-    </ClCompile>
     <ClCompile Include="TnbLib\phaseSystems\velocityGroup.cxx">
       <Filter>TnbLib\phaseSystems\diameterModels\velocityGroup</Filter>
     </ClCompile>
