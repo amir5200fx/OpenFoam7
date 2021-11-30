@@ -116,7 +116,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            NonRandomTwoLiquid
+            FoamReactingEulerFoamLibs_EXPORT NonRandomTwoLiquid
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -124,23 +124,23 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~NonRandomTwoLiquid();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~NonRandomTwoLiquid();
 
 
             // Member Functions
 
                 //- Update the composition
-            virtual void update(const volScalarField& Tf);
+            FoamReactingEulerFoamLibs_EXPORT virtual void update(const volScalarField& Tf);
 
             //- The interface species fraction
-            virtual tmp<volScalarField> Yf
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> Yf
             (
                 const word& speciesName,
                 const volScalarField& Tf
             ) const;
 
             //- The interface species fraction derivative w.r.t. temperature
-            virtual tmp<volScalarField> YfPrime
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> YfPrime
             (
                 const word& speciesName,
                 const volScalarField& Tf

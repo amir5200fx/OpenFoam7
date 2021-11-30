@@ -72,7 +72,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            sphericalMassTransfer
+            FoamReactingEulerFoamLibs_EXPORT sphericalMassTransfer
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -80,13 +80,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~sphericalMassTransfer();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~sphericalMassTransfer();
 
 
             // Member Functions
 
                 //- The implicit mass transfer coefficient
-            virtual tmp<volScalarField> K() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> K() const;
         };
 
 

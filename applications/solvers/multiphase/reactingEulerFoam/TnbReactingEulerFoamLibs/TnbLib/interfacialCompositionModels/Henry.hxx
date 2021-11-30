@@ -79,7 +79,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            Henry
+            FoamReactingEulerFoamLibs_EXPORT Henry
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -87,23 +87,23 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Henry();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Henry();
 
 
             // Member Functions
 
                 //- Update the composition
-            virtual void update(const volScalarField& Tf);
+            FoamReactingEulerFoamLibs_EXPORT virtual void update(const volScalarField& Tf);
 
             //- The interface species fraction
-            virtual tmp<volScalarField> Yf
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> Yf
             (
                 const word& speciesName,
                 const volScalarField& Tf
             ) const;
 
             //- The interface species fraction derivative w.r.t. temperature
-            virtual tmp<volScalarField> YfPrime
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> YfPrime
             (
                 const word& speciesName,
                 const volScalarField& Tf

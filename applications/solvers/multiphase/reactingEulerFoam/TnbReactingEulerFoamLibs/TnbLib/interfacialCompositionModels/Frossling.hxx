@@ -72,7 +72,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            Frossling
+            FoamReactingEulerFoamLibs_EXPORT Frossling
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -80,13 +80,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Frossling();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Frossling();
 
 
             // Member Functions
 
                 //- The implicit mass transfer coefficient
-            virtual tmp<volScalarField> K() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> K() const;
         };
 
 

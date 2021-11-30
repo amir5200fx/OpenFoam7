@@ -76,7 +76,7 @@ namespace tnbLib
 
         // Declare runtime construction
 
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             interfaceCompositionModel,
@@ -92,7 +92,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from a dictionary and a phase pair
-        interfaceCompositionModel
+        FoamReactingEulerFoamLibs_EXPORT interfaceCompositionModel
         (
             const dictionary& dict,
             const phasePair& pair
@@ -100,12 +100,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~interfaceCompositionModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~interfaceCompositionModel();
 
 
         // Selectors
 
-        static autoPtr<interfaceCompositionModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<interfaceCompositionModel> New
         (
             const dictionary& dict,
             const phasePair& pair
@@ -118,11 +118,11 @@ namespace tnbLib
         virtual void update(const volScalarField& Tf) = 0;
 
         //- Return the transferring species names
-        const hashedWordList& species() const;
+        FoamReactingEulerFoamLibs_EXPORT const hashedWordList& species() const;
 
         //- Returns whether the species is transported by the model and
         //  provides the name of the diffused species
-        bool transports
+        FoamReactingEulerFoamLibs_EXPORT bool transports
         (
             word& speciesName
         ) const;

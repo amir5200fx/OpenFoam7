@@ -82,26 +82,26 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary
-            AntoineExtended(const dictionary& dict, const objectRegistry& db);
+            FoamReactingEulerFoamLibs_EXPORT AntoineExtended(const dictionary& dict, const objectRegistry& db);
 
 
             //- Destructor
-            virtual ~AntoineExtended();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~AntoineExtended();
 
 
             // Member Functions
 
                 //- Saturation pressure
-            virtual tmp<volScalarField> pSat(const volScalarField& T) const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> pSat(const volScalarField& T) const;
 
             //- Saturation pressure derivetive w.r.t. temperature
-            virtual tmp<volScalarField> pSatPrime(const volScalarField& T) const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> pSatPrime(const volScalarField& T) const;
 
             //- Natural log of the saturation pressure
-            virtual tmp<volScalarField> lnPSat(const volScalarField& T) const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> lnPSat(const volScalarField& T) const;
 
             //- Saturation temperature
-            virtual tmp<volScalarField> Tsat(const volScalarField& p) const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> Tsat(const volScalarField& p) const;
         };
 
 

@@ -63,7 +63,7 @@ namespace tnbLib
 
 
         //- Declare runtime construction
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             saturationModel,
@@ -78,7 +78,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct null
-        saturationModel(const objectRegistry& db);
+        FoamReactingEulerFoamLibs_EXPORT saturationModel(const objectRegistry& db);
 
         //- Disallow default bitwise copy construction
         saturationModel(const saturationModel&) = delete;
@@ -87,7 +87,7 @@ namespace tnbLib
         // Selectors
 
             //- Select null constructed
-        static autoPtr<saturationModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<saturationModel> New
         (
             const dictionary& dict,
             const objectRegistry& db
@@ -95,7 +95,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~saturationModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~saturationModel();
 
 
         // Member Functions

@@ -70,7 +70,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            constantSurfaceTensionCoefficient
+            FoamReactingEulerFoamLibs_EXPORT constantSurfaceTensionCoefficient
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -79,13 +79,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~constantSurfaceTensionCoefficient();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~constantSurfaceTensionCoefficient();
 
 
             // Member Functions
 
                 //- Aspect ratio
-            virtual tmp<volScalarField> sigma() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> sigma() const;
         };
 
 

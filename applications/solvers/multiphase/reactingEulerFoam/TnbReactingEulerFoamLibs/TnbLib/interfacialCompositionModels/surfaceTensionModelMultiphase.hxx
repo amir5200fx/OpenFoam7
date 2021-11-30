@@ -70,7 +70,7 @@ namespace tnbLib
 
 
         // Declare runtime construction
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             surfaceTensionModel,
@@ -87,13 +87,13 @@ namespace tnbLib
         // Static Data Members
 
             //- Coefficient dimensions
-        static const dimensionSet dimSigma;
+        static FoamReactingEulerFoamLibs_EXPORT const dimensionSet dimSigma;
 
 
         // Constructors
 
             //- Construct from a dictionary and a phase pair
-        surfaceTensionModel
+        FoamReactingEulerFoamLibs_EXPORT surfaceTensionModel
         (
             const dictionary& dict,
             const phasePair& pair,
@@ -102,12 +102,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~surfaceTensionModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~surfaceTensionModel();
 
 
         // Selectors
 
-        static autoPtr<surfaceTensionModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<surfaceTensionModel> New
         (
             const dictionary& dict,
             const phasePair& pair
@@ -120,7 +120,7 @@ namespace tnbLib
         virtual tmp<volScalarField> sigma() const = 0;
 
         //- Dummy write for regIOobject
-        bool writeData(Ostream& os) const;
+        FoamReactingEulerFoamLibs_EXPORT bool writeData(Ostream& os) const;
     };
 
 
