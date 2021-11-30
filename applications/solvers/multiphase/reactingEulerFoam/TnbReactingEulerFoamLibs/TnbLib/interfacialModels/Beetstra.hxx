@@ -81,7 +81,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            Beetstra
+            FoamReactingEulerFoamLibs_EXPORT Beetstra
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -90,13 +90,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Beetstra();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Beetstra();
 
 
             // Member Functions
 
                 //- Drag coefficient
-            virtual tmp<volScalarField> CdRe() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> CdRe() const;
         };
 
 

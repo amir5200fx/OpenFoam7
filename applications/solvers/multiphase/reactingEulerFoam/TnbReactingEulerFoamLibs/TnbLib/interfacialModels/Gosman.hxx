@@ -80,7 +80,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            Gosman
+            FoamReactingEulerFoamLibs_EXPORT Gosman
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -88,14 +88,14 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Gosman();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Gosman();
 
 
             // Member Functions
 
                 //- Turbulent diffusivity
                 //  multiplying the gradient of the phase-fraction
-            virtual tmp<volScalarField> D() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> D() const;
         };
 
 

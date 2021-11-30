@@ -85,7 +85,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and an ordered phase pair
-            GidaspowErgunWenYu
+            FoamReactingEulerFoamLibs_EXPORT GidaspowErgunWenYu
             (
                 const dictionary& interfaceDict,
                 const phasePair& pair,
@@ -94,13 +94,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~GidaspowErgunWenYu();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~GidaspowErgunWenYu();
 
 
             // Member Functions
 
                 //- Drag coefficient
-            virtual tmp<volScalarField> CdRe() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> CdRe() const;
         };
 
 

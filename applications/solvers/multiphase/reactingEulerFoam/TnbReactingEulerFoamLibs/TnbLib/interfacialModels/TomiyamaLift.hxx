@@ -76,7 +76,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            TomiyamaLift
+            FoamReactingEulerFoamLibs_EXPORT TomiyamaLift
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -84,13 +84,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~TomiyamaLift();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~TomiyamaLift();
 
 
             // Member Functions
 
                 //- Lift coefficient
-            virtual tmp<volScalarField> Cl() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> Cl() const;
         };
 
 

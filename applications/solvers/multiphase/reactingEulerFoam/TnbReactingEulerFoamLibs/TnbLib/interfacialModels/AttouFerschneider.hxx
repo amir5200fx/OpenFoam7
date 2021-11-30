@@ -88,21 +88,21 @@ namespace tnbLib
             // Private Member Functions
 
                 //- Return the momentum transfer coefficient between gas and liquid
-            virtual tmp<volScalarField> KGasLiquid
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> KGasLiquid
             (
                 const phaseModel& gas,
                 const phaseModel& liquid
             ) const;
 
             //- Return the momentum transfer coefficient between gas and solid
-            virtual tmp<volScalarField> KGasSolid
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> KGasSolid
             (
                 const phaseModel& gas,
                 const phaseModel& solid
             ) const;
 
             //- Return the momentum transfer coefficient between liquid and solid
-            virtual tmp<volScalarField> KLiquidSolid
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> KLiquidSolid
             (
                 const phaseModel& liquid,
                 const phaseModel& solid
@@ -118,7 +118,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            AttouFerschneider
+            FoamReactingEulerFoamLibs_EXPORT AttouFerschneider
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -127,19 +127,19 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~AttouFerschneider();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~AttouFerschneider();
 
 
             // Member Functions
 
                 //- Drag coefficient
-            virtual tmp<volScalarField> CdRe() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> CdRe() const;
 
             //- The drag coefficient used in the momentum equation
-            virtual tmp<volScalarField> K() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> K() const;
 
             //- The drag coefficient used in the face-momentum equations
-            virtual tmp<surfaceScalarField> Kf() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<surfaceScalarField> Kf() const;
         };
 
 

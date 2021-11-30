@@ -66,7 +66,7 @@ namespace tnbLib
             // Protected member functions
 
                 //- Return the force limiter field
-            virtual tmp<volScalarField> limiter() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> limiter() const;
 
 
         public:
@@ -78,7 +78,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            linear
+            FoamReactingEulerFoamLibs_EXPORT linear
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -86,7 +86,7 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~linear();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~linear();
         };
 
 

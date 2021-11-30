@@ -80,7 +80,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            Lain
+            FoamReactingEulerFoamLibs_EXPORT Lain
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -89,13 +89,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Lain();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Lain();
 
 
             // Member Functions
 
                 //- Drag coefficient
-            virtual tmp<volScalarField> CdRe() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> CdRe() const;
         };
 
 

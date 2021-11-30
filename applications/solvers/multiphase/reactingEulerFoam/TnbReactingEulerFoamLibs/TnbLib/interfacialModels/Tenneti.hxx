@@ -83,7 +83,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            Tenneti
+            FoamReactingEulerFoamLibs_EXPORT Tenneti
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -92,13 +92,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Tenneti();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Tenneti();
 
 
             // Member Functions
 
                 //- Drag coefficient
-            virtual tmp<volScalarField> CdRe() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> CdRe() const;
         };
 
 

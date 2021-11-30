@@ -66,7 +66,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            sphericalHeatTransfer
+            FoamReactingEulerFoamLibs_EXPORT sphericalHeatTransfer
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -74,13 +74,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~sphericalHeatTransfer();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~sphericalHeatTransfer();
 
 
             // Member Functions
 
                 //- The heat transfer function K used in the enthalpy equation
-            tmp<volScalarField> K(const scalar residualAlpha) const;
+            FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> K(const scalar residualAlpha) const;
         };
 
 

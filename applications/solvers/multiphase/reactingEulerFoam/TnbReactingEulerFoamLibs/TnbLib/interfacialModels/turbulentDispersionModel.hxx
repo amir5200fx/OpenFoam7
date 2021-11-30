@@ -69,7 +69,7 @@ namespace tnbLib
 
         // Declare runtime construction
 
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             turbulentDispersionModel,
@@ -84,16 +84,16 @@ namespace tnbLib
         // Static Data Members
 
             //- Diffusivity dimensions
-        static const dimensionSet dimD;
+        static FoamReactingEulerFoamLibs_EXPORT const dimensionSet dimD;
 
         //- Force dimensions
-        static const dimensionSet dimF;
+        static FoamReactingEulerFoamLibs_EXPORT const dimensionSet dimF;
 
 
         // Constructors
 
             //- Construct from a dictionary and a phase pair
-        turbulentDispersionModel
+        FoamReactingEulerFoamLibs_EXPORT turbulentDispersionModel
         (
             const dictionary& dict,
             const phasePair& pair
@@ -101,12 +101,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~turbulentDispersionModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~turbulentDispersionModel();
 
 
         // Selectors
 
-        static autoPtr<turbulentDispersionModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<turbulentDispersionModel> New
         (
             const dictionary& dict,
             const phasePair& pair
@@ -116,17 +116,17 @@ namespace tnbLib
         // Member Functions
 
             //- Return a reference to the turbulence model for the continuous phase
-        const phaseCompressibleTurbulenceModel& continuousTurbulence() const;
+        FoamReactingEulerFoamLibs_EXPORT const phaseCompressibleTurbulenceModel& continuousTurbulence() const;
 
         //- Turbulent diffusivity
         //  multiplying the gradient of the phase-fraction
         virtual tmp<volScalarField> D() const = 0;
 
         //- Turbulent dispersion force
-        virtual tmp<volVectorField> F() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<volVectorField> F() const;
 
         //- Turbulent dispersion force on faces
-        virtual tmp<surfaceScalarField> Ff() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<surfaceScalarField> Ff() const;
     };
 
 

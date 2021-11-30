@@ -72,7 +72,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            Gibilaro
+            FoamReactingEulerFoamLibs_EXPORT Gibilaro
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -81,13 +81,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Gibilaro();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Gibilaro();
 
 
             // Member Functions
 
                 //- Drag coefficient
-            virtual tmp<volScalarField> CdRe() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> CdRe() const;
         };
 
 

@@ -71,7 +71,7 @@ namespace tnbLib
 
         // Declare runtime construction
 
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             wallDampingModel,
@@ -87,13 +87,13 @@ namespace tnbLib
         // Static Data Members
 
             //- Coefficient dimensions
-        static const dimensionSet dimF;
+        static FoamReactingEulerFoamLibs_EXPORT const dimensionSet dimF;
 
 
         // Constructors
 
             //- Construct from components
-        wallDampingModel
+        FoamReactingEulerFoamLibs_EXPORT wallDampingModel
         (
             const dictionary& dict,
             const phasePair& pair
@@ -101,12 +101,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~wallDampingModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~wallDampingModel();
 
 
         // Selectors
 
-        static autoPtr<wallDampingModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<wallDampingModel> New
         (
             const dictionary& dict,
             const phasePair& pair

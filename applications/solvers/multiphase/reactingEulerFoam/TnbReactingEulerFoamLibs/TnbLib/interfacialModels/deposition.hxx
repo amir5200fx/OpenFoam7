@@ -80,7 +80,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            deposition
+            FoamReactingEulerFoamLibs_EXPORT deposition
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -88,13 +88,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~deposition();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~deposition();
 
 
             // Member Functions
 
                 //- The mass transfer rate
-            virtual tmp<volScalarField> dmdt() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> dmdt() const;
         };
 
 

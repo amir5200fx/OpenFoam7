@@ -72,7 +72,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and an ordered phase pair
-            TomiyamaAspectRatio
+            FoamReactingEulerFoamLibs_EXPORT TomiyamaAspectRatio
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -80,13 +80,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~TomiyamaAspectRatio();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~TomiyamaAspectRatio();
 
 
             // Member Functions
 
                 //- Aspect ratio
-            virtual tmp<volScalarField> E() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> E() const;
         };
 
 

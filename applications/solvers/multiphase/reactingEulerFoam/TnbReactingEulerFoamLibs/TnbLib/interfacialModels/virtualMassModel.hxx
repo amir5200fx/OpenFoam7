@@ -71,7 +71,7 @@ namespace tnbLib
 
         // Declare runtime construction
 
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             virtualMassModel,
@@ -88,13 +88,13 @@ namespace tnbLib
         // Static Data Members
 
             //- Coefficient dimensions
-        static const dimensionSet dimK;
+        static FoamReactingEulerFoamLibs_EXPORT const dimensionSet dimK;
 
 
         // Constructors
 
             //- Construct from a dictionary and a phase pair
-        virtualMassModel
+        FoamReactingEulerFoamLibs_EXPORT virtualMassModel
         (
             const dictionary& dict,
             const phasePair& pair,
@@ -103,12 +103,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~virtualMassModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~virtualMassModel();
 
 
         // Selectors
 
-        static autoPtr<virtualMassModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<virtualMassModel> New
         (
             const dictionary& dict,
             const phasePair& pair
@@ -124,20 +124,20 @@ namespace tnbLib
         //  used in the momentum equation
         //    ddt(alpha1*rho1*U1) + ... = ... alphad*K*(DU1_Dt - DU2_Dt)
         //    ddt(alpha2*rho2*U2) + ... = ... alphad*K*(DU1_Dt - DU2_Dt)
-        virtual tmp<volScalarField> Ki() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> Ki() const;
 
         //- Return the virtual mass coefficient K
         //  used in the momentum equation
         //    ddt(alpha1*rho1*U1) + ... = ... K*(DU1_Dt - DU2_Dt)
         //    ddt(alpha2*rho2*U2) + ... = ... K*(DU1_Dt - DU2_Dt)
-        virtual tmp<volScalarField> K() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> K() const;
 
         //- Return the virtual mass coefficient Kf
         //  used in the face-momentum equations
-        virtual tmp<surfaceScalarField> Kf() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<surfaceScalarField> Kf() const;
 
         // Dummy write for regIOobject
-        bool writeData(Ostream& os) const;
+        FoamReactingEulerFoamLibs_EXPORT bool writeData(Ostream& os) const;
     };
 
 

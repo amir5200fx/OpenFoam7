@@ -74,7 +74,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            wallDamped
+            FoamReactingEulerFoamLibs_EXPORT wallDamped
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -82,22 +82,22 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~wallDamped();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~wallDamped();
 
 
             // Member Functions
 
                 //- Return lift coefficient
-            virtual tmp<volScalarField> Cl() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> Cl() const;
 
             //- Return phase-intensive lift force
-            virtual tmp<volVectorField> Fi() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volVectorField> Fi() const;
 
             //- Return lift force
-            virtual tmp<volVectorField> F() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volVectorField> F() const;
 
             //- Return face lift force
-            virtual tmp<surfaceScalarField> Ff() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<surfaceScalarField> Ff() const;
         };
 
 

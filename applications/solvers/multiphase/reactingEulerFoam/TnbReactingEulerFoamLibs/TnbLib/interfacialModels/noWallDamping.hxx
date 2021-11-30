@@ -64,7 +64,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            noWallDamping
+            FoamReactingEulerFoamLibs_EXPORT noWallDamping
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -72,25 +72,25 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~noWallDamping();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~noWallDamping();
 
 
             // Member Functions
 
                 //- Return damped coefficient
-            virtual tmp<volScalarField> damp
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> damp
             (
                 const tmp<volScalarField>&
             ) const;
 
             //- Return damped force
-            virtual tmp<volVectorField> damp
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volVectorField> damp
             (
                 const tmp<volVectorField>&
             ) const;
 
             //- Return damped face force
-            virtual tmp<surfaceScalarField> damp
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<surfaceScalarField> damp
             (
                 const tmp<surfaceScalarField>&
             ) const;

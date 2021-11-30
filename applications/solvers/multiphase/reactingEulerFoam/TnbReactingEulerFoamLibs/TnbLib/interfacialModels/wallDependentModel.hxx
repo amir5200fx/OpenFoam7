@@ -64,23 +64,23 @@ namespace tnbLib
         // Constructors
 
             //- Construct from a mesh
-        wallDependentModel(const fvMesh& mesh);
+        FoamReactingEulerFoamLibs_EXPORT wallDependentModel(const fvMesh& mesh);
 
         //- Disallow default bitwise copy construction
         wallDependentModel(const wallDependentModel&) = delete;
 
 
         //- Destructor
-        virtual ~wallDependentModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~wallDependentModel();
 
 
         // Member Functions
 
             // Return the wall distance, creating and storing it if necessary
-        const volScalarField& yWall() const;
+        FoamReactingEulerFoamLibs_EXPORT const volScalarField& yWall() const;
 
         // Return the wall normal, creating and storing it if necessary
-        const volVectorField& nWall() const;
+        FoamReactingEulerFoamLibs_EXPORT const volVectorField& nWall() const;
 
 
         // Member Operators

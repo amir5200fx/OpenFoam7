@@ -79,7 +79,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            WenYu
+            FoamReactingEulerFoamLibs_EXPORT WenYu
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -88,13 +88,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~WenYu();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~WenYu();
 
 
             // Member Functions
 
                 //- Drag coefficient
-            virtual tmp<volScalarField> CdRe() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> CdRe() const;
         };
 
 

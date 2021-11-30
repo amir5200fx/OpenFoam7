@@ -85,7 +85,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            LegendreMagnaudet
+            FoamReactingEulerFoamLibs_EXPORT LegendreMagnaudet
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -93,13 +93,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~LegendreMagnaudet();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~LegendreMagnaudet();
 
 
             // Member Functions
 
                 //- Lift coefficient
-            virtual tmp<volScalarField> Cl() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> Cl() const;
         };
 
 

@@ -64,7 +64,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            noSwarm
+            FoamReactingEulerFoamLibs_EXPORT noSwarm
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -72,13 +72,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~noSwarm();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~noSwarm();
 
 
             // Member Functions
 
                 //- Swarm correction coefficient
-            tmp<volScalarField> Cs() const;
+            FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> Cs() const;
         };
 
 

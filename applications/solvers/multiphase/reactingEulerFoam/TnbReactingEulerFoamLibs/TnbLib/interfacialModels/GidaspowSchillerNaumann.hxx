@@ -84,7 +84,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            GidaspowSchillerNaumann
+            FoamReactingEulerFoamLibs_EXPORT GidaspowSchillerNaumann
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -93,13 +93,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~GidaspowSchillerNaumann();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~GidaspowSchillerNaumann();
 
 
             // Member Functions
 
                 //- Drag coefficient
-            virtual tmp<volScalarField> CdRe() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> CdRe() const;
         };
 
 

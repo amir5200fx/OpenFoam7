@@ -71,7 +71,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            SchillerNaumann
+            FoamReactingEulerFoamLibs_EXPORT SchillerNaumann
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -80,13 +80,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~SchillerNaumann();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~SchillerNaumann();
 
 
             // Member Functions
 
                 //- Drag coefficient
-            virtual tmp<volScalarField> CdRe() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> CdRe() const;
         };
 
 

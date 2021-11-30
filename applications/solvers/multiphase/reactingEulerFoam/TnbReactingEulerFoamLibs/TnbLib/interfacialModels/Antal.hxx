@@ -82,7 +82,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            Antal
+            FoamReactingEulerFoamLibs_EXPORT Antal
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -90,13 +90,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Antal();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Antal();
 
 
             // Member Functions
 
                 //- Return phase-intensive wall lubrication force
-            tmp<volVectorField> Fi() const;
+            FoamReactingEulerFoamLibs_EXPORT tmp<volVectorField> Fi() const;
         };
 
 

@@ -68,7 +68,7 @@ namespace tnbLib
 
 
         // Declare runtime construction
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             swarmCorrection,
@@ -84,7 +84,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from a dictionary and a phase pair
-        swarmCorrection
+        FoamReactingEulerFoamLibs_EXPORT swarmCorrection
         (
             const dictionary& dict,
             const phasePair& pair
@@ -92,12 +92,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~swarmCorrection();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~swarmCorrection();
 
 
         // Selectors
 
-        static autoPtr<swarmCorrection> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<swarmCorrection> New
         (
             const dictionary& dict,
             const phasePair& pair

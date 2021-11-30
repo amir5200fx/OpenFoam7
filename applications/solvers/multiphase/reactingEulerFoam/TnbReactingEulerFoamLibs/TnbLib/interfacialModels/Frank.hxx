@@ -93,7 +93,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            Frank
+            FoamReactingEulerFoamLibs_EXPORT Frank
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -101,13 +101,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Frank();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Frank();
 
 
             // Member Functions
 
                 //- Return phase-intensive wall lubrication force
-            tmp<volVectorField> Fi() const;
+            FoamReactingEulerFoamLibs_EXPORT tmp<volVectorField> Fi() const;
         };
 
 

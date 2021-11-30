@@ -71,7 +71,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            constantVirtualMassCoefficient
+            FoamReactingEulerFoamLibs_EXPORT constantVirtualMassCoefficient
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -80,13 +80,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~constantVirtualMassCoefficient();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~constantVirtualMassCoefficient();
 
 
             // Member Functions
 
                 //- Virtual mass coefficient
-            virtual tmp<volScalarField> Cvm() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> Cvm() const;
         };
 
 

@@ -71,7 +71,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            Ergun
+            FoamReactingEulerFoamLibs_EXPORT Ergun
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -80,13 +80,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Ergun();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Ergun();
 
 
             // Member Functions
 
                 //- Drag coefficient
-            virtual tmp<volScalarField> CdRe() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> CdRe() const;
         };
 
 

@@ -65,7 +65,7 @@ namespace tnbLib
         // Protected member functions
 
             //- Zero-gradient wall-lubrication force at walls
-        tmp<volVectorField> zeroGradWalls(tmp<volVectorField>) const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volVectorField> zeroGradWalls(tmp<volVectorField>) const;
 
 
     public:
@@ -76,7 +76,7 @@ namespace tnbLib
 
         // Declare runtime construction
 
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             wallLubricationModel,
@@ -92,13 +92,13 @@ namespace tnbLib
         // Static Data Members
 
             //- Coefficient dimensions
-        static const dimensionSet dimF;
+        static FoamReactingEulerFoamLibs_EXPORT const dimensionSet dimF;
 
 
         // Constructors
 
             //- Construct from components
-        wallLubricationModel
+        FoamReactingEulerFoamLibs_EXPORT wallLubricationModel
         (
             const dictionary& dict,
             const phasePair& pair
@@ -106,12 +106,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~wallLubricationModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~wallLubricationModel();
 
 
         // Selectors
 
-        static autoPtr<wallLubricationModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<wallLubricationModel> New
         (
             const dictionary& dict,
             const phasePair& pair
@@ -124,10 +124,10 @@ namespace tnbLib
         virtual tmp<volVectorField> Fi() const = 0;
 
         //- Return wall lubrication force
-        virtual tmp<volVectorField> F() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<volVectorField> F() const;
 
         //- Return face wall lubrication force
-        virtual tmp<surfaceScalarField> Ff() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<surfaceScalarField> Ff() const;
     };
 
 

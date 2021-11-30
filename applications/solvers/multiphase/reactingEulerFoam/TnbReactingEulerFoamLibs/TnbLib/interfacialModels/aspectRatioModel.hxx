@@ -68,7 +68,7 @@ namespace tnbLib
 
 
         // Declare runtime construction
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             aspectRatioModel,
@@ -84,7 +84,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from a dictionary and an ordered phase pair
-        aspectRatioModel
+        FoamReactingEulerFoamLibs_EXPORT aspectRatioModel
         (
             const dictionary& dict,
             const phasePair& pair
@@ -92,12 +92,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~aspectRatioModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~aspectRatioModel();
 
 
         // Selectors
 
-        static autoPtr<aspectRatioModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<aspectRatioModel> New
         (
             const dictionary& dict,
             const phasePair& pair

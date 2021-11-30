@@ -71,7 +71,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            constantNuHeatTransfer
+            FoamReactingEulerFoamLibs_EXPORT constantNuHeatTransfer
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -79,13 +79,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~constantNuHeatTransfer();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~constantNuHeatTransfer();
 
 
             // Member Functions
 
                 //- The heat transfer function K used in the enthalpy equation
-            tmp<volScalarField> K(const scalar residualAlpha) const;
+            FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> K(const scalar residualAlpha) const;
         };
 
 

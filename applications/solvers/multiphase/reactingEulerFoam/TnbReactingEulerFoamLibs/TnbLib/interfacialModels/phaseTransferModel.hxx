@@ -68,7 +68,7 @@ namespace tnbLib
 
         // Declare runtime construction
 
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             phaseTransferModel,
@@ -84,13 +84,13 @@ namespace tnbLib
         // Static Data Members
 
             //- Mass transfer rate dimensions
-        static const dimensionSet dimDmdt;
+        static FoamReactingEulerFoamLibs_EXPORT const dimensionSet dimDmdt;
 
 
         // Constructors
 
             //- Construct from a dictionary and a phase pair
-        phaseTransferModel
+        FoamReactingEulerFoamLibs_EXPORT phaseTransferModel
         (
             const dictionary& dict,
             const phasePair& pair
@@ -98,12 +98,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~phaseTransferModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~phaseTransferModel();
 
 
         // Selectors
 
-        static autoPtr<phaseTransferModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<phaseTransferModel> New
         (
             const dictionary& dict,
             const phasePair& pair

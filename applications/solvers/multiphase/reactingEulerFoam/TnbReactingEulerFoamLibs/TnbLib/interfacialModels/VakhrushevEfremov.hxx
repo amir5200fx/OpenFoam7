@@ -70,7 +70,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and an ordered phase pair
-            VakhrushevEfremov
+            FoamReactingEulerFoamLibs_EXPORT VakhrushevEfremov
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -78,13 +78,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~VakhrushevEfremov();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~VakhrushevEfremov();
 
 
             // Member Functions
 
                 //- Aspect ratio
-            virtual tmp<volScalarField> E() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> E() const;
         };
 
 

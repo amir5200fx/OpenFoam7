@@ -64,7 +64,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            noVirtualMass
+            FoamReactingEulerFoamLibs_EXPORT noVirtualMass
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -73,16 +73,16 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~noVirtualMass();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~noVirtualMass();
 
 
             // Member Functions
 
                 //- Virtual mass coefficient
-            virtual tmp<volScalarField> Cvm() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> Cvm() const;
 
             //- The virtual mass function K used in the momentum equation
-            virtual tmp<volScalarField> K() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> K() const;
         };
 
 

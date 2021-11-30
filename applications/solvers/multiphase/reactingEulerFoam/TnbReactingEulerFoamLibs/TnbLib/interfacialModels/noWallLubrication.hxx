@@ -64,7 +64,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            noWallLubrication
+            FoamReactingEulerFoamLibs_EXPORT noWallLubrication
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -72,16 +72,16 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~noWallLubrication();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~noWallLubrication();
 
 
             // Member Functions
 
                 //- Return phase-intensive wall lubrication force
-            tmp<volVectorField> Fi() const;
+            FoamReactingEulerFoamLibs_EXPORT tmp<volVectorField> Fi() const;
 
             //- Wall lubrication force
-            tmp<volVectorField> F() const;
+            FoamReactingEulerFoamLibs_EXPORT tmp<volVectorField> F() const;
         };
 
 

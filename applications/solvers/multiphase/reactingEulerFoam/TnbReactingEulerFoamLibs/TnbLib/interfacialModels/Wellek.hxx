@@ -76,7 +76,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and an ordered phase pair
-            Wellek
+            FoamReactingEulerFoamLibs_EXPORT Wellek
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -84,13 +84,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Wellek();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Wellek();
 
 
             // Member Functions
 
                 //- Aspect ratio
-            virtual tmp<volScalarField> E() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> E() const;
         };
 
 

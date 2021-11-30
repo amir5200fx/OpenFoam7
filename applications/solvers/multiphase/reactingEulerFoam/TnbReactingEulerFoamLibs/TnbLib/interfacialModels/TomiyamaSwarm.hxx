@@ -79,7 +79,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            TomiyamaSwarm
+            FoamReactingEulerFoamLibs_EXPORT TomiyamaSwarm
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -87,13 +87,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~TomiyamaSwarm();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~TomiyamaSwarm();
 
 
             // Member Functions
 
                 //- Swarm correction coefficient
-            virtual tmp<volScalarField> Cs() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> Cs() const;
         };
 
 

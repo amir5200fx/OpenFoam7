@@ -90,7 +90,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            Burns
+            FoamReactingEulerFoamLibs_EXPORT Burns
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -98,14 +98,14 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Burns();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Burns();
 
 
             // Member Functions
 
                 //- Turbulent diffusivity
                 //  multiplying the gradient of the phase-fraction
-            virtual tmp<volScalarField> D() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> D() const;
         };
 
 

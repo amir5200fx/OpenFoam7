@@ -81,7 +81,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            segregated
+            FoamReactingEulerFoamLibs_EXPORT segregated
             (
                 const dictionary& dict,
                 const phasePair& pair,
@@ -90,19 +90,19 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~segregated();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~segregated();
 
 
             // Member Functions
 
                 //- Drag coefficient
-            virtual tmp<volScalarField> CdRe() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> CdRe() const;
 
             //- The drag function used in the momentum equation
-            virtual tmp<volScalarField> K() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> K() const;
 
             //- The drag function Kf used in the face-momentum equations
-            virtual tmp<surfaceScalarField> Kf() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<surfaceScalarField> Kf() const;
         };
 
 

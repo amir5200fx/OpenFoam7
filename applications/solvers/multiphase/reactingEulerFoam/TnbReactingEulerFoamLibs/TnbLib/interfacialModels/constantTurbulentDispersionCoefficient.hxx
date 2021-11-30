@@ -71,7 +71,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            constantTurbulentDispersionCoefficient
+            FoamReactingEulerFoamLibs_EXPORT constantTurbulentDispersionCoefficient
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -79,14 +79,14 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~constantTurbulentDispersionCoefficient();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~constantTurbulentDispersionCoefficient();
 
 
             // Member Functions
 
                 //- Turbulent diffusivity
                 //  multiplying the gradient of the phase-fraction
-            virtual tmp<volScalarField> D() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> D() const;
         };
 
 

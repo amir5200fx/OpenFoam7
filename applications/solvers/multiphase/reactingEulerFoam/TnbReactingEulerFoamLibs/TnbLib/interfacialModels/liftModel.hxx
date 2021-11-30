@@ -69,7 +69,7 @@ namespace tnbLib
 
         // Declare runtime construction
 
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             liftModel,
@@ -85,13 +85,13 @@ namespace tnbLib
         // Static Data Members
 
             //- Force dimensions
-        static const dimensionSet dimF;
+        static FoamReactingEulerFoamLibs_EXPORT const dimensionSet dimF;
 
 
         // Constructors
 
             //- Construct from a dictionary and a phase pair
-        liftModel
+        FoamReactingEulerFoamLibs_EXPORT liftModel
         (
             const dictionary& dict,
             const phasePair& pair
@@ -99,12 +99,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~liftModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~liftModel();
 
 
         // Selectors
 
-        static autoPtr<liftModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<liftModel> New
         (
             const dictionary& dict,
             const phasePair& pair
@@ -117,13 +117,13 @@ namespace tnbLib
         virtual tmp<volScalarField> Cl() const = 0;
 
         //- Return phase-intensive lift force
-        virtual tmp<volVectorField> Fi() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<volVectorField> Fi() const;
 
         //- Return lift force
-        virtual tmp<volVectorField> F() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<volVectorField> F() const;
 
         //- Return face lift force
-        virtual tmp<surfaceScalarField> Ff() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<surfaceScalarField> Ff() const;
     };
 
 

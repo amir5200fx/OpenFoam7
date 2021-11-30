@@ -71,7 +71,7 @@ namespace tnbLib
 
         // Declare runtime construction
 
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             heatTransferModel,
@@ -87,13 +87,13 @@ namespace tnbLib
         // Static Data Members
 
             //- Coefficient dimensions
-        static const dimensionSet dimK;
+        static FoamReactingEulerFoamLibs_EXPORT const dimensionSet dimK;
 
 
         // Constructors
 
             //- Construct froma dictionary and a phase pair
-        heatTransferModel
+        FoamReactingEulerFoamLibs_EXPORT heatTransferModel
         (
             const dictionary& dict,
             const phasePair& pair
@@ -101,12 +101,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~heatTransferModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~heatTransferModel();
 
 
         // Selectors
 
-        static autoPtr<heatTransferModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<heatTransferModel> New
         (
             const dictionary& dict,
             const phasePair& pair
@@ -118,7 +118,7 @@ namespace tnbLib
             //- The heat transfer function K used in the enthalpy equation
             //    ddt(alpha1*rho1*ha) + ... = ... K*(Ta - Tb)
             //    ddt(alpha2*rho2*hb) + ... = ... K*(Tb - Ta)
-        tmp<volScalarField> K() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> K() const;
 
         //- The heat transfer function K used in the enthalpy equation
         //    ddt(alpha1*rho1*ha) + ... = ... K*(Ta - Tb)

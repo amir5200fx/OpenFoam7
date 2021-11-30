@@ -79,7 +79,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a phase pair
-            Moraga
+            FoamReactingEulerFoamLibs_EXPORT Moraga
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -87,13 +87,13 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~Moraga();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~Moraga();
 
 
             // Member Functions
 
                 //- Lift coefficient
-            virtual tmp<volScalarField> Cl() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> Cl() const;
         };
 
 
