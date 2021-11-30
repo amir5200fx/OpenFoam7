@@ -116,7 +116,7 @@ namespace tnbLib
             };
 
             //- Selection mode type names
-            static const NamedEnum<selectionModeTypes, 2> selectionModeTypeNames_;
+            static FoamReactingEulerFoamLibs_EXPORT const NamedEnum<selectionModeTypes, 2> selectionModeTypeNames_;
 
 
             //- Function type enumeration
@@ -140,7 +140,7 @@ namespace tnbLib
             };
 
             //- Abszissa type names
-            static const NamedEnum<abszissaTypes, 2> abszissaTypeNames_;
+            static FoamReactingEulerFoamLibs_EXPORT const NamedEnum<abszissaTypes, 2> abszissaTypeNames_;
 
 
         protected:
@@ -196,22 +196,22 @@ namespace tnbLib
             // Protected Member Functions
 
                 //- Initialise, e.g. cell addressing
-            void initialise(const dictionary& dict);
+            FoamReactingEulerFoamLibs_EXPORT void initialise(const dictionary& dict);
 
             //- Set cells to evaluate based on a cell zone
-            void setCellZoneCells();
+            FoamReactingEulerFoamLibs_EXPORT void setCellZoneCells();
 
             //- Calculate and return volume of the evaluated cell zone
-            scalar volume() const;
+            FoamReactingEulerFoamLibs_EXPORT scalar volume() const;
 
             //- Combine fields from all processor domains into single field
-            void combineFields(scalarField& field);
+            FoamReactingEulerFoamLibs_EXPORT void combineFields(scalarField& field);
 
             //- Filter field according to cellIds
-            tmp<scalarField> filterField(const scalarField& field) const;
+            FoamReactingEulerFoamLibs_EXPORT tmp<scalarField> filterField(const scalarField& field) const;
 
             //- Output file header information
-            virtual void writeFileHeader(const label i);
+            FoamReactingEulerFoamLibs_EXPORT virtual void writeFileHeader(const label i);
 
 
         public:
@@ -223,7 +223,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from Time and dictionary
-            sizeDistribution
+            FoamReactingEulerFoamLibs_EXPORT sizeDistribution
             (
                 const word& name,
                 const Time& runTime,
@@ -232,7 +232,7 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~sizeDistribution();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~sizeDistribution();
 
 
             // Member Functions
@@ -256,13 +256,13 @@ namespace tnbLib
             }
 
             //- Read from dictionary
-            virtual bool read(const dictionary& dict);
+            FoamReactingEulerFoamLibs_EXPORT virtual bool read(const dictionary& dict);
 
             //- Execute
-            virtual bool execute();
+            FoamReactingEulerFoamLibs_EXPORT virtual bool execute();
 
             //- Write
-            virtual bool write();
+            FoamReactingEulerFoamLibs_EXPORT virtual bool write();
         };
 
 

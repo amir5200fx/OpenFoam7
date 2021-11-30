@@ -119,7 +119,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from Time and dictionary
-            phaseForces
+            FoamReactingEulerFoamLibs_EXPORT phaseForces
             (
                 const word& name,
                 const Time& runTime,
@@ -131,19 +131,19 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~phaseForces();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~phaseForces();
 
 
             // Member Functions
 
                 //- Read the input data
-            virtual bool read(const dictionary& dict);
+            FoamReactingEulerFoamLibs_EXPORT virtual bool read(const dictionary& dict);
 
             //- Calculate the force fields
-            virtual bool execute();
+            FoamReactingEulerFoamLibs_EXPORT virtual bool execute();
 
             //- Write the force fields
-            virtual bool write();
+            FoamReactingEulerFoamLibs_EXPORT virtual bool write();
 
 
             // Member Operators
