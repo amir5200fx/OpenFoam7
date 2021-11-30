@@ -600,6 +600,9 @@
     <ClCompile Include="TnbLib\phaseSystems\phaseSystem.cxx">
       <Filter>TnbLib\phaseSystems\phaseSystem</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\phaseSystems\phasePairKey.cxx">
+      <Filter>TnbLib\phaseSystems\phasePair\phasePairKey</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\derivedFvPatchFields\alphatFixedDmdtWallBoilingWallFunctionFvPatchScalarField.hxx">

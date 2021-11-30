@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TnbLib\phaseSystems\hRefConstThermos.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\phasePairKey.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\phaseSystem.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\populationBalanceModel.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\sizeGroup.cxx" />
@@ -286,7 +287,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FoamReactingEulerFoamLibs_EXPORT_DEFINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\derivedFvPatchFields;$(ProjectDir)TnbLib\functionObjects;$(ProjectDir)TnbLib\interfacialCompositionModels;$(ProjectDir)TnbLib\interfacialModels;$(ProjectDir)TnbLib\module;$(ProjectDir)TnbLib\phaseSystems;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbCombustionModels\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\derivedFvPatchFields;$(ProjectDir)TnbLib\functionObjects;$(ProjectDir)TnbLib\interfacialCompositionModels;$(ProjectDir)TnbLib\interfacialModels;$(ProjectDir)TnbLib\module;$(ProjectDir)TnbLib\phaseSystems;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbCombustionModels\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -301,7 +302,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FoamReactingEulerFoamLibs_EXPORT_DEFINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\derivedFvPatchFields;$(ProjectDir)TnbLib\functionObjects;$(ProjectDir)TnbLib\interfacialCompositionModels;$(ProjectDir)TnbLib\interfacialModels;$(ProjectDir)TnbLib\module;$(ProjectDir)TnbLib\phaseSystems;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbCombustionModels\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\derivedFvPatchFields;$(ProjectDir)TnbLib\functionObjects;$(ProjectDir)TnbLib\interfacialCompositionModels;$(ProjectDir)TnbLib\interfacialModels;$(ProjectDir)TnbLib\module;$(ProjectDir)TnbLib\phaseSystems;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbCombustionModels\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
