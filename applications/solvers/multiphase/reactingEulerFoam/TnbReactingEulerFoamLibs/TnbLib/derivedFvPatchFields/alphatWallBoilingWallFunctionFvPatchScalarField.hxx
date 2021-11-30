@@ -165,7 +165,7 @@ namespace tnbLib
             word otherPhaseName_;
 
             //- Heat source type names
-            static const NamedEnum<phaseType, 2> phaseTypeNames_;
+            static FoamReactingEulerFoamLibs_EXPORT const NamedEnum<phaseType, 2> phaseTypeNames_;
 
             //- Heat source type
             phaseType phaseType_;
@@ -211,14 +211,14 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from patch and internal field
-            alphatWallBoilingWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatWallBoilingWallFunctionFvPatchScalarField
             (
                 const fvPatch&,
                 const DimensionedField<scalar, volMesh>&
             );
 
             //- Construct from patch, internal field and dictionary
-            alphatWallBoilingWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatWallBoilingWallFunctionFvPatchScalarField
             (
                 const fvPatch&,
                 const DimensionedField<scalar, volMesh>&,
@@ -228,7 +228,7 @@ namespace tnbLib
             //- Construct by mapping given
             //  alphatWallBoilingWallFunctionFvPatchScalarField
             //  onto a new patch
-            alphatWallBoilingWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatWallBoilingWallFunctionFvPatchScalarField
             (
                 const alphatWallBoilingWallFunctionFvPatchScalarField&,
                 const fvPatch&,
@@ -237,7 +237,7 @@ namespace tnbLib
             );
 
             //- Copy constructor
-            alphatWallBoilingWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatWallBoilingWallFunctionFvPatchScalarField
             (
                 const alphatWallBoilingWallFunctionFvPatchScalarField&
             );
@@ -252,7 +252,7 @@ namespace tnbLib
             }
 
             //- Copy constructor setting internal field reference
-            alphatWallBoilingWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatWallBoilingWallFunctionFvPatchScalarField
             (
                 const alphatWallBoilingWallFunctionFvPatchScalarField&,
                 const DimensionedField<scalar, volMesh>&
@@ -276,13 +276,13 @@ namespace tnbLib
             using alphatPhaseChangeWallFunctionFvPatchScalarField::dmdt;
 
             //- Is there phase change mass transfer for this phasePair
-            virtual bool activePhasePair(const phasePairKey&) const;
+            FoamReactingEulerFoamLibs_EXPORT virtual bool activePhasePair(const phasePairKey&) const;
 
             //- Return the rate of phase-change for specific phase pair
-            virtual const scalarField& dmdt(const phasePairKey&) const;
+            FoamReactingEulerFoamLibs_EXPORT virtual const scalarField& dmdt(const phasePairKey&) const;
 
             //- Return the rate of phase-change for specific phase pair
-            virtual const scalarField& mDotL(const phasePairKey&) const;
+            FoamReactingEulerFoamLibs_EXPORT virtual const scalarField& mDotL(const phasePairKey&) const;
 
             //- Return the departure diameter field
             const scalarField& dDeparture() const
@@ -305,13 +305,13 @@ namespace tnbLib
             // Evaluation functions
 
                 //- Update the coefficients associated with the patch field
-            virtual void updateCoeffs();
+            FoamReactingEulerFoamLibs_EXPORT virtual void updateCoeffs();
 
 
             // I-O
 
                 //- Write
-            virtual void write(Ostream&) const;
+            FoamReactingEulerFoamLibs_EXPORT virtual void write(Ostream&) const;
         };
 
 

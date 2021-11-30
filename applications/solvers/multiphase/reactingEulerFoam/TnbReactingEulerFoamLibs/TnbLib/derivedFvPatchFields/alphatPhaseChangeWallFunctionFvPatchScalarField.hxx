@@ -77,14 +77,14 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from patch and internal field
-            alphatPhaseChangeWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatPhaseChangeWallFunctionFvPatchScalarField
             (
                 const fvPatch&,
                 const DimensionedField<scalar, volMesh>&
             );
 
             //- Construct from patch, internal field and dictionary
-            alphatPhaseChangeWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatPhaseChangeWallFunctionFvPatchScalarField
             (
                 const fvPatch&,
                 const DimensionedField<scalar, volMesh>&,
@@ -94,7 +94,7 @@ namespace tnbLib
             //- Construct by mapping given
             //  alphatPhaseChangeWallFunctionFvPatchScalarField
             //  onto a new patch
-            alphatPhaseChangeWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatPhaseChangeWallFunctionFvPatchScalarField
             (
                 const alphatPhaseChangeWallFunctionFvPatchScalarField&,
                 const fvPatch&,
@@ -103,13 +103,13 @@ namespace tnbLib
             );
 
             //- Copy constructor
-            alphatPhaseChangeWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatPhaseChangeWallFunctionFvPatchScalarField
             (
                 const alphatPhaseChangeWallFunctionFvPatchScalarField&
             );
 
             //- Copy constructor setting internal field reference
-            alphatPhaseChangeWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatPhaseChangeWallFunctionFvPatchScalarField
             (
                 const alphatPhaseChangeWallFunctionFvPatchScalarField&,
                 const DimensionedField<scalar, volMesh>&
@@ -169,7 +169,7 @@ namespace tnbLib
             // I-O
 
                 //- Write
-            virtual void write(Ostream&) const;
+            FoamReactingEulerFoamLibs_EXPORT virtual void write(Ostream&) const;
         };
 
 

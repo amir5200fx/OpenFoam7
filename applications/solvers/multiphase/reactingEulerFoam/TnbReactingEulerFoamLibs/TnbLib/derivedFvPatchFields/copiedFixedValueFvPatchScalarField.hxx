@@ -71,14 +71,14 @@ namespace tnbLib
         // Constructors
 
             //- Construct from patch and internal field
-        copiedFixedValueFvPatchScalarField
+        FoamReactingEulerFoamLibs_EXPORT copiedFixedValueFvPatchScalarField
         (
             const fvPatch&,
             const DimensionedField<scalar, volMesh>&
         );
 
         //- Construct from patch, internal field and dictionary
-        copiedFixedValueFvPatchScalarField
+        FoamReactingEulerFoamLibs_EXPORT copiedFixedValueFvPatchScalarField
         (
             const fvPatch&,
             const DimensionedField<scalar, volMesh>&,
@@ -88,7 +88,7 @@ namespace tnbLib
         //- Construct by mapping given
         //  copiedFixedValueFvPatchScalarField
         //  onto a new patch
-        copiedFixedValueFvPatchScalarField
+        FoamReactingEulerFoamLibs_EXPORT copiedFixedValueFvPatchScalarField
         (
             const copiedFixedValueFvPatchScalarField&,
             const fvPatch&,
@@ -97,13 +97,13 @@ namespace tnbLib
         );
 
         //- Copy constructor
-        copiedFixedValueFvPatchScalarField
+        FoamReactingEulerFoamLibs_EXPORT copiedFixedValueFvPatchScalarField
         (
             const copiedFixedValueFvPatchScalarField&
         );
 
         //- Copy constructor setting internal field reference
-        copiedFixedValueFvPatchScalarField
+        FoamReactingEulerFoamLibs_EXPORT copiedFixedValueFvPatchScalarField
         (
             const copiedFixedValueFvPatchScalarField&,
             const DimensionedField<scalar, volMesh>&
@@ -115,13 +115,13 @@ namespace tnbLib
             // Evaluation functions
 
                 //- Update the coefficients associated with the patch field
-        virtual void updateCoeffs();
+        FoamReactingEulerFoamLibs_EXPORT virtual void updateCoeffs();
 
 
         // I-O
 
             //- Write
-        virtual void write(Ostream&) const;
+        FoamReactingEulerFoamLibs_EXPORT virtual void write(Ostream&) const;
     };
 
 

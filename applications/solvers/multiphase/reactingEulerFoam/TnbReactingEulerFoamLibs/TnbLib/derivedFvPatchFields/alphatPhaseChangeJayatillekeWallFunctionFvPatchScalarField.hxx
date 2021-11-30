@@ -91,18 +91,18 @@ namespace tnbLib
 
             // Solution parameters
 
-            static scalar maxExp_;
-            static scalar tolerance_;
-            static label maxIters_;
+            static FoamReactingEulerFoamLibs_EXPORT scalar maxExp_;
+            static FoamReactingEulerFoamLibs_EXPORT scalar tolerance_;
+            static FoamReactingEulerFoamLibs_EXPORT label maxIters_;
 
 
             // Protected Member Functions
 
                 //- 'P' function
-            tmp<scalarField> Psmooth(const scalarField& Prat) const;
+            FoamReactingEulerFoamLibs_EXPORT tmp<scalarField> Psmooth(const scalarField& Prat) const;
 
             //- Calculate y+ at the edge of the thermal laminar sublayer
-            tmp<scalarField> yPlusTherm
+            FoamReactingEulerFoamLibs_EXPORT tmp<scalarField> yPlusTherm
             (
                 const nutWallFunctionFvPatchScalarField& nutw,
                 const scalarField& P,
@@ -110,7 +110,7 @@ namespace tnbLib
             ) const;
 
             //- Update turbulent thermal diffusivity
-            tmp<scalarField> calcAlphat
+            FoamReactingEulerFoamLibs_EXPORT tmp<scalarField> calcAlphat
             (
                 const scalarField& prevAlphat
             ) const;
@@ -125,14 +125,14 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from patch and internal field
-            alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField
             (
                 const fvPatch&,
                 const DimensionedField<scalar, volMesh>&
             );
 
             //- Construct from patch, internal field and dictionary
-            alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField
             (
                 const fvPatch&,
                 const DimensionedField<scalar, volMesh>&,
@@ -142,7 +142,7 @@ namespace tnbLib
             //- Construct by mapping given
             //  alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField
             //  onto a new patch
-            alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField
             (
                 const alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField&,
                 const fvPatch&,
@@ -151,7 +151,7 @@ namespace tnbLib
             );
 
             //- Copy constructor
-            alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField
             (
                 const alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField&
             );
@@ -169,7 +169,7 @@ namespace tnbLib
             }
 
             //- Copy constructor setting internal field reference
-            alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField
+            FoamReactingEulerFoamLibs_EXPORT alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField
             (
                 const alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField&,
                 const DimensionedField<scalar, volMesh>&
@@ -197,13 +197,13 @@ namespace tnbLib
                 // Evaluation functions
 
                     //- Update the coefficients associated with the patch field
-            virtual void updateCoeffs();
+            FoamReactingEulerFoamLibs_EXPORT virtual void updateCoeffs();
 
 
             // I-O
 
                 //- Write
-            virtual void write(Ostream&) const;
+            FoamReactingEulerFoamLibs_EXPORT virtual void write(Ostream&) const;
         };
 
 
