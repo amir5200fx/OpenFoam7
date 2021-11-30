@@ -70,7 +70,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from a dictionary and a list of phase names
-            hyperbolic
+            FoamReactingEulerFoamLibs_EXPORT hyperbolic
             (
                 const dictionary& dict,
                 const wordList& phaseNames
@@ -78,20 +78,20 @@ namespace tnbLib
 
 
             //- Destructor
-            ~hyperbolic();
+            FoamReactingEulerFoamLibs_EXPORT ~hyperbolic();
 
 
             // Member Functions
 
                 //- Factor for first phase
-            virtual tmp<volScalarField> f1
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> f1
             (
                 const phaseModel& phase1,
                 const phaseModel& phase2
             ) const;
 
             //- Factor for second phase
-            virtual tmp<volScalarField> f2
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> f2
             (
                 const phaseModel& phase1,
                 const phaseModel& phase2

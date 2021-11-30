@@ -56,7 +56,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from two phases and gravity
-        orderedPhasePair
+        FoamReactingEulerFoamLibs_EXPORT orderedPhasePair
         (
             const phaseModel& dispersed,
             const phaseModel& continuous
@@ -64,25 +64,25 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~orderedPhasePair();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~orderedPhasePair();
 
 
         // Member Functions
 
             //- Dispersed phase
-        virtual const phaseModel& dispersed() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual const phaseModel& dispersed() const;
 
         //- Continuous phase
-        virtual const phaseModel& continuous() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual const phaseModel& continuous() const;
 
         //- Pair name
-        virtual word name() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual word name() const;
 
         //- Other pair name
-        virtual word otherName() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual word otherName() const;
 
         //- Aspect ratio
-        virtual tmp<volScalarField> E() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> E() const;
     };
 
 

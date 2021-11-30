@@ -105,7 +105,7 @@ namespace tnbLib
 
             // Constructors
 
-            sizeGroup
+            FoamReactingEulerFoamLibs_EXPORT sizeGroup
             (
                 const word& name,
                 const dictionary& dict,
@@ -115,7 +115,7 @@ namespace tnbLib
             );
 
             //- Return clone
-            autoPtr<sizeGroup> clone() const;
+            FoamReactingEulerFoamLibs_EXPORT autoPtr<sizeGroup> clone() const;
 
             //- Return a pointer to a new sizeGroup created on freestore
             //  from Istream
@@ -155,7 +155,7 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~sizeGroup();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~sizeGroup();
 
 
             // Member Functions

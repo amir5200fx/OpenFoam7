@@ -169,13 +169,13 @@ namespace tnbLib
         // Protected member functions
 
             //- Calculate and return the mixture flux
-        tmp<surfaceScalarField> calcPhi
+        FoamReactingEulerFoamLibs_EXPORT tmp<surfaceScalarField> calcPhi
         (
             const phaseModelList& phaseModels
         ) const;
 
         //- Generate pairs
-        void generatePairs
+        FoamReactingEulerFoamLibs_EXPORT void generatePairs
         (
             const dictTable& modelDicts
         );
@@ -285,17 +285,17 @@ namespace tnbLib
         TypeName("phaseSystem");
 
         //- Default name of the phase properties dictionary
-        static const word propertiesName;
+        static FoamReactingEulerFoamLibs_EXPORT const word propertiesName;
 
 
         // Constructors
 
             //- Construct from fvMesh
-        phaseSystem(const fvMesh& mesh);
+        FoamReactingEulerFoamLibs_EXPORT phaseSystem(const fvMesh& mesh);
 
 
         //- Destructor
-        virtual ~phaseSystem();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~phaseSystem();
 
 
         // Member Functions
@@ -428,22 +428,22 @@ namespace tnbLib
         // Properties
 
             //- Return the mixture density
-        tmp<volScalarField> rho() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> rho() const;
 
         //- Return the mixture velocity
-        tmp<volVectorField> U() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volVectorField> U() const;
 
         //- Return the aspect-ratio for a pair
-        tmp<volScalarField> E(const phasePairKey& key) const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> E(const phasePairKey& key) const;
 
         //- Return the surface tension coefficient for a pair
-        tmp<volScalarField> sigma(const phasePairKey& key) const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> sigma(const phasePairKey& key) const;
 
         //- Return the mass transfer rate for a pair
-        virtual tmp<volScalarField> dmdt(const phasePairKey& key) const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> dmdt(const phasePairKey& key) const;
 
         //- Return the mass transfer rates for each phase
-        virtual PtrList<volScalarField> dmdts() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual PtrList<volScalarField> dmdts() const;
 
 
         // Transfers
@@ -523,28 +523,28 @@ namespace tnbLib
         // Evolution
 
             //- Solve for the phase fractions
-        virtual void solve();
+        FoamReactingEulerFoamLibs_EXPORT virtual void solve();
 
         //- Correct the fluid properties other than those listed below
-        virtual void correct();
+        FoamReactingEulerFoamLibs_EXPORT virtual void correct();
 
         //- Correct the kinematics
-        virtual void correctKinematics();
+        FoamReactingEulerFoamLibs_EXPORT virtual void correctKinematics();
 
         //- Correct the thermodynamics
-        virtual void correctThermo();
+        FoamReactingEulerFoamLibs_EXPORT virtual void correctThermo();
 
         //- Correct the turbulence
-        virtual void correctTurbulence();
+        FoamReactingEulerFoamLibs_EXPORT virtual void correctTurbulence();
 
         //- Correct the energy transport e.g. alphat
-        virtual void correctEnergyTransport();
+        FoamReactingEulerFoamLibs_EXPORT virtual void correctEnergyTransport();
 
 
         // IO
 
             //- Read base phaseProperties dictionary
-        virtual bool read();
+        FoamReactingEulerFoamLibs_EXPORT virtual bool read();
     };
 
 

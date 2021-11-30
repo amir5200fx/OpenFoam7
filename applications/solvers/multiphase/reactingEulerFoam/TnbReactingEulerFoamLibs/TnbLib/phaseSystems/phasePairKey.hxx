@@ -47,11 +47,11 @@ namespace tnbLib
 
     class phasePairKey;
 
-    bool operator==(const phasePairKey&, const phasePairKey&);
-    bool operator!=(const phasePairKey&, const phasePairKey&);
+    FoamReactingEulerFoamLibs_EXPORT bool operator==(const phasePairKey&, const phasePairKey&);
+    FoamReactingEulerFoamLibs_EXPORT bool operator!=(const phasePairKey&, const phasePairKey&);
 
-    Istream& operator>>(Istream&, phasePairKey&);
-    Ostream& operator<<(Ostream&, const phasePairKey&);
+    FoamReactingEulerFoamLibs_EXPORT Istream& operator>>(Istream&, phasePairKey&);
+    FoamReactingEulerFoamLibs_EXPORT Ostream& operator<<(Ostream&, const phasePairKey&);
 
 
     /*---------------------------------------------------------------------------*\
@@ -96,10 +96,10 @@ namespace tnbLib
         // Constructors
 
             //- Construct null
-        phasePairKey();
+        FoamReactingEulerFoamLibs_EXPORT phasePairKey();
 
         //- Construct from names and the ordering flag
-        phasePairKey
+        FoamReactingEulerFoamLibs_EXPORT phasePairKey
         (
             const word& name1,
             const word& name2,
@@ -108,28 +108,28 @@ namespace tnbLib
 
 
         // Destructor
-        virtual ~phasePairKey();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~phasePairKey();
 
 
         // Access
 
             //- Return the ordered flag
-        bool ordered() const;
+        FoamReactingEulerFoamLibs_EXPORT bool ordered() const;
 
 
         // Friend Operators
 
             //- Test if keys are equal
-        friend bool operator==(const phasePairKey& a, const phasePairKey& b);
+        friend FoamReactingEulerFoamLibs_EXPORT bool operator==(const phasePairKey& a, const phasePairKey& b);
 
         //- Test if keys are unequal
-        friend bool operator!=(const phasePairKey& a, const phasePairKey& b);
+        friend FoamReactingEulerFoamLibs_EXPORT bool operator!=(const phasePairKey& a, const phasePairKey& b);
 
         //- Read from stdin
-        friend Istream& operator>>(Istream& is, phasePairKey& key);
+        friend FoamReactingEulerFoamLibs_EXPORT Istream& operator>>(Istream& is, phasePairKey& key);
 
         //- Write to stdout
-        friend Ostream& operator<<(Ostream& os, const phasePairKey& key);
+        friend FoamReactingEulerFoamLibs_EXPORT Ostream& operator<<(Ostream& os, const phasePairKey& key);
     };
 
 

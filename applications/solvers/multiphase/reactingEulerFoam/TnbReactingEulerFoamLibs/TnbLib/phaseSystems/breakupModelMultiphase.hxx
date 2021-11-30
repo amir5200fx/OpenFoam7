@@ -26,14 +26,14 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-    tnbLib::diameterModels::breakupModel
+    tnbLib::diameterModels::breakupModelMultiphase
 
 Description
     Base class for breakup models which give a total breakup rate and a separate
     daughter size distribution function.
 
 SourceFiles
-    breakupModel.C
+    breakupModelMultiphase.C
 
 \*---------------------------------------------------------------------------*/
 
@@ -77,7 +77,7 @@ namespace tnbLib
 
             // Declare run-time constructor selection table
 
-            declareRunTimeSelectionTable
+            FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
             (
                 autoPtr,
                 breakupModel,
@@ -114,7 +114,7 @@ namespace tnbLib
 
             // Constructor
 
-            breakupModel
+            FoamReactingEulerFoamLibs_EXPORT breakupModel
             (
                 const populationBalanceModel& popBal,
                 const dictionary& dict
@@ -129,7 +129,7 @@ namespace tnbLib
 
             // Selector
 
-            static autoPtr<breakupModel> New
+            static FoamReactingEulerFoamLibs_EXPORT autoPtr<breakupModel> New
             (
                 const word& type,
                 const populationBalanceModel& popBal,
@@ -163,7 +163,7 @@ namespace tnbLib
             }
 
             //- Correct diameter independent expressions
-            virtual void correct();
+            FoamReactingEulerFoamLibs_EXPORT virtual void correct();
 
             //- Set total breakupRate
             virtual void setBreakupRate

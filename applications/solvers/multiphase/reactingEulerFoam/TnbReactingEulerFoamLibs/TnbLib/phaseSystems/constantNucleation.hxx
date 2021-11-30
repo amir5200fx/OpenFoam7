@@ -73,7 +73,7 @@ namespace tnbLib
 
                 // Constructor
 
-                constantNucleation
+                FoamReactingEulerFoamLibs_EXPORT constantNucleation
                 (
                     const populationBalanceModel& popBal,
                     const dictionary& dict
@@ -88,10 +88,10 @@ namespace tnbLib
                 // Member Functions
 
                     //- Correct diameter independent expressions
-                virtual void correct();
+                FoamReactingEulerFoamLibs_EXPORT virtual void correct();
 
                 //- Add to nucleationRate
-                virtual void addToNucleationRate
+                FoamReactingEulerFoamLibs_EXPORT virtual void addToNucleationRate
                 (
                     volScalarField& nucleationRate,
                     const label i

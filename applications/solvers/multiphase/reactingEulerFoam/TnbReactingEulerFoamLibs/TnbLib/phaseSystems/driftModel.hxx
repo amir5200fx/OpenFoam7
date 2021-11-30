@@ -67,7 +67,7 @@ namespace tnbLib
 
             // Declare run-time constructor selection table
 
-            declareRunTimeSelectionTable
+            FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
             (
                 autoPtr,
                 driftModel,
@@ -104,7 +104,7 @@ namespace tnbLib
 
             // Constructor
 
-            driftModel
+            FoamReactingEulerFoamLibs_EXPORT driftModel
             (
                 const populationBalanceModel& popBal,
                 const dictionary& dict
@@ -119,7 +119,7 @@ namespace tnbLib
 
             // Selector
 
-            static autoPtr<driftModel> New
+            static FoamReactingEulerFoamLibs_EXPORT autoPtr<driftModel> New
             (
                 const word& type,
                 const populationBalanceModel& popBal,
@@ -141,7 +141,7 @@ namespace tnbLib
             }
 
             //- Correct diameter independent expressions
-            virtual void correct();
+            FoamReactingEulerFoamLibs_EXPORT virtual void correct();
 
             //- Add to driftRate
             virtual void addToDriftRate

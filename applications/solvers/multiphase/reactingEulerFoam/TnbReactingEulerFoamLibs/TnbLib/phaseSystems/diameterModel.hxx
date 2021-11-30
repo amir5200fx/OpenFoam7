@@ -69,7 +69,7 @@ namespace tnbLib
 
         // Declare runtime construction
 
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             diameterModel,
@@ -84,7 +84,7 @@ namespace tnbLib
 
         // Constructors
 
-        diameterModel
+        FoamReactingEulerFoamLibs_EXPORT diameterModel
         (
             const dictionary& diameterProperties,
             const phaseModel& phase
@@ -92,12 +92,12 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~diameterModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~diameterModel();
 
 
         // Selectors
 
-        static autoPtr<diameterModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<diameterModel> New
         (
             const dictionary& diameterProperties,
             const phaseModel& phase
@@ -122,7 +122,7 @@ namespace tnbLib
         virtual tmp<volScalarField> d() const = 0;
 
         //- Correct the diameter field
-        virtual void correct();
+        FoamReactingEulerFoamLibs_EXPORT virtual void correct();
 
         //- Read phaseProperties dictionary
         virtual bool read(const dictionary& phaseProperties) = 0;

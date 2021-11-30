@@ -70,7 +70,7 @@ namespace tnbLib
 
                 // Constructor
 
-                powerLawUniformBinary
+                FoamReactingEulerFoamLibs_EXPORT powerLawUniformBinary
                 (
                     const populationBalanceModel& popBal,
                     const dictionary& dict
@@ -85,7 +85,7 @@ namespace tnbLib
                 // Member Functions
 
                     //- Add to binary breakupRate
-                virtual void addToBinaryBreakupRate
+                FoamReactingEulerFoamLibs_EXPORT virtual void addToBinaryBreakupRate
                 (
                     volScalarField& binaryBreakupRate,
                     const label i,

@@ -37,7 +37,7 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
-#include <breakupModel.hxx>
+#include <breakupModelMultiphase.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -69,7 +69,7 @@ namespace tnbLib
 
                 // Constructor
 
-                powerLaw
+                FoamReactingEulerFoamLibs_EXPORT powerLaw
                 (
                     const populationBalanceModel& popBal,
                     const dictionary& dict
@@ -84,7 +84,7 @@ namespace tnbLib
                 // Member Functions
 
                     //- Set total breakupRate
-                virtual void setBreakupRate
+                FoamReactingEulerFoamLibs_EXPORT virtual void setBreakupRate
                 (
                     volScalarField& breakupRate,
                     const label i

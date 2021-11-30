@@ -113,7 +113,7 @@ namespace tnbLib
         // Protected member functions
 
             //- Return the interfacial mass transfer rate for a pair for a pair
-        virtual tmp<volScalarField> iDmdt(const phasePairKey& key) const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> iDmdt(const phasePairKey& key) const;
 
 
     public:
@@ -121,29 +121,29 @@ namespace tnbLib
         // Constructors
 
             //- Construct from fvMesh
-        InterfaceCompositionPhaseChangePhaseSystem(const fvMesh&);
+        FoamReactingEulerFoamLibs_EXPORT InterfaceCompositionPhaseChangePhaseSystem(const fvMesh&);
 
 
         //- Destructor
-        virtual ~InterfaceCompositionPhaseChangePhaseSystem();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~InterfaceCompositionPhaseChangePhaseSystem();
 
 
         // Member Functions
 
             //- Return the mass transfer rate for a pair
-        virtual tmp<volScalarField> dmdt(const phasePairKey& key) const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> dmdt(const phasePairKey& key) const;
 
         //- Return the mass transfer rates for each phase
-        virtual PtrList<volScalarField> dmdts() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual PtrList<volScalarField> dmdts() const;
 
         //- Return the mass transfer matrices
-        virtual autoPtr<phaseSystem::massTransferTable> massTransfer() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual autoPtr<phaseSystem::massTransferTable> massTransfer() const;
 
         //- Correct the interface temperatures
-        virtual void correctInterfaceThermo();
+        FoamReactingEulerFoamLibs_EXPORT virtual void correctInterfaceThermo();
 
         //- Read base phaseProperties dictionary
-        virtual bool read();
+        FoamReactingEulerFoamLibs_EXPORT virtual bool read();
     };
 
 

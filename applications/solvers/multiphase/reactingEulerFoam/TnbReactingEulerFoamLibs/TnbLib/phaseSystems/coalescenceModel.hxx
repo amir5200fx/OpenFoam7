@@ -67,7 +67,7 @@ namespace tnbLib
 
             // Declare run-time constructor selection table
 
-            declareRunTimeSelectionTable
+            FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
             (
                 autoPtr,
                 coalescenceModel,
@@ -104,7 +104,7 @@ namespace tnbLib
 
             // Constructor
 
-            coalescenceModel
+            FoamReactingEulerFoamLibs_EXPORT coalescenceModel
             (
                 const populationBalanceModel& popBal,
                 const dictionary& dict
@@ -119,7 +119,7 @@ namespace tnbLib
 
             // Selector
 
-            static autoPtr<coalescenceModel> New
+            static FoamReactingEulerFoamLibs_EXPORT autoPtr<coalescenceModel> New
             (
                 const word& type,
                 const populationBalanceModel& popBal,
@@ -135,7 +135,7 @@ namespace tnbLib
             // Member Functions
 
                 //- Correct diameter independent expressions
-            virtual void correct();
+            FoamReactingEulerFoamLibs_EXPORT virtual void correct();
 
             //- Add to coalescenceRate
             virtual void addToCoalescenceRate

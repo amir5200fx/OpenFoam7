@@ -90,7 +90,7 @@ namespace tnbLib
 
         // Declare runtime construction
 
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             phaseModel,
@@ -106,7 +106,7 @@ namespace tnbLib
 
         // Constructors
 
-        phaseModel
+        FoamReactingEulerFoamLibs_EXPORT phaseModel
         (
             const phaseSystem& fluid,
             const word& phaseName,
@@ -114,12 +114,12 @@ namespace tnbLib
         );
 
         //- Return clone
-        autoPtr<phaseModel> clone() const;
+        FoamReactingEulerFoamLibs_EXPORT autoPtr<phaseModel> clone() const;
 
 
         // Selectors
 
-        static autoPtr<phaseModel> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<phaseModel> New
         (
             const phaseSystem& fluid,
             const word& phaseName,
@@ -156,56 +156,56 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~phaseModel();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~phaseModel();
 
 
         // Member Functions
 
             //- Return the name of this phase
-        const word& name() const;
+        FoamReactingEulerFoamLibs_EXPORT const word& name() const;
 
         //- Return the name of the phase for use as the keyword in PtrDictionary
-        const word& keyword() const;
+        FoamReactingEulerFoamLibs_EXPORT const word& keyword() const;
 
         //- Return the index of the phase
-        label index() const;
+        FoamReactingEulerFoamLibs_EXPORT label index() const;
 
         //- Return the system to which this phase belongs
-        const phaseSystem& fluid() const;
+        FoamReactingEulerFoamLibs_EXPORT const phaseSystem& fluid() const;
 
         //- Return the residual phase-fraction for given phase
         //  Used to stabilize the phase momentum as the phase-fraction -> 0
-        const dimensionedScalar& residualAlpha() const;
+        FoamReactingEulerFoamLibs_EXPORT const dimensionedScalar& residualAlpha() const;
 
         //- Return the maximum phase-fraction (e.g. packing limit)
-        scalar alphaMax() const;
+        FoamReactingEulerFoamLibs_EXPORT scalar alphaMax() const;
 
         //- Return the Sauter-mean diameter
-        tmp<volScalarField> d() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> d() const;
 
         //- Return const-reference to diameterModel of the phase
-        const autoPtr<diameterModel>& dPtr() const;
+        FoamReactingEulerFoamLibs_EXPORT const autoPtr<diameterModel>& dPtr() const;
 
         //- Correct the phase properties
-        virtual void correct();
+        FoamReactingEulerFoamLibs_EXPORT virtual void correct();
 
         //- Correct the kinematics
-        virtual void correctKinematics();
+        FoamReactingEulerFoamLibs_EXPORT virtual void correctKinematics();
 
         //- Correct the thermodynamics
-        virtual void correctThermo();
+        FoamReactingEulerFoamLibs_EXPORT virtual void correctThermo();
 
         //- Correct the turbulence
-        virtual void correctTurbulence();
+        FoamReactingEulerFoamLibs_EXPORT virtual void correctTurbulence();
 
         //- Correct the energy transport
-        virtual void correctEnergyTransport();
+        FoamReactingEulerFoamLibs_EXPORT virtual void correctEnergyTransport();
 
         //- Ensure that the flux at inflow/outflow BCs is preserved
-        void correctInflowOutflow(surfaceScalarField& alphaPhi) const;
+        FoamReactingEulerFoamLibs_EXPORT void correctInflowOutflow(surfaceScalarField& alphaPhi) const;
 
         //- Read phase properties dictionary
-        virtual bool read();
+        FoamReactingEulerFoamLibs_EXPORT virtual bool read();
 
 
         // Compressibility (variable density)

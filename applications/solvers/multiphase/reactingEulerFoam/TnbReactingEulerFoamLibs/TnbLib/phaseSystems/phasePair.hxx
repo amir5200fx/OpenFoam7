@@ -82,7 +82,7 @@ namespace tnbLib
         // Private Member Functions
 
             // Etvos number for given diameter
-        tmp<volScalarField> EoH(const volScalarField& d) const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> EoH(const volScalarField& d) const;
 
 
     public:
@@ -90,7 +90,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from two phases and gravity
-        phasePair
+        FoamReactingEulerFoamLibs_EXPORT phasePair
         (
             const phaseModel& phase1,
             const phaseModel& phase2,
@@ -99,58 +99,58 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~phasePair();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~phasePair();
 
 
         // Member Functions
 
             //- Dispersed phase
-        virtual const phaseModel& dispersed() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual const phaseModel& dispersed() const;
 
         //- Continuous phase
-        virtual const phaseModel& continuous() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual const phaseModel& continuous() const;
 
         //- Pair name
-        virtual word name() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual word name() const;
 
         //- Other pair name
-        virtual word otherName() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual word otherName() const;
 
         //- Average density
-        tmp<volScalarField> rho() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> rho() const;
 
         //- Relative velocity magnitude
-        tmp<volScalarField> magUr() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> magUr() const;
 
         //- Relative velocity
-        tmp<volVectorField> Ur() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volVectorField> Ur() const;
 
         //- Reynolds number
-        tmp<volScalarField> Re() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> Re() const;
 
         //- Prandtl number
-        tmp<volScalarField> Pr() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> Pr() const;
 
         //- Eotvos number
-        tmp<volScalarField> Eo() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> Eo() const;
 
         //- Eotvos number based on hydraulic diameter type 1
-        tmp<volScalarField> EoH1() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> EoH1() const;
 
         //- Eotvos number based on hydraulic diameter type 2
-        tmp<volScalarField> EoH2() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> EoH2() const;
 
         //- Surface tension coefficient
-        tmp<volScalarField> sigma() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> sigma() const;
 
         //- Morton Number
-        tmp<volScalarField> Mo() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> Mo() const;
 
         //- Takahashi Number
-        tmp<volScalarField> Ta() const;
+        FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> Ta() const;
 
         //- Aspect ratio
-        virtual tmp<volScalarField> E() const;
+        FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> E() const;
 
         // Access
 

@@ -65,7 +65,7 @@ namespace tnbLib
 
                 // Constructor
 
-                uniformBinary
+                FoamReactingEulerFoamLibs_EXPORT uniformBinary
                 (
                     const breakupModel& breakup,
                     const dictionary& dict
@@ -73,14 +73,14 @@ namespace tnbLib
 
 
                 //- Destructor
-                virtual ~uniformBinary();
+                FoamReactingEulerFoamLibs_EXPORT virtual ~uniformBinary();
 
 
                 // Member Functions
 
                     //- Return total number of particles assigned to class i when a particle
                     //  of class k breaks
-                virtual dimensionedScalar calcNik(const label i, const label k) const;
+                FoamReactingEulerFoamLibs_EXPORT virtual dimensionedScalar calcNik(const label i, const label k) const;
             };
 
 

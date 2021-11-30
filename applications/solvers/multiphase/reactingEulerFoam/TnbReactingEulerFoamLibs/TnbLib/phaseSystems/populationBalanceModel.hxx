@@ -150,6 +150,8 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
+#include <reactingEulerFoamLibs_Module.hxx>
+
 #include <sizeGroup.hxx>
 #include <phasePair.hxx>
 #include <pimpleControl.hxx>
@@ -284,44 +286,44 @@ namespace tnbLib
 
             // Private Member Functions
 
-            void registerVelocityGroups();
+            FoamReactingEulerFoamLibs_EXPORT void registerVelocityGroups();
 
-            void registerSizeGroups(sizeGroup& group);
+            FoamReactingEulerFoamLibs_EXPORT void registerSizeGroups(sizeGroup& group);
 
-            void createPhasePairs();
+            FoamReactingEulerFoamLibs_EXPORT void createPhasePairs();
 
-            void correct();
+            FoamReactingEulerFoamLibs_EXPORT void correct();
 
-            void birthByCoalescence(const label j, const label k);
+            FoamReactingEulerFoamLibs_EXPORT void birthByCoalescence(const label j, const label k);
 
-            void deathByCoalescence(const label i, const label j);
+            FoamReactingEulerFoamLibs_EXPORT void deathByCoalescence(const label i, const label j);
 
-            void birthByBreakup(const label k, const label model);
+            FoamReactingEulerFoamLibs_EXPORT void birthByBreakup(const label k, const label model);
 
-            void deathByBreakup(const label i);
+            FoamReactingEulerFoamLibs_EXPORT void deathByBreakup(const label i);
 
-            void calcDeltas();
+            FoamReactingEulerFoamLibs_EXPORT void calcDeltas();
 
-            void birthByBinaryBreakup(const label i, const label j);
+            FoamReactingEulerFoamLibs_EXPORT void birthByBinaryBreakup(const label i, const label j);
 
-            void deathByBinaryBreakup(const label j, const label i);
+            FoamReactingEulerFoamLibs_EXPORT void deathByBinaryBreakup(const label j, const label i);
 
-            void drift(const label i);
+            FoamReactingEulerFoamLibs_EXPORT void drift(const label i);
 
-            void nucleation(const label i);
+            FoamReactingEulerFoamLibs_EXPORT void nucleation(const label i);
 
-            void sources();
+            FoamReactingEulerFoamLibs_EXPORT void sources();
 
-            void dmdt();
+            FoamReactingEulerFoamLibs_EXPORT void dmdt();
 
-            void calcAlphas();
+            FoamReactingEulerFoamLibs_EXPORT void calcAlphas();
 
-            tmp<volScalarField> calcDsm();
+            FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> calcDsm();
 
-            void calcVelocity();
+            FoamReactingEulerFoamLibs_EXPORT void calcVelocity();
 
             //- Return whether the sources should be updated on this iteration
-            bool updateSources();
+            FoamReactingEulerFoamLibs_EXPORT bool updateSources();
 
             //- Return the number of corrections
             inline label nCorr() const;
@@ -336,7 +338,7 @@ namespace tnbLib
 
             // Constructor
 
-            populationBalanceModel
+            FoamReactingEulerFoamLibs_EXPORT populationBalanceModel
             (
                 const phaseSystem& fluid,
                 const word& name,
@@ -349,7 +351,7 @@ namespace tnbLib
             );
 
             //- Return clone
-            autoPtr<populationBalanceModel> clone() const;
+            FoamReactingEulerFoamLibs_EXPORT autoPtr<populationBalanceModel> clone() const;
 
             //- Return a pointer to a new populationBalanceModel object created on
             //  freestore from Istream
@@ -384,12 +386,12 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~populationBalanceModel();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~populationBalanceModel();
 
             // Member Functions
 
                 //- Dummy write for regIOobject
-            bool writeData(Ostream&) const;
+            FoamReactingEulerFoamLibs_EXPORT bool writeData(Ostream&) const;
 
             //- Return reference to the phaseSystem
             inline const phaseSystem& fluid() const;
@@ -422,7 +424,7 @@ namespace tnbLib
             inline const volVectorField& U() const;
 
             //- Return allocation coefficient
-            const dimensionedScalar gamma
+            FoamReactingEulerFoamLibs_EXPORT const dimensionedScalar gamma
             (
                 const label i,
                 const dimensionedScalar& v
@@ -430,16 +432,16 @@ namespace tnbLib
 
             //- Return the surface tension coefficient between a given dispersed
             //  and the continuous phase
-            const tmp<volScalarField> sigmaWithContinuousPhase
+            FoamReactingEulerFoamLibs_EXPORT const tmp<volScalarField> sigmaWithContinuousPhase
             (
                 const phaseModel& dispersedPhase
             ) const;
 
             //- Return reference to turbulence model of the continuous phase
-            const phaseCompressibleTurbulenceModel& continuousTurbulence() const;
+            FoamReactingEulerFoamLibs_EXPORT const phaseCompressibleTurbulenceModel& continuousTurbulence() const;
 
             //- Solve the population balance equation
-            void solve();
+            FoamReactingEulerFoamLibs_EXPORT void solve();
         };
 
         // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

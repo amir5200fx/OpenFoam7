@@ -40,9 +40,8 @@ SourceFiles
 
 #include <dictionary.hxx>
 #include <dimensionedScalar.hxx>
-#include <combustionModelTemplatesI.hxx>  // added by Payvand
 
-
+#include <runTimeSelectionTables.hxx> // added by Payvand
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -77,7 +76,7 @@ namespace tnbLib
 
             // Declare runtime construction
 
-            declareRunTimeSelectionTable
+            FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
             (
                 autoPtr,
                 daughterSizeDistributionModel,
@@ -92,7 +91,7 @@ namespace tnbLib
 
             // Constructor
 
-            daughterSizeDistributionModel
+            FoamReactingEulerFoamLibs_EXPORT daughterSizeDistributionModel
             (
                 const breakupModel& breakup,
                 const dictionary& dict
@@ -100,12 +99,12 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~daughterSizeDistributionModel();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~daughterSizeDistributionModel();
 
 
             // Selectors
 
-            static autoPtr<daughterSizeDistributionModel> New
+            static FoamReactingEulerFoamLibs_EXPORT autoPtr<daughterSizeDistributionModel> New
             (
                 const breakupModel& breakup,
                 const dictionary& dict
@@ -116,10 +115,10 @@ namespace tnbLib
 
                 //- Return total number of particles assigned to class i when a particle
                 //  of class k breaks
-            const dimensionedScalar& nik(const label i, const label k) const;
+            FoamReactingEulerFoamLibs_EXPORT const dimensionedScalar& nik(const label i, const label k) const;
 
             //- Correct field independent expressions
-            void correct();
+            FoamReactingEulerFoamLibs_EXPORT void correct();
 
             //- Calculate and return total number of particles assigned to class i
             //  when a particle of class k breaks

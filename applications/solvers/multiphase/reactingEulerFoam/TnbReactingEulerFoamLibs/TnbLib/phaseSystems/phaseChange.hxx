@@ -79,7 +79,7 @@ namespace tnbLib
                 // Constructor
 
                     //- Construct from a population balance model and a dictionary
-                phaseChange
+                FoamReactingEulerFoamLibs_EXPORT phaseChange
                 (
                     const populationBalanceModel& popBal,
                     const dictionary& dict
@@ -94,10 +94,10 @@ namespace tnbLib
                 // Member Functions
 
                     //- Correct diameter independent expressions
-                virtual void correct();
+                FoamReactingEulerFoamLibs_EXPORT virtual void correct();
 
                 //- Add to driftRate
-                virtual void addToDriftRate
+                FoamReactingEulerFoamLibs_EXPORT virtual void addToDriftRate
                 (
                     volScalarField& driftRate,
                     const label i

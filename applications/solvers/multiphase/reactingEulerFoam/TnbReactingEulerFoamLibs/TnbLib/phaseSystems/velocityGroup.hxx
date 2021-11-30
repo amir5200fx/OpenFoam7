@@ -128,13 +128,13 @@ namespace tnbLib
 
             // Private Member Functions
 
-            tmp<volScalarField> dsm() const;
+            FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> dsm() const;
 
-            tmp<volScalarField> fSum() const;
+            FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> fSum() const;
 
-            void renormalize();
+            vFoamReactingEulerFoamLibs_EXPORT oid renormalize();
 
-            tmp<tnbLib::fv::convectionScheme<tnbLib::scalar>> mvconvection() const;
+            FoamReactingEulerFoamLibs_EXPORT tmp<tnbLib::fv::convectionScheme<tnbLib::scalar>> mvconvection() const;
 
 
         public:
@@ -146,7 +146,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            velocityGroup
+            FoamReactingEulerFoamLibs_EXPORT velocityGroup
             (
                 const dictionary& diameterProperties,
                 const phaseModel& phase
@@ -154,7 +154,7 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~velocityGroup();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~velocityGroup();
 
 
             // Member Functions
@@ -181,16 +181,16 @@ namespace tnbLib
             inline volScalarField& dmdtRef();
 
             //- Corrections before populationBalanceModel::solve()
-            void preSolve();
+            FoamReactingEulerFoamLibs_EXPORT void preSolve();
 
             //- Corrections after populationBalanceModel::solve()
-            void postSolve();
+            FoamReactingEulerFoamLibs_EXPORT void postSolve();
 
             //- Read diameterProperties dictionary
-            virtual bool read(const dictionary& diameterProperties);
+            FoamReactingEulerFoamLibs_EXPORT virtual bool read(const dictionary& diameterProperties);
 
             //- Return the Sauter-mean diameter
-            virtual tmp<volScalarField> d() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> d() const;
         };
 
 

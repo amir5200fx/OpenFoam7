@@ -58,7 +58,7 @@ namespace tnbLib
 
 
         // Declare runtime construction
-        declareRunTimeSelectionTable
+        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
         (
             autoPtr,
             blendingMethod,
@@ -74,7 +74,7 @@ namespace tnbLib
         // Constructors
 
             //- Construct from a dictionary
-        blendingMethod
+        FoamReactingEulerFoamLibs_EXPORT blendingMethod
         (
             const dictionary& dict
         );
@@ -82,7 +82,7 @@ namespace tnbLib
 
         // Selector
 
-        static autoPtr<blendingMethod> New
+        static FoamReactingEulerFoamLibs_EXPORT autoPtr<blendingMethod> New
         (
             const word& modelName,
             const dictionary& dict,
@@ -91,7 +91,7 @@ namespace tnbLib
 
 
         //- Destructor
-        virtual ~blendingMethod();
+        FoamReactingEulerFoamLibs_EXPORT virtual ~blendingMethod();
 
 
         // Member Functions

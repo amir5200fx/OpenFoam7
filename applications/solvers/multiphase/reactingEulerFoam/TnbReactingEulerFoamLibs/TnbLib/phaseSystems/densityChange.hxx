@@ -62,7 +62,7 @@ namespace tnbLib
 
                 // Constructor
 
-                densityChangeDrift
+                FoamReactingEulerFoamLibs_EXPORT densityChangeDrift
                 (
                     const populationBalanceModel& popBal,
                     const dictionary& dict
@@ -77,7 +77,7 @@ namespace tnbLib
                 // Member Functions
 
                     //- Add to driftRate
-                virtual void addToDriftRate
+                FoamReactingEulerFoamLibs_EXPORT virtual void addToDriftRate
                 (
                     volScalarField& driftRate,
                     const label i

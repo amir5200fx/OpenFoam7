@@ -69,7 +69,7 @@ namespace tnbLib
 
             // Declare run-time constructor selection table
 
-            declareRunTimeSelectionTable
+            FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
             (
                 autoPtr,
                 binaryBreakupModel,
@@ -106,7 +106,7 @@ namespace tnbLib
 
             // Constructor
 
-            binaryBreakupModel
+            FoamReactingEulerFoamLibs_EXPORT binaryBreakupModel
             (
                 const populationBalanceModel& popBal,
                 const dictionary& dict
@@ -121,7 +121,7 @@ namespace tnbLib
 
             // Selector
 
-            static autoPtr<binaryBreakupModel> New
+            static FoamReactingEulerFoamLibs_EXPORT autoPtr<binaryBreakupModel> New
             (
                 const word& type,
                 const populationBalanceModel& popBal,
@@ -137,7 +137,7 @@ namespace tnbLib
             // Member Functions
 
                 //- Correct diameter independent expressions
-            virtual void correct();
+            FoamReactingEulerFoamLibs_EXPORT virtual void correct();
 
             //- Add to binary breakupRate
             virtual void addToBinaryBreakupRate

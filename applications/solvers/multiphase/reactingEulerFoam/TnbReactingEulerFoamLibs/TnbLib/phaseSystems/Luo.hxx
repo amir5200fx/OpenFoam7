@@ -126,7 +126,7 @@ namespace tnbLib
 
                 // Constructor
 
-                Luo
+                FoamReactingEulerFoamLibs_EXPORT Luo
                 (
                     const populationBalanceModel& popBal,
                     const dictionary& dict
@@ -141,7 +141,7 @@ namespace tnbLib
                 // Member Functions
 
                     //- Add to coalescenceRate
-                virtual void addToCoalescenceRate
+                FoamReactingEulerFoamLibs_EXPORT virtual void addToCoalescenceRate
                 (
                     volScalarField& coalescenceRate,
                     const label i,

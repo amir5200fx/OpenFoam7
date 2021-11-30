@@ -189,7 +189,7 @@ namespace tnbLib
 
                 // Constructor
 
-                LuoSvendsen
+                FoamReactingEulerFoamLibs_EXPORT LuoSvendsen
                 (
                     const populationBalanceModel& popBal,
                     const dictionary& dict
@@ -204,10 +204,10 @@ namespace tnbLib
                 // Member Functions
 
                     //- Correct diameter independent expressions
-                virtual void correct();
+                FoamReactingEulerFoamLibs_EXPORT virtual void correct();
 
                 //- Add to binary breakupRate
-                virtual void addToBinaryBreakupRate
+                FoamReactingEulerFoamLibs_EXPORT virtual void addToBinaryBreakupRate
                 (
                     volScalarField& binaryBreakupRate,
                     const label i,

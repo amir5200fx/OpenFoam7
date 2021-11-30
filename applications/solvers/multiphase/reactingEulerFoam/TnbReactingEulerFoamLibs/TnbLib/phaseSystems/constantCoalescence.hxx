@@ -69,7 +69,7 @@ namespace tnbLib
 
                 // Constructor
 
-                constantCoalescence
+                FoamReactingEulerFoamLibs_EXPORT constantCoalescence
                 (
                     const populationBalanceModel& popBal,
                     const dictionary& dict
@@ -84,7 +84,7 @@ namespace tnbLib
                 // Member Functions
 
                     //- Add to coalescenceRate
-                virtual void addToCoalescenceRate
+                FoamReactingEulerFoamLibs_EXPORT virtual void addToCoalescenceRate
                 (
                     volScalarField& coalescenceRate,
                     const label i,

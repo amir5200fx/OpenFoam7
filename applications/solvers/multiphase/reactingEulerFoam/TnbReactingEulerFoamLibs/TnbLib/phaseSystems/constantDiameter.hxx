@@ -68,7 +68,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            constant
+            FoamReactingEulerFoamLibs_EXPORT constant
             (
                 const dictionary& diameterProperties,
                 const phaseModel& phase
@@ -76,16 +76,16 @@ namespace tnbLib
 
 
             //- Destructor
-            virtual ~constant();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~constant();
 
 
             // Member Functions
 
                 //- Return the diameter as a field
-            virtual tmp<volScalarField> d() const;
+            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> d() const;
 
             //- Read diameterProperties dictionary
-            virtual bool read(const dictionary& diameterProperties);
+            FoamReactingEulerFoamLibs_EXPORT virtual bool read(const dictionary& diameterProperties);
         };
 
 

@@ -105,7 +105,7 @@ namespace tnbLib
 
                 // Constructor
 
-                LaakkonenAlopaeusAittamaaDsd
+                FoamReactingEulerFoamLibs_EXPORT LaakkonenAlopaeusAittamaaDsd
                 (
                     const breakupModel& breakup,
                     const dictionary& dict
@@ -113,14 +113,14 @@ namespace tnbLib
 
 
                 //- Destructor
-                virtual ~LaakkonenAlopaeusAittamaaDsd();
+                FoamReactingEulerFoamLibs_EXPORT virtual ~LaakkonenAlopaeusAittamaaDsd();
 
 
                 // Member Functions
 
                     //- Return total number of particles assigned to class i when a particle
                     //  of class k breaks
-                virtual dimensionedScalar calcNik(const label i, const label k) const;
+                FoamReactingEulerFoamLibs_EXPORT virtual dimensionedScalar calcNik(const label i, const label k) const;
             };
 
 
