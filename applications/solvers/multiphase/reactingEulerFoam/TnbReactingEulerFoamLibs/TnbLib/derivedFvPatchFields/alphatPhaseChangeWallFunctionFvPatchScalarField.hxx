@@ -1,4 +1,7 @@
 #pragma once
+#ifndef _alphatPhaseChangeWallFunctionFvPatchScalarField_Header
+#define _alphatPhaseChangeWallFunctionFvPatchScalarField_Header
+
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
@@ -179,3 +182,7 @@ namespace tnbLib
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#endif // !_alphatPhaseChangeWallFunctionFvPatchScalarField_Header
+
+
