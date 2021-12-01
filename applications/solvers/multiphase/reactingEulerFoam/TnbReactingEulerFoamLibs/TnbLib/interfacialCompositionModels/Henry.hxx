@@ -124,4 +124,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <HenryI.hxx>
+
 #endif // !_Henry_Header

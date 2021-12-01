@@ -1163,5 +1163,8 @@
     <ClInclude Include="TnbLib\phaseSystems\ThermoPhaseModel.hxx">
       <Filter>TnbLib\phaseSystems\phaseModel\ThermoPhaseModel</Filter>
     </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\HenryI.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\Henry</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -80,6 +80,7 @@
     <ClInclude Include="TnbLib\interfacialCompositionModels\Frossling.hxx" />
     <ClInclude Include="TnbLib\interfacialCompositionModels\functionMultiphase.hxx" />
     <ClInclude Include="TnbLib\interfacialCompositionModels\Henry.hxx" />
+    <ClInclude Include="TnbLib\interfacialCompositionModels\HenryI.hxx" />
     <ClInclude Include="TnbLib\interfacialCompositionModels\interfaceCompositionModel.hxx" />
     <ClInclude Include="TnbLib\interfacialCompositionModels\InterfaceCompositionModelTemplate.hxx" />
     <ClInclude Include="TnbLib\interfacialCompositionModels\massTransferModel.hxx" />
