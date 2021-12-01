@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _Multiphase_Header
-#define _Multiphase_Header
+#ifndef _AnisothermalPhaseModel_Header
+#define _AnisothermalPhaseModel_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -103,4 +103,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_Multiphase_Header
+#endif // !_AnisothermalPhaseModel_Header

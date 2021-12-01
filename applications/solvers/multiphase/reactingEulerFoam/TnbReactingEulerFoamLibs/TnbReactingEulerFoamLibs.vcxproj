@@ -19,6 +19,31 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\alphatFixedDmdtWallBoilingWallFunctionFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\alphatPhaseChangeWallFunctionFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\alphatWallBoilingWallFunctionFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\alphatWallBoilingWallFunctionFvPatchScalarFieldNamedEnum.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\Cole.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\copiedFixedValueFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\cosine.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\departureDiameterModel.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\departureFrequencyModel.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\fixedMultiPhaseHeatFluxFvPatchScalarField.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\KocamustafaogullariIshii.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\Lavieville.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\LemmertChawla.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\linear.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\newDepartureDiameterModel.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\newNucleationSiteModel.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\newPartitioningModel.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\nucleationSiteModel.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\partitioningModel.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\phaseFraction.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\TolubinskiKostanchuk.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\phaseForces.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\sizeDistribution.cxx" />
+    <ClCompile Include="TnbLib\functionObjects\sizeDistributionNamedEnum.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\hRefConstThermos.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\phasePairKey.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\phaseSystem.cxx" />
@@ -157,7 +182,7 @@
     <ClInclude Include="TnbLib\phaseSystems\LuoSvendsen.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\MomentumTransferPhaseSystem.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\MultiComponentPhaseModel.hxx" />
-    <ClInclude Include="TnbLib\phaseSystems\Multiphase.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\AnisothermalPhaseModel.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\noBlending.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\nucleationModel.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\OneResistanceHeatTransferPhaseSystem.hxx" />

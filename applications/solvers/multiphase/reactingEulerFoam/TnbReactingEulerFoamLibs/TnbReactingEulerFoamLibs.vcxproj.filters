@@ -603,6 +603,81 @@
     <ClCompile Include="TnbLib\phaseSystems\phasePairKey.cxx">
       <Filter>TnbLib\phaseSystems\phasePair\phasePairKey</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\alphatFixedDmdtWallBoilingWallFunctionFvPatchScalarField.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\alphatFixedDmdtWallBoilingWallFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\alphatPhaseChangeJayatillekeWallFunctionFvPatchScalarField.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\alphatPhaseChangeJayatillekeWallFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\alphatPhaseChangeWallFunctionFvPatchScalarField.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\alphatPhaseChangeWallFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\alphatWallBoilingWallFunctionFvPatchScalarField.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\alphatWallBoilingWallFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\alphatWallBoilingWallFunctionFvPatchScalarFieldNamedEnum.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\alphatWallBoilingWallFunction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\copiedFixedValueFvPatchScalarField.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\copiedFixedValue</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\fixedMultiPhaseHeatFluxFvPatchScalarField.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\fixedMultiPhaseHeatFlux</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\departureDiameterModel.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureDiameterModels\departureDiameterModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\newDepartureDiameterModel.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureDiameterModels\departureDiameterModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\KocamustafaogullariIshii.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureDiameterModels\KocamustafaogullariIshii</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\TolubinskiKostanchuk.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureDiameterModels\TolubinskiKostanchuk</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\Cole.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureFrequencyModels\Cole</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\departureFrequencyModel.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\departureFrequencyModels\departureFrequencyModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\LemmertChawla.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\nucleationSiteModels\LemmertChawla</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\nucleationSiteModel.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\nucleationSiteModels\nucleationSiteModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\newNucleationSiteModel.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\nucleationSiteModels\nucleationSiteModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\cosine.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\cosine</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\Lavieville.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\Lavieville</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\linear.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\partitioningModel.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\partitioningModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\newPartitioningModel.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\partitioningModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\derivedFvPatchFields\phaseFraction.cxx">
+      <Filter>TnbLib\derivedFvPatchFields\wallBoilingSubModels\partitioningModels\phaseFraction</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\phaseForces.cxx">
+      <Filter>TnbLib\functionObjects\phaseForces</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\sizeDistribution.cxx">
+      <Filter>TnbLib\functionObjects\sizeDistribution</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\functionObjects\sizeDistributionNamedEnum.cxx">
+      <Filter>TnbLib\functionObjects\sizeDistribution</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\derivedFvPatchFields\alphatFixedDmdtWallBoilingWallFunctionFvPatchScalarField.hxx">
@@ -1064,7 +1139,7 @@
     <ClInclude Include="TnbLib\phaseSystems\TwoResistanceHeatTransferPhaseSystem.hxx">
       <Filter>TnbLib\phaseSystems\PhaseSystems\TwoResistanceHeatTransferPhaseSystem</Filter>
     </ClInclude>
-    <ClInclude Include="TnbLib\phaseSystems\Multiphase.hxx">
+    <ClInclude Include="TnbLib\phaseSystems\AnisothermalPhaseModel.hxx">
       <Filter>TnbLib\phaseSystems\phaseModel\AnisothermalPhaseModel</Filter>
     </ClInclude>
     <ClInclude Include="TnbLib\phaseSystems\InertPhaseModel.hxx">
