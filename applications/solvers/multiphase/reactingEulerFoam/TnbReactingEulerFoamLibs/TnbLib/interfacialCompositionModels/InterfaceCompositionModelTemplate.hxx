@@ -211,4 +211,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <InterfaceCompositionModelTemplateI.hxx>
+
 #endif // !_InterfaceCompositionModelTemplate_Header

@@ -133,4 +133,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <SaturatedI.hxx>
+
 #endif // !_Saturated_Header
