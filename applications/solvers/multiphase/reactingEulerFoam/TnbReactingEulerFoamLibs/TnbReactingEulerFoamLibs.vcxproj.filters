@@ -678,6 +678,276 @@
     <ClCompile Include="TnbLib\functionObjects\sizeDistributionNamedEnum.cxx">
       <Filter>TnbLib\functionObjects\sizeDistribution</Filter>
     </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\interfaceCompositionModel.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\InterfaceCompositionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\InterfaceCompositionModels.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\InterfaceCompositionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\newInterfaceCompositionModel.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\InterfaceCompositionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\NonRandomTwoLiquid.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\NonRandomTwoLiquid</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\Raoult.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\Raoult</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\Frossling.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\massTransferModels\Frossling</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\massTransferModel.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\massTransferModels\massTransferModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\newMassTransferModel.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\massTransferModels\massTransferModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\sphericalMassTransfer.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\massTransferModels\sphericalMassTransfer</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\Antoine.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\Antoine</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\AntoineExtended.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\AntoineExtended</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\ArdenBuck.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\ArdenBuck</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\constantSaturationConditions.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\constantSaturationConditions</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\functionMultiphase.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\function</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\polynomialMultiphase.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\polynomial</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\saturationModel.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\saturationModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\newSaturationModel.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\saturationModels\saturationModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\constantSurfaceTensionCoefficient.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\surfaceTensionModels\constantSurfaceTensionCoefficient</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\surfaceTensionModelMultiphase.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\surfaceTensionModels\surfaceTensionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialCompositionModels\newSurfaceTensionModelMultiphase.cxx">
+      <Filter>TnbLib\interfacialCompositionModels\surfaceTensionModels\surfaceTensionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\aspectRatioModel.cxx">
+      <Filter>TnbLib\interfacialModels\aspectRatioModels\aspectRatioModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\newAspectRatioModel.cxx">
+      <Filter>TnbLib\interfacialModels\aspectRatioModels\aspectRatioModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\constantAspectRatio.cxx">
+      <Filter>TnbLib\interfacialModels\aspectRatioModels\constantAspectRatio</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\TomiyamaAspectRatio.cxx">
+      <Filter>TnbLib\interfacialModels\aspectRatioModels\TomiyamaAspectRatio</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\VakhrushevEfremov.cxx">
+      <Filter>TnbLib\interfacialModels\aspectRatioModels\VakhrushevEfremov</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\Wellek.cxx">
+      <Filter>TnbLib\interfacialModels\aspectRatioModels\Wellek</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\AttouFerschneider.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\AttouFerschneider</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\Beetstra.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\Beetstra</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\dragModel.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\dragModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\newDragModel.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\dragModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\Ergun.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\Ergun</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\Gibilaro.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\Gibilaro</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\GidaspowErgunWenYu.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\GidaspowErgunWenYu</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\GidaspowSchillerNaumann.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\GidaspowSchillerNaumann</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\IshiiZuber.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\IshiiZuber</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\Lain.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\Lain</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\SchillerNaumann.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\SchillerNaumann</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\segregated.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\segregated</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\SyamlalOBrien.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\SyamlalOBrien</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\Tenneti.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\Tenneti</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\TomiyamaAnalytic.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\TomiyamaAnalytic</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\TomiyamaCorrelated.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\TomiyamaCorrelated</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\TomiyamaKataokaZunSakaguchi.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\TomiyamaKataokaZunSakaguchi</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\WenYu.cxx">
+      <Filter>TnbLib\interfacialModels\dragModels\WenYu</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\constantNuHeatTransfer.cxx">
+      <Filter>TnbLib\interfacialModels\heatTransferModels\constantNu</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\heatTransferModel.cxx">
+      <Filter>TnbLib\interfacialModels\heatTransferModels\heatTransferModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\newHeatTransferModel.cxx">
+      <Filter>TnbLib\interfacialModels\heatTransferModels\heatTransferModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\RanzMarshall.cxx">
+      <Filter>TnbLib\interfacialModels\heatTransferModels\RanzMarshall</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\sphericalHeatTransfer.cxx">
+      <Filter>TnbLib\interfacialModels\heatTransferModels\sphericalHeatTransfer</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\constantLiftCoefficient.cxx">
+      <Filter>TnbLib\interfacialModels\liftModels\constantLiftCoefficient</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\LegendreMagnaudet.cxx">
+      <Filter>TnbLib\interfacialModels\liftModels\LegendreMagnaudet</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\liftModel.cxx">
+      <Filter>TnbLib\interfacialModels\liftModels\liftModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\newLiftModel.cxx">
+      <Filter>TnbLib\interfacialModels\liftModels\liftModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\Moraga.cxx">
+      <Filter>TnbLib\interfacialModels\liftModels\Moraga</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\noLift.cxx">
+      <Filter>TnbLib\interfacialModels\liftModels\noLift</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\TomiyamaLift.cxx">
+      <Filter>TnbLib\interfacialModels\liftModels\TomiyamaLift</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\wallDampedLift.cxx">
+      <Filter>TnbLib\interfacialModels\liftModels\wallDampedLift</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\deposition.cxx">
+      <Filter>TnbLib\interfacialModels\phaseTransferModels\deposition</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\phaseTransferModel.cxx">
+      <Filter>TnbLib\interfacialModels\phaseTransferModels\phaseTransferModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\newPhaseTransferModel.cxx">
+      <Filter>TnbLib\interfacialModels\phaseTransferModels\phaseTransferModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\noSwarm.cxx">
+      <Filter>TnbLib\interfacialModels\swarmCorrections\noSwarm</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\swarmCorrection.cxx">
+      <Filter>TnbLib\interfacialModels\swarmCorrections\swarmCorrection</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\newSwarmCorrection.cxx">
+      <Filter>TnbLib\interfacialModels\swarmCorrections\swarmCorrection</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\TomiyamaSwarm.cxx">
+      <Filter>TnbLib\interfacialModels\swarmCorrections\TomiyamaSwarm</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\Burns.cxx">
+      <Filter>TnbLib\interfacialModels\turbulentDispersionModels\Burns</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\constantTurbulentDispersionCoefficient.cxx">
+      <Filter>TnbLib\interfacialModels\turbulentDispersionModels\constantTurbulentDispersionCoefficient</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\Gosman.cxx">
+      <Filter>TnbLib\interfacialModels\turbulentDispersionModels\Gosman</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\LopezDeBertodano.cxx">
+      <Filter>TnbLib\interfacialModels\turbulentDispersionModels\LopezDeBertodano</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\noTurbulentDispersion.cxx">
+      <Filter>TnbLib\interfacialModels\turbulentDispersionModels\noTurbulentDispersion</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\turbulentDispersionModel.cxx">
+      <Filter>TnbLib\interfacialModels\turbulentDispersionModels\turbulentDispersionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\newTurbulentDispersionModel.cxx">
+      <Filter>TnbLib\interfacialModels\turbulentDispersionModels\turbulentDispersionModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\constantVirtualMassCoefficient.cxx">
+      <Filter>TnbLib\interfacialModels\virtualMassModels\constantVirtualMassCoefficient</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\Lamb.cxx">
+      <Filter>TnbLib\interfacialModels\virtualMassModels\Lamb</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\noVirtualMass.cxx">
+      <Filter>TnbLib\interfacialModels\virtualMassModels\noVirtualMass</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\virtualMassModel.cxx">
+      <Filter>TnbLib\interfacialModels\virtualMassModels\virtualMassModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\newVirtualMassModel.cxx">
+      <Filter>TnbLib\interfacialModels\virtualMassModels\virtualMassModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\cosineWallDamping.cxx">
+      <Filter>TnbLib\interfacialModels\wallDampingModels\cosine</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\interpolatedWallDamping.cxx">
+      <Filter>TnbLib\interfacialModels\wallDampingModels\interpolated</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\linearWallDamping.cxx">
+      <Filter>TnbLib\interfacialModels\wallDampingModels\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\noWallDamping.cxx">
+      <Filter>TnbLib\interfacialModels\wallDampingModels\noWallDamping</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\sineWallDamping.cxx">
+      <Filter>TnbLib\interfacialModels\wallDampingModels\sine</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\wallDampingModel.cxx">
+      <Filter>TnbLib\interfacialModels\wallDampingModels\wallDampingModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\newWallDampingModel.cxx">
+      <Filter>TnbLib\interfacialModels\wallDampingModels\wallDampingModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\wallDependentModel.cxx">
+      <Filter>TnbLib\interfacialModels\wallDependentModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\Antal.cxx">
+      <Filter>TnbLib\interfacialModels\wallLubricationModels\Antal</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\Frank.cxx">
+      <Filter>TnbLib\interfacialModels\wallLubricationModels\Frank</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\noWallLubrication.cxx">
+      <Filter>TnbLib\interfacialModels\wallLubricationModels\noWallLubrication</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\TomiyamaWallLubrication.cxx">
+      <Filter>TnbLib\interfacialModels\wallLubricationModels\TomiyamaWallLubrication</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\wallLubricationModel.cxx">
+      <Filter>TnbLib\interfacialModels\wallLubricationModels\wallLubricationModel</Filter>
+    </ClCompile>
+    <ClCompile Include="TnbLib\interfacialModels\newWallLubricationModel.cxx">
+      <Filter>TnbLib\interfacialModels\wallLubricationModels\wallLubricationModel</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\derivedFvPatchFields\alphatFixedDmdtWallBoilingWallFunctionFvPatchScalarField.hxx">
@@ -1165,6 +1435,12 @@
     </ClInclude>
     <ClInclude Include="TnbLib\interfacialCompositionModels\HenryI.hxx">
       <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\Henry</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\InterfaceCompositionModelTemplateI.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\InterfaceCompositionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="TnbLib\interfacialCompositionModels\SaturatedI.hxx">
+      <Filter>TnbLib\interfacialCompositionModels\interfaceCompositionModels\Saturated</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
