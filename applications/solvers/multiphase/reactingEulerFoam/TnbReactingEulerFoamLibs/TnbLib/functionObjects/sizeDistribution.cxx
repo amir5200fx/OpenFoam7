@@ -28,6 +28,7 @@ License
 #include <sizeGroup.hxx>
 #include <addToRunTimeSelectionTable.hxx>
 
+
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
 namespace tnbLib
@@ -419,7 +420,7 @@ bool tnbLib::functionObjects::sizeDistribution::write()
         writeTime(file());
     }
 
-    Log << type() << " " << name() << " write" << nl;
+    //Log << type() << " " << name() << " write" << nl;  // commented by Payvand
 
     scalarField V(filterField(mesh().V()));
     combineFields(V);
@@ -595,7 +596,7 @@ bool tnbLib::functionObjects::sizeDistribution::write()
         file() << endl;
     }
 
-    Log << endl;
+    //Log << endl;  // commented by Payvand
 
     return true;
 }
