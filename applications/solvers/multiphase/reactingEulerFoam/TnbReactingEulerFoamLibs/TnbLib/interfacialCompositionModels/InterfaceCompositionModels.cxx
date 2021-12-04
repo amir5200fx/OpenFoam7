@@ -24,7 +24,7 @@ License
 \*---------------------------------------------------------------------------*/
 
 #define FoamRegisterDebugSwitch_EXPORT_DEFINE
-#define FoamheRhoThermo_EXPORT_DEFINE
+//#define FoamheRhoThermo_EXPORT_DEFINE
 
 #include <interfaceCompositionModel.hxx>
 #include <InterfaceCompositionModelTemplate.hxx>

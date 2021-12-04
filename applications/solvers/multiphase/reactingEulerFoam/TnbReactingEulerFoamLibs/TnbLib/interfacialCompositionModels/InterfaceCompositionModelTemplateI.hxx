@@ -1,5 +1,5 @@
 #pragma once
-
+#include <phasePair.hxx> // Added by Payvand [12/4/2021 Payvand]
 
 template<class Thermo, class OtherThermo>
 template<class ThermoType>

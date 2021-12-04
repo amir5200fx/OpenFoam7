@@ -79,7 +79,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct from components
-            FoamReactingEulerFoamLibs_EXPORT Raoult
+            Raoult
             (
                 const dictionary& dict,
                 const phasePair& pair
@@ -87,23 +87,23 @@ namespace tnbLib
 
 
             //- Destructor
-            FoamReactingEulerFoamLibs_EXPORT virtual ~Raoult();
+            virtual ~Raoult();
 
 
             // Member Functions
 
                 //- Update the composition
-            FoamReactingEulerFoamLibs_EXPORT virtual void update(const volScalarField& Tf);
+            virtual void update(const volScalarField& Tf);
 
             //- The interface species fraction
-            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> Yf
+            virtual tmp<volScalarField> Yf
             (
                 const word& speciesName,
                 const volScalarField& Tf
             ) const;
 
             //- The interface species fraction derivative w.r.t. temperature
-            FoamReactingEulerFoamLibs_EXPORT virtual tmp<volScalarField> YfPrime
+            virtual tmp<volScalarField> YfPrime
             (
                 const word& speciesName,
                 const volScalarField& Tf
@@ -123,5 +123,7 @@ namespace tnbLib
 //#endif
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include <RaoultI.hxx>
 
 #endif // !_Raoult_Header
