@@ -23,6 +23,9 @@ License
 
 \*---------------------------------------------------------------------------*/
 
+#define FoamRegisterDebugSwitch_EXPORT_DEFINE  // adde by Payvand
+#define FoamheRhoThermo_EXPORT_DEFINE  // added by Payvand
+
 #include <reactingEulerFoamLibs_Module.hxx>
 
 #include <makeReactionThermo.hxx>

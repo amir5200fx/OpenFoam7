@@ -231,4 +231,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <BlendedInterfacialModelI.hxx>
+
 #endif // !_BlendedInterfacialModel_Header

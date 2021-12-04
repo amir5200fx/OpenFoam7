@@ -132,7 +132,7 @@ namespace tnbLib
 
             FoamReactingEulerFoamLibs_EXPORT tmp<volScalarField> fSum() const;
 
-            vFoamReactingEulerFoamLibs_EXPORT oid renormalize();
+            FoamReactingEulerFoamLibs_EXPORT void renormalize();
 
             FoamReactingEulerFoamLibs_EXPORT tmp<tnbLib::fv::convectionScheme<tnbLib::scalar>> mvconvection() const;
 

@@ -128,4 +128,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <MultiComponentPhaseModelI.hxx>
+
 #endif // !_MultiComponentPhaseModel_Header

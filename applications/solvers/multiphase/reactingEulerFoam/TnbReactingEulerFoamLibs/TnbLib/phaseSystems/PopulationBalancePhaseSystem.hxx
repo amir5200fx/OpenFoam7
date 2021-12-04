@@ -122,4 +122,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <PopulationBalancePhaseSystemI.hxx>
+
 #endif // !_PopulationBalancePhaseSystem_Header

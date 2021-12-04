@@ -185,4 +185,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <ThermoPhaseModelI.hxx>
+
 #endif // !_ThermoPhaseModel_Header

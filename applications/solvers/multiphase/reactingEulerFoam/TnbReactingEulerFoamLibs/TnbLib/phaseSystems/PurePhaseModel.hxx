@@ -116,4 +116,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <PurePhaseModelI.hxx>
+
 #endif // !_PurePhaseModel_Header

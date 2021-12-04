@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _linear_Header
-#define _linear_Header
+#ifndef _linearMultiphasePhaseSystem_Header
+#define _linearMultiphasePhaseSystem_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -108,4 +108,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_linear_Header
+#endif // !_linearMultiphasePhaseSystem_Header

@@ -24,7 +24,7 @@ License
 \*---------------------------------------------------------------------------*/
 
 #include <phaseSystem.hxx>
-#include <surfaceTensionModel.hxx>
+#include <surfaceTensionModelMultiphase.hxx>
 #include <aspectRatioModel.hxx>
 #include <surfaceInterpolate.hxx>
 #include <fvcDdt.hxx>

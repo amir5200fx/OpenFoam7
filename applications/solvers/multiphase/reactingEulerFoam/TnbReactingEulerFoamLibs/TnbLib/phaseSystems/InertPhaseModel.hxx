@@ -93,4 +93,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <InertPhaseModelI.hxx>
+
 #endif // !_InertPhaseModel_Header

@@ -131,4 +131,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <PhaseTransferPhaseSystemI.hxx>
+
 #endif // !_PhaseTransferPhaseSystem_Header

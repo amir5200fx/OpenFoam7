@@ -114,4 +114,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <OneResistanceHeatTransferPhaseSystemI.hxx>
+
 #endif // !_OneResistanceHeatTransferPhaseSystem_Header

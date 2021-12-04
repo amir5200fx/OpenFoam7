@@ -103,4 +103,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <AnisothermalPhaseModelI.hxx>
+
 #endif // !_AnisothermalPhaseModel_Header

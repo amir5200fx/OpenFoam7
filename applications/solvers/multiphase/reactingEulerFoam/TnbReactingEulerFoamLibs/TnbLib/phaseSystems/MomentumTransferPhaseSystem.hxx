@@ -295,4 +295,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <MomentumTransferPhaseSystemI.hxx>
+
 #endif // !_MomentumTransferPhaseSystem_Header

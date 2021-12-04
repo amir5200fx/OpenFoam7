@@ -95,4 +95,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <IsothermalPhaseModelI.hxx>
+
 #endif // !_IsothermalPhaseModel_Header

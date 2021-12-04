@@ -27,6 +27,7 @@ License
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 
 #include <BlendedInterfacialModel.hxx>
+#include <fvMesh.hxx>
 
 // * * * * * * * * * * * * Protected Member Functions  * * * * * * * * * * * //
 

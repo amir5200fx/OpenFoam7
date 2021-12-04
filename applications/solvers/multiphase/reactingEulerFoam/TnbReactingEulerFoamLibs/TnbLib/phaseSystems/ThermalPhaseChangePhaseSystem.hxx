@@ -150,4 +150,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <ThermalPhaseChangePhaseSystemI.hxx>
+
 #endif // !_ThermalPhaseChangePhaseSystem_Header

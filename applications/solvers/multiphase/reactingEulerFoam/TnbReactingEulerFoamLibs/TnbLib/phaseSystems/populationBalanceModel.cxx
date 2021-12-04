@@ -40,7 +40,7 @@ License
 #include <fvmSup.hxx>
 #include <fvcSup.hxx>
 #include <fvcDiv.hxx>
-#include <phaseCompressibleTurbulenceModel.hxx>
+#include <phaseCompressibleTurbulenceModelMultiphase.hxx>
 
 // * * * * * * * * * * * * Private Member Functions * * * * * * * * * * * * //
 

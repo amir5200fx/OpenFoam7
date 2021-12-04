@@ -159,4 +159,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <InterfaceCompositionPhaseChangePhaseSystemI.hxx>
+
 #endif // !_InterfaceCompositionPhaseChangePhaseSystem_Header

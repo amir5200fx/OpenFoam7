@@ -42,7 +42,7 @@ SourceFiles
 \*---------------------------------------------------------------------------*/
 
 #include <nucleationModel.hxx>
-#include <phaseCompressibleTurbulenceModel.hxx>
+#include <phaseCompressibleTurbulenceModelMultiphase.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

@@ -128,4 +128,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <TwoResistanceHeatTransferPhaseSystemI.hxx>
+
 #endif // !_TwoResistanceHeatTransferPhaseSystem_Header

@@ -102,4 +102,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <ReactingPhaseModelI.hxx>
+
 #endif // !_ReactingPhaseModel_Header

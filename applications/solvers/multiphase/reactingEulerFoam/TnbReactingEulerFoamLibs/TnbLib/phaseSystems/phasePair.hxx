@@ -242,4 +242,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <phasePairI.hxx>
+
 #endif // !_phasePair_Header

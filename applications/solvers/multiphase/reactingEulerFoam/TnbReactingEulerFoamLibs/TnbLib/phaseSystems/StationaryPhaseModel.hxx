@@ -226,4 +226,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <StationaryPhaseModelI.hxx>
+
 #endif // !_StationaryPhaseModel_Header
