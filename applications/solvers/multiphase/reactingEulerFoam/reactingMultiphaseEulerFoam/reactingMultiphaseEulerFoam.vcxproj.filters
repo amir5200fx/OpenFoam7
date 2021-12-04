@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2f1c6e1e-7349-4070-b900-a3742b551f92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseCompressibleTurbulenceModels">
+      <UniqueIdentifier>{19ecc730-0970-43db-8209-c5a8bd5c9478}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\multiphaseSystem">
+      <UniqueIdentifier>{9d9c669b-0f3d-46a0-bd1b-2cebd3ab85fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\pU">
+      <UniqueIdentifier>{4603e1e3-d1a0-43b4-8e65-472db59edebe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\pUf">
+      <UniqueIdentifier>{89cbd8d8-9cf6-4add-8bba-a27b2f378d75}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="multiphaseCompressibleTurbulenceModels\multiphaseCompressibleTurbulenceModels.cxx">
+      <Filter>src\multiphaseCompressibleTurbulenceModels</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

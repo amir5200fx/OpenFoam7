@@ -1541,6 +1541,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{AD0DD78B-B
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbReactingEulerFoamLibs", "applications\solvers\multiphase\reactingEulerFoam\TnbReactingEulerFoamLibs\TnbReactingEulerFoamLibs.vcxproj", "{D0ECBD36-BBD6-4F97-AFC3-4EDB501D5696}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reactingMultiphaseEulerFoam", "applications\solvers\multiphase\reactingEulerFoam\reactingMultiphaseEulerFoam\reactingMultiphaseEulerFoam.vcxproj", "{DDB9488E-5560-4F0E-8045-610A5920A1C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -5890,6 +5892,18 @@ Global
 		{D0ECBD36-BBD6-4F97-AFC3-4EDB501D5696}.Release|x64.Build.0 = Release|x64
 		{D0ECBD36-BBD6-4F97-AFC3-4EDB501D5696}.Release|x86.ActiveCfg = Release|Win32
 		{D0ECBD36-BBD6-4F97-AFC3-4EDB501D5696}.Release|x86.Build.0 = Release|Win32
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.Debug|x64.ActiveCfg = Debug|x64
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.Debug|x64.Build.0 = Debug|x64
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.Debug|x86.ActiveCfg = Debug|Win32
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.Debug|x86.Build.0 = Debug|Win32
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.DebugNoCopyHxx|x86.ActiveCfg = Debug|Win32
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.DebugNoCopyHxx|x86.Build.0 = Debug|Win32
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.Release|x64.ActiveCfg = Release|x64
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.Release|x64.Build.0 = Release|x64
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.Release|x86.ActiveCfg = Release|Win32
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -6633,6 +6647,7 @@ Global
 		{FFAB7FC1-6516-4068-9764-0CB6BEE2F9C3} = {8A092784-0E7F-4E09-A610-3CCBD2E979B4}
 		{AD0DD78B-BF4E-42B1-8F92-56C57422A676} = {8A092784-0E7F-4E09-A610-3CCBD2E979B4}
 		{D0ECBD36-BBD6-4F97-AFC3-4EDB501D5696} = {AD0DD78B-BF4E-42B1-8F92-56C57422A676}
+		{DDB9488E-5560-4F0E-8045-610A5920A1C4} = {73550895-B31E-4943-B04D-C52866EE8517}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1107BF8D-1C23-4E64-93DE-E2F73CB09919}

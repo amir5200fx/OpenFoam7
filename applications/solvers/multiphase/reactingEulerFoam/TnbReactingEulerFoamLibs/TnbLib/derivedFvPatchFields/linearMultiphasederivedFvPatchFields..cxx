@@ -23,7 +23,7 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include <linearMultiphasederivedFvPatchFields.hxx>
+#include <linearMultiphaseDerivedFvPatchFields.hxx>
 
 #include <addToRunTimeSelectionTable.hxx>
 

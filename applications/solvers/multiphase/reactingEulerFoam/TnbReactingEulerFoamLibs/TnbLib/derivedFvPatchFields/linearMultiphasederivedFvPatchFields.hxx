@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _linearMultiphasederivedFvPatchFields_Header
-#define _linearMultiphasederivedFvPatchFields_Header
+#ifndef _linearMultiphaseDerivedFvPatchFields_Header
+#define _linearMultiphaseDerivedFvPatchFields_Header
 
 /*---------------------------------------------------------------------------*\
   =========                 |
@@ -108,4 +108,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_linearMultiphasederivedFvPatchFields_Header
+#endif // !_linearMultiphaseDerivedFvPatchFields_Header

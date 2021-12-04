@@ -145,7 +145,7 @@ namespace tnbLib
 
 
 		template<class Type>
-		tmp<GeometricField<typename flux<Type>::type, fvsPatchField, surfaceMesh>>
+		tmp<GeometricField<typename tnbLib::flux<Type>::type, fvsPatchField, surfaceMesh>>
 			ddtCorr
 			(
 				const GeometricField<Type, fvPatchField, volMesh>& U,
@@ -161,13 +161,13 @@ namespace tnbLib
 
 
 		template<class Type>
-		tmp<GeometricField<typename flux<Type>::type, fvsPatchField, surfaceMesh>>
+		tmp<GeometricField<typename tnbLib::flux<Type>::type, fvsPatchField, surfaceMesh>>
 			ddtCorr
 			(
 				const GeometricField<Type, fvPatchField, volMesh>& U,
 				const GeometricField
 				<
-				typename flux<Type>::type,
+				typename tnbLib::flux<Type>::type,
 				fvsPatchField,
 				surfaceMesh
 				>& phi
@@ -182,13 +182,13 @@ namespace tnbLib
 
 
 		template<class Type>
-		tmp<GeometricField<typename flux<Type>::type, fvsPatchField, surfaceMesh>>
+		tmp<GeometricField<typename tnbLib::flux<Type>::type, fvsPatchField, surfaceMesh>>
 			ddtCorr
 			(
 				const GeometricField<Type, fvPatchField, volMesh>& U,
 				const GeometricField
 				<
-				typename flux<Type>::type,
+				typename tnbLib::flux<Type>::type,
 				fvsPatchField,
 				surfaceMesh
 				>& phi,
@@ -207,7 +207,7 @@ namespace tnbLib
 
 
 		template<class Type>
-		tmp<GeometricField<typename flux<Type>::type, fvsPatchField, surfaceMesh>>
+		tmp<GeometricField<typename tnbLib::flux<Type>::type, fvsPatchField, surfaceMesh>>
 			ddtCorr
 			(
 				const volScalarField& rho,
@@ -224,14 +224,14 @@ namespace tnbLib
 
 
 		template<class Type>
-		tmp<GeometricField<typename flux<Type>::type, fvsPatchField, surfaceMesh>>
+		tmp<GeometricField<typename tnbLib::flux<Type>::type, fvsPatchField, surfaceMesh>>
 			ddtCorr
 			(
 				const volScalarField& rho,
 				const GeometricField<Type, fvPatchField, volMesh>& U,
 				const GeometricField
 				<
-				typename flux<Type>::type,
+				typename tnbLib::flux<Type>::type,
 				fvsPatchField,
 				surfaceMesh
 				>& phi
@@ -246,14 +246,14 @@ namespace tnbLib
 
 
 		template<class Type>
-		tmp<GeometricField<typename flux<Type>::type, fvsPatchField, surfaceMesh>>
+		tmp<GeometricField<typename tnbLib::flux<Type>::type, fvsPatchField, surfaceMesh>>
 			ddtCorr
 			(
 				const volScalarField& rho,
 				const GeometricField<Type, fvPatchField, volMesh>& U,
 				const GeometricField
 				<
-				typename flux<Type>::type,
+				typename tnbLib::flux<Type>::type,
 				fvsPatchField,
 				surfaceMesh
 				>& phi,

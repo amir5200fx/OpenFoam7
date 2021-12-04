@@ -33,8 +33,9 @@
     <ClCompile Include="TnbLib\derivedFvPatchFields\KocamustafaogullariIshii.cxx" />
     <ClCompile Include="TnbLib\derivedFvPatchFields\Lavieville.cxx" />
     <ClCompile Include="TnbLib\derivedFvPatchFields\LemmertChawla.cxx" />
-    <ClCompile Include="TnbLib\derivedFvPatchFields\linear.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\linearMultiphaseDerivedFvPatchFields..cxx" />
     <ClCompile Include="TnbLib\derivedFvPatchFields\newDepartureDiameterModel.cxx" />
+    <ClCompile Include="TnbLib\derivedFvPatchFields\newDepartureFrequencyModel.cxx" />
     <ClCompile Include="TnbLib\derivedFvPatchFields\newNucleationSiteModel.cxx" />
     <ClCompile Include="TnbLib\derivedFvPatchFields\newPartitioningModel.cxx" />
     <ClCompile Include="TnbLib\derivedFvPatchFields\nucleationSiteModel.cxx" />
@@ -58,9 +59,7 @@
     <ClCompile Include="TnbLib\interfacialCompositionModels\newMassTransferModel.cxx" />
     <ClCompile Include="TnbLib\interfacialCompositionModels\newSaturationModel.cxx" />
     <ClCompile Include="TnbLib\interfacialCompositionModels\newSurfaceTensionModelMultiphase.cxx" />
-    <ClCompile Include="TnbLib\interfacialCompositionModels\NonRandomTwoLiquid.cxx" />
     <ClCompile Include="TnbLib\interfacialCompositionModels\polynomialMultiphase.cxx" />
-    <ClCompile Include="TnbLib\interfacialCompositionModels\Raoult.cxx" />
     <ClCompile Include="TnbLib\interfacialCompositionModels\saturationModel.cxx" />
     <ClCompile Include="TnbLib\interfacialCompositionModels\sphericalMassTransfer.cxx" />
     <ClCompile Include="TnbLib\interfacialCompositionModels\surfaceTensionModelMultiphase.cxx" />
@@ -134,12 +133,53 @@
     <ClCompile Include="TnbLib\interfacialModels\wallLubricationModel.cxx" />
     <ClCompile Include="TnbLib\interfacialModels\Wellek.cxx" />
     <ClCompile Include="TnbLib\interfacialModels\WenYu.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\binaryBreakupModel.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\blendingMethod.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\breakupModelMultiphase.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\coalescenceModel.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\constantCoalescence.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\constantDiameter.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\constantDrift.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\constantNucleation.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\CoulaloglouTavlaridesCoalescence.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\daughterSizeDistributionModel.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\densityChange.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\diameterModel.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\driftModel.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\exponential.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\hRefConstThermos.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\hydrodynamic.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\hyperbolic.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\isothermalDiameter.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\LaakkonenAlopaeusAittamaa.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\LaakkonenAlopaeusAittamaaDsd.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\LehrMilliesMewes.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\LehrMilliesMewesCoalescence.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\linearMultiphasePhaseSystem.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\linearTsubDiameter.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\Luo.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\LuoSvendsen.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\MultiComponentPhaseModel.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\newBlendingMethod.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\newDiameterModel.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\newPhaseModel.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\noBlending.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\nucleationModel.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\orderedPhasePair.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\phaseChange.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\phaseModel.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\phaseModels.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\phasePair.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\phasePairKey.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\phaseSystem.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\populationBalanceModel.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\powerLaw.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\powerLawUniformBinary.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\PrinceBlanch.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\sizeGroup.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\uniformBinary.cxx" />
     <ClCompile Include="TnbLib\phaseSystems\velocityGroup.cxx" />
+    <ClCompile Include="TnbLib\phaseSystems\wallBoiling.cxx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TnbLib\derivedFvPatchFields\alphatFixedDmdtWallBoilingWallFunctionFvPatchScalarField.hxx" />
@@ -155,7 +195,7 @@
     <ClInclude Include="TnbLib\derivedFvPatchFields\KocamustafaogullariIshii.hxx" />
     <ClInclude Include="TnbLib\derivedFvPatchFields\Lavieville.hxx" />
     <ClInclude Include="TnbLib\derivedFvPatchFields\LemmertChawla.hxx" />
-    <ClInclude Include="TnbLib\derivedFvPatchFields\linear.hxx" />
+    <ClInclude Include="TnbLib\derivedFvPatchFields\linearMultiphaseDerivedFvPatchFields.hxx" />
     <ClInclude Include="TnbLib\derivedFvPatchFields\nucleationSiteModel.hxx" />
     <ClInclude Include="TnbLib\derivedFvPatchFields\partitioningModel.hxx" />
     <ClInclude Include="TnbLib\derivedFvPatchFields\phaseFraction.hxx" />
@@ -176,8 +216,10 @@
     <ClInclude Include="TnbLib\interfacialCompositionModels\InterfaceCompositionModelTemplateI.hxx" />
     <ClInclude Include="TnbLib\interfacialCompositionModels\massTransferModel.hxx" />
     <ClInclude Include="TnbLib\interfacialCompositionModels\NonRandomTwoLiquid.hxx" />
+    <ClInclude Include="TnbLib\interfacialCompositionModels\NonRandomTwoLiquidI.hxx" />
     <ClInclude Include="TnbLib\interfacialCompositionModels\polynomialMultiphase.hxx" />
     <ClInclude Include="TnbLib\interfacialCompositionModels\Raoult.hxx" />
+    <ClInclude Include="TnbLib\interfacialCompositionModels\RaoultI.hxx" />
     <ClInclude Include="TnbLib\interfacialCompositionModels\Saturated.hxx" />
     <ClInclude Include="TnbLib\interfacialCompositionModels\SaturatedI.hxx" />
     <ClInclude Include="TnbLib\interfacialCompositionModels\saturationModel.hxx" />
@@ -244,8 +286,10 @@
     <ClInclude Include="TnbLib\interfacialModels\Wellek.hxx" />
     <ClInclude Include="TnbLib\interfacialModels\WenYu.hxx" />
     <ClInclude Include="TnbLib\module\reactingEulerFoamLibs_Module.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\AnisothermalPhaseModelI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\binaryBreakupModel.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\BlendedInterfacialModel.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\BlendedInterfacialModelI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\blendingMethod.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\breakupModelMultiphase.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\coalescenceModel.hxx" />
@@ -262,50 +306,100 @@
     <ClInclude Include="TnbLib\phaseSystems\hydrodynamic.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\hyperbolic.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\InertPhaseModel.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\InertPhaseModelI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\InterfaceCompositionPhaseChangePhaseSystem.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\InterfaceCompositionPhaseChangePhaseSystemI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\isothermalDiameter.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\IsothermalPhaseModel.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\IsothermalPhaseModelI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\LaakkonenAlopaeusAittamaa.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\LaakkonenAlopaeusAittamaaDsd.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\LehrMilliesMewes.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\LehrMilliesMewesCoalescence.hxx" />
-    <ClInclude Include="TnbLib\phaseSystems\linear.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\linearMultiphasePhaseSystem.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\linearTsubDiameter.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\Luo.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\LuoSvendsen.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\MomentumTransferPhaseSystem.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\MomentumTransferPhaseSystemI.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\MovingPhaseModel.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\MovingPhaseModelI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\MultiComponentPhaseModel.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\AnisothermalPhaseModel.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\MultiComponentPhaseModelI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\noBlending.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\nucleationModel.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\OneResistanceHeatTransferPhaseSystem.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\OneResistanceHeatTransferPhaseSystemI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\orderedPhasePair.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\phaseChange.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\phaseCompressibleTurbulenceModelMultiphase.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\phaseCompressibleTurbulenceModelFwd.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\phaseModel.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\phasePair.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\phasePairI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\phasePairKey.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\phaseSystem.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\phaseSystemI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\PhaseTransferPhaseSystem.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\PhaseTransferPhaseSystemI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\populationBalanceModel.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\populationBalanceModelI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\PopulationBalancePhaseSystem.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\PopulationBalancePhaseSystemI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\powerLaw.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\powerLawUniformBinary.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\PrinceBlanch.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\PurePhaseModel.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\PurePhaseModelI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\ReactingPhaseModel.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\ReactingPhaseModelI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\sizeGroup.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\sizeGroupI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\StationaryPhaseModel.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\StationaryPhaseModelI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\ThermalPhaseChangePhaseSystem.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\ThermalPhaseChangePhaseSystemI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\ThermoPhaseModel.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\ThermoPhaseModelI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\TwoResistanceHeatTransferPhaseSystem.hxx" />
+    <ClInclude Include="TnbLib\phaseSystems\TwoResistanceHeatTransferPhaseSystemI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\uniformBinary.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\velocityGroup.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\velocityGroupI.hxx" />
     <ClInclude Include="TnbLib\phaseSystems\wallBoiling.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\TnbBase\TnbBase.vcxproj">
+      <Project>{0eaecc55-7ec6-4414-897b-0156a774c01c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbCombustionModels\TnbCombustionModels.vcxproj">
+      <Project>{ec552de4-8922-4b5a-9254-1f29e1cc71dd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbDynamicMesh\TnbDynamicMesh.vcxproj">
+      <Project>{e3788c5b-0066-49ce-a6f3-4ef1a5660b6d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbFiniteVolume\TnbFiniteVolume.vcxproj">
+      <Project>{5845ec09-4e08-49f8-a805-f71c9cdde696}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbFunctionObjects\TnbFunctionObjects.vcxproj">
+      <Project>{3f7b243e-749e-4f13-bab0-2d9a31bc7e91}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbFvMesh\TnbFvMesh.vcxproj">
+      <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbSampling\TnbSampling.vcxproj">
+      <Project>{b0600bfc-62b5-4f92-9e5a-5b25fd93436a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbThermoPhysicalModels\TnbThermoPhysicalModels.vcxproj">
+      <Project>{5396b04c-6e67-4ee2-82f8-e56d26195cf9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbTransportModels\TnbTransportModels.vcxproj">
+      <Project>{ad4b123c-0d2b-4aac-b265-9ec2f0e93568}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbTurbulence\TnbTurbulence.vcxproj">
+      <Project>{c44b171d-747f-4fe0-b6e9-b8c6c88ddc40}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -406,11 +500,20 @@
       <PreprocessorDefinitions>FoamReactingEulerFoamLibs_EXPORT_DEFINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\derivedFvPatchFields;$(ProjectDir)TnbLib\functionObjects;$(ProjectDir)TnbLib\interfacialCompositionModels;$(ProjectDir)TnbLib\interfacialModels;$(ProjectDir)TnbLib\module;$(ProjectDir)TnbLib\phaseSystems;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbCombustionModels\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(SolutionDir)include" mkdir "$(SolutionDir)include"
+if not exist "$(ProjectDir)include" mkdir "$(ProjectDir)include"
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(SolutionDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.hxx) do @xcopy "%%f" "$(ProjectDir)include" /y
+for /r "$(ProjectDir)tnbLib" %%f in (*.lxx) do @xcopy "%%f" "$(SolutionDir)include" /y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -421,6 +524,8 @@
       <PreprocessorDefinitions>FoamReactingEulerFoamLibs_EXPORT_DEFINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)TnbLib\derivedFvPatchFields;$(ProjectDir)TnbLib\functionObjects;$(ProjectDir)TnbLib\interfacialCompositionModels;$(ProjectDir)TnbLib\interfacialModels;$(ProjectDir)TnbLib\module;$(ProjectDir)TnbLib\phaseSystems;$(SolutionDir)TnbThermophysicalModels\include;$(SolutionDir)TnbLagrangian\include;$(SolutionDir)TnbDynamicMesh\include;$(SolutionDir)TnbFvMesh\include;$(SolutionDir)TnbTurbulence\include;$(SolutionDir)TnbThermoPhysicalModels\include;$(SolutionDir)TnbTransportModels\include;$(SolutionDir)TnbCombustionModels\include;$(SolutionDir)TnbFiniteVolume\include;$(SolutionDir)TnbBase\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
