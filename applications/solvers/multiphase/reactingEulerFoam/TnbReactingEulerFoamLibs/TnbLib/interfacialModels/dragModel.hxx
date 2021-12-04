@@ -75,7 +75,7 @@ namespace tnbLib
 
         // Declare runtime construction
 
-        FoamReactingEulerFoamLibs_EXPORT declareRunTimeSelectionTable
+        declareRunTimeSelectionTable
         (
             autoPtr,
             dragModel,

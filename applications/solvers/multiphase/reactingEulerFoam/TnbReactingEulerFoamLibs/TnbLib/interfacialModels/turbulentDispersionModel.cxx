@@ -31,7 +31,7 @@ License
 #include <fvcGrad.hxx>
 #include <surfaceInterpolate.hxx>
 #include <fvcSnGrad.hxx>
-#include <phaseCompressibleTurbulenceModel.hxx>
+#include <phaseCompressibleTurbulenceModelMultiphase.hxx>
 #include <BlendedInterfacialModel.hxx>
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //

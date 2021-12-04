@@ -27,6 +27,7 @@ License
 
 #include <liftModel.hxx>
 
+#include <vector.hxx>
 #include <phasePair.hxx>
 #include <fvcCurl.hxx>
 #include <fvcFlux.hxx>

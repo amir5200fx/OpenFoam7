@@ -26,9 +26,8 @@ License
 #include <LopezDeBertodano.hxx>
 
 #include <phasePair.hxx>
-#include <phaseCompressibleTurbulenceModel.hxx>
+#include <phaseCompressibleTurbulenceModelMultiphase.hxx>
 #include <addToRunTimeSelectionTable.hxx>
-#include <ThermalDiffusivity.hxx>  // added by Payvand
 
 // * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
