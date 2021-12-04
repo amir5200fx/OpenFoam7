@@ -322,6 +322,4 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#include <alphatWallBoilingWallFunctionFvPatchScalarFieldI.hxx>
-
 #endif // !_alphatWallBoilingWallFunctionFvPatchScalarField_Header

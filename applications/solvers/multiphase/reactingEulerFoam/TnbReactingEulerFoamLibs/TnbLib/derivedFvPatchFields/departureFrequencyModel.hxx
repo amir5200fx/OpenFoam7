@@ -78,7 +78,7 @@ namespace tnbLib
             // Constructors
 
                 //- Construct null
-            departureFrequencyModel();
+            FoamReactingEulerFoamLibs_EXPORT departureFrequencyModel();
 
             //- Disallow default bitwise copy construction
             departureFrequencyModel(const departureFrequencyModel&) = delete;
@@ -87,11 +87,11 @@ namespace tnbLib
             // Selectors
 
                 //- Select null constructed
-            static autoPtr<departureFrequencyModel> New(const dictionary& dict);
+            static FoamReactingEulerFoamLibs_EXPORT autoPtr<departureFrequencyModel> New(const dictionary& dict);
 
 
             //- Destructor
-            virtual ~departureFrequencyModel();
+            FoamReactingEulerFoamLibs_EXPORT virtual ~departureFrequencyModel();
 
 
             // Member Functions
@@ -105,7 +105,7 @@ namespace tnbLib
                 const scalarField& dDep
             ) const = 0;
 
-            virtual void write(Ostream& os) const;
+            FoamReactingEulerFoamLibs_EXPORT virtual void write(Ostream& os) const;
 
 
             // Member Operators
