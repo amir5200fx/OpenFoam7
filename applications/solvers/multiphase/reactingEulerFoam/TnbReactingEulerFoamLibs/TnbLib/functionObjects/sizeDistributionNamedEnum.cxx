@@ -1,6 +1,4 @@
-
-
-
+#define FoamNamedEnum_EXPORT_DEFINE
 #include <sizeDistribution.hxx>
 
 template<>
