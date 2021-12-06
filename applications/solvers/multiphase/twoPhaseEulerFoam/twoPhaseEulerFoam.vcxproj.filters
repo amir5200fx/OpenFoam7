@@ -1,0 +1,700 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{f0734331-4b73-40cd-8f11-1c1041a9fbdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels">
+      <UniqueIdentifier>{b66aa483-4101-4382-8fde-dcc1c4c94423}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels">
+      <UniqueIdentifier>{44eecb8d-b7dd-4428-b5ec-f830dfd81759}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\pU">
+      <UniqueIdentifier>{9a14b469-39c3-4af4-84a3-3c12f13b2c7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\pUf">
+      <UniqueIdentifier>{c6fbb585-0749-49b5-861a-5bce57e9a13c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem">
+      <UniqueIdentifier>{f66b9adf-27e8-4183-9e99-78c0451142d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\aspectRatioModels">
+      <UniqueIdentifier>{555aa6ab-e395-495a-8755-e55f6b0f8b75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels">
+      <UniqueIdentifier>{c1303670-3849-4a9e-b3c4-5a0d2d92fce3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\heatTransferModels">
+      <UniqueIdentifier>{175affc9-f3c9-4809-a734-755d63c1e393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\liftModels">
+      <UniqueIdentifier>{5548282b-8fb5-4080-bd8f-daa6016fc179}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\wallLubricationModels">
+      <UniqueIdentifier>{0e51f395-7064-491f-9fb2-8db209b5c47e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\wallDependentModel">
+      <UniqueIdentifier>{11071879-db58-4e73-8d00-03624c8f8f9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\virtualMassModels">
+      <UniqueIdentifier>{809f161e-e3e9-4a61-b36c-388585329701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\turbulentDispersionModels">
+      <UniqueIdentifier>{9cbaf52b-25dd-4a30-af96-e28c889dd0e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\swarmCorrections">
+      <UniqueIdentifier>{8da213bc-2898-4d61-90fe-8e0c1c7b707c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\aspectRatioModels\aspectRatioModel">
+      <UniqueIdentifier>{98ee2c4a-53cd-4c83-8edb-bbf0fa0a3d1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\aspectRatioModels\constantAspectRatio">
+      <UniqueIdentifier>{cd2cc2c7-bcef-4efe-b47c-44ce1f57e11f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\aspectRatioModels\Wellek">
+      <UniqueIdentifier>{bd15f1d3-bfd8-4fa0-8c65-fc59098187b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\aspectRatioModels\VakhrushevEfremov">
+      <UniqueIdentifier>{2f88779d-368f-4f3e-bbd2-aba64540021f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\aspectRatioModels\TomiyamaAspectRatio">
+      <UniqueIdentifier>{b7bc3016-48a6-49cd-a163-f5e7e8d0b89c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\dragModel">
+      <UniqueIdentifier>{cf333d33-0b3f-4713-bc08-ffcdc536b89e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\Ergun">
+      <UniqueIdentifier>{c93b2c13-bdd7-4f38-9910-6221afa71fc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\Gibilaro">
+      <UniqueIdentifier>{b665420c-ae94-4fbc-984c-205e73fa8867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\GidaspowErgunWenYu">
+      <UniqueIdentifier>{aea5c752-fdda-4baf-b4c9-17574b219220}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\GidaspowSchillerNaumann">
+      <UniqueIdentifier>{dcd76e02-ef61-47ad-abca-8e5384958525}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\IshiiZuber">
+      <UniqueIdentifier>{0e6f86e3-19c5-4480-98a3-43a80f57e07d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\Lain">
+      <UniqueIdentifier>{d37c54cd-7cb8-41b4-83bb-f2cfc98e544c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\WenYu">
+      <UniqueIdentifier>{abab10e4-6d56-4fe1-a65c-34fba5e5bf30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\TomiyamaCorrelated">
+      <UniqueIdentifier>{678af120-5982-46a5-b013-e96fc24d648d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\TomiyamaAnalytic">
+      <UniqueIdentifier>{6491511b-1544-41ae-a701-5c93b5297149}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\SyamlalOBrien">
+      <UniqueIdentifier>{bd8934e2-691d-4420-a1fc-9cae75f4a199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\segregated">
+      <UniqueIdentifier>{aa4efed3-bbd5-421e-9ff7-dc7d21a9c7c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\dragModels\SchillerNaumann">
+      <UniqueIdentifier>{3b45a791-4cfe-434d-9be5-413b6a19a11e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\heatTransferModels\heatTransferModel">
+      <UniqueIdentifier>{5ad1529d-7bc0-4b41-9efc-c54df6620b41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\heatTransferModels\sphericalHeatTransfer">
+      <UniqueIdentifier>{46d94ef7-53a0-4870-9f68-317dfb621748}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\heatTransferModels\RanzMarshall">
+      <UniqueIdentifier>{c07ee8ed-a244-4f21-b08e-f0071e186557}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\liftModels\constantLiftCoefficient">
+      <UniqueIdentifier>{7f20ab34-c2ac-49b7-8ac5-5a3853f1f863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\liftModels\LegendreMagnaudet">
+      <UniqueIdentifier>{538514aa-b005-467a-a389-df37f0772b86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\liftModels\liftModel">
+      <UniqueIdentifier>{19d91489-7e43-468b-a6c1-a8e085eb4e62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\liftModels\Moraga">
+      <UniqueIdentifier>{8003e38f-2fa3-4aae-8eb7-8cb67926e9bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\liftModels\TomiyamaLift">
+      <UniqueIdentifier>{8195d0cb-dd9e-47c0-a0b1-590a576f498d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\liftModels\noLift">
+      <UniqueIdentifier>{8069b47e-1dbd-4fff-b02e-78f982557ad6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\swarmCorrections\TomiyamaSwarm">
+      <UniqueIdentifier>{224c8c5f-a0d6-40da-94a8-79f68808ff41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\swarmCorrections\swarmCorrection">
+      <UniqueIdentifier>{04d0c846-27e7-4aed-b0a9-b10330bc0b6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\swarmCorrections\noSwarm">
+      <UniqueIdentifier>{aa322fb9-5a54-4390-8260-1fd4cc989250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\turbulentDispersionModels\Burns">
+      <UniqueIdentifier>{818c4602-3d5c-4052-b2f5-82e097369367}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\turbulentDispersionModels\constantTurbulentDispersionCoefficient">
+      <UniqueIdentifier>{c52d599a-5dcc-4dbe-b372-f042035da7c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\turbulentDispersionModels\Gosman">
+      <UniqueIdentifier>{a99e031d-fb5e-43e3-9c3d-93afe369ef9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\turbulentDispersionModels\LopezDeBertodano">
+      <UniqueIdentifier>{49c9a64b-f68c-4ebb-8a21-aab3cad6e08a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\turbulentDispersionModels\turbulentDispersionModel">
+      <UniqueIdentifier>{1683d9ff-6d94-4335-a80a-1c1dd5cc8578}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\turbulentDispersionModels\noTurbulentDispersion">
+      <UniqueIdentifier>{ea9952ef-6f07-4d79-82a7-dbe57631e215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\virtualMassModels\constantVirtualMassCoefficient">
+      <UniqueIdentifier>{889283c2-ab97-45b3-9b15-669566e62f84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\virtualMassModels\Lamb">
+      <UniqueIdentifier>{490b4d30-215a-4714-89c6-a10bd3a879e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\virtualMassModels\virtualMassModel">
+      <UniqueIdentifier>{3c8334b3-1e22-406d-afdb-925ca0dd40e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\virtualMassModels\noVirtualMass">
+      <UniqueIdentifier>{8c832aab-2bed-459d-b71c-e19a8a13465c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\wallLubricationModels\Antal">
+      <UniqueIdentifier>{6a51c168-0cc2-480c-b366-dd6a6b62a42f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\wallLubricationModels\Frank">
+      <UniqueIdentifier>{8c37089c-e2bc-4b91-8a1a-d1e001a2c177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\wallLubricationModels\wallLubricationModel">
+      <UniqueIdentifier>{f7aa8993-4994-4cee-86f7-713fd420cf16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\wallLubricationModels\TomiyamaWallLubrication">
+      <UniqueIdentifier>{47c7e99e-a520-4661-a66a-d46384a0a11d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\interfacialModels\wallLubricationModels\noWallLubrication">
+      <UniqueIdentifier>{81f3c457-4c20-4ddd-a588-53b652bbf960}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels">
+      <UniqueIdentifier>{d5ad001c-f7e2-4dd9-80b1-a9208e9c50ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\phasePressureModel">
+      <UniqueIdentifier>{14ae9809-98ec-4648-8433-1bf4558fdcb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel">
+      <UniqueIdentifier>{df1eb024-8f74-4492-944b-16f7ed46ef16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\derivedFvPatchFields">
+      <UniqueIdentifier>{f017a047-ab7f-4a6e-8f26-257db7c615c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel">
+      <UniqueIdentifier>{563f8eeb-9e46-4697-92dc-1ce07b04c6ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel">
+      <UniqueIdentifier>{48d71c1b-e576-465e-9f2f-085b68b5a18f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\kineticTheoryModel">
+      <UniqueIdentifier>{b4909082-457b-4706-a512-203f132831b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel">
+      <UniqueIdentifier>{036622fe-e6d6-44ce-92d5-91180b18ad47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel">
+      <UniqueIdentifier>{b02e1a35-eb94-44d8-b6e3-496b67dc15e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\conductivityModel">
+      <UniqueIdentifier>{7301bc9b-4894-40d2-911d-50762d429462}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\Gidaspow">
+      <UniqueIdentifier>{c34550a7-b9c5-4a00-9bce-05d470a4bcb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\HrenyaSinclair">
+      <UniqueIdentifier>{f6c773e2-7d28-4645-a59d-36ab4ab8482a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\Syamlal">
+      <UniqueIdentifier>{732dee3c-46c9-46e1-9ac1-eb91ef260738}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\derivedFvPatchFields\JohnsonJacksonParticleSlip">
+      <UniqueIdentifier>{69194db1-6249-4e87-9fed-c6761df3570d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\derivedFvPatchFields\JohnsonJacksonParticleTheta">
+      <UniqueIdentifier>{e8091ba5-a5b6-44a1-868f-25ef25c85bf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\frictionalStressModel">
+      <UniqueIdentifier>{76b837dd-6c09-457e-bdf5-8b3fe5199124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\JohnsonJackson">
+      <UniqueIdentifier>{eca7743b-9046-4ac0-b670-428292584498}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\JohnsonJacksonSchaeffer">
+      <UniqueIdentifier>{e67576ac-7cb4-42e9-9f58-0637a8379344}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\Schaeffer">
+      <UniqueIdentifier>{0ca5f351-f5b3-482a-bc88-45aa13859f89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel\granularPressureModel">
+      <UniqueIdentifier>{2dae19ae-d79f-4563-8a29-961e97d3b75b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel\Lun">
+      <UniqueIdentifier>{babee321-9c53-4500-b116-7d7b69107f91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel\SyamlalRogersOBrien">
+      <UniqueIdentifier>{e578a282-4191-4c5a-857e-4115a88b1e65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\CarnahanStarling">
+      <UniqueIdentifier>{eb82edd8-c6f6-42d9-936d-101975b6d60d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\LunSavage">
+      <UniqueIdentifier>{19155c65-ce07-4674-83ff-91771bbf7bcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\SinclairJackson">
+      <UniqueIdentifier>{f94a63fe-0a3d-48cc-8003-61b9c0450632}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\radialModel">
+      <UniqueIdentifier>{a66da007-fec5-47ea-90ca-23da6b330723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\Gidaspow">
+      <UniqueIdentifier>{4341c0dd-4cb4-4d85-adbb-c3064aa26c5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\HrenyaSinclair">
+      <UniqueIdentifier>{3ad837ce-5c4a-48ce-a85a-ed5dd59b5cd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\viscosityModel">
+      <UniqueIdentifier>{3451100c-e0e2-4ffb-9e0f-d51eea5d2187}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\Syamlal">
+      <UniqueIdentifier>{649f6e2f-3b9e-40fe-9f06-ca00071ed342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\none">
+      <UniqueIdentifier>{919075c4-8222-4707-a6e4-26dd16ed3ef8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\BlendedInterfacialModel">
+      <UniqueIdentifier>{3b812afe-f8f4-4ff6-a64a-686f5b09828e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\diameterModels">
+      <UniqueIdentifier>{8ae754d9-7657-4a97-8eaa-525976ec5464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\phasePair">
+      <UniqueIdentifier>{8287f517-3313-461a-8cc4-0e7c8bced6fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\phaseModel">
+      <UniqueIdentifier>{64d6e980-0ce0-4684-a5a1-e3e69b00b598}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\BlendedInterfacialModel\blendingMethods">
+      <UniqueIdentifier>{b16bb6ff-8ac0-4728-8e95-0c033f226823}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\BlendedInterfacialModel\blendingMethods\blendingMethod">
+      <UniqueIdentifier>{cf158a81-6ae0-4b20-a0ed-2a700da62c01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\BlendedInterfacialModel\blendingMethods\hyperbolic">
+      <UniqueIdentifier>{8e9daeb6-ae9e-41f7-81b2-5e8156e7dd40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\BlendedInterfacialModel\blendingMethods\linear">
+      <UniqueIdentifier>{14dcb8e9-9f76-47ee-88e9-dd162c517cb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\BlendedInterfacialModel\blendingMethods\noBlending">
+      <UniqueIdentifier>{48d5bad9-c934-4692-a540-a58551eeb4a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\diameterModels\constantDiameter">
+      <UniqueIdentifier>{e9f5192d-107d-4b1e-8517-e3b1275ed43e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\diameterModels\diameterModel">
+      <UniqueIdentifier>{71818e3d-dbed-48d8-9e8e-be457244f12a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\diameterModels\IATE">
+      <UniqueIdentifier>{9c72b60c-785c-41e2-beb9-7c508301544a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\diameterModels\isothermalDiameter">
+      <UniqueIdentifier>{678a1b4b-0bd8-48aa-abf1-2557c9eab0ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\diameterModels\IATE\IATEsources">
+      <UniqueIdentifier>{3a5c19d6-17a2-40f8-951b-0542dfab1f35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\diameterModels\IATE\IATEsources\dummy">
+      <UniqueIdentifier>{07cc9365-345a-4913-b6b5-cb04fa492700}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\diameterModels\IATE\IATEsources\IATEsource">
+      <UniqueIdentifier>{87a7d412-53fd-4a0d-a0aa-fbdb6259f94a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\diameterModels\IATE\IATEsources\wakeEntrainmentCoalescence">
+      <UniqueIdentifier>{5a9360ad-f892-480d-9094-c57cef400e34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\diameterModels\IATE\IATEsources\turbulentBreakUp">
+      <UniqueIdentifier>{751e2912-dc3a-4d57-8a2f-eadb0f19072e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\diameterModels\IATE\IATEsources\randomCoalescence">
+      <UniqueIdentifier>{bafecdc8-a6d0-42b7-b4d6-90355bd270e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\phasePair\phasePairKey">
+      <UniqueIdentifier>{9afc299a-b6ff-48a9-ba72-aff4ede82081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\phasePair\phasePair">
+      <UniqueIdentifier>{90968b5c-371f-43b8-9b8d-ced334bc4dbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\twoPhaseSystem\phasePair\orderedPhasePair">
+      <UniqueIdentifier>{263fb336-4818-4c0c-a750-91a551b06696}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="contErrs.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="correctContErrs.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="CourantNos.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFieldRefs.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createMRF.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="EEqns.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="write.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="pUf\createDDtU_pUF.lxx">
+      <Filter>src\pUf</Filter>
+    </None>
+    <None Include="pUf\DDtU_pUF.lxx">
+      <Filter>src\pUf</Filter>
+    </None>
+    <None Include="pUf\pEqn_pUF.lxx">
+      <Filter>src\pUf</Filter>
+    </None>
+    <None Include="pUf\UEqns_pUF.lxx">
+      <Filter>src\pUf</Filter>
+    </None>
+    <None Include="pU\createDDtU_pU.lxx">
+      <Filter>src\pU</Filter>
+    </None>
+    <None Include="pU\DDtU_pU.lxx">
+      <Filter>src\pU</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="twoPhaseEulerFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\aspectRatioModels\aspectRatioModelTwoPhase.cxx">
+      <Filter>src\interfacialModels\aspectRatioModels\aspectRatioModel</Filter>
+    </ClCompile>
+    <ClCompile Include="interfacialModels\aspectRatioModels\newAspectRatioModelTwoPhase.cxx">
+      <Filter>src\interfacialModels\aspectRatioModels\aspectRatioModel</Filter>
+    </ClCompile>
+    <ClCompile Include="twoPhaseSystem\phasePair\phasePairTwoPhase.cxx">
+      <Filter>src\twoPhaseSystem\phasePair\phasePair</Filter>
+    </ClCompile>
+    <ClCompile Include="twoPhaseSystem\phaseModel\phaseModelTwoPhase.cxx">
+      <Filter>src\twoPhaseSystem\phaseModel</Filter>
+    </ClCompile>
+    <ClCompile Include="twoPhaseSystem\twoPhaseSystem.cxx">
+      <Filter>src\twoPhaseSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="phaseCompressibleTurbulenceModels\phaseCompressibleTurbulenceModelTwoPhase.cxx">
+      <Filter>src\phaseCompressibleTurbulenceModels</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="interfacialModels\aspectRatioModels\aspectRatioModelTwoPhase.hxx">
+      <Filter>src\interfacialModels\aspectRatioModels\aspectRatioModel</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\phasePair\phasePairTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\phasePair\phasePair</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\phasePair\phasePairTwoPhaseI.hxx">
+      <Filter>src\twoPhaseSystem\phasePair\phasePair</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\phaseModel\phaseModelTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\phaseModel</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\twoPhaseSystem.hxx">
+      <Filter>src\twoPhaseSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\twoPhaseSystemI.hxx">
+      <Filter>src\twoPhaseSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\phaseCompressibleTurbulenceModelTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\phaseCompressibleTurbulenceModelFwdTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\BlendedInterfacialModel\blendingMethodTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\BlendedInterfacialModel\blendingMethods\blendingMethod</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\aspectRatioModels\constantAspectRatioTwoPhase.hxx">
+      <Filter>src\interfacialModels\aspectRatioModels\constantAspectRatio</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\aspectRatioModels\TomiyamaAspectRatioTwoPhase.hxx">
+      <Filter>src\interfacialModels\aspectRatioModels\TomiyamaAspectRatio</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\aspectRatioModels\VakhrushevEfremovTwoPhase.hxx">
+      <Filter>src\interfacialModels\aspectRatioModels\VakhrushevEfremov</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\aspectRatioModels\WellekTwoPhase.hxx">
+      <Filter>src\interfacialModels\aspectRatioModels\Wellek</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\wallDependentModel\wallDependentModelTwoPhase.hxx">
+      <Filter>src\interfacialModels\wallDependentModel</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\dragModelTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\dragModel</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\ErgunTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\Ergun</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\GibilaroTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\Gibilaro</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\GidaspowErgunWenYuTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\GidaspowErgunWenYu</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\GidaspowSchillerNaumannTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\GidaspowSchillerNaumann</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\IshiiZuberTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\IshiiZuber</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\LainTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\Lain</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\SchillerNaumannTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\SchillerNaumann</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\segregatedTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\segregated</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\SyamlalOBrienTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\SyamlalOBrien</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\TomiyamaAnalyticTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\TomiyamaAnalytic</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\TomiyamaCorrelatedTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\TomiyamaCorrelated</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\dragModels\WenYuTwoPhase.hxx">
+      <Filter>src\interfacialModels\dragModels\WenYu</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\heatTransferModels\heatTransferModelTwoPhase.hxx">
+      <Filter>src\interfacialModels\heatTransferModels\heatTransferModel</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\heatTransferModels\RanzMarshallTwoPhase.hxx">
+      <Filter>src\interfacialModels\heatTransferModels\RanzMarshall</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\heatTransferModels\sphericalHeatTransferTwoPhase.hxx">
+      <Filter>src\interfacialModels\heatTransferModels\sphericalHeatTransfer</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\liftModels\constantLiftCoefficientTwoPhase.hxx">
+      <Filter>src\interfacialModels\liftModels\constantLiftCoefficient</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\liftModels\LegendreMagnaudetTwoPhase.hxx">
+      <Filter>src\interfacialModels\liftModels\LegendreMagnaudet</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\liftModels\liftModelTwoPhase.hxx">
+      <Filter>src\interfacialModels\liftModels\liftModel</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\liftModels\MoragaTwoPhase.hxx">
+      <Filter>src\interfacialModels\liftModels\Moraga</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\liftModels\noLiftTwoPhase.hxx">
+      <Filter>src\interfacialModels\liftModels\noLift</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\liftModels\TomiyamaLiftTwoPhase.hxx">
+      <Filter>src\interfacialModels\liftModels\TomiyamaLift</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\swarmCorrections\noSwarmTwoPhase.hxx">
+      <Filter>src\interfacialModels\swarmCorrections\noSwarm</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\swarmCorrections\swarmCorrectionTwoPhase.hxx">
+      <Filter>src\interfacialModels\swarmCorrections\swarmCorrection</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\swarmCorrections\TomiyamaSwarmTwoPhase.hxx">
+      <Filter>src\interfacialModels\swarmCorrections\TomiyamaSwarm</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\turbulentDispersionModels\BurnsTwoPhase.hxx">
+      <Filter>src\interfacialModels\turbulentDispersionModels\Burns</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\turbulentDispersionModels\turbulentDispersionModelTwoPhase.hxx">
+      <Filter>src\interfacialModels\turbulentDispersionModels\turbulentDispersionModel</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\turbulentDispersionModels\constantTurbulentDispersionCoefficientTwoPhase.hxx">
+      <Filter>src\interfacialModels\turbulentDispersionModels\constantTurbulentDispersionCoefficient</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\turbulentDispersionModels\GosmanTwoPhase.hxx">
+      <Filter>src\interfacialModels\turbulentDispersionModels\Gosman</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\turbulentDispersionModels\LopezDeBertodanoTwoPhase.hxx">
+      <Filter>src\interfacialModels\turbulentDispersionModels\LopezDeBertodano</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\turbulentDispersionModels\noTurbulentDispersionTwoPhase.hxx">
+      <Filter>src\interfacialModels\turbulentDispersionModels\noTurbulentDispersion</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\virtualMassModels\virtualMassModelTwoPhase.hxx">
+      <Filter>src\interfacialModels\virtualMassModels\virtualMassModel</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\virtualMassModels\noVirtualMassTwoPhase.hxx">
+      <Filter>src\interfacialModels\virtualMassModels\noVirtualMass</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\virtualMassModels\LambTwoPhase.hxx">
+      <Filter>src\interfacialModels\virtualMassModels\Lamb</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\virtualMassModels\constantVirtualMassCoefficientTwoPhase.hxx">
+      <Filter>src\interfacialModels\virtualMassModels\constantVirtualMassCoefficient</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\wallLubricationModels\AntalTwoPhase.hxx">
+      <Filter>src\interfacialModels\wallLubricationModels\Antal</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\wallLubricationModels\wallLubricationModelTwoPhase.hxx">
+      <Filter>src\interfacialModels\wallLubricationModels\wallLubricationModel</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\wallLubricationModels\FrankTwoPhase.hxx">
+      <Filter>src\interfacialModels\wallLubricationModels\Frank</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\wallLubricationModels\noWallLubricationTwoPhase.hxx">
+      <Filter>src\interfacialModels\wallLubricationModels\noWallLubrication</Filter>
+    </ClInclude>
+    <ClInclude Include="interfacialModels\wallLubricationModels\TomiyamaWallLubricationTwoPhase.hxx">
+      <Filter>src\interfacialModels\wallLubricationModels\TomiyamaWallLubrication</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\BlendedInterfacialModel\hyperbolicTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\BlendedInterfacialModel\blendingMethods\hyperbolic</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\BlendedInterfacialModel\linearTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\BlendedInterfacialModel\blendingMethods\linear</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\BlendedInterfacialModel\noBlendingTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\BlendedInterfacialModel\blendingMethods\noBlending</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\BlendedInterfacialModel\BlendedInterfacialModelTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\BlendedInterfacialModel\blendingMethods</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\diameterModels\constantDiameterTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\diameterModels\constantDiameter</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\diameterModels\diameterModelTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\diameterModels\diameterModel</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\diameterModels\dummyTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\diameterModels\IATE\IATEsources\dummy</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\diameterModels\IATEsourceTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\diameterModels\IATE\IATEsources\IATEsource</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\diameterModels\IATETwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\diameterModels\IATE</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\diameterModels\randomCoalescenceTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\diameterModels\IATE\IATEsources\randomCoalescence</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\diameterModels\turbulentBreakUpTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\diameterModels\IATE\IATEsources\turbulentBreakUp</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\diameterModels\wakeEntrainmentCoalescenceTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\diameterModels\IATE\IATEsources\wakeEntrainmentCoalescence</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\diameterModels\isothermalDiameterTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\diameterModels\isothermalDiameter</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\phasePair\orderedPhasePairTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\phasePair\orderedPhasePair</Filter>
+    </ClInclude>
+    <ClInclude Include="twoPhaseSystem\phasePair\phasePairKeyTwoPhase.hxx">
+      <Filter>src\twoPhaseSystem\phasePair\phasePairKey</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\conductivityModelTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\conductivityModel</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\GidaspowConductivityTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\Gidaspow</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\HrenyaSinclairConductivityTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\HrenyaSinclair</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\SyamlalConductivityTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\Syamlal</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\derivedFvPatchFields\JohnsonJacksonParticleSlipFvPatchVectorFieldTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\derivedFvPatchFields\JohnsonJacksonParticleSlip</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\derivedFvPatchFields\JohnsonJacksonParticleThetaFvPatchScalarFieldTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\derivedFvPatchFields\JohnsonJacksonParticleTheta</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\frictionalStressModelTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\frictionalStressModel</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\JohnsonJacksonFrictionalStressTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\JohnsonJackson</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\JohnsonJacksonSchaefferFrictionalStressTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\JohnsonJacksonSchaeffer</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\SchaefferFrictionalStressTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\Schaeffer</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel\granularPressureModelTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel\granularPressureModel</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel\LunPressureTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel\Lun</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel\SyamlalRogersOBrienPressureTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel\SyamlalRogersOBrien</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\kineticTheoryModel\kineticTheoryModelTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\kineticTheoryModel</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\radialModelTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\radialModel</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\CarnahanStarlingRadialTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\CarnahanStarling</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\LunSavageRadialTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\LunSavage</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\SinclairJacksonRadialTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\SinclairJackson</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\viscosityModelTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\viscosityModel</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\GidaspowViscosityTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\Gidaspow</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\HrenyaSinclairViscosityTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\HrenyaSinclair</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\noneViscosityTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\none</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\SyamlalViscosityTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\Syamlal</Filter>
+    </ClInclude>
+    <ClInclude Include="phaseCompressibleTurbulenceModels\phasePressureModel\phasePressureModelTwoPhase.hxx">
+      <Filter>src\phaseCompressibleTurbulenceModels\phasePressureModel</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="pU\pEqn_pU.lxx">
+      <Filter>src\pU</Filter>
+    </Text>
+    <Text Include="pU\UEqns_pU.lxx">
+      <Filter>src\pU</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

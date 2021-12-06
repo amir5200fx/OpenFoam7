@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{ac0ef30d-c6ca-4cc9-9ff8-339757cdeb4b}</ProjectGuid>
+    <RootNamespace>twoPhaseEulerFoam</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)twoPhaseSystem\BlendedInterfacialModel;$(ProjectDir)twoPhaseSystem\diameterModels;$(ProjectDir)twoPhaseSystem\phaseModel;$(ProjectDir)twoPhaseSystem\phasePair;$(ProjectDir)twoPhaseSystem;$(ProjectDir)pUf;$(ProjectDir)pU;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\derivedFvPatchFields;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\kineticTheoryModel;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel;$(ProjectDir)phaseCompressibleTurbulenceModels\phasePressureModel;$(ProjectDir)phaseCompressibleTurbulenceModels;$(ProjectDir)interfacialModels\aspectRatioModels;$(ProjectDir)interfacialModels\dragModels;$(ProjectDir)interfacialModels\heatTransferModels;$(ProjectDir)interfacialModels\liftModels;$(ProjectDir)interfacialModels\swarmCorrections;$(ProjectDir)interfacialModels\turbulentDispersionModels;$(ProjectDir)interfacialModels\virtualMassModels;$(ProjectDir)interfacialModels\wallDependentModel;$(ProjectDir)interfacialModels\wallLubricationModels;$(ProjectDir);$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)twoPhaseSystem\BlendedInterfacialModel;$(ProjectDir)twoPhaseSystem\diameterModels;$(ProjectDir)twoPhaseSystem\phaseModel;$(ProjectDir)twoPhaseSystem\phasePair;$(ProjectDir)twoPhaseSystem;$(ProjectDir)pUf;$(ProjectDir)pU;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\derivedFvPatchFields;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\kineticTheoryModel;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel;$(ProjectDir)phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel;$(ProjectDir)phaseCompressibleTurbulenceModels\phasePressureModel;$(ProjectDir)phaseCompressibleTurbulenceModels;$(ProjectDir)interfacialModels\aspectRatioModels;$(ProjectDir)interfacialModels\dragModels;$(ProjectDir)interfacialModels\heatTransferModels;$(ProjectDir)interfacialModels\liftModels;$(ProjectDir)interfacialModels\swarmCorrections;$(ProjectDir)interfacialModels\turbulentDispersionModels;$(ProjectDir)interfacialModels\virtualMassModels;$(ProjectDir)interfacialModels\wallDependentModel;$(ProjectDir)interfacialModels\wallLubricationModels;$(ProjectDir);$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="contErrs.lxx" />
+    <None Include="correctContErrs.lxx" />
+    <None Include="CourantNos.lxx" />
+    <None Include="createFieldRefs.lxx" />
+    <None Include="createFields.lxx" />
+    <None Include="createMRF.lxx" />
+    <None Include="EEqns.lxx" />
+    <None Include="pUf\createDDtU_pUF.lxx" />
+    <None Include="pUf\DDtU_pUF.lxx" />
+    <None Include="pUf\pEqn_pUF.lxx" />
+    <None Include="pUf\UEqns_pUF.lxx" />
+    <None Include="pU\createDDtU_pU.lxx" />
+    <None Include="pU\DDtU_pU.lxx" />
+    <None Include="write.lxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="interfacialModels\aspectRatioModels\aspectRatioModelTwoPhase.cxx" />
+    <ClCompile Include="interfacialModels\aspectRatioModels\newAspectRatioModelTwoPhase.cxx" />
+    <ClCompile Include="phaseCompressibleTurbulenceModels\phaseCompressibleTurbulenceModelTwoPhase.cxx" />
+    <ClCompile Include="twoPhaseEulerFoam.cxx" />
+    <ClCompile Include="twoPhaseSystem\phaseModel\phaseModelTwoPhase.cxx" />
+    <ClCompile Include="twoPhaseSystem\phasePair\phasePairTwoPhase.cxx" />
+    <ClCompile Include="twoPhaseSystem\twoPhaseSystem.cxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="interfacialModels\aspectRatioModels\aspectRatioModelTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\aspectRatioModels\constantAspectRatioTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\aspectRatioModels\TomiyamaAspectRatioTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\aspectRatioModels\VakhrushevEfremovTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\aspectRatioModels\WellekTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\dragModelTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\ErgunTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\GibilaroTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\GidaspowErgunWenYuTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\GidaspowSchillerNaumannTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\IshiiZuberTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\LainTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\SchillerNaumannTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\segregatedTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\SyamlalOBrienTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\TomiyamaAnalyticTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\TomiyamaCorrelatedTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\dragModels\WenYuTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\heatTransferModels\heatTransferModelTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\heatTransferModels\RanzMarshallTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\heatTransferModels\sphericalHeatTransferTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\liftModels\constantLiftCoefficientTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\liftModels\LegendreMagnaudetTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\liftModels\liftModelTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\liftModels\MoragaTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\liftModels\noLiftTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\liftModels\TomiyamaLiftTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\swarmCorrections\noSwarmTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\swarmCorrections\swarmCorrectionTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\swarmCorrections\TomiyamaSwarmTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\turbulentDispersionModels\BurnsTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\turbulentDispersionModels\constantTurbulentDispersionCoefficientTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\turbulentDispersionModels\GosmanTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\turbulentDispersionModels\LopezDeBertodanoTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\turbulentDispersionModels\noTurbulentDispersionTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\turbulentDispersionModels\turbulentDispersionModelTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\virtualMassModels\constantVirtualMassCoefficientTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\virtualMassModels\LambTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\virtualMassModels\noVirtualMassTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\virtualMassModels\virtualMassModelTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\wallDependentModel\wallDependentModelTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\wallLubricationModels\AntalTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\wallLubricationModels\FrankTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\wallLubricationModels\noWallLubricationTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\wallLubricationModels\TomiyamaWallLubricationTwoPhase.hxx" />
+    <ClInclude Include="interfacialModels\wallLubricationModels\wallLubricationModelTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\conductivityModelTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\GidaspowConductivityTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\HrenyaSinclairConductivityTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\conductivityModel\SyamlalConductivityTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\derivedFvPatchFields\JohnsonJacksonParticleSlipFvPatchVectorFieldTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\derivedFvPatchFields\JohnsonJacksonParticleThetaFvPatchScalarFieldTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\frictionalStressModelTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\JohnsonJacksonFrictionalStressTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\JohnsonJacksonSchaefferFrictionalStressTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\frictionalStressModel\SchaefferFrictionalStressTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel\granularPressureModelTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel\LunPressureTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\granularPressureModel\SyamlalRogersOBrienPressureTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\kineticTheoryModel\kineticTheoryModelTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\CarnahanStarlingRadialTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\LunSavageRadialTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\radialModelTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\radialModel\SinclairJacksonRadialTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\GidaspowViscosityTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\HrenyaSinclairViscosityTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\noneViscosityTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\SyamlalViscosityTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\kineticTheoryModels\viscosityModel\viscosityModelTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\phaseCompressibleTurbulenceModelFwdTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\phaseCompressibleTurbulenceModelTwoPhase.hxx" />
+    <ClInclude Include="phaseCompressibleTurbulenceModels\phasePressureModel\phasePressureModelTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\BlendedInterfacialModel\BlendedInterfacialModelTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\BlendedInterfacialModel\blendingMethodTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\BlendedInterfacialModel\hyperbolicTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\BlendedInterfacialModel\linearTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\BlendedInterfacialModel\noBlendingTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\diameterModels\constantDiameterTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\diameterModels\diameterModelTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\diameterModels\dummyTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\diameterModels\IATEsourceTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\diameterModels\IATETwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\diameterModels\isothermalDiameterTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\diameterModels\randomCoalescenceTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\diameterModels\turbulentBreakUpTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\diameterModels\wakeEntrainmentCoalescenceTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\phaseModel\phaseModelTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\phasePair\orderedPhasePairTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\phasePair\phasePairKeyTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\phasePair\phasePairTwoPhase.hxx" />
+    <ClInclude Include="twoPhaseSystem\phasePair\phasePairTwoPhaseI.hxx" />
+    <ClInclude Include="twoPhaseSystem\twoPhaseSystem.hxx" />
+    <ClInclude Include="twoPhaseSystem\twoPhaseSystemI.hxx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="pU\pEqn_pU.lxx" />
+    <Text Include="pU\UEqns_pU.lxx" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
