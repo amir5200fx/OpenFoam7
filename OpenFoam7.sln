@@ -1543,6 +1543,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TnbReactingEulerFoamLibs", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reactingMultiphaseEulerFoam", "applications\solvers\multiphase\reactingEulerFoam\reactingMultiphaseEulerFoam\reactingMultiphaseEulerFoam.vcxproj", "{DDB9488E-5560-4F0E-8045-610A5920A1C4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "twoLiquidMixingFoam", "applications\solvers\multiphase\twoLiquidMixingFoam\twoLiquidMixingFoam.vcxproj", "{668F9BA4-4F00-4C90-B4F8-6C77D869E212}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "twoPhaseEulerFoam", "applications\solvers\multiphase\twoPhaseEulerFoam\twoPhaseEulerFoam.vcxproj", "{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -5904,6 +5908,30 @@ Global
 		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.Release|x64.Build.0 = Release|x64
 		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.Release|x86.ActiveCfg = Release|Win32
 		{DDB9488E-5560-4F0E-8045-610A5920A1C4}.Release|x86.Build.0 = Release|Win32
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212}.Debug|x64.ActiveCfg = Debug|x64
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212}.Debug|x64.Build.0 = Debug|x64
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212}.Debug|x86.ActiveCfg = Debug|Win32
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212}.Debug|x86.Build.0 = Debug|Win32
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212}.DebugNoCopyHxx|x86.ActiveCfg = Debug|Win32
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212}.DebugNoCopyHxx|x86.Build.0 = Debug|Win32
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212}.Release|x64.ActiveCfg = Release|x64
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212}.Release|x64.Build.0 = Release|x64
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212}.Release|x86.ActiveCfg = Release|Win32
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212}.Release|x86.Build.0 = Release|Win32
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}.Debug|x64.ActiveCfg = Debug|x64
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}.Debug|x64.Build.0 = Debug|x64
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}.Debug|x86.ActiveCfg = Debug|Win32
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}.Debug|x86.Build.0 = Debug|Win32
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}.DebugNoCopyHxx|x64.ActiveCfg = Debug|x64
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}.DebugNoCopyHxx|x64.Build.0 = Debug|x64
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}.DebugNoCopyHxx|x86.ActiveCfg = Debug|Win32
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}.DebugNoCopyHxx|x86.Build.0 = Debug|Win32
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}.Release|x64.ActiveCfg = Release|x64
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}.Release|x64.Build.0 = Release|x64
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}.Release|x86.ActiveCfg = Release|Win32
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -6648,6 +6676,8 @@ Global
 		{AD0DD78B-BF4E-42B1-8F92-56C57422A676} = {8A092784-0E7F-4E09-A610-3CCBD2E979B4}
 		{D0ECBD36-BBD6-4F97-AFC3-4EDB501D5696} = {AD0DD78B-BF4E-42B1-8F92-56C57422A676}
 		{DDB9488E-5560-4F0E-8045-610A5920A1C4} = {73550895-B31E-4943-B04D-C52866EE8517}
+		{668F9BA4-4F00-4C90-B4F8-6C77D869E212} = {D669B81E-30BE-4F95-AD77-C4C309167913}
+		{AC0EF30D-C6CA-4CC9-9FF8-339757CDEB4B} = {780F0418-109A-4F3A-9B2E-6E57A52A5716}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1107BF8D-1C23-4E64-93DE-E2F73CB09919}

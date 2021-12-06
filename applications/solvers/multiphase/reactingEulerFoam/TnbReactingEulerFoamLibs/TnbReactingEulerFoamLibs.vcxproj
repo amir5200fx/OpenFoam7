@@ -376,6 +376,9 @@
     <ProjectReference Include="..\..\..\..\..\TnbCombustionModels\TnbCombustionModels.vcxproj">
       <Project>{ec552de4-8922-4b5a-9254-1f29e1cc71dd}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbConversion\TnbConversion.vcxproj">
+      <Project>{67f2bdf8-7cb4-475c-bc9c-5c7a97635cee}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\TnbDynamicMesh\TnbDynamicMesh.vcxproj">
       <Project>{e3788c5b-0066-49ce-a6f3-4ef1a5660b6d}</Project>
     </ProjectReference>
@@ -385,8 +388,35 @@
     <ProjectReference Include="..\..\..\..\..\TnbFunctionObjects\TnbFunctionObjects.vcxproj">
       <Project>{3f7b243e-749e-4f13-bab0-2d9a31bc7e91}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbfvAgglomerationMethods\TnbfvAgglomerationMethods.vcxproj">
+      <Project>{44485853-c8bf-48cb-8e82-7363087e983c}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\TnbFvMesh\TnbFvMesh.vcxproj">
       <Project>{c5b9d5f2-4a73-47cd-85e1-65bc340bc2c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbFvMotionSolver\TnbFvMotionSolver.vcxproj">
+      <Project>{07062007-6775-47e4-b2db-1c87d877196c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbFvOptions\TnbFvOptions.vcxproj">
+      <Project>{be9daf5d-75b5-4744-b7d4-fb8a1a2150ca}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbLagrangian\TnbLagrangian.vcxproj">
+      <Project>{27928553-74af-4229-b18c-4f7670767702}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbODE\TnbODE.vcxproj">
+      <Project>{03bda03b-a996-4d13-a558-d150777031e9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbParallel\TnbParallel.vcxproj">
+      <Project>{122fddf5-b397-43f8-bcc5-5c3cdb60cb41}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbRadiationModels\TnbRadiationModels.vcxproj">
+      <Project>{7e9d43d8-5865-43de-bf56-4057a40bee84}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbRandomProcesses\TnbRandomProcesses.vcxproj">
+      <Project>{83b17266-0099-4e3d-8ca7-22731620448b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\TnbRigidBodyMotion\TnbRigidBodyMotion.vcxproj">
+      <Project>{c192f90e-0b12-4f6b-89a9-0a068213f97d}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\TnbSampling\TnbSampling.vcxproj">
       <Project>{b0600bfc-62b5-4f92-9e5a-5b25fd93436a}</Project>
@@ -399,6 +429,9 @@
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\TnbTurbulence\TnbTurbulence.vcxproj">
       <Project>{c44b171d-747f-4fe0-b6e9-b8c6c88ddc40}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\compressibleInterFoam\libs\TnbCompressibleInterFoamLibs.vcxproj">
+      <Project>{63fc6de6-0591-4d82-979a-01827a6dbe5e}</Project>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">

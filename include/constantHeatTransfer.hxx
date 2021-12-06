@@ -26,91 +26,83 @@ License
 	along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Class
-	tnbLib::regionModels::surfaceFilmModels::constantHeatTransfer
+	tnbLib::fv::constantHeatTransfer
 
 Description
-	Constant heat transfer model
-
-SourceFiles
-	constantHeatTransfer.C
+	Constant heat transfer model. htcConst [W/m^2/K] and area/volume [1/m]
+	must be provided.
 
 \*---------------------------------------------------------------------------*/
 
-#include <heatTransferModel.hxx>
-#include <volFieldsFwd.hxx>
+#include <interRegionHeatTransferModel.hxx>
+#include <autoPtr.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	namespace regionModels
+	namespace fv
 	{
-		namespace surfaceFilmModels
+
+		/*---------------------------------------------------------------------------*\
+							Class constantHeatTransfer Declaration
+		\*---------------------------------------------------------------------------*/
+
+		class constantHeatTransfer
+			:
+			public interRegionHeatTransferModel
 		{
+			// Private Data
 
-			/*---------------------------------------------------------------------------*\
-									Class constantHeatTransfer Declaration
-			\*---------------------------------------------------------------------------*/
+				//- Constant heat transfer coefficient [W/m^2/K]
+			autoPtr<volScalarField> htcConst_;
 
-			class constantHeatTransfer
-				:
-				public heatTransferModel
-			{
-				// Private Data
-
-					//- Constant heat transfer coefficient [W/m^2/K]
-				scalar c0_;
+			//- Area per unit volume of heat exchanger [1/m]
+			autoPtr<volScalarField> AoV_;
 
 
-			public:
+		public:
 
-				//- Runtime type information
-				//TypeName("constant");
-				static const char* typeName_() { return "constant"; }
-				static FoamLagrangian_EXPORT const ::tnbLib::word typeName;
-				static FoamLagrangian_EXPORT int debug;
-				virtual const word& type() const { return typeName; };
-
-
-				// Constructors
-
-					//- Construct from surface film model and dictionary
-				FoamLagrangian_EXPORT constantHeatTransfer
-				(
-					surfaceFilmRegionModel& film,
-					const dictionary& dict
-				);
-
-				//- Disallow default bitwise copy construction
-				FoamLagrangian_EXPORT constantHeatTransfer(const constantHeatTransfer&) = delete;
+			//- Runtime type information
+			//TypeName("constantHeatTransfer");
+			static const char* typeName_() { return "constantHeatTransfer"; }
+			static FoamFvOptions_EXPORT const ::tnbLib::word typeName;
+			static FoamFvOptions_EXPORT int debug;
+			virtual const word& type() const { return typeName; };
 
 
-				//- Destructor
-				FoamLagrangian_EXPORT virtual ~constantHeatTransfer();
+			// Constructors
+
+				//- Construct from dictionary
+			FoamFvOptions_EXPORT constantHeatTransfer
+			(
+				const word& name,
+				const word& modelType,
+				const dictionary& dict,
+				const fvMesh& mesh
+			);
 
 
-				// Member Functions
-
-					// Evolution
-
-						//- Correct
-				FoamLagrangian_EXPORT virtual void correct();
-
-				//- Return the heat transfer coefficient [W/m^2/K]
-				FoamLagrangian_EXPORT virtual tmp<volScalarField> h() const;
+			//- Destructor
+			FoamFvOptions_EXPORT virtual ~constantHeatTransfer();
 
 
-				// Member Operators
+			// Public Functions
 
-					//- Disallow default bitwise assignment
-				FoamLagrangian_EXPORT void operator=(const constantHeatTransfer&) = delete;
-			};
+				//- Calculate the heat transfer coefficient
+			FoamFvOptions_EXPORT virtual void calculateHtc();
 
 
-			// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+			// IO
 
-		} // End namespace surfaceFilmModels
-	} // End namespace regionModels
+				//- Read dictionary
+			FoamFvOptions_EXPORT virtual bool read(const dictionary& dict);
+		};
+
+
+		// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+	} // End namespace fv
 } // End namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
