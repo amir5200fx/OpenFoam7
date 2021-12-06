@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{453103d2-cab9-4b58-8e49-16a9b36a0dc5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="alphaControls.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="alphaCourantNo.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="alphaDiffusionEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="alphaEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="alphaEqnSubCycle.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="createFields.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="pEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+    <None Include="UEqn.lxx">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="twoLiquidMixingFoam.cxx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
