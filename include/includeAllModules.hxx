@@ -16,4 +16,3 @@
 #include <Turbulence_Module.hxx>
 #include <SnappyHexMesh_Module.hxx>
 #include <RandomProcesses_Module.hxx>
-#include <compressibleInterFoamLibs_Module.hxx>
