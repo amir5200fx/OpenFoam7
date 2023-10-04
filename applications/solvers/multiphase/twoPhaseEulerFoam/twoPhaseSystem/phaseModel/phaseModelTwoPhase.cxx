@@ -26,23 +26,28 @@ License
 #include "phaseModelTwoPhase.hxx"
 
 #include "twoPhaseSystem.hxx"
-#include "diameterModelTwoPhase.hxx"
+//#include <diameterModelTwoPhase.hxx>
 
 #include <fvMatrix.hxx>
 
-#include "PhaseCompressibleTurbulenceModelTwoPhase.hxx"
+#include <PhaseCompressibleTurbulenceModel.hxx>
+
 #include "dragModelTwoPhase.hxx"
 #include "heatTransferModelTwoPhase.hxx"
 
 #include <fixedValueFvsPatchFields.hxx>
 #include <fixedValueFvPatchFields.hxx>
+#include <fixedValueFvPatchFields.hxx>
 #include <slipFvPatchFields.hxx>
 #include <partialSlipFvPatchFields.hxx>
 #include <fvcFlux.hxx>
 #include <surfaceInterpolate.hxx>
-
+#include <typeInfo.hxx>
+#include <diameterModelTwoPhase.hxx>
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+using namespace tnbLib;
 
 tnbLib::phaseModel::phaseModel
 (

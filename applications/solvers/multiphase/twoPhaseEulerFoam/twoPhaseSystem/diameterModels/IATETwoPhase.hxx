@@ -48,7 +48,8 @@ SourceFiles
 
 \*---------------------------------------------------------------------------*/
 
-#include "diameterModelTwoPhase.hxx"
+#include <diameterModelTwoPhase.hxx>
+#include <volFields.hxx>
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 

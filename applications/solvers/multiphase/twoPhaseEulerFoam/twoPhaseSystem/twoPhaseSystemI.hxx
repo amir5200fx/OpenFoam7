@@ -26,6 +26,11 @@ License
 
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 
+#include "BlendedInterfacialModelTwoPhase.hxx"
+#include "dragModelTwoPhase.hxx"
+#include "virtualMassModelTwoPhase.hxx"
+
+
 template<class modelType>
 const modelType& twoPhaseSystem::lookupSubModel
 (

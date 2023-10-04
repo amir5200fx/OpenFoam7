@@ -1,12 +1,8 @@
-#pragma once
-#ifndef _phaseCompressibleTurbulenceModelTwoPhase_Header
-#define _phaseCompressibleTurbulenceModelTwoPhase_Header
-
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Copyright (C) 2015-2018 OpenFOAM Foundation
+    \\  /    A nd           | Copyright (C) 2014-2018 OpenFOAM Foundation
      \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -25,30 +21,37 @@ License
     You should have received a copy of the GNU General Public License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
-Typedef
-    tnbLib::phaseCompressibleTurbulenceModel
-
-Description
-    Typedef for phaseCompressibleTurbulenceModel
-
 \*---------------------------------------------------------------------------*/
 
-#include "phaseCompressibleTurbulenceModelFwdTwoPhase.hxx"
+#include "swarmCorrectionTwoPhase.hxx"
 
-#include <PhaseCompressibleTurbulenceModel.hxx>
+#include "phasePairTwoPhase.hxx"
 
-#include <ThermalDiffusivity.hxx>
-
-#include "phaseModelTwoPhase.hxx"
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	typedef ThermalDiffusivity<PhaseCompressibleTurbulenceModel<phaseModel>>
-		phaseCompressibleTurbulenceModel;
+    defineTypeNameAndDebug(swarmCorrection, 0);
+    defineRunTimeSelectionTable(swarmCorrection, dictionary);
 }
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_phaseCompressibleTurbulenceModelTwoPhase_Header
+// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+tnbLib::swarmCorrection::swarmCorrection
+(
+    const dictionary& dict,
+    const phasePair& pair
+)
+    :
+    pair_(pair)
+{}
+
+
+// * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
+
+tnbLib::swarmCorrection::~swarmCorrection()
+{}
+
+
+// ************************************************************************* //

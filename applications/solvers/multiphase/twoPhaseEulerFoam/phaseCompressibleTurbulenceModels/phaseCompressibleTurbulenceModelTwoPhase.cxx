@@ -23,7 +23,10 @@ License
 
 \*---------------------------------------------------------------------------*/
 
-#include "phaseCompressibleTurbulenceModelTwoPhase.hxx"
+#include <includeAllModules.hxx>
+
+//#include <PhaseCompressibleTurbulenceModel.hxx>  // commented by Payvand
+#include "phaseCompressibleTurbulenceModelTwoPhase.hxx"   // added by Payvand
 
 #include "phaseModelTwoPhase.hxx"
 #include "twoPhaseSystem.hxx"

@@ -157,4 +157,6 @@ namespace tnbLib
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include <BlendedInterfacialModelTwoPhaseI.hxx>
+
 #endif // !_BlendedInterfacialModelTwoPhase_Header

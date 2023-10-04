@@ -1,12 +1,8 @@
-#pragma once
-#ifndef _phaseCompressibleTurbulenceModelTwoPhase_Header
-#define _phaseCompressibleTurbulenceModelTwoPhase_Header
-
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Copyright (C) 2015-2018 OpenFOAM Foundation
+    \\  /    A nd           | Copyright (C) 2014-2018 OpenFOAM Foundation
      \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -25,30 +21,38 @@ License
     You should have received a copy of the GNU General Public License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
-Typedef
-    tnbLib::phaseCompressibleTurbulenceModel
-
-Description
-    Typedef for phaseCompressibleTurbulenceModel
-
 \*---------------------------------------------------------------------------*/
 
-#include "phaseCompressibleTurbulenceModelFwdTwoPhase.hxx"
+#include "wallDependentModelTwoPhase.hxx"
 
-#include <PhaseCompressibleTurbulenceModel.hxx>
+#include <wallDist.hxx>
 
-#include <ThermalDiffusivity.hxx>
+// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
-#include "phaseModelTwoPhase.hxx"
+tnbLib::wallDependentModel::wallDependentModel(const fvMesh& mesh)
+    :
+    mesh_(mesh)
+{}
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-namespace tnbLib
+// * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
+
+tnbLib::wallDependentModel::~wallDependentModel()
+{}
+
+
+// * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * * //
+
+const tnbLib::volScalarField& tnbLib::wallDependentModel::yWall() const
 {
-	typedef ThermalDiffusivity<PhaseCompressibleTurbulenceModel<phaseModel>>
-		phaseCompressibleTurbulenceModel;
+    return wallDist::New(mesh_).y();
 }
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_phaseCompressibleTurbulenceModelTwoPhase_Header
+const tnbLib::volVectorField& tnbLib::wallDependentModel::nWall() const
+{
+    return wallDist::New(mesh_).n();
+}
+
+
+// ************************************************************************* //

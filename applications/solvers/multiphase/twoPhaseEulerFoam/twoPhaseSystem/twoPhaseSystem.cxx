@@ -23,9 +23,12 @@ License
 
 \*---------------------------------------------------------------------------*/
 
+#include <includeAllModules.hxx>
+
 #include "twoPhaseSystem.hxx"
 
-#include "phaseCompressibleTurbulenceModelTwoPhase.hxx"
+#include <PhaseCompressibleTurbulenceModel.hxx>
+
 #include "BlendedInterfacialModelTwoPhase.hxx"
 #include "virtualMassModelTwoPhase.hxx"
 #include "heatTransferModelTwoPhase.hxx"
@@ -54,6 +57,8 @@ License
 #include <UList.hxx>
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+using namespace tnbLib;
 
 tnbLib::twoPhaseSystem::twoPhaseSystem
 (

@@ -1,12 +1,8 @@
-#pragma once
-#ifndef _phaseCompressibleTurbulenceModelTwoPhase_Header
-#define _phaseCompressibleTurbulenceModelTwoPhase_Header
-
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Copyright (C) 2015-2018 OpenFOAM Foundation
+    \\  /    A nd           | Copyright (C) 2013-2018 OpenFOAM Foundation
      \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -25,30 +21,39 @@ License
     You should have received a copy of the GNU General Public License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
-Typedef
-    tnbLib::phaseCompressibleTurbulenceModel
-
-Description
-    Typedef for phaseCompressibleTurbulenceModel
-
 \*---------------------------------------------------------------------------*/
 
-#include "phaseCompressibleTurbulenceModelFwdTwoPhase.hxx"
+#include "dummyTwoPhase.hxx"
 
-#include <PhaseCompressibleTurbulenceModel.hxx>
+#include <addToRunTimeSelectionTable.hxx>
 
-#include <ThermalDiffusivity.hxx>
-
-#include "phaseModelTwoPhase.hxx"
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	typedef ThermalDiffusivity<PhaseCompressibleTurbulenceModel<phaseModel>>
-		phaseCompressibleTurbulenceModel;
+    namespace diameterModels
+    {
+        namespace IATEsources
+        {
+            defineTypeNameAndDebug(dummy, 0);
+            addToRunTimeSelectionTable(IATEsource, dummy, word);
+        }
+    }
 }
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#endif // !_phaseCompressibleTurbulenceModelTwoPhase_Header
+// * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
+
+tnbLib::tmp<tnbLib::volScalarField>
+tnbLib::diameterModels::IATEsources::dummy::R() const
+{
+    return volScalarField::New
+    (
+        "R",
+        iate_.phase().U().mesh(),
+        dimensionedScalar(dimless / dimTime, 0)
+    );
+}
+
+
+// ************************************************************************* //

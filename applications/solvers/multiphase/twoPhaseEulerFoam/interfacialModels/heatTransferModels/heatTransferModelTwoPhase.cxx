@@ -1,12 +1,8 @@
-#pragma once
-#ifndef _phaseCompressibleTurbulenceModelTwoPhase_Header
-#define _phaseCompressibleTurbulenceModelTwoPhase_Header
-
 /*---------------------------------------------------------------------------*\
   =========                 |
   \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
    \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Copyright (C) 2015-2018 OpenFOAM Foundation
+    \\  /    A nd           | Copyright (C) 2011-2018 OpenFOAM Foundation
      \\/     M anipulation  |
 -------------------------------------------------------------------------------
 License
@@ -25,30 +21,49 @@ License
     You should have received a copy of the GNU General Public License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
-Typedef
-    tnbLib::phaseCompressibleTurbulenceModel
-
-Description
-    Typedef for phaseCompressibleTurbulenceModel
-
 \*---------------------------------------------------------------------------*/
 
-#include "phaseCompressibleTurbulenceModelFwdTwoPhase.hxx"
+#include "heatTransferModelTwoPhase.hxx"
 
-#include <PhaseCompressibleTurbulenceModel.hxx>
+#include "phasePairTwoPhase.hxx"
 
-#include <ThermalDiffusivity.hxx>
-
-#include "phaseModelTwoPhase.hxx"
-
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// * * * * * * * * * * * * * * Static Data Members * * * * * * * * * * * * * //
 
 namespace tnbLib
 {
-	typedef ThermalDiffusivity<PhaseCompressibleTurbulenceModel<phaseModel>>
-		phaseCompressibleTurbulenceModel;
+    defineTypeNameAndDebug(heatTransferModel, 0);
+    defineRunTimeSelectionTable(heatTransferModel, dictionary);
 }
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+const tnbLib::dimensionSet tnbLib::heatTransferModel::dimK(1, -1, -3, -1, 0);
 
-#endif // !_phaseCompressibleTurbulenceModelTwoPhase_Header
+
+// * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
+
+tnbLib::heatTransferModel::heatTransferModel
+(
+    const dictionary& dict,
+    const phasePair& pair
+)
+    :
+    pair_(pair),
+    residualAlpha_
+    (
+        "residualAlpha",
+        dimless,
+        dict.lookupOrDefault<scalar>
+        (
+            "residualAlpha",
+            pair_.dispersed().residualAlpha().value()
+            )
+    )
+{}
+
+
+// * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
+
+tnbLib::heatTransferModel::~heatTransferModel()
+{}
+
+
+// ************************************************************************* //
