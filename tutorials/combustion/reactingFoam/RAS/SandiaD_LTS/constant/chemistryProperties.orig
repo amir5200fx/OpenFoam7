@@ -1,0 +1,56 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7  
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      chemistryProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#includeEtc "caseDicts/solvers/chemistry/TDAC/chemistryPropertiesFlame.cfg"
+
+chemistryType
+{
+    solver            ode;
+    method            TDAC;
+}
+
+chemistry       on;
+
+initialChemicalTimeStep 1e-7;
+//maxChemicalTimeStep 1e-3;
+
+odeCoeffs
+{
+    solver          seulex;
+    absTol          1e-8;
+    relTol          1e-1;
+}
+
+importantSpecies
+{
+    CO2;
+    H2O;
+    CH4;
+    O2;
+}
+
+reduction
+{
+    tolerance   1e-4;
+}
+
+tabulation
+{
+    tolerance   3e-3;
+}
+
+// ************************************************************************* //
